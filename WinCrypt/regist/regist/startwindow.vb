@@ -1,6 +1,6 @@
-﻿Public Class Form1
+﻿Public Class startwindow
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub startwindow(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If Registerfile(".wc", "WinCrypt-Datei", Application.StartupPath & "\Project WinCrypt.exe", Application.StartupPath & "\icon.ico") Then
 
         Else
