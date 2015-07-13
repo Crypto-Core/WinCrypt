@@ -4,7 +4,6 @@ Imports System.Net
 Imports System
 Imports System.Security.Principal
 Public Class startwindow
-    'Fügt die Klasse Zip.vb hinzu
     Dim filezip As New Zip
     Dim selectcombo As String
     Dim wmiobj = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
