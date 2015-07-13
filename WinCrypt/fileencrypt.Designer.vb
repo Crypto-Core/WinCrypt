@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class DateiVerschluesseln
+Partial Class fileencrypt
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -22,7 +22,7 @@ Partial Class DateiVerschluesseln
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DateiVerschluesseln))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(fileencrypt))
         Me.fileopenbt = New System.Windows.Forms.Button()
         Me.filetxt = New System.Windows.Forms.TextBox()
         Me.filelb = New System.Windows.Forms.Label()
@@ -167,7 +167,7 @@ Partial Class DateiVerschluesseln
         Me.dragdroplb.TabIndex = 11
         Me.dragdroplb.Text = "Drag&Drop"
         '
-        'DateiVerschluesseln
+        'fileencrypt
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -188,7 +188,7 @@ Partial Class DateiVerschluesseln
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "DateiVerschluesseln"
+        Me.Name = "fileencrypt"
         Me.Text = "Datei Verschlüsseln"
         Me.ResumeLayout(False)
         Me.PerformLayout()

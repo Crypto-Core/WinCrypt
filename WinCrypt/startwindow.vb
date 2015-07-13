@@ -555,11 +555,11 @@ Public Class startwindow
             textencrypt.password_txt.Visible = False
             textencrypt.password_lb.Visible = False
             textencrypt.generate_bt.Visible = False
-            DateiEntschluesseln.passwordtxt.Visible = False
-            DateiEntschluesseln.pwdlb.Visible = False
-            DateiVerschluesseln.passwordlb.Visible = False
-            DateiVerschluesseln.passwordtxt.Visible = False
-            DateiVerschluesseln.generatebt.Visible = False
+            filedecrypt.passwordtxt.Visible = False
+            filedecrypt.pwdlb.Visible = False
+            fileencrypt.passwordlb.Visible = False
+            fileencrypt.passwordtxt.Visible = False
+            fileencrypt.generatebt.Visible = False
             Me.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & " (Systemidentifikation)"
         Else
             If iniread = "no" Then
@@ -571,11 +571,11 @@ Public Class startwindow
                 textencrypt.password_txt.Visible = True
                 textencrypt.password_lb.Visible = True
                 textencrypt.generate_bt.Visible = True
-                DateiEntschluesseln.passwordtxt.Visible = True
-                DateiEntschluesseln.pwdlb.Visible = True
-                DateiVerschluesseln.passwordlb.Visible = True
-                DateiVerschluesseln.passwordtxt.Visible = True
-                DateiVerschluesseln.generatebt.Visible = True
+                filedecrypt.passwordtxt.Visible = True
+                filedecrypt.pwdlb.Visible = True
+                fileencrypt.passwordlb.Visible = True
+                fileencrypt.passwordtxt.Visible = True
+                fileencrypt.generatebt.Visible = True
             End If
         End If
         For Each ver In wmiobj.Instances_
@@ -587,11 +587,11 @@ Public Class startwindow
         Next
     End Sub
     Private Sub DateiVerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiVerschlüsselnToolStripMenuItem.Click
-        DateiVerschluesseln.ShowDialog()
+        fileencrypt.ShowDialog()
     End Sub
 
     Private Sub DateiEntschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiEntschlüsselnToolStripMenuItem.Click
-        DateiEntschluesseln.ShowDialog()
+        filedecrypt.ShowDialog()
     End Sub
 
     Private Sub TextVerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextVerschlüsselnToolStripMenuItem.Click
@@ -673,15 +673,15 @@ Public Class startwindow
             v = Split(commandlineargs, """ ")
             mypath = v(1)
             If mypath.Remove(0, mypath.LastIndexOf(".")) = ".wc" Then
-                DateiEntschluesseln.Show()
-                DateiEntschluesseln.filetxt.Text = mypath.ToString
-                DateiEntschluesseln.pathtxt.Text = mypath.Replace(".wc", "")
+                filedecrypt.Show()
+                filedecrypt.filetxt.Text = mypath.ToString
+                filedecrypt.pathtxt.Text = mypath.Replace(".wc", "")
                 'DateiEntschluesseln.TextBox2.Text = mypath.Substring(0, mypath.LastIndexOf("\"))
-                DateiEntschluesseln.pathtxt.Enabled = True
-                DateiEntschluesseln.passwordtxt.Enabled = True
-                DateiEntschluesseln.savefile.Enabled = True
+                filedecrypt.pathtxt.Enabled = True
+                filedecrypt.passwordtxt.Enabled = True
+                filedecrypt.savefile.Enabled = True
                 If iniread = "yes" Then
-                    DateiEntschluesseln.dencrypt.Enabled = True
+                    filedecrypt.dencrypt.Enabled = True
                 End If
             End If
 
@@ -751,11 +751,11 @@ Public Class startwindow
     End Sub
 
     Private Sub DateiVerschlüsselnToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiVerschlüsselnToolStripMenuItem1.Click
-        DateiVerschluesseln.ShowDialog()
+        fileencrypt.ShowDialog()
     End Sub
 
     Private Sub DateiEntschlüsselnToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiEntschlüsselnToolStripMenuItem1.Click
-        DateiEntschluesseln.ShowDialog()
+        filedecrypt.ShowDialog()
     End Sub
 
     Private Sub TextVerUndEntschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextVerUndEntschlüsselnToolStripMenuItem.Click

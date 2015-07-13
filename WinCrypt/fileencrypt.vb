@@ -1,4 +1,4 @@
-﻿Public Class DateiVerschluesseln
+﻿Public Class fileencrypt
 
     Private Sub fileopenbt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles fileopenbt.Click
         OpenFileDialog.ShowDialog()
@@ -17,7 +17,7 @@
             savepathtxt.Text = FolderBrowserDialog.SelectedPath
             passwordtxt.Enabled = True
             generatebt.Enabled = True
-            If startwindow.iniread = "true" Then
+            If startwindow.iniread = "yes" Then
                 encryptbt.Enabled = True
             Else
 
@@ -50,8 +50,8 @@
     End Sub
 
     Private Sub passwordtxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles passwordtxt.TextChanged
-        If startwindow.iniread = "true" Then
-
+        If startwindow.iniread = "yes" Then
+            encryptbt.Enabled = True
         Else
             If passwordtxt.Text.Length < 6 Then
                 encryptbt.Enabled = False
@@ -63,7 +63,7 @@
 
     Private Sub encryptbt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encryptbt.Click
         Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\"), filetxt.Text.Length - filetxt.Text.LastIndexOf("\"))
-        If startwindow.iniread = "true" Then
+        If startwindow.iniread = "yes" Then
             If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                 If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
                     CryptoStuff.CryptFile(startwindow.biosid, filetxt.Text, savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)

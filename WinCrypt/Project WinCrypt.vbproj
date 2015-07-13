@@ -153,16 +153,16 @@
     <Compile Include="AES.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="counter.vb" />
-    <Compile Include="DateiEntschluesseln.Designer.vb">
-      <DependentUpon>DateiEntschluesseln.vb</DependentUpon>
+    <Compile Include="filedecrypt.Designer.vb">
+      <DependentUpon>filedecrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="DateiEntschluesseln.vb">
+    <Compile Include="filedecrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DateiVerschluesseln.Designer.vb">
-      <DependentUpon>DateiVerschluesseln.vb</DependentUpon>
+    <Compile Include="fileencrypt.Designer.vb">
+      <DependentUpon>fileencrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="DateiVerschluesseln.vb">
+    <Compile Include="fileencrypt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Einstellungen.Designer.vb">
@@ -269,11 +269,11 @@
     <Compile Include="Zip.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DateiEntschluesseln.resx">
-      <DependentUpon>DateiEntschluesseln.vb</DependentUpon>
+    <EmbeddedResource Include="filedecrypt.resx">
+      <DependentUpon>filedecrypt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DateiVerschluesseln.resx">
-      <DependentUpon>DateiVerschluesseln.vb</DependentUpon>
+    <EmbeddedResource Include="fileencrypt.resx">
+      <DependentUpon>fileencrypt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Einstellungen.resx">
       <DependentUpon>Einstellungen.vb</DependentUpon>

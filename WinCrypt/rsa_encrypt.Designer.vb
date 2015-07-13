@@ -59,7 +59,7 @@ Partial Class rsa_encrypt
         'pubkey_path_txt
         '
         Me.pubkey_path_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pubkey_path_txt.Location = New System.Drawing.Point(78, 14)
         Me.pubkey_path_txt.Name = "pubkey_path_txt"
         Me.pubkey_path_txt.Size = New System.Drawing.Size(450, 20)
@@ -68,8 +68,8 @@ Partial Class rsa_encrypt
         'encryption_message_txt
         '
         Me.encryption_message_txt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encryption_message_txt.Location = New System.Drawing.Point(15, 62)
         Me.encryption_message_txt.Multiline = True
         Me.encryption_message_txt.Name = "encryption_message_txt"
@@ -79,7 +79,7 @@ Partial Class rsa_encrypt
         'decryption_message_txt
         '
         Me.decryption_message_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.decryption_message_txt.Location = New System.Drawing.Point(12, 254)
         Me.decryption_message_txt.Multiline = True
         Me.decryption_message_txt.Name = "decryption_message_txt"
@@ -118,10 +118,6 @@ Partial Class rsa_encrypt
         Me.encryption_bt.TabIndex = 7
         Me.encryption_bt.Text = "Verschlüsseln"
         Me.encryption_bt.UseVisualStyleBackColor = False
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'rsa_encrypt
         '

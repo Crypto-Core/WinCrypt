@@ -1,11 +1,11 @@
-﻿Public Class DateiEntschluesseln
+﻿Public Class filedecrypt
 
     Private Sub safevile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savefile.Click
         FolderBrowserDialog.ShowDialog()
         If My.Computer.FileSystem.DirectoryExists(FolderBrowserDialog.SelectedPath) Then
             pathtxt.Text = FolderBrowserDialog.SelectedPath & filetxt.Text.Remove(0, filetxt.Text.LastIndexOf("\")).Replace(".wc", "")
             passwordtxt.Enabled = True
-            If startwindow.iniread = "true" Then
+            If startwindow.iniread = "yes" Then
                 dencrypt.Enabled = True
             Else
 
@@ -18,7 +18,7 @@
     End Sub
 
     Private Sub passwordtxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles passwordtxt.TextChanged
-        If startwindow.iniread = "true" Then
+        If startwindow.iniread = "yes" Then
 
         Else
             If passwordtxt.Text.Length < 6 Then
@@ -31,7 +31,7 @@
     End Sub
 
     Private Sub dencrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dencrypt.Click
-        If startwindow.iniread = "true" Then
+        If startwindow.iniread = "yes" Then
             Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\"), filetxt.Text.Length - filetxt.Text.LastIndexOf("\"))
             If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                 If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\"))) Then
@@ -169,9 +169,5 @@
         Else
 
         End If
-    End Sub
-
-    Private Sub DateiEntschluesseln_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

@@ -100,24 +100,24 @@
             textencrypt.encrypt_bt.Text = "encrypt"
 
             'DateiEntschlüsseln.vb
-            DateiEntschluesseln.Text = "file decrypt"
-            DateiEntschluesseln.filelb.Text = "file:"
-            DateiEntschluesseln.pathlb.Text = "path:"
-            DateiEntschluesseln.pwdlb.Text = "password:"
-            DateiEntschluesseln.openfile.Text = "open"
-            DateiEntschluesseln.savefile.Text = "safe as"
-            DateiEntschluesseln.dencrypt.Text = "decrypt"
+            filedecrypt.Text = "file decrypt"
+            filedecrypt.filelb.Text = "file:"
+            filedecrypt.pathlb.Text = "path:"
+            filedecrypt.pwdlb.Text = "password:"
+            filedecrypt.openfile.Text = "open"
+            filedecrypt.savefile.Text = "safe as"
+            filedecrypt.dencrypt.Text = "decrypt"
 
             'DateiVerschlüsseln.vb
 
-            DateiVerschluesseln.Text = "file encrypt"
-            DateiVerschluesseln.filelb.Text = "file:"
-            DateiVerschluesseln.pathlb.Text = "path:"
-            DateiVerschluesseln.passwordlb.Text = "password:"
-            DateiVerschluesseln.fileopenbt.Text = "open"
-            DateiVerschluesseln.savefilebt.Text = "safe as"
-            DateiVerschluesseln.encryptbt.Text = "encrypt"
-            DateiVerschluesseln.generatebt.Text = "generate"
+            fileencrypt.Text = "file encrypt"
+            fileencrypt.filelb.Text = "file:"
+            fileencrypt.pathlb.Text = "path:"
+            fileencrypt.passwordlb.Text = "password:"
+            fileencrypt.fileopenbt.Text = "open"
+            fileencrypt.savefilebt.Text = "safe as"
+            fileencrypt.encryptbt.Text = "encrypt"
+            fileencrypt.generatebt.Text = "generate"
 
             'Einstellung.vb
             Einstellungen.Text = "setting"
@@ -241,24 +241,24 @@
             textencrypt.encrypt_bt.Text = "Verschlüsseln"
 
             'DateiEntschlüsseln.vb
-            DateiEntschluesseln.Text = "Datei entschlüsseln"
-            DateiEntschluesseln.filelb.Text = "Datei:"
-            DateiEntschluesseln.pathlb.Text = "Pfad:"
-            DateiEntschluesseln.pwdlb.Text = "Passwort:"
-            DateiEntschluesseln.openfile.Text = "Öffnen"
-            DateiEntschluesseln.savefile.Text = "Speichern unter..."
-            DateiEntschluesseln.dencrypt.Text = "Entschlüsseln"
+            filedecrypt.Text = "Datei entschlüsseln"
+            filedecrypt.filelb.Text = "Datei:"
+            filedecrypt.pathlb.Text = "Pfad:"
+            filedecrypt.pwdlb.Text = "Passwort:"
+            filedecrypt.openfile.Text = "Öffnen"
+            filedecrypt.savefile.Text = "Speichern unter..."
+            filedecrypt.dencrypt.Text = "Entschlüsseln"
 
             'DateiVerschlüsseln.vb
 
-            DateiVerschluesseln.Text = "Datei verschlüsseln"
-            DateiVerschluesseln.filelb.Text = "Datei:"
-            DateiVerschluesseln.pathlb.Text = "Pfad:"
-            DateiVerschluesseln.passwordlb.Text = "Passwort:"
-            DateiVerschluesseln.fileopenbt.Text = "Öffnen"
-            DateiVerschluesseln.savefilebt.Text = "Speichern unter..."
-            DateiVerschluesseln.encryptbt.Text = "Verschlüsseln"
-            DateiVerschluesseln.generatebt.Text = "Generieren"
+            fileencrypt.Text = "Datei verschlüsseln"
+            fileencrypt.filelb.Text = "Datei:"
+            fileencrypt.pathlb.Text = "Pfad:"
+            fileencrypt.passwordlb.Text = "Passwort:"
+            fileencrypt.fileopenbt.Text = "Öffnen"
+            fileencrypt.savefilebt.Text = "Speichern unter..."
+            fileencrypt.encryptbt.Text = "Verschlüsseln"
+            fileencrypt.generatebt.Text = "Generieren"
 
             'Einstellung.vb
             Einstellungen.Text = "Einstellung"
