@@ -1,0 +1,805 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class startwindow
+    Inherits System.Windows.Forms.Form
+
+    'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Wird vom Windows Form-Designer benötigt.
+    Private components As System.ComponentModel.IContainer
+
+    'Hinweis: Die folgende Prozedur ist für den Windows Form-Designer erforderlich.
+    'Das Bearbeiten ist mit dem Windows Form-Designer möglich.  
+    'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(startwindow))
+        Me.create_container_encrypt = New System.Windows.Forms.Button()
+        Me.generate_key_encrypt = New System.Windows.Forms.Button()
+        Me.crypt_file_pathbutton = New System.Windows.Forms.Button()
+        Me.pathtxt = New System.Windows.Forms.TextBox()
+        Me.keycrypt = New System.Windows.Forms.TextBox()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.encrypttimer = New System.Windows.Forms.Timer(Me.components)
+        Me.encrypt_list_status = New System.Windows.Forms.ListBox()
+        Me.path_encrypt = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.encrypt_gb = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.mount_gb = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.drive_lb = New System.Windows.Forms.Label()
+        Me.key_lb = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.decrypt_list_status = New System.Windows.Forms.ListBox()
+        Me.drivecb = New System.Windows.Forms.ComboBox()
+        Me.keyencrypt = New System.Windows.Forms.TextBox()
+        Me.decrypt_filepath = New System.Windows.Forms.TextBox()
+        Me.dismount = New System.Windows.Forms.Button()
+        Me.mount = New System.Windows.Forms.Button()
+        Me.opencryptfile = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.encryptmounttimer = New System.Windows.Forms.Timer(Me.components)
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EinstellungToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BeendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateiVerschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateiEntschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TextVerschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5KonverterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5CrackerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RSAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.KeyErstellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SystemidentifikationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PasswortgeneratorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DateiSicherLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.systemtray = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateiVerschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateiEntschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TextVerUndEntschlüsselnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5KonverterToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5BruteforceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SystemidentifikationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PasswortGeneratorToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DateienSicherLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ÖffnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.encrypt_gb.SuspendLayout()
+        Me.mount_gb.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.MenuStrip.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'create_container_encrypt
+        '
+        Me.create_container_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.create_container_encrypt.BackColor = System.Drawing.Color.Gainsboro
+        Me.create_container_encrypt.Enabled = False
+        Me.create_container_encrypt.FlatAppearance.BorderSize = 0
+        Me.create_container_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.create_container_encrypt.Location = New System.Drawing.Point(454, 90)
+        Me.create_container_encrypt.Name = "create_container_encrypt"
+        Me.create_container_encrypt.Size = New System.Drawing.Size(113, 23)
+        Me.create_container_encrypt.TabIndex = 0
+        Me.create_container_encrypt.Text = "Container erstellen"
+        Me.create_container_encrypt.UseVisualStyleBackColor = False
+        '
+        'generate_key_encrypt
+        '
+        Me.generate_key_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.generate_key_encrypt.BackColor = System.Drawing.Color.Gainsboro
+        Me.generate_key_encrypt.Enabled = False
+        Me.generate_key_encrypt.FlatAppearance.BorderSize = 0
+        Me.generate_key_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.generate_key_encrypt.Location = New System.Drawing.Point(373, 90)
+        Me.generate_key_encrypt.Name = "generate_key_encrypt"
+        Me.generate_key_encrypt.Size = New System.Drawing.Size(75, 23)
+        Me.generate_key_encrypt.TabIndex = 1
+        Me.generate_key_encrypt.Text = "Generieren"
+        Me.generate_key_encrypt.UseVisualStyleBackColor = False
+        '
+        'crypt_file_pathbutton
+        '
+        Me.crypt_file_pathbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.crypt_file_pathbutton.BackColor = System.Drawing.Color.Gainsboro
+        Me.crypt_file_pathbutton.FlatAppearance.BorderSize = 0
+        Me.crypt_file_pathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(492, 31)
+        Me.crypt_file_pathbutton.Name = "crypt_file_pathbutton"
+        Me.crypt_file_pathbutton.Size = New System.Drawing.Size(75, 23)
+        Me.crypt_file_pathbutton.TabIndex = 2
+        Me.crypt_file_pathbutton.Text = "Hinzufügen"
+        Me.crypt_file_pathbutton.UseVisualStyleBackColor = False
+        '
+        'pathtxt
+        '
+        Me.pathtxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pathtxt.Location = New System.Drawing.Point(16, 33)
+        Me.pathtxt.Name = "pathtxt"
+        Me.pathtxt.Size = New System.Drawing.Size(471, 20)
+        Me.pathtxt.TabIndex = 3
+        '
+        'keycrypt
+        '
+        Me.keycrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.keycrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.keycrypt.Location = New System.Drawing.Point(16, 92)
+        Me.keycrypt.Name = "keycrypt"
+        Me.keycrypt.Size = New System.Drawing.Size(351, 20)
+        Me.keycrypt.TabIndex = 4
+        Me.keycrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'encrypttimer
+        '
+        '
+        'encrypt_list_status
+        '
+        Me.encrypt_list_status.AllowDrop = True
+        Me.encrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.encrypt_list_status.BackColor = System.Drawing.Color.Gray
+        Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.encrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.encrypt_list_status.FormattingEnabled = True
+        Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
+        Me.encrypt_list_status.Name = "encrypt_list_status"
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 106)
+        Me.encrypt_list_status.TabIndex = 5
+        '
+        'path_encrypt
+        '
+        Me.path_encrypt.AutoSize = True
+        Me.path_encrypt.Location = New System.Drawing.Point(13, 17)
+        Me.path_encrypt.Name = "path_encrypt"
+        Me.path_encrypt.Size = New System.Drawing.Size(32, 13)
+        Me.path_encrypt.TabIndex = 6
+        Me.path_encrypt.Text = "Pfad:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 76)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Schlüssel:"
+        '
+        'encrypt_gb
+        '
+        Me.encrypt_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.encrypt_gb.Controls.Add(Me.Label7)
+        Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
+        Me.encrypt_gb.Controls.Add(Me.Label2)
+        Me.encrypt_gb.Controls.Add(Me.create_container_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.path_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.generate_key_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.crypt_file_pathbutton)
+        Me.encrypt_gb.Controls.Add(Me.keycrypt)
+        Me.encrypt_gb.Controls.Add(Me.pathtxt)
+        Me.encrypt_gb.Location = New System.Drawing.Point(-1, 3)
+        Me.encrypt_gb.Name = "encrypt_gb"
+        Me.encrypt_gb.Size = New System.Drawing.Size(573, 258)
+        Me.encrypt_gb.TabIndex = 8
+        Me.encrypt_gb.TabStop = False
+        Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Gray
+        Me.Label7.ForeColor = System.Drawing.Color.Silver
+        Me.Label7.Location = New System.Drawing.Point(253, 172)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(53, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Drag&Drop"
+        '
+        'mount_gb
+        '
+        Me.mount_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.mount_gb.Controls.Add(Me.Label6)
+        Me.mount_gb.Controls.Add(Me.drive_lb)
+        Me.mount_gb.Controls.Add(Me.key_lb)
+        Me.mount_gb.Controls.Add(Me.Label3)
+        Me.mount_gb.Controls.Add(Me.decrypt_list_status)
+        Me.mount_gb.Controls.Add(Me.drivecb)
+        Me.mount_gb.Controls.Add(Me.keyencrypt)
+        Me.mount_gb.Controls.Add(Me.decrypt_filepath)
+        Me.mount_gb.Controls.Add(Me.dismount)
+        Me.mount_gb.Controls.Add(Me.mount)
+        Me.mount_gb.Controls.Add(Me.opencryptfile)
+        Me.mount_gb.Location = New System.Drawing.Point(0, 3)
+        Me.mount_gb.Name = "mount_gb"
+        Me.mount_gb.Size = New System.Drawing.Size(572, 257)
+        Me.mount_gb.TabIndex = 9
+        Me.mount_gb.TabStop = False
+        Me.mount_gb.Text = "Cryptdatei Mounten"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Gray
+        Me.Label6.ForeColor = System.Drawing.Color.Silver
+        Me.Label6.Location = New System.Drawing.Point(252, 122)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Drag&Drop"
+        '
+        'drive_lb
+        '
+        Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.drive_lb.AutoSize = True
+        Me.drive_lb.Location = New System.Drawing.Point(292, 218)
+        Me.drive_lb.Name = "drive_lb"
+        Me.drive_lb.Size = New System.Drawing.Size(54, 13)
+        Me.drive_lb.TabIndex = 9
+        Me.drive_lb.Text = "Laufwerk:"
+        '
+        'key_lb
+        '
+        Me.key_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.key_lb.AutoSize = True
+        Me.key_lb.Location = New System.Drawing.Point(13, 199)
+        Me.key_lb.Name = "key_lb"
+        Me.key_lb.Size = New System.Drawing.Size(55, 13)
+        Me.key_lb.TabIndex = 8
+        Me.key_lb.Text = "Schlüssel:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 34)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(35, 13)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Datei:"
+        '
+        'decrypt_list_status
+        '
+        Me.decrypt_list_status.AllowDrop = True
+        Me.decrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.decrypt_list_status.BackColor = System.Drawing.Color.Gray
+        Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.decrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.decrypt_list_status.FormattingEnabled = True
+        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 76)
+        Me.decrypt_list_status.Name = "decrypt_list_status"
+        Me.decrypt_list_status.Size = New System.Drawing.Size(550, 106)
+        Me.decrypt_list_status.TabIndex = 6
+        '
+        'drivecb
+        '
+        Me.drivecb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.drivecb.FormattingEnabled = True
+        Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
+        Me.drivecb.Location = New System.Drawing.Point(352, 215)
+        Me.drivecb.Name = "drivecb"
+        Me.drivecb.Size = New System.Drawing.Size(46, 21)
+        Me.drivecb.TabIndex = 5
+        Me.drivecb.Text = "T:\"
+        '
+        'keyencrypt
+        '
+        Me.keyencrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.keyencrypt.Enabled = False
+        Me.keyencrypt.Location = New System.Drawing.Point(16, 215)
+        Me.keyencrypt.Name = "keyencrypt"
+        Me.keyencrypt.Size = New System.Drawing.Size(260, 20)
+        Me.keyencrypt.TabIndex = 4
+        Me.keyencrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'decrypt_filepath
+        '
+        Me.decrypt_filepath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 50)
+        Me.decrypt_filepath.Name = "decrypt_filepath"
+        Me.decrypt_filepath.Size = New System.Drawing.Size(470, 20)
+        Me.decrypt_filepath.TabIndex = 3
+        '
+        'dismount
+        '
+        Me.dismount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dismount.BackColor = System.Drawing.Color.Gainsboro
+        Me.dismount.Enabled = False
+        Me.dismount.FlatAppearance.BorderSize = 0
+        Me.dismount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.dismount.Location = New System.Drawing.Point(491, 213)
+        Me.dismount.Name = "dismount"
+        Me.dismount.Size = New System.Drawing.Size(75, 23)
+        Me.dismount.TabIndex = 2
+        Me.dismount.Text = "Dismount"
+        Me.dismount.UseVisualStyleBackColor = False
+        '
+        'mount
+        '
+        Me.mount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.mount.BackColor = System.Drawing.Color.Gainsboro
+        Me.mount.Enabled = False
+        Me.mount.FlatAppearance.BorderSize = 0
+        Me.mount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.mount.Location = New System.Drawing.Point(410, 213)
+        Me.mount.Name = "mount"
+        Me.mount.Size = New System.Drawing.Size(75, 23)
+        Me.mount.TabIndex = 1
+        Me.mount.Text = "Mount"
+        Me.mount.UseVisualStyleBackColor = False
+        '
+        'opencryptfile
+        '
+        Me.opencryptfile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.opencryptfile.BackColor = System.Drawing.Color.Gainsboro
+        Me.opencryptfile.FlatAppearance.BorderSize = 0
+        Me.opencryptfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.opencryptfile.Location = New System.Drawing.Point(491, 48)
+        Me.opencryptfile.Name = "opencryptfile"
+        Me.opencryptfile.Size = New System.Drawing.Size(75, 23)
+        Me.opencryptfile.TabIndex = 0
+        Me.opencryptfile.Text = "Öffnen"
+        Me.opencryptfile.UseVisualStyleBackColor = False
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SplitContainer1.Location = New System.Drawing.Point(12, 27)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.encrypt_gb)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.mount_gb)
+        Me.SplitContainer1.Size = New System.Drawing.Size(574, 532)
+        Me.SplitContainer1.SplitterDistance = 266
+        Me.SplitContainer1.TabIndex = 10
+        '
+        'encryptmounttimer
+        '
+        '
+        'MenuStrip
+        '
+        Me.MenuStrip.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.InfoToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.MenuStrip.Size = New System.Drawing.Size(598, 24)
+        Me.MenuStrip.TabIndex = 11
+        Me.MenuStrip.Text = "MenuStrip1"
+        '
+        'DateiToolStripMenuItem
+        '
+        Me.DateiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EinstellungToolStripMenuItem, Me.BeendenToolStripMenuItem})
+        Me.DateiToolStripMenuItem.Name = "DateiToolStripMenuItem"
+        Me.DateiToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.DateiToolStripMenuItem.Text = "Datei"
+        '
+        'EinstellungToolStripMenuItem
+        '
+        Me.EinstellungToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371220_cog
+        Me.EinstellungToolStripMenuItem.Name = "EinstellungToolStripMenuItem"
+        Me.EinstellungToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EinstellungToolStripMenuItem.Text = "Einstellung"
+        '
+        'BeendenToolStripMenuItem
+        '
+        Me.BeendenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371252_Close_Box_Red
+        Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
+        Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BeendenToolStripMenuItem.Text = "Beenden"
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem, Me.DateiEntschlüsselnToolStripMenuItem, Me.ToolStripSeparator1, Me.TextVerschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem, Me.RSAToolStripMenuItem, Me.ToolStripSeparator2, Me.SystemidentifikationToolStripMenuItem, Me.ToolStripSeparator3, Me.PasswortgeneratorToolStripMenuItem, Me.ToolStripSeparator4, Me.DateiSicherLöschenToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
+        '
+        'DateiVerschlüsselnToolStripMenuItem
+        '
+        Me.DateiVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.DateiVerschlüsselnToolStripMenuItem.Name = "DateiVerschlüsselnToolStripMenuItem"
+        Me.DateiVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.DateiVerschlüsselnToolStripMenuItem.Text = "Datei verschlüsseln"
+        '
+        'DateiEntschlüsselnToolStripMenuItem
+        '
+        Me.DateiEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.DateiEntschlüsselnToolStripMenuItem.Name = "DateiEntschlüsselnToolStripMenuItem"
+        Me.DateiEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.DateiEntschlüsselnToolStripMenuItem.Text = "Datei entschlüsseln"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(215, 6)
+        '
+        'TextVerschlüsselnToolStripMenuItem
+        '
+        Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408107_document_binary
+        Me.TextVerschlüsselnToolStripMenuItem.Name = "TextVerschlüsselnToolStripMenuItem"
+        Me.TextVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.TextVerschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
+        '
+        'MD5ToolStripMenuItem
+        '
+        Me.MD5ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem, Me.MD5CrackerToolStripMenuItem})
+        Me.MD5ToolStripMenuItem.Name = "MD5ToolStripMenuItem"
+        Me.MD5ToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.MD5ToolStripMenuItem.Text = "MD5"
+        '
+        'MD5KonverterToolStripMenuItem
+        '
+        Me.MD5KonverterToolStripMenuItem.Name = "MD5KonverterToolStripMenuItem"
+        Me.MD5KonverterToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.MD5KonverterToolStripMenuItem.Text = "MD5 Konverter"
+        '
+        'MD5CrackerToolStripMenuItem
+        '
+        Me.MD5CrackerToolStripMenuItem.Name = "MD5CrackerToolStripMenuItem"
+        Me.MD5CrackerToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.MD5CrackerToolStripMenuItem.Text = "MD5 Brute-force"
+        '
+        'RSAToolStripMenuItem
+        '
+        Me.RSAToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntschlüsselnToolStripMenuItem, Me.VerschlüsselnToolStripMenuItem, Me.KeyErstellenToolStripMenuItem})
+        Me.RSAToolStripMenuItem.Name = "RSAToolStripMenuItem"
+        Me.RSAToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.RSAToolStripMenuItem.Text = "RSA"
+        '
+        'EntschlüsselnToolStripMenuItem
+        '
+        Me.EntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.EntschlüsselnToolStripMenuItem.Name = "EntschlüsselnToolStripMenuItem"
+        Me.EntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.EntschlüsselnToolStripMenuItem.Text = "Entschlüsseln"
+        '
+        'VerschlüsselnToolStripMenuItem
+        '
+        Me.VerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.VerschlüsselnToolStripMenuItem.Name = "VerschlüsselnToolStripMenuItem"
+        Me.VerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.VerschlüsselnToolStripMenuItem.Text = "Verschlüsseln"
+        '
+        'KeyErstellenToolStripMenuItem
+        '
+        Me.KeyErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371338_key__arrow
+        Me.KeyErstellenToolStripMenuItem.Name = "KeyErstellenToolStripMenuItem"
+        Me.KeyErstellenToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.KeyErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(215, 6)
+        '
+        'SystemidentifikationToolStripMenuItem
+        '
+        Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408013_Student_id_24
+        Me.SystemidentifikationToolStripMenuItem.Name = "SystemidentifikationToolStripMenuItem"
+        Me.SystemidentifikationToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.SystemidentifikationToolStripMenuItem.Text = "Systemidentifikation"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(215, 6)
+        '
+        'PasswortgeneratorToolStripMenuItem
+        '
+        Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407942_ui_text_field_password
+        Me.PasswortgeneratorToolStripMenuItem.Name = "PasswortgeneratorToolStripMenuItem"
+        Me.PasswortgeneratorToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.PasswortgeneratorToolStripMenuItem.Text = "Passwortgenerator"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(215, 6)
+        '
+        'DateiSicherLöschenToolStripMenuItem
+        '
+        Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371621_f_cross_256
+        Me.DateiSicherLöschenToolStripMenuItem.Name = "DateiSicherLöschenToolStripMenuItem"
+        Me.DateiSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.DateiSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
+        '
+        'InfoToolStripMenuItem
+        '
+        Me.InfoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
+        Me.InfoToolStripMenuItem.Text = "Info"
+        '
+        'UpdateToolStripMenuItem
+        '
+        Me.UpdateToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371799_update
+        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.UpdateToolStripMenuItem.Text = "Update"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371705_Information
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'systemtray
+        '
+        Me.systemtray.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.systemtray.Icon = CType(resources.GetObject("systemtray.Icon"), System.Drawing.Icon)
+        Me.systemtray.Text = "WinCrypt"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.ToolsToolStripMenuItem1, Me.ÖffnenToolStripMenuItem, Me.BeendenToolStripMenuItem1})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(121, 114)
+        '
+        'AboutToolStripMenuItem1
+        '
+        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
+        Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'UpdateToolStripMenuItem1
+        '
+        Me.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1"
+        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
+        Me.UpdateToolStripMenuItem1.Text = "Update"
+        '
+        'ToolsToolStripMenuItem1
+        '
+        Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem1, Me.DateiEntschlüsselnToolStripMenuItem1, Me.ToolStripSeparator5, Me.TextVerUndEntschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem1, Me.ToolStripSeparator6, Me.SystemidentifikationToolStripMenuItem1, Me.ToolStripSeparator7, Me.PasswortGeneratorToolStripMenuItem1, Me.ToolStripSeparator8, Me.DateienSicherLöschenToolStripMenuItem})
+        Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
+        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
+        Me.ToolsToolStripMenuItem1.Text = "Tools"
+        '
+        'DateiVerschlüsselnToolStripMenuItem1
+        '
+        Me.DateiVerschlüsselnToolStripMenuItem1.Name = "DateiVerschlüsselnToolStripMenuItem1"
+        Me.DateiVerschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(218, 22)
+        Me.DateiVerschlüsselnToolStripMenuItem1.Text = "Datei verschlüsseln"
+        '
+        'DateiEntschlüsselnToolStripMenuItem1
+        '
+        Me.DateiEntschlüsselnToolStripMenuItem1.Name = "DateiEntschlüsselnToolStripMenuItem1"
+        Me.DateiEntschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(218, 22)
+        Me.DateiEntschlüsselnToolStripMenuItem1.Text = "Datei entschlüsseln"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(215, 6)
+        '
+        'TextVerUndEntschlüsselnToolStripMenuItem
+        '
+        Me.TextVerUndEntschlüsselnToolStripMenuItem.Name = "TextVerUndEntschlüsselnToolStripMenuItem"
+        Me.TextVerUndEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.TextVerUndEntschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
+        '
+        'MD5ToolStripMenuItem1
+        '
+        Me.MD5ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem1, Me.MD5BruteforceToolStripMenuItem})
+        Me.MD5ToolStripMenuItem1.Name = "MD5ToolStripMenuItem1"
+        Me.MD5ToolStripMenuItem1.Size = New System.Drawing.Size(218, 22)
+        Me.MD5ToolStripMenuItem1.Text = "MD5"
+        '
+        'MD5KonverterToolStripMenuItem1
+        '
+        Me.MD5KonverterToolStripMenuItem1.Name = "MD5KonverterToolStripMenuItem1"
+        Me.MD5KonverterToolStripMenuItem1.Size = New System.Drawing.Size(162, 22)
+        Me.MD5KonverterToolStripMenuItem1.Text = "MD5 Konverter"
+        '
+        'MD5BruteforceToolStripMenuItem
+        '
+        Me.MD5BruteforceToolStripMenuItem.Name = "MD5BruteforceToolStripMenuItem"
+        Me.MD5BruteforceToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.MD5BruteforceToolStripMenuItem.Text = "MD5 Brute-force"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(215, 6)
+        '
+        'SystemidentifikationToolStripMenuItem1
+        '
+        Me.SystemidentifikationToolStripMenuItem1.Name = "SystemidentifikationToolStripMenuItem1"
+        Me.SystemidentifikationToolStripMenuItem1.Size = New System.Drawing.Size(218, 22)
+        Me.SystemidentifikationToolStripMenuItem1.Text = "Systemidentifikation"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(215, 6)
+        '
+        'PasswortGeneratorToolStripMenuItem1
+        '
+        Me.PasswortGeneratorToolStripMenuItem1.Name = "PasswortGeneratorToolStripMenuItem1"
+        Me.PasswortGeneratorToolStripMenuItem1.Size = New System.Drawing.Size(218, 22)
+        Me.PasswortGeneratorToolStripMenuItem1.Text = "Passwort generator"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(215, 6)
+        '
+        'DateienSicherLöschenToolStripMenuItem
+        '
+        Me.DateienSicherLöschenToolStripMenuItem.Name = "DateienSicherLöschenToolStripMenuItem"
+        Me.DateienSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.DateienSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
+        '
+        'ÖffnenToolStripMenuItem
+        '
+        Me.ÖffnenToolStripMenuItem.Name = "ÖffnenToolStripMenuItem"
+        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
+        Me.ÖffnenToolStripMenuItem.Text = "Öffnen"
+        '
+        'BeendenToolStripMenuItem1
+        '
+        Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
+        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
+        Me.BeendenToolStripMenuItem1.Text = "Beenden"
+        '
+        'startwindow
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(598, 571)
+        Me.Controls.Add(Me.SplitContainer1)
+        Me.Controls.Add(Me.MenuStrip)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip
+        Me.MaximizeBox = False
+        Me.Name = "startwindow"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "WinCrypt 1.2"
+        Me.encrypt_gb.ResumeLayout(False)
+        Me.encrypt_gb.PerformLayout()
+        Me.mount_gb.ResumeLayout(False)
+        Me.mount_gb.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
+        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents create_container_encrypt As System.Windows.Forms.Button
+    Friend WithEvents generate_key_encrypt As System.Windows.Forms.Button
+    Friend WithEvents crypt_file_pathbutton As System.Windows.Forms.Button
+    Friend WithEvents pathtxt As System.Windows.Forms.TextBox
+    Friend WithEvents keycrypt As System.Windows.Forms.TextBox
+    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents encrypttimer As System.Windows.Forms.Timer
+    Friend WithEvents encrypt_list_status As System.Windows.Forms.ListBox
+    Friend WithEvents path_encrypt As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents encrypt_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents mount_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents dismount As System.Windows.Forms.Button
+    Friend WithEvents mount As System.Windows.Forms.Button
+    Friend WithEvents opencryptfile As System.Windows.Forms.Button
+    Friend WithEvents keyencrypt As System.Windows.Forms.TextBox
+    Friend WithEvents decrypt_filepath As System.Windows.Forms.TextBox
+    Friend WithEvents drivecb As System.Windows.Forms.ComboBox
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+    Friend WithEvents drive_lb As System.Windows.Forms.Label
+    Friend WithEvents key_lb As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents decrypt_list_status As System.Windows.Forms.ListBox
+    Friend WithEvents encryptmounttimer As System.Windows.Forms.Timer
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents DateiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BeendenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents InfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateiVerschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateiEntschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents TextVerschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents SystemidentifikationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents PasswortgeneratorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EinstellungToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents DateiSicherLöschenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents systemtray As System.Windows.Forms.NotifyIcon
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents BeendenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ÖffnenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateiVerschlüsselnToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateiEntschlüsselnToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents TextVerUndEntschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents SystemidentifikationToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents PasswortGeneratorToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents DateienSicherLöschenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UpdateToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents MD5ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5KonverterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5CrackerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5KonverterToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5BruteforceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RSAToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EntschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents VerschlüsselnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents KeyErstellenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+
+End Class

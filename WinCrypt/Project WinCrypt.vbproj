@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D42F6B2-355D-4B2E-8D18-BAF000711369}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Project_WinCrypt.My.MyApplication</StartupObject>
+    <RootNamespace>Project_WinCrypt</RootNamespace>
+    <AssemblyName>Project WinCrypt</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\root\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://wincrypt.org</SupportUrl>
+    <ProductName>WinCrypt</ProductName>
+    <PublisherName>WinCrypt</PublisherName>
+    <SuiteName>WinCrypt</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>1.3.4.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Project WinCrypt.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Project WinCrypt.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Drive-icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3B96E1825A2D30042C57AAD4DFA4DE92EE0B9DAB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Project WinCrypt_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Project WinCrypt.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>Project WinCrypt.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.Shell32">
+      <HintPath>..\Interop.Shell32.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AES.vb" />
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="counter.vb" />
+    <Compile Include="DateiEntschluesseln.Designer.vb">
+      <DependentUpon>DateiEntschluesseln.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DateiEntschluesseln.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DateiVerschluesseln.Designer.vb">
+      <DependentUpon>DateiVerschluesseln.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DateiVerschluesseln.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Einstellungen.Designer.vb">
+      <DependentUpon>Einstellungen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Einstellungen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="filecrypt.vb" />
+    <Compile Include="masterkey.Designer.vb">
+      <DependentUpon>masterkey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="masterkey.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MD5.vb" />
+    <Compile Include="md5bruteforce.Designer.vb">
+      <DependentUpon>md5bruteforce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="md5bruteforce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="md5main.Designer.vb">
+      <DependentUpon>md5main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="md5main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RSA.vb" />
+    <Compile Include="rsa_create_keys.Designer.vb">
+      <DependentUpon>rsa_create_keys.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rsa_create_keys.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rsa_decrypt.Designer.vb">
+      <DependentUpon>rsa_decrypt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rsa_decrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rsa_encrypt.Designer.vb">
+      <DependentUpon>rsa_encrypt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rsa_encrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startwindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startwindow.Designer.vb">
+      <DependentUpon>startwindow.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="about.Designer.vb">
+      <DependentUpon>about.vb</DependentUpon>
+    </Compile>
+    <Compile Include="about.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="systemidentification.Designer.vb">
+      <DependentUpon>systemidentification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="systemidentification.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ini.vb" />
+    <Compile Include="language.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="passwortgenerator.Designer.vb">
+      <DependentUpon>passwortgenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="passwortgenerator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="safedelete.Designer.vb">
+      <DependentUpon>safedelete.vb</DependentUpon>
+    </Compile>
+    <Compile Include="safedelete.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="textencrypt.Designer.vb">
+      <DependentUpon>textencrypt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="textencrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Unzip.vb" />
+    <Compile Include="Zip.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DateiEntschluesseln.resx">
+      <DependentUpon>DateiEntschluesseln.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateiVerschluesseln.resx">
+      <DependentUpon>DateiVerschluesseln.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Einstellungen.resx">
+      <DependentUpon>Einstellungen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="masterkey.resx">
+      <DependentUpon>masterkey.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="md5bruteforce.resx">
+      <DependentUpon>md5bruteforce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="md5main.resx">
+      <DependentUpon>md5main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rsa_create_keys.resx">
+      <DependentUpon>rsa_create_keys.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rsa_decrypt.resx">
+      <DependentUpon>rsa_decrypt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rsa_encrypt.resx">
+      <DependentUpon>rsa_encrypt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="startwindow.resx">
+      <DependentUpon>startwindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="systemidentification.resx">
+      <DependentUpon>systemidentification.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passwortgenerator.resx">
+      <DependentUpon>passwortgenerator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="safedelete.resx">
+      <DependentUpon>safedelete.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="textencrypt.resx">
+      <DependentUpon>textencrypt.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1436408107_document-binary.png" />
+    <None Include="Resources\1436408065_file-binary.png" />
+    <None Include="Resources\1436408013_Student-id-24.png" />
+    <None Include="Resources\1436407942_ui_text_field_password.png" />
+    <None Include="Resources\1436371338_key--arrow.png" />
+    <None Include="Resources\1436407740_Unlock.png" />
+    <None Include="Resources\1436407718_Lock.png" />
+    <None Include="Resources\key2.png" />
+    <None Include="Resources\1436373782_eye.png" />
+    <None Include="Resources\1436371705_Information.png" />
+    <None Include="Resources\1436371799_update.png" />
+    <None Include="Resources\1436371621_f-cross_256.png" />
+    <None Include="Resources\1436371252_Close_Box_Red.png" />
+    <None Include="Resources\1436371220_cog.png" />
+    <None Include="Resources\1436371140_free-14.png" />
+    <None Include="Resources\wcp.ico" />
+    <None Include="bin\Debug\icon.ico" />
+    <None Include="bin\Debug\regist.exe" />
+    <Content Include="Drive-icon.ico" />
+    <None Include="Drive-icon.png" />
+    <None Include="Resources\Interop.Shell32.dll" />
+    <None Include="Resources\Navigate_up_arrow_32.png" />
+    <None Include="Resources\Arrow_down_sign_to_navigate_32.png" />
+    <None Include="Resources\crypt.wav" />
+    <None Include="Resources\Vista_DeviceDisconnect.wav" />
+    <None Include="Resources\Vista_DeviceConnect.wav" />
+    <None Include="Resources\Drive-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
