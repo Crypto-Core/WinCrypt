@@ -4,7 +4,7 @@
     Dim restart As String = startwindow.iniread
     Dim restart1 As String = "no"
     Dim filezip As New Zip
-    Private Sub ok_bt(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ok_bt.Click
+    Private Sub ok(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ok_bt.Click
         If restart = restart1 Then
         Else
             If startwindow.formclose = True Then

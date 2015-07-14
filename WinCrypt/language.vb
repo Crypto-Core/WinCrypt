@@ -35,6 +35,8 @@
             startwindow.EntschlüsselnToolStripMenuItem.Text = "decryption"
             startwindow.VerschlüsselnToolStripMenuItem.Text = "encryption"
             startwindow.KeyErstellenToolStripMenuItem.Text = "create key's"
+            startwindow.EMailSendenToolStripMenuItem.Text = "send e-mail"
+            startwindow.EMailSendenToolStripMenuItem1.Text = "send e-mail"
 
             'masterkey.vb
             masterkey.abort_bt.Text = "abort"
@@ -138,6 +140,18 @@
             md5bruteforce.open_bt.Text = "open"
             md5bruteforce.progresscheck.Text = "show progress"
 
+            'sendmail.vb
+            sendmail.email_lb.Text = "email:"
+            sendmail.password_lb.Text = "password:"
+            sendmail.server_lb.Text = "server:"
+            sendmail.emailto_lb.Text = "receiver:"
+            sendmail.Label1.Text = "attachments:"
+            sendmail.file_txt.Size = New System.Drawing.Size(366, 20)
+            sendmail.file_txt.Location = New System.Drawing.Point(86, 416)
+            sendmail.file_bt.Text = "open"
+            sendmail.sendmail_bt.Text = "send"
+
+
         End If
 
 
@@ -174,6 +188,8 @@
             startwindow.EntschlüsselnToolStripMenuItem.Text = "Entschlüsselung"
             startwindow.VerschlüsselnToolStripMenuItem.Text = "Verschlüsselung"
             startwindow.KeyErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
+            startwindow.EMailSendenToolStripMenuItem.Text = "E-Mail Senden"
+            startwindow.EMailSendenToolStripMenuItem1.Text = "E-Mail Senden"
 
             'rsa_encrypt.vb
             rsa_encrypt.pubkey_path_bt.Text = "Öffnen"
@@ -278,6 +294,18 @@
             md5bruteforce.passwordlist_lb.Text = "Passwortliste:"
             md5bruteforce.open_bt.Text = "Öffnen"
             md5bruteforce.progresscheck.Text = "Zeige Fortschritt an"
+
+            'sendmail.vb
+            sendmail.email_lb.Text = "E-Mail:"
+            sendmail.password_lb.Text = "Passwort:"
+            sendmail.server_lb.Text = "Server:"
+            sendmail.emailto_lb.Text = "Empfänger:"
+            sendmail.Label1.Text = "Anhang:"
+            sendmail.file_txt.Size = New System.Drawing.Size(387, 20)
+            sendmail.file_txt.Location = New System.Drawing.Point(65, 416)
+            sendmail.file_bt.Text = "Öffnen"
+            sendmail.sendmail_bt.Text = "Senden"
+
         End If
     End Function
 

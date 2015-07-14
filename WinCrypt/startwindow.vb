@@ -841,4 +841,11 @@ Public Class startwindow
     Private Sub VerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles VerschlüsselnToolStripMenuItem.Click
         rsa_encrypt.Show()
     End Sub
+    Private Sub EMailSendenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EMailSendenToolStripMenuItem.Click
+        sendmail.Show()
+    End Sub
+
+    Private Sub EMailSendenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EMailSendenToolStripMenuItem1.Click
+        sendmail.Show()
+    End Sub
 End Class

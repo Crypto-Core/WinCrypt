@@ -215,6 +215,12 @@
     <Compile Include="rsa_encrypt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="sendmail.Designer.vb">
+      <DependentUpon>sendmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="sendmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="startwindow.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     <EmbeddedResource Include="rsa_encrypt.resx">
       <DependentUpon>rsa_encrypt.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sendmail.resx">
+      <DependentUpon>sendmail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="startwindow.resx">
       <DependentUpon>startwindow.vb</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +366,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1436868489_mail-message-new.png" />
     <None Include="Resources\1436408107_document-binary.png" />
     <None Include="Resources\1436408065_file-binary.png" />
     <None Include="Resources\1436408013_Student-id-24.png" />
