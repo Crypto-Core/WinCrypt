@@ -72,7 +72,6 @@
                   GetType(System.Runtime.InteropServices.GuidAttribute), False)(0),  _
                   System.Runtime.InteropServices.GuidAttribute)
         Dim AES2 As New AES
-
         If startwindow.iniread = "true" Then
             text_input.Text = AES2.AESDecrypt(text_output.Text, startwindow.biosid, lGuid.Value)
         Else
@@ -94,9 +93,7 @@
         If startwindow.iniread = "true" Then
             decrypt_bt.Enabled = True
             encrypt_bt.Enabled = True
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged

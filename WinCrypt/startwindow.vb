@@ -25,7 +25,6 @@ Public Class startwindow
         Dim objDir As DirectoryInfo = New DirectoryInfo(DirPath)
         Dim objSubFolder As DirectoryInfo
         Try
-            'Länge der datei hinzufügen
             For Each objFileInfo In objDir.GetFiles()
                 lngDirSize += objFileInfo.Length
             Next
@@ -35,11 +34,9 @@ Public Class startwindow
                     lngDirSize += GetFolderSize(objSubFolder.FullName)
                 Next
             End If
-
         Catch Ex As Exception
 
         End Try
-
         Return lngDirSize
     End Function
 
@@ -64,18 +61,14 @@ Public Class startwindow
                     Dim query = "ASSOCIATORS OF {Win32_DiskDrive.DeviceID='" _
                         & wmiDiskDrive.DeviceID & "'} WHERE AssocClass = Win32_DiskDriveToDiskPartition"
                     Dim wmiDiskPartitions = wmiServices.ExecQuery(query)
-
                     For Each wmiDiskPartition In wmiDiskPartitions
-
                         Dim wmiLogicalDisks = wmiServices.ExecQuery _
                             ("ASSOCIATORS OF {Win32_DiskPartition.DeviceID='" _
                              & wmiDiskPartition.DeviceID & "'} WHERE AssocClass = Win32_LogicalDiskToPartition")
-
                         For Each wmiLogicalDisk In wmiLogicalDisks
                             If wmiLogicalDisk.DeviceID = pathtxt.Text.Replace("\", "") Then
                                 selecteddrive = deviceid
                             End If
-
                         Next
                     Next
                 Next
@@ -112,21 +105,16 @@ Public Class startwindow
                 Dim ComputerName = "."
                 Dim wmiServices = GetObject( _
                     "winmgmts:{impersonationLevel=Impersonate}!//" & ComputerName)
-
                 Dim wmiDiskDrives = wmiServices.ExecQuery("SELECT Caption, DeviceID FROM Win32_DiskDrive")
-
                 For Each wmiDiskDrive In wmiDiskDrives
                     Dim deviceid As String = wmiDiskDrive.Caption
                     Dim query = "ASSOCIATORS OF {Win32_DiskDrive.DeviceID='" _
                         & wmiDiskDrive.DeviceID & "'} WHERE AssocClass = Win32_DiskDriveToDiskPartition"
                     Dim wmiDiskPartitions = wmiServices.ExecQuery(query)
-
                     For Each wmiDiskPartition In wmiDiskPartitions
-
                         Dim wmiLogicalDisks = wmiServices.ExecQuery _
                             ("ASSOCIATORS OF {Win32_DiskPartition.DeviceID='" _
                              & wmiDiskPartition.DeviceID & "'} WHERE AssocClass = Win32_LogicalDiskToPartition")
-
                         For Each wmiLogicalDisk In wmiLogicalDisks
                             If wmiLogicalDisk.DeviceID = pathtxt.Text.Replace("\", "") Then
                                 selecteddrive = deviceid
@@ -135,7 +123,7 @@ Public Class startwindow
                         Next
                     Next
                 Next
-                If i = "" Then ' Überprüft ob der Pfad von einem Ordner oder einem Datenträger kommt
+                If i = "" Then
                     CryptoStuff.CryptFile(keycrypt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & selecteddrive.Replace(" ", "") & ".wcp", True)
                 Else
                     CryptoStuff.CryptFile(keycrypt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & i.Replace(" ", "") & ".wcp", True)
@@ -250,9 +238,7 @@ Public Class startwindow
                     Process.Start("explorer.exe", drivecb.SelectedItem)
                     mount.Enabled = False
                     dismount.Enabled = True
-
                 End If
-
             Else
                 If langname = "English" Then
                     MsgBox("Error: Drive not found!", MsgBoxStyle.Critical)
@@ -396,9 +382,7 @@ Public Class startwindow
         If iniread = "yes" Then
             If My.Computer.FileSystem.DirectoryExists(pathtxt.Text) Then
                 create_container_encrypt.Enabled = True
-            Else
-
-            End If
+            Else : End If
         End If
         If pathtxt.Text.Length < 3 Then
 
@@ -496,7 +480,6 @@ Public Class startwindow
         Else
             Label6.Visible = True
         End If
-
         If decrypt_filepath.TextLength < 3 Then
 
         Else
@@ -527,16 +510,12 @@ Public Class startwindow
         End If
     End Sub
     Private Sub startwindow_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
         iniread = ini.WertLesen("systemidentification", "status")
         If My.Settings.Masterkey = True Then
             masterkey.ShowDialog()
-        Else
-
-        End If
+        Else : End If
         lang.check()
         langname = lang.langname
-
         If My.Computer.FileSystem.FileExists(My.Application.Info.DirectoryPath.ToString & "\regist.exe") Then
 
         Else
@@ -731,19 +710,13 @@ Public Class startwindow
                         decrypt_filepath.Enabled = True
                         drivecb.Enabled = True
                     End If
-                Else
-
-                End If
-            Else
-
-            End If
+                Else : End If
+            Else : End If
         Else
             Application.Exit()
         End If
 
     End Sub
-
-
     Private Sub ÖffnenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ÖffnenToolStripMenuItem.Click
         systemtray.Visible = False
         Me.Show()
@@ -818,9 +791,7 @@ Public Class startwindow
         If iniread = "yes" Then
             If My.Computer.FileSystem.DirectoryExists(pathtxt.Text) Then
                 create_container_encrypt.Enabled = True
-            Else
-
-            End If
+            Else : End If
         End If
         If pathtxt.Text.Length > 0 Then
             Label7.Visible = False

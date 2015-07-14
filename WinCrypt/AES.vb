@@ -3,11 +3,10 @@ Imports System.Security.Cryptography
 Imports System.IO
 Public Class AES
     Public Function AESEncrypt(ByVal PlainText As String, ByVal Password As String, ByVal salt As String)
-        Dim HashAlgorithm As String = "SHA1" 'Can be SHA1 or MD5
+        Dim HashAlgorithm As String = "SHA1"
         Dim PasswordIterations As String = 1
-        Dim InitialVector As String = "gGw3zFYrtsrXExYu" 'This should be a string of 16 ASCII characters.
-        Dim KeySize As Integer = 256 'Can be 128, 192, or 256.
-
+        Dim InitialVector As String = "gGw3zFYrtsrXExYu"
+        Dim KeySize As Integer = 256
         If (String.IsNullOrEmpty(PlainText)) Then
             Return ""
             Exit Function
@@ -19,7 +18,6 @@ Public Class AES
         Dim KeyBytes As Byte() = DerivedPassword.GetBytes(KeySize / 8)
         Dim SymmetricKey As RijndaelManaged = New RijndaelManaged()
         SymmetricKey.Mode = CipherMode.CBC
-
         Dim CipherTextBytes As Byte() = Nothing
         Using Encryptor As ICryptoTransform = SymmetricKey.CreateEncryptor(KeyBytes, InitialVectorBytes)
             Using MemStream As New MemoryStream()
@@ -34,14 +32,12 @@ Public Class AES
         End Using
         SymmetricKey.Clear()
         Return Convert.ToBase64String(CipherTextBytes)
-
     End Function
     Public Function AESDecrypt(ByVal CipherText As String, ByVal password As String, ByVal salt As String) As String
         Dim HashAlgorithm As String = "SHA1"
         Dim PasswordIterations As String = 2
         Dim InitialVector As String = "gGw3zFYrtsrXExYu"
         Dim KeySize As Integer = 256
-
         If (String.IsNullOrEmpty(CipherText)) Then
             Return ""
         End If
@@ -53,9 +49,7 @@ Public Class AES
         Dim SymmetricKey As RijndaelManaged = New RijndaelManaged()
         SymmetricKey.Mode = CipherMode.CBC
         Dim PlainTextBytes As Byte() = New Byte(CipherTextBytes.Length - 1) {}
-
         Dim ByteCount As Integer = 0
-
         Using Decryptor As ICryptoTransform = SymmetricKey.CreateDecryptor(KeyBytes, InitialVectorBytes)
             Using MemStream As MemoryStream = New MemoryStream(CipherTextBytes)
                 Try
@@ -67,7 +61,6 @@ Public Class AES
                 Catch ex As Exception
                     MsgBox("Falsches Passwort!", MsgBoxStyle.Exclamation)
                 End Try
-
             End Using
         End Using
         SymmetricKey.Clear()

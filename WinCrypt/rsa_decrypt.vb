@@ -5,9 +5,7 @@
         If My.Computer.FileSystem.FileExists(OpenFileDialog1.FileName) Then
             privkey_path_txt.Text = OpenFileDialog1.FileName
             privkey = My.Computer.FileSystem.ReadAllText(OpenFileDialog1.FileName)
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles decrypt_bt.Click

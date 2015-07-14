@@ -7,7 +7,6 @@ Public Class MD5
         Dim Result As Byte()
         Dim Res As String = ""
         Dim Tmp As String = ""
-
         Data = Encoding.ASCII.GetBytes(strString)
         Result = MD5.ComputeHash(Data)
         For i As Integer = 0 To Result.Length - 1

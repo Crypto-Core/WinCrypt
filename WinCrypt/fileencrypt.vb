@@ -6,9 +6,7 @@
             filetxt.Text = OpenFileDialog.FileName
             savefilebt.Enabled = True
             savepathtxt.Enabled = True
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub savefilebt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savefilebt.Click
@@ -19,12 +17,8 @@
             generatebt.Enabled = True
             If startwindow.iniread = "yes" Then
                 encryptbt.Enabled = True
-            Else
-
-            End If
-        Else
-
-        End If
+            Else : End If
+        Else : End If
     End Sub
 
     Private Sub generatebt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generatebt.Click
@@ -83,7 +77,6 @@
                     encryptbt.Enabled = False
                     generatebt.Enabled = False
                 Else
-
                     If startwindow.langname = "English" Then
                         MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
                     Else
@@ -91,7 +84,6 @@
                     End If
                 End If
             Else
-
                 If startwindow.langname = "English" Then
                     MsgBox("File does not exist!!", MsgBoxStyle.Exclamation)
                 Else
@@ -127,7 +119,6 @@
                         generatebt.Enabled = False
                     End If
                 Else
-
                     If startwindow.langname = "English" Then
                         MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
                     Else
@@ -144,7 +135,6 @@
         End If
 
     End Sub
-
     Private Sub filetxt_DragDrop(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles filetxt.DragDrop
         Dim filestr() As String
         Dim str As String
@@ -205,8 +195,6 @@
         If My.Computer.FileSystem.FileExists(filetxt.Text) Then
             savefilebt.Enabled = True
             savepathtxt.Enabled = True
-        Else
-
-        End If
+        Else : End If
     End Sub
 End Class

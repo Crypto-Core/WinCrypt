@@ -44,7 +44,7 @@ Partial Class md5bruteforce
         Me.md5lb = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.testedpw_lb = New System.Windows.Forms.Label()
         Me.stopbf_bt = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.progresscheck = New System.Windows.Forms.CheckBox()
@@ -169,7 +169,7 @@ Partial Class md5bruteforce
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.testedpw_lb)
         Me.Panel1.Controls.Add(Me.password_lb)
         Me.Panel1.Controls.Add(Me.md5lb)
         Me.Panel1.Controls.Add(Me.line_lb)
@@ -189,17 +189,17 @@ Partial Class md5bruteforce
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "_________________________________________________________________"
         '
-        'Label1
+        'testedpw_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(14, 115)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(136, 16)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "tested password:"
+        Me.testedpw_lb.AutoSize = True
+        Me.testedpw_lb.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.testedpw_lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.testedpw_lb.ForeColor = System.Drawing.Color.Red
+        Me.testedpw_lb.Location = New System.Drawing.Point(14, 115)
+        Me.testedpw_lb.Name = "testedpw_lb"
+        Me.testedpw_lb.Size = New System.Drawing.Size(136, 16)
+        Me.testedpw_lb.TabIndex = 10
+        Me.testedpw_lb.Text = "tested password:"
         '
         'stopbf_bt
         '
@@ -235,7 +235,7 @@ Partial Class md5bruteforce
         '
         Me.progresstimer.Interval = 1
         '
-        'md5_bruteforce
+        'md5bruteforce
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -254,7 +254,7 @@ Partial Class md5bruteforce
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "md5_bruteforce"
+        Me.Name = "md5bruteforce"
         Me.Text = "MD5 Brute-force"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -278,7 +278,7 @@ Partial Class md5bruteforce
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents stopbf_bt As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents testedpw_lb As System.Windows.Forms.Label
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents progresscheck As System.Windows.Forms.CheckBox
     Friend WithEvents progresstimer As System.Windows.Forms.Timer

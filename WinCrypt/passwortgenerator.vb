@@ -26,7 +26,6 @@
                     generatetxt.Text = txt
                 End If
             End If
-
         End If
 
         If uppercasecb.Checked = False Then
@@ -159,7 +158,6 @@
             copybt.Enabled = True
         Else
             copybt.Enabled = False
-
         End If
     End Sub
 End Class

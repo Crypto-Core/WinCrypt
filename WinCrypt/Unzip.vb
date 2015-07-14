@@ -32,13 +32,10 @@ Public Class Unzip
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function UnzipNow() As Boolean
-        'prüfen ob der ordner existiert
         If Directory.Exists(_folder) = False Then
             Directory.CreateDirectory(_folder)
         End If
-        'event für start feuern
         RaiseEvent Unzipstart()
-        'entpacken
         Dim temp As Shell32.Folder = _shell.NameSpace((_folder))
         Try
             If temp IsNot Nothing Then
@@ -47,10 +44,7 @@ Public Class Unzip
         Catch ex As Exception
 
         End Try
-        
-        'event für ende feuern
         RaiseEvent UnzipFinishd()
-        'rückgabe wert setzen
         Return True
     End Function
 

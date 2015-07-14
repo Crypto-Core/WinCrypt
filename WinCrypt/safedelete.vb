@@ -36,9 +36,7 @@ Public Class safedelete
             Next
             SucheAlleOrdner(TextBox1.Text)
             deletfilelist.Items.Add(FolderBrowserDialog.SelectedPath)
-        Else
-
-        End If
+        Else : End If
     End Sub
     Private Sub SucheAlleOrdner(ByVal Pfad As String)
         Dim AlleOrdner() As String
@@ -124,7 +122,6 @@ Public Class safedelete
         Else
             statuslb.Text = "Status: " & deletfilelist.SelectedIndex + 1 & " von " & deletfilelist.Items.Count & " gelöscht"
         End If
-
         deletebt.Enabled = False
         combo = overwritecb.Text.Replace("x", "").ToString
         bgwrk.RunWorkerAsync()
@@ -157,9 +154,7 @@ Public Class safedelete
         If OpenFileDialog.FileName.Length > 0 Then
             deletfilelist.Items.Add(OpenFileDialog.FileName)
             OpenFileDialog.FileName = ""
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub deletefilelist_DragDrop(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles deletfilelist.DragDrop
@@ -179,9 +174,7 @@ Public Class safedelete
                         Next
                         SucheAlleOrdner(str)
                         deletfilelist.Items.Add(str)
-                    Else
-
-                    End If
+                    Else : End If
                 End If
             End If
         End If

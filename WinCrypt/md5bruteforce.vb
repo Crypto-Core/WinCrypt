@@ -27,9 +27,7 @@ Public Class md5bruteforce
                         Loop
                     End Using
                     ProgressBar1.Maximum = progmax
-                Else
-
-                End If
+                Else : End If
                 startbf_bt.Visible = False
                 stopbf_bt.Visible = True
                 status_lb.Visible = True
@@ -43,7 +41,6 @@ Public Class md5bruteforce
                 Else
                     MessageBox.Show("Die Passwortliste existiert nicht!", "Passwortliste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
-
             End If
         Else
             If langname.langname = "English" Then
@@ -51,7 +48,6 @@ Public Class md5bruteforce
             Else
                 MessageBox.Show("Bitte geben Sie einen MD5 Hash ein!", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-
         End If
 
     End Sub
@@ -59,9 +55,7 @@ Public Class md5bruteforce
         OpenFileDialog.ShowDialog()
         If My.Computer.FileSystem.FileExists(OpenFileDialog.FileName) Then
             file_txt.Text = OpenFileDialog.FileName
-        Else
-
-        End If
+        Else : End If
     End Sub
     Private Sub bgw_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles bgw.DoWork
         Dim Daten_lesen() As String = IO.File.ReadAllLines(file_txt.Text)
@@ -73,9 +67,7 @@ Public Class md5bruteforce
                 passstat = Daten_lesen(counter)
                 MsgBox("Crack it!", MsgBoxStyle.Exclamation)
                 Exit For
-            Else
-
-            End If
+            Else : End If
             hashstatus = md5.MD5StringHash(Daten_lesen(counter))
             testpw = Daten_lesen(counter)
             counter += 1
@@ -89,8 +81,7 @@ Public Class md5bruteforce
             status_lb.Text = "Status: [ " & counter & " ] passwords tested"
         End If
         md5lb.Text = "MD5: " & hashstatus
-        Label1.Text = "tested password: " & testpw
-
+        testedpw_lb.Text = "tested password: " & testpw
         If passstat = "" Then
         Else
             password_lb.Visible = True
@@ -127,7 +118,6 @@ Public Class md5bruteforce
         End If
 
     End Sub
-
     Private Sub stopbf_bt_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles stopbf_bt.Click
         bgw.CancelAsync()
         startbf_bt.Visible = True
@@ -149,20 +139,15 @@ Public Class md5bruteforce
             Me.Size = size2
         End If
     End Sub
-
     Private Sub progresstimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles progresstimer.Tick
         If progresscheck.Checked = True Then
             ProgressBar1.Value = counter
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         MsgBox(langname.langname)
-
     End Sub
-
     Private Sub md5_bruteforce_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         langname.check()
     End Sub

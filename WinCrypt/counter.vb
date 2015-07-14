@@ -13,7 +13,6 @@ Public Class counter
             setcount = httpContent + 1
             browser.Navigate("http://wincrypt.org/count/set.php?count=" & setcount)
         Catch ex As Exception
-
         End Try
     End Function
 End Class

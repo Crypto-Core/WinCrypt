@@ -15,7 +15,6 @@
                         If startwindow.iniread = "true" Then
                             filedecrypt.dencrypt.Enabled = True
                         End If
-
                     End If
                     If Pfad_des_gelinkten_Objects.Remove(0, Pfad_des_gelinkten_Objects.LastIndexOf(".")) = ".wcp" Then
                         startwindow.decrypt_filepath.Text = Pfad_des_gelinkten_Objects.ToString
@@ -27,10 +26,7 @@
                     MsgBox("Der Dateiname darf keine leerzeichen enthalten", MsgBoxStyle.Exclamation)
                 End Try
             Catch ex As Exception
-
             End Try
-
-
         End Sub
     End Class
 End Namespace

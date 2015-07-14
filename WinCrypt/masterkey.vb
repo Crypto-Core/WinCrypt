@@ -23,9 +23,7 @@
                 End If
             End If
         Catch ex As Exception
-
         End Try
-        
     End Sub
 
     Private Sub masterkey_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed

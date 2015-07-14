@@ -20,9 +20,7 @@
         End If
         If languagecb.Text = "English" Then
             iniwrite.WertSchreiben("Info", "Lang", "English")
-        Else
-
-        End If
+        Else : End If
         Dim keyaes As New AES
         Dim lGuid As System.Runtime.InteropServices.GuidAttribute
         lGuid = DirectCast(System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes( _
@@ -67,19 +65,14 @@
         End If
         If ini.WertLesen("Info", "Shortcut") = "minimized" Then
             startminwincryptrb.Checked = True
-        Else
-
-        End If
+        Else : End If
         If ini.WertLesen("Info", "Shortcut") = "normal" Then
             startnormalwincrypt.Checked = True
-        Else
-
-        End If
+        Else : End If
         If My.Computer.FileSystem.FileExists("C:\Users\" & Environment.UserName & "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WinCrypt.lnk") Then
             startwincb.Checked = True
         Else
             startwincb.Checked = False
-
         End If
         If iniwrite.WertLesen("Info", "Lang") = "English" Then
             languagecb.Text = "English"
@@ -88,7 +81,6 @@
             languagecb.Text = "Deutsch"
         End If
     End Sub
-
     Private Sub startwincb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startwincb.CheckedChanged
         If startwincb.Checked = True Then
             MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe", "C:\Users\" & Environment.UserName & "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt", My.Application.Info.DirectoryPath)
@@ -102,12 +94,8 @@
             If startwincb.Checked = True Then
                 MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe", "C:\Users\" & Environment.UserName & "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt", My.Application.Info.DirectoryPath)
                 ini.WertSchreiben("Info", "Shortcut", "minimized")
-            Else
-
-            End If
-        Else
-
-        End If
+            Else : End If
+        Else : End If
     End Sub
 
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startnormalwincrypt.CheckedChanged
@@ -115,9 +103,7 @@
             If startwincb.Checked = True Then
                 MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe", "C:\Users\" & Environment.UserName & "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt", My.Application.Info.DirectoryPath)
                 ini.WertSchreiben("Info", "Shortcut", "normal")
-            Else
-
-            End If
+            Else : End If
         End If
     End Sub
 
@@ -148,8 +134,6 @@
                   System.Runtime.InteropServices.GuidAttribute)
         If My.Settings.Masterkey = True Then
             key_txt.Text = readkey.AESDecrypt(iniwrite.WertLesen("Key", "master"), bios, lGuid.Value)
-        Else
-
-        End If
+        Else : End If
     End Sub
 End Class

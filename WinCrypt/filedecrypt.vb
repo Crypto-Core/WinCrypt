@@ -7,9 +7,7 @@
             passwordtxt.Enabled = True
             If startwindow.iniread = "yes" Then
                 dencrypt.Enabled = True
-            Else
-
-            End If
+            Else : End If
         End If
     End Sub
 
@@ -25,7 +23,6 @@
                 dencrypt.Enabled = False
             Else
                 dencrypt.Enabled = True
-
             End If
         End If
     End Sub
@@ -37,7 +34,6 @@
                 If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\"))) Then
                     CryptoStuff.DecryptFile(startwindow.biosid, filetxt.Text, pathtxt.Text)
                     My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
-
                     If startwindow.langname = "English" Then
                         statuslb.Text = "File " & i.Substring(1, i.Length - 1) & " was decrypted!!"
                     Else
@@ -74,13 +70,8 @@
                     passwordtxt.Enabled = False
                     savefile.Enabled = False
                     dencrypt.Enabled = False
-                Else
-
-                End If
-
-            Else
-
-            End If
+                Else : End If
+            Else : End If
         End If
 
     End Sub
@@ -155,9 +146,7 @@
         If My.Computer.FileSystem.FileExists(filetxt.Text) Then
             pathtxt.Enabled = True
             savefile.Enabled = True
-        Else
-
-        End If
+        Else : End If
     End Sub
 
     Private Sub openfile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles openfile.Click
@@ -166,8 +155,6 @@
             filetxt.Text = OpenFileDialog.FileName
             pathtxt.Enabled = True
             savefile.Enabled = True
-        Else
-
-        End If
+        Else : End If
     End Sub
 End Class
