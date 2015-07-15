@@ -109,22 +109,28 @@ Partial Class sendmail
         'file_bt
         '
         Me.file_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.file_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.file_bt.FlatAppearance.BorderSize = 0
+        Me.file_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.file_bt.Location = New System.Drawing.Point(458, 414)
         Me.file_bt.Name = "file_bt"
         Me.file_bt.Size = New System.Drawing.Size(75, 23)
         Me.file_bt.TabIndex = 7
         Me.file_bt.Text = "Öffnen"
-        Me.file_bt.UseVisualStyleBackColor = True
+        Me.file_bt.UseVisualStyleBackColor = False
         '
         'sendmail_bt
         '
         Me.sendmail_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.sendmail_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.sendmail_bt.FlatAppearance.BorderSize = 0
+        Me.sendmail_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.sendmail_bt.Location = New System.Drawing.Point(666, 414)
         Me.sendmail_bt.Name = "sendmail_bt"
         Me.sendmail_bt.Size = New System.Drawing.Size(75, 23)
         Me.sendmail_bt.TabIndex = 8
         Me.sendmail_bt.Text = "Senden"
-        Me.sendmail_bt.UseVisualStyleBackColor = True
+        Me.sendmail_bt.UseVisualStyleBackColor = False
         '
         'Label1
         '

@@ -46,22 +46,28 @@ Partial Class passwordmanager
         'add_bt
         '
         Me.add_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.add_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.add_bt.FlatAppearance.BorderSize = 0
+        Me.add_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_bt.Location = New System.Drawing.Point(174, 399)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(75, 23)
         Me.add_bt.TabIndex = 1
         Me.add_bt.Text = "Hinzufügen"
-        Me.add_bt.UseVisualStyleBackColor = True
+        Me.add_bt.UseVisualStyleBackColor = False
         '
         'delete_bt
         '
         Me.delete_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.delete_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.delete_bt.FlatAppearance.BorderSize = 0
+        Me.delete_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.delete_bt.Location = New System.Drawing.Point(12, 399)
         Me.delete_bt.Name = "delete_bt"
         Me.delete_bt.Size = New System.Drawing.Size(75, 23)
         Me.delete_bt.TabIndex = 2
         Me.delete_bt.Text = "Löschen"
-        Me.delete_bt.UseVisualStyleBackColor = True
+        Me.delete_bt.UseVisualStyleBackColor = False
         '
         'ListView1
         '
@@ -166,42 +172,54 @@ Partial Class passwordmanager
         'save_bt
         '
         Me.save_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.save_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.save_bt.FlatAppearance.BorderSize = 0
+        Me.save_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.save_bt.Location = New System.Drawing.Point(633, 399)
         Me.save_bt.Name = "save_bt"
         Me.save_bt.Size = New System.Drawing.Size(75, 23)
         Me.save_bt.TabIndex = 12
         Me.save_bt.Text = "Speichern"
-        Me.save_bt.UseVisualStyleBackColor = True
+        Me.save_bt.UseVisualStyleBackColor = False
         '
         'copy_user_bt
         '
         Me.copy_user_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.copy_user_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.copy_user_bt.FlatAppearance.BorderSize = 0
+        Me.copy_user_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_user_bt.Location = New System.Drawing.Point(647, 10)
         Me.copy_user_bt.Name = "copy_user_bt"
         Me.copy_user_bt.Size = New System.Drawing.Size(61, 23)
         Me.copy_user_bt.TabIndex = 13
         Me.copy_user_bt.Text = "Kopieren"
-        Me.copy_user_bt.UseVisualStyleBackColor = True
+        Me.copy_user_bt.UseVisualStyleBackColor = False
         '
         'copy_password_bt
         '
         Me.copy_password_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.copy_password_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.copy_password_bt.FlatAppearance.BorderSize = 0
+        Me.copy_password_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_password_bt.Location = New System.Drawing.Point(647, 36)
         Me.copy_password_bt.Name = "copy_password_bt"
         Me.copy_password_bt.Size = New System.Drawing.Size(61, 23)
         Me.copy_password_bt.TabIndex = 14
         Me.copy_password_bt.Text = "Kopieren"
-        Me.copy_password_bt.UseVisualStyleBackColor = True
+        Me.copy_password_bt.UseVisualStyleBackColor = False
         '
         'copy_source_bt
         '
         Me.copy_source_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.copy_source_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.copy_source_bt.FlatAppearance.BorderSize = 0
+        Me.copy_source_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_source_bt.Location = New System.Drawing.Point(647, 62)
         Me.copy_source_bt.Name = "copy_source_bt"
         Me.copy_source_bt.Size = New System.Drawing.Size(61, 23)
         Me.copy_source_bt.TabIndex = 15
         Me.copy_source_bt.Text = "Kopieren"
-        Me.copy_source_bt.UseVisualStyleBackColor = True
+        Me.copy_source_bt.UseVisualStyleBackColor = False
         '
         'passwordmanager
         '

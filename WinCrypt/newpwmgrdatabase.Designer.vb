@@ -30,12 +30,15 @@ Partial Class newpwmgrdatabase
         '
         'createdb_bt
         '
+        Me.createdb_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.createdb_bt.FlatAppearance.BorderSize = 0
+        Me.createdb_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.createdb_bt.Location = New System.Drawing.Point(209, 49)
         Me.createdb_bt.Name = "createdb_bt"
         Me.createdb_bt.Size = New System.Drawing.Size(128, 23)
         Me.createdb_bt.TabIndex = 0
         Me.createdb_bt.Text = "Datenbank anlegen"
-        Me.createdb_bt.UseVisualStyleBackColor = True
+        Me.createdb_bt.UseVisualStyleBackColor = False
         '
         'password_lb
         '

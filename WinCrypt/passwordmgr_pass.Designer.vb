@@ -30,12 +30,15 @@ Partial Class passwordmgr_pass
         '
         'ok_bt
         '
+        Me.ok_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.ok_bt.FlatAppearance.BorderSize = 0
+        Me.ok_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ok_bt.Location = New System.Drawing.Point(145, 51)
         Me.ok_bt.Name = "ok_bt"
         Me.ok_bt.Size = New System.Drawing.Size(75, 23)
         Me.ok_bt.TabIndex = 0
         Me.ok_bt.Text = "Ok"
-        Me.ok_bt.UseVisualStyleBackColor = True
+        Me.ok_bt.UseVisualStyleBackColor = False
         '
         'password_txt
         '
