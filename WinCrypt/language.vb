@@ -37,6 +37,8 @@
             startwindow.KeyErstellenToolStripMenuItem.Text = "create key's"
             startwindow.EMailSendenToolStripMenuItem.Text = "send e-mail"
             startwindow.EMailSendenToolStripMenuItem1.Text = "send e-mail"
+            startwindow.PasswortmanagerToolStripMenuItem1.Text = "passwordmanager"
+            startwindow.PasswortmanagerToolStripMenuItem.Text = "passwordmanager"
 
             'masterkey.vb
             masterkey.abort_bt.Text = "abort"
@@ -151,7 +153,38 @@
             sendmail.file_bt.Text = "open"
             sendmail.sendmail_bt.Text = "send"
 
+            'passwordmanager.vb
+            passwordmanager.Text = "passwordmanager"
+            passwordmanager.ColumnHeader1.Text = "user"
+            passwordmanager.ColumnHeader2.Text = "source"
+            passwordmanager.ColumnHeader3.Text = "index"
+            passwordmanager.delete_bt.Text = "delete"
+            passwordmanager.add_bt.Text = "add"
+            passwordmanager.user_lb.Text = "user:"
+            passwordmanager.password_lb.Text = "password:"
+            passwordmanager.source_lb.Text = "source:"
+            passwordmanager.comment_lb.Text = "comment"
+            passwordmanager.save_bt.Text = "save"
+            passwordmanager.copy_user_bt.Text = "copy"
+            passwordmanager.copy_source_bt.Text = "copy"
+            passwordmanager.copy_password_bt.Text = "copy"
 
+            'newpwmgrdatabase.vb
+            newpwmgrdatabase.Text = "create database"
+            newpwmgrdatabase.createdb_bt.Text = "create database"
+            newpwmgrdatabase.password_lb.Text = "password:"
+
+            'Passwordmanager_add.vb
+            passwordmanager_add.Text = "passwordmanager - add"
+            passwordmanager_add.user_lb.Text = "user:"
+            passwordmanager_add.password_lb.Text = "password:"
+            passwordmanager_add.source_lb.Text = "source:"
+            passwordmanager_add.comment_lb.Text = "comment"
+            passwordmanager_add.add_bt.Text = "add"
+
+            'passwordmgr_pass.vb
+            passwordmgr_pass.Text = "passwordmanager - password"
+            passwordmgr_pass.password_lb.Text = "password:"
         End If
 
 
@@ -190,6 +223,8 @@
             startwindow.KeyErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
             startwindow.EMailSendenToolStripMenuItem.Text = "E-Mail Senden"
             startwindow.EMailSendenToolStripMenuItem1.Text = "E-Mail Senden"
+            startwindow.PasswortmanagerToolStripMenuItem1.Text = "Passwortmanager"
+            startwindow.PasswortmanagerToolStripMenuItem.Text = "Passwortmanager"
 
             'rsa_encrypt.vb
             rsa_encrypt.pubkey_path_bt.Text = "Öffnen"
@@ -305,6 +340,39 @@
             sendmail.file_txt.Location = New System.Drawing.Point(65, 416)
             sendmail.file_bt.Text = "Öffnen"
             sendmail.sendmail_bt.Text = "Senden"
+
+            'passwordmanager.vb
+            passwordmanager.Text = "Passwortmanager"
+            passwordmanager.ColumnHeader1.Text = "Benutzer"
+            passwordmanager.ColumnHeader2.Text = "Quelle"
+            passwordmanager.ColumnHeader3.Text = "Index"
+            passwordmanager.delete_bt.Text = "Löschen"
+            passwordmanager.add_bt.Text = "Hinzufügen"
+            passwordmanager.user_lb.Text = "Benutzer:"
+            passwordmanager.password_lb.Text = "Passwort:"
+            passwordmanager.source_lb.Text = "Quelle:"
+            passwordmanager.comment_lb.Text = "Kommentar"
+            passwordmanager.save_bt.Text = "Speichern"
+            passwordmanager.copy_user_bt.Text = "Kopieren"
+            passwordmanager.copy_source_bt.Text = "Kopieren"
+            passwordmanager.copy_password_bt.Text = "Kopieren"
+
+            'newpwmgrdatabase.vb
+            newpwmgrdatabase.Text = "Datenbank erstellen"
+            newpwmgrdatabase.createdb_bt.Text = "Datenbank erstellen"
+            newpwmgrdatabase.password_lb.Text = "Passwort:"
+
+            'Passwordmanager_add.vb
+            passwordmanager_add.Text = "Passwortmanager - Hinzufügen"
+            passwordmanager_add.user_lb.Text = "Benutzer:"
+            passwordmanager_add.password_lb.Text = "Passwort:"
+            passwordmanager_add.source_lb.Text = "Quelle:"
+            passwordmanager_add.comment_lb.Text = "Kommentar"
+            passwordmanager_add.add_bt.Text = "Hinzufügen"
+
+            'passwordmgr_pass.vb
+            passwordmgr_pass.Text = "Passwortmanager - Passwort"
+            passwordmgr_pass.password_lb.Text = "Passwort:"
 
         End If
     End Function

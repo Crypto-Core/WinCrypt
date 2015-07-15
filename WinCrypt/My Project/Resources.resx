@@ -121,8 +121,14 @@
   <data name="1436373782_eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436373782_eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1436408107_document-binary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1436408107_document-binary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1436407718_Lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1436407718_Lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1436371220_cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1436371220_cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drive-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drive-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vista_DeviceDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista_DeviceDisconnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -136,14 +142,14 @@
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1436868489_mail-message-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1436868489_mail-message-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Vista_DeviceConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista_DeviceConnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="crypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\crypt.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Navigate_up_arrow_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Navigate_up_arrow_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1436407942_ui_text_field_password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436407942_ui_text_field_password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,23 +160,20 @@
   <data name="1436408065_file-binary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436408065_file-binary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1436371220_cog" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1436371220_cog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1436408107_document-binary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1436408107_document-binary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1436371621_f-cross_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436371621_f-cross_256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Arrow_down_sign_to_navigate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arrow_down_sign_to_navigate_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1436371338_key--arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436371338_key--arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Interop_Shell32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interop.Shell32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="wcp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wcp.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arrow_down_sign_to_navigate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arrow_down_sign_to_navigate_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Navigate_up_arrow_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Navigate_up_arrow_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1436371799_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436371799_update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,16 +187,16 @@
   <data name="1436371252_Close_Box_Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436371252_Close_Box_Red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1436407718_Lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1436407718_Lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Interop_Shell32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interop.Shell32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Drive-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Drive-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wcp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wcp.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1436371705_Information" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1436371705_Information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1436868489_mail-message-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1436868489_mail-message-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1436930846_system-file-manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1436930846_system-file-manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

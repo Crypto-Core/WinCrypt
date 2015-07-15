@@ -848,4 +848,12 @@ Public Class startwindow
     Private Sub EMailSendenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EMailSendenToolStripMenuItem1.Click
         sendmail.Show()
     End Sub
+
+    Private Sub PasswortmanagerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem.Click
+        passwordmanager.ShowDialog()
+    End Sub
+
+    Private Sub PasswortmanagerToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem1.Click
+        passwordmanager.ShowDialog()
+    End Sub
 End Class

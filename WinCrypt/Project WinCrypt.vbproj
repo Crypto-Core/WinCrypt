@@ -196,6 +196,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="newpwmgrdatabase.Designer.vb">
+      <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newpwmgrdatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passwordmanager.Designer.vb">
+      <DependentUpon>passwordmanager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="passwordmanager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passwordmanager_add.Designer.vb">
+      <DependentUpon>passwordmanager_add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="passwordmanager_add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passwordmgr_pass.Designer.vb">
+      <DependentUpon>passwordmgr_pass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="passwordmgr_pass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RSA.vb" />
     <Compile Include="rsa_create_keys.Designer.vb">
       <DependentUpon>rsa_create_keys.vb</DependentUpon>
@@ -293,6 +317,18 @@
     <EmbeddedResource Include="md5main.resx">
       <DependentUpon>md5main.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="newpwmgrdatabase.resx">
+      <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passwordmanager.resx">
+      <DependentUpon>passwordmanager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passwordmanager_add.resx">
+      <DependentUpon>passwordmanager_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passwordmgr_pass.resx">
+      <DependentUpon>passwordmgr_pass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rsa_create_keys.resx">
       <DependentUpon>rsa_create_keys.vb</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +402,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1436930846_system-file-manager.png" />
     <None Include="Resources\1436868489_mail-message-new.png" />
     <None Include="Resources\1436408107_document-binary.png" />
     <None Include="Resources\1436408065_file-binary.png" />
@@ -385,6 +422,7 @@
     <None Include="Resources\wcp.ico" />
     <None Include="bin\Debug\icon.ico" />
     <None Include="bin\Debug\regist.exe" />
+    <None Include="1433794214_Hard_drive_256x256-32.png" />
     <Content Include="Drive-icon.ico" />
     <None Include="Drive-icon.png" />
     <None Include="Resources\Interop.Shell32.dll" />

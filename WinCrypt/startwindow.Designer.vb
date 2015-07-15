@@ -70,6 +70,8 @@ Partial Class startwindow
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.EMailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EMailSendenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PasswortmanagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.SystemidentifikationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -91,6 +93,15 @@ Partial Class startwindow
         Me.MD5ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MD5KonverterToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MD5BruteforceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RSAToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SchlüsselErstellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.EMailToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EMailSendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PasswortmanagerToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.SystemidentifikationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
@@ -99,13 +110,6 @@ Partial Class startwindow
         Me.DateienSicherLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ÖffnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RSAToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VerschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EntschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SchlüsselErstellenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EMailToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EMailSendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.encrypt_gb.SuspendLayout()
         Me.mount_gb.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -456,7 +460,7 @@ Partial Class startwindow
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem, Me.DateiEntschlüsselnToolStripMenuItem, Me.ToolStripSeparator1, Me.TextVerschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem, Me.RSAToolStripMenuItem, Me.ToolStripSeparator2, Me.EMailToolStripMenuItem, Me.ToolStripSeparator9, Me.SystemidentifikationToolStripMenuItem, Me.ToolStripSeparator3, Me.PasswortgeneratorToolStripMenuItem, Me.ToolStripSeparator4, Me.DateiSicherLöschenToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem, Me.DateiEntschlüsselnToolStripMenuItem, Me.ToolStripSeparator1, Me.TextVerschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem, Me.RSAToolStripMenuItem, Me.ToolStripSeparator2, Me.EMailToolStripMenuItem, Me.ToolStripSeparator11, Me.PasswortmanagerToolStripMenuItem, Me.ToolStripSeparator9, Me.SystemidentifikationToolStripMenuItem, Me.ToolStripSeparator3, Me.PasswortgeneratorToolStripMenuItem, Me.ToolStripSeparator4, Me.DateiSicherLöschenToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
@@ -550,8 +554,20 @@ Partial Class startwindow
         'EMailSendenToolStripMenuItem
         '
         Me.EMailSendenToolStripMenuItem.Name = "EMailSendenToolStripMenuItem"
-        Me.EMailSendenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EMailSendenToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.EMailSendenToolStripMenuItem.Text = "E-Mail Senden"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(214, 6)
+        '
+        'PasswortmanagerToolStripMenuItem
+        '
+        Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436930846_system_file_manager
+        Me.PasswortmanagerToolStripMenuItem.Name = "PasswortmanagerToolStripMenuItem"
+        Me.PasswortmanagerToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.PasswortmanagerToolStripMenuItem.Text = "Passwortmanager"
         '
         'ToolStripSeparator9
         '
@@ -638,7 +654,7 @@ Partial Class startwindow
         '
         'ToolsToolStripMenuItem1
         '
-        Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem1, Me.DateiEntschlüsselnToolStripMenuItem1, Me.ToolStripSeparator5, Me.TextVerUndEntschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem1, Me.RSAToolStripMenuItem1, Me.ToolStripSeparator10, Me.EMailToolStripMenuItem1, Me.ToolStripSeparator6, Me.SystemidentifikationToolStripMenuItem1, Me.ToolStripSeparator7, Me.PasswortGeneratorToolStripMenuItem1, Me.ToolStripSeparator8, Me.DateienSicherLöschenToolStripMenuItem})
+        Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem1, Me.DateiEntschlüsselnToolStripMenuItem1, Me.ToolStripSeparator5, Me.TextVerUndEntschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem1, Me.RSAToolStripMenuItem1, Me.ToolStripSeparator10, Me.EMailToolStripMenuItem1, Me.ToolStripSeparator12, Me.PasswortmanagerToolStripMenuItem1, Me.ToolStripSeparator6, Me.SystemidentifikationToolStripMenuItem1, Me.ToolStripSeparator7, Me.PasswortGeneratorToolStripMenuItem1, Me.ToolStripSeparator8, Me.DateienSicherLöschenToolStripMenuItem})
         Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
         Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ToolsToolStripMenuItem1.Text = "Tools"
@@ -688,6 +704,65 @@ Partial Class startwindow
         Me.MD5BruteforceToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.MD5BruteforceToolStripMenuItem.Text = "MD5 Brute-force"
         '
+        'RSAToolStripMenuItem1
+        '
+        Me.RSAToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerschlüsselnToolStripMenuItem1, Me.EntschlüsselnToolStripMenuItem1, Me.SchlüsselErstellenToolStripMenuItem})
+        Me.RSAToolStripMenuItem1.Name = "RSAToolStripMenuItem1"
+        Me.RSAToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
+        Me.RSAToolStripMenuItem1.Text = "RSA"
+        '
+        'VerschlüsselnToolStripMenuItem1
+        '
+        Me.VerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.VerschlüsselnToolStripMenuItem1.Name = "VerschlüsselnToolStripMenuItem1"
+        Me.VerschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
+        Me.VerschlüsselnToolStripMenuItem1.Text = "Verschlüsseln"
+        '
+        'EntschlüsselnToolStripMenuItem1
+        '
+        Me.EntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.EntschlüsselnToolStripMenuItem1.Name = "EntschlüsselnToolStripMenuItem1"
+        Me.EntschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
+        Me.EntschlüsselnToolStripMenuItem1.Text = "Entschlüsseln"
+        '
+        'SchlüsselErstellenToolStripMenuItem
+        '
+        Me.SchlüsselErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371338_key__arrow
+        Me.SchlüsselErstellenToolStripMenuItem.Name = "SchlüsselErstellenToolStripMenuItem"
+        Me.SchlüsselErstellenToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.SchlüsselErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(214, 6)
+        '
+        'EMailToolStripMenuItem1
+        '
+        Me.EMailToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem1})
+        Me.EMailToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436868489_mail_message_new
+        Me.EMailToolStripMenuItem1.Name = "EMailToolStripMenuItem1"
+        Me.EMailToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
+        Me.EMailToolStripMenuItem1.Text = "E-Mail"
+        '
+        'EMailSendenToolStripMenuItem1
+        '
+        Me.EMailSendenToolStripMenuItem1.Name = "EMailSendenToolStripMenuItem1"
+        Me.EMailSendenToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.EMailSendenToolStripMenuItem1.Text = "E-Mail Senden"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(214, 6)
+        '
+        'PasswortmanagerToolStripMenuItem1
+        '
+        Me.PasswortmanagerToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436930846_system_file_manager
+        Me.PasswortmanagerToolStripMenuItem1.Name = "PasswortmanagerToolStripMenuItem1"
+        Me.PasswortmanagerToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
+        Me.PasswortmanagerToolStripMenuItem1.Text = "Passwortmanager"
+        '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
@@ -736,53 +811,6 @@ Partial Class startwindow
         Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
         Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.BeendenToolStripMenuItem1.Text = "Beenden"
-        '
-        'RSAToolStripMenuItem1
-        '
-        Me.RSAToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerschlüsselnToolStripMenuItem1, Me.EntschlüsselnToolStripMenuItem1, Me.SchlüsselErstellenToolStripMenuItem})
-        Me.RSAToolStripMenuItem1.Name = "RSAToolStripMenuItem1"
-        Me.RSAToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
-        Me.RSAToolStripMenuItem1.Text = "RSA"
-        '
-        'VerschlüsselnToolStripMenuItem1
-        '
-        Me.VerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
-        Me.VerschlüsselnToolStripMenuItem1.Name = "VerschlüsselnToolStripMenuItem1"
-        Me.VerschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
-        Me.VerschlüsselnToolStripMenuItem1.Text = "Verschlüsseln"
-        '
-        'EntschlüsselnToolStripMenuItem1
-        '
-        Me.EntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
-        Me.EntschlüsselnToolStripMenuItem1.Name = "EntschlüsselnToolStripMenuItem1"
-        Me.EntschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
-        Me.EntschlüsselnToolStripMenuItem1.Text = "Entschlüsseln"
-        '
-        'SchlüsselErstellenToolStripMenuItem
-        '
-        Me.SchlüsselErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371338_key__arrow
-        Me.SchlüsselErstellenToolStripMenuItem.Name = "SchlüsselErstellenToolStripMenuItem"
-        Me.SchlüsselErstellenToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.SchlüsselErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
-        '
-        'EMailToolStripMenuItem1
-        '
-        Me.EMailToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem1})
-        Me.EMailToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436868489_mail_message_new
-        Me.EMailToolStripMenuItem1.Name = "EMailToolStripMenuItem1"
-        Me.EMailToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
-        Me.EMailToolStripMenuItem1.Text = "E-Mail"
-        '
-        'EMailSendenToolStripMenuItem1
-        '
-        Me.EMailSendenToolStripMenuItem1.Name = "EMailSendenToolStripMenuItem1"
-        Me.EMailSendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.EMailSendenToolStripMenuItem1.Text = "E-Mail Senden"
-        '
-        'ToolStripSeparator10
-        '
-        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(214, 6)
         '
         'startwindow
         '
@@ -896,5 +924,9 @@ Partial Class startwindow
     Friend WithEvents ToolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents EMailToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EMailSendenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents PasswortmanagerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents PasswortmanagerToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

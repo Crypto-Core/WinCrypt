@@ -50,20 +50,28 @@ Public Class AES
         SymmetricKey.Mode = CipherMode.CBC
         Dim PlainTextBytes As Byte() = New Byte(CipherTextBytes.Length - 1) {}
         Dim ByteCount As Integer = 0
-        Using Decryptor As ICryptoTransform = SymmetricKey.CreateDecryptor(KeyBytes, InitialVectorBytes)
-            Using MemStream As MemoryStream = New MemoryStream(CipherTextBytes)
-                Try
+        Try
+            Using Decryptor As ICryptoTransform = SymmetricKey.CreateDecryptor(KeyBytes, InitialVectorBytes)
+                Using MemStream As MemoryStream = New MemoryStream(CipherTextBytes)
+
                     Using CryptoStream As CryptoStream = New CryptoStream(MemStream, Decryptor, CryptoStreamMode.Read)
                         ByteCount = CryptoStream.Read(PlainTextBytes, 0, PlainTextBytes.Length)
                         MemStream.Close()
                         CryptoStream.Close()
                     End Using
-                Catch ex As Exception
-                    MsgBox("Falsches Passwort!", MsgBoxStyle.Exclamation)
-                End Try
+
+                End Using
             End Using
-        End Using
-        SymmetricKey.Clear()
-        Return Encoding.UTF8.GetString(PlainTextBytes, 0, ByteCount)
+            SymmetricKey.Clear()
+            Return Encoding.UTF8.GetString(PlainTextBytes, 0, ByteCount)
+        Catch ex As Exception
+            If startwindow.langname = "English" Then
+                MsgBox("Wrong password!", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Falsches Passwort!", MsgBoxStyle.Exclamation)
+            End If
+            Return "error"
+        End Try
+        
     End Function
 End Class
