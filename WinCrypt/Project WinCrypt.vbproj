@@ -402,6 +402,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="regist\regist\bin\Debug\regist.exe" />
     <None Include="Resources\1436930846_system-file-manager.png" />
     <None Include="Resources\1436868489_mail-message-new.png" />
     <None Include="Resources\1436408107_document-binary.png" />
