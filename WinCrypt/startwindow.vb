@@ -502,7 +502,11 @@ Public Class startwindow
             systemtray.Visible = True
             Me.Hide()
             systemtray.BalloonTipIcon = ToolTipIcon.Info
-            systemtray.BalloonTipText = "Laufwerk " & drivecb.Text & " ist eingebunden." & vbCrLf & "WinCrypt läuft im hintergrund!"
+            If langname = "English" Then
+                systemtray.BalloonTipText = drivecb.Text & "C: \ drive is embedded." & vbCrLf & "WinCrypt runs in the background!"
+            Else
+                systemtray.BalloonTipText = "Laufwerk " & drivecb.Text & " ist eingebunden." & vbCrLf & "WinCrypt läuft im hintergrund!"
+            End If
             systemtray.BalloonTipTitle = "WinCrypt"
             systemtray.ShowBalloonTip(3000)
         Else
@@ -638,7 +642,11 @@ Public Class startwindow
             systemtray.Visible = True
             Me.Hide()
             systemtray.BalloonTipIcon = ToolTipIcon.Info
-            systemtray.BalloonTipText = "WinCrypt läuft im hintergrund!"
+            If langname = "English" Then
+                systemtray.BalloonTipText = "WinCrypt runs in the background!"
+            Else
+                systemtray.BalloonTipText = "WinCrypt läuft im hintergrund!"
+            End If
             systemtray.BalloonTipTitle = "WinCrypt"
             systemtray.ShowBalloonTip(3000)
         End If
@@ -670,7 +678,6 @@ Public Class startwindow
                     mount.Enabled = True
                 End If
             End If
-
         End If
     End Sub
 
@@ -865,9 +872,17 @@ Public Class startwindow
             Catch ex As Exception
                 MsgBox(ErrorToString)
             End Try
-            MsgBox("Datenbank wurde erfolgreich Exportiert!", MsgBoxStyle.Information)
+            If langname = "English" Then
+                MsgBox("Database has been exported successfully!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Datenbank wurde erfolgreich exportiert!", MsgBoxStyle.Information)
+            End If
         Else
-            MsgBox("Es wurde noch keine Datenbank angelegt!" & vbCrLf & "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", MsgBoxStyle.Exclamation)
+            If langname = "English" Then
+                MsgBox("It has not yet created any database!" & vbCrLf & "Specify in advance a database to be able to export them to.", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Es wurde noch keine Datenbank angelegt!" & vbCrLf & "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", MsgBoxStyle.Exclamation)
+            End If
         End If
     End Sub
 
@@ -875,24 +890,159 @@ Public Class startwindow
         OpenFileDialog2.ShowDialog()
         If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
             If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
-                If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                    My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                If langname = "English" Then
+                    If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                            MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                    Else : End If
+                Else
+                    If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                            MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                    Else : End If
+                End If
+            Else
+                My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                If langname = "English" Then
+                    MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                Else
                     MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
-                Else : End If
+                End If
             End If
         Else : End If
     End Sub
 
     Private Sub DatenbankLöschenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatenbankLöschenToolStripMenuItem.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
-            If MsgBox("Wollen Sie wirklich die Dantenbank löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
-                MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+            If langname = "English" Then
+                If MsgBox("Do you really want to drop the database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    If langname = "English" Then
+                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                    End If
+                Else
+                    If langname = "English" Then
+                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                    End If
+                End If
             Else
-                MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                If MsgBox("Wollen Sie wirklich die Datenbank löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    If langname = "English" Then
+                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                    End If
+                Else
+                    If langname = "English" Then
+                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                    End If
+                End If
+            End If
+            
+        Else
+            If langname = "English" Then
+                MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Es wurde noch keine Datenbank angelegt um diese zu löschen!", MsgBoxStyle.Exclamation)
+            End If
+        End If
+    End Sub
+
+    Private Sub DatenbankExportierenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DatenbankExportierenToolStripMenuItem1.Click
+        If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            SaveFileDialog1.ShowDialog()
+            Try
+                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", SaveFileDialog1.FileName)
+            Catch ex As Exception
+                MsgBox(ErrorToString)
+            End Try
+            If langname = "English" Then
+                MsgBox("Database has been exported successfully!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Datenbank wurde erfolgreich exportiert!", MsgBoxStyle.Information)
             End If
         Else
-            MsgBox("Es wurde noch keine Datenbank angelegt um diese zu löschen!", MsgBoxStyle.Exclamation)
+            If langname = "English" Then
+                MsgBox("It has not yet created any database!" & vbCrLf & "Specify in advance a database to be able to export them to.", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Es wurde noch keine Datenbank angelegt!" & vbCrLf & "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", MsgBoxStyle.Exclamation)
+            End If
         End If
+    End Sub
+
+    Private Sub DatenbankLöschenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DatenbankLöschenToolStripMenuItem1.Click
+        If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            If langname = "English" Then
+                If MsgBox("Do you really want to drop the database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    If langname = "English" Then
+                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                    End If
+                Else
+                    If langname = "English" Then
+                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                    End If
+                End If
+            Else
+                If MsgBox("Wollen Sie wirklich die Datenbank löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    If langname = "English" Then
+                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                    End If
+                Else
+                    If langname = "English" Then
+                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                    End If
+                End If
+            End If
+
+        Else
+            If langname = "English" Then
+                MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Es wurde noch keine Datenbank angelegt um diese zu löschen!", MsgBoxStyle.Exclamation)
+            End If
+        End If
+    End Sub
+
+    Private Sub DatenbankImportierenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DatenbankImportierenToolStripMenuItem1.Click
+        OpenFileDialog2.ShowDialog()
+        If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
+            If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+                If langname = "English" Then
+                    If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                    Else : End If
+                Else
+                    If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                    Else : End If
+                End If
+            Else
+                My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                If langname = "English" Then
+                    MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                Else
+                    MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                End If
+            End If
+        Else : End If
     End Sub
 End Class
