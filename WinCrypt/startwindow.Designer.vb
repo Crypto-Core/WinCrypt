@@ -110,6 +110,11 @@ Partial Class startwindow
         Me.DateienSicherLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ÖffnenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatenbankExportierenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatenbankImportierenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatenbankLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.encrypt_gb.SuspendLayout()
         Me.mount_gb.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -564,6 +569,7 @@ Partial Class startwindow
         '
         'PasswortmanagerToolStripMenuItem
         '
+        Me.PasswortmanagerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatenbankExportierenToolStripMenuItem, Me.DatenbankImportierenToolStripMenuItem, Me.DatenbankLöschenToolStripMenuItem})
         Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436930846_system_file_manager
         Me.PasswortmanagerToolStripMenuItem.Name = "PasswortmanagerToolStripMenuItem"
         Me.PasswortmanagerToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
@@ -636,27 +642,27 @@ Partial Class startwindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.ToolsToolStripMenuItem1, Me.ÖffnenToolStripMenuItem, Me.BeendenToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 136)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(121, 114)
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371705_Information
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'UpdateToolStripMenuItem1
         '
         Me.UpdateToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371799_update
         Me.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1"
-        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.UpdateToolStripMenuItem1.Text = "Update"
         '
         'ToolsToolStripMenuItem1
         '
         Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem1, Me.DateiEntschlüsselnToolStripMenuItem1, Me.ToolStripSeparator5, Me.TextVerUndEntschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem1, Me.RSAToolStripMenuItem1, Me.ToolStripSeparator10, Me.EMailToolStripMenuItem1, Me.ToolStripSeparator12, Me.PasswortmanagerToolStripMenuItem1, Me.ToolStripSeparator6, Me.SystemidentifikationToolStripMenuItem1, Me.ToolStripSeparator7, Me.PasswortGeneratorToolStripMenuItem1, Me.ToolStripSeparator8, Me.DateienSicherLöschenToolStripMenuItem})
         Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
-        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.ToolsToolStripMenuItem1.Text = "Tools"
         '
         'DateiVerschlüsselnToolStripMenuItem1
@@ -802,15 +808,42 @@ Partial Class startwindow
         'ÖffnenToolStripMenuItem
         '
         Me.ÖffnenToolStripMenuItem.Name = "ÖffnenToolStripMenuItem"
-        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.ÖffnenToolStripMenuItem.Text = "Öffnen"
         '
         'BeendenToolStripMenuItem1
         '
         Me.BeendenToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371252_Close_Box_Red
         Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
-        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.BeendenToolStripMenuItem1.Text = "Beenden"
+        '
+        'DatenbankExportierenToolStripMenuItem
+        '
+        Me.DatenbankExportierenToolStripMenuItem.Name = "DatenbankExportierenToolStripMenuItem"
+        Me.DatenbankExportierenToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.DatenbankExportierenToolStripMenuItem.Text = "Datenbank Exportieren"
+        '
+        'DatenbankImportierenToolStripMenuItem
+        '
+        Me.DatenbankImportierenToolStripMenuItem.Name = "DatenbankImportierenToolStripMenuItem"
+        Me.DatenbankImportierenToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.DatenbankImportierenToolStripMenuItem.Text = "Datenbank Importieren"
+        '
+        'DatenbankLöschenToolStripMenuItem
+        '
+        Me.DatenbankLöschenToolStripMenuItem.Name = "DatenbankLöschenToolStripMenuItem"
+        Me.DatenbankLöschenToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.DatenbankLöschenToolStripMenuItem.Text = "Datenbank Löschen"
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.FileName = "export"
+        Me.SaveFileDialog1.Filter = "DB-Datei|*.db"
+        '
+        'OpenFileDialog2
+        '
+        Me.OpenFileDialog2.Filter = "DB-Datei|*.db"
         '
         'startwindow
         '
@@ -928,5 +961,10 @@ Partial Class startwindow
     Friend WithEvents PasswortmanagerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents PasswortmanagerToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatenbankExportierenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatenbankImportierenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatenbankLöschenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
 
 End Class

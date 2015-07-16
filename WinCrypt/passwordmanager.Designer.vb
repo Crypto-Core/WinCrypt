@@ -49,7 +49,7 @@ Partial Class passwordmanager
         Me.add_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.add_bt.FlatAppearance.BorderSize = 0
         Me.add_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.add_bt.Location = New System.Drawing.Point(174, 399)
+        Me.add_bt.Location = New System.Drawing.Point(174, 397)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(75, 23)
         Me.add_bt.TabIndex = 1
@@ -62,7 +62,7 @@ Partial Class passwordmanager
         Me.delete_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.delete_bt.FlatAppearance.BorderSize = 0
         Me.delete_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.delete_bt.Location = New System.Drawing.Point(12, 399)
+        Me.delete_bt.Location = New System.Drawing.Point(12, 397)
         Me.delete_bt.Name = "delete_bt"
         Me.delete_bt.Size = New System.Drawing.Size(75, 23)
         Me.delete_bt.TabIndex = 2
@@ -74,9 +74,9 @@ Partial Class passwordmanager
         Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.ListView1.Location = New System.Drawing.Point(12, 12)
+        Me.ListView1.Location = New System.Drawing.Point(12, 18)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(237, 381)
+        Me.ListView1.Size = New System.Drawing.Size(237, 373)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -99,7 +99,7 @@ Partial Class passwordmanager
         '
         Me.user_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.user_txt.Location = New System.Drawing.Point(313, 12)
+        Me.user_txt.Location = New System.Drawing.Point(315, 18)
         Me.user_txt.Name = "user_txt"
         Me.user_txt.Size = New System.Drawing.Size(328, 20)
         Me.user_txt.TabIndex = 4
@@ -108,7 +108,7 @@ Partial Class passwordmanager
         '
         Me.password_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.password_txt.Location = New System.Drawing.Point(313, 38)
+        Me.password_txt.Location = New System.Drawing.Point(315, 44)
         Me.password_txt.Name = "password_txt"
         Me.password_txt.Size = New System.Drawing.Size(328, 20)
         Me.password_txt.TabIndex = 5
@@ -117,7 +117,7 @@ Partial Class passwordmanager
         '
         Me.source_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.source_txt.Location = New System.Drawing.Point(313, 64)
+        Me.source_txt.Location = New System.Drawing.Point(315, 70)
         Me.source_txt.Name = "source_txt"
         Me.source_txt.Size = New System.Drawing.Size(328, 20)
         Me.source_txt.TabIndex = 6
@@ -127,16 +127,16 @@ Partial Class passwordmanager
         Me.comment_txt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.comment_txt.Location = New System.Drawing.Point(258, 109)
+        Me.comment_txt.Location = New System.Drawing.Point(258, 120)
         Me.comment_txt.Multiline = True
         Me.comment_txt.Name = "comment_txt"
-        Me.comment_txt.Size = New System.Drawing.Size(450, 284)
+        Me.comment_txt.Size = New System.Drawing.Size(450, 271)
         Me.comment_txt.TabIndex = 7
         '
         'user_lb
         '
         Me.user_lb.AutoSize = True
-        Me.user_lb.Location = New System.Drawing.Point(255, 15)
+        Me.user_lb.Location = New System.Drawing.Point(257, 21)
         Me.user_lb.Name = "user_lb"
         Me.user_lb.Size = New System.Drawing.Size(52, 13)
         Me.user_lb.TabIndex = 8
@@ -145,7 +145,7 @@ Partial Class passwordmanager
         'password_lb
         '
         Me.password_lb.AutoSize = True
-        Me.password_lb.Location = New System.Drawing.Point(255, 41)
+        Me.password_lb.Location = New System.Drawing.Point(257, 47)
         Me.password_lb.Name = "password_lb"
         Me.password_lb.Size = New System.Drawing.Size(53, 13)
         Me.password_lb.TabIndex = 9
@@ -154,7 +154,7 @@ Partial Class passwordmanager
         'source_lb
         '
         Me.source_lb.AutoSize = True
-        Me.source_lb.Location = New System.Drawing.Point(255, 67)
+        Me.source_lb.Location = New System.Drawing.Point(257, 73)
         Me.source_lb.Name = "source_lb"
         Me.source_lb.Size = New System.Drawing.Size(40, 13)
         Me.source_lb.TabIndex = 10
@@ -163,7 +163,7 @@ Partial Class passwordmanager
         'comment_lb
         '
         Me.comment_lb.AutoSize = True
-        Me.comment_lb.Location = New System.Drawing.Point(255, 93)
+        Me.comment_lb.Location = New System.Drawing.Point(255, 104)
         Me.comment_lb.Name = "comment_lb"
         Me.comment_lb.Size = New System.Drawing.Size(60, 13)
         Me.comment_lb.TabIndex = 11
@@ -175,7 +175,7 @@ Partial Class passwordmanager
         Me.save_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.save_bt.FlatAppearance.BorderSize = 0
         Me.save_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.save_bt.Location = New System.Drawing.Point(633, 399)
+        Me.save_bt.Location = New System.Drawing.Point(633, 397)
         Me.save_bt.Name = "save_bt"
         Me.save_bt.Size = New System.Drawing.Size(75, 23)
         Me.save_bt.TabIndex = 12
@@ -188,9 +188,9 @@ Partial Class passwordmanager
         Me.copy_user_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.copy_user_bt.FlatAppearance.BorderSize = 0
         Me.copy_user_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.copy_user_bt.Location = New System.Drawing.Point(647, 10)
+        Me.copy_user_bt.Location = New System.Drawing.Point(649, 17)
         Me.copy_user_bt.Name = "copy_user_bt"
-        Me.copy_user_bt.Size = New System.Drawing.Size(61, 23)
+        Me.copy_user_bt.Size = New System.Drawing.Size(61, 21)
         Me.copy_user_bt.TabIndex = 13
         Me.copy_user_bt.Text = "Kopieren"
         Me.copy_user_bt.UseVisualStyleBackColor = False
@@ -201,9 +201,9 @@ Partial Class passwordmanager
         Me.copy_password_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.copy_password_bt.FlatAppearance.BorderSize = 0
         Me.copy_password_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.copy_password_bt.Location = New System.Drawing.Point(647, 36)
+        Me.copy_password_bt.Location = New System.Drawing.Point(649, 43)
         Me.copy_password_bt.Name = "copy_password_bt"
-        Me.copy_password_bt.Size = New System.Drawing.Size(61, 23)
+        Me.copy_password_bt.Size = New System.Drawing.Size(61, 21)
         Me.copy_password_bt.TabIndex = 14
         Me.copy_password_bt.Text = "Kopieren"
         Me.copy_password_bt.UseVisualStyleBackColor = False
@@ -214,9 +214,9 @@ Partial Class passwordmanager
         Me.copy_source_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.copy_source_bt.FlatAppearance.BorderSize = 0
         Me.copy_source_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.copy_source_bt.Location = New System.Drawing.Point(647, 62)
+        Me.copy_source_bt.Location = New System.Drawing.Point(649, 69)
         Me.copy_source_bt.Name = "copy_source_bt"
-        Me.copy_source_bt.Size = New System.Drawing.Size(61, 23)
+        Me.copy_source_bt.Size = New System.Drawing.Size(61, 21)
         Me.copy_source_bt.TabIndex = 15
         Me.copy_source_bt.Text = "Kopieren"
         Me.copy_source_bt.UseVisualStyleBackColor = False
@@ -225,7 +225,7 @@ Partial Class passwordmanager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(720, 434)
+        Me.ClientSize = New System.Drawing.Size(720, 432)
         Me.Controls.Add(Me.copy_source_bt)
         Me.Controls.Add(Me.copy_password_bt)
         Me.Controls.Add(Me.copy_user_bt)

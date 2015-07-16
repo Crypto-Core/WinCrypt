@@ -75,12 +75,16 @@ Partial Class passwordmanager_add
         'add_bt
         '
         Me.add_bt.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.add_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.add_bt.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.add_bt.FlatAppearance.BorderSize = 0
+        Me.add_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.add_bt.Location = New System.Drawing.Point(131, 287)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(83, 23)
         Me.add_bt.TabIndex = 4
         Me.add_bt.Text = "Hinzufügen"
-        Me.add_bt.UseVisualStyleBackColor = True
+        Me.add_bt.UseVisualStyleBackColor = False
         '
         'user_lb
         '
