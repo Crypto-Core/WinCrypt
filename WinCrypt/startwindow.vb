@@ -874,8 +874,12 @@ Public Class startwindow
     Private Sub DatenbankImportierenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatenbankImportierenToolStripMenuItem.Click
         OpenFileDialog2.ShowDialog()
         If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
-            My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
-            MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+            If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+                If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                    My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                    MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                Else : End If
+            End If
         Else : End If
     End Sub
 
