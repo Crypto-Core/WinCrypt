@@ -527,7 +527,7 @@ Public Class startwindow
             i.Write(My.Resources.regist, 0, My.Resources.regist.Length)
             i.Close()
         End If
-        Me.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & " [TURKISH BETA]"
+        Me.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         ini.WertSchreiben("Info", "Version", My.Application.Info.Version.ToString.Replace(".", ""))
         If iniread = "yes" Then
             generate_key_encrypt.Visible = False
