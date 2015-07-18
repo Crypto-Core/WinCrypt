@@ -35,6 +35,7 @@ Partial Class startwindow
         Me.path_encrypt = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.encrypt_gb = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.mount_gb = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -205,7 +206,7 @@ Partial Class startwindow
         Me.encrypt_list_status.FormattingEnabled = True
         Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
         Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 80)
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 93)
         Me.encrypt_list_status.TabIndex = 5
         '
         'path_encrypt
@@ -231,6 +232,7 @@ Partial Class startwindow
         Me.encrypt_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.encrypt_gb.Controls.Add(Me.Button1)
         Me.encrypt_gb.Controls.Add(Me.Label7)
         Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
         Me.encrypt_gb.Controls.Add(Me.Label2)
@@ -242,10 +244,19 @@ Partial Class startwindow
         Me.encrypt_gb.Controls.Add(Me.pathtxt)
         Me.encrypt_gb.Location = New System.Drawing.Point(-1, 3)
         Me.encrypt_gb.Name = "encrypt_gb"
-        Me.encrypt_gb.Size = New System.Drawing.Size(573, 264)
+        Me.encrypt_gb.Size = New System.Drawing.Size(573, 279)
         Me.encrypt_gb.TabIndex = 8
         Me.encrypt_gb.TabStop = False
         Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(256, 223)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -276,7 +287,7 @@ Partial Class startwindow
         Me.mount_gb.Controls.Add(Me.opencryptfile)
         Me.mount_gb.Location = New System.Drawing.Point(0, 3)
         Me.mount_gb.Name = "mount_gb"
-        Me.mount_gb.Size = New System.Drawing.Size(572, 257)
+        Me.mount_gb.Size = New System.Drawing.Size(572, 263)
         Me.mount_gb.TabIndex = 9
         Me.mount_gb.TabStop = False
         Me.mount_gb.Text = "Cryptdatei Mounten"
@@ -296,7 +307,7 @@ Partial Class startwindow
         '
         Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.drive_lb.AutoSize = True
-        Me.drive_lb.Location = New System.Drawing.Point(292, 218)
+        Me.drive_lb.Location = New System.Drawing.Point(292, 224)
         Me.drive_lb.Name = "drive_lb"
         Me.drive_lb.Size = New System.Drawing.Size(54, 13)
         Me.drive_lb.TabIndex = 9
@@ -306,7 +317,7 @@ Partial Class startwindow
         '
         Me.key_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.key_lb.AutoSize = True
-        Me.key_lb.Location = New System.Drawing.Point(13, 199)
+        Me.key_lb.Location = New System.Drawing.Point(13, 205)
         Me.key_lb.Name = "key_lb"
         Me.key_lb.Size = New System.Drawing.Size(55, 13)
         Me.key_lb.TabIndex = 8
@@ -341,7 +352,7 @@ Partial Class startwindow
         Me.drivecb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.drivecb.FormattingEnabled = True
         Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
-        Me.drivecb.Location = New System.Drawing.Point(352, 215)
+        Me.drivecb.Location = New System.Drawing.Point(352, 221)
         Me.drivecb.Name = "drivecb"
         Me.drivecb.Size = New System.Drawing.Size(46, 21)
         Me.drivecb.TabIndex = 5
@@ -353,7 +364,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.keyencrypt.Enabled = False
-        Me.keyencrypt.Location = New System.Drawing.Point(16, 215)
+        Me.keyencrypt.Location = New System.Drawing.Point(16, 221)
         Me.keyencrypt.Name = "keyencrypt"
         Me.keyencrypt.Size = New System.Drawing.Size(260, 20)
         Me.keyencrypt.TabIndex = 4
@@ -376,7 +387,7 @@ Partial Class startwindow
         Me.dismount.Enabled = False
         Me.dismount.FlatAppearance.BorderSize = 0
         Me.dismount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.dismount.Location = New System.Drawing.Point(491, 213)
+        Me.dismount.Location = New System.Drawing.Point(491, 219)
         Me.dismount.Name = "dismount"
         Me.dismount.Size = New System.Drawing.Size(75, 23)
         Me.dismount.TabIndex = 2
@@ -390,7 +401,7 @@ Partial Class startwindow
         Me.mount.Enabled = False
         Me.mount.FlatAppearance.BorderSize = 0
         Me.mount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.mount.Location = New System.Drawing.Point(410, 213)
+        Me.mount.Location = New System.Drawing.Point(410, 219)
         Me.mount.Name = "mount"
         Me.mount.Size = New System.Drawing.Size(75, 23)
         Me.mount.TabIndex = 1
@@ -428,7 +439,7 @@ Partial Class startwindow
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.mount_gb)
         Me.SplitContainer1.Size = New System.Drawing.Size(574, 532)
-        Me.SplitContainer1.SplitterDistance = 242
+        Me.SplitContainer1.SplitterDistance = 257
         Me.SplitContainer1.TabIndex = 10
         '
         'encryptmounttimer
@@ -663,27 +674,27 @@ Partial Class startwindow
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.ToolsToolStripMenuItem1, Me.ÖffnenToolStripMenuItem, Me.BeendenToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 136)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(121, 114)
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371705_Information
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'UpdateToolStripMenuItem1
         '
         Me.UpdateToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371799_update
         Me.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1"
-        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.UpdateToolStripMenuItem1.Text = "Update"
         '
         'ToolsToolStripMenuItem1
         '
         Me.ToolsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem1, Me.DateiEntschlüsselnToolStripMenuItem1, Me.ToolStripSeparator5, Me.TextVerUndEntschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem1, Me.RSAToolStripMenuItem1, Me.ToolStripSeparator10, Me.EMailToolStripMenuItem1, Me.ToolStripSeparator12, Me.PasswortmanagerToolStripMenuItem1, Me.ToolStripSeparator6, Me.SystemidentifikationToolStripMenuItem1, Me.ToolStripSeparator7, Me.PasswortGeneratorToolStripMenuItem1, Me.ToolStripSeparator8, Me.DateienSicherLöschenToolStripMenuItem})
         Me.ToolsToolStripMenuItem1.Name = "ToolsToolStripMenuItem1"
-        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolsToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.ToolsToolStripMenuItem1.Text = "Tools"
         '
         'DateiVerschlüsselnToolStripMenuItem1
@@ -848,14 +859,14 @@ Partial Class startwindow
         'ÖffnenToolStripMenuItem
         '
         Me.ÖffnenToolStripMenuItem.Name = "ÖffnenToolStripMenuItem"
-        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ÖffnenToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.ÖffnenToolStripMenuItem.Text = "Öffnen"
         '
         'BeendenToolStripMenuItem1
         '
         Me.BeendenToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371252_Close_Box_Red
         Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
-        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(120, 22)
         Me.BeendenToolStripMenuItem1.Text = "Beenden"
         '
         'SaveFileDialog1
@@ -991,5 +1002,6 @@ Partial Class startwindow
     Friend WithEvents DatenbankExportierenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DatenbankImportierenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DatenbankLöschenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

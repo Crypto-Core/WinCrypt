@@ -41,6 +41,7 @@ Public Class startwindow
     End Function
 
     Private Sub encrypttimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypttimer.Tick
+
         If iniread = "yes" Then
             Try
                 Dim p As String = pathtxt.Text.LastIndexOf("\")
@@ -143,7 +144,7 @@ Public Class startwindow
 
             End Try
         End If
-
+        encrypt_list_status.SelectedIndex = encrypt_list_status.Items.Count - 1
     End Sub
 
     Private Sub mount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mount.Click
@@ -247,6 +248,7 @@ Public Class startwindow
                 End If
             End If
         End If
+        decrypt_list_status.SelectedIndex = decrypt_list_status.Items.Count - 1
     End Sub
 
     Private Sub dismount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dismount.Click
@@ -267,6 +269,7 @@ Public Class startwindow
             decrypt_filepath.Enabled = True
             drivecb.Enabled = True
         End If
+        decrypt_list_status.SelectedIndex = decrypt_list_status.Items.Count - 1
     End Sub
 
     Private Sub encryptmounttimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encryptmounttimer.Tick
@@ -366,7 +369,7 @@ Public Class startwindow
 
             End Try
         End If
-
+        decrypt_list_status.SelectedIndex = decrypt_list_status.Items.Count - 1
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -414,12 +417,14 @@ Public Class startwindow
     End Sub
 
     Private Sub create_container_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles create_container_encrypt.Click
+
         If iniread = "yes" Then
             Dim p As String = pathtxt.Text.LastIndexOf("\")
             Dim i As String = pathtxt.Text.Remove(0, p + 1)
             filezip.zip(pathtxt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
             If langname = "English" Then
                 encrypt_list_status.Items.Add("Path is then compressed...........")
+                encrypt_list_status.SelectedIndex = 0
             Else
                 encrypt_list_status.Items.Add("Pfad wird kompremiert..........")
             End If
