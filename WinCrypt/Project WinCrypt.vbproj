@@ -153,6 +153,12 @@
     <Compile Include="AES.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="counter.vb" />
+    <Compile Include="feedback.Designer.vb">
+      <DependentUpon>feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="filedecrypt.Designer.vb">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </Compile>
@@ -299,6 +305,9 @@
     <Compile Include="Zip.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="feedback.resx">
+      <DependentUpon>feedback.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="filedecrypt.resx">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </EmbeddedResource>
@@ -402,6 +411,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1437357185__feedback.png" />
     <None Include="regist\regist\bin\Debug\regist.exe" />
     <None Include="Resources\1436930846_system-file-manager.png" />
     <None Include="Resources\1436868489_mail-message-new.png" />

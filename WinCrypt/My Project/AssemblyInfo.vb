@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("Project WinCrypt")> 
+<Assembly: AssemblyTitle("WinCrypt")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Project WinCrypt")> 
+<Assembly: AssemblyProduct("WinCrypt")> 
 <Assembly: AssemblyCopyright("Copyright ©  2015")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("WinCrypt")> 
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.3.5.9")> 
-<Assembly: AssemblyFileVersion("1.3.5.9")> 
+<Assembly: AssemblyVersion("1.3.6.0")> 
+<Assembly: AssemblyFileVersion("1.3.6.0")> 

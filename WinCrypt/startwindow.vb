@@ -1050,4 +1050,12 @@ Public Class startwindow
             End If
         Else : End If
     End Sub
+
+    Private Sub FeedbackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem.Click
+        feedback.Show()
+    End Sub
+
+    Private Sub FeedbackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem1.Click
+        feedback.Show()
+    End Sub
 End Class
