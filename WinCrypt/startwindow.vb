@@ -572,7 +572,7 @@ Public Class startwindow
         Next
         For Each drives In IO.DriveInfo.GetDrives
             drivecb.Items.Remove(drives.ToString)
-        Next
+        Next ' Test
     End Sub
     Private Sub DateiVerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiVerschlüsselnToolStripMenuItem.Click
         fileencrypt.ShowDialog()
