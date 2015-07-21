@@ -1,4 +1,5 @@
-﻿Public Class rsa_encrypt
+﻿Option Strict On
+Public Class rsa_encrypt
     Dim pubkey As String
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pubkey_path_bt.Click
         OpenFileDialog1.ShowDialog()

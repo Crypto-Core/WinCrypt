@@ -1,4 +1,5 @@
-﻿Public Class textencrypt
+﻿Option Strict On
+Public Class textencrypt
 
     Private Sub encrypt_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_bt.Click
         Dim lGuid As System.Runtime.InteropServices.GuidAttribute
@@ -7,9 +8,9 @@
                   System.Runtime.InteropServices.GuidAttribute)
         Dim AES2 As New AES
         If startwindow.iniread = "true" Then
-            text_output.Text = AES2.AESEncrypt(text_input.Text, startwindow.biosid, lGuid.Value)
+            text_output.Text = CStr(AES2.AESEncrypt(text_input.Text, startwindow.biosid, lGuid.Value))
         Else
-            text_output.Text = AES2.AESEncrypt(text_input.Text, password_txt.Text, lGuid.Value)
+            text_output.Text = CStr(AES2.AESEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
         End If
 
     End Sub
@@ -22,7 +23,7 @@
         Randomize()
         num_characters = CInt(32)
         For i = 1 To num_characters
-            ch = Int((26 + 26 + 10) * Rnd())
+            ch = CInt(Int((26 + 26 + 10) * Rnd()))
             If ch < 26 Then
                 txt = txt & Chr(ch + Asc("A"))
             ElseIf ch < 2 * 26 Then

@@ -1,7 +1,8 @@
-﻿Public Class passwortgenerator
+﻿Option Strict On
+Public Class passwortgenerator
 
     Private Sub generatebt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generatebt.Click
-        generatetxt.MaxLength = length.Text
+        generatetxt.MaxLength = CInt(length.Text)
         Dim num_characters As Integer
         Dim i As Integer
         Dim txt As String
@@ -12,7 +13,7 @@
             If lowercasecb.Checked = True Then
                 If numberscb.Checked = True Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("A"))
                         ElseIf ch < 2 * 26 Then
@@ -32,7 +33,7 @@
             If lowercasecb.Checked = True Then
                 If numberscb.Checked = True Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("a"))
                         ElseIf ch < 2 * 26 Then
@@ -53,12 +54,12 @@
             If lowercasecb.Checked = False Then
                 If numberscb.Checked = True Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         ch = ch - 26 - 26
                         txt = txt & Int(ch + Asc("0"))
 
                     Next i
-                    generatetxt.Text = txt.Replace("-", "").Substring(0, length.Text)
+                    generatetxt.Text = txt.Replace("-", "").Substring(0, CInt(length.Text))
                 End If
             End If
         End If
@@ -67,7 +68,7 @@
             If lowercasecb.Checked = True Then
                 If numberscb.Checked = False Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("a"))
                         ElseIf ch < 2 * 26 Then
@@ -87,7 +88,7 @@
             If lowercasecb.Checked = False Then
                 If numberscb.Checked = False Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("A"))
                         ElseIf ch < 2 * 26 Then
@@ -107,7 +108,7 @@
             If lowercasecb.Checked = False Then
                 If numberscb.Checked = True Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("A"))
                         ElseIf ch < 2 * 26 Then
@@ -127,7 +128,7 @@
             If lowercasecb.Checked = True Then
                 If numberscb.Checked = False Then
                     For i = 1 To num_characters
-                        ch = Int((26 + 26 + 10) * Rnd())
+                        ch = CInt(Int((26 + 26 + 10) * Rnd()))
                         If ch < 26 Then
                             txt = txt & Chr(ch + Asc("A"))
                         ElseIf ch < 2 * 26 Then

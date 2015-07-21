@@ -1,6 +1,6 @@
-﻿Imports System.Net
+﻿Option Strict On
+Imports System.Net
 Imports System.Net.Mail
-
 Public Class sendmail
     Private Sub file_bt_Click(sender As Object, e As EventArgs) Handles file_bt.Click
         OpenFileDialog1.ShowDialog()

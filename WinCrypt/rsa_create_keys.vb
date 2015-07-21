@@ -1,4 +1,5 @@
-﻿Public Class rsa_create_keys
+﻿Option Strict On
+Public Class rsa_create_keys
 
     Private Sub rsa_create_keys_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         private_key_path_txt.Text = My.Computer.FileSystem.SpecialDirectories.Desktop & "\Private Key.xml"

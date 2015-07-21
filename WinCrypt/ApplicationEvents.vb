@@ -1,4 +1,5 @@
-﻿Namespace My
+﻿Option Strict On
+Namespace My
     Partial Friend Class MyApplication
         Private Sub MyApplication_StartupNextInstance(ByVal sender As Object, ByVal e As Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs) Handles Me.StartupNextInstance
             Try

@@ -28,7 +28,7 @@
 
         If key_cb.Checked = True Then ' Es wird überprüft ob der Masterkey aktiviert wurde
             ' Wenn ja wird dieses Passwort in AES verschlüsselt und in der config.ini eingetragen
-            iniwrite.WertSchreiben("Key", "master", keyaes.AESEncrypt(key_txt.Text, bios, lGuid.Value))
+            iniwrite.WertSchreiben("Key", "master", CStr(keyaes.AESEncrypt(key_txt.Text, bios, lGuid.Value)))
             My.Settings.Masterkey = True ' In den WinCrypt Einstellungen wird der wert Masterkey auf true gesetzt
         Else
             ' Wenn der Masterkey nicht aktiviert wurde wird der Masterkey in den Einstellungen auf false gesetzt

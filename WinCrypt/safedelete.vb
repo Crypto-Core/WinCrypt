@@ -56,7 +56,7 @@ Public Class safedelete
         Randomize()
         num_characters = CInt(30000)
         For i = 1 To num_characters
-            ch = Int((26 + 26 + 10) * Rnd())
+            ch = CInt(Int((26 + 26 + 10) * Rnd()))
             If ch < 26 Then
                 txt = txt & Chr(ch + Asc("A"))
             ElseIf ch < 2 * 26 Then
@@ -100,7 +100,7 @@ Public Class safedelete
         Else
             generatebytelb.Text = "Generierte bytes: " & keystring.Substring(0, 50)
         End If
-        progressstatus.Value = e.ProgressPercentage.ToString - 1
+        progressstatus.Value = CInt(CDbl(e.ProgressPercentage.ToString) - 1)
         If startwindow.langname = "English" Then
             Label5.Text = e.ProgressPercentage - 1 & "x override..."
         Else
@@ -108,7 +108,7 @@ Public Class safedelete
         End If
         If progressstatus.Value = progressstatus.Maximum Then
             bgwrk.Dispose()
-            My.Computer.FileSystem.DeleteFile(deletfilelist.SelectedItem)
+            My.Computer.FileSystem.DeleteFile(CStr(deletfilelist.SelectedItem))
             Label5.Text = ""
             index = 0
             progressstatus.Value = 0
@@ -132,7 +132,7 @@ Public Class safedelete
     End Sub
 
     Private Sub deletefilelist_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deletfilelist.SelectedIndexChanged
-        itemselect = deletfilelist.SelectedItem
+        itemselect = CStr(deletfilelist.SelectedItem)
     End Sub
 
     Private Sub bgwrk_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgwrk.RunWorkerCompleted
@@ -161,7 +161,7 @@ Public Class safedelete
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             If My.Computer.FileSystem.FileExists(str) Then
                 deletfilelist.Items.Add(str)

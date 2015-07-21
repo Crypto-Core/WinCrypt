@@ -1,4 +1,5 @@
-﻿Public Class passwordmgr_pass
+﻿Option Strict On
+Public Class passwordmgr_pass
     Public pass As String
     Dim aes As New AES
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
@@ -27,9 +28,9 @@
                         Else
                             If passwordmanager.ini.WertLesen(Str(passwordmanager.schleife), "index") = "|" Then
                             Else
-                                With passwordmanager.ListView1.Items.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "user"))
-                                    .SubItems.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "source"))
-                                    .SubItems.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "index"))
+                                With passwordmanager.ListView1.Items.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "user"))
+                                    .SubItems.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "source"))
+                                    .SubItems.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "index"))
                                 End With
                             End If
                         End If

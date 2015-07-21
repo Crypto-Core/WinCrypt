@@ -1,4 +1,5 @@
-﻿Public Class fileencrypt
+﻿Option Strict On
+Public Class fileencrypt
 
     Private Sub fileopenbt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles fileopenbt.Click
         OpenFileDialog.ShowDialog()
@@ -29,7 +30,7 @@
         Randomize()
         num_characters = CInt(32)
         For i = 1 To num_characters
-            ch = Int((26 + 26 + 10) * Rnd())
+            ch = CInt(Int((26 + 26 + 10) * Rnd()))
             If ch < 26 Then
                 txt = txt & Chr(ch + Asc("A"))
             ElseIf ch < 2 * 26 Then
@@ -139,7 +140,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -153,7 +154,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -167,7 +168,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -181,7 +182,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If

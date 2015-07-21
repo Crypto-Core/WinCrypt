@@ -1,4 +1,5 @@
-﻿Public Class INIDatei
+﻿Option Strict On
+Public Class INIDatei
 
     Public Pfad As String
 
@@ -54,7 +55,7 @@
             If Not (System.IO.File.Exists(Pfad)) Then
                 MsgBox("Die Datei " & vbCrLf & Pfad & vbCrLf & "existiert nicht und wird neu angelegt")
             End If
-            Dim Filetest As Short = FreeFile()
+            Dim Filetest As Short = CShort(FreeFile())
             FileOpen(Filetest, Pfad, OpenMode.Binary, OpenAccess.ReadWrite, OpenShare.LockReadWrite)
             FileClose(Filetest)
             If Pfad = "" Then

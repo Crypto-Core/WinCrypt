@@ -1,4 +1,5 @@
-﻿Public Class filedecrypt
+﻿Option Strict On
+Public Class filedecrypt
 
     Private Sub safevile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles savefile.Click
         FolderBrowserDialog.ShowDialog()
@@ -80,7 +81,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -94,7 +95,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -108,7 +109,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -118,7 +119,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If
@@ -132,7 +133,7 @@
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             filetxt.Text = str
         End If

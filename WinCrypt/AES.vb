@@ -4,7 +4,7 @@ Imports System.IO
 Public Class AES
     Public Function AESEncrypt(ByVal PlainText As String, ByVal Password As String, ByVal salt As String)
         Dim HashAlgorithm As String = "SHA1"
-        Dim PasswordIterations As String = 1
+        Dim PasswordIterations As String = CStr(1)
         Dim InitialVector As String = "gGw3zFYrtsrXExYu"
         Dim KeySize As Integer = 256
         If (String.IsNullOrEmpty(PlainText)) Then
@@ -15,7 +15,7 @@ Public Class AES
         Dim SaltValueBytes As Byte() = Encoding.ASCII.GetBytes(salt)
         Dim PlainTextBytes As Byte() = Encoding.UTF8.GetBytes(PlainText)
         Dim DerivedPassword As PasswordDeriveBytes = New PasswordDeriveBytes(Password, SaltValueBytes, HashAlgorithm, PasswordIterations)
-        Dim KeyBytes As Byte() = DerivedPassword.GetBytes(KeySize / 8)
+        Dim KeyBytes As Byte() = DerivedPassword.GetBytes(CInt(KeySize / 8))
         Dim SymmetricKey As RijndaelManaged = New RijndaelManaged()
         SymmetricKey.Mode = CipherMode.CBC
         Dim CipherTextBytes As Byte() = Nothing
@@ -35,7 +35,7 @@ Public Class AES
     End Function
     Public Function AESDecrypt(ByVal CipherText As String, ByVal password As String, ByVal salt As String) As String
         Dim HashAlgorithm As String = "SHA1"
-        Dim PasswordIterations As String = 2
+        Dim PasswordIterations As String = CStr(2)
         Dim InitialVector As String = "gGw3zFYrtsrXExYu"
         Dim KeySize As Integer = 256
         If (String.IsNullOrEmpty(CipherText)) Then
@@ -45,7 +45,7 @@ Public Class AES
         Dim SaltValueBytes As Byte() = Encoding.ASCII.GetBytes(salt)
         Dim CipherTextBytes As Byte() = Convert.FromBase64String(CipherText)
         Dim DerivedPassword As PasswordDeriveBytes = New PasswordDeriveBytes(password, SaltValueBytes, HashAlgorithm, PasswordIterations)
-        Dim KeyBytes As Byte() = DerivedPassword.GetBytes(KeySize / 8)
+        Dim KeyBytes As Byte() = DerivedPassword.GetBytes(CInt(KeySize / 8))
         Dim SymmetricKey As RijndaelManaged = New RijndaelManaged()
         SymmetricKey.Mode = CipherMode.CBC
         Dim PlainTextBytes As Byte() = New Byte(CipherTextBytes.Length - 1) {}

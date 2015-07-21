@@ -44,7 +44,7 @@ Public Class startwindow
 
         If iniread = "yes" Then
             Try
-                Dim p As String = pathtxt.Text.LastIndexOf("\")
+                Dim p As Integer = pathtxt.Text.LastIndexOf("\")
                 Dim i As String = pathtxt.Text.Remove(0, p + 1)
                 My.Computer.FileSystem.RenameFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip", i & "f.zip")
                 If langname = "English" Then
@@ -95,7 +95,7 @@ Public Class startwindow
             End Try
         Else
             Try
-                Dim p As String = pathtxt.Text.LastIndexOf("\")
+                Dim p As Integer = pathtxt.Text.LastIndexOf("\")
                 Dim i As String = pathtxt.Text.Remove(0, p + 1)
                 My.Computer.FileSystem.RenameFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip", i & "f.zip")
                 If langname = "English" Then
@@ -167,7 +167,7 @@ Public Class startwindow
                     cu.UnzipNow()
                     My.Computer.FileSystem.DeleteFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
                     Try
-                        selectcombo = drivecb.SelectedItem
+                        selectcombo = CStr(drivecb.SelectedItem)
                         Shell("subst " & selectcombo.Replace("\", "") & " " & My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
                     Catch ex As Exception
                         If langname = "English" Then
@@ -184,7 +184,7 @@ Public Class startwindow
                         decrypt_list_status.Items.Add("Container eingebunden!")
                     End If
                     My.Computer.Audio.Play(My.Resources.Vista_DeviceConnect, AudioPlayMode.WaitToComplete)
-                    Process.Start("explorer.exe", drivecb.SelectedItem)
+                    Process.Start("explorer.exe", CStr(drivecb.SelectedItem))
                     mount.Enabled = False
                     dismount.Enabled = True
                 End If
@@ -219,7 +219,7 @@ Public Class startwindow
                     My.Computer.FileSystem.DeleteFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
 
                     Try
-                        selectcombo = drivecb.SelectedItem
+                        selectcombo = CStr(drivecb.SelectedItem)
                         Shell("subst " & selectcombo.Replace("\", "") & " " & My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
                     Catch ex As Exception
                         If langname = "English" Then
@@ -236,7 +236,7 @@ Public Class startwindow
                         decrypt_list_status.Items.Add("Container eingebunden!")
                     End If
                     My.Computer.Audio.Play(My.Resources.Vista_DeviceConnect, AudioPlayMode.WaitToComplete)
-                    Process.Start("explorer.exe", drivecb.SelectedItem)
+                    Process.Start("explorer.exe", CStr(drivecb.SelectedItem))
                     mount.Enabled = False
                     dismount.Enabled = True
                 End If
@@ -258,7 +258,7 @@ Public Class startwindow
         Else
             Dim p As Integer = decrypt_filepath.Text.LastIndexOf("\")
             Dim i As String = decrypt_filepath.Text.Remove(0, p + 1)
-            filezip.zip(drivecb.SelectedItem, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
+            filezip.zip(CStr(drivecb.SelectedItem), My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
             If langname = "English" Then
                 decrypt_list_status.Items.Add("Path is then compressed..........")
             Else
@@ -298,9 +298,9 @@ Public Class startwindow
                 End If
 
                 If langname = "English" Then
-                    decrypt_list_status.Items.Add(drivecb.SelectedItem & " drive will be closed...")
+                    decrypt_list_status.Items.Add(CStr(drivecb.SelectedItem) & " drive will be closed...")
                 Else
-                    decrypt_list_status.Items.Add("Laufwerk " & drivecb.SelectedItem & " wird geschlossen...")
+                    decrypt_list_status.Items.Add("Laufwerk " & CStr(drivecb.SelectedItem) & " wird geschlossen...")
                 End If
                 dismount.Enabled = False
                 Shell("subst " & selectcombo.Replace("\", "") & " /D")
@@ -309,9 +309,9 @@ Public Class startwindow
                 mount.Enabled = True
                 keyencrypt.UseSystemPasswordChar = False
                 If langname = "English" Then
-                    decrypt_list_status.Items.Add("Closed drive " & drivecb.SelectedItem)
+                    decrypt_list_status.Items.Add("Closed drive " & CStr(drivecb.SelectedItem))
                 Else
-                    decrypt_list_status.Items.Add("Laufwerk " & drivecb.SelectedItem & " geschlossen!")
+                    decrypt_list_status.Items.Add("Laufwerk " & CStr(drivecb.SelectedItem) & " geschlossen!")
                 End If
                 keyencrypt.Enabled = True
                 encrypttimer.Enabled = False
@@ -323,8 +323,8 @@ Public Class startwindow
             End Try
         Else
             Try
-                Dim p As String = decrypt_filepath.Text.LastIndexOf("\")
-                Dim i As String = decrypt_filepath.Text.Remove(0, p + 1)
+                Dim p As String = CStr(decrypt_filepath.Text.LastIndexOf("\"))
+                Dim i As String = decrypt_filepath.Text.Remove(0, CInt(CDbl(p) + 1))
                 My.Computer.FileSystem.RenameFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip", i & "f.zip")
 
                 If langname = "English" Then
@@ -345,9 +345,9 @@ Public Class startwindow
                 End If
 
                 If langname = "English" Then
-                    decrypt_list_status.Items.Add(drivecb.SelectedItem & " drive will be closed...")
+                    decrypt_list_status.Items.Add(CStr(drivecb.SelectedItem) & " drive will be closed...")
                 Else
-                    decrypt_list_status.Items.Add("Laufwerk " & drivecb.SelectedItem & " wird geschlossen...")
+                    decrypt_list_status.Items.Add("Laufwerk " & CStr(drivecb.SelectedItem) & " wird geschlossen...")
                 End If
                 dismount.Enabled = False
                 Shell("subst " & selectcombo.Replace("\", "") & " /D")
@@ -356,9 +356,9 @@ Public Class startwindow
                 mount.Enabled = True
                 keyencrypt.UseSystemPasswordChar = False
                 If langname = "English" Then
-                    decrypt_list_status.Items.Add("Drive " & drivecb.SelectedItem & " closed!")
+                    decrypt_list_status.Items.Add("Drive " & CStr(drivecb.SelectedItem) & " closed!")
                 Else
-                    decrypt_list_status.Items.Add("Laufwerk " & drivecb.SelectedItem & " geschlossen!")
+                    decrypt_list_status.Items.Add("Laufwerk " & CStr(drivecb.SelectedItem) & " geschlossen!")
                 End If
                 keyencrypt.Enabled = True
                 encrypttimer.Enabled = False
@@ -402,7 +402,7 @@ Public Class startwindow
         Randomize()
         num_characters = CInt(32)
         For i = 1 To num_characters
-            ch = Int((26 + 26 + 10) * Rnd())
+            ch = CInt(Int((26 + 26 + 10) * Rnd()))
             If ch < 26 Then
                 txt = txt & Chr(ch + Asc("A"))
             ElseIf ch < 2 * 26 Then
@@ -419,8 +419,8 @@ Public Class startwindow
     Private Sub create_container_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles create_container_encrypt.Click
 
         If iniread = "yes" Then
-            Dim p As String = pathtxt.Text.LastIndexOf("\")
-            Dim i As String = pathtxt.Text.Remove(0, p + 1)
+            Dim p As String = CStr(pathtxt.Text.LastIndexOf("\"))
+            Dim i As String = pathtxt.Text.Remove(0, CInt(CDbl(p) + 1))
             filezip.zip(pathtxt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
             If langname = "English" Then
                 encrypt_list_status.Items.Add("Path is then compressed...........")
@@ -438,8 +438,8 @@ Public Class startwindow
                 End If
 
             Else
-                Dim p As String = pathtxt.Text.LastIndexOf("\")
-                Dim i As String = pathtxt.Text.Remove(0, p + 1)
+                Dim p As String = CStr(pathtxt.Text.LastIndexOf("\"))
+                Dim i As String = pathtxt.Text.Remove(0, CInt(CDbl(p) + 1))
                 filezip.zip(pathtxt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
                 If langname = "English" Then
                     encrypt_list_status.Items.Add("Path is then compressed...........")
@@ -642,7 +642,7 @@ Public Class startwindow
 
     Private Sub startwindow_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         Dim f As Form
-        f = sender
+        f = CType(sender, Form)
         If f.WindowState = FormWindowState.Minimized Then
             systemtray.Visible = True
             Me.Hide()
@@ -711,7 +711,7 @@ Public Class startwindow
                     Else
                         Dim p As Integer = decrypt_filepath.Text.LastIndexOf("\")
                         Dim i As String = decrypt_filepath.Text.Remove(0, p + 1)
-                        filezip.zip(drivecb.SelectedItem, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
+                        filezip.zip(CStr(drivecb.SelectedItem), My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip")
                         If langname = "English" Then
                             decrypt_list_status.Items.Add("Path is then compressed..........")
                         Else
@@ -775,7 +775,7 @@ Public Class startwindow
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             decrypt_filepath.Text = str
         End If
@@ -789,7 +789,7 @@ Public Class startwindow
         Dim filestr() As String
         Dim str As String
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            filestr = e.Data.GetData(DataFormats.FileDrop)
+            filestr = CType(e.Data.GetData(DataFormats.FileDrop), String())
             str = filestr(0)
             pathtxt.Text = str
         End If

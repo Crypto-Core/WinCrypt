@@ -1,4 +1,5 @@
-﻿Public Class newpwmgrdatabase
+﻿Option Strict On
+Public Class newpwmgrdatabase
     Dim aes As New AES
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     'test
@@ -11,7 +12,7 @@
             End If
         Else
             Dim newentry As String = "[1]" & vbCrLf & "user=" & vbCrLf & "password=" & vbCrLf & "source=" & vbCrLf & "comment=" & vbCrLf & "index=|"
-            My.Computer.FileSystem.WriteAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", aes.AESEncrypt(newentry, password_txt.Text, startwindow.biosid), False)
+            My.Computer.FileSystem.WriteAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(aes.AESEncrypt(newentry, password_txt.Text, startwindow.biosid)), False)
             passwordmanager.mgrpass = password_txt.Text
             If startwindow.langname = "English" Then
                 MsgBox("Database has been successfully created!", MsgBoxStyle.Information)
@@ -31,9 +32,9 @@
                     Else
                         If passwordmanager.ini.WertLesen(Str(passwordmanager.schleife), "index") = "|" Then
                         Else
-                            With passwordmanager.ListView1.Items.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "user"))
-                                .SubItems.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "source"))
-                                .SubItems.Add(passwordmanager.ini.WertLesen(passwordmanager.schleife, "index"))
+                            With passwordmanager.ListView1.Items.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "user"))
+                                .SubItems.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "source"))
+                                .SubItems.Add(passwordmanager.ini.WertLesen(CStr(passwordmanager.schleife), "index"))
                             End With
                         End If
                     End If

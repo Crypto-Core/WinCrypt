@@ -1,4 +1,5 @@
-﻿Imports System.Security.Cryptography
+﻿Option Strict On
+Imports System.Security.Cryptography
 Imports System.Text
 Public Class MD5
     Public Function MD5StringHash(ByVal strString As String) As String

@@ -1,4 +1,5 @@
-﻿Public Class passwordmanager
+﻿Option Strict On
+Public Class passwordmanager
     Dim aes As New AES
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Public ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
@@ -10,20 +11,20 @@
     End Sub
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
         If ListView1.SelectedItems.Count > 0 Then
-            index = ListView1.SelectedItems.Item(0).SubItems(2).Text
-            user_txt.Text = ini.WertLesen(index, "user")
-            password_txt.Text = ini.WertLesen(index, "password")
-            source_txt.Text = ini.WertLesen(index, "source")
-            comment_txt.Text = ini.WertLesen(index, "comment").Replace("\r\n", vbCrLf)
+            index = CInt(ListView1.SelectedItems.Item(0).SubItems(2).Text)
+            user_txt.Text = ini.WertLesen(CStr(index), "user")
+            password_txt.Text = ini.WertLesen(CStr(index), "password")
+            source_txt.Text = ini.WertLesen(CStr(index), "source")
+            comment_txt.Text = ini.WertLesen(CStr(index), "comment").Replace("\r\n", vbCrLf)
         End If
     End Sub
 
     Private Sub delete_bt_Click(sender As Object, e As EventArgs) Handles delete_bt.Click
-        ini.WertSchreiben(index, "user", "")
-        ini.WertSchreiben(index, "password", "")
-        ini.WertSchreiben(index, "source", "")
-        ini.WertSchreiben(index, "comment", "")
-        ini.WertSchreiben(index, "index", "|")
+        ini.WertSchreiben(CStr(index), "user", "")
+        ini.WertSchreiben(CStr(index), "password", "")
+        ini.WertSchreiben(CStr(index), "source", "")
+        ini.WertSchreiben(CStr(index), "comment", "")
+        ini.WertSchreiben(CStr(index), "index", "|")
         ListView1.Items.Clear()
         For Each go As String In schleife.ToString
             Do
@@ -34,9 +35,9 @@
                 Else
                     If ini.WertLesen(Str(schleife), "index") = "|" Then
                     Else
-                        With ListView1.Items.Add(ini.WertLesen(schleife, "user"))
-                            .SubItems.Add(ini.WertLesen(schleife, "source"))
-                            .SubItems.Add(ini.WertLesen(schleife, "index"))
+                        With ListView1.Items.Add(ini.WertLesen(CStr(schleife), "user"))
+                            .SubItems.Add(ini.WertLesen(CStr(schleife), "source"))
+                            .SubItems.Add(ini.WertLesen(CStr(schleife), "index"))
                         End With
                     End If
                 End If
@@ -46,10 +47,10 @@
     End Sub
 
     Private Sub show_bt_Click(sender As Object, e As EventArgs) Handles save_bt.Click
-        ini.WertSchreiben(index, "user", user_txt.Text)
-        ini.WertSchreiben(index, "password", password_txt.Text)
-        ini.WertSchreiben(index, "source", source_txt.Text)
-        ini.WertSchreiben(index, "comment", comment_txt.Text.Replace((vbCrLf), ("\r\n")))
+        ini.WertSchreiben(CStr(index), "user", user_txt.Text)
+        ini.WertSchreiben(CStr(index), "password", password_txt.Text)
+        ini.WertSchreiben(CStr(index), "source", source_txt.Text)
+        ini.WertSchreiben(CStr(index), "comment", comment_txt.Text.Replace((vbCrLf), ("\r\n")))
     End Sub
     Private Sub passwordmanager_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
@@ -57,7 +58,7 @@
             readdb = My.Computer.FileSystem.ReadAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
             If mgrpass = "" Then
             Else
-                My.Computer.FileSystem.WriteAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", aes.AESEncrypt(readdb, mgrpass, startwindow.biosid), False)
+                My.Computer.FileSystem.WriteAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(aes.AESEncrypt(readdb, mgrpass, startwindow.biosid)), False)
             End If
             mgrpass = ""
         Catch ex As Exception

@@ -1,4 +1,5 @@
-﻿Imports System.Security.Cryptography
+﻿Option Strict On
+Imports System.Security.Cryptography
 Imports System.Text
 Public Class md5main
     Dim i As New MD5

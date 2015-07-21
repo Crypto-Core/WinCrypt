@@ -1,4 +1,5 @@
-﻿Imports Shell32
+﻿Option Strict On
+Imports Shell32
 Imports System
 Imports System.IO
 
@@ -25,7 +26,7 @@ Public Class Unzip
         _file = file
         _towhere = towhere
         _folder = Path.Combine(Path.GetDirectoryName(_file), _towhere)
-        _shell = CreateObject("Shell.Application")
+        _shell = CType(CreateObject("Shell.Application"), IShellDispatch2)
     End Sub
 
     ''' <summary>Das Entpacken (Unzip) wird ausgeführt.</summary>

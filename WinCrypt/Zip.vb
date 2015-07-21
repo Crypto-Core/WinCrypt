@@ -1,4 +1,5 @@
-﻿Imports Shell32
+﻿Option Strict On
+Imports Shell32
 Public Class Zip
     Public Function zip(ByVal zipfrom As String, ByVal zipto As String) As Object
         Dim srcfolderString As String = zipfrom

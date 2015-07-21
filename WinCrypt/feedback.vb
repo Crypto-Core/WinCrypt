@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Option Strict On
+Imports System.Net
 Public Class feedback
     Dim i As New System.Net.WebClient
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

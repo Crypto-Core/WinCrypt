@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Option Strict On
+Imports System.IO
 Public Class md5bruteforce
     Dim crypt_md5 As String
     Dim encrypt_md5 As String

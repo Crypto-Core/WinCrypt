@@ -1,4 +1,5 @@
-﻿Public Class systemidentification
+﻿Option Strict On
+Public Class systemidentification
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Dim ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
     Dim restart As String = startwindow.iniread

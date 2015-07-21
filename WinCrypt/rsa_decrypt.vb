@@ -1,4 +1,5 @@
-﻿Public Class rsa_decrypt
+﻿Option Strict On
+Public Class rsa_decrypt
     Dim privkey As String
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles open_privkey_bt.Click
         OpenFileDialog1.ShowDialog()

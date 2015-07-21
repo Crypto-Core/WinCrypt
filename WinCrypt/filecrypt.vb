@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Option Strict On
+Imports System
 Imports System.Collections.Generic
 Imports System.Text
 Imports System.IO
@@ -11,8 +12,8 @@ Module CryptoStuff
     Dim selectcombo As String
     Private Sub MakeKeyAndIV(ByVal password As String, ByVal salt() As Byte, ByVal key_size_bits As Integer, ByVal block_size_bits As Integer, ByRef key() As Byte, ByRef iv() As Byte)
         Dim derive_bytes As New Rfc2898DeriveBytes(password, salt, 1000)
-        key = derive_bytes.GetBytes(key_size_bits / 8)
-        iv = derive_bytes.GetBytes(block_size_bits / 8)
+        key = derive_bytes.GetBytes(CInt(key_size_bits / 8))
+        iv = derive_bytes.GetBytes(CInt(block_size_bits / 8))
     End Sub
 
 #Region "Encrypt Files and Streams"
