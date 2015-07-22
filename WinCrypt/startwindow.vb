@@ -3,6 +3,8 @@ Imports System.Threading
 Imports System.Net
 Imports System
 Imports System.Security.Principal
+Imports System.Text
+
 Public Class startwindow
     Dim filezip As New Zip
     Dim selectcombo As String
@@ -13,9 +15,12 @@ Public Class startwindow
     Public selecteddrive As String
     Public langname As String
     Public errormount As String
+    Dim i As String
     Dim lang As New language
     Public formclose As Boolean = False
     Public timerclose As Boolean = False
+    Dim finishcrypt As Integer = 0
+    Dim finunmount As Integer = 0
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Dim ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
     Function GetFolderSize(ByVal DirPath As String, _
@@ -41,11 +46,11 @@ Public Class startwindow
     End Function
 
     Private Sub encrypttimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypttimer.Tick
-
+        finishcrypt = 0
         If iniread = "yes" Then
             Try
                 Dim p As Integer = pathtxt.Text.LastIndexOf("\")
-                Dim i As String = pathtxt.Text.Remove(0, p + 1)
+                i = pathtxt.Text.Remove(0, p + 1)
                 My.Computer.FileSystem.RenameFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip", i & "f.zip")
                 If langname = "English" Then
                     encrypt_list_status.Items.Add("Now is encrypted...........")
@@ -78,14 +83,13 @@ Public Class startwindow
                 Else
                     CryptoStuff.CryptFile(biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & i.Replace(" ", "") & ".wcp", True)
                 End If
-                My.Computer.FileSystem.DeleteFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip")
-
                 If langname = "English" Then
                     encrypt_list_status.Items.Add("Container encrypted.....")
                 Else
                     encrypt_list_status.Items.Add("Container verschlüsselt.....")
                 End If
                 My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
+                finishcrypt = 1
                 encrypttimer.Enabled = False
                 If timerclose = True Then
                     Application.Exit()
@@ -96,7 +100,7 @@ Public Class startwindow
         Else
             Try
                 Dim p As Integer = pathtxt.Text.LastIndexOf("\")
-                Dim i As String = pathtxt.Text.Remove(0, p + 1)
+                i = pathtxt.Text.Remove(0, p + 1)
                 My.Computer.FileSystem.RenameFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & ".zip", i & "f.zip")
                 If langname = "English" Then
                     encrypt_list_status.Items.Add("Now is encrypted...........")
@@ -129,13 +133,13 @@ Public Class startwindow
                 Else
                     CryptoStuff.CryptFile(keycrypt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & i.Replace(" ", "") & ".wcp", True)
                 End If
-                My.Computer.FileSystem.DeleteFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip")
                 If langname = "English" Then
                     encrypt_list_status.Items.Add("Container encrypted.....")
                 Else
                     encrypt_list_status.Items.Add("Container verschlüsselt.....")
                 End If
                 My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
+                finishcrypt = 1
                 encrypttimer.Enabled = False
                 If timerclose = True Then
                     Application.Exit()
@@ -175,7 +179,6 @@ Public Class startwindow
                         Else
                             MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
                         End If
-                        My.Computer.FileSystem.DeleteDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         Application.Restart()
                     End Try
                     If langname = "English" Then
@@ -227,7 +230,6 @@ Public Class startwindow
                         Else
                             MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
                         End If
-                        My.Computer.FileSystem.DeleteDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount", FileIO.DeleteDirectoryOption.DeleteAllContents)
                         Application.Restart()
                     End Try
                     If langname = "English" Then
@@ -305,9 +307,9 @@ Public Class startwindow
                 dismount.Enabled = False
                 Shell("subst " & selectcombo.Replace("\", "") & " /D")
                 Threading.Thread.Sleep(3000)
-                My.Computer.FileSystem.DeleteDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount", FileIO.DeleteDirectoryOption.DeleteAllContents)
                 mount.Enabled = True
                 keyencrypt.UseSystemPasswordChar = False
+                finunmount = 1
                 If langname = "English" Then
                     decrypt_list_status.Items.Add("Closed drive " & CStr(drivecb.SelectedItem))
                 Else
@@ -352,9 +354,9 @@ Public Class startwindow
                 dismount.Enabled = False
                 Shell("subst " & selectcombo.Replace("\", "") & " /D")
                 Threading.Thread.Sleep(3000)
-                My.Computer.FileSystem.DeleteDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount", FileIO.DeleteDirectoryOption.DeleteAllContents)
                 mount.Enabled = True
                 keyencrypt.UseSystemPasswordChar = False
+                finunmount = 1
                 If langname = "English" Then
                     decrypt_list_status.Items.Add("Drive " & CStr(drivecb.SelectedItem) & " closed!")
                 Else
@@ -393,7 +395,6 @@ Public Class startwindow
             generate_key_encrypt.Enabled = True
         End If
     End Sub
-
     Private Sub generate_key_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generate_key_encrypt.Click
         Dim num_characters As Integer
         Dim i As Integer
@@ -417,7 +418,6 @@ Public Class startwindow
     End Sub
 
     Private Sub create_container_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles create_container_encrypt.Click
-
         If iniread = "yes" Then
             Dim p As String = CStr(pathtxt.Text.LastIndexOf("\"))
             Dim i As String = pathtxt.Text.Remove(0, CInt(CDbl(p) + 1))
@@ -436,7 +436,6 @@ Public Class startwindow
                 Else
                     MsgBox("Der Schlüssel muss mindestens aus 6 Zeichen bestehen", MsgBoxStyle.Information)
                 End If
-
             Else
                 Dim p As String = CStr(pathtxt.Text.LastIndexOf("\"))
                 Dim i As String = pathtxt.Text.Remove(0, CInt(CDbl(p) + 1))
@@ -473,7 +472,6 @@ Public Class startwindow
             End If
         End If
     End Sub
-
     Private Sub cryptfile_path_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles decrypt_filepath.TextChanged
         If iniread = "yes" Then
             If My.Computer.FileSystem.FileExists(decrypt_filepath.Text) Then
@@ -499,13 +497,6 @@ Public Class startwindow
     Private Sub keyencrypt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles keyencrypt.TextChanged
         mount.Enabled = True
     End Sub
-
-
-
-    Private Sub startwindow_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
-        
-    End Sub
-
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = formclose
         If e.Cancel = True Then
@@ -647,7 +638,6 @@ Public Class startwindow
     End Function
 
     Private Sub startwindow_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
-        
         Dim f As Form
         f = CType(sender, Form)
         If f.WindowState = FormWindowState.Minimized Then
@@ -676,7 +666,6 @@ Public Class startwindow
                 filedecrypt.Show()
                 filedecrypt.filetxt.Text = mypath.ToString
                 filedecrypt.pathtxt.Text = mypath.Replace(".wc", "")
-                'DateiEntschluesseln.TextBox2.Text = mypath.Substring(0, mypath.LastIndexOf("\"))
                 filedecrypt.pathtxt.Enabled = True
                 filedecrypt.passwordtxt.Enabled = True
                 filedecrypt.savefile.Enabled = True
@@ -906,12 +895,12 @@ Public Class startwindow
                 If langname = "English" Then
                     If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                         My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
-                            MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                        MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                     Else : End If
                 Else
                     If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                         My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
-                            MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                        MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
                     Else : End If
                 End If
             Else
@@ -958,7 +947,6 @@ Public Class startwindow
                     End If
                 End If
             End If
-            
         Else
             If langname = "English" Then
                 MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
@@ -1023,7 +1011,6 @@ Public Class startwindow
                     End If
                 End If
             End If
-
         Else
             If langname = "English" Then
                 MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
@@ -1065,5 +1052,55 @@ Public Class startwindow
 
     Private Sub FeedbackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem1.Click
         feedback.Show()
+    End Sub
+
+    Private Sub encrypt_list_status_SelectedIndexChanged(sender As Object, e As EventArgs) Handles encrypt_list_status.SelectedIndexChanged
+        If finishcrypt = 1 Then
+            Dim filesize As New System.IO.FileStream(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", IO.FileMode.Open)
+            Dim fsize As Integer = Int(filesize.Length)
+            filesize.Close()
+            Dim fstream As New System.IO.StreamWriter(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip")
+            For o As Integer = 0 To CInt(fsize)
+                fstream.Write(" ")
+            Next
+            fstream.Close()
+            Do
+                If My.Computer.FileSystem.FileExists(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip") = True Then
+                    My.Computer.FileSystem.DeleteFile(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip")
+                Else
+                    Exit Do
+                End If
+            Loop
+            finishcrypt = 0
+        Else : End If
+    End Sub
+    Private Sub decrypt_list_status_SelectedIndexChanged(sender As Object, e As EventArgs) Handles decrypt_list_status.SelectedIndexChanged
+        If finunmount = 1 Then
+            Try
+                Dim di As New System.IO.DirectoryInfo(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
+                For Each fi As System.IO.FileInfo In di.GetFiles("*.*", System.IO.SearchOption.AllDirectories)
+                    Dim filesize As New System.IO.FileStream(fi.FullName, IO.FileMode.Open)
+                    Dim fsize As Integer = Int(filesize.Length)
+                    filesize.Close()
+                    Dim fstream As New System.IO.StreamWriter(fi.FullName)
+                    For o As Integer = 0 To CInt(fsize)
+                        fstream.Write(" ")
+                    Next
+                    fstream.Close()
+                    Do
+                        If My.Computer.FileSystem.FileExists(fi.FullName) = True Then
+                            My.Computer.FileSystem.DeleteFile(fi.FullName)
+                        Else
+                            Exit Do
+                        End If
+                    Loop
+                Next
+                My.Computer.FileSystem.DeleteDirectory(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount", FileIO.DeleteDirectoryOption.DeleteAllContents)
+                finunmount = 0
+            Catch ex As Exception
+
+            End Try
+        End If
+        
     End Sub
 End Class
