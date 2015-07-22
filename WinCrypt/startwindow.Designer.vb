@@ -37,7 +37,6 @@ Partial Class startwindow
         Me.encrypt_gb = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.mount_gb = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.drive_lb = New System.Windows.Forms.Label()
         Me.key_lb = New System.Windows.Forms.Label()
@@ -208,7 +207,7 @@ Partial Class startwindow
         Me.encrypt_list_status.FormattingEnabled = True
         Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
         Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 93)
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 119)
         Me.encrypt_list_status.TabIndex = 5
         '
         'path_encrypt
@@ -252,6 +251,8 @@ Partial Class startwindow
         '
         'Label7
         '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Gray
         Me.Label7.ForeColor = System.Drawing.Color.Silver
@@ -266,7 +267,6 @@ Partial Class startwindow
         Me.mount_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mount_gb.Controls.Add(Me.Button1)
         Me.mount_gb.Controls.Add(Me.Label6)
         Me.mount_gb.Controls.Add(Me.drive_lb)
         Me.mount_gb.Controls.Add(Me.key_lb)
@@ -285,17 +285,10 @@ Partial Class startwindow
         Me.mount_gb.TabStop = False
         Me.mount_gb.Text = "Cryptdatei Mounten"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(491, 190)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Label6
         '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Gray
         Me.Label6.ForeColor = System.Drawing.Color.Silver
@@ -346,7 +339,7 @@ Partial Class startwindow
         Me.decrypt_list_status.FormattingEnabled = True
         Me.decrypt_list_status.Location = New System.Drawing.Point(16, 76)
         Me.decrypt_list_status.Name = "decrypt_list_status"
-        Me.decrypt_list_status.Size = New System.Drawing.Size(550, 106)
+        Me.decrypt_list_status.Size = New System.Drawing.Size(550, 119)
         Me.decrypt_list_status.TabIndex = 6
         '
         'drivecb
@@ -1020,6 +1013,5 @@ Partial Class startwindow
     Friend WithEvents DatenbankLöschenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class
