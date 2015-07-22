@@ -85,7 +85,7 @@ Partial Class rsa_create_keys
         'private_key_path_txt
         '
         Me.private_key_path_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.private_key_path_txt.Location = New System.Drawing.Point(82, 19)
         Me.private_key_path_txt.Name = "private_key_path_txt"
         Me.private_key_path_txt.Size = New System.Drawing.Size(382, 20)
@@ -94,7 +94,7 @@ Partial Class rsa_create_keys
         'public_key_path_txt
         '
         Me.public_key_path_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.public_key_path_txt.Location = New System.Drawing.Point(82, 48)
         Me.public_key_path_txt.Name = "public_key_path_txt"
         Me.public_key_path_txt.Size = New System.Drawing.Size(382, 20)
@@ -143,8 +143,8 @@ Partial Class rsa_create_keys
         'privatekey_txt
         '
         Me.privatekey_txt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.privatekey_txt.Location = New System.Drawing.Point(15, 98)
         Me.privatekey_txt.Multiline = True
         Me.privatekey_txt.Name = "privatekey_txt"
@@ -155,7 +155,7 @@ Partial Class rsa_create_keys
         'publickey_txt
         '
         Me.publickey_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.publickey_txt.Location = New System.Drawing.Point(12, 252)
         Me.publickey_txt.Multiline = True
         Me.publickey_txt.Name = "publickey_txt"
@@ -192,6 +192,7 @@ Partial Class rsa_create_keys
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "rsa_create_keys"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RSA Schlüssel erstellen"
         Me.ResumeLayout(False)
         Me.PerformLayout()

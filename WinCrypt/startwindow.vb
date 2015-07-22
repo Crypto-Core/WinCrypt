@@ -500,6 +500,12 @@ Public Class startwindow
         mount.Enabled = True
     End Sub
 
+
+
+    Private Sub startwindow_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+        
+    End Sub
+
     Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = formclose
         If e.Cancel = True Then
@@ -575,15 +581,15 @@ Public Class startwindow
         Next
     End Sub
     Private Sub DateiVerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiVerschlüsselnToolStripMenuItem.Click
-        fileencrypt.ShowDialog()
+        fileencrypt.Show()
     End Sub
 
     Private Sub DateiEntschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiEntschlüsselnToolStripMenuItem.Click
-        filedecrypt.ShowDialog()
+        filedecrypt.Show()
     End Sub
 
     Private Sub TextVerschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextVerschlüsselnToolStripMenuItem.Click
-        textencrypt.ShowDialog()
+        textencrypt.Show()
     End Sub
 
     Private Sub SystemidentifikationToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SystemidentifikationToolStripMenuItem.Click
@@ -641,6 +647,7 @@ Public Class startwindow
     End Function
 
     Private Sub startwindow_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+        
         Dim f As Form
         f = CType(sender, Form)
         If f.WindowState = FormWindowState.Minimized Then
@@ -656,6 +663,7 @@ Public Class startwindow
             systemtray.ShowBalloonTip(3000)
         End If
     End Sub
+
     Private Sub startwindow_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
         Dim count As New counter
         count.counter()
@@ -687,11 +695,11 @@ Public Class startwindow
     End Sub
 
     Private Sub EinstellungToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EinstellungToolStripMenuItem.Click
-        Einstellungen.Show()
+        Einstellungen.ShowDialog()
     End Sub
 
     Private Sub DateiSicherLöschenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiSicherLöschenToolStripMenuItem.Click
-        safedelete.ShowDialog()
+        safedelete.Show()
     End Sub
 
     Private Sub systemtray_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles systemtray.MouseDoubleClick
@@ -736,15 +744,15 @@ Public Class startwindow
     End Sub
 
     Private Sub DateiVerschlüsselnToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiVerschlüsselnToolStripMenuItem1.Click
-        fileencrypt.ShowDialog()
+        fileencrypt.Show()
     End Sub
 
     Private Sub DateiEntschlüsselnToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiEntschlüsselnToolStripMenuItem1.Click
-        filedecrypt.ShowDialog()
+        filedecrypt.Show()
     End Sub
 
     Private Sub TextVerUndEntschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextVerUndEntschlüsselnToolStripMenuItem.Click
-        textencrypt.ShowDialog()
+        textencrypt.Show()
     End Sub
 
     Private Sub SystemidentifikationToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SystemidentifikationToolStripMenuItem1.Click
@@ -756,7 +764,7 @@ Public Class startwindow
     End Sub
 
     Private Sub DateienSicherLöschenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateienSicherLöschenToolStripMenuItem.Click
-        safedelete.ShowDialog()
+        safedelete.Show()
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem1.Click
@@ -843,7 +851,7 @@ Public Class startwindow
     End Sub
 
     Private Sub KeyErstellenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KeyErstellenToolStripMenuItem.Click
-        rsa_create_keys.ShowDialog()
+        rsa_create_keys.Show()
     End Sub
 
     Private Sub EntschlüsselnToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EntschlüsselnToolStripMenuItem.Click
@@ -862,11 +870,11 @@ Public Class startwindow
     End Sub
 
     Private Sub PasswortmanagerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem.Click
-        passwordmanager.ShowDialog()
+        passwordmanager.Show()
     End Sub
 
     Private Sub PasswortmanagerToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem1.Click
-        passwordmanager.ShowDialog()
+        passwordmanager.Show()
     End Sub
 
     Private Sub DatenbankExportierenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatenbankExportierenToolStripMenuItem.Click

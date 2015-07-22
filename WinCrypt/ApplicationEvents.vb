@@ -2,6 +2,13 @@
 Namespace My
     Partial Friend Class MyApplication
         Private Sub MyApplication_StartupNextInstance(ByVal sender As Object, ByVal e As Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs) Handles Me.StartupNextInstance
+            If startwindow.WindowState = FormWindowState.Minimized Then
+                If startwindow.systemtray.Visible = True Then
+                    startwindow.systemtray.Visible = False
+                    startwindow.Show()
+                    startwindow.WindowState = FormWindowState.Normal
+                End If
+            End If
             Try
                 Dim Pfad_des_gelinkten_Objects As String = e.CommandLine.Item(0).ToString
                 Try

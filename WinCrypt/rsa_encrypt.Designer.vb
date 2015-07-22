@@ -134,6 +134,7 @@ Partial Class rsa_encrypt
         Me.Controls.Add(Me.pubkey_path_bt)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "rsa_encrypt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RSA Verschlüsselung"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -100,14 +100,14 @@ Public Class textencrypt
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             If TrackBar.Value = 1 Then
-                text_output.RightToLeft = Windows.Forms.RightToLeft.Yes
+                text_input.RightToLeft = Windows.Forms.RightToLeft.Yes
             End If
             If TrackBar.Value = 0 Then
                 text_input.RightToLeft = Windows.Forms.RightToLeft.Yes
             End If
         Else
             If TrackBar.Value = 1 Then
-                text_output.RightToLeft = Windows.Forms.RightToLeft.No
+                text_input.RightToLeft = Windows.Forms.RightToLeft.No
             End If
             If TrackBar.Value = 0 Then
                 text_input.RightToLeft = Windows.Forms.RightToLeft.No

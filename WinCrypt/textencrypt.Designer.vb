@@ -211,6 +211,7 @@ Partial Class textencrypt
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "textencrypt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Text verschlüsseln"
         CType(Me.TrackBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.arrow_1, System.ComponentModel.ISupportInitialize).EndInit()

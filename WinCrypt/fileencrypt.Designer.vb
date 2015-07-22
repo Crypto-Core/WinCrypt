@@ -189,6 +189,7 @@ Partial Class fileencrypt
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "fileencrypt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Datei Verschlüsseln"
         Me.ResumeLayout(False)
         Me.PerformLayout()

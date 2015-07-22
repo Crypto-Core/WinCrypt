@@ -59,7 +59,7 @@ Partial Class rsa_decrypt
         'privkey_path_txt
         '
         Me.privkey_path_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.privkey_path_txt.Location = New System.Drawing.Point(82, 14)
         Me.privkey_path_txt.Name = "privkey_path_txt"
         Me.privkey_path_txt.Size = New System.Drawing.Size(446, 20)
@@ -77,8 +77,8 @@ Partial Class rsa_decrypt
         'encrypt_message_txt
         '
         Me.encrypt_message_txt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encrypt_message_txt.Location = New System.Drawing.Point(15, 71)
         Me.encrypt_message_txt.Multiline = True
         Me.encrypt_message_txt.Name = "encrypt_message_txt"
@@ -98,7 +98,7 @@ Partial Class rsa_decrypt
         'message_txt
         '
         Me.message_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.message_txt.Location = New System.Drawing.Point(15, 268)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"
@@ -134,6 +134,7 @@ Partial Class rsa_decrypt
         Me.Controls.Add(Me.open_privkey_bt)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "rsa_decrypt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RSA Entschlüsselung"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -31,6 +31,7 @@ Partial Class passwortgenerator
         Me.numberscb = New System.Windows.Forms.CheckBox()
         Me.lengthlb = New System.Windows.Forms.Label()
         Me.copybt = New System.Windows.Forms.Button()
+        Me.specialchar = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'generatebt
@@ -39,7 +40,7 @@ Partial Class passwortgenerator
         Me.generatebt.BackColor = System.Drawing.Color.Gainsboro
         Me.generatebt.FlatAppearance.BorderSize = 0
         Me.generatebt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.generatebt.Location = New System.Drawing.Point(443, 193)
+        Me.generatebt.Location = New System.Drawing.Point(443, 244)
         Me.generatebt.Name = "generatebt"
         Me.generatebt.Size = New System.Drawing.Size(75, 23)
         Me.generatebt.TabIndex = 0
@@ -49,19 +50,19 @@ Partial Class passwortgenerator
         'generatetxt
         '
         Me.generatetxt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.generatetxt.Location = New System.Drawing.Point(12, 12)
         Me.generatetxt.Multiline = True
         Me.generatetxt.Name = "generatetxt"
         Me.generatetxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.generatetxt.Size = New System.Drawing.Size(506, 175)
+        Me.generatetxt.Size = New System.Drawing.Size(506, 203)
         Me.generatetxt.TabIndex = 1
         '
         'length
         '
         Me.length.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.length.Location = New System.Drawing.Point(195, 237)
+        Me.length.Location = New System.Drawing.Point(195, 288)
         Me.length.Name = "length"
         Me.length.Size = New System.Drawing.Size(75, 20)
         Me.length.TabIndex = 2
@@ -73,7 +74,7 @@ Partial Class passwortgenerator
         Me.uppercasecb.AutoSize = True
         Me.uppercasecb.Checked = True
         Me.uppercasecb.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.uppercasecb.Location = New System.Drawing.Point(12, 193)
+        Me.uppercasecb.Location = New System.Drawing.Point(12, 244)
         Me.uppercasecb.Name = "uppercasecb"
         Me.uppercasecb.Size = New System.Drawing.Size(105, 17)
         Me.uppercasecb.TabIndex = 3
@@ -86,7 +87,7 @@ Partial Class passwortgenerator
         Me.lowercasecb.AutoSize = True
         Me.lowercasecb.Checked = True
         Me.lowercasecb.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.lowercasecb.Location = New System.Drawing.Point(12, 216)
+        Me.lowercasecb.Location = New System.Drawing.Point(12, 267)
         Me.lowercasecb.Name = "lowercasecb"
         Me.lowercasecb.Size = New System.Drawing.Size(105, 17)
         Me.lowercasecb.TabIndex = 4
@@ -99,7 +100,7 @@ Partial Class passwortgenerator
         Me.numberscb.AutoSize = True
         Me.numberscb.Checked = True
         Me.numberscb.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.numberscb.Location = New System.Drawing.Point(12, 239)
+        Me.numberscb.Location = New System.Drawing.Point(12, 290)
         Me.numberscb.Name = "numberscb"
         Me.numberscb.Size = New System.Drawing.Size(59, 17)
         Me.numberscb.TabIndex = 5
@@ -110,7 +111,7 @@ Partial Class passwortgenerator
         '
         Me.lengthlb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lengthlb.AutoSize = True
-        Me.lengthlb.Location = New System.Drawing.Point(152, 240)
+        Me.lengthlb.Location = New System.Drawing.Point(152, 291)
         Me.lengthlb.Name = "lengthlb"
         Me.lengthlb.Size = New System.Drawing.Size(37, 13)
         Me.lengthlb.TabIndex = 6
@@ -118,22 +119,37 @@ Partial Class passwortgenerator
         '
         'copybt
         '
+        Me.copybt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.copybt.BackColor = System.Drawing.Color.Gainsboro
         Me.copybt.Enabled = False
         Me.copybt.FlatAppearance.BorderSize = 0
         Me.copybt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.copybt.Location = New System.Drawing.Point(362, 193)
+        Me.copybt.Location = New System.Drawing.Point(362, 244)
         Me.copybt.Name = "copybt"
         Me.copybt.Size = New System.Drawing.Size(75, 23)
         Me.copybt.TabIndex = 7
         Me.copybt.Text = "Kopieren"
         Me.copybt.UseVisualStyleBackColor = False
         '
+        'specialchar
+        '
+        Me.specialchar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.specialchar.AutoSize = True
+        Me.specialchar.Checked = True
+        Me.specialchar.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.specialchar.Location = New System.Drawing.Point(12, 221)
+        Me.specialchar.Name = "specialchar"
+        Me.specialchar.Size = New System.Drawing.Size(157, 17)
+        Me.specialchar.TabIndex = 9
+        Me.specialchar.Text = "Sonderzeichen (!""§$%&/()=?)"
+        Me.specialchar.UseVisualStyleBackColor = True
+        '
         'passwortgenerator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(530, 268)
+        Me.ClientSize = New System.Drawing.Size(530, 319)
+        Me.Controls.Add(Me.specialchar)
         Me.Controls.Add(Me.copybt)
         Me.Controls.Add(Me.lengthlb)
         Me.Controls.Add(Me.numberscb)
@@ -145,6 +161,7 @@ Partial Class passwortgenerator
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(300, 300)
         Me.Name = "passwortgenerator"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "WinCrypt - Passwortgenerator"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -158,4 +175,5 @@ Partial Class passwortgenerator
     Friend WithEvents numberscb As System.Windows.Forms.CheckBox
     Friend WithEvents lengthlb As System.Windows.Forms.Label
     Friend WithEvents copybt As System.Windows.Forms.Button
+    Friend WithEvents specialchar As System.Windows.Forms.CheckBox
 End Class

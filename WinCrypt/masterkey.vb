@@ -17,9 +17,9 @@
                 startwindow.ShowDialog()
             Else
                 If lang.langname = "English" Then
-                    MsgBox("Falscher Masterkey!", MsgBoxStyle.Critical)
-                Else
                     MsgBox("wrong masterkey!", MsgBoxStyle.Critical)
+                Else
+                    MsgBox("Falscher Masterkey!", MsgBoxStyle.Critical)
                 End If
             End If
         Catch ex As Exception

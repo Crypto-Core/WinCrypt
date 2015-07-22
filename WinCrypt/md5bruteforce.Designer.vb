@@ -255,6 +255,7 @@ Partial Class md5bruteforce
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "md5bruteforce"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MD5 Brute-force"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

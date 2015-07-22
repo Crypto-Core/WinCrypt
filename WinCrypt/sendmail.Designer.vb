@@ -211,6 +211,7 @@ Partial Class sendmail
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(614, 407)
         Me.Name = "sendmail"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "E-Mail Senden"
         Me.ResumeLayout(False)
         Me.PerformLayout()

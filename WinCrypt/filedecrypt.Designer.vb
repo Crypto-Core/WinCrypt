@@ -157,7 +157,7 @@ Partial Class filedecrypt
         Me.dragdroplb.TabIndex = 22
         Me.dragdroplb.Text = "Drag&Drop"
         '
-        'DateiEntschluesseln
+        'filedecrypt
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -177,7 +177,8 @@ Partial Class filedecrypt
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "DateiEntschluesseln"
+        Me.Name = "filedecrypt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Datei entschlüsseln"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -238,6 +238,7 @@ Partial Class Einstellungen
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Einstellungen"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Einstellungen"
         Me.registfiletypegb.ResumeLayout(False)
         Me.languagegb.ResumeLayout(False)

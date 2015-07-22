@@ -88,6 +88,7 @@ Partial Class startwindow
         Me.systemtray = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FeedbackToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DateiVerschlüsselnToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,7 +120,7 @@ Partial Class startwindow
         Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
-        Me.FeedbackToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_gb.SuspendLayout()
         Me.mount_gb.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -564,7 +565,7 @@ Partial Class startwindow
         'EMailSendenToolStripMenuItem
         '
         Me.EMailSendenToolStripMenuItem.Name = "EMailSendenToolStripMenuItem"
-        Me.EMailSendenToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.EMailSendenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EMailSendenToolStripMenuItem.Text = "E-Mail Senden"
         '
         'ToolStripSeparator11
@@ -670,9 +671,9 @@ Partial Class startwindow
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.FeedbackToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.ToolsToolStripMenuItem1, Me.ÖffnenToolStripMenuItem, Me.BeendenToolStripMenuItem1})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.FeedbackToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.ToolsToolStripMenuItem1, Me.ÖffnenToolStripMenuItem, Me.BeendenToolStripMenuItem1, Me.StateToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 158)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 180)
         '
         'AboutToolStripMenuItem1
         '
@@ -680,6 +681,13 @@ Partial Class startwindow
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'FeedbackToolStripMenuItem1
+        '
+        Me.FeedbackToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1437357185__feedback
+        Me.FeedbackToolStripMenuItem1.Name = "FeedbackToolStripMenuItem1"
+        Me.FeedbackToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.FeedbackToolStripMenuItem1.Text = "Feedback"
         '
         'UpdateToolStripMenuItem1
         '
@@ -784,7 +792,7 @@ Partial Class startwindow
         'EMailSendenToolStripMenuItem1
         '
         Me.EMailSendenToolStripMenuItem1.Name = "EMailSendenToolStripMenuItem1"
-        Me.EMailSendenToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.EMailSendenToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.EMailSendenToolStripMenuItem1.Text = "E-Mail Senden"
         '
         'ToolStripSeparator12
@@ -876,12 +884,11 @@ Partial Class startwindow
         '
         Me.OpenFileDialog2.Filter = "DB-Datei|*.db"
         '
-        'FeedbackToolStripMenuItem1
+        'StateToolStripMenuItem
         '
-        Me.FeedbackToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1437357185__feedback
-        Me.FeedbackToolStripMenuItem1.Name = "FeedbackToolStripMenuItem1"
-        Me.FeedbackToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.FeedbackToolStripMenuItem1.Text = "Feedback"
+        Me.StateToolStripMenuItem.Name = "StateToolStripMenuItem"
+        Me.StateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StateToolStripMenuItem.Text = "State"
         '
         'startwindow
         '
@@ -1009,5 +1016,6 @@ Partial Class startwindow
     Friend WithEvents DatenbankLöschenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents StateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

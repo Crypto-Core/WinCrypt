@@ -209,6 +209,7 @@ Partial Class safedelete
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "safedelete"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sicher löschen"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -76,7 +76,7 @@ Partial Class md5main
         Me.md5_txt.TabIndex = 4
         Me.md5_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'md5_main
+        'md5main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -89,7 +89,8 @@ Partial Class md5main
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "md5_main"
+        Me.Name = "md5main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MD5 Konverter"
         Me.ResumeLayout(False)
         Me.PerformLayout()

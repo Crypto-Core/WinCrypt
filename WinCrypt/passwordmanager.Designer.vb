@@ -244,6 +244,7 @@ Partial Class passwordmanager
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(523, 365)
         Me.Name = "passwordmanager"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Passwortmanager"
         Me.ResumeLayout(False)
         Me.PerformLayout()

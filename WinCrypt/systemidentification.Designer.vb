@@ -91,6 +91,7 @@ Partial Class systemidentification
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "systemidentification"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Systemidentifikation"
         Me.ResumeLayout(False)
         Me.PerformLayout()
