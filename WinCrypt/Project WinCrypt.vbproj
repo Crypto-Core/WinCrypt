@@ -184,17 +184,17 @@
     <Compile Include="masterkey.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MD5.vb" />
-    <Compile Include="md5bruteforce.Designer.vb">
-      <DependentUpon>md5bruteforce.vb</DependentUpon>
+    <Compile Include="winHash_bruteforce.Designer.vb">
+      <DependentUpon>winHash_bruteforce.vb</DependentUpon>
     </Compile>
-    <Compile Include="md5bruteforce.vb">
+    <Compile Include="winHash_bruteforce.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="md5main.Designer.vb">
-      <DependentUpon>md5main.vb</DependentUpon>
+    <Compile Include="winHash.vb" />
+    <Compile Include="winHash_converter.Designer.vb">
+      <DependentUpon>winHash_converter.vb</DependentUpon>
     </Compile>
-    <Compile Include="md5main.vb">
+    <Compile Include="winHash_converter.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
@@ -320,11 +320,11 @@
     <EmbeddedResource Include="masterkey.resx">
       <DependentUpon>masterkey.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="md5bruteforce.resx">
-      <DependentUpon>md5bruteforce.vb</DependentUpon>
+    <EmbeddedResource Include="winHash_bruteforce.resx">
+      <DependentUpon>winHash_bruteforce.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="md5main.resx">
-      <DependentUpon>md5main.vb</DependentUpon>
+    <EmbeddedResource Include="winHash_converter.resx">
+      <DependentUpon>winHash_converter.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newpwmgrdatabase.resx">
       <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
