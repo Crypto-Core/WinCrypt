@@ -2,7 +2,7 @@
 Imports System.Text
 Public Class winHash_converter
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles convert_bt.Click
-
+        'Test
         Select Case toHash_ComboBox.Text
             Case "MD5"
                 isHash_Textbox.Text = winHash.HashString(noHash_Textbox.Text, winHash.HASH.MD5)
