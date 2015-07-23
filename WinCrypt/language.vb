@@ -158,8 +158,8 @@
 
             'md5_bruteforce.vb
             winHash_bruteforce.passwordlist_lb.Text = "passwordlist:"
-            winHash_bruteforce.open_bt.Text = "open"
-            winHash_bruteforce.progresscheck.Text = "show progress"
+            winHash_bruteforce.openWordlist.Text = "open"
+            winHash_bruteforce.showProgress.Text = "show progress"
 
             'sendmail.vb
             sendmail.email_lb.Text = "email:"
@@ -365,8 +365,8 @@
 
             'md5_bruteforce.vb
             winHash_bruteforce.passwordlist_lb.Text = "Passwortliste:"
-            winHash_bruteforce.open_bt.Text = "Öffnen"
-            winHash_bruteforce.progresscheck.Text = "Zeige Fortschritt an"
+            winHash_bruteforce.openWordlist.Text = "Öffnen"
+            winHash_bruteforce.showProgress.Text = "Zeige Fortschritt an"
 
             'sendmail.vb
             sendmail.email_lb.Text = "E-Mail:"

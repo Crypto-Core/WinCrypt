@@ -29,50 +29,36 @@ Partial Class winHash_bruteforce
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(winHash_bruteforce))
-        Me.startbf_bt = New System.Windows.Forms.Button()
-        Me.inHash_Textbox = New System.Windows.Forms.TextBox()
+        Me.bruteforcesearchedHash = New System.Windows.Forms.TextBox()
         Me.md5_lb = New System.Windows.Forms.Label()
         Me.passwordlist_lb = New System.Windows.Forms.Label()
-        Me.file_txt = New System.Windows.Forms.TextBox()
-        Me.open_bt = New System.Windows.Forms.Button()
-        Me.status_lb = New System.Windows.Forms.Label()
+        Me.fileWordlist = New System.Windows.Forms.TextBox()
+        Me.openWordlist = New System.Windows.Forms.Button()
+        Me.bruteforceStatus = New System.Windows.Forms.Label()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.bgw = New System.ComponentModel.BackgroundWorker()
-        Me.statustimer = New System.Windows.Forms.Timer(Me.components)
-        Me.password_lb = New System.Windows.Forms.Label()
-        Me.line_lb = New System.Windows.Forms.Label()
-        Me.md5lb = New System.Windows.Forms.Label()
+        Me.bruteforceWorker_status = New System.Windows.Forms.Timer(Me.components)
+        Me.bruteforcerightPassword = New System.Windows.Forms.Label()
+        Me.bruteforceLine = New System.Windows.Forms.Label()
+        Me.bruteforceHash = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.testedpw_lb = New System.Windows.Forms.Label()
-        Me.stopbf_bt = New System.Windows.Forms.Button()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.progresscheck = New System.Windows.Forms.CheckBox()
-        Me.progresstimer = New System.Windows.Forms.Timer(Me.components)
+        Me.bruteforcePassword = New System.Windows.Forms.Label()
+        Me.bruteforceChecked = New System.Windows.Forms.ProgressBar()
+        Me.showProgress = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.theHash_ComboBox = New System.Windows.Forms.ComboBox()
+        Me.bruteforceHashtype = New System.Windows.Forms.ComboBox()
+        Me.bruteforceToggle = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'startbf_bt
+        'bruteforcesearchedHash
         '
-        Me.startbf_bt.BackColor = System.Drawing.Color.Gainsboro
-        Me.startbf_bt.FlatAppearance.BorderSize = 0
-        Me.startbf_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.startbf_bt.Location = New System.Drawing.Point(159, 218)
-        Me.startbf_bt.Name = "startbf_bt"
-        Me.startbf_bt.Size = New System.Drawing.Size(101, 23)
-        Me.startbf_bt.TabIndex = 0
-        Me.startbf_bt.Text = "Start Burte-force"
-        Me.startbf_bt.UseVisualStyleBackColor = False
-        '
-        'inHash_Textbox
-        '
-        Me.inHash_Textbox.Location = New System.Drawing.Point(43, 6)
-        Me.inHash_Textbox.Name = "inHash_Textbox"
-        Me.inHash_Textbox.Size = New System.Drawing.Size(271, 20)
-        Me.inHash_Textbox.TabIndex = 1
-        Me.inHash_Textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 6)
+        Me.bruteforcesearchedHash.Name = "bruteforcesearchedHash"
+        Me.bruteforcesearchedHash.Size = New System.Drawing.Size(271, 20)
+        Me.bruteforcesearchedHash.TabIndex = 1
+        Me.bruteforcesearchedHash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'md5_lb
         '
@@ -92,90 +78,89 @@ Partial Class winHash_bruteforce
         Me.passwordlist_lb.TabIndex = 3
         Me.passwordlist_lb.Text = "Passwortliste:"
         '
-        'file_txt
+        'fileWordlist
         '
-        Me.file_txt.Location = New System.Drawing.Point(10, 47)
-        Me.file_txt.Name = "file_txt"
-        Me.file_txt.Size = New System.Drawing.Size(322, 20)
-        Me.file_txt.TabIndex = 4
+        Me.fileWordlist.Location = New System.Drawing.Point(10, 47)
+        Me.fileWordlist.Name = "fileWordlist"
+        Me.fileWordlist.Size = New System.Drawing.Size(322, 20)
+        Me.fileWordlist.TabIndex = 4
         '
-        'open_bt
+        'openWordlist
         '
-        Me.open_bt.BackColor = System.Drawing.Color.Gainsboro
-        Me.open_bt.FlatAppearance.BorderSize = 0
-        Me.open_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.open_bt.Location = New System.Drawing.Point(338, 45)
-        Me.open_bt.Name = "open_bt"
-        Me.open_bt.Size = New System.Drawing.Size(75, 23)
-        Me.open_bt.TabIndex = 5
-        Me.open_bt.Text = "Öffnen"
-        Me.open_bt.UseVisualStyleBackColor = False
+        Me.openWordlist.BackColor = System.Drawing.Color.Gainsboro
+        Me.openWordlist.FlatAppearance.BorderSize = 0
+        Me.openWordlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.openWordlist.Location = New System.Drawing.Point(338, 45)
+        Me.openWordlist.Name = "openWordlist"
+        Me.openWordlist.Size = New System.Drawing.Size(75, 23)
+        Me.openWordlist.TabIndex = 5
+        Me.openWordlist.Text = "Öffnen"
+        Me.openWordlist.UseVisualStyleBackColor = False
         '
-        'status_lb
+        'bruteforceStatus
         '
-        Me.status_lb.AutoSize = True
-        Me.status_lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.status_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.status_lb.Location = New System.Drawing.Point(30, 9)
-        Me.status_lb.Name = "status_lb"
-        Me.status_lb.Size = New System.Drawing.Size(64, 16)
-        Me.status_lb.TabIndex = 6
-        Me.status_lb.Text = "Status:"
-        Me.status_lb.Visible = False
+        Me.bruteforceStatus.AutoSize = True
+        Me.bruteforceStatus.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bruteforceStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforceStatus.Location = New System.Drawing.Point(30, 9)
+        Me.bruteforceStatus.Name = "bruteforceStatus"
+        Me.bruteforceStatus.Size = New System.Drawing.Size(64, 16)
+        Me.bruteforceStatus.TabIndex = 6
+        Me.bruteforceStatus.Text = "Status:"
         '
         'bgw
         '
         Me.bgw.WorkerReportsProgress = True
         Me.bgw.WorkerSupportsCancellation = True
         '
-        'statustimer
+        'bruteforceWorker_status
         '
+        Me.bruteforceWorker_status.Interval = 1
         '
-        'password_lb
+        'bruteforcerightPassword
         '
-        Me.password_lb.AutoSize = True
-        Me.password_lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.password_lb.ForeColor = System.Drawing.Color.Lime
-        Me.password_lb.Location = New System.Drawing.Point(14, 57)
-        Me.password_lb.Name = "password_lb"
-        Me.password_lb.Size = New System.Drawing.Size(80, 16)
-        Me.password_lb.TabIndex = 7
-        Me.password_lb.Text = "Passwort:"
-        Me.password_lb.Visible = False
+        Me.bruteforcerightPassword.AutoSize = True
+        Me.bruteforcerightPassword.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bruteforcerightPassword.ForeColor = System.Drawing.Color.Lime
+        Me.bruteforcerightPassword.Location = New System.Drawing.Point(14, 57)
+        Me.bruteforcerightPassword.Name = "bruteforcerightPassword"
+        Me.bruteforcerightPassword.Size = New System.Drawing.Size(80, 16)
+        Me.bruteforcerightPassword.TabIndex = 7
+        Me.bruteforcerightPassword.Text = "Passwort:"
+        Me.bruteforcerightPassword.Visible = False
         '
-        'line_lb
+        'bruteforceLine
         '
-        Me.line_lb.AutoSize = True
-        Me.line_lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.line_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.line_lb.Location = New System.Drawing.Point(46, 76)
-        Me.line_lb.Name = "line_lb"
-        Me.line_lb.Size = New System.Drawing.Size(48, 16)
-        Me.line_lb.TabIndex = 8
-        Me.line_lb.Text = "Line:"
-        Me.line_lb.Visible = False
+        Me.bruteforceLine.AutoSize = True
+        Me.bruteforceLine.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bruteforceLine.ForeColor = System.Drawing.Color.Lime
+        Me.bruteforceLine.Location = New System.Drawing.Point(46, 76)
+        Me.bruteforceLine.Name = "bruteforceLine"
+        Me.bruteforceLine.Size = New System.Drawing.Size(48, 16)
+        Me.bruteforceLine.TabIndex = 8
+        Me.bruteforceLine.Text = "Line:"
+        Me.bruteforceLine.Visible = False
         '
-        'md5lb
+        'bruteforceHash
         '
-        Me.md5lb.AutoSize = True
-        Me.md5lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.md5lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.md5lb.Location = New System.Drawing.Point(54, 34)
-        Me.md5lb.Name = "md5lb"
-        Me.md5lb.Size = New System.Drawing.Size(40, 16)
-        Me.md5lb.TabIndex = 9
-        Me.md5lb.Text = "MD5:"
-        Me.md5lb.Visible = False
+        Me.bruteforceHash.AutoSize = True
+        Me.bruteforceHash.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bruteforceHash.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforceHash.Location = New System.Drawing.Point(46, 34)
+        Me.bruteforceHash.Name = "bruteforceHash"
+        Me.bruteforceHash.Size = New System.Drawing.Size(48, 16)
+        Me.bruteforceHash.TabIndex = 9
+        Me.bruteforceHash.Text = "Hash:"
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.testedpw_lb)
-        Me.Panel1.Controls.Add(Me.password_lb)
-        Me.Panel1.Controls.Add(Me.md5lb)
-        Me.Panel1.Controls.Add(Me.line_lb)
-        Me.Panel1.Controls.Add(Me.status_lb)
+        Me.Panel1.Controls.Add(Me.bruteforcePassword)
+        Me.Panel1.Controls.Add(Me.bruteforcerightPassword)
+        Me.Panel1.Controls.Add(Me.bruteforceHash)
+        Me.Panel1.Controls.Add(Me.bruteforceLine)
+        Me.Panel1.Controls.Add(Me.bruteforceStatus)
         Me.Panel1.Location = New System.Drawing.Point(10, 73)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(403, 139)
@@ -191,51 +176,34 @@ Partial Class winHash_bruteforce
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "_________________________________________________________________"
         '
-        'testedpw_lb
+        'bruteforcePassword
         '
-        Me.testedpw_lb.AutoSize = True
-        Me.testedpw_lb.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.testedpw_lb.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.testedpw_lb.ForeColor = System.Drawing.Color.Red
-        Me.testedpw_lb.Location = New System.Drawing.Point(14, 115)
-        Me.testedpw_lb.Name = "testedpw_lb"
-        Me.testedpw_lb.Size = New System.Drawing.Size(136, 16)
-        Me.testedpw_lb.TabIndex = 10
-        Me.testedpw_lb.Text = "tested password:"
+        Me.bruteforcePassword.AutoSize = True
+        Me.bruteforcePassword.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.bruteforcePassword.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bruteforcePassword.ForeColor = System.Drawing.Color.Red
+        Me.bruteforcePassword.Location = New System.Drawing.Point(14, 115)
+        Me.bruteforcePassword.Name = "bruteforcePassword"
+        Me.bruteforcePassword.Size = New System.Drawing.Size(136, 16)
+        Me.bruteforcePassword.TabIndex = 10
+        Me.bruteforcePassword.Text = "tested password:"
         '
-        'stopbf_bt
+        'bruteforceChecked
         '
-        Me.stopbf_bt.BackColor = System.Drawing.Color.Gainsboro
-        Me.stopbf_bt.FlatAppearance.BorderSize = 0
-        Me.stopbf_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.stopbf_bt.Location = New System.Drawing.Point(159, 218)
-        Me.stopbf_bt.Name = "stopbf_bt"
-        Me.stopbf_bt.Size = New System.Drawing.Size(101, 23)
-        Me.stopbf_bt.TabIndex = 11
-        Me.stopbf_bt.Text = "Stop Brute-force"
-        Me.stopbf_bt.UseVisualStyleBackColor = False
-        Me.stopbf_bt.Visible = False
+        Me.bruteforceChecked.Location = New System.Drawing.Point(10, 250)
+        Me.bruteforceChecked.Name = "bruteforceChecked"
+        Me.bruteforceChecked.Size = New System.Drawing.Size(400, 23)
+        Me.bruteforceChecked.TabIndex = 12
         '
-        'ProgressBar1
+        'showProgress
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(10, 250)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(400, 23)
-        Me.ProgressBar1.TabIndex = 12
-        '
-        'progresscheck
-        '
-        Me.progresscheck.AutoSize = True
-        Me.progresscheck.Location = New System.Drawing.Point(9, 222)
-        Me.progresscheck.Name = "progresscheck"
-        Me.progresscheck.Size = New System.Drawing.Size(117, 17)
-        Me.progresscheck.TabIndex = 13
-        Me.progresscheck.Text = "Zeige Fortschritt an"
-        Me.progresscheck.UseVisualStyleBackColor = True
-        '
-        'progresstimer
-        '
-        Me.progresstimer.Interval = 1
+        Me.showProgress.AutoSize = True
+        Me.showProgress.Location = New System.Drawing.Point(9, 222)
+        Me.showProgress.Name = "showProgress"
+        Me.showProgress.Size = New System.Drawing.Size(117, 17)
+        Me.showProgress.TabIndex = 13
+        Me.showProgress.Text = "Zeige Fortschritt an"
+        Me.showProgress.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -246,15 +214,27 @@ Partial Class winHash_bruteforce
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Art:"
         '
-        'theHash_ComboBox
+        'bruteforceHashtype
         '
-        Me.theHash_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.theHash_ComboBox.FormattingEnabled = True
-        Me.theHash_ComboBox.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512"})
-        Me.theHash_ComboBox.Location = New System.Drawing.Point(344, 6)
-        Me.theHash_ComboBox.Name = "theHash_ComboBox"
-        Me.theHash_ComboBox.Size = New System.Drawing.Size(69, 21)
-        Me.theHash_ComboBox.TabIndex = 14
+        Me.bruteforceHashtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.bruteforceHashtype.FormattingEnabled = True
+        Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512"})
+        Me.bruteforceHashtype.Location = New System.Drawing.Point(344, 6)
+        Me.bruteforceHashtype.Name = "bruteforceHashtype"
+        Me.bruteforceHashtype.Size = New System.Drawing.Size(69, 21)
+        Me.bruteforceHashtype.TabIndex = 14
+        '
+        'bruteforceToggle
+        '
+        Me.bruteforceToggle.BackColor = System.Drawing.Color.Gainsboro
+        Me.bruteforceToggle.FlatAppearance.BorderSize = 0
+        Me.bruteforceToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bruteforceToggle.Location = New System.Drawing.Point(159, 218)
+        Me.bruteforceToggle.Name = "bruteforceToggle"
+        Me.bruteforceToggle.Size = New System.Drawing.Size(101, 23)
+        Me.bruteforceToggle.TabIndex = 16
+        Me.bruteforceToggle.Text = "Brute Force"
+        Me.bruteforceToggle.UseVisualStyleBackColor = False
         '
         'winHash_bruteforce
         '
@@ -262,50 +242,48 @@ Partial Class winHash_bruteforce
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(421, 247)
+        Me.Controls.Add(Me.bruteforceToggle)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.theHash_ComboBox)
-        Me.Controls.Add(Me.progresscheck)
-        Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.stopbf_bt)
+        Me.Controls.Add(Me.bruteforceHashtype)
+        Me.Controls.Add(Me.showProgress)
+        Me.Controls.Add(Me.bruteforceChecked)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.open_bt)
-        Me.Controls.Add(Me.file_txt)
+        Me.Controls.Add(Me.openWordlist)
+        Me.Controls.Add(Me.fileWordlist)
         Me.Controls.Add(Me.passwordlist_lb)
         Me.Controls.Add(Me.md5_lb)
-        Me.Controls.Add(Me.inHash_Textbox)
-        Me.Controls.Add(Me.startbf_bt)
+        Me.Controls.Add(Me.bruteforcesearchedHash)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(437, 286)
         Me.Name = "winHash_bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Hash Brute-force"
+        Me.Text = "Hash Brute Force"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents startbf_bt As System.Windows.Forms.Button
-    Friend WithEvents inHash_Textbox As System.Windows.Forms.TextBox
+    Friend WithEvents bruteforcesearchedHash As System.Windows.Forms.TextBox
     Friend WithEvents md5_lb As System.Windows.Forms.Label
     Friend WithEvents passwordlist_lb As System.Windows.Forms.Label
-    Friend WithEvents file_txt As System.Windows.Forms.TextBox
-    Friend WithEvents open_bt As System.Windows.Forms.Button
-    Friend WithEvents status_lb As System.Windows.Forms.Label
+    Friend WithEvents fileWordlist As System.Windows.Forms.TextBox
+    Friend WithEvents openWordlist As System.Windows.Forms.Button
+    Friend WithEvents bruteforceStatus As System.Windows.Forms.Label
     Friend WithEvents OpenFileDialog As System.Windows.Forms.OpenFileDialog
     Friend WithEvents bgw As System.ComponentModel.BackgroundWorker
-    Friend WithEvents statustimer As System.Windows.Forms.Timer
-    Friend WithEvents password_lb As System.Windows.Forms.Label
-    Friend WithEvents line_lb As System.Windows.Forms.Label
-    Friend WithEvents md5lb As System.Windows.Forms.Label
+    Friend WithEvents bruteforceWorker_status As System.Windows.Forms.Timer
+    Friend WithEvents bruteforcerightPassword As System.Windows.Forms.Label
+    Friend WithEvents bruteforceLine As System.Windows.Forms.Label
+    Friend WithEvents bruteforceHash As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents stopbf_bt As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents testedpw_lb As System.Windows.Forms.Label
-    Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
-    Friend WithEvents progresscheck As System.Windows.Forms.CheckBox
-    Friend WithEvents progresstimer As System.Windows.Forms.Timer
+    Friend WithEvents bruteforcePassword As System.Windows.Forms.Label
+    Friend WithEvents bruteforceChecked As System.Windows.Forms.ProgressBar
+    Friend WithEvents showProgress As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents theHash_ComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents bruteforceHashtype As System.Windows.Forms.ComboBox
+    Friend WithEvents bruteforceToggle As System.Windows.Forms.Button
 End Class
