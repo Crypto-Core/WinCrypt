@@ -411,6 +411,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1437704584_add.png" />
+    <None Include="Resources\1437704555_add.png" />
     <None Include="Resources\1437357185__feedback.png" />
     <None Include="regist\regist\bin\Debug\regist.exe" />
     <None Include="Resources\1436930846_system-file-manager.png" />

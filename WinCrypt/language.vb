@@ -369,15 +369,15 @@
             md5bruteforce.progresscheck.Text = "Zeige Fortschritt an"
 
             'sendmail.vb
-            sendmail.email_lb.Text = "E-Mail:"
-            sendmail.password_lb.Text = "Passwort:"
-            sendmail.server_lb.Text = "Server:"
-            sendmail.emailto_lb.Text = "Empfänger:"
-            sendmail.Label1.Text = "Anhang:"
-            sendmail.file_txt.Size = New System.Drawing.Size(387, 20)
-            sendmail.file_txt.Location = New System.Drawing.Point(65, 416)
-            sendmail.file_bt.Text = "Öffnen"
-            sendmail.sendmail_bt.Text = "Senden"
+            'sendmail.email_lb.Text = "E-Mail:"
+            'sendmail.password_lb.Text = "Passwort:"
+            'sendmail.server_lb.Text = "Server:"
+            'sendmail.emailto_lb.Text = "Empfänger:"
+            'sendmail.Label1.Text = "Anhang:"
+            'sendmail.file_txt.Size = New System.Drawing.Size(387, 20)
+            'sendmail.file_txt.Location = New System.Drawing.Point(65, 416)
+            'sendmail.file_bt.Text = "Öffnen"
+            'sendmail.sendmail_bt.Text = "Senden"
 
             'passwordmanager.vb
             passwordmanager.Text = "Passwortmanager"

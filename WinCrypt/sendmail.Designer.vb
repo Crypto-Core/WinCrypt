@@ -39,6 +39,16 @@ Partial Class sendmail
         Me.subject_lb = New System.Windows.Forms.Label()
         Me.password_lb = New System.Windows.Forms.Label()
         Me.server_lb = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.file_bt1 = New System.Windows.Forms.Button()
+        Me.file_txt1 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.file_bt2 = New System.Windows.Forms.Button()
+        Me.file_txt2 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.file_bt3 = New System.Windows.Forms.Button()
+        Me.file_txt3 = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -66,7 +76,7 @@ Partial Class sendmail
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.emailto_txt.Location = New System.Drawing.Point(79, 56)
         Me.emailto_txt.Name = "emailto_txt"
-        Me.emailto_txt.Size = New System.Drawing.Size(662, 20)
+        Me.emailto_txt.Size = New System.Drawing.Size(675, 20)
         Me.emailto_txt.TabIndex = 2
         '
         'subject_txt
@@ -75,57 +85,52 @@ Partial Class sendmail
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.subject_txt.Location = New System.Drawing.Point(65, 82)
         Me.subject_txt.Name = "subject_txt"
-        Me.subject_txt.Size = New System.Drawing.Size(676, 20)
+        Me.subject_txt.Size = New System.Drawing.Size(689, 20)
         Me.subject_txt.TabIndex = 3
         '
         'message_txt
         '
-        Me.message_txt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.message_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.message_txt.Location = New System.Drawing.Point(15, 108)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"
-        Me.message_txt.Size = New System.Drawing.Size(726, 302)
+        Me.message_txt.Size = New System.Drawing.Size(739, 216)
         Me.message_txt.TabIndex = 4
         '
         'server_txt
         '
         Me.server_txt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.server_txt.Location = New System.Drawing.Point(641, 12)
+        Me.server_txt.Location = New System.Drawing.Point(654, 12)
         Me.server_txt.Name = "server_txt"
         Me.server_txt.Size = New System.Drawing.Size(100, 20)
         Me.server_txt.TabIndex = 5
         '
         'file_txt
         '
-        Me.file_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.file_txt.Location = New System.Drawing.Point(65, 416)
+        Me.file_txt.Location = New System.Drawing.Point(70, 332)
         Me.file_txt.Name = "file_txt"
-        Me.file_txt.Size = New System.Drawing.Size(387, 20)
+        Me.file_txt.Size = New System.Drawing.Size(468, 20)
         Me.file_txt.TabIndex = 6
         '
         'file_bt
         '
-        Me.file_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.file_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.file_bt.FlatAppearance.BorderSize = 0
         Me.file_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.file_bt.Location = New System.Drawing.Point(458, 414)
+        Me.file_bt.Location = New System.Drawing.Point(544, 330)
         Me.file_bt.Name = "file_bt"
-        Me.file_bt.Size = New System.Drawing.Size(75, 23)
+        Me.file_bt.Size = New System.Drawing.Size(51, 23)
         Me.file_bt.TabIndex = 7
         Me.file_bt.Text = "Öffnen"
         Me.file_bt.UseVisualStyleBackColor = False
         '
         'sendmail_bt
         '
-        Me.sendmail_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.sendmail_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.sendmail_bt.FlatAppearance.BorderSize = 0
         Me.sendmail_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.sendmail_bt.Location = New System.Drawing.Point(666, 414)
+        Me.sendmail_bt.Location = New System.Drawing.Point(679, 330)
         Me.sendmail_bt.Name = "sendmail_bt"
         Me.sendmail_bt.Size = New System.Drawing.Size(75, 23)
         Me.sendmail_bt.TabIndex = 8
@@ -134,9 +139,8 @@ Partial Class sendmail
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 419)
+        Me.Label1.Location = New System.Drawing.Point(17, 335)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 9
@@ -182,17 +186,120 @@ Partial Class sendmail
         '
         Me.server_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.server_lb.AutoSize = True
-        Me.server_lb.Location = New System.Drawing.Point(594, 15)
+        Me.server_lb.Location = New System.Drawing.Point(607, 15)
         Me.server_lb.Name = "server_lb"
         Me.server_lb.Size = New System.Drawing.Size(41, 13)
         Me.server_lb.TabIndex = 14
         Me.server_lb.Text = "Server:"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(17, 364)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 17
+        Me.Label2.Text = "Anhang:"
+        '
+        'file_bt1
+        '
+        Me.file_bt1.BackColor = System.Drawing.Color.Gainsboro
+        Me.file_bt1.FlatAppearance.BorderSize = 0
+        Me.file_bt1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.file_bt1.Location = New System.Drawing.Point(544, 359)
+        Me.file_bt1.Name = "file_bt1"
+        Me.file_bt1.Size = New System.Drawing.Size(51, 23)
+        Me.file_bt1.TabIndex = 16
+        Me.file_bt1.Text = "Öffnen"
+        Me.file_bt1.UseVisualStyleBackColor = False
+        '
+        'file_txt1
+        '
+        Me.file_txt1.Location = New System.Drawing.Point(70, 361)
+        Me.file_txt1.Name = "file_txt1"
+        Me.file_txt1.Size = New System.Drawing.Size(468, 20)
+        Me.file_txt1.TabIndex = 15
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(17, 393)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(47, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Anhang:"
+        '
+        'file_bt2
+        '
+        Me.file_bt2.BackColor = System.Drawing.Color.Gainsboro
+        Me.file_bt2.FlatAppearance.BorderSize = 0
+        Me.file_bt2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.file_bt2.Location = New System.Drawing.Point(544, 388)
+        Me.file_bt2.Name = "file_bt2"
+        Me.file_bt2.Size = New System.Drawing.Size(51, 23)
+        Me.file_bt2.TabIndex = 19
+        Me.file_bt2.Text = "Öffnen"
+        Me.file_bt2.UseVisualStyleBackColor = False
+        '
+        'file_txt2
+        '
+        Me.file_txt2.Location = New System.Drawing.Point(70, 390)
+        Me.file_txt2.Name = "file_txt2"
+        Me.file_txt2.Size = New System.Drawing.Size(468, 20)
+        Me.file_txt2.TabIndex = 18
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(17, 422)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(47, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Anhang:"
+        '
+        'file_bt3
+        '
+        Me.file_bt3.BackColor = System.Drawing.Color.Gainsboro
+        Me.file_bt3.FlatAppearance.BorderSize = 0
+        Me.file_bt3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.file_bt3.Location = New System.Drawing.Point(544, 417)
+        Me.file_bt3.Name = "file_bt3"
+        Me.file_bt3.Size = New System.Drawing.Size(51, 23)
+        Me.file_bt3.TabIndex = 22
+        Me.file_bt3.Text = "Öffnen"
+        Me.file_bt3.UseVisualStyleBackColor = False
+        '
+        'file_txt3
+        '
+        Me.file_txt3.Location = New System.Drawing.Point(70, 419)
+        Me.file_txt3.Name = "file_txt3"
+        Me.file_txt3.Size = New System.Drawing.Size(468, 20)
+        Me.file_txt3.TabIndex = 21
+        '
+        'Button4
+        '
+        Me.Button4.Image = Global.Project_WinCrypt.My.Resources.Resources._1437704584_add
+        Me.Button4.Location = New System.Drawing.Point(601, 330)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(26, 23)
+        Me.Button4.TabIndex = 24
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'sendmail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(753, 449)
+        Me.ClientSize = New System.Drawing.Size(766, 453)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.file_bt3)
+        Me.Controls.Add(Me.file_txt3)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.file_bt2)
+        Me.Controls.Add(Me.file_txt2)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.file_bt1)
+        Me.Controls.Add(Me.file_txt1)
         Me.Controls.Add(Me.server_lb)
         Me.Controls.Add(Me.password_lb)
         Me.Controls.Add(Me.subject_lb)
@@ -209,7 +316,6 @@ Partial Class sendmail
         Me.Controls.Add(Me.password_txt)
         Me.Controls.Add(Me.email_txt)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(614, 407)
         Me.Name = "sendmail"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "E-Mail Senden"
@@ -233,4 +339,14 @@ Partial Class sendmail
     Friend WithEvents subject_lb As System.Windows.Forms.Label
     Friend WithEvents password_lb As System.Windows.Forms.Label
     Friend WithEvents server_lb As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents file_bt1 As System.Windows.Forms.Button
+    Friend WithEvents file_txt1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents file_bt2 As System.Windows.Forms.Button
+    Friend WithEvents file_txt2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents file_bt3 As System.Windows.Forms.Button
+    Friend WithEvents file_txt3 As System.Windows.Forms.TextBox
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class
