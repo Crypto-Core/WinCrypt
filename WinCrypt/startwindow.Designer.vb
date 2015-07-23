@@ -510,19 +510,19 @@ Partial Class startwindow
         Me.MD5ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem, Me.MD5CrackerToolStripMenuItem})
         Me.MD5ToolStripMenuItem.Name = "MD5ToolStripMenuItem"
         Me.MD5ToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
-        Me.MD5ToolStripMenuItem.Text = "MD5"
+        Me.MD5ToolStripMenuItem.Text = "Hash"
         '
         'MD5KonverterToolStripMenuItem
         '
         Me.MD5KonverterToolStripMenuItem.Name = "MD5KonverterToolStripMenuItem"
-        Me.MD5KonverterToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.MD5KonverterToolStripMenuItem.Text = "MD5 Konverter"
+        Me.MD5KonverterToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.MD5KonverterToolStripMenuItem.Text = "Hash Konverter"
         '
         'MD5CrackerToolStripMenuItem
         '
         Me.MD5CrackerToolStripMenuItem.Name = "MD5CrackerToolStripMenuItem"
-        Me.MD5CrackerToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.MD5CrackerToolStripMenuItem.Text = "MD5 Brute-force"
+        Me.MD5CrackerToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.MD5CrackerToolStripMenuItem.Text = "Hash Brute-force"
         '
         'RSAToolStripMenuItem
         '

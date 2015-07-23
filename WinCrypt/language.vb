@@ -153,13 +153,13 @@
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb
-            md5main.Text = "MD5 Converter"
-            md5main.convert_bt.Text = "Convert"
+            winHash_converter.Text = "MD5 Converter"
+            winHash_converter.convert_bt.Text = "Convert"
 
             'md5_bruteforce.vb
-            md5bruteforce.passwordlist_lb.Text = "passwordlist:"
-            md5bruteforce.open_bt.Text = "open"
-            md5bruteforce.progresscheck.Text = "show progress"
+            winHash_bruteforce.passwordlist_lb.Text = "passwordlist:"
+            winHash_bruteforce.openWordlist.Text = "open"
+            winHash_bruteforce.showProgress.Text = "show progress"
 
             'sendmail.vb
             sendmail.email_lb.Text = "email:"
@@ -358,13 +358,13 @@
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb
-            md5main.Text = "MD5 Konverter"
-            md5main.convert_bt.Text = "Konvertieren"
+            winHash_converter.Text = "MD5 Konverter"
+            winHash_converter.convert_bt.Text = "Konvertieren"
 
             'md5_bruteforce.vb
-            md5bruteforce.passwordlist_lb.Text = "Passwortliste:"
-            md5bruteforce.open_bt.Text = "Öffnen"
-            md5bruteforce.progresscheck.Text = "Zeige Fortschritt an"
+            winHash_bruteforce.passwordlist_lb.Text = "Passwortliste:"
+            winHash_bruteforce.openWordlist.Text = "Öffnen"
+            winHash_bruteforce.showProgress.Text = "Zeige Fortschritt an"
 
             'sendmail.vb
             sendmail.email_lb.Text = "E-Mail:"
