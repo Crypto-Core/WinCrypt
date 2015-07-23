@@ -1,9 +1,8 @@
 ﻿Option Strict On
 Imports System.IO
-Public Class md5bruteforce
+Public Class winHash_bruteforce
     Dim crypt_md5 As String
     Dim encrypt_md5 As String
-    Dim md5 As New MD5
     Dim counter As Integer = 0
     Dim hashstatus As String
     Dim passstat As String
@@ -12,9 +11,9 @@ Public Class md5bruteforce
     Dim progmax As Integer
     Dim langname As New language
     Private Sub startbf_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startbf_bt.Click
-        If md5_txt.Text.Length = 32 Then
+        If inHash_Textbox.Text.Length = 32 Then
             If My.Computer.FileSystem.FileExists(file_txt.Text) Then
-                md5_txt.Enabled = False
+                inHash_Textbox.Enabled = False
                 file_txt.Enabled = False
                 open_bt.Enabled = False
                 progresscheck.Enabled = False
@@ -45,9 +44,9 @@ Public Class md5bruteforce
             End If
         Else
             If langname.langname = "English" Then
-                MessageBox.Show("please enter a MD5 hash!", "note", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("please enter a hash!", "note", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("Bitte geben Sie einen MD5 Hash ein!", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Bitte geben Sie einen Hash ein!", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
 
@@ -64,12 +63,43 @@ Public Class md5bruteforce
             If bgw.CancellationPending = True Then
                 Exit For
             End If
-            If md5.MD5StringHash(Daten_lesen(counter)) = md5_txt.Text Then
-                passstat = Daten_lesen(counter)
-                MsgBox("Crack it!", MsgBoxStyle.Exclamation)
-                Exit For
-            Else : End If
-            hashstatus = md5.MD5StringHash(Daten_lesen(counter))
+            Select Case theHash_ComboBox.Text
+                Case "MD5"
+                    If winHash.HashString(Daten_lesen(counter), winHash.HASH.MD5) = inHash_Textbox.Text Then
+                        passstat = Daten_lesen(counter)
+                        MsgBox("Crack it!", MsgBoxStyle.Exclamation)
+                        Exit For
+                    End If
+                    hashstatus = winHash.HashString(Daten_lesen(counter), winHash.HASH.MD5)
+                Case "SHA1"
+                    If winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA1) = inHash_Textbox.Text Then
+                        passstat = Daten_lesen(counter)
+                        MsgBox("Crack it!", MsgBoxStyle.Exclamation)
+                        Exit For
+                    End If
+                    hashstatus = winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA1)
+                Case "SHA256"
+                    If winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA256) = inHash_Textbox.Text Then
+                        passstat = Daten_lesen(counter)
+                        MsgBox("Crack it!", MsgBoxStyle.Exclamation)
+                        Exit For
+                    End If
+                    hashstatus = winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA256)
+                Case "SHA384"
+                    If winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA384) = inHash_Textbox.Text Then
+                        passstat = Daten_lesen(counter)
+                        MsgBox("Crack it!", MsgBoxStyle.Exclamation)
+                        Exit For
+                    End If
+                    hashstatus = winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA384)
+                Case "SHA512"
+                    If winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA512) = inHash_Textbox.Text Then
+                        passstat = Daten_lesen(counter)
+                        MsgBox("Crack it!", MsgBoxStyle.Exclamation)
+                        Exit For
+                    End If
+                    hashstatus = winHash.HashString(Daten_lesen(counter), winHash.HASH.SHA512)
+            End Select
             testpw = Daten_lesen(counter)
             counter += 1
         Next
@@ -126,17 +156,17 @@ Public Class md5bruteforce
         statustimer.Enabled = False
         progresstimer.Enabled = False
         progresscheck.Enabled = True
-        md5_txt.Enabled = True
+        inHash_Textbox.Enabled = True
         file_txt.Enabled = True
         open_bt.Enabled = True
     End Sub
 
     Private Sub progresscheck_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles progresscheck.CheckedChanged
         If progresscheck.Checked = True Then
-            Dim size1 As New Size(437, 353)
+            Dim size1 As New Size(437, 319)
             Me.Size = size1
         Else
-            Dim size2 As New Size(437, 312)
+            Dim size2 As New Size(437, 286)
             Me.Size = size2
         End If
     End Sub
@@ -151,5 +181,6 @@ Public Class md5bruteforce
     End Sub
     Private Sub md5_bruteforce_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         langname.check()
+        theHash_ComboBox.SelectedIndex = 0
     End Sub
 End Class

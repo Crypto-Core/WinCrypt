@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class md5bruteforce
+Partial Class winHash_bruteforce
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -28,9 +28,9 @@ Partial Class md5bruteforce
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(md5bruteforce))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(winHash_bruteforce))
         Me.startbf_bt = New System.Windows.Forms.Button()
-        Me.md5_txt = New System.Windows.Forms.TextBox()
+        Me.inHash_Textbox = New System.Windows.Forms.TextBox()
         Me.md5_lb = New System.Windows.Forms.Label()
         Me.passwordlist_lb = New System.Windows.Forms.Label()
         Me.file_txt = New System.Windows.Forms.TextBox()
@@ -49,6 +49,8 @@ Partial Class md5bruteforce
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.progresscheck = New System.Windows.Forms.CheckBox()
         Me.progresstimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.theHash_ComboBox = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -57,34 +59,34 @@ Partial Class md5bruteforce
         Me.startbf_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.startbf_bt.FlatAppearance.BorderSize = 0
         Me.startbf_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.startbf_bt.Location = New System.Drawing.Point(165, 253)
+        Me.startbf_bt.Location = New System.Drawing.Point(159, 218)
         Me.startbf_bt.Name = "startbf_bt"
         Me.startbf_bt.Size = New System.Drawing.Size(101, 23)
         Me.startbf_bt.TabIndex = 0
         Me.startbf_bt.Text = "Start Burte-force"
         Me.startbf_bt.UseVisualStyleBackColor = False
         '
-        'md5_txt
+        'inHash_Textbox
         '
-        Me.md5_txt.Location = New System.Drawing.Point(15, 32)
-        Me.md5_txt.Name = "md5_txt"
-        Me.md5_txt.Size = New System.Drawing.Size(404, 20)
-        Me.md5_txt.TabIndex = 1
-        Me.md5_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.inHash_Textbox.Location = New System.Drawing.Point(43, 6)
+        Me.inHash_Textbox.Name = "inHash_Textbox"
+        Me.inHash_Textbox.Size = New System.Drawing.Size(271, 20)
+        Me.inHash_Textbox.TabIndex = 1
+        Me.inHash_Textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'md5_lb
         '
         Me.md5_lb.AutoSize = True
-        Me.md5_lb.Location = New System.Drawing.Point(13, 16)
+        Me.md5_lb.Location = New System.Drawing.Point(6, 9)
         Me.md5_lb.Name = "md5_lb"
-        Me.md5_lb.Size = New System.Drawing.Size(33, 13)
+        Me.md5_lb.Size = New System.Drawing.Size(35, 13)
         Me.md5_lb.TabIndex = 2
-        Me.md5_lb.Text = "MD5:"
+        Me.md5_lb.Text = "Hash:"
         '
         'passwordlist_lb
         '
         Me.passwordlist_lb.AutoSize = True
-        Me.passwordlist_lb.Location = New System.Drawing.Point(12, 66)
+        Me.passwordlist_lb.Location = New System.Drawing.Point(6, 31)
         Me.passwordlist_lb.Name = "passwordlist_lb"
         Me.passwordlist_lb.Size = New System.Drawing.Size(71, 13)
         Me.passwordlist_lb.TabIndex = 3
@@ -92,7 +94,7 @@ Partial Class md5bruteforce
         '
         'file_txt
         '
-        Me.file_txt.Location = New System.Drawing.Point(16, 82)
+        Me.file_txt.Location = New System.Drawing.Point(10, 47)
         Me.file_txt.Name = "file_txt"
         Me.file_txt.Size = New System.Drawing.Size(322, 20)
         Me.file_txt.TabIndex = 4
@@ -102,7 +104,7 @@ Partial Class md5bruteforce
         Me.open_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.open_bt.FlatAppearance.BorderSize = 0
         Me.open_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.open_bt.Location = New System.Drawing.Point(344, 80)
+        Me.open_bt.Location = New System.Drawing.Point(338, 45)
         Me.open_bt.Name = "open_bt"
         Me.open_bt.Size = New System.Drawing.Size(75, 23)
         Me.open_bt.TabIndex = 5
@@ -174,7 +176,7 @@ Partial Class md5bruteforce
         Me.Panel1.Controls.Add(Me.md5lb)
         Me.Panel1.Controls.Add(Me.line_lb)
         Me.Panel1.Controls.Add(Me.status_lb)
-        Me.Panel1.Location = New System.Drawing.Point(16, 108)
+        Me.Panel1.Location = New System.Drawing.Point(10, 73)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(403, 139)
         Me.Panel1.TabIndex = 10
@@ -206,7 +208,7 @@ Partial Class md5bruteforce
         Me.stopbf_bt.BackColor = System.Drawing.Color.Gainsboro
         Me.stopbf_bt.FlatAppearance.BorderSize = 0
         Me.stopbf_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.stopbf_bt.Location = New System.Drawing.Point(165, 253)
+        Me.stopbf_bt.Location = New System.Drawing.Point(159, 218)
         Me.stopbf_bt.Name = "stopbf_bt"
         Me.stopbf_bt.Size = New System.Drawing.Size(101, 23)
         Me.stopbf_bt.TabIndex = 11
@@ -216,7 +218,7 @@ Partial Class md5bruteforce
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(16, 289)
+        Me.ProgressBar1.Location = New System.Drawing.Point(10, 250)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(400, 23)
         Me.ProgressBar1.TabIndex = 12
@@ -224,7 +226,7 @@ Partial Class md5bruteforce
         'progresscheck
         '
         Me.progresscheck.AutoSize = True
-        Me.progresscheck.Location = New System.Drawing.Point(16, 259)
+        Me.progresscheck.Location = New System.Drawing.Point(9, 222)
         Me.progresscheck.Name = "progresscheck"
         Me.progresscheck.Size = New System.Drawing.Size(117, 17)
         Me.progresscheck.TabIndex = 13
@@ -235,12 +237,33 @@ Partial Class md5bruteforce
         '
         Me.progresstimer.Interval = 1
         '
-        'md5bruteforce
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(318, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(23, 13)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "Art:"
+        '
+        'theHash_ComboBox
+        '
+        Me.theHash_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.theHash_ComboBox.FormattingEnabled = True
+        Me.theHash_ComboBox.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512"})
+        Me.theHash_ComboBox.Location = New System.Drawing.Point(344, 6)
+        Me.theHash_ComboBox.Name = "theHash_ComboBox"
+        Me.theHash_ComboBox.Size = New System.Drawing.Size(69, 21)
+        Me.theHash_ComboBox.TabIndex = 14
+        '
+        'winHash_bruteforce
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(431, 283)
+        Me.ClientSize = New System.Drawing.Size(421, 247)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.theHash_ComboBox)
         Me.Controls.Add(Me.progresscheck)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.stopbf_bt)
@@ -249,14 +272,14 @@ Partial Class md5bruteforce
         Me.Controls.Add(Me.file_txt)
         Me.Controls.Add(Me.passwordlist_lb)
         Me.Controls.Add(Me.md5_lb)
-        Me.Controls.Add(Me.md5_txt)
+        Me.Controls.Add(Me.inHash_Textbox)
         Me.Controls.Add(Me.startbf_bt)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "md5bruteforce"
+        Me.Name = "winHash_bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MD5 Brute-force"
+        Me.Text = "Hash Brute-force"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -264,7 +287,7 @@ Partial Class md5bruteforce
 
     End Sub
     Friend WithEvents startbf_bt As System.Windows.Forms.Button
-    Friend WithEvents md5_txt As System.Windows.Forms.TextBox
+    Friend WithEvents inHash_Textbox As System.Windows.Forms.TextBox
     Friend WithEvents md5_lb As System.Windows.Forms.Label
     Friend WithEvents passwordlist_lb As System.Windows.Forms.Label
     Friend WithEvents file_txt As System.Windows.Forms.TextBox
@@ -283,4 +306,6 @@ Partial Class md5bruteforce
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents progresscheck As System.Windows.Forms.CheckBox
     Friend WithEvents progresstimer As System.Windows.Forms.Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents theHash_ComboBox As System.Windows.Forms.ComboBox
 End Class
