@@ -57,7 +57,7 @@ Public Class winHash_bruteforce
                 rightHash = Nothing
                 bruteforcerightPassword.Visible = False
                 bruteforceLine.Visible = False
-                searchedHash = bruteforcesearchedHash.Text
+                searchedHash = bruteforcesearchedHash.Text.ToUpper
                 bruteforcesearchedHash.Enabled = False
                 fileWordlist.Enabled = False
                 openWordlist.Enabled = False
@@ -169,8 +169,12 @@ Public Class winHash_bruteforce
             '\\ Fehlermeldung ausgeben
             Select Case langname.langname
                 Case "English"
+                    bruteforceStatus.Text = String.Format("Status: [{0}] passwords tested", checked)
+                    bruteforcePassword.Text = String.Format("current password: {0}", currentPassword)
                     bruteforcerightPassword.Text = "password: password not found!"
                 Case Else
+                    bruteforceStatus.Text = String.Format("Status: [{0}] Passwörter getestet", checked)
+                    bruteforcePassword.Text = String.Format("aktuelles Passwort: {0}", currentPassword)
                     bruteforcerightPassword.Text = "Passwort: Passwort nicht gefunden!"
             End Select
             bruteforceLine.Text = "Line:"
