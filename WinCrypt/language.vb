@@ -166,10 +166,8 @@
             sendmail.password_lb.Text = "password:"
             sendmail.server_lb.Text = "server:"
             sendmail.emailto_lb.Text = "receiver:"
-            sendmail.Label1.Text = "attachments:"
-            sendmail.file_txt.Size = New System.Drawing.Size(366, 20)
-            sendmail.file_txt.Location = New System.Drawing.Point(86, 416)
-            sendmail.file_bt.Text = "open"
+            sendmail.email_lb.Text = "attachments:"
+            sendmail.fileadd_bt.Text = "add"
             sendmail.sendmail_bt.Text = "send"
 
             'passwordmanager.vb
@@ -373,10 +371,8 @@
             sendmail.password_lb.Text = "Passwort:"
             sendmail.server_lb.Text = "Server:"
             sendmail.emailto_lb.Text = "Empfänger:"
-            sendmail.Label1.Text = "Anhang:"
-            sendmail.file_txt.Size = New System.Drawing.Size(387, 20)
-            sendmail.file_txt.Location = New System.Drawing.Point(65, 416)
-            sendmail.file_bt.Text = "Öffnen"
+            sendmail.attachment_lb.Text = "Anhang:"
+            sendmail.fileadd_bt.Text = "Hinzufügen"
             sendmail.sendmail_bt.Text = "Senden"
 
             'passwordmanager.vb
