@@ -1,5 +1,12 @@
 # WinCrypt
 
-WinCrypt ist ein Verschlüsselungsprogramm um Ordner oder Datenträger zu Verschlüsseln. Die Ordner oder Datenträger werden als verschlüsselte Dateien abgelegt. Diese Dateien werden beim Entschlüsseln als Virtueller Datenträger eingebunden. Unter anderem ist es möglich einzelne Dateien zu ver- und entschlüsseln. Auch kann man reine Texte ver- und entschlüsseln. Die Verschlüsselung basiert auf AES256bit(Advanced Encryption Standard).
+WinCrypt ist eine Open Sorce Verschlüsselungsprogramm auf Basis von .NET
+Es ermöglich Ihnen Daten Sicher zu ver-/ ent-schlüsseln auf Basis von AES-256 (Advanced Encryption Standard)
+Ebenfalls ist WinCrypt einfach zu verwenden und benötigt keine Vorkenntnisse bez. Verschlüsselungen.
 
-Sicher gibt es bereits viele Verschlüsselungsprogramme wie TrueCrypt oder BitLocker. TrueCrypt ist ein wunderbares Programm zum Verschlüsseln von Festplatten und es ist ebenfalls OpenSource. Was BitLocker betrifft so ist dies nicht OpenSource womit die Werbung das die Software in AES verschlüsselt verpufft, denn eine Sicherheit Software ohne einsehbaren Quellcode lässt das Vertrauen schnell schwinden.
+Weitere Informationen zum Projektumfang finden Sie auf unserer wincrypt.org
+Weitere Links: GitHub / Change Log (coming soon) / Team / Alle Tools (coming soon) / Hilfe
+
+Es gibt sicherlich genug anderer Verschlüsselungsprogramme wie TrueCrypt oder BitLocker. 
+Dabei ist TrueCrypt ein wunderbares Open Sorce Programm zum Verschlüsseln von Festplatten, jedoch wurde dieses leider 2014 eingestellt. 
+BitLocker hingegen ist nicht Open Sorce und somit unseren Erachtens nach nicht vertrauenswürdig.
