@@ -439,6 +439,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Drive128.png" />
     <None Include="WinCrypt_logo.png" />
     <None Include="Drive-icon128.png" />
     <None Include="Resources\add16.png" />
@@ -465,9 +466,7 @@
     <None Include="Resources\wcp.ico" />
     <None Include="bin\Debug\icon.ico" />
     <None Include="bin\Debug\regist.exe" />
-    <None Include="1433794214_Hard_drive_256x256-32.png" />
     <Content Include="Drive-icon.ico" />
-    <None Include="Drive-icon.png" />
     <None Include="Resources\Interop.Shell32.dll" />
     <None Include="Resources\uparrow.png" />
     <None Include="Resources\arrowdown.png" />
