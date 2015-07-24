@@ -607,7 +607,7 @@ Partial Class startwindow
         Me.opencryptfile.BackColor = System.Drawing.Color.Gainsboro
         Me.opencryptfile.FlatAppearance.BorderSize = 0
         Me.opencryptfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.opencryptfile.Location = New System.Drawing.Point(492, 48)
+        Me.opencryptfile.Location = New System.Drawing.Point(492, 30)
         Me.opencryptfile.Name = "opencryptfile"
         Me.opencryptfile.Size = New System.Drawing.Size(75, 23)
         Me.opencryptfile.TabIndex = 0
@@ -647,7 +647,7 @@ Partial Class startwindow
         Me.decrypt_filepath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 50)
+        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 32)
         Me.decrypt_filepath.Name = "decrypt_filepath"
         Me.decrypt_filepath.Size = New System.Drawing.Size(471, 20)
         Me.decrypt_filepath.TabIndex = 3
@@ -685,15 +685,15 @@ Partial Class startwindow
         Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.decrypt_list_status.ForeColor = System.Drawing.Color.Lime
         Me.decrypt_list_status.FormattingEnabled = True
-        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 76)
+        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 63)
         Me.decrypt_list_status.Name = "decrypt_list_status"
-        Me.decrypt_list_status.Size = New System.Drawing.Size(552, 145)
+        Me.decrypt_list_status.Size = New System.Drawing.Size(552, 158)
         Me.decrypt_list_status.TabIndex = 6
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 34)
+        Me.Label3.Location = New System.Drawing.Point(13, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(35, 13)
         Me.Label3.TabIndex = 7
@@ -758,7 +758,7 @@ Partial Class startwindow
         Me.pathtxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pathtxt.Location = New System.Drawing.Point(16, 33)
+        Me.pathtxt.Location = New System.Drawing.Point(11, 33)
         Me.pathtxt.Name = "pathtxt"
         Me.pathtxt.Size = New System.Drawing.Size(471, 20)
         Me.pathtxt.TabIndex = 3
@@ -768,7 +768,7 @@ Partial Class startwindow
         Me.keycrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.keycrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.keycrypt.Location = New System.Drawing.Point(16, 92)
+        Me.keycrypt.Location = New System.Drawing.Point(11, 72)
         Me.keycrypt.Name = "keycrypt"
         Me.keycrypt.Size = New System.Drawing.Size(351, 20)
         Me.keycrypt.TabIndex = 4
@@ -780,7 +780,7 @@ Partial Class startwindow
         Me.crypt_file_pathbutton.BackColor = System.Drawing.Color.Gainsboro
         Me.crypt_file_pathbutton.FlatAppearance.BorderSize = 0
         Me.crypt_file_pathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(492, 31)
+        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(487, 31)
         Me.crypt_file_pathbutton.Name = "crypt_file_pathbutton"
         Me.crypt_file_pathbutton.Size = New System.Drawing.Size(75, 23)
         Me.crypt_file_pathbutton.TabIndex = 2
@@ -794,7 +794,7 @@ Partial Class startwindow
         Me.generate_key_encrypt.Enabled = False
         Me.generate_key_encrypt.FlatAppearance.BorderSize = 0
         Me.generate_key_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.generate_key_encrypt.Location = New System.Drawing.Point(373, 90)
+        Me.generate_key_encrypt.Location = New System.Drawing.Point(368, 70)
         Me.generate_key_encrypt.Name = "generate_key_encrypt"
         Me.generate_key_encrypt.Size = New System.Drawing.Size(75, 23)
         Me.generate_key_encrypt.TabIndex = 1
@@ -804,7 +804,7 @@ Partial Class startwindow
         'path_encrypt
         '
         Me.path_encrypt.AutoSize = True
-        Me.path_encrypt.Location = New System.Drawing.Point(13, 17)
+        Me.path_encrypt.Location = New System.Drawing.Point(8, 17)
         Me.path_encrypt.Name = "path_encrypt"
         Me.path_encrypt.Size = New System.Drawing.Size(32, 13)
         Me.path_encrypt.TabIndex = 6
@@ -817,7 +817,7 @@ Partial Class startwindow
         Me.create_container_encrypt.Enabled = False
         Me.create_container_encrypt.FlatAppearance.BorderSize = 0
         Me.create_container_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.create_container_encrypt.Location = New System.Drawing.Point(454, 90)
+        Me.create_container_encrypt.Location = New System.Drawing.Point(449, 70)
         Me.create_container_encrypt.Name = "create_container_encrypt"
         Me.create_container_encrypt.Size = New System.Drawing.Size(113, 23)
         Me.create_container_encrypt.TabIndex = 0
@@ -827,7 +827,7 @@ Partial Class startwindow
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 76)
+        Me.Label2.Location = New System.Drawing.Point(11, 56)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 7
@@ -843,9 +843,9 @@ Partial Class startwindow
         Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.encrypt_list_status.ForeColor = System.Drawing.Color.Lime
         Me.encrypt_list_status.FormattingEnabled = True
-        Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
+        Me.encrypt_list_status.Location = New System.Drawing.Point(11, 98)
         Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 145)
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 171)
         Me.encrypt_list_status.TabIndex = 5
         '
         'Label7
@@ -855,7 +855,7 @@ Partial Class startwindow
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Gray
         Me.Label7.ForeColor = System.Drawing.Color.Silver
-        Me.Label7.Location = New System.Drawing.Point(253, 172)
+        Me.Label7.Location = New System.Drawing.Point(260, 172)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 11
