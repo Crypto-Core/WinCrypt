@@ -2,7 +2,7 @@
     Dim decrypt As New AES
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Dim readinikey As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
-    Dim wmiobj = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
+    Dim wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
     Dim bios As String
     Dim lang As New language
     Private Sub ok_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ok_bt.Click

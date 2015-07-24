@@ -24,6 +24,7 @@ Module RSA
             RSA_Crypto_ver.Dispose()
             Return Out_String
         Catch ex As Exception
+            Return ""
             MsgBox(ErrorToString, MsgBoxStyle.Critical)
         End Try
 
@@ -46,7 +47,9 @@ Module RSA
             RSA_Crypto_ent.Dispose()
             Return Out_String
         Catch ex As Exception
+            Return ""
             MsgBox("Verschlüsselte Nachricht stimmt nicht mit dem Private Key überein!", MsgBoxStyle.Exclamation)
         End Try
+
     End Function
 End Module

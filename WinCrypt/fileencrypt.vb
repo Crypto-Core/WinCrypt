@@ -25,7 +25,7 @@ Public Class fileencrypt
     Private Sub generatebt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generatebt.Click
         Dim num_characters As Integer
         Dim i As Integer
-        Dim txt As String
+        Dim txt As String = ""
         Dim ch As Integer
         Randomize()
         num_characters = CInt(32)

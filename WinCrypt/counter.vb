@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports System.IO
 Public Class counter
-    Public Function counter()
+    Public Sub counter()
         Try
             'Hole den Aktuellen Status des WinCrypt Counters
             Dim httpRequest As HttpWebRequest = CType(HttpWebRequest.Create("http://wincrypt.org/count/get.php"), HttpWebRequest)
@@ -17,5 +17,5 @@ Public Class counter
             browser.Navigate("http://wincrypt.org/count/set.php?count=" & setcount)
         Catch ex As Exception
         End Try
-    End Function
+    End Sub
 End Class

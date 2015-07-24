@@ -8,7 +8,7 @@ Imports System.Text
 Public Class startwindow
     Dim filezip As New Zip
     Dim selectcombo As String
-    Dim wmiobj = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
+    Dim wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
     Public biosid As String
     Public iniread As String
     Public mypath As String
@@ -398,7 +398,7 @@ Public Class startwindow
     Private Sub generate_key_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generate_key_encrypt.Click
         Dim num_characters As Integer
         Dim i As Integer
-        Dim txt As String
+        Dim txt As String = ""
         Dim ch As Integer
         Randomize()
         num_characters = CInt(32)
@@ -1057,7 +1057,7 @@ Public Class startwindow
     Private Sub encrypt_list_status_SelectedIndexChanged(sender As Object, e As EventArgs) Handles encrypt_list_status.SelectedIndexChanged
         If finishcrypt = 1 Then
             Dim filesize As New System.IO.FileStream(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip", IO.FileMode.Open)
-            Dim fsize As Integer = Int(filesize.Length)
+            Dim fsize As Integer = CInt(Int(filesize.Length))
             filesize.Close()
             Dim fstream As New System.IO.StreamWriter(My.Computer.FileSystem.SpecialDirectories.Temp & "\" & i & "f.zip")
             For o As Integer = 0 To CInt(fsize)
@@ -1080,7 +1080,7 @@ Public Class startwindow
                 Dim di As New System.IO.DirectoryInfo(My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
                 For Each fi As System.IO.FileInfo In di.GetFiles("*.*", System.IO.SearchOption.AllDirectories)
                     Dim filesize As New System.IO.FileStream(fi.FullName, IO.FileMode.Open)
-                    Dim fsize As Integer = Int(filesize.Length)
+                    Dim fsize As Integer = CInt(Int(filesize.Length))
                     filesize.Close()
                     Dim fstream As New System.IO.StreamWriter(fi.FullName)
                     For o As Integer = 0 To CInt(fsize)

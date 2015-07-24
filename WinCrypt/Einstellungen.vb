@@ -3,7 +3,7 @@
     Dim iniwrite As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") ' Die config.ini wird eingelesen
     Dim ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") ' Die config.ini wird eingelesen
     Dim lang As New language ' Die Sprache wird deklariert
-    Dim wmiobj = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") ' Die Bios ID wird deklariert
+    Dim wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") ' Die Bios ID wird deklariert
     Dim bios As String
     Private Sub registfiletype_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles registfiletype.Click
         Try
@@ -43,7 +43,7 @@
         lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
         Me.Close() ' Das Fenster wird geschlossen
     End Sub
-    Private Function MakeShortcut(ByVal File As String, ByVal ShortcutFolder As String, ByVal Name As String, ByVal WorkDirectory As String)
+    Private Sub MakeShortcut(ByVal File As String, ByVal ShortcutFolder As String, ByVal Name As String, ByVal WorkDirectory As String)
         Dim WshShell As Object = CreateObject("WScript.Shell") ' Es wird eine Verknüpfung deklariert
         Dim NewShortcut As Object = WshShell.CreateShortcut(ShortcutFolder & "\" & Name & ".lnk") ' Es wird eine neue Verknüpfung erstellt
         NewShortcut.TargetPath = File 'Es wird das Schlüsselwort ausgelesen und gesetzt
@@ -60,7 +60,7 @@
         NewShortcut.IconLocation = File & ",0" ' Das standardicon vom index 0 wird der Verknüpfung zugewiesen
         NewShortcut.WorkingDirectory = WorkDirectory
         NewShortcut.Save() ' Die Verknüpfungseinstellungen werden gespeichert
-    End Function
+    End Sub
     Private Sub Einstellungen_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lang.check() ' Es wird die Sprache überprüft
 

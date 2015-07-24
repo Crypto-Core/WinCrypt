@@ -51,7 +51,7 @@ Public Class safedelete
     Private Function keystring() As String
         Dim num_characters As Integer
         Dim i As Integer
-        Dim txt As String
+        Dim txt As String = ""
         Dim ch As Integer
         Randomize()
         num_characters = CInt(30000)
@@ -114,7 +114,7 @@ Public Class safedelete
             progressstatus.Value = 0
         End If
     End Sub
-    Private Function delete()
+    Private Sub delete()
         bgwrk.Dispose()
         deletfilelist.SelectedIndex = deletfilelist.SelectedIndex + 1
         If startwindow.langname = "English" Then
@@ -125,7 +125,7 @@ Public Class safedelete
         deletebt.Enabled = False
         combo = overwritecb.Text.Replace("x", "").ToString
         bgwrk.RunWorkerAsync()
-    End Function
+    End Sub
 
     Private Sub deletefilelist_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles deletfilelist.DragEnter
         e.Effect = e.AllowedEffect

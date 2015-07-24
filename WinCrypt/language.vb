@@ -1,6 +1,6 @@
 ﻿Public Class language
     Public langname As String
-    Public Function check()
+    Public Sub check()
         Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
         Dim lang As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
         If lang.WertLesen("Info", "Lang") = "English" Then 'ENGLISH
@@ -409,6 +409,6 @@
             passwordmgr_pass.password_lb.Text = "Passwort:"
 
         End If
-    End Function
+    End Sub
 
 End Class

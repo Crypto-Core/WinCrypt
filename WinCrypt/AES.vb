@@ -2,7 +2,7 @@
 Imports System.Security.Cryptography
 Imports System.IO
 Public Class AES
-    Public Function AESEncrypt(ByVal PlainText As String, ByVal Password As String, ByVal salt As String)
+    Public Function AESEncrypt(ByVal PlainText As String, ByVal Password As String, ByVal salt As String) As String
         Dim HashAlgorithm As String = "SHA1"
         Dim PasswordIterations As String = CStr(1)
         Dim InitialVector As String = "gGw3zFYrtsrXExYu"
@@ -72,6 +72,6 @@ Public Class AES
             End If
             Return "error"
         End Try
-        
+
     End Function
 End Class
