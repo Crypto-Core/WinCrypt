@@ -500,7 +500,7 @@ Partial Class startwindow
         '
         'TextVerschlüsselnToolStripMenuItem
         '
-        Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.documentbinary
+        Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.document
         Me.TextVerschlüsselnToolStripMenuItem.Name = "TextVerschlüsselnToolStripMenuItem"
         Me.TextVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.TextVerschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
@@ -609,7 +609,7 @@ Partial Class startwindow
         '
         'SystemidentifikationToolStripMenuItem
         '
-        Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.id24
+        Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.id
         Me.SystemidentifikationToolStripMenuItem.Name = "SystemidentifikationToolStripMenuItem"
         Me.SystemidentifikationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.SystemidentifikationToolStripMenuItem.Text = "Systemidentifikation"
@@ -621,7 +621,7 @@ Partial Class startwindow
         '
         'PasswortgeneratorToolStripMenuItem
         '
-        Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.passwordimg
+        Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.password
         Me.PasswortgeneratorToolStripMenuItem.Name = "PasswortgeneratorToolStripMenuItem"
         Me.PasswortgeneratorToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.PasswortgeneratorToolStripMenuItem.Text = "Passwortgenerator"
@@ -633,7 +633,7 @@ Partial Class startwindow
         '
         'DateiSicherLöschenToolStripMenuItem
         '
-        Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross256
+        Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross
         Me.DateiSicherLöschenToolStripMenuItem.Name = "DateiSicherLöschenToolStripMenuItem"
         Me.DateiSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateiSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
@@ -727,7 +727,7 @@ Partial Class startwindow
         '
         'TextVerUndEntschlüsselnToolStripMenuItem
         '
-        Me.TextVerUndEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.documentbinary
+        Me.TextVerUndEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.document
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Name = "TextVerUndEntschlüsselnToolStripMenuItem"
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
@@ -836,7 +836,7 @@ Partial Class startwindow
         '
         'SystemidentifikationToolStripMenuItem1
         '
-        Me.SystemidentifikationToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.id24
+        Me.SystemidentifikationToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.id
         Me.SystemidentifikationToolStripMenuItem1.Name = "SystemidentifikationToolStripMenuItem1"
         Me.SystemidentifikationToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.SystemidentifikationToolStripMenuItem1.Text = "Systemidentifikation"
@@ -848,7 +848,7 @@ Partial Class startwindow
         '
         'PasswortGeneratorToolStripMenuItem1
         '
-        Me.PasswortGeneratorToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.passwordimg
+        Me.PasswortGeneratorToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.password
         Me.PasswortGeneratorToolStripMenuItem1.Name = "PasswortGeneratorToolStripMenuItem1"
         Me.PasswortGeneratorToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.PasswortGeneratorToolStripMenuItem1.Text = "Passwort generator"
@@ -860,7 +860,7 @@ Partial Class startwindow
         '
         'DateienSicherLöschenToolStripMenuItem
         '
-        Me.DateienSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross256
+        Me.DateienSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross
         Me.DateienSicherLöschenToolStripMenuItem.Name = "DateienSicherLöschenToolStripMenuItem"
         Me.DateienSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateienSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"

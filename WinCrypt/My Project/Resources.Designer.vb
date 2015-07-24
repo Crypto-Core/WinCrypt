@@ -73,9 +73,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property add2() As System.Drawing.Bitmap
+        Friend ReadOnly Property add16() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("add2", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("add16", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -83,9 +83,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Arrow_down_sign_to_navigate_32() As System.Drawing.Bitmap
+        Friend ReadOnly Property arrowdown() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Arrow_down_sign_to_navigate_32", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("arrowdown", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -113,9 +113,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property cross256() As System.Drawing.Bitmap
+        Friend ReadOnly Property cross() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("cross256", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("cross", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -132,9 +132,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property documentbinary() As System.Drawing.Bitmap
+        Friend ReadOnly Property document() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("documentbinary", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("document", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -180,6 +180,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property free() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("free", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
         '''</summary>
         Friend ReadOnly Property icon() As System.Drawing.Icon
@@ -192,9 +202,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property id24() As System.Drawing.Bitmap
+        Friend ReadOnly Property id() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("id24", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("id", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -262,19 +272,9 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Navigate_up_arrow_32() As System.Drawing.Bitmap
+        Friend ReadOnly Property password() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Navigate_up_arrow_32", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property passwordimg() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("passwordimg", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("password", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -305,6 +305,16 @@ Namespace My.Resources
         Friend ReadOnly Property unlock() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("unlock", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property uparrow() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("uparrow", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

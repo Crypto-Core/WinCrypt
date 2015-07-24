@@ -150,7 +150,7 @@ Partial Class textencrypt
         '
         'arrow_1
         '
-        Me.arrow_1.Image = Global.Project_WinCrypt.My.Resources.Resources.Arrow_down_sign_to_navigate_32
+        Me.arrow_1.Image = Global.Project_WinCrypt.My.Resources.Resources.arrowdown
         Me.arrow_1.Location = New System.Drawing.Point(12, 172)
         Me.arrow_1.Name = "arrow_1"
         Me.arrow_1.Size = New System.Drawing.Size(26, 19)
@@ -160,7 +160,7 @@ Partial Class textencrypt
         '
         'arrow_2
         '
-        Me.arrow_2.Image = Global.Project_WinCrypt.My.Resources.Resources.Arrow_down_sign_to_navigate_32
+        Me.arrow_2.Image = Global.Project_WinCrypt.My.Resources.Resources.arrowdown
         Me.arrow_2.Location = New System.Drawing.Point(282, 172)
         Me.arrow_2.Name = "arrow_2"
         Me.arrow_2.Size = New System.Drawing.Size(26, 19)
@@ -170,7 +170,7 @@ Partial Class textencrypt
         '
         'arrow_3
         '
-        Me.arrow_3.Image = Global.Project_WinCrypt.My.Resources.Resources.Arrow_down_sign_to_navigate_32
+        Me.arrow_3.Image = Global.Project_WinCrypt.My.Resources.Resources.arrowdown
         Me.arrow_3.Location = New System.Drawing.Point(563, 172)
         Me.arrow_3.Name = "arrow_3"
         Me.arrow_3.Size = New System.Drawing.Size(26, 19)

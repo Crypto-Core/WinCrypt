@@ -46,9 +46,9 @@ Public Class textencrypt
             encrypt_bt.Visible = False
             generate_bt.Visible = False
             decrypt_bt.Visible = True
-            arrow_1.Image = My.Resources.Navigate_up_arrow_32
-            arrow_2.Image = My.Resources.Navigate_up_arrow_32
-            arrow_3.Image = My.Resources.Navigate_up_arrow_32
+            arrow_1.Image = My.Resources.uparrow
+            arrow_2.Image = My.Resources.uparrow
+            arrow_3.Image = My.Resources.uparrow
         Else
             text_output.Text = "Text ausgabe"
             text_input.Text = "Text eingabe"
@@ -61,9 +61,9 @@ Public Class textencrypt
                 generate_bt.Visible = True
             End If
             decrypt_bt.Visible = False
-            arrow_1.Image = My.Resources.Arrow_down_sign_to_navigate_32
-            arrow_2.Image = My.Resources.Arrow_down_sign_to_navigate_32
-            arrow_3.Image = My.Resources.Arrow_down_sign_to_navigate_32
+            arrow_1.Image = My.Resources.arrowdown
+            arrow_2.Image = My.Resources.arrowdown
+            arrow_3.Image = My.Resources.arrowdown
         End If
     End Sub
 

@@ -243,7 +243,7 @@ Partial Class sendmail
         '
         'add_bt
         '
-        Me.add_bt.Image = Global.Project_WinCrypt.My.Resources.Resources.add2
+        Me.add_bt.Image = Global.Project_WinCrypt.My.Resources.Resources.add16
         Me.add_bt.Location = New System.Drawing.Point(524, 353)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(25, 23)
