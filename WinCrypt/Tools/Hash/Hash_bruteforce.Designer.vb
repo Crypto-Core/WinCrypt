@@ -56,7 +56,7 @@ Partial Class Hash_bruteforce
         '
         Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 6)
         Me.bruteforcesearchedHash.Name = "bruteforcesearchedHash"
-        Me.bruteforcesearchedHash.Size = New System.Drawing.Size(271, 20)
+        Me.bruteforcesearchedHash.Size = New System.Drawing.Size(252, 20)
         Me.bruteforcesearchedHash.TabIndex = 1
         Me.bruteforcesearchedHash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -208,7 +208,7 @@ Partial Class Hash_bruteforce
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(318, 9)
+        Me.Label1.Location = New System.Drawing.Point(299, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 13)
         Me.Label1.TabIndex = 15
@@ -219,9 +219,9 @@ Partial Class Hash_bruteforce
         Me.bruteforceHashtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.bruteforceHashtype.FormattingEnabled = True
         Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
-        Me.bruteforceHashtype.Location = New System.Drawing.Point(344, 6)
+        Me.bruteforceHashtype.Location = New System.Drawing.Point(323, 6)
         Me.bruteforceHashtype.Name = "bruteforceHashtype"
-        Me.bruteforceHashtype.Size = New System.Drawing.Size(69, 21)
+        Me.bruteforceHashtype.Size = New System.Drawing.Size(90, 21)
         Me.bruteforceHashtype.TabIndex = 14
         '
         'bruteforceToggle
