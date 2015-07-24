@@ -444,7 +444,6 @@
     <None Include="resources\add16.png" />
     <None Include="resources\add.png" />
     <None Include="resources\feedback.png" />
-    <None Include="regist\regist\bin\Debug\regist.exe" />
     <None Include="resources\systemfilemanager.png" />
     <None Include="resources\mailmessagenew.png" />
     <None Include="resources\document.png" />
@@ -472,7 +471,9 @@
     <None Include="resources\Vista_DeviceDisconnect.wav" />
     <None Include="resources\Vista_DeviceConnect.wav" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\regist.exe" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="resources\WinCrypt_logo.png" />
   </ItemGroup>
