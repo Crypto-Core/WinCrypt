@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project WinCrypt", "Project
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinCryptUpdate", "..\WinCryptUpdate\WinCryptUpdate\WinCryptUpdate.vbproj", "{41120F5B-0118-48ED-B49D-2C198844751C}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "regist", "regist\regist\regist.vbproj", "{30225FC5-05F0-4F2C-A369-F74787375A66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,14 @@ Global
 		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x64.ActiveCfg = Release|x86
 		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x86.ActiveCfg = Release|x86
 		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x86.Build.0 = Release|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Debug|x64.ActiveCfg = Debug|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Debug|x86.ActiveCfg = Debug|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Debug|x86.Build.0 = Debug|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Release|Any CPU.ActiveCfg = Release|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Release|x64.ActiveCfg = Release|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Release|x86.ActiveCfg = Release|x86
+		{30225FC5-05F0-4F2C-A369-F74787375A66}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
