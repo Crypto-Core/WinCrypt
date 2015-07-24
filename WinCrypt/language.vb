@@ -95,13 +95,13 @@
                 & vbCrLf & "other than the owner of the PC with which it encrypted the data."
 
             'passwortgenerator.vb
-            passwortgenerator.Text = "WinCrypt - passwordgenerator"
-            passwortgenerator.uppercasecb.Text = "uppercase"
-            passwortgenerator.lowercasecb.Text = "lower case"
-            passwortgenerator.numberscb.Text = "numbers"
-            passwortgenerator.lengthlb.Text = "length:"
-            passwortgenerator.copybt.Text = "copy"
-            passwortgenerator.generatebt.Text = "generate"
+            passwordgenerator.Text = "WinCrypt - passwordgenerator"
+            passwordgenerator.uppercasecb.Text = "uppercase"
+            passwordgenerator.lowercasecb.Text = "lower case"
+            passwordgenerator.numberscb.Text = "numbers"
+            passwordgenerator.lengthlb.Text = "length:"
+            passwordgenerator.copybt.Text = "copy"
+            passwordgenerator.generatebt.Text = "generate"
 
             'safedelete.vb
             safedelete.selectpathbt.Text = "select"
@@ -143,13 +143,13 @@
             fileencrypt.generatebt.Text = "generate"
 
             'Einstellung.vb
-            Einstellungen.Text = "setting"
-            Einstellungen.registfiletypegb.Text = "register WinCrypt file types"
-            Einstellungen.registfiletype.Text = "regist"
-            Einstellungen.languagegb.Text = "language"
-            Einstellungen.startwincb.Text = "WinCrypt start with Windows"
-            Einstellungen.startminwincryptrb.Text = "Start minimized WinCrypt"
-            Einstellungen.startnormalwincrypt.Text = "Start WinCrypt normal"
+            wcSetting.Text = "setting"
+            wcSetting.registfiletypegb.Text = "register WinCrypt file types"
+            wcSetting.registfiletype.Text = "regist"
+            wcSetting.languagegb.Text = "language"
+            wcSetting.startwincb.Text = "WinCrypt start with Windows"
+            wcSetting.startminwincryptrb.Text = "Start minimized WinCrypt"
+            wcSetting.startnormalwincrypt.Text = "Start WinCrypt normal"
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb
@@ -308,13 +308,13 @@
                 & vbCrLf & "außer dem Besitzer mit dem PC mit dem er die Daten verschlüsselt hat."
 
             'passwortgenerator.vb
-            passwortgenerator.Text = "WinCrypt - Passwortgenerator"
-            passwortgenerator.uppercasecb.Text = "Großbuchstaben"
-            passwortgenerator.lowercasecb.Text = "Kleinbuchstaben"
-            passwortgenerator.numberscb.Text = "Zahlen"
-            passwortgenerator.lengthlb.Text = "Länge:"
-            passwortgenerator.copybt.Text = "Kopieren"
-            passwortgenerator.generatebt.Text = "Generieren"
+            passwordgenerator.Text = "WinCrypt - Passwortgenerator"
+            passwordgenerator.uppercasecb.Text = "Großbuchstaben"
+            passwordgenerator.lowercasecb.Text = "Kleinbuchstaben"
+            passwordgenerator.numberscb.Text = "Zahlen"
+            passwordgenerator.lengthlb.Text = "Länge:"
+            passwordgenerator.copybt.Text = "Kopieren"
+            passwordgenerator.generatebt.Text = "Generieren"
 
             'safedelete.vb
             safedelete.selectpathbt.Text = "Auswählen"
@@ -357,13 +357,13 @@
             fileencrypt.generatebt.Text = "Generieren"
 
             'Einstellung.vb
-            Einstellungen.Text = "Einstellung"
-            Einstellungen.registfiletypegb.Text = "WinCrypt Dateitypen registrieren"
-            Einstellungen.registfiletype.Text = "Registrieren"
-            Einstellungen.languagegb.Text = "Sprache"
-            Einstellungen.startwincb.Text = "WinCrypt mit Windows starten"
-            Einstellungen.startminwincryptrb.Text = "WinCrypt minimiert starten"
-            Einstellungen.startnormalwincrypt.Text = "WinCrypt normal starten"
+            wcSetting.Text = "Einstellung"
+            wcSetting.registfiletypegb.Text = "WinCrypt Dateitypen registrieren"
+            wcSetting.registfiletype.Text = "Registrieren"
+            wcSetting.languagegb.Text = "Sprache"
+            wcSetting.startwincb.Text = "WinCrypt mit Windows starten"
+            wcSetting.startminwincryptrb.Text = "WinCrypt minimiert starten"
+            wcSetting.startnormalwincrypt.Text = "WinCrypt normal starten"
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb

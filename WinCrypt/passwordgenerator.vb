@@ -2,7 +2,7 @@
 
 Imports System.Text
 
-Public Class passwortgenerator
+Public Class passwordgenerator
 
     Private Sub generatebt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generatebt.Click
         Dim specialchars As String = "!§$%&/()=?`#+-_.,<>:;*'^"

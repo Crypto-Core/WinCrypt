@@ -596,7 +596,7 @@ Public Class startwindow
     End Sub
 
     Private Sub PasswortgeneratorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasswortgeneratorToolStripMenuItem.Click
-        passwortgenerator.Show()
+        passwordgenerator.Show()
     End Sub
     Private Function Registerfile(ByVal endung As String, ByVal namedesdateityps As String, ByVal pfadzuprogramm As String, ByVal pfadzuicon As String) As Boolean
         Try
@@ -684,7 +684,7 @@ Public Class startwindow
     End Sub
 
     Private Sub EinstellungToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EinstellungToolStripMenuItem.Click
-        Einstellungen.ShowDialog()
+        wcSetting.ShowDialog()
     End Sub
 
     Private Sub DateiSicherLöschenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateiSicherLöschenToolStripMenuItem.Click
@@ -749,7 +749,7 @@ Public Class startwindow
     End Sub
 
     Private Sub PasswortGeneratorToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasswortGeneratorToolStripMenuItem1.Click
-        passwortgenerator.Show()
+        passwordgenerator.Show()
     End Sub
 
     Private Sub DateienSicherLöschenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateienSicherLöschenToolStripMenuItem.Click

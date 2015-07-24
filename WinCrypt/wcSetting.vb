@@ -1,4 +1,4 @@
-﻿Public Class Einstellungen
+﻿Public Class wcSetting
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) ' Der aktuelle Pfad der Project WinCrypt.exe
     Dim iniwrite As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") ' Die config.ini wird eingelesen
     Dim ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") ' Die config.ini wird eingelesen
