@@ -580,9 +580,6 @@ Partial Class startwindow
         '
         'mount_gb
         '
-        Me.mount_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.mount_gb.Controls.Add(Me.Label6)
         Me.mount_gb.Controls.Add(Me.drive_lb)
         Me.mount_gb.Controls.Add(Me.key_lb)
@@ -594,7 +591,7 @@ Partial Class startwindow
         Me.mount_gb.Controls.Add(Me.dismount)
         Me.mount_gb.Controls.Add(Me.mount)
         Me.mount_gb.Controls.Add(Me.opencryptfile)
-        Me.mount_gb.Location = New System.Drawing.Point(13, 318)
+        Me.mount_gb.Location = New System.Drawing.Point(13, 298)
         Me.mount_gb.Name = "mount_gb"
         Me.mount_gb.Size = New System.Drawing.Size(573, 288)
         Me.mount_gb.TabIndex = 9
@@ -734,9 +731,6 @@ Partial Class startwindow
         '
         'encrypt_gb
         '
-        Me.encrypt_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encrypt_gb.Controls.Add(Me.Label7)
         Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
         Me.encrypt_gb.Controls.Add(Me.Label2)
@@ -748,7 +742,7 @@ Partial Class startwindow
         Me.encrypt_gb.Controls.Add(Me.pathtxt)
         Me.encrypt_gb.Location = New System.Drawing.Point(13, 27)
         Me.encrypt_gb.Name = "encrypt_gb"
-        Me.encrypt_gb.Size = New System.Drawing.Size(573, 285)
+        Me.encrypt_gb.Size = New System.Drawing.Size(573, 265)
         Me.encrypt_gb.TabIndex = 8
         Me.encrypt_gb.TabStop = False
         Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
@@ -845,7 +839,7 @@ Partial Class startwindow
         Me.encrypt_list_status.FormattingEnabled = True
         Me.encrypt_list_status.Location = New System.Drawing.Point(11, 98)
         Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 171)
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 145)
         Me.encrypt_list_status.TabIndex = 5
         '
         'Label7
@@ -866,7 +860,7 @@ Partial Class startwindow
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(598, 609)
+        Me.ClientSize = New System.Drawing.Size(598, 593)
         Me.Controls.Add(Me.mount_gb)
         Me.Controls.Add(Me.encrypt_gb)
         Me.Controls.Add(Me.MenuStrip)
