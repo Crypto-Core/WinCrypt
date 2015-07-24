@@ -24,32 +24,9 @@ Partial Class startwindow
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(startwindow))
-        Me.create_container_encrypt = New System.Windows.Forms.Button()
-        Me.generate_key_encrypt = New System.Windows.Forms.Button()
-        Me.crypt_file_pathbutton = New System.Windows.Forms.Button()
-        Me.pathtxt = New System.Windows.Forms.TextBox()
-        Me.keycrypt = New System.Windows.Forms.TextBox()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.encrypttimer = New System.Windows.Forms.Timer(Me.components)
-        Me.encrypt_list_status = New System.Windows.Forms.ListBox()
-        Me.path_encrypt = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.encrypt_gb = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.mount_gb = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.drive_lb = New System.Windows.Forms.Label()
-        Me.key_lb = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.decrypt_list_status = New System.Windows.Forms.ListBox()
-        Me.drivecb = New System.Windows.Forms.ComboBox()
-        Me.keyencrypt = New System.Windows.Forms.TextBox()
-        Me.decrypt_filepath = New System.Windows.Forms.TextBox()
-        Me.dismount = New System.Windows.Forms.Button()
-        Me.mount = New System.Windows.Forms.Button()
-        Me.opencryptfile = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.encryptmounttimer = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.DateiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -120,322 +97,36 @@ Partial Class startwindow
         Me.BeendenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
-        Me.encrypt_gb.SuspendLayout()
-        Me.mount_gb.SuspendLayout()
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer1.Panel1.SuspendLayout()
-        Me.SplitContainer1.Panel2.SuspendLayout()
-        Me.SplitContainer1.SuspendLayout()
+        Me.mount_gb = New System.Windows.Forms.GroupBox()
+        Me.opencryptfile = New System.Windows.Forms.Button()
+        Me.mount = New System.Windows.Forms.Button()
+        Me.dismount = New System.Windows.Forms.Button()
+        Me.decrypt_filepath = New System.Windows.Forms.TextBox()
+        Me.keyencrypt = New System.Windows.Forms.TextBox()
+        Me.drivecb = New System.Windows.Forms.ComboBox()
+        Me.decrypt_list_status = New System.Windows.Forms.ListBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.key_lb = New System.Windows.Forms.Label()
+        Me.drive_lb = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.encrypt_gb = New System.Windows.Forms.GroupBox()
+        Me.pathtxt = New System.Windows.Forms.TextBox()
+        Me.keycrypt = New System.Windows.Forms.TextBox()
+        Me.crypt_file_pathbutton = New System.Windows.Forms.Button()
+        Me.generate_key_encrypt = New System.Windows.Forms.Button()
+        Me.path_encrypt = New System.Windows.Forms.Label()
+        Me.create_container_encrypt = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.encrypt_list_status = New System.Windows.Forms.ListBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.MenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.mount_gb.SuspendLayout()
+        Me.encrypt_gb.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'create_container_encrypt
-        '
-        Me.create_container_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.create_container_encrypt.BackColor = System.Drawing.Color.Gainsboro
-        Me.create_container_encrypt.Enabled = False
-        Me.create_container_encrypt.FlatAppearance.BorderSize = 0
-        Me.create_container_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.create_container_encrypt.Location = New System.Drawing.Point(454, 90)
-        Me.create_container_encrypt.Name = "create_container_encrypt"
-        Me.create_container_encrypt.Size = New System.Drawing.Size(113, 23)
-        Me.create_container_encrypt.TabIndex = 0
-        Me.create_container_encrypt.Text = "Container erstellen"
-        Me.create_container_encrypt.UseVisualStyleBackColor = False
-        '
-        'generate_key_encrypt
-        '
-        Me.generate_key_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.generate_key_encrypt.BackColor = System.Drawing.Color.Gainsboro
-        Me.generate_key_encrypt.Enabled = False
-        Me.generate_key_encrypt.FlatAppearance.BorderSize = 0
-        Me.generate_key_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.generate_key_encrypt.Location = New System.Drawing.Point(373, 90)
-        Me.generate_key_encrypt.Name = "generate_key_encrypt"
-        Me.generate_key_encrypt.Size = New System.Drawing.Size(75, 23)
-        Me.generate_key_encrypt.TabIndex = 1
-        Me.generate_key_encrypt.Text = "Generieren"
-        Me.generate_key_encrypt.UseVisualStyleBackColor = False
-        '
-        'crypt_file_pathbutton
-        '
-        Me.crypt_file_pathbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.crypt_file_pathbutton.BackColor = System.Drawing.Color.Gainsboro
-        Me.crypt_file_pathbutton.FlatAppearance.BorderSize = 0
-        Me.crypt_file_pathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(492, 31)
-        Me.crypt_file_pathbutton.Name = "crypt_file_pathbutton"
-        Me.crypt_file_pathbutton.Size = New System.Drawing.Size(75, 23)
-        Me.crypt_file_pathbutton.TabIndex = 2
-        Me.crypt_file_pathbutton.Text = "Hinzufügen"
-        Me.crypt_file_pathbutton.UseVisualStyleBackColor = False
-        '
-        'pathtxt
-        '
-        Me.pathtxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pathtxt.Location = New System.Drawing.Point(16, 33)
-        Me.pathtxt.Name = "pathtxt"
-        Me.pathtxt.Size = New System.Drawing.Size(471, 20)
-        Me.pathtxt.TabIndex = 3
-        '
-        'keycrypt
-        '
-        Me.keycrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.keycrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.keycrypt.Location = New System.Drawing.Point(16, 92)
-        Me.keycrypt.Name = "keycrypt"
-        Me.keycrypt.Size = New System.Drawing.Size(351, 20)
-        Me.keycrypt.TabIndex = 4
-        Me.keycrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'encrypttimer
         '
-        '
-        'encrypt_list_status
-        '
-        Me.encrypt_list_status.AllowDrop = True
-        Me.encrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.encrypt_list_status.BackColor = System.Drawing.Color.Gray
-        Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.encrypt_list_status.ForeColor = System.Drawing.Color.Lime
-        Me.encrypt_list_status.FormattingEnabled = True
-        Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
-        Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 119)
-        Me.encrypt_list_status.TabIndex = 5
-        '
-        'path_encrypt
-        '
-        Me.path_encrypt.AutoSize = True
-        Me.path_encrypt.Location = New System.Drawing.Point(13, 17)
-        Me.path_encrypt.Name = "path_encrypt"
-        Me.path_encrypt.Size = New System.Drawing.Size(32, 13)
-        Me.path_encrypt.TabIndex = 6
-        Me.path_encrypt.Text = "Pfad:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 76)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Schlüssel:"
-        '
-        'encrypt_gb
-        '
-        Me.encrypt_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.encrypt_gb.Controls.Add(Me.Label7)
-        Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
-        Me.encrypt_gb.Controls.Add(Me.Label2)
-        Me.encrypt_gb.Controls.Add(Me.create_container_encrypt)
-        Me.encrypt_gb.Controls.Add(Me.path_encrypt)
-        Me.encrypt_gb.Controls.Add(Me.generate_key_encrypt)
-        Me.encrypt_gb.Controls.Add(Me.crypt_file_pathbutton)
-        Me.encrypt_gb.Controls.Add(Me.keycrypt)
-        Me.encrypt_gb.Controls.Add(Me.pathtxt)
-        Me.encrypt_gb.Location = New System.Drawing.Point(-1, 3)
-        Me.encrypt_gb.Name = "encrypt_gb"
-        Me.encrypt_gb.Size = New System.Drawing.Size(573, 279)
-        Me.encrypt_gb.TabIndex = 8
-        Me.encrypt_gb.TabStop = False
-        Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
-        '
-        'Label7
-        '
-        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Gray
-        Me.Label7.ForeColor = System.Drawing.Color.Silver
-        Me.Label7.Location = New System.Drawing.Point(253, 172)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(53, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Drag&Drop"
-        '
-        'mount_gb
-        '
-        Me.mount_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mount_gb.Controls.Add(Me.Label6)
-        Me.mount_gb.Controls.Add(Me.drive_lb)
-        Me.mount_gb.Controls.Add(Me.key_lb)
-        Me.mount_gb.Controls.Add(Me.Label3)
-        Me.mount_gb.Controls.Add(Me.decrypt_list_status)
-        Me.mount_gb.Controls.Add(Me.drivecb)
-        Me.mount_gb.Controls.Add(Me.keyencrypt)
-        Me.mount_gb.Controls.Add(Me.decrypt_filepath)
-        Me.mount_gb.Controls.Add(Me.dismount)
-        Me.mount_gb.Controls.Add(Me.mount)
-        Me.mount_gb.Controls.Add(Me.opencryptfile)
-        Me.mount_gb.Location = New System.Drawing.Point(0, 3)
-        Me.mount_gb.Name = "mount_gb"
-        Me.mount_gb.Size = New System.Drawing.Size(572, 263)
-        Me.mount_gb.TabIndex = 9
-        Me.mount_gb.TabStop = False
-        Me.mount_gb.Text = "Cryptdatei Mounten"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Gray
-        Me.Label6.ForeColor = System.Drawing.Color.Silver
-        Me.Label6.Location = New System.Drawing.Point(252, 122)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 13)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Drag&Drop"
-        '
-        'drive_lb
-        '
-        Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.drive_lb.AutoSize = True
-        Me.drive_lb.Location = New System.Drawing.Point(292, 224)
-        Me.drive_lb.Name = "drive_lb"
-        Me.drive_lb.Size = New System.Drawing.Size(54, 13)
-        Me.drive_lb.TabIndex = 9
-        Me.drive_lb.Text = "Laufwerk:"
-        '
-        'key_lb
-        '
-        Me.key_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.key_lb.AutoSize = True
-        Me.key_lb.Location = New System.Drawing.Point(13, 205)
-        Me.key_lb.Name = "key_lb"
-        Me.key_lb.Size = New System.Drawing.Size(55, 13)
-        Me.key_lb.TabIndex = 8
-        Me.key_lb.Text = "Schlüssel:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 34)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(35, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Datei:"
-        '
-        'decrypt_list_status
-        '
-        Me.decrypt_list_status.AllowDrop = True
-        Me.decrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.decrypt_list_status.BackColor = System.Drawing.Color.Gray
-        Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decrypt_list_status.ForeColor = System.Drawing.Color.Lime
-        Me.decrypt_list_status.FormattingEnabled = True
-        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 76)
-        Me.decrypt_list_status.Name = "decrypt_list_status"
-        Me.decrypt_list_status.Size = New System.Drawing.Size(550, 119)
-        Me.decrypt_list_status.TabIndex = 6
-        '
-        'drivecb
-        '
-        Me.drivecb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.drivecb.FormattingEnabled = True
-        Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
-        Me.drivecb.Location = New System.Drawing.Point(352, 221)
-        Me.drivecb.Name = "drivecb"
-        Me.drivecb.Size = New System.Drawing.Size(46, 21)
-        Me.drivecb.TabIndex = 5
-        Me.drivecb.Text = "T:\"
-        '
-        'keyencrypt
-        '
-        Me.keyencrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.keyencrypt.Enabled = False
-        Me.keyencrypt.Location = New System.Drawing.Point(16, 221)
-        Me.keyencrypt.Name = "keyencrypt"
-        Me.keyencrypt.Size = New System.Drawing.Size(260, 20)
-        Me.keyencrypt.TabIndex = 4
-        Me.keyencrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'decrypt_filepath
-        '
-        Me.decrypt_filepath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 50)
-        Me.decrypt_filepath.Name = "decrypt_filepath"
-        Me.decrypt_filepath.Size = New System.Drawing.Size(470, 20)
-        Me.decrypt_filepath.TabIndex = 3
-        '
-        'dismount
-        '
-        Me.dismount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dismount.BackColor = System.Drawing.Color.Gainsboro
-        Me.dismount.Enabled = False
-        Me.dismount.FlatAppearance.BorderSize = 0
-        Me.dismount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.dismount.Location = New System.Drawing.Point(491, 219)
-        Me.dismount.Name = "dismount"
-        Me.dismount.Size = New System.Drawing.Size(75, 23)
-        Me.dismount.TabIndex = 2
-        Me.dismount.Text = "Dismount"
-        Me.dismount.UseVisualStyleBackColor = False
-        '
-        'mount
-        '
-        Me.mount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.mount.BackColor = System.Drawing.Color.Gainsboro
-        Me.mount.Enabled = False
-        Me.mount.FlatAppearance.BorderSize = 0
-        Me.mount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.mount.Location = New System.Drawing.Point(410, 219)
-        Me.mount.Name = "mount"
-        Me.mount.Size = New System.Drawing.Size(75, 23)
-        Me.mount.TabIndex = 1
-        Me.mount.Text = "Mount"
-        Me.mount.UseVisualStyleBackColor = False
-        '
-        'opencryptfile
-        '
-        Me.opencryptfile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.opencryptfile.BackColor = System.Drawing.Color.Gainsboro
-        Me.opencryptfile.FlatAppearance.BorderSize = 0
-        Me.opencryptfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.opencryptfile.Location = New System.Drawing.Point(491, 48)
-        Me.opencryptfile.Name = "opencryptfile"
-        Me.opencryptfile.Size = New System.Drawing.Size(75, 23)
-        Me.opencryptfile.TabIndex = 0
-        Me.opencryptfile.Text = "Öffnen"
-        Me.opencryptfile.UseVisualStyleBackColor = False
-        '
-        'SplitContainer1
-        '
-        Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SplitContainer1.Location = New System.Drawing.Point(12, 27)
-        Me.SplitContainer1.Name = "SplitContainer1"
-        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer1.Panel1
-        '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.encrypt_gb)
-        '
-        'SplitContainer1.Panel2
-        '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.mount_gb)
-        Me.SplitContainer1.Size = New System.Drawing.Size(574, 532)
-        Me.SplitContainer1.SplitterDistance = 257
-        Me.SplitContainer1.TabIndex = 10
         '
         'encryptmounttimer
         '
@@ -887,13 +578,297 @@ Partial Class startwindow
         '
         Me.OpenFileDialog2.Filter = "DB-Datei|*.db"
         '
+        'mount_gb
+        '
+        Me.mount_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.mount_gb.Controls.Add(Me.Label6)
+        Me.mount_gb.Controls.Add(Me.drive_lb)
+        Me.mount_gb.Controls.Add(Me.key_lb)
+        Me.mount_gb.Controls.Add(Me.Label3)
+        Me.mount_gb.Controls.Add(Me.decrypt_list_status)
+        Me.mount_gb.Controls.Add(Me.drivecb)
+        Me.mount_gb.Controls.Add(Me.keyencrypt)
+        Me.mount_gb.Controls.Add(Me.decrypt_filepath)
+        Me.mount_gb.Controls.Add(Me.dismount)
+        Me.mount_gb.Controls.Add(Me.mount)
+        Me.mount_gb.Controls.Add(Me.opencryptfile)
+        Me.mount_gb.Location = New System.Drawing.Point(13, 318)
+        Me.mount_gb.Name = "mount_gb"
+        Me.mount_gb.Size = New System.Drawing.Size(573, 288)
+        Me.mount_gb.TabIndex = 9
+        Me.mount_gb.TabStop = False
+        Me.mount_gb.Text = "Cryptdatei Mounten"
+        '
+        'opencryptfile
+        '
+        Me.opencryptfile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.opencryptfile.BackColor = System.Drawing.Color.Gainsboro
+        Me.opencryptfile.FlatAppearance.BorderSize = 0
+        Me.opencryptfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.opencryptfile.Location = New System.Drawing.Point(492, 48)
+        Me.opencryptfile.Name = "opencryptfile"
+        Me.opencryptfile.Size = New System.Drawing.Size(75, 23)
+        Me.opencryptfile.TabIndex = 0
+        Me.opencryptfile.Text = "Öffnen"
+        Me.opencryptfile.UseVisualStyleBackColor = False
+        '
+        'mount
+        '
+        Me.mount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.mount.BackColor = System.Drawing.Color.Gainsboro
+        Me.mount.Enabled = False
+        Me.mount.FlatAppearance.BorderSize = 0
+        Me.mount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.mount.Location = New System.Drawing.Point(411, 244)
+        Me.mount.Name = "mount"
+        Me.mount.Size = New System.Drawing.Size(75, 23)
+        Me.mount.TabIndex = 1
+        Me.mount.Text = "Mount"
+        Me.mount.UseVisualStyleBackColor = False
+        '
+        'dismount
+        '
+        Me.dismount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dismount.BackColor = System.Drawing.Color.Gainsboro
+        Me.dismount.Enabled = False
+        Me.dismount.FlatAppearance.BorderSize = 0
+        Me.dismount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.dismount.Location = New System.Drawing.Point(492, 244)
+        Me.dismount.Name = "dismount"
+        Me.dismount.Size = New System.Drawing.Size(75, 23)
+        Me.dismount.TabIndex = 2
+        Me.dismount.Text = "Dismount"
+        Me.dismount.UseVisualStyleBackColor = False
+        '
+        'decrypt_filepath
+        '
+        Me.decrypt_filepath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 50)
+        Me.decrypt_filepath.Name = "decrypt_filepath"
+        Me.decrypt_filepath.Size = New System.Drawing.Size(471, 20)
+        Me.decrypt_filepath.TabIndex = 3
+        '
+        'keyencrypt
+        '
+        Me.keyencrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.keyencrypt.Enabled = False
+        Me.keyencrypt.Location = New System.Drawing.Point(16, 246)
+        Me.keyencrypt.Name = "keyencrypt"
+        Me.keyencrypt.Size = New System.Drawing.Size(261, 20)
+        Me.keyencrypt.TabIndex = 4
+        Me.keyencrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'drivecb
+        '
+        Me.drivecb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.drivecb.FormattingEnabled = True
+        Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
+        Me.drivecb.Location = New System.Drawing.Point(353, 246)
+        Me.drivecb.Name = "drivecb"
+        Me.drivecb.Size = New System.Drawing.Size(46, 21)
+        Me.drivecb.TabIndex = 5
+        Me.drivecb.Text = "T:\"
+        '
+        'decrypt_list_status
+        '
+        Me.decrypt_list_status.AllowDrop = True
+        Me.decrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.decrypt_list_status.BackColor = System.Drawing.Color.Gray
+        Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.decrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.decrypt_list_status.FormattingEnabled = True
+        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 76)
+        Me.decrypt_list_status.Name = "decrypt_list_status"
+        Me.decrypt_list_status.Size = New System.Drawing.Size(552, 145)
+        Me.decrypt_list_status.TabIndex = 6
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 34)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(35, 13)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Datei:"
+        '
+        'key_lb
+        '
+        Me.key_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.key_lb.AutoSize = True
+        Me.key_lb.Location = New System.Drawing.Point(13, 230)
+        Me.key_lb.Name = "key_lb"
+        Me.key_lb.Size = New System.Drawing.Size(55, 13)
+        Me.key_lb.TabIndex = 8
+        Me.key_lb.Text = "Schlüssel:"
+        '
+        'drive_lb
+        '
+        Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.drive_lb.AutoSize = True
+        Me.drive_lb.Location = New System.Drawing.Point(293, 249)
+        Me.drive_lb.Name = "drive_lb"
+        Me.drive_lb.Size = New System.Drawing.Size(54, 13)
+        Me.drive_lb.TabIndex = 9
+        Me.drive_lb.Text = "Laufwerk:"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Gray
+        Me.Label6.ForeColor = System.Drawing.Color.Silver
+        Me.Label6.Location = New System.Drawing.Point(252, 122)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Drag&Drop"
+        '
+        'encrypt_gb
+        '
+        Me.encrypt_gb.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.encrypt_gb.Controls.Add(Me.Label7)
+        Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
+        Me.encrypt_gb.Controls.Add(Me.Label2)
+        Me.encrypt_gb.Controls.Add(Me.create_container_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.path_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.generate_key_encrypt)
+        Me.encrypt_gb.Controls.Add(Me.crypt_file_pathbutton)
+        Me.encrypt_gb.Controls.Add(Me.keycrypt)
+        Me.encrypt_gb.Controls.Add(Me.pathtxt)
+        Me.encrypt_gb.Location = New System.Drawing.Point(13, 27)
+        Me.encrypt_gb.Name = "encrypt_gb"
+        Me.encrypt_gb.Size = New System.Drawing.Size(573, 285)
+        Me.encrypt_gb.TabIndex = 8
+        Me.encrypt_gb.TabStop = False
+        Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
+        '
+        'pathtxt
+        '
+        Me.pathtxt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pathtxt.Location = New System.Drawing.Point(16, 33)
+        Me.pathtxt.Name = "pathtxt"
+        Me.pathtxt.Size = New System.Drawing.Size(471, 20)
+        Me.pathtxt.TabIndex = 3
+        '
+        'keycrypt
+        '
+        Me.keycrypt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.keycrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.keycrypt.Location = New System.Drawing.Point(16, 92)
+        Me.keycrypt.Name = "keycrypt"
+        Me.keycrypt.Size = New System.Drawing.Size(351, 20)
+        Me.keycrypt.TabIndex = 4
+        Me.keycrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'crypt_file_pathbutton
+        '
+        Me.crypt_file_pathbutton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.crypt_file_pathbutton.BackColor = System.Drawing.Color.Gainsboro
+        Me.crypt_file_pathbutton.FlatAppearance.BorderSize = 0
+        Me.crypt_file_pathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(492, 31)
+        Me.crypt_file_pathbutton.Name = "crypt_file_pathbutton"
+        Me.crypt_file_pathbutton.Size = New System.Drawing.Size(75, 23)
+        Me.crypt_file_pathbutton.TabIndex = 2
+        Me.crypt_file_pathbutton.Text = "Hinzufügen"
+        Me.crypt_file_pathbutton.UseVisualStyleBackColor = False
+        '
+        'generate_key_encrypt
+        '
+        Me.generate_key_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.generate_key_encrypt.BackColor = System.Drawing.Color.Gainsboro
+        Me.generate_key_encrypt.Enabled = False
+        Me.generate_key_encrypt.FlatAppearance.BorderSize = 0
+        Me.generate_key_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.generate_key_encrypt.Location = New System.Drawing.Point(373, 90)
+        Me.generate_key_encrypt.Name = "generate_key_encrypt"
+        Me.generate_key_encrypt.Size = New System.Drawing.Size(75, 23)
+        Me.generate_key_encrypt.TabIndex = 1
+        Me.generate_key_encrypt.Text = "Generieren"
+        Me.generate_key_encrypt.UseVisualStyleBackColor = False
+        '
+        'path_encrypt
+        '
+        Me.path_encrypt.AutoSize = True
+        Me.path_encrypt.Location = New System.Drawing.Point(13, 17)
+        Me.path_encrypt.Name = "path_encrypt"
+        Me.path_encrypt.Size = New System.Drawing.Size(32, 13)
+        Me.path_encrypt.TabIndex = 6
+        Me.path_encrypt.Text = "Pfad:"
+        '
+        'create_container_encrypt
+        '
+        Me.create_container_encrypt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.create_container_encrypt.BackColor = System.Drawing.Color.Gainsboro
+        Me.create_container_encrypt.Enabled = False
+        Me.create_container_encrypt.FlatAppearance.BorderSize = 0
+        Me.create_container_encrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.create_container_encrypt.Location = New System.Drawing.Point(454, 90)
+        Me.create_container_encrypt.Name = "create_container_encrypt"
+        Me.create_container_encrypt.Size = New System.Drawing.Size(113, 23)
+        Me.create_container_encrypt.TabIndex = 0
+        Me.create_container_encrypt.Text = "Container erstellen"
+        Me.create_container_encrypt.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 76)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Schlüssel:"
+        '
+        'encrypt_list_status
+        '
+        Me.encrypt_list_status.AllowDrop = True
+        Me.encrypt_list_status.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.encrypt_list_status.BackColor = System.Drawing.Color.Gray
+        Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.encrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.encrypt_list_status.FormattingEnabled = True
+        Me.encrypt_list_status.Location = New System.Drawing.Point(16, 124)
+        Me.encrypt_list_status.Name = "encrypt_list_status"
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 145)
+        Me.encrypt_list_status.TabIndex = 5
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Gray
+        Me.Label7.ForeColor = System.Drawing.Color.Silver
+        Me.Label7.Location = New System.Drawing.Point(253, 172)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(53, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Drag&Drop"
+        '
         'startwindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(598, 571)
-        Me.Controls.Add(Me.SplitContainer1)
+        Me.ClientSize = New System.Drawing.Size(598, 609)
+        Me.Controls.Add(Me.mount_gb)
+        Me.Controls.Add(Me.encrypt_gb)
         Me.Controls.Add(Me.MenuStrip)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -902,45 +877,20 @@ Partial Class startwindow
         Me.Name = "startwindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "WinCrypt 1.2"
-        Me.encrypt_gb.ResumeLayout(False)
-        Me.encrypt_gb.PerformLayout()
-        Me.mount_gb.ResumeLayout(False)
-        Me.mount_gb.PerformLayout()
-        Me.SplitContainer1.Panel1.ResumeLayout(False)
-        Me.SplitContainer1.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer1.ResumeLayout(False)
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.mount_gb.ResumeLayout(False)
+        Me.mount_gb.PerformLayout()
+        Me.encrypt_gb.ResumeLayout(False)
+        Me.encrypt_gb.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents create_container_encrypt As System.Windows.Forms.Button
-    Friend WithEvents generate_key_encrypt As System.Windows.Forms.Button
-    Friend WithEvents crypt_file_pathbutton As System.Windows.Forms.Button
-    Friend WithEvents pathtxt As System.Windows.Forms.TextBox
-    Friend WithEvents keycrypt As System.Windows.Forms.TextBox
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents encrypttimer As System.Windows.Forms.Timer
-    Friend WithEvents encrypt_list_status As System.Windows.Forms.ListBox
-    Friend WithEvents path_encrypt As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents encrypt_gb As System.Windows.Forms.GroupBox
-    Friend WithEvents mount_gb As System.Windows.Forms.GroupBox
-    Friend WithEvents dismount As System.Windows.Forms.Button
-    Friend WithEvents mount As System.Windows.Forms.Button
-    Friend WithEvents opencryptfile As System.Windows.Forms.Button
-    Friend WithEvents keyencrypt As System.Windows.Forms.TextBox
-    Friend WithEvents decrypt_filepath As System.Windows.Forms.TextBox
-    Friend WithEvents drivecb As System.Windows.Forms.ComboBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents drive_lb As System.Windows.Forms.Label
-    Friend WithEvents key_lb As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents decrypt_list_status As System.Windows.Forms.ListBox
     Friend WithEvents encryptmounttimer As System.Windows.Forms.Timer
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents DateiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -977,8 +927,6 @@ Partial Class startwindow
     Friend WithEvents DateienSicherLöschenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UpdateToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents MD5ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MD5KonverterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MD5CrackerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1013,5 +961,27 @@ Partial Class startwindow
     Friend WithEvents DatenbankLöschenToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FeedbackToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents mount_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents drive_lb As System.Windows.Forms.Label
+    Friend WithEvents key_lb As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents decrypt_list_status As System.Windows.Forms.ListBox
+    Friend WithEvents drivecb As System.Windows.Forms.ComboBox
+    Friend WithEvents keyencrypt As System.Windows.Forms.TextBox
+    Friend WithEvents decrypt_filepath As System.Windows.Forms.TextBox
+    Friend WithEvents dismount As System.Windows.Forms.Button
+    Friend WithEvents mount As System.Windows.Forms.Button
+    Friend WithEvents opencryptfile As System.Windows.Forms.Button
+    Friend WithEvents encrypt_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents encrypt_list_status As System.Windows.Forms.ListBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents create_container_encrypt As System.Windows.Forms.Button
+    Friend WithEvents path_encrypt As System.Windows.Forms.Label
+    Friend WithEvents generate_key_encrypt As System.Windows.Forms.Button
+    Friend WithEvents crypt_file_pathbutton As System.Windows.Forms.Button
+    Friend WithEvents keycrypt As System.Windows.Forms.TextBox
+    Friend WithEvents pathtxt As System.Windows.Forms.TextBox
 
 End Class
