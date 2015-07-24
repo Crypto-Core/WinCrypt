@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project WinCrypt", "Project WinCrypt.vbproj", "{3D42F6B2-355D-4B2E-8D18-BAF000711369}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinCryptUpdate", "..\WinCryptUpdate\WinCryptUpdate\WinCryptUpdate.vbproj", "{41120F5B-0118-48ED-B49D-2C198844751C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,14 @@ Global
 		{3D42F6B2-355D-4B2E-8D18-BAF000711369}.Release|x64.Build.0 = Release|x64
 		{3D42F6B2-355D-4B2E-8D18-BAF000711369}.Release|x86.ActiveCfg = Release|x86
 		{3D42F6B2-355D-4B2E-8D18-BAF000711369}.Release|x86.Build.0 = Release|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Debug|x64.ActiveCfg = Debug|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Debug|x86.ActiveCfg = Debug|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Debug|x86.Build.0 = Debug|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|Any CPU.ActiveCfg = Release|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x64.ActiveCfg = Release|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x86.ActiveCfg = Release|x86
+		{41120F5B-0118-48ED-B49D-2C198844751C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
