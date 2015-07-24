@@ -81,7 +81,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Drive-icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3B96E1825A2D30042C57AAD4DFA4DE92EE0B9DAB</ManifestCertificateThumbprint>
@@ -186,16 +187,16 @@
     <Compile Include="feedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="filedecrypt.Designer.vb">
+    <Compile Include="tools\data encryption\filedecrypt.Designer.vb">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="filedecrypt.vb">
+    <Compile Include="tools\data encryption\filedecrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fileencrypt.Designer.vb">
+    <Compile Include="tools\data encryption\fileencrypt.Designer.vb">
       <DependentUpon>fileencrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="fileencrypt.vb">
+    <Compile Include="tools\data encryption\fileencrypt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="wcSetting.Designer.vb">
@@ -204,7 +205,7 @@
     <Compile Include="wcSetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="filecrypt.vb" />
+    <Compile Include="tools\data encryption\filecrypt.vb" />
     <Compile Include="masterkey.Designer.vb">
       <DependentUpon>masterkey.vb</DependentUpon>
     </Compile>
@@ -216,66 +217,66 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Hash\Hash_bruteforce.Designer.vb">
-      <DependentUpon>Hash_bruteforce.vb</DependentUpon>
+    <Compile Include="tools\hash\bruteforce.Designer.vb">
+      <DependentUpon>bruteforce.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Hash\Hash_bruteforce.vb">
+    <Compile Include="tools\hash\bruteforce.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="rHash.vb" />
-    <Compile Include="Tools\Hash\Hash_converter.Designer.vb">
-      <DependentUpon>Hash_converter.vb</DependentUpon>
+    <Compile Include="tools\hash\converter.Designer.vb">
+      <DependentUpon>converter.vb</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Hash\Hash_converter.vb">
+    <Compile Include="tools\hash\converter.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newpwmgrdatabase.Designer.vb">
+    <Compile Include="tools\passwordmanager\newpwmgrdatabase.Designer.vb">
       <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
     </Compile>
-    <Compile Include="newpwmgrdatabase.vb">
+    <Compile Include="tools\passwordmanager\newpwmgrdatabase.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="passwordmanager.Designer.vb">
+    <Compile Include="tools\passwordmanager\passwordmanager.Designer.vb">
       <DependentUpon>passwordmanager.vb</DependentUpon>
     </Compile>
-    <Compile Include="passwordmanager.vb">
+    <Compile Include="tools\passwordmanager\passwordmanager.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="passwordmanager_add.Designer.vb">
+    <Compile Include="tools\passwordmanager\passwordmanager_add.Designer.vb">
       <DependentUpon>passwordmanager_add.vb</DependentUpon>
     </Compile>
-    <Compile Include="passwordmanager_add.vb">
+    <Compile Include="tools\passwordmanager\passwordmanager_add.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="passwordmgr_pass.Designer.vb">
+    <Compile Include="tools\passwordmanager\passwordmgr_pass.Designer.vb">
       <DependentUpon>passwordmgr_pass.vb</DependentUpon>
     </Compile>
-    <Compile Include="passwordmgr_pass.vb">
+    <Compile Include="tools\passwordmanager\passwordmgr_pass.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RSA.vb" />
-    <Compile Include="rsa_create_keys.Designer.vb">
+    <Compile Include="tools\rsa\rsa_create_keys.Designer.vb">
       <DependentUpon>rsa_create_keys.vb</DependentUpon>
     </Compile>
-    <Compile Include="rsa_create_keys.vb">
+    <Compile Include="tools\rsa\rsa_create_keys.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rsa_decrypt.Designer.vb">
+    <Compile Include="tools\rsa\rsa_decrypt.Designer.vb">
       <DependentUpon>rsa_decrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="rsa_decrypt.vb">
+    <Compile Include="tools\rsa\rsa_decrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rsa_encrypt.Designer.vb">
+    <Compile Include="tools\rsa\rsa_encrypt.Designer.vb">
       <DependentUpon>rsa_encrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="rsa_encrypt.vb">
+    <Compile Include="tools\rsa\rsa_encrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sendmail.Designer.vb">
+    <Compile Include="tools\mail\sendmail.Designer.vb">
       <DependentUpon>sendmail.vb</DependentUpon>
     </Compile>
-    <Compile Include="sendmail.vb">
+    <Compile Include="tools\mail\sendmail.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="startwindow.vb">
@@ -309,23 +310,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="passwordgenerator.Designer.vb">
+    <Compile Include="tools\passwordgenerator\passwordgenerator.Designer.vb">
       <DependentUpon>passwordgenerator.vb</DependentUpon>
     </Compile>
-    <Compile Include="passwordgenerator.vb">
+    <Compile Include="tools\passwordgenerator\passwordgenerator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="safedelete.Designer.vb">
+    <Compile Include="tools\safedelete\safedelete.Designer.vb">
       <DependentUpon>safedelete.vb</DependentUpon>
     </Compile>
-    <Compile Include="safedelete.vb">
+    <Compile Include="tools\safedelete\safedelete.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
-    <Compile Include="textencrypt.Designer.vb">
+    <Compile Include="tools\text encryption\textencrypt.Designer.vb">
       <DependentUpon>textencrypt.vb</DependentUpon>
     </Compile>
-    <Compile Include="textencrypt.vb">
+    <Compile Include="tools\text encryption\textencrypt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Unzip.vb" />
@@ -335,10 +336,10 @@
     <EmbeddedResource Include="feedback.resx">
       <DependentUpon>feedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="filedecrypt.resx">
+    <EmbeddedResource Include="tools\data encryption\filedecrypt.resx">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fileencrypt.resx">
+    <EmbeddedResource Include="tools\data encryption\fileencrypt.resx">
       <DependentUpon>fileencrypt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wcSetting.resx">
@@ -347,34 +348,34 @@
     <EmbeddedResource Include="masterkey.resx">
       <DependentUpon>masterkey.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\Hash\Hash_bruteforce.resx">
-      <DependentUpon>Hash_bruteforce.vb</DependentUpon>
+    <EmbeddedResource Include="tools\hash\bruteforce.resx">
+      <DependentUpon>bruteforce.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\Hash\Hash_converter.resx">
-      <DependentUpon>Hash_converter.vb</DependentUpon>
+    <EmbeddedResource Include="tools\hash\converter.resx">
+      <DependentUpon>converter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newpwmgrdatabase.resx">
+    <EmbeddedResource Include="tools\passwordmanager\newpwmgrdatabase.resx">
       <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="passwordmanager.resx">
+    <EmbeddedResource Include="tools\passwordmanager\passwordmanager.resx">
       <DependentUpon>passwordmanager.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="passwordmanager_add.resx">
+    <EmbeddedResource Include="tools\passwordmanager\passwordmanager_add.resx">
       <DependentUpon>passwordmanager_add.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="passwordmgr_pass.resx">
+    <EmbeddedResource Include="tools\passwordmanager\passwordmgr_pass.resx">
       <DependentUpon>passwordmgr_pass.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rsa_create_keys.resx">
+    <EmbeddedResource Include="tools\rsa\rsa_create_keys.resx">
       <DependentUpon>rsa_create_keys.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rsa_decrypt.resx">
+    <EmbeddedResource Include="tools\rsa\rsa_decrypt.resx">
       <DependentUpon>rsa_decrypt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rsa_encrypt.resx">
+    <EmbeddedResource Include="tools\rsa\rsa_encrypt.resx">
       <DependentUpon>rsa_encrypt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sendmail.resx">
+    <EmbeddedResource Include="tools\mail\sendmail.resx">
       <DependentUpon>sendmail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="startwindow.resx">
@@ -392,13 +393,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="passwordgenerator.resx">
+    <EmbeddedResource Include="tools\passwordgenerator\passwordgenerator.resx">
       <DependentUpon>passwordgenerator.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="safedelete.resx">
+    <EmbeddedResource Include="tools\safedelete\safedelete.resx">
       <DependentUpon>safedelete.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="textencrypt.resx">
+    <EmbeddedResource Include="tools\text encryption\textencrypt.resx">
       <DependentUpon>textencrypt.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -439,45 +440,42 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Drive128.png" />
-    <None Include="WinCrypt_logo.png" />
-    <None Include="Drive-icon128.png" />
-    <None Include="Resources\add16.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\feedback.png" />
+    <None Include="resources\Drive128.png" />
+    <None Include="resources\add16.png" />
+    <None Include="resources\add.png" />
+    <None Include="resources\feedback.png" />
     <None Include="regist\regist\bin\Debug\regist.exe" />
-    <None Include="Resources\systemfilemanager.png" />
-    <None Include="Resources\mailmessagenew.png" />
-    <None Include="Resources\document.png" />
-    <None Include="Resources\filebinary.png" />
-    <None Include="Resources\id.png" />
-    <None Include="Resources\password.png" />
-    <None Include="Resources\keyarrow.png" />
-    <None Include="Resources\unlock.png" />
-    <None Include="Resources\lock.png" />
-    <None Include="Resources\key2.png" />
-    <None Include="Resources\eye.png" />
-    <None Include="Resources\information.png" />
-    <None Include="Resources\update.png" />
-    <None Include="Resources\cross.png" />
-    <None Include="Resources\closebox.png" />
-    <None Include="Resources\cog.png" />
-    <None Include="Resources\free.png" />
-    <None Include="Resources\wcp.ico" />
+    <None Include="resources\systemfilemanager.png" />
+    <None Include="resources\mailmessagenew.png" />
+    <None Include="resources\document.png" />
+    <None Include="resources\filebinary.png" />
+    <None Include="resources\id.png" />
+    <None Include="resources\password.png" />
+    <None Include="resources\keyarrow.png" />
+    <None Include="resources\unlock.png" />
+    <None Include="resources\lock.png" />
+    <None Include="resources\key2.png" />
+    <None Include="resources\eye.png" />
+    <None Include="resources\information.png" />
+    <None Include="resources\update.png" />
+    <None Include="resources\cross.png" />
+    <None Include="resources\closebox.png" />
+    <None Include="resources\cog.png" />
+    <None Include="resources\free.png" />
+    <None Include="resources\wcp.ico" />
     <None Include="bin\Debug\icon.ico" />
     <None Include="bin\Debug\regist.exe" />
-    <Content Include="Drive-icon.ico" />
-    <None Include="Resources\Interop.Shell32.dll" />
-    <None Include="Resources\uparrow.png" />
-    <None Include="Resources\arrowdown.png" />
-    <None Include="Resources\crypt.wav" />
-    <None Include="Resources\Vista_DeviceDisconnect.wav" />
-    <None Include="Resources\Vista_DeviceConnect.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="resources\Interop.Shell32.dll" />
+    <None Include="resources\uparrow.png" />
+    <None Include="resources\arrowdown.png" />
+    <None Include="resources\crypt.wav" />
+    <None Include="resources\Vista_DeviceDisconnect.wav" />
+    <None Include="resources\Vista_DeviceConnect.wav" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\WinCrypt_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

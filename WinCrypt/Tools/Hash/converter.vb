@@ -1,6 +1,6 @@
 ﻿Option Strict On
 Imports System.Text
-Public Class Hash_converter
+Public Class converter
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles convert_bt.Click
         Select Case toHash_ComboBox.Text
             Case "MD5"

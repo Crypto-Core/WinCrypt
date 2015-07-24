@@ -1,6 +1,6 @@
 ﻿Option Strict On
 Imports System.IO
-Public Class Hash_bruteforce
+Public Class bruteforce
     Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" (ByVal hProcess As IntPtr, ByVal dwMinimumWorkingSetSize As Int32, ByVal dwMaximumWorkingSetSize As Int32) As Int32
 
     Dim langname As New language
@@ -144,7 +144,7 @@ Public Class Hash_bruteforce
 
     Private Sub foundHash()
 
-       
+
 
         '\\ Richtiges Passwort setzen
         Select Case langname.langname
