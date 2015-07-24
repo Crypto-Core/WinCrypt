@@ -73,15 +73,15 @@ Partial Class Hash_converter
         Me.toHash_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.toHash_ComboBox.FormattingEnabled = True
         Me.toHash_ComboBox.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
-        Me.toHash_ComboBox.Location = New System.Drawing.Point(368, 15)
+        Me.toHash_ComboBox.Location = New System.Drawing.Point(367, 15)
         Me.toHash_ComboBox.Name = "toHash_ComboBox"
-        Me.toHash_ComboBox.Size = New System.Drawing.Size(89, 21)
+        Me.toHash_ComboBox.Size = New System.Drawing.Size(90, 21)
         Me.toHash_ComboBox.TabIndex = 5
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(341, 18)
+        Me.Label1.Location = New System.Drawing.Point(342, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 13)
         Me.Label1.TabIndex = 6
