@@ -181,10 +181,10 @@
     <Compile Include="AES.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="counter.vb" />
-    <Compile Include="feedback.Designer.vb">
+    <Compile Include="info\feedback.Designer.vb">
       <DependentUpon>feedback.vb</DependentUpon>
     </Compile>
-    <Compile Include="feedback.vb">
+    <Compile Include="info\feedback.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tools\data encryption\filedecrypt.Designer.vb">
@@ -286,10 +286,10 @@
       <DependentUpon>startwindow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="about.Designer.vb">
+    <Compile Include="info\about.Designer.vb">
       <DependentUpon>about.vb</DependentUpon>
     </Compile>
-    <Compile Include="about.vb">
+    <Compile Include="info\about.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="systemidentification.Designer.vb">
@@ -333,7 +333,7 @@
     <Compile Include="Zip.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="feedback.resx">
+    <EmbeddedResource Include="info\feedback.resx">
       <DependentUpon>feedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tools\data encryption\filedecrypt.resx">
@@ -381,7 +381,7 @@
     <EmbeddedResource Include="startwindow.resx">
       <DependentUpon>startwindow.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="about.resx">
+    <EmbeddedResource Include="info\about.resx">
       <DependentUpon>about.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="systemidentification.resx">
