@@ -7,7 +7,7 @@
     Dim bios As String
     Private Sub registfiletype_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles registfiletype.Click
         Try
-            Process.Start(My.Application.Info.DirectoryPath & "\regist.exe") ' regist.exe wird ausgeführt und die Dateitypen .wc und .wcp werden regestriert
+            Process.Start(My.Application.Info.DirectoryPath & "\WinCryptRegistry.exe") ' regist.exe wird ausgeführt und die Dateitypen .wc und .wcp werden regestriert
         Catch ex As Exception
             MsgBox(ErrorToString, MsgBoxStyle.Information) ' Falls ein Fehler auftritt wird dieser angezeigt
         End Try
