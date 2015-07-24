@@ -460,14 +460,14 @@ Partial Class startwindow
         '
         'EinstellungToolStripMenuItem
         '
-        Me.EinstellungToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371220_cog
+        Me.EinstellungToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cog
         Me.EinstellungToolStripMenuItem.Name = "EinstellungToolStripMenuItem"
         Me.EinstellungToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.EinstellungToolStripMenuItem.Text = "Einstellung"
         '
         'BeendenToolStripMenuItem
         '
-        Me.BeendenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371252_Close_Box_Red
+        Me.BeendenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.closebox
         Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
         Me.BeendenToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.BeendenToolStripMenuItem.Text = "Beenden"
@@ -481,14 +481,14 @@ Partial Class startwindow
         '
         'DateiVerschlüsselnToolStripMenuItem
         '
-        Me.DateiVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.DateiVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.lock
         Me.DateiVerschlüsselnToolStripMenuItem.Name = "DateiVerschlüsselnToolStripMenuItem"
         Me.DateiVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateiVerschlüsselnToolStripMenuItem.Text = "Datei verschlüsseln"
         '
         'DateiEntschlüsselnToolStripMenuItem
         '
-        Me.DateiEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.DateiEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock
         Me.DateiEntschlüsselnToolStripMenuItem.Name = "DateiEntschlüsselnToolStripMenuItem"
         Me.DateiEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateiEntschlüsselnToolStripMenuItem.Text = "Datei entschlüsseln"
@@ -500,7 +500,7 @@ Partial Class startwindow
         '
         'TextVerschlüsselnToolStripMenuItem
         '
-        Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408107_document_binary
+        Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.documentbinary
         Me.TextVerschlüsselnToolStripMenuItem.Name = "TextVerschlüsselnToolStripMenuItem"
         Me.TextVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.TextVerschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
@@ -533,21 +533,21 @@ Partial Class startwindow
         '
         'EntschlüsselnToolStripMenuItem
         '
-        Me.EntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.EntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock
         Me.EntschlüsselnToolStripMenuItem.Name = "EntschlüsselnToolStripMenuItem"
         Me.EntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.EntschlüsselnToolStripMenuItem.Text = "Entschlüsseln"
         '
         'VerschlüsselnToolStripMenuItem
         '
-        Me.VerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.VerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.lock
         Me.VerschlüsselnToolStripMenuItem.Name = "VerschlüsselnToolStripMenuItem"
         Me.VerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.VerschlüsselnToolStripMenuItem.Text = "Verschlüsseln"
         '
         'KeyErstellenToolStripMenuItem
         '
-        Me.KeyErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371338_key__arrow
+        Me.KeyErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.keyarrow
         Me.KeyErstellenToolStripMenuItem.Name = "KeyErstellenToolStripMenuItem"
         Me.KeyErstellenToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.KeyErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
@@ -560,7 +560,7 @@ Partial Class startwindow
         'EMailToolStripMenuItem
         '
         Me.EMailToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem})
-        Me.EMailToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436868489_mail_message_new
+        Me.EMailToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.mailmessagenew
         Me.EMailToolStripMenuItem.Name = "EMailToolStripMenuItem"
         Me.EMailToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.EMailToolStripMenuItem.Text = "E-Mail"
@@ -579,7 +579,7 @@ Partial Class startwindow
         'PasswortmanagerToolStripMenuItem
         '
         Me.PasswortmanagerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatenbankExportierenToolStripMenuItem, Me.DatenbankImportierenToolStripMenuItem, Me.DatenbankLöschenToolStripMenuItem})
-        Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436930846_system_file_manager
+        Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.systemfilemanager
         Me.PasswortmanagerToolStripMenuItem.Name = "PasswortmanagerToolStripMenuItem"
         Me.PasswortmanagerToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.PasswortmanagerToolStripMenuItem.Text = "Passwortmanager"
@@ -609,7 +609,7 @@ Partial Class startwindow
         '
         'SystemidentifikationToolStripMenuItem
         '
-        Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408013_Student_id_24
+        Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.id24
         Me.SystemidentifikationToolStripMenuItem.Name = "SystemidentifikationToolStripMenuItem"
         Me.SystemidentifikationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.SystemidentifikationToolStripMenuItem.Text = "Systemidentifikation"
@@ -621,7 +621,7 @@ Partial Class startwindow
         '
         'PasswortgeneratorToolStripMenuItem
         '
-        Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407942_ui_text_field_password
+        Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.passwordimg
         Me.PasswortgeneratorToolStripMenuItem.Name = "PasswortgeneratorToolStripMenuItem"
         Me.PasswortgeneratorToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.PasswortgeneratorToolStripMenuItem.Text = "Passwortgenerator"
@@ -633,7 +633,7 @@ Partial Class startwindow
         '
         'DateiSicherLöschenToolStripMenuItem
         '
-        Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371621_f_cross_256
+        Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross256
         Me.DateiSicherLöschenToolStripMenuItem.Name = "DateiSicherLöschenToolStripMenuItem"
         Me.DateiSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateiSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
@@ -647,21 +647,21 @@ Partial Class startwindow
         '
         'UpdateToolStripMenuItem
         '
-        Me.UpdateToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371799_update
+        Me.UpdateToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.update
         Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
         Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.UpdateToolStripMenuItem.Text = "Update"
         '
         'FeedbackToolStripMenuItem
         '
-        Me.FeedbackToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1437357185__feedback
+        Me.FeedbackToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback
         Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
         Me.FeedbackToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.FeedbackToolStripMenuItem.Text = "Feedback"
         '
         'AboutToolStripMenuItem
         '
-        Me.AboutToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371705_Information
+        Me.AboutToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.information
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.AboutToolStripMenuItem.Text = "About"
@@ -680,21 +680,21 @@ Partial Class startwindow
         '
         'AboutToolStripMenuItem1
         '
-        Me.AboutToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371705_Information
+        Me.AboutToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.information
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'FeedbackToolStripMenuItem1
         '
-        Me.FeedbackToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1437357185__feedback
+        Me.FeedbackToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback
         Me.FeedbackToolStripMenuItem1.Name = "FeedbackToolStripMenuItem1"
         Me.FeedbackToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
         Me.FeedbackToolStripMenuItem1.Text = "Feedback"
         '
         'UpdateToolStripMenuItem1
         '
-        Me.UpdateToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371799_update
+        Me.UpdateToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.update
         Me.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1"
         Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
         Me.UpdateToolStripMenuItem1.Text = "Update"
@@ -708,14 +708,14 @@ Partial Class startwindow
         '
         'DateiVerschlüsselnToolStripMenuItem1
         '
-        Me.DateiVerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.DateiVerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.lock
         Me.DateiVerschlüsselnToolStripMenuItem1.Name = "DateiVerschlüsselnToolStripMenuItem1"
         Me.DateiVerschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.DateiVerschlüsselnToolStripMenuItem1.Text = "Datei verschlüsseln"
         '
         'DateiEntschlüsselnToolStripMenuItem1
         '
-        Me.DateiEntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.DateiEntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock
         Me.DateiEntschlüsselnToolStripMenuItem1.Name = "DateiEntschlüsselnToolStripMenuItem1"
         Me.DateiEntschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.DateiEntschlüsselnToolStripMenuItem1.Text = "Datei entschlüsseln"
@@ -727,7 +727,7 @@ Partial Class startwindow
         '
         'TextVerUndEntschlüsselnToolStripMenuItem
         '
-        Me.TextVerUndEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408107_document_binary
+        Me.TextVerUndEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.documentbinary
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Name = "TextVerUndEntschlüsselnToolStripMenuItem"
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
@@ -760,21 +760,21 @@ Partial Class startwindow
         '
         'VerschlüsselnToolStripMenuItem1
         '
-        Me.VerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407718_Lock
+        Me.VerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.lock
         Me.VerschlüsselnToolStripMenuItem1.Name = "VerschlüsselnToolStripMenuItem1"
         Me.VerschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
         Me.VerschlüsselnToolStripMenuItem1.Text = "Verschlüsseln"
         '
         'EntschlüsselnToolStripMenuItem1
         '
-        Me.EntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407740_Unlock
+        Me.EntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock
         Me.EntschlüsselnToolStripMenuItem1.Name = "EntschlüsselnToolStripMenuItem1"
         Me.EntschlüsselnToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
         Me.EntschlüsselnToolStripMenuItem1.Text = "Entschlüsseln"
         '
         'SchlüsselErstellenToolStripMenuItem
         '
-        Me.SchlüsselErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371338_key__arrow
+        Me.SchlüsselErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.keyarrow
         Me.SchlüsselErstellenToolStripMenuItem.Name = "SchlüsselErstellenToolStripMenuItem"
         Me.SchlüsselErstellenToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.SchlüsselErstellenToolStripMenuItem.Text = "Schlüssel erstellen"
@@ -787,7 +787,7 @@ Partial Class startwindow
         'EMailToolStripMenuItem1
         '
         Me.EMailToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem1})
-        Me.EMailToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436868489_mail_message_new
+        Me.EMailToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.mailmessagenew
         Me.EMailToolStripMenuItem1.Name = "EMailToolStripMenuItem1"
         Me.EMailToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.EMailToolStripMenuItem1.Text = "E-Mail"
@@ -806,7 +806,7 @@ Partial Class startwindow
         'PasswortmanagerToolStripMenuItem1
         '
         Me.PasswortmanagerToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatenbankExportierenToolStripMenuItem1, Me.DatenbankImportierenToolStripMenuItem1, Me.DatenbankLöschenToolStripMenuItem1})
-        Me.PasswortmanagerToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436930846_system_file_manager
+        Me.PasswortmanagerToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.systemfilemanager
         Me.PasswortmanagerToolStripMenuItem1.Name = "PasswortmanagerToolStripMenuItem1"
         Me.PasswortmanagerToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.PasswortmanagerToolStripMenuItem1.Text = "Passwortmanager"
@@ -836,7 +836,7 @@ Partial Class startwindow
         '
         'SystemidentifikationToolStripMenuItem1
         '
-        Me.SystemidentifikationToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436408013_Student_id_24
+        Me.SystemidentifikationToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.id24
         Me.SystemidentifikationToolStripMenuItem1.Name = "SystemidentifikationToolStripMenuItem1"
         Me.SystemidentifikationToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.SystemidentifikationToolStripMenuItem1.Text = "Systemidentifikation"
@@ -848,7 +848,7 @@ Partial Class startwindow
         '
         'PasswortGeneratorToolStripMenuItem1
         '
-        Me.PasswortGeneratorToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436407942_ui_text_field_password
+        Me.PasswortGeneratorToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.passwordimg
         Me.PasswortGeneratorToolStripMenuItem1.Name = "PasswortGeneratorToolStripMenuItem1"
         Me.PasswortGeneratorToolStripMenuItem1.Size = New System.Drawing.Size(217, 22)
         Me.PasswortGeneratorToolStripMenuItem1.Text = "Passwort generator"
@@ -860,7 +860,7 @@ Partial Class startwindow
         '
         'DateienSicherLöschenToolStripMenuItem
         '
-        Me.DateienSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371621_f_cross_256
+        Me.DateienSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.cross256
         Me.DateienSicherLöschenToolStripMenuItem.Name = "DateienSicherLöschenToolStripMenuItem"
         Me.DateienSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.DateienSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
@@ -873,7 +873,7 @@ Partial Class startwindow
         '
         'BeendenToolStripMenuItem1
         '
-        Me.BeendenToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources._1436371252_Close_Box_Red
+        Me.BeendenToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.closebox
         Me.BeendenToolStripMenuItem1.Name = "BeendenToolStripMenuItem1"
         Me.BeendenToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
         Me.BeendenToolStripMenuItem1.Text = "Beenden"

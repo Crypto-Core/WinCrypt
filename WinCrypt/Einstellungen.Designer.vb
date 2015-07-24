@@ -188,7 +188,7 @@ Partial Class Einstellungen
         'show_bt
         '
         Me.show_bt.Enabled = False
-        Me.show_bt.Image = Global.Project_WinCrypt.My.Resources.Resources._1436373782_eye
+        Me.show_bt.Image = Global.Project_WinCrypt.My.Resources.Resources.eye
         Me.show_bt.Location = New System.Drawing.Point(378, 17)
         Me.show_bt.Name = "show_bt"
         Me.show_bt.Size = New System.Drawing.Size(31, 23)

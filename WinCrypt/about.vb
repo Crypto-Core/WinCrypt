@@ -12,6 +12,6 @@ Public Class about
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Process.Start("http://wincrypt.org/lizenz/")
+        Process.Start("https://wincrypt.org/lizenz/")
     End Sub
 End Class

@@ -184,6 +184,11 @@
     <Compile Include="masterkey.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\winHash\winHash_bruteforce.Designer.vb">
       <DependentUpon>winHash_bruteforce.vb</DependentUpon>
     </Compile>
@@ -196,11 +201,6 @@
     </Compile>
     <Compile Include="Tools\winHash\winHash_converter.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="newpwmgrdatabase.Designer.vb">
       <DependentUpon>newpwmgrdatabase.vb</DependentUpon>
@@ -412,6 +412,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Drive-icon128.png" />
     <None Include="Resources\1437704584_add.png" />
     <None Include="Resources\1437704555_add.png" />
     <None Include="Resources\1437357185__feedback.png" />
@@ -445,7 +446,6 @@
     <None Include="Resources\crypt.wav" />
     <None Include="Resources\Vista_DeviceDisconnect.wav" />
     <None Include="Resources\Vista_DeviceConnect.wav" />
-    <None Include="Resources\Drive-icon.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
