@@ -1,7 +1,7 @@
 ﻿Imports System.Diagnostics
 Imports System.Net
 Imports System.IO
-Public Class Form1
+Public Class updatewindow
     Public WithEvents downloader As WebClient
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Dim ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
