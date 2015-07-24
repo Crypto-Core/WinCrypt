@@ -241,7 +241,7 @@ Partial Class Hash_bruteforce
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(421, 248)
+        Me.ClientSize = New System.Drawing.Size(421, 247)
         Me.Controls.Add(Me.bruteforceToggle)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.bruteforceHashtype)
@@ -256,7 +256,6 @@ Partial Class Hash_bruteforce
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(437, 286)
         Me.Name = "Hash_bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Hash Brute Force"

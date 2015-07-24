@@ -307,7 +307,6 @@ Partial Class sendmail
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(652, 418)
         Me.Name = "sendmail"
         Me.Text = "E-Mail senden"
         Me.ResumeLayout(False)
