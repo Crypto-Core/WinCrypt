@@ -178,9 +178,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AES.vb" />
+    <Compile Include="classes\AES.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="counter.vb" />
+    <Compile Include="classes\counter.vb" />
     <Compile Include="info\feedback.Designer.vb">
       <DependentUpon>feedback.vb</DependentUpon>
     </Compile>
@@ -223,7 +223,7 @@
     <Compile Include="tools\hash\bruteforce.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rHash.vb" />
+    <Compile Include="classes\rHash.vb" />
     <Compile Include="tools\hash\converter.Designer.vb">
       <DependentUpon>converter.vb</DependentUpon>
     </Compile>
@@ -254,7 +254,7 @@
     <Compile Include="tools\passwordmanager\passwordmgr_pass.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RSA.vb" />
+    <Compile Include="classes\RSA.vb" />
     <Compile Include="tools\rsa\rsa_create_keys.Designer.vb">
       <DependentUpon>rsa_create_keys.vb</DependentUpon>
     </Compile>
@@ -298,8 +298,8 @@
     <Compile Include="systemidentification.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ini.vb" />
-    <Compile Include="language.vb" />
+    <Compile Include="classes\ini.vb" />
+    <Compile Include="classes\language.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -329,8 +329,8 @@
     <Compile Include="tools\text encryption\textencrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Unzip.vb" />
-    <Compile Include="Zip.vb" />
+    <Compile Include="classes\Unzip.vb" />
+    <Compile Include="classes\Zip.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="info\feedback.resx">
