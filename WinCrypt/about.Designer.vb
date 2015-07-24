@@ -98,7 +98,7 @@ Partial Class about
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.Driveicon128
+        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.WinCrypt_logo
         Me.PictureBox1.Location = New System.Drawing.Point(146, 4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(128, 128)

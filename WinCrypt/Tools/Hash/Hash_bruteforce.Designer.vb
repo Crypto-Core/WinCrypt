@@ -236,7 +236,7 @@ Partial Class Hash_bruteforce
         Me.bruteforceToggle.Text = "Brute Force"
         Me.bruteforceToggle.UseVisualStyleBackColor = False
         '
-        'winHash_bruteforce
+        'Hash_bruteforce
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -257,7 +257,7 @@ Partial Class Hash_bruteforce
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimumSize = New System.Drawing.Size(437, 286)
-        Me.Name = "winHash_bruteforce"
+        Me.Name = "Hash_bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Hash Brute Force"
         Me.Panel1.ResumeLayout(False)

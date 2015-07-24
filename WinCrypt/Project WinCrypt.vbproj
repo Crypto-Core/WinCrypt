@@ -412,6 +412,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="WinCrypt_logo.png" />
     <None Include="Drive-icon128.png" />
     <None Include="Resources\add16.png" />
     <None Include="Resources\add.png" />

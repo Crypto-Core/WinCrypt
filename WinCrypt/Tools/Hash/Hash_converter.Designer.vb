@@ -87,7 +87,7 @@ Partial Class Hash_converter
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Art:"
         '
-        'winHash_converter
+        'Hash_converter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -101,7 +101,7 @@ Partial Class Hash_converter
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "winHash_converter"
+        Me.Name = "Hash_converter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Hash Konverter"
         Me.ResumeLayout(False)

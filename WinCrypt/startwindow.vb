@@ -815,23 +815,23 @@ Public Class startwindow
     End Sub
 
     Private Sub MD5KonverterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        winHash_converter.Show()
+        Hash_converter.Show()
     End Sub
 
     Private Sub MD5KonverterToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MD5KonverterToolStripMenuItem.Click
-        winHash_converter.Show()
+        Hash_converter.Show()
     End Sub
 
     Private Sub MD5CrackerToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MD5CrackerToolStripMenuItem.Click
-        winHash_bruteforce.Show()
+        Hash_bruteforce.Show()
     End Sub
 
     Private Sub MD5KonverterToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MD5KonverterToolStripMenuItem1.Click
-        winHash_converter.Show()
+        Hash_converter.Show()
     End Sub
 
     Private Sub MD5BruteforceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MD5BruteforceToolStripMenuItem.Click
-        winHash_bruteforce.Show()
+        Hash_bruteforce.Show()
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

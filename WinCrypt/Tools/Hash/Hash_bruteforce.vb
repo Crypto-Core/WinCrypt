@@ -101,15 +101,15 @@ Public Class Hash_bruteforce
             '\\ anhand des ausgewählten Hash dass aktuell geprüfte wort zum vergleich Hashen
             Select Case Hashtype
                 Case "MD5"
-                    currentHash = winHash.HashString(lineWordlist, winHash.HASH.MD5)
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.MD5)
                 Case "SHA1"
-                    currentHash = winHash.HashString(lineWordlist, winHash.HASH.SHA1)
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA1)
                 Case "SHA256"
-                    currentHash = winHash.HashString(lineWordlist, winHash.HASH.SHA256)
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA256)
                 Case "SHA384"
-                    currentHash = winHash.HashString(lineWordlist, winHash.HASH.SHA384)
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA384)
                 Case "SHA512"
-                    currentHash = winHash.HashString(lineWordlist, winHash.HASH.SHA512)
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA512)
             End Select
 
             internTick += 1
