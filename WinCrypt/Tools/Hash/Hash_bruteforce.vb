@@ -110,6 +110,8 @@ Public Class Hash_bruteforce
                     currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA384)
                 Case "SHA512"
                     currentHash = rHash.HashString(lineWordlist, rHash.HASH.SHA512)
+                Case "RIPEMD160"
+                    currentHash = rHash.HashString(lineWordlist, rHash.HASH.RIPEMD160)
             End Select
 
             internTick += 1

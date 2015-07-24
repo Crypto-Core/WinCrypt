@@ -218,7 +218,7 @@ Partial Class Hash_bruteforce
         '
         Me.bruteforceHashtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.bruteforceHashtype.FormattingEnabled = True
-        Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512"})
+        Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
         Me.bruteforceHashtype.Location = New System.Drawing.Point(344, 6)
         Me.bruteforceHashtype.Name = "bruteforceHashtype"
         Me.bruteforceHashtype.Size = New System.Drawing.Size(69, 21)
@@ -241,7 +241,7 @@ Partial Class Hash_bruteforce
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(421, 247)
+        Me.ClientSize = New System.Drawing.Size(421, 248)
         Me.Controls.Add(Me.bruteforceToggle)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.bruteforceHashtype)

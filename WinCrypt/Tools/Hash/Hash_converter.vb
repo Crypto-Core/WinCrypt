@@ -12,7 +12,9 @@ Public Class Hash_converter
             Case "SHA384"
                 isHash_Textbox.Text = rhash.HashString(noHash_Textbox.Text, rhash.HASH.SHA384)
             Case "SHA512"
-                isHash_Textbox.Text = rhash.HashString(noHash_Textbox.Text, rhash.HASH.SHA512)
+                isHash_Textbox.Text = rHash.HashString(noHash_Textbox.Text, rHash.HASH.SHA512)
+            Case "RIPEMD160"
+                isHash_Textbox.Text = rHash.HashString(noHash_Textbox.Text, rHash.HASH.RIPEMD160)
         End Select
     End Sub
 

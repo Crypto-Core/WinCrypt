@@ -9,6 +9,7 @@ Public Class rHash
         SHA256 = 2
         SHA384 = 3
         SHA512 = 4
+        RIPEMD160 = 5
     End Enum
 
     ''' <summary>
@@ -47,6 +48,11 @@ Public Class rHash
                 Dim SHA512 As New SHA512Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = SHA512.ComputeHash(Data)
+
+            Case rHash.HASH.RIPEMD160
+                Dim RIPEMD160 As New RIPEMD160Managed
+                Data = Encoding.ASCII.GetBytes(Value)
+                HashValue = RIPEMD160.ComputeHash(Data)
         End Select
 
         For i As Integer = 0 To HashValue.Length - 1
