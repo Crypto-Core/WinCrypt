@@ -723,7 +723,7 @@ Partial Class startwindow
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Gray
         Me.Label6.ForeColor = System.Drawing.Color.Silver
-        Me.Label6.Location = New System.Drawing.Point(252, 122)
+        Me.Label6.Location = New System.Drawing.Point(260, 139)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 10
@@ -849,7 +849,7 @@ Partial Class startwindow
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Gray
         Me.Label7.ForeColor = System.Drawing.Color.Silver
-        Me.Label7.Location = New System.Drawing.Point(260, 172)
+        Me.Label7.Location = New System.Drawing.Point(260, 170)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 11
