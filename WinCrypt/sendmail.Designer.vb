@@ -50,6 +50,11 @@ Partial Class sendmail
         Me.sendmail_bt = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.account_bt = New System.Windows.Forms.Button()
+        Me.rsa_open_bt = New System.Windows.Forms.Button()
+        Me.pubkey_txt = New System.Windows.Forms.TextBox()
+        Me.pubkey_lb = New System.Windows.Forms.Label()
+        Me.rsa_cb = New System.Windows.Forms.CheckBox()
+        Me.rsadialog = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
         'email_txt
@@ -93,33 +98,33 @@ Partial Class sendmail
         Me.message_txt.Location = New System.Drawing.Point(12, 94)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"
-        Me.message_txt.Size = New System.Drawing.Size(612, 252)
+        Me.message_txt.Size = New System.Drawing.Size(612, 297)
         Me.message_txt.TabIndex = 5
         '
         'file_txt
         '
-        Me.file_txt.Location = New System.Drawing.Point(62, 355)
+        Me.file_txt.Location = New System.Drawing.Point(62, 426)
         Me.file_txt.Name = "file_txt"
         Me.file_txt.Size = New System.Drawing.Size(387, 20)
         Me.file_txt.TabIndex = 6
         '
         'file_txt1
         '
-        Me.file_txt1.Location = New System.Drawing.Point(62, 381)
+        Me.file_txt1.Location = New System.Drawing.Point(62, 455)
         Me.file_txt1.Name = "file_txt1"
         Me.file_txt1.Size = New System.Drawing.Size(387, 20)
         Me.file_txt1.TabIndex = 7
         '
         'file_txt2
         '
-        Me.file_txt2.Location = New System.Drawing.Point(62, 407)
+        Me.file_txt2.Location = New System.Drawing.Point(62, 481)
         Me.file_txt2.Name = "file_txt2"
         Me.file_txt2.Size = New System.Drawing.Size(387, 20)
         Me.file_txt2.TabIndex = 8
         '
         'file_txt3
         '
-        Me.file_txt3.Location = New System.Drawing.Point(62, 433)
+        Me.file_txt3.Location = New System.Drawing.Point(62, 507)
         Me.file_txt3.Name = "file_txt3"
         Me.file_txt3.Size = New System.Drawing.Size(387, 20)
         Me.file_txt3.TabIndex = 9
@@ -172,7 +177,7 @@ Partial Class sendmail
         'attachment_lb
         '
         Me.attachment_lb.AutoSize = True
-        Me.attachment_lb.Location = New System.Drawing.Point(12, 358)
+        Me.attachment_lb.Location = New System.Drawing.Point(12, 429)
         Me.attachment_lb.Name = "attachment_lb"
         Me.attachment_lb.Size = New System.Drawing.Size(44, 13)
         Me.attachment_lb.TabIndex = 15
@@ -181,7 +186,7 @@ Partial Class sendmail
         'attachment_lb1
         '
         Me.attachment_lb1.AutoSize = True
-        Me.attachment_lb1.Location = New System.Drawing.Point(12, 384)
+        Me.attachment_lb1.Location = New System.Drawing.Point(12, 458)
         Me.attachment_lb1.Name = "attachment_lb1"
         Me.attachment_lb1.Size = New System.Drawing.Size(44, 13)
         Me.attachment_lb1.TabIndex = 16
@@ -190,7 +195,7 @@ Partial Class sendmail
         'attachment_lb2
         '
         Me.attachment_lb2.AutoSize = True
-        Me.attachment_lb2.Location = New System.Drawing.Point(12, 410)
+        Me.attachment_lb2.Location = New System.Drawing.Point(12, 484)
         Me.attachment_lb2.Name = "attachment_lb2"
         Me.attachment_lb2.Size = New System.Drawing.Size(44, 13)
         Me.attachment_lb2.TabIndex = 17
@@ -199,7 +204,7 @@ Partial Class sendmail
         'attachment_lb3
         '
         Me.attachment_lb3.AutoSize = True
-        Me.attachment_lb3.Location = New System.Drawing.Point(12, 436)
+        Me.attachment_lb3.Location = New System.Drawing.Point(12, 510)
         Me.attachment_lb3.Name = "attachment_lb3"
         Me.attachment_lb3.Size = New System.Drawing.Size(44, 13)
         Me.attachment_lb3.TabIndex = 18
@@ -207,7 +212,7 @@ Partial Class sendmail
         '
         'fileadd_bt
         '
-        Me.fileadd_bt.Location = New System.Drawing.Point(455, 353)
+        Me.fileadd_bt.Location = New System.Drawing.Point(455, 424)
         Me.fileadd_bt.Name = "fileadd_bt"
         Me.fileadd_bt.Size = New System.Drawing.Size(69, 23)
         Me.fileadd_bt.TabIndex = 19
@@ -216,7 +221,8 @@ Partial Class sendmail
         '
         'fileadd_bt1
         '
-        Me.fileadd_bt1.Location = New System.Drawing.Point(455, 379)
+        Me.fileadd_bt1.Enabled = False
+        Me.fileadd_bt1.Location = New System.Drawing.Point(455, 453)
         Me.fileadd_bt1.Name = "fileadd_bt1"
         Me.fileadd_bt1.Size = New System.Drawing.Size(69, 23)
         Me.fileadd_bt1.TabIndex = 20
@@ -225,7 +231,8 @@ Partial Class sendmail
         '
         'fileadd_bt2
         '
-        Me.fileadd_bt2.Location = New System.Drawing.Point(455, 405)
+        Me.fileadd_bt2.Enabled = False
+        Me.fileadd_bt2.Location = New System.Drawing.Point(455, 479)
         Me.fileadd_bt2.Name = "fileadd_bt2"
         Me.fileadd_bt2.Size = New System.Drawing.Size(69, 23)
         Me.fileadd_bt2.TabIndex = 21
@@ -234,7 +241,8 @@ Partial Class sendmail
         '
         'fileadd_bt3
         '
-        Me.fileadd_bt3.Location = New System.Drawing.Point(455, 431)
+        Me.fileadd_bt3.Enabled = False
+        Me.fileadd_bt3.Location = New System.Drawing.Point(455, 505)
         Me.fileadd_bt3.Name = "fileadd_bt3"
         Me.fileadd_bt3.Size = New System.Drawing.Size(69, 23)
         Me.fileadd_bt3.TabIndex = 22
@@ -244,7 +252,7 @@ Partial Class sendmail
         'add_bt
         '
         Me.add_bt.Image = Global.Project_WinCrypt.My.Resources.Resources.add16
-        Me.add_bt.Location = New System.Drawing.Point(524, 353)
+        Me.add_bt.Location = New System.Drawing.Point(524, 424)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(25, 23)
         Me.add_bt.TabIndex = 23
@@ -252,16 +260,12 @@ Partial Class sendmail
         '
         'sendmail_bt
         '
-        Me.sendmail_bt.Location = New System.Drawing.Point(561, 352)
+        Me.sendmail_bt.Location = New System.Drawing.Point(561, 423)
         Me.sendmail_bt.Name = "sendmail_bt"
         Me.sendmail_bt.Size = New System.Drawing.Size(63, 23)
         Me.sendmail_bt.TabIndex = 24
         Me.sendmail_bt.Text = "Senden"
         Me.sendmail_bt.UseVisualStyleBackColor = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'account_bt
         '
@@ -273,11 +277,53 @@ Partial Class sendmail
         Me.account_bt.UseVisualStyleBackColor = True
         Me.account_bt.Visible = False
         '
+        'rsa_open_bt
+        '
+        Me.rsa_open_bt.Location = New System.Drawing.Point(455, 395)
+        Me.rsa_open_bt.Name = "rsa_open_bt"
+        Me.rsa_open_bt.Size = New System.Drawing.Size(69, 23)
+        Me.rsa_open_bt.TabIndex = 26
+        Me.rsa_open_bt.Text = "Öffnen"
+        Me.rsa_open_bt.UseVisualStyleBackColor = True
+        Me.rsa_open_bt.Visible = False
+        '
+        'pubkey_txt
+        '
+        Me.pubkey_txt.Location = New System.Drawing.Point(62, 397)
+        Me.pubkey_txt.Name = "pubkey_txt"
+        Me.pubkey_txt.Size = New System.Drawing.Size(387, 20)
+        Me.pubkey_txt.TabIndex = 27
+        Me.pubkey_txt.Visible = False
+        '
+        'pubkey_lb
+        '
+        Me.pubkey_lb.AutoSize = True
+        Me.pubkey_lb.Location = New System.Drawing.Point(-1, 400)
+        Me.pubkey_lb.Name = "pubkey_lb"
+        Me.pubkey_lb.Size = New System.Drawing.Size(57, 13)
+        Me.pubkey_lb.TabIndex = 28
+        Me.pubkey_lb.Text = "Public Key"
+        Me.pubkey_lb.Visible = False
+        '
+        'rsa_cb
+        '
+        Me.rsa_cb.AutoSize = True
+        Me.rsa_cb.Location = New System.Drawing.Point(553, 399)
+        Me.rsa_cb.Name = "rsa_cb"
+        Me.rsa_cb.Size = New System.Drawing.Size(70, 17)
+        Me.rsa_cb.TabIndex = 29
+        Me.rsa_cb.Text = "RSA Mail"
+        Me.rsa_cb.UseVisualStyleBackColor = True
+        '
         'sendmail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(636, 379)
+        Me.ClientSize = New System.Drawing.Size(635, 451)
+        Me.Controls.Add(Me.rsa_cb)
+        Me.Controls.Add(Me.pubkey_lb)
+        Me.Controls.Add(Me.pubkey_txt)
+        Me.Controls.Add(Me.rsa_open_bt)
         Me.Controls.Add(Me.account_bt)
         Me.Controls.Add(Me.sendmail_bt)
         Me.Controls.Add(Me.add_bt)
@@ -304,7 +350,7 @@ Partial Class sendmail
         Me.Controls.Add(Me.server_txt)
         Me.Controls.Add(Me.password_txt)
         Me.Controls.Add(Me.email_txt)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "sendmail"
@@ -340,4 +386,9 @@ Partial Class sendmail
     Friend WithEvents sendmail_bt As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents account_bt As System.Windows.Forms.Button
+    Friend WithEvents rsa_open_bt As System.Windows.Forms.Button
+    Friend WithEvents pubkey_txt As System.Windows.Forms.TextBox
+    Friend WithEvents pubkey_lb As System.Windows.Forms.Label
+    Friend WithEvents rsa_cb As System.Windows.Forms.CheckBox
+    Friend WithEvents rsadialog As System.Windows.Forms.OpenFileDialog
 End Class

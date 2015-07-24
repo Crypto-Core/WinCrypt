@@ -162,13 +162,22 @@
             Hash_bruteforce.showProgress.Text = "show progress"
 
             'sendmail.vb
+            sendmail.Text = "send e-mail"
             sendmail.email_lb.Text = "email:"
             sendmail.password_lb.Text = "password:"
             sendmail.server_lb.Text = "server:"
             sendmail.emailto_lb.Text = "receiver:"
-            sendmail.email_lb.Text = "attachments:"
             sendmail.fileadd_bt.Text = "add"
+            sendmail.fileadd_bt1.Text = "add"
+            sendmail.fileadd_bt2.Text = "add"
+            sendmail.fileadd_bt3.Text = "add"
             sendmail.sendmail_bt.Text = "send"
+            sendmail.account_bt.Text = "delete account"
+            sendmail.rsa_open_bt.Text = "open"
+            sendmail.attachment_lb.Text = "attachment"
+            sendmail.attachment_lb1.Text = "attachment"
+            sendmail.attachment_lb2.Text = "attachment"
+            sendmail.attachment_lb3.Text = "attachment"
 
             'passwordmanager.vb
             passwordmanager.Text = "passwordmanager"
@@ -367,13 +376,22 @@
             Hash_bruteforce.showProgress.Text = "Zeige Fortschritt an"
 
             'sendmail.vb
+            sendmail.Text = "E-Mail senden"
             sendmail.email_lb.Text = "E-Mail:"
             sendmail.password_lb.Text = "Passwort:"
             sendmail.server_lb.Text = "Server:"
             sendmail.emailto_lb.Text = "Empfänger:"
-            sendmail.attachment_lb.Text = "Anhang:"
             sendmail.fileadd_bt.Text = "Hinzufügen"
+            sendmail.fileadd_bt1.Text = "Hinzufügen"
+            sendmail.fileadd_bt2.Text = "Hinzufügen"
+            sendmail.fileadd_bt3.Text = "Hinzufügen"
             sendmail.sendmail_bt.Text = "Senden"
+            sendmail.account_bt.Text = "Konto entfernen"
+            sendmail.rsa_open_bt.Text = "Öffnen"
+            sendmail.attachment_lb.Text = "Anhang"
+            sendmail.attachment_lb1.Text = "Anhang"
+            sendmail.attachment_lb2.Text = "Anhang"
+            sendmail.attachment_lb3.Text = "Anhang"
 
             'passwordmanager.vb
             passwordmanager.Text = "Passwortmanager"
