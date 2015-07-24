@@ -1,6 +1,6 @@
 ﻿Option Strict On
 Imports System.IO
-Public Class winHash_bruteforce
+Public Class Hash_bruteforce
     Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" (ByVal hProcess As IntPtr, ByVal dwMinimumWorkingSetSize As Int32, ByVal dwMaximumWorkingSetSize As Int32) As Int32
 
     Dim langname As New language

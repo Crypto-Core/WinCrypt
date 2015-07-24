@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class winHash_bruteforce
+Partial Class Hash_bruteforce
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -28,7 +28,7 @@ Partial Class winHash_bruteforce
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(winHash_bruteforce))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Hash_bruteforce))
         Me.bruteforcesearchedHash = New System.Windows.Forms.TextBox()
         Me.md5_lb = New System.Windows.Forms.Label()
         Me.passwordlist_lb = New System.Windows.Forms.Label()
