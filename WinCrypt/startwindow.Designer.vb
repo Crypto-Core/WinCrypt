@@ -149,6 +149,7 @@ Partial Class startwindow
         Me.mount = New System.Windows.Forms.Button()
         Me.opencryptfile = New System.Windows.Forms.Button()
         Me.encrypt_gb = New System.Windows.Forms.GroupBox()
+        Me.cleanlb1 = New System.Windows.Forms.Button()
         Me.encrypt_list_status = New System.Windows.Forms.ListBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.create_container_encrypt = New System.Windows.Forms.Button()
@@ -166,6 +167,7 @@ Partial Class startwindow
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.XToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cleanlb2 = New System.Windows.Forms.Button()
         Me.MenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.mount_gb.SuspendLayout()
@@ -1073,6 +1075,7 @@ Partial Class startwindow
         '
         'mount_gb
         '
+        Me.mount_gb.Controls.Add(Me.cleanlb2)
         Me.mount_gb.Controls.Add(Me.drive_lb)
         Me.mount_gb.Controls.Add(Me.key_lb)
         Me.mount_gb.Controls.Add(Me.Label3)
@@ -1132,7 +1135,7 @@ Partial Class startwindow
         Me.decrypt_list_status.FormattingEnabled = True
         Me.decrypt_list_status.Location = New System.Drawing.Point(16, 63)
         Me.decrypt_list_status.Name = "decrypt_list_status"
-        Me.decrypt_list_status.Size = New System.Drawing.Size(552, 158)
+        Me.decrypt_list_status.Size = New System.Drawing.Size(552, 145)
         Me.decrypt_list_status.TabIndex = 6
         '
         'drivecb
@@ -1219,6 +1222,7 @@ Partial Class startwindow
         '
         'encrypt_gb
         '
+        Me.encrypt_gb.Controls.Add(Me.cleanlb1)
         Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
         Me.encrypt_gb.Controls.Add(Me.Label2)
         Me.encrypt_gb.Controls.Add(Me.create_container_encrypt)
@@ -1235,6 +1239,19 @@ Partial Class startwindow
         Me.encrypt_gb.TabStop = False
         Me.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
         '
+        'cleanlb1
+        '
+        Me.cleanlb1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cleanlb1.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cleanlb1.FlatAppearance.BorderSize = 0
+        Me.cleanlb1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cleanlb1.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
+        Me.cleanlb1.Location = New System.Drawing.Point(525, 220)
+        Me.cleanlb1.Name = "cleanlb1"
+        Me.cleanlb1.Size = New System.Drawing.Size(37, 23)
+        Me.cleanlb1.TabIndex = 8
+        Me.cleanlb1.UseVisualStyleBackColor = False
+        '
         'encrypt_list_status
         '
         Me.encrypt_list_status.AllowDrop = True
@@ -1247,7 +1264,7 @@ Partial Class startwindow
         Me.encrypt_list_status.FormattingEnabled = True
         Me.encrypt_list_status.Location = New System.Drawing.Point(11, 98)
         Me.encrypt_list_status.Name = "encrypt_list_status"
-        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 132)
+        Me.encrypt_list_status.Size = New System.Drawing.Size(551, 119)
         Me.encrypt_list_status.TabIndex = 5
         '
         'Label2
@@ -1415,6 +1432,19 @@ Partial Class startwindow
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(32, 23)
         Me.ToolStripMenuItem2.Text = "─"
+        '
+        'cleanlb2
+        '
+        Me.cleanlb2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cleanlb2.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cleanlb2.FlatAppearance.BorderSize = 0
+        Me.cleanlb2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cleanlb2.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
+        Me.cleanlb2.Location = New System.Drawing.Point(530, 215)
+        Me.cleanlb2.Name = "cleanlb2"
+        Me.cleanlb2.Size = New System.Drawing.Size(37, 23)
+        Me.cleanlb2.TabIndex = 9
+        Me.cleanlb2.UseVisualStyleBackColor = False
         '
         'startwindow
         '
@@ -1591,5 +1621,7 @@ Partial Class startwindow
     Friend WithEvents SystemidentifikationToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PasswortgeneratorToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DateienSicherLöschenToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cleanlb1 As System.Windows.Forms.Button
+    Friend WithEvents cleanlb2 As System.Windows.Forms.Button
 
 End Class

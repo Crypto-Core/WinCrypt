@@ -1232,4 +1232,12 @@ Public Class startwindow
             End If
         End If
     End Sub
+
+    Private Sub cleanlb1_Click(sender As Object, e As EventArgs) Handles cleanlb1.Click
+        encrypt_list_status.Items.Clear()
+    End Sub
+
+    Private Sub cleanlb2_Click(sender As Object, e As EventArgs) Handles cleanlb2.Click
+        decrypt_list_status.Items.Clear()
+    End Sub
 End Class

@@ -505,6 +505,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drive-icon.ico" />
+    <None Include="resources\Clean-16.png" />
     <None Include="resources\Identity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
