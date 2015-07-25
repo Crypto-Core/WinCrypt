@@ -502,6 +502,50 @@ Public Class startwindow
             Application.Exit()
         End If
     End Sub
+    Private Sub startwindow_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        '// Ordner hinzufügen zum verschlüsseln hotkey
+        If e.KeyCode = Keys.E AndAlso e.Control = True Then
+            crypt_file_pathbutton.PerformClick()
+        End If
+
+        '// Schlüssel generieren
+        If e.KeyCode = Keys.G AndAlso e.Control = True Then
+            If generate_key_encrypt.Enabled = True Then
+                generate_key_encrypt.PerformClick()
+            End If
+        End If
+
+        '// Container erstellen
+        If e.KeyCode = Keys.C AndAlso e.Alt = True Then
+            If generate_key_encrypt.Enabled = True Then
+                create_container_encrypt.PerformClick()
+            End If
+        End If
+
+        '//Ordner hinzufügen zum mounten hotkey
+        If e.KeyCode = Keys.D AndAlso e.Control = True Then
+            opencryptfile.PerformClick()
+        End If
+
+        '//Ordner mounten hotkey
+        If e.KeyCode = Keys.M AndAlso e.Shift = True Then
+            If mount.Enabled = True Then
+                mount.PerformClick()
+            End If
+        End If
+
+        '//Dismount
+        If e.KeyCode = Keys.D AndAlso e.Shift = True Then
+            If dismount.Enabled = True Then
+                dismount.PerformClick()
+            End If
+        End If
+
+        '//Openfile
+        If e.KeyCode = Keys.F AndAlso e.Control = True Then
+            DateiToolStripMenuItem1.PerformClick()
+        End If
+    End Sub
     Private Sub startwindow_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         wincrypttitle.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
 
@@ -1239,5 +1283,79 @@ Public Class startwindow
 
     Private Sub cleanlb2_Click(sender As Object, e As EventArgs) Handles cleanlb2.Click
         decrypt_list_status.Items.Clear()
+    End Sub
+    Declare Function GetAsyncKeyState Lib "user32" (ByVal vkKey As Integer) As Short
+    Private Sub gethotkey_Tick(sender As Object, e As EventArgs) Handles gethotkey.Tick
+        If Me.WindowState = FormWindowState.Minimized = True Then
+            ' STRG+P öffnet den Passwortmanager
+            If GetAsyncKeyState(Keys.P) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                passwordmanager.Show()
+                passwordmanager.Focus()
+                passwordmgr_pass.Focus()
+                newpwmgrdatabase.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' Shift+P öffnet den Passwortgenerator
+            If GetAsyncKeyState(Keys.P) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
+                gethotkey.Enabled = False
+                passwordgenerator.Show()
+                passwordgenerator.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' STRG+E öffnet Datei verschlüsseln
+            If GetAsyncKeyState(Keys.E) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                fileencrypt.Show()
+                fileencrypt.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' STRG+D öffnet Datei entschlüsseln
+            If GetAsyncKeyState(Keys.D) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                filedecrypt.Show()
+                filedecrypt.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' Shift+T öffnet das Text ver- und entschlüsseln fenster
+            If GetAsyncKeyState(Keys.T) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
+                gethotkey.Enabled = False
+                textencrypt.Show()
+                textencrypt.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' Shift+M öffnet das E-Mail senden fenster
+            If GetAsyncKeyState(Keys.M) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
+                gethotkey.Enabled = False
+                sendmail.Show()
+                sendmail.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' Shift+D öffnet das E-Mail senden fenster
+            If GetAsyncKeyState(Keys.D) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
+                gethotkey.Enabled = False
+                safedelete.Show()
+                safedelete.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' STRG+W öffnet WinCrypt
+            If GetAsyncKeyState(Keys.W) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                systemtray.Visible = False
+                Me.Show()
+                Me.WindowState = FormWindowState.Normal
+                gethotkey.Enabled = True
+            End If
+        Else
+
+        End If
+        
     End Sub
 End Class

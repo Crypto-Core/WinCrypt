@@ -505,6 +505,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drive-icon.ico" />
+    <None Include="resources\MailSend16.png" />
+    <None Include="resources\Data-Erase-16.png" />
+    <None Include="resources\Data-Import-16.png" />
+    <None Include="resources\Data-Export-16.png" />
     <None Include="resources\Clean-16.png" />
     <None Include="resources\Identity.png" />
   </ItemGroup>

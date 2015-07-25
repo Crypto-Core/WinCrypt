@@ -142,8 +142,11 @@
   <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Vista_DeviceDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vista_DeviceDisconnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Clean-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Clean-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Data-Import-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Data-Import-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="textencrypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\textencrypt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -6424,14 +6427,20 @@
   <data name="WinCryptUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\WinCryptUpdate.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Data-Erase-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Data-Erase-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Data-Export-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Data-Export-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Key16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Key-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AddNew16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Add-New-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="feedback16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\feedback-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Vista_DeviceDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vista_DeviceDisconnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Information16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Information-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -6457,13 +6466,16 @@
   <data name="Interop_Shell32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interop.Shell32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Delete16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Delete-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="feedback16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\feedback-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="updateflat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\updateflat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clean-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Clean-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Delete-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MailSend16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\MailSend16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

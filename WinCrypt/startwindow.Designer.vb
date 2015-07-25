@@ -138,6 +138,7 @@ Partial Class startwindow
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.mount_gb = New System.Windows.Forms.GroupBox()
+        Me.cleanlb2 = New System.Windows.Forms.Button()
         Me.drive_lb = New System.Windows.Forms.Label()
         Me.key_lb = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -167,7 +168,7 @@ Partial Class startwindow
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.XToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cleanlb2 = New System.Windows.Forms.Button()
+        Me.gethotkey = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.mount_gb.SuspendLayout()
@@ -207,7 +208,7 @@ Partial Class startwindow
         Me.EinstellungToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EinstellungToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.EinstellungToolStripMenuItem1.Name = "EinstellungToolStripMenuItem1"
-        Me.EinstellungToolStripMenuItem1.Size = New System.Drawing.Size(132, 22)
+        Me.EinstellungToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.EinstellungToolStripMenuItem1.Text = "Einstellung"
         '
         'BeendenToolStripMenuItem2
@@ -216,7 +217,7 @@ Partial Class startwindow
         Me.BeendenToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BeendenToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.BeendenToolStripMenuItem2.Name = "BeendenToolStripMenuItem2"
-        Me.BeendenToolStripMenuItem2.Size = New System.Drawing.Size(132, 22)
+        Me.BeendenToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.BeendenToolStripMenuItem2.Text = "Beenden"
         '
         'ToolsToolStripMenuItem2
@@ -320,6 +321,7 @@ Partial Class startwindow
         Me.EMailToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EMailToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem2})
         Me.EMailToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.EMailToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.EMailToolStripMenuItem2.Name = "EMailToolStripMenuItem2"
         Me.EMailToolStripMenuItem2.Size = New System.Drawing.Size(217, 22)
         Me.EMailToolStripMenuItem2.Text = "E-Mail"
@@ -328,6 +330,7 @@ Partial Class startwindow
         '
         Me.EMailSendenToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EMailSendenToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.EMailSendenToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.MailSend16
         Me.EMailSendenToolStripMenuItem2.Name = "EMailSendenToolStripMenuItem2"
         Me.EMailSendenToolStripMenuItem2.Size = New System.Drawing.Size(149, 22)
         Me.EMailSendenToolStripMenuItem2.Text = "E-Mail senden"
@@ -346,6 +349,7 @@ Partial Class startwindow
         '
         Me.DatenbankExportierenToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankExportierenToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.DatenbankExportierenToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Export_16
         Me.DatenbankExportierenToolStripMenuItem2.Name = "DatenbankExportierenToolStripMenuItem2"
         Me.DatenbankExportierenToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.DatenbankExportierenToolStripMenuItem2.Text = "Datenbank exportieren"
@@ -354,6 +358,7 @@ Partial Class startwindow
         '
         Me.DatenbankImportierenToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankImportierenToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.DatenbankImportierenToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Import_16
         Me.DatenbankImportierenToolStripMenuItem2.Name = "DatenbankImportierenToolStripMenuItem2"
         Me.DatenbankImportierenToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.DatenbankImportierenToolStripMenuItem2.Text = "Datenbank importieren"
@@ -362,6 +367,7 @@ Partial Class startwindow
         '
         Me.DatenbankLöschenToolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankLöschenToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.DatenbankLöschenToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Erase_16
         Me.DatenbankLöschenToolStripMenuItem2.Name = "DatenbankLöschenToolStripMenuItem2"
         Me.DatenbankLöschenToolStripMenuItem2.Size = New System.Drawing.Size(196, 22)
         Me.DatenbankLöschenToolStripMenuItem2.Text = "Datenbank löschen"
@@ -408,7 +414,7 @@ Partial Class startwindow
         Me.UpdateToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.UpdateToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
         Me.UpdateToolStripMenuItem2.Name = "UpdateToolStripMenuItem2"
-        Me.UpdateToolStripMenuItem2.Size = New System.Drawing.Size(124, 22)
+        Me.UpdateToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.UpdateToolStripMenuItem2.Text = "Update"
         '
         'FeedbackToolStripMenuItem2
@@ -417,7 +423,7 @@ Partial Class startwindow
         Me.FeedbackToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.FeedbackToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
         Me.FeedbackToolStripMenuItem2.Name = "FeedbackToolStripMenuItem2"
-        Me.FeedbackToolStripMenuItem2.Size = New System.Drawing.Size(124, 22)
+        Me.FeedbackToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.FeedbackToolStripMenuItem2.Text = "Feedback"
         '
         'AboutToolStripMenuItem2
@@ -426,7 +432,7 @@ Partial Class startwindow
         Me.AboutToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.AboutToolStripMenuItem2.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
         Me.AboutToolStripMenuItem2.Name = "AboutToolStripMenuItem2"
-        Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(124, 22)
+        Me.AboutToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem2.Text = "About"
         '
         'DateiToolStripMenuItem
@@ -1094,6 +1100,19 @@ Partial Class startwindow
         Me.mount_gb.TabStop = False
         Me.mount_gb.Text = "Cryptdatei Mounten"
         '
+        'cleanlb2
+        '
+        Me.cleanlb2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cleanlb2.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cleanlb2.FlatAppearance.BorderSize = 0
+        Me.cleanlb2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cleanlb2.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
+        Me.cleanlb2.Location = New System.Drawing.Point(530, 215)
+        Me.cleanlb2.Name = "cleanlb2"
+        Me.cleanlb2.Size = New System.Drawing.Size(37, 23)
+        Me.cleanlb2.TabIndex = 9
+        Me.cleanlb2.UseVisualStyleBackColor = False
+        '
         'drive_lb
         '
         Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1433,18 +1452,10 @@ Partial Class startwindow
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(32, 23)
         Me.ToolStripMenuItem2.Text = "─"
         '
-        'cleanlb2
+        'gethotkey
         '
-        Me.cleanlb2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cleanlb2.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cleanlb2.FlatAppearance.BorderSize = 0
-        Me.cleanlb2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cleanlb2.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
-        Me.cleanlb2.Location = New System.Drawing.Point(530, 215)
-        Me.cleanlb2.Name = "cleanlb2"
-        Me.cleanlb2.Size = New System.Drawing.Size(37, 23)
-        Me.cleanlb2.TabIndex = 9
-        Me.cleanlb2.UseVisualStyleBackColor = False
+        Me.gethotkey.Enabled = True
+        Me.gethotkey.Interval = 10
         '
         'startwindow
         '
@@ -1460,6 +1471,7 @@ Partial Class startwindow
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.MaximizeBox = False
         Me.Name = "startwindow"
@@ -1623,5 +1635,6 @@ Partial Class startwindow
     Friend WithEvents DateienSicherLöschenToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cleanlb1 As System.Windows.Forms.Button
     Friend WithEvents cleanlb2 As System.Windows.Forms.Button
+    Friend WithEvents gethotkey As System.Windows.Forms.Timer
 
 End Class
