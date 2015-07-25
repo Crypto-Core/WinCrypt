@@ -511,13 +511,23 @@ Public Class startwindow
         Else : End If
         lang.check()
         langname = lang.langname
-        If My.Computer.FileSystem.FileExists(My.Application.Info.DirectoryPath.ToString & "\regist.exe") Then
+        If My.Computer.FileSystem.FileExists(My.Application.Info.DirectoryPath.ToString & "\WinCryptRegistry.exe") Then
 
         Else
-            Dim i As New System.IO.FileStream(My.Application.Info.DirectoryPath & "\regist.exe", FileMode.Create)
-            i.Write(My.Resources.regist, 0, My.Resources.regist.Length)
+            Dim i As New System.IO.FileStream(My.Application.Info.DirectoryPath & "\WinCryptRegistry.exe", FileMode.Create)
+            i.Write(My.Resources.WinCryptRegistry, 0, My.Resources.WinCryptRegistry.Length)
             i.Close()
         End If
+
+        If My.Computer.FileSystem.FileExists(My.Application.Info.DirectoryPath.ToString & "\WinCryptUpdate.exe") Then
+
+        Else
+            Dim i As New System.IO.FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
+            i.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
+            i.Close()
+        End If
+
+
         Me.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         ini.WertSchreiben("Info", "Version", My.Application.Info.Version.ToString.Replace(".", ""))
         If iniread = "yes" Then

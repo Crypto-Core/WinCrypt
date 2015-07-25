@@ -250,16 +250,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property regist() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("regist", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property setting() As System.Drawing.Bitmap
@@ -344,6 +334,26 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("WinCrypt_logo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property WinCryptRegistry() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("WinCryptRegistry", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property WinCryptUpdate() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("WinCryptUpdate", resourceCulture)
+                Return CType(obj,Byte())
             End Get
         End Property
     End Module
