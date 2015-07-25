@@ -133,11 +133,17 @@
   <data name="Vista_DeviceConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista_DeviceConnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mailmessagenew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mailmessagenew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="regist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\regist\regist\bin\Debug\regist.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Identity" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Identity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Vista_DeviceDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vista_DeviceDisconnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="textencrypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\textencrypt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -6456,5 +6462,11 @@
   </data>
   <data name="maxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\maxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WinCryptRegistry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\WinCryptRegistry.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WinCryptUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\WinCryptUpdate.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
