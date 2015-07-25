@@ -22,6 +22,7 @@ Partial Class masterkey
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(masterkey))
         Me.key_txt = New System.Windows.Forms.TextBox()
         Me.key_lb = New System.Windows.Forms.Label()
         Me.ok_bt = New System.Windows.Forms.Button()
@@ -148,10 +149,11 @@ Partial Class masterkey
         Me.Controls.Add(Me.key_lb)
         Me.Controls.Add(Me.key_txt)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "masterkey"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "WinCrypt - Masterkey"
+        Me.Text = "Masterkey"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

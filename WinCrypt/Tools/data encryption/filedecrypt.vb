@@ -7,7 +7,7 @@ Public Class filedecrypt
             pathtxt.Text = FolderBrowserDialog.SelectedPath & filetxt.Text.Remove(0, filetxt.Text.LastIndexOf("\")).Replace(".wc", "")
             passwordtxt.Enabled = True
             If startwindow.iniread = "yes" Then
-                dencrypt.Enabled = True
+                decrypt.Enabled = True
             Else : End If
         End If
     End Sub
@@ -21,14 +21,14 @@ Public Class filedecrypt
 
         Else
             If passwordtxt.Text.Length < 6 Then
-                dencrypt.Enabled = False
+                decrypt.Enabled = False
             Else
-                dencrypt.Enabled = True
+                decrypt.Enabled = True
             End If
         End If
     End Sub
 
-    Private Sub dencrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dencrypt.Click
+    Private Sub dencrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles decrypt.Click
         If startwindow.iniread = "yes" Then
             Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\"), filetxt.Text.Length - filetxt.Text.LastIndexOf("\"))
             If My.Computer.FileSystem.FileExists(filetxt.Text) Then
@@ -46,7 +46,7 @@ Public Class filedecrypt
                     pathtxt.Enabled = False
                     passwordtxt.Enabled = False
                     savefile.Enabled = False
-                    dencrypt.Enabled = False
+                    decrypt.Enabled = False
                 Else
                     MsgBox("Pfad existiert nicht!")
                 End If
@@ -70,7 +70,7 @@ Public Class filedecrypt
                     pathtxt.Enabled = False
                     passwordtxt.Enabled = False
                     savefile.Enabled = False
-                    dencrypt.Enabled = False
+                    decrypt.Enabled = False
                 Else : End If
             Else : End If
         End If
@@ -177,5 +177,11 @@ Public Class filedecrypt
             MenuStrip1.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
+    End Sub
+
+    Private Sub passwordtxt_KeyDown(sender As Object, e As KeyEventArgs) Handles passwordtxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            decrypt.PerformClick()
+        End If
     End Sub
 End Class

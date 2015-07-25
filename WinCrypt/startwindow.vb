@@ -643,7 +643,7 @@ Public Class startwindow
                 filedecrypt.passwordtxt.Enabled = True
                 filedecrypt.savefile.Enabled = True
                 If iniread = "yes" Then
-                    filedecrypt.dencrypt.Enabled = True
+                    filedecrypt.decrypt.Enabled = True
                 End If
             End If
 

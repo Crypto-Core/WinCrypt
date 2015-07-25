@@ -59,4 +59,11 @@
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
+
+    Private Sub key_txt_KeyDown(sender As Object, e As KeyEventArgs) Handles key_txt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ok_bt.PerformClick()
+        End If
+    End Sub
+
 End Class

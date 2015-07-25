@@ -21,7 +21,7 @@ Namespace My
                         filedecrypt.passwordtxt.Enabled = True
                         filedecrypt.savefile.Enabled = True
                         If startwindow.iniread = "true" Then
-                            filedecrypt.dencrypt.Enabled = True
+                            filedecrypt.decrypt.Enabled = True
                         End If
                     End If
                     If Pfad_des_gelinkten_Objects.Remove(0, Pfad_des_gelinkten_Objects.LastIndexOf(".")) = ".wcp" Then

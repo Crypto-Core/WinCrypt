@@ -37,7 +37,6 @@ Public Class updatewindow
     End Sub
 
     Private Sub downloader_DownloadFileCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs) Handles downloader.DownloadFileCompleted
-        MsgBox("Download abgeschlossen!")
         Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Project WinCrypt.exe")
         Me.Close()
     End Sub

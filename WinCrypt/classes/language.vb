@@ -135,7 +135,7 @@
             filedecrypt.pwdlb.Text = "password:"
             filedecrypt.openfile.Text = "open"
             filedecrypt.savefile.Text = "safe as"
-            filedecrypt.dencrypt.Text = "decrypt"
+            filedecrypt.decrypt.Text = "decrypt"
 
             'DateiVerschlüsseln.vb
 
@@ -355,7 +355,7 @@
             filedecrypt.pwdlb.Text = "Passwort:"
             filedecrypt.openfile.Text = "Öffnen"
             filedecrypt.savefile.Text = "Speichern unter..."
-            filedecrypt.dencrypt.Text = "Entschlüsseln"
+            filedecrypt.decrypt.Text = "Entschlüsseln"
 
             'DateiVerschlüsseln.vb
 

@@ -63,4 +63,10 @@ Public Class newpwmgrdatabase
     Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+    Private Sub password_txt_KeyDown(sender As Object, e As KeyEventArgs) Handles password_txt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            createdb_bt.PerformClick()
+        End If
+    End Sub
 End Class

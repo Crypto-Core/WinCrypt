@@ -41,4 +41,10 @@ Public Class converter
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
+
+    Private Sub noHash_Textbox_KeyDown(sender As Object, e As KeyEventArgs) Handles noHash_Textbox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            convert_bt.PerformClick()
+        End If
+    End Sub
 End Class

@@ -79,7 +79,6 @@ Public Class textencrypt
             text_input.Text = AES2.AESDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
         End If
     End Sub
-
     Private Sub password_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles password_txt.TextChanged
         If password_txt.Text.Length < 6 Then
             encrypt_bt.Enabled = False

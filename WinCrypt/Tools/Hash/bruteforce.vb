@@ -261,4 +261,10 @@ Public Class bruteforce
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
+
+    Private Sub bruteforcesearchedHash_KeyDown(sender As Object, e As KeyEventArgs) Handles bruteforcesearchedHash.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            bruteforceToggle.PerformClick()
+        End If
+    End Sub
 End Class

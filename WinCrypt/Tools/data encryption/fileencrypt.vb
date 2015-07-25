@@ -44,6 +44,12 @@ Public Class fileencrypt
         passwordtxt.Text = txt
     End Sub
 
+    Private Sub passwordtxt_KeyDown(sender As Object, e As KeyEventArgs) Handles passwordtxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            encryptbt.PerformClick()
+        End If
+    End Sub
+
     Private Sub passwordtxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles passwordtxt.TextChanged
         If startwindow.iniread = "yes" Then
             encryptbt.Enabled = True

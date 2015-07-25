@@ -27,7 +27,7 @@ Partial Class filedecrypt
         Me.pwdlb = New System.Windows.Forms.Label()
         Me.pathlb = New System.Windows.Forms.Label()
         Me.passwordtxt = New System.Windows.Forms.TextBox()
-        Me.dencrypt = New System.Windows.Forms.Button()
+        Me.decrypt = New System.Windows.Forms.Button()
         Me.pathtxt = New System.Windows.Forms.TextBox()
         Me.savefile = New System.Windows.Forms.Button()
         Me.filelb = New System.Windows.Forms.Label()
@@ -90,19 +90,19 @@ Partial Class filedecrypt
         Me.passwordtxt.TabIndex = 17
         Me.passwordtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'dencrypt
+        'decrypt
         '
-        Me.dencrypt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.dencrypt.Enabled = False
-        Me.dencrypt.FlatAppearance.BorderSize = 0
-        Me.dencrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.dencrypt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.dencrypt.Location = New System.Drawing.Point(167, 140)
-        Me.dencrypt.Name = "dencrypt"
-        Me.dencrypt.Size = New System.Drawing.Size(86, 23)
-        Me.dencrypt.TabIndex = 16
-        Me.dencrypt.Text = "Entschlüsseln"
-        Me.dencrypt.UseVisualStyleBackColor = False
+        Me.decrypt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.decrypt.Enabled = False
+        Me.decrypt.FlatAppearance.BorderSize = 0
+        Me.decrypt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.decrypt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.decrypt.Location = New System.Drawing.Point(167, 140)
+        Me.decrypt.Name = "decrypt"
+        Me.decrypt.Size = New System.Drawing.Size(86, 23)
+        Me.decrypt.TabIndex = 16
+        Me.decrypt.Text = "Entschlüsseln"
+        Me.decrypt.UseVisualStyleBackColor = False
         '
         'pathtxt
         '
@@ -243,7 +243,7 @@ Partial Class filedecrypt
         Me.Controls.Add(Me.pwdlb)
         Me.Controls.Add(Me.pathlb)
         Me.Controls.Add(Me.passwordtxt)
-        Me.Controls.Add(Me.dencrypt)
+        Me.Controls.Add(Me.decrypt)
         Me.Controls.Add(Me.pathtxt)
         Me.Controls.Add(Me.savefile)
         Me.Controls.Add(Me.filelb)
@@ -266,7 +266,7 @@ Partial Class filedecrypt
     Friend WithEvents pwdlb As System.Windows.Forms.Label
     Friend WithEvents pathlb As System.Windows.Forms.Label
     Friend WithEvents passwordtxt As System.Windows.Forms.TextBox
-    Friend WithEvents dencrypt As System.Windows.Forms.Button
+    Friend WithEvents decrypt As System.Windows.Forms.Button
     Friend WithEvents pathtxt As System.Windows.Forms.TextBox
     Friend WithEvents savefile As System.Windows.Forms.Button
     Friend WithEvents filelb As System.Windows.Forms.Label

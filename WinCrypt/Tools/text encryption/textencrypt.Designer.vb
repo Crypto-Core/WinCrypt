@@ -78,10 +78,11 @@ Partial Class textencrypt
         '
         'encrypt_bt
         '
-        Me.encrypt_bt.BackColor = System.Drawing.Color.Gainsboro
+        Me.encrypt_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.encrypt_bt.Enabled = False
         Me.encrypt_bt.FlatAppearance.BorderSize = 0
         Me.encrypt_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.encrypt_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.encrypt_bt.Location = New System.Drawing.Point(505, 398)
         Me.encrypt_bt.Name = "encrypt_bt"
         Me.encrypt_bt.Size = New System.Drawing.Size(84, 23)
