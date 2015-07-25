@@ -105,7 +105,7 @@ Partial Class wcSetting
         '
         Me.languagecb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.languagecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.languagecb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.languagecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.languagecb.Items.AddRange(New Object() {"Deutsch", "English"})
         Me.languagecb.Location = New System.Drawing.Point(47, 18)
         Me.languagecb.Name = "languagecb"
@@ -228,7 +228,7 @@ Partial Class wcSetting
         Me.key_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.key_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.key_txt.Enabled = False
-        Me.key_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.key_txt.Location = New System.Drawing.Point(40, 19)
         Me.key_txt.Name = "key_txt"
         Me.key_txt.Size = New System.Drawing.Size(332, 20)

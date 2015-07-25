@@ -99,7 +99,7 @@ Partial Class rsa_create_keys
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.private_key_path_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.private_key_path_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.private_key_path_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.private_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.private_key_path_txt.Location = New System.Drawing.Point(82, 50)
         Me.private_key_path_txt.Name = "private_key_path_txt"
         Me.private_key_path_txt.Size = New System.Drawing.Size(437, 20)
@@ -111,7 +111,7 @@ Partial Class rsa_create_keys
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.public_key_path_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.public_key_path_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.public_key_path_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.public_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.public_key_path_txt.Location = New System.Drawing.Point(82, 79)
         Me.public_key_path_txt.Name = "public_key_path_txt"
         Me.public_key_path_txt.Size = New System.Drawing.Size(437, 20)
@@ -167,7 +167,7 @@ Partial Class rsa_create_keys
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.privatekey_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.privatekey_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.privatekey_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.privatekey_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.privatekey_txt.Location = New System.Drawing.Point(15, 129)
         Me.privatekey_txt.Multiline = True
         Me.privatekey_txt.Name = "privatekey_txt"
@@ -181,7 +181,7 @@ Partial Class rsa_create_keys
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.publickey_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.publickey_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.publickey_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.publickey_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.publickey_txt.Location = New System.Drawing.Point(12, 313)
         Me.publickey_txt.Multiline = True
         Me.publickey_txt.Name = "publickey_txt"

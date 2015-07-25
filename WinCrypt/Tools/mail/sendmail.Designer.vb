@@ -68,7 +68,7 @@ Partial Class sendmail
         '
         Me.email_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.email_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.email_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.email_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.email_txt.Location = New System.Drawing.Point(54, 46)
         Me.email_txt.Name = "email_txt"
         Me.email_txt.Size = New System.Drawing.Size(140, 20)
@@ -78,7 +78,7 @@ Partial Class sendmail
         '
         Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.password_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.password_txt.Location = New System.Drawing.Point(260, 46)
         Me.password_txt.Name = "password_txt"
         Me.password_txt.Size = New System.Drawing.Size(145, 20)
@@ -89,7 +89,7 @@ Partial Class sendmail
         '
         Me.server_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.server_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.server_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.server_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.server_txt.Location = New System.Drawing.Point(512, 46)
         Me.server_txt.Name = "server_txt"
         Me.server_txt.Size = New System.Drawing.Size(112, 20)
@@ -99,7 +99,7 @@ Partial Class sendmail
         '
         Me.emailto_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.emailto_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.emailto_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.emailto_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.emailto_txt.Location = New System.Drawing.Point(76, 76)
         Me.emailto_txt.Name = "emailto_txt"
         Me.emailto_txt.Size = New System.Drawing.Size(548, 20)
@@ -109,7 +109,7 @@ Partial Class sendmail
         '
         Me.subject_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.subject_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.subject_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.subject_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.subject_txt.Location = New System.Drawing.Point(76, 102)
         Me.subject_txt.Name = "subject_txt"
         Me.subject_txt.Size = New System.Drawing.Size(548, 20)
@@ -119,7 +119,7 @@ Partial Class sendmail
         '
         Me.message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.message_txt.Location = New System.Drawing.Point(12, 128)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"
@@ -130,6 +130,7 @@ Partial Class sendmail
         '
         Me.file_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.file_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.file_txt.Location = New System.Drawing.Point(62, 460)
         Me.file_txt.Name = "file_txt"
         Me.file_txt.Size = New System.Drawing.Size(387, 20)
@@ -139,6 +140,7 @@ Partial Class sendmail
         '
         Me.file_txt1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_txt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.file_txt1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.file_txt1.Location = New System.Drawing.Point(62, 489)
         Me.file_txt1.Name = "file_txt1"
         Me.file_txt1.Size = New System.Drawing.Size(387, 20)
@@ -148,7 +150,7 @@ Partial Class sendmail
         '
         Me.file_txt2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_txt2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.file_txt2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.file_txt2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.file_txt2.Location = New System.Drawing.Point(62, 515)
         Me.file_txt2.Name = "file_txt2"
         Me.file_txt2.Size = New System.Drawing.Size(387, 20)
@@ -158,7 +160,7 @@ Partial Class sendmail
         '
         Me.file_txt3.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_txt3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.file_txt3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.file_txt3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.file_txt3.Location = New System.Drawing.Point(62, 541)
         Me.file_txt3.Name = "file_txt3"
         Me.file_txt3.Size = New System.Drawing.Size(387, 20)
@@ -366,7 +368,7 @@ Partial Class sendmail
         '
         Me.pubkey_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pubkey_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pubkey_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.pubkey_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pubkey_txt.Location = New System.Drawing.Point(62, 431)
         Me.pubkey_txt.Name = "pubkey_txt"
         Me.pubkey_txt.Size = New System.Drawing.Size(387, 20)
@@ -449,7 +451,7 @@ Partial Class sendmail
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(635, 487)
+        Me.ClientSize = New System.Drawing.Size(635, 644)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.MenuStrip1)

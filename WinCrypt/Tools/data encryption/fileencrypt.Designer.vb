@@ -64,7 +64,7 @@ Partial Class fileencrypt
         Me.filetxt.AllowDrop = True
         Me.filetxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.filetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.filetxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.filetxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.filetxt.Location = New System.Drawing.Point(50, 44)
         Me.filetxt.Name = "filetxt"
         Me.filetxt.Size = New System.Drawing.Size(259, 20)
@@ -101,7 +101,7 @@ Partial Class fileencrypt
         Me.savepathtxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.savepathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.savepathtxt.Enabled = False
-        Me.savepathtxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.savepathtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.savepathtxt.Location = New System.Drawing.Point(50, 73)
         Me.savepathtxt.Name = "savepathtxt"
         Me.savepathtxt.Size = New System.Drawing.Size(259, 20)
@@ -127,7 +127,7 @@ Partial Class fileencrypt
         Me.passwordtxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.passwordtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.passwordtxt.Enabled = False
-        Me.passwordtxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.passwordtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.passwordtxt.Location = New System.Drawing.Point(68, 102)
         Me.passwordtxt.Name = "passwordtxt"
         Me.passwordtxt.Size = New System.Drawing.Size(241, 20)
@@ -173,7 +173,7 @@ Partial Class fileencrypt
         Me.statuslb.AllowDrop = True
         Me.statuslb.BackColor = System.Drawing.Color.Gray
         Me.statuslb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.statuslb.ForeColor = System.Drawing.Color.Lime
+        Me.statuslb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.statuslb.Location = New System.Drawing.Point(13, 125)
         Me.statuslb.Name = "statuslb"
         Me.statuslb.Size = New System.Drawing.Size(405, 20)

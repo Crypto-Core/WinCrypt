@@ -1128,7 +1128,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.decrypt_list_status.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.decrypt_list_status.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.decrypt_list_status.FormattingEnabled = True
         Me.decrypt_list_status.Location = New System.Drawing.Point(16, 63)
         Me.decrypt_list_status.Name = "decrypt_list_status"
@@ -1140,7 +1140,7 @@ Partial Class startwindow
         Me.drivecb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.drivecb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.drivecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.drivecb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.drivecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.drivecb.FormattingEnabled = True
         Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
         Me.drivecb.Location = New System.Drawing.Point(353, 246)
@@ -1156,7 +1156,7 @@ Partial Class startwindow
         Me.keyencrypt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.keyencrypt.Enabled = False
-        Me.keyencrypt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.keyencrypt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.keyencrypt.Location = New System.Drawing.Point(16, 246)
         Me.keyencrypt.Name = "keyencrypt"
         Me.keyencrypt.Size = New System.Drawing.Size(261, 20)
@@ -1169,7 +1169,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.decrypt_filepath.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decrypt_filepath.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.decrypt_filepath.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.decrypt_filepath.Location = New System.Drawing.Point(16, 32)
         Me.decrypt_filepath.Name = "decrypt_filepath"
         Me.decrypt_filepath.Size = New System.Drawing.Size(471, 20)
@@ -1243,7 +1243,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encrypt_list_status.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.encrypt_list_status.ForeColor = System.Drawing.Color.Lime
+        Me.encrypt_list_status.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.encrypt_list_status.FormattingEnabled = True
         Me.encrypt_list_status.Location = New System.Drawing.Point(11, 98)
         Me.encrypt_list_status.Name = "encrypt_list_status"
@@ -1315,7 +1315,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.keycrypt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.keycrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.keycrypt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.keycrypt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.keycrypt.Location = New System.Drawing.Point(11, 72)
         Me.keycrypt.Name = "keycrypt"
         Me.keycrypt.Size = New System.Drawing.Size(351, 20)
@@ -1328,7 +1328,7 @@ Partial Class startwindow
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pathtxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pathtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pathtxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.pathtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pathtxt.Location = New System.Drawing.Point(11, 33)
         Me.pathtxt.Name = "pathtxt"
         Me.pathtxt.Size = New System.Drawing.Size(471, 20)

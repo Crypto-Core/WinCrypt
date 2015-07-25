@@ -55,7 +55,7 @@ Partial Class converter
         '
         Me.noHash_Textbox.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.noHash_Textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.noHash_Textbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.noHash_Textbox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.noHash_Textbox.Location = New System.Drawing.Point(49, 38)
         Me.noHash_Textbox.Name = "noHash_Textbox"
         Me.noHash_Textbox.Size = New System.Drawing.Size(290, 20)
@@ -75,7 +75,7 @@ Partial Class converter
         '
         Me.isHash_Textbox.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.isHash_Textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.isHash_Textbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.isHash_Textbox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.isHash_Textbox.Location = New System.Drawing.Point(15, 73)
         Me.isHash_Textbox.Name = "isHash_Textbox"
         Me.isHash_Textbox.ReadOnly = True
@@ -88,7 +88,7 @@ Partial Class converter
         Me.toHash_ComboBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.toHash_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.toHash_ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.toHash_ComboBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.toHash_ComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.toHash_ComboBox.FormattingEnabled = True
         Me.toHash_ComboBox.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
         Me.toHash_ComboBox.Location = New System.Drawing.Point(367, 38)

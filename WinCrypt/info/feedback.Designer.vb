@@ -45,7 +45,7 @@ Partial Class feedback
         '
         Me.name_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.name_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.name_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.name_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.name_txt.Location = New System.Drawing.Point(50, 37)
         Me.name_txt.Name = "name_txt"
         Me.name_txt.Size = New System.Drawing.Size(309, 20)
@@ -55,7 +55,7 @@ Partial Class feedback
         '
         Me.mail_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.mail_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.mail_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.mail_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.mail_txt.Location = New System.Drawing.Point(50, 65)
         Me.mail_txt.Name = "mail_txt"
         Me.mail_txt.Size = New System.Drawing.Size(309, 20)
@@ -65,7 +65,7 @@ Partial Class feedback
         '
         Me.message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.message_txt.Location = New System.Drawing.Point(12, 147)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"
@@ -131,7 +131,7 @@ Partial Class feedback
         Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Fehler", "Verbesserungsvorschlag", "Danksagung", "Hilfe", "anderes"})
         Me.ComboBox1.Location = New System.Drawing.Point(50, 91)

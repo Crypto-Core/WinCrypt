@@ -63,7 +63,7 @@ Partial Class bruteforce
         '
         Me.bruteforcesearchedHash.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.bruteforcesearchedHash.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.bruteforcesearchedHash.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforcesearchedHash.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 36)
         Me.bruteforcesearchedHash.Name = "bruteforcesearchedHash"
         Me.bruteforcesearchedHash.Size = New System.Drawing.Size(252, 20)
@@ -94,7 +94,7 @@ Partial Class bruteforce
         '
         Me.fileWordlist.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.fileWordlist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.fileWordlist.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.fileWordlist.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.fileWordlist.Location = New System.Drawing.Point(10, 77)
         Me.fileWordlist.Name = "fileWordlist"
         Me.fileWordlist.Size = New System.Drawing.Size(322, 20)
@@ -237,7 +237,7 @@ Partial Class bruteforce
         Me.bruteforceHashtype.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.bruteforceHashtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.bruteforceHashtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bruteforceHashtype.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforceHashtype.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.bruteforceHashtype.FormattingEnabled = True
         Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
         Me.bruteforceHashtype.Location = New System.Drawing.Point(323, 36)

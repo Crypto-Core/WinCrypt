@@ -62,7 +62,7 @@ Partial Class passwordgenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.generatetxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.generatetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.generatetxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.generatetxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.generatetxt.Location = New System.Drawing.Point(12, 35)
         Me.generatetxt.Multiline = True
         Me.generatetxt.Name = "generatetxt"
@@ -75,7 +75,7 @@ Partial Class passwordgenerator
         Me.length.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.length.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.length.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.length.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.length.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.length.Location = New System.Drawing.Point(195, 387)
         Me.length.MaxLength = 5
         Me.length.Name = "length"

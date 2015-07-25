@@ -85,7 +85,7 @@ Partial Class passwordmanager
         Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.ListView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ListView1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.ListView1.Location = New System.Drawing.Point(12, 43)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(237, 373)
@@ -113,7 +113,7 @@ Partial Class passwordmanager
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.user_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.user_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.user_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.user_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.user_txt.Location = New System.Drawing.Point(315, 47)
         Me.user_txt.Name = "user_txt"
         Me.user_txt.Size = New System.Drawing.Size(328, 20)
@@ -125,7 +125,7 @@ Partial Class passwordmanager
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.password_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.password_txt.Location = New System.Drawing.Point(315, 73)
         Me.password_txt.Name = "password_txt"
         Me.password_txt.Size = New System.Drawing.Size(328, 20)
@@ -137,7 +137,7 @@ Partial Class passwordmanager
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.source_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.source_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.source_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.source_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.source_txt.Location = New System.Drawing.Point(315, 99)
         Me.source_txt.Name = "source_txt"
         Me.source_txt.Size = New System.Drawing.Size(328, 20)
@@ -150,7 +150,7 @@ Partial Class passwordmanager
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.comment_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.comment_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.comment_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.comment_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.comment_txt.Location = New System.Drawing.Point(258, 149)
         Me.comment_txt.Multiline = True
         Me.comment_txt.Name = "comment_txt"

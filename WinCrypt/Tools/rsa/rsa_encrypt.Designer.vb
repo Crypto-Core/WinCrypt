@@ -71,7 +71,7 @@ Partial Class rsa_encrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pubkey_path_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pubkey_path_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pubkey_path_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.pubkey_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pubkey_path_txt.Location = New System.Drawing.Point(75, 40)
         Me.pubkey_path_txt.Name = "pubkey_path_txt"
         Me.pubkey_path_txt.Size = New System.Drawing.Size(510, 20)
@@ -84,7 +84,7 @@ Partial Class rsa_encrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encryption_message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.encryption_message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.encryption_message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.encryption_message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.encryption_message_txt.Location = New System.Drawing.Point(15, 85)
         Me.encryption_message_txt.Multiline = True
         Me.encryption_message_txt.Name = "encryption_message_txt"
@@ -97,7 +97,7 @@ Partial Class rsa_encrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.decryption_message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.decryption_message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.decryption_message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.decryption_message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.decryption_message_txt.Location = New System.Drawing.Point(12, 288)
         Me.decryption_message_txt.Multiline = True
         Me.decryption_message_txt.Name = "decryption_message_txt"

@@ -71,7 +71,7 @@ Partial Class rsa_decrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.privkey_path_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.privkey_path_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.privkey_path_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.privkey_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.privkey_path_txt.Location = New System.Drawing.Point(82, 45)
         Me.privkey_path_txt.Name = "privkey_path_txt"
         Me.privkey_path_txt.Size = New System.Drawing.Size(477, 20)
@@ -94,7 +94,7 @@ Partial Class rsa_decrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.encrypt_message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.encrypt_message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.encrypt_message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.encrypt_message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.encrypt_message_txt.Location = New System.Drawing.Point(15, 102)
         Me.encrypt_message_txt.Multiline = True
         Me.encrypt_message_txt.Name = "encrypt_message_txt"
@@ -118,7 +118,7 @@ Partial Class rsa_decrypt
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.message_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.message_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.message_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.message_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.message_txt.Location = New System.Drawing.Point(15, 299)
         Me.message_txt.Multiline = True
         Me.message_txt.Name = "message_txt"

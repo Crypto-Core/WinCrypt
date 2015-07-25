@@ -54,7 +54,7 @@ Partial Class textencrypt
         '
         Me.text_input.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.text_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.text_input.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.text_input.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.text_input.Location = New System.Drawing.Point(12, 66)
         Me.text_input.Multiline = True
         Me.text_input.Name = "text_input"
@@ -67,7 +67,7 @@ Partial Class textencrypt
         '
         Me.text_output.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.text_output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.text_output.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.text_output.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.text_output.Location = New System.Drawing.Point(12, 228)
         Me.text_output.Multiline = True
         Me.text_output.Name = "text_output"
@@ -93,7 +93,7 @@ Partial Class textencrypt
         '
         Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.password_txt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.password_txt.Location = New System.Drawing.Point(71, 400)
         Me.password_txt.Name = "password_txt"
         Me.password_txt.Size = New System.Drawing.Size(237, 20)

@@ -66,7 +66,7 @@ Partial Class safedelete
         '
         Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.TextBox1.Location = New System.Drawing.Point(12, 55)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(327, 20)
@@ -76,7 +76,7 @@ Partial Class safedelete
         '
         Me.overwritecb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.overwritecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.overwritecb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.overwritecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.overwritecb.FormattingEnabled = True
         Me.overwritecb.Items.AddRange(New Object() {"1x", "10x", "20x", "100x"})
         Me.overwritecb.Location = New System.Drawing.Point(89, 81)
@@ -155,7 +155,7 @@ Partial Class safedelete
         Me.deletfilelist.AllowDrop = True
         Me.deletfilelist.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.deletfilelist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.deletfilelist.ForeColor = System.Drawing.Color.Lime
+        Me.deletfilelist.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.deletfilelist.FormattingEnabled = True
         Me.deletfilelist.Location = New System.Drawing.Point(15, 198)
         Me.deletfilelist.Name = "deletfilelist"

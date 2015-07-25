@@ -40,6 +40,7 @@ Partial Class masterkey
         '
         Me.key_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.key_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.key_txt.Location = New System.Drawing.Point(13, 116)
         Me.key_txt.Name = "key_txt"
         Me.key_txt.Size = New System.Drawing.Size(266, 20)
