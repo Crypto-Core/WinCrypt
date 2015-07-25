@@ -1333,7 +1333,9 @@ Public Class startwindow
             If GetAsyncKeyState(Keys.M) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
                 gethotkey.Enabled = False
                 sendmail.Show()
+                sendmail.TopMost = True
                 sendmail.Focus()
+                sendmail.TopMost = False
                 gethotkey.Enabled = True
             End If
 
@@ -1345,12 +1347,28 @@ Public Class startwindow
                 gethotkey.Enabled = True
             End If
 
-            ' STRG+W öffnet WinCrypt
-            If GetAsyncKeyState(Keys.W) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+            ' ShiftR+W öffnet WinCrypt
+            If GetAsyncKeyState(Keys.W) AndAlso GetAsyncKeyState(Keys.RShiftKey) Then
                 gethotkey.Enabled = False
                 systemtray.Visible = False
                 Me.Show()
                 Me.WindowState = FormWindowState.Normal
+                gethotkey.Enabled = True
+            End If
+
+            ' STRG+F8 öffnet das fenster RSA Verschlüsselung
+            If GetAsyncKeyState(Keys.F8) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                rsa_encrypt.Show()
+                rsa_encrypt.Focus()
+                gethotkey.Enabled = True
+            End If
+
+            ' STRG+F9 öffnet das fenster RSA Entschlüsselung
+            If GetAsyncKeyState(Keys.F9) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+                gethotkey.Enabled = False
+                rsa_decrypt.Show()
+                rsa_decrypt.Focus()
                 gethotkey.Enabled = True
             End If
         Else
