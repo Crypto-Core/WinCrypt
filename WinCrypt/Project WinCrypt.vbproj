@@ -481,9 +481,6 @@
     <None Include="resources\pwmanager.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\Identity.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="resources\Delete-16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -509,6 +506,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drive-icon.ico" />
+    <None Include="resources\Identity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
