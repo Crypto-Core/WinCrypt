@@ -145,7 +145,7 @@ Partial Class safedelete
         '
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(12, 132)
+        Me.Label5.Location = New System.Drawing.Point(12, 154)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(0, 13)
         Me.Label5.TabIndex = 9

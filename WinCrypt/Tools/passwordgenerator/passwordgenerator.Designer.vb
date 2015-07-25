@@ -77,6 +77,7 @@ Partial Class passwordgenerator
         Me.length.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.length.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.length.Location = New System.Drawing.Point(195, 387)
+        Me.length.MaxLength = 5
         Me.length.Name = "length"
         Me.length.Size = New System.Drawing.Size(75, 20)
         Me.length.TabIndex = 2
