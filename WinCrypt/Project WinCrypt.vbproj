@@ -440,7 +440,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\Drive128.png" />
-    <None Include="regist\regist\bin\Debug\regist.exe" />
     <None Include="resources\key2.png" />
     <None Include="resources\eye.png" />
     <None Include="resources\wcp.ico" />
