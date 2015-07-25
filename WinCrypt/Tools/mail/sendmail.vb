@@ -123,7 +123,7 @@ Public Class sendmail
             password_txt.Text = aes.AESDecrypt(mailini.WertLesen("MailAccount", "password"), startwindow.biosid, startwindow.biosid)
             server_txt.Text = mailini.WertLesen("MailAccount", "server")
             message_txt.Size = New Size(612, 270)
-            message_txt.Location = New Point(12, 121)
+            message_txt.Location = New Point(12, 155)
             account_bt.Visible = True
         Else : End If
     End Sub
@@ -133,8 +133,8 @@ Public Class sendmail
             If MsgBox("Möchten Sie wirklich ihr E-Mail Konto entfernen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 My.Computer.FileSystem.DeleteFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
                 account_bt.Visible = False
-                message_txt.Size = New Size(612, 252)
-                message_txt.Location = New Point(12, 94)
+                message_txt.Size = New Size(612, 297)
+                message_txt.Location = New Point(12, 128)
 
                 MsgBox("Konto wurde entfernt!", MsgBoxStyle.Information)
             Else : End If
@@ -159,8 +159,26 @@ Public Class sendmail
         If My.Computer.FileSystem.FileExists(rsadialog.FileName) Then
             pubkey_txt.Text = rsadialog.FileName
             pubkey = My.Computer.FileSystem.ReadAllText(pubkey_txt.Text)
-        Else
+        Else : End If
+    End Sub
+    Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            wincrypttitle.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            MenuStrip1.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
 
-        End If
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+        Me.Close()
     End Sub
 End Class

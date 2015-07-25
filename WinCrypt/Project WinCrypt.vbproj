@@ -81,8 +81,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Drive-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3B96E1825A2D30042C57AAD4DFA4DE92EE0B9DAB</ManifestCertificateThumbprint>
@@ -441,27 +440,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\Drive128.png" />
-    <None Include="resources\add16.png" />
-    <None Include="resources\add.png" />
-    <None Include="resources\feedback.png" />
     <None Include="regist\regist\bin\Debug\regist.exe" />
-    <None Include="resources\systemfilemanager.png" />
-    <None Include="resources\mailmessagenew.png" />
-    <None Include="resources\document.png" />
-    <None Include="resources\filebinary.png" />
-    <None Include="resources\id.png" />
-    <None Include="resources\password.png" />
-    <None Include="resources\keyarrow.png" />
-    <None Include="resources\unlock.png" />
-    <None Include="resources\lock.png" />
     <None Include="resources\key2.png" />
     <None Include="resources\eye.png" />
-    <None Include="resources\information.png" />
-    <None Include="resources\update.png" />
-    <None Include="resources\cross.png" />
-    <None Include="resources\closebox.png" />
-    <None Include="resources\cog.png" />
-    <None Include="resources\free.png" />
     <None Include="resources\wcp.ico" />
     <None Include="bin\Debug\icon.ico" />
     <None Include="bin\Debug\regist.exe" />
@@ -472,9 +453,62 @@
     <None Include="resources\Vista_DeviceDisconnect.wav" />
     <None Include="resources\Vista_DeviceConnect.wav" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="resources\icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="resources\WinCrypt_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\updateflat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\textencrypt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Lock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\unlock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\pwmanager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Identity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Delete-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Key-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Password-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\feedback-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Information-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Close-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Add-New-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\maxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Drive-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

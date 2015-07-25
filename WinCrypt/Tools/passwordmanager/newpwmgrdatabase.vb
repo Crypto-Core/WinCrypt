@@ -2,7 +2,6 @@
 Public Class newpwmgrdatabase
     Dim aes As New AES
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
-    'test
     Private Sub createdb_bt_Click(sender As Object, e As EventArgs) Handles createdb_bt.Click
         If password_txt.Text.Length < 8 Then
             If startwindow.langname = "English" Then
@@ -43,5 +42,25 @@ Public Class newpwmgrdatabase
                 Return
             Next go
         End If
+    End Sub
+    Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            wincrypttitle.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            MenuStrip1.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+        Me.Close()
     End Sub
 End Class

@@ -49,12 +49,22 @@ Partial Class bruteforce
         Me.Label1 = New System.Windows.Forms.Label()
         Me.bruteforceHashtype = New System.Windows.Forms.ComboBox()
         Me.bruteforceToggle = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.wincrypttitle = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bruteforcesearchedHash
         '
-        Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 6)
+        Me.bruteforcesearchedHash.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.bruteforcesearchedHash.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.bruteforcesearchedHash.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 36)
         Me.bruteforcesearchedHash.Name = "bruteforcesearchedHash"
         Me.bruteforcesearchedHash.Size = New System.Drawing.Size(252, 20)
         Me.bruteforcesearchedHash.TabIndex = 1
@@ -63,7 +73,8 @@ Partial Class bruteforce
         'md5_lb
         '
         Me.md5_lb.AutoSize = True
-        Me.md5_lb.Location = New System.Drawing.Point(6, 9)
+        Me.md5_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.md5_lb.Location = New System.Drawing.Point(6, 39)
         Me.md5_lb.Name = "md5_lb"
         Me.md5_lb.Size = New System.Drawing.Size(35, 13)
         Me.md5_lb.TabIndex = 2
@@ -72,7 +83,8 @@ Partial Class bruteforce
         'passwordlist_lb
         '
         Me.passwordlist_lb.AutoSize = True
-        Me.passwordlist_lb.Location = New System.Drawing.Point(6, 31)
+        Me.passwordlist_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.passwordlist_lb.Location = New System.Drawing.Point(6, 61)
         Me.passwordlist_lb.Name = "passwordlist_lb"
         Me.passwordlist_lb.Size = New System.Drawing.Size(71, 13)
         Me.passwordlist_lb.TabIndex = 3
@@ -80,17 +92,21 @@ Partial Class bruteforce
         '
         'fileWordlist
         '
-        Me.fileWordlist.Location = New System.Drawing.Point(10, 47)
+        Me.fileWordlist.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.fileWordlist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.fileWordlist.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.fileWordlist.Location = New System.Drawing.Point(10, 77)
         Me.fileWordlist.Name = "fileWordlist"
         Me.fileWordlist.Size = New System.Drawing.Size(322, 20)
         Me.fileWordlist.TabIndex = 4
         '
         'openWordlist
         '
-        Me.openWordlist.BackColor = System.Drawing.Color.Gainsboro
+        Me.openWordlist.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.openWordlist.FlatAppearance.BorderSize = 0
         Me.openWordlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.openWordlist.Location = New System.Drawing.Point(338, 45)
+        Me.openWordlist.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.openWordlist.Location = New System.Drawing.Point(338, 75)
         Me.openWordlist.Name = "openWordlist"
         Me.openWordlist.Size = New System.Drawing.Size(75, 23)
         Me.openWordlist.TabIndex = 5
@@ -161,7 +177,7 @@ Partial Class bruteforce
         Me.Panel1.Controls.Add(Me.bruteforceHash)
         Me.Panel1.Controls.Add(Me.bruteforceLine)
         Me.Panel1.Controls.Add(Me.bruteforceStatus)
-        Me.Panel1.Location = New System.Drawing.Point(10, 73)
+        Me.Panel1.Location = New System.Drawing.Point(10, 103)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(403, 139)
         Me.Panel1.TabIndex = 10
@@ -190,7 +206,7 @@ Partial Class bruteforce
         '
         'bruteforceChecked
         '
-        Me.bruteforceChecked.Location = New System.Drawing.Point(10, 250)
+        Me.bruteforceChecked.Location = New System.Drawing.Point(10, 280)
         Me.bruteforceChecked.Name = "bruteforceChecked"
         Me.bruteforceChecked.Size = New System.Drawing.Size(400, 23)
         Me.bruteforceChecked.TabIndex = 12
@@ -198,7 +214,8 @@ Partial Class bruteforce
         'showProgress
         '
         Me.showProgress.AutoSize = True
-        Me.showProgress.Location = New System.Drawing.Point(9, 222)
+        Me.showProgress.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.showProgress.Location = New System.Drawing.Point(9, 252)
         Me.showProgress.Name = "showProgress"
         Me.showProgress.Size = New System.Drawing.Size(117, 17)
         Me.showProgress.TabIndex = 13
@@ -208,7 +225,8 @@ Partial Class bruteforce
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(299, 9)
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label1.Location = New System.Drawing.Point(299, 39)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 13)
         Me.Label1.TabIndex = 15
@@ -216,32 +234,88 @@ Partial Class bruteforce
         '
         'bruteforceHashtype
         '
+        Me.bruteforceHashtype.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.bruteforceHashtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.bruteforceHashtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bruteforceHashtype.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.bruteforceHashtype.FormattingEnabled = True
         Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
-        Me.bruteforceHashtype.Location = New System.Drawing.Point(323, 6)
+        Me.bruteforceHashtype.Location = New System.Drawing.Point(323, 36)
         Me.bruteforceHashtype.Name = "bruteforceHashtype"
         Me.bruteforceHashtype.Size = New System.Drawing.Size(90, 21)
         Me.bruteforceHashtype.TabIndex = 14
         '
         'bruteforceToggle
         '
-        Me.bruteforceToggle.BackColor = System.Drawing.Color.Gainsboro
+        Me.bruteforceToggle.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.bruteforceToggle.FlatAppearance.BorderSize = 0
         Me.bruteforceToggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bruteforceToggle.Location = New System.Drawing.Point(159, 218)
+        Me.bruteforceToggle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bruteforceToggle.Location = New System.Drawing.Point(159, 248)
         Me.bruteforceToggle.Name = "bruteforceToggle"
         Me.bruteforceToggle.Size = New System.Drawing.Size(101, 23)
         Me.bruteforceToggle.TabIndex = 16
         Me.bruteforceToggle.Text = "Brute Force"
         Me.bruteforceToggle.UseVisualStyleBackColor = False
         '
-        'Hash_bruteforce
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.MenuStrip1.Size = New System.Drawing.Size(421, 27)
+        Me.MenuStrip1.TabIndex = 17
+        Me.MenuStrip1.Text = "WinCrypt"
+        '
+        'XToolStripMenuItem
+        '
+        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
+        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
+        Me.XToolStripMenuItem.Text = "X"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
+        Me.ToolStripMenuItem1.Text = "─"
+        '
+        'wincrypttitle
+        '
+        Me.wincrypttitle.AutoSize = True
+        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
+        Me.wincrypttitle.Name = "wincrypttitle"
+        Me.wincrypttitle.Size = New System.Drawing.Size(104, 16)
+        Me.wincrypttitle.TabIndex = 18
+        Me.wincrypttitle.Text = "MD5 Brute-force"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 19
+        Me.PictureBox1.TabStop = False
+        '
+        'bruteforce
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(421, 247)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(421, 276)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypttitle)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.bruteforceToggle)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.bruteforceHashtype)
@@ -253,14 +327,17 @@ Partial Class bruteforce
         Me.Controls.Add(Me.passwordlist_lb)
         Me.Controls.Add(Me.md5_lb)
         Me.Controls.Add(Me.bruteforcesearchedHash)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "Hash_bruteforce"
+        Me.Name = "bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Hash Brute Force"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -285,4 +362,9 @@ Partial Class bruteforce
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents bruteforceHashtype As System.Windows.Forms.ComboBox
     Friend WithEvents bruteforceToggle As System.Windows.Forms.Button
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents wincrypttitle As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

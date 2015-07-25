@@ -220,9 +220,9 @@ Public Class bruteforce
 
         '\\ Größe der Form für die Progressbar anzeige anpassen
         If showProgress.Checked Then
-            Me.Size = New Size(437, 319)
+            Me.Size = New Size(421, 315)
         Else
-            Me.Size = New Size(437, 286)
+            Me.Size = New Size(421, 276)
         End If
 
     End Sub
@@ -240,5 +240,25 @@ Public Class bruteforce
         '\\ den Hash Typen setzen
         Hashtype = bruteforceHashtype.Text
 
+    End Sub
+    Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            wincrypttitle.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            MenuStrip1.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
+
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 End Class
