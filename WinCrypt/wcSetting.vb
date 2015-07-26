@@ -61,7 +61,7 @@
         NewShortcut.WorkingDirectory = WorkDirectory
         NewShortcut.Save() ' Die Verknüpfungseinstellungen werden gespeichert
     End Sub
-    Private Sub Einstellungen_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub wcSetting_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lang.check() ' Es wird die Sprache überprüft
 
         'Alle leerzeichen der Bios ID werden entfernt
@@ -118,7 +118,7 @@
         Else : End If
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startnormalwincrypt.CheckedChanged
+    Private Sub startnormalwincrypt_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startnormalwincrypt.CheckedChanged
         ' Es wird überprüft ob der RadioButton ,,WinCrypt normal starten" gewählt wurde
         If startnormalwincrypt.Checked = True Then 'wenn ja, ob sie auf True gesetzt wurde
             If startwincb.Checked = True Then 'dann wird überprüft ob ob überhaupt die WinCrypt verknüpfung im Startup ordner erstellt werden soll
@@ -128,11 +128,11 @@
         End If
     End Sub
 
-    Private Sub Button1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles show_bt.MouseDown
+    Private Sub show_bt_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles show_bt.MouseDown
         key_txt.UseSystemPasswordChar = False 'Wenn auf dem Button haltend gedrückt wird um das Passwort vom Masterkey anzeigen zu lassen
     End Sub
 
-    Private Sub Button1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles show_bt.MouseUp
+    Private Sub show_bt_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles show_bt.MouseUp
         key_txt.UseSystemPasswordChar = True 'Wenn auf dem Button nicht gedrückt wird wird der klartext vom Masterkey verborgen
     End Sub
 
@@ -161,11 +161,11 @@
         Else : End If
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
+    Private Sub minimize_bt_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
+    Private Sub exit_bt_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
@@ -174,7 +174,7 @@
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
+    Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))

@@ -16,7 +16,6 @@ Namespace My
                         filedecrypt.Show()
                         filedecrypt.filetxt.Text = Pfad_des_gelinkten_Objects.ToString
                         filedecrypt.pathtxt.Text = Pfad_des_gelinkten_Objects.Replace(".wc", "")
-                        'DateiEntschluesseln.TextBox2.Text = mypath.Substring(0, mypath.LastIndexOf("\"))
                         filedecrypt.pathtxt.Enabled = True
                         filedecrypt.passwordtxt.Enabled = True
                         filedecrypt.savefile.Enabled = True
