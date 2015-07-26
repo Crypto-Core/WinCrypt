@@ -42,7 +42,7 @@ Partial Class wcSetting
         Me.key_cb = New System.Windows.Forms.CheckBox()
         Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.registfiletypegb.SuspendLayout()
@@ -50,7 +50,7 @@ Partial Class wcSetting
         Me.autostartgb.SuspendLayout()
         Me.masterkey_gb.SuspendLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.form_head.SuspendLayout()
         Me.SuspendLayout()
         '
         'registfiletypegb
@@ -279,16 +279,16 @@ Partial Class wcSetting
         Me.wincrypttitle.TabIndex = 21
         Me.wincrypttitle.Text = "Einstellung"
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(457, 27)
-        Me.MenuStrip1.TabIndex = 22
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(457, 27)
+        Me.form_head.TabIndex = 22
+        Me.form_head.Text = "WinCrypt"
         '
         'exit_bt
         '
@@ -315,7 +315,7 @@ Partial Class wcSetting
         Me.ClientSize = New System.Drawing.Size(457, 269)
         Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.form_head)
         Me.Controls.Add(Me.masterkey_gb)
         Me.Controls.Add(Me.autostartgb)
         Me.Controls.Add(Me.languagegb)
@@ -334,8 +334,8 @@ Partial Class wcSetting
         Me.masterkey_gb.ResumeLayout(False)
         Me.masterkey_gb.PerformLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -359,7 +359,7 @@ Partial Class wcSetting
     Friend WithEvents key_cb As System.Windows.Forms.CheckBox
     Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
     Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
 End Class
