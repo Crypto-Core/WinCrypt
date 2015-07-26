@@ -451,7 +451,7 @@ Partial Class sendmail
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(635, 488)
+        Me.ClientSize = New System.Drawing.Size(635, 487)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.MenuStrip1)
