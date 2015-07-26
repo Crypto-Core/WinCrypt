@@ -540,11 +540,6 @@ Public Class startwindow
                 dismount.PerformClick()
             End If
         End If
-
-        '//Openfile
-        If e.KeyCode = Keys.F AndAlso e.Control = True Then
-            DateiToolStripMenuItem1.PerformClick()
-        End If
     End Sub
     Private Sub startwindow_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         wincrypttitle.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
@@ -1288,7 +1283,7 @@ Public Class startwindow
     Private Sub gethotkey_Tick(sender As Object, e As EventArgs) Handles gethotkey.Tick
         If Me.WindowState = FormWindowState.Minimized = True Then
             ' STRG+P öffnet den Passwortmanager
-            If GetAsyncKeyState(Keys.P) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+            If GetAsyncKeyState(Keys.F2) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
                 gethotkey.Enabled = False
                 passwordmanager.Show()
                 passwordmanager.Focus()
@@ -1298,7 +1293,7 @@ Public Class startwindow
             End If
 
             ' Shift+P öffnet den Passwortgenerator
-            If GetAsyncKeyState(Keys.P) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
+            If GetAsyncKeyState(Keys.F2) AndAlso GetAsyncKeyState(Keys.LShiftKey) Then
                 gethotkey.Enabled = False
                 passwordgenerator.Show()
                 passwordgenerator.Focus()
@@ -1306,7 +1301,7 @@ Public Class startwindow
             End If
 
             ' STRG+E öffnet Datei verschlüsseln
-            If GetAsyncKeyState(Keys.E) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+            If GetAsyncKeyState(Keys.F3) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
                 gethotkey.Enabled = False
                 fileencrypt.Show()
                 fileencrypt.Focus()
@@ -1314,7 +1309,7 @@ Public Class startwindow
             End If
 
             ' STRG+D öffnet Datei entschlüsseln
-            If GetAsyncKeyState(Keys.D) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
+            If GetAsyncKeyState(Keys.F4) AndAlso GetAsyncKeyState(Keys.ControlKey) Then
                 gethotkey.Enabled = False
                 filedecrypt.Show()
                 filedecrypt.Focus()
