@@ -96,8 +96,8 @@ Public Class textencrypt
         Else : End If
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
-        If CheckBox1.Checked = True Then
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles arab_cb.CheckedChanged
+        If arab_cb.Checked = True Then
             If TrackBar.Value = 1 Then
                 text_input.RightToLeft = Windows.Forms.RightToLeft.Yes
             End If
@@ -114,11 +114,11 @@ Public Class textencrypt
         End If
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
@@ -127,9 +127,9 @@ Public Class textencrypt
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
-            MenuStrip1.Capture = False
+            form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub

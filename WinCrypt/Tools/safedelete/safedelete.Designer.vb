@@ -24,7 +24,7 @@ Partial Class safedelete
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(safedelete))
         Me.deletebt = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.file_txt = New System.Windows.Forms.TextBox()
         Me.overwritecb = New System.Windows.Forms.ComboBox()
         Me.overwritelb = New System.Windows.Forms.Label()
         Me.generatebytelb = New System.Windows.Forms.Label()
@@ -40,13 +40,13 @@ Partial Class safedelete
         Me.fileaddbt = New System.Windows.Forms.Button()
         Me.dragdroplb = New System.Windows.Forms.Label()
         Me.removeentrybt = New System.Windows.Forms.Button()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+        Me.form_head.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'deletebt
@@ -62,15 +62,15 @@ Partial Class safedelete
         Me.deletebt.Text = "Löschen"
         Me.deletebt.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'file_txt
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 55)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(327, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.file_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.file_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.file_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.file_txt.Location = New System.Drawing.Point(12, 55)
+        Me.file_txt.Name = "file_txt"
+        Me.file_txt.Size = New System.Drawing.Size(327, 20)
+        Me.file_txt.TabIndex = 1
         '
         'overwritecb
         '
@@ -209,33 +209,33 @@ Partial Class safedelete
         Me.removeentrybt.Text = "Eintrag entfernen"
         Me.removeentrybt.UseVisualStyleBackColor = False
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(432, 27)
-        Me.MenuStrip1.TabIndex = 16
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(432, 27)
+        Me.form_head.TabIndex = 16
+        Me.form_head.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wincrypttitle
         '
@@ -248,15 +248,15 @@ Partial Class safedelete
         Me.wincrypttitle.TabIndex = 17
         Me.wincrypttitle.Text = "Dateien sicher löschen"
         '
-        'PictureBox1
+        'wincrypt_icon
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 18
+        Me.wincrypt_icon.TabStop = False
         '
         'safedelete
         '
@@ -264,9 +264,9 @@ Partial Class safedelete
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(432, 442)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.form_head)
         Me.Controls.Add(Me.removeentrybt)
         Me.Controls.Add(Me.dragdroplb)
         Me.Controls.Add(Me.fileaddbt)
@@ -279,7 +279,7 @@ Partial Class safedelete
         Me.Controls.Add(Me.generatebytelb)
         Me.Controls.Add(Me.overwritelb)
         Me.Controls.Add(Me.overwritecb)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.file_txt)
         Me.Controls.Add(Me.deletebt)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -287,15 +287,15 @@ Partial Class safedelete
         Me.Name = "safedelete"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sicher löschen"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents deletebt As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents file_txt As System.Windows.Forms.TextBox
     Friend WithEvents overwritecb As System.Windows.Forms.ComboBox
     Friend WithEvents overwritelb As System.Windows.Forms.Label
     Friend WithEvents generatebytelb As System.Windows.Forms.Label
@@ -311,9 +311,9 @@ Partial Class safedelete
     Friend WithEvents fileaddbt As System.Windows.Forms.Button
     Friend WithEvents dragdroplb As System.Windows.Forms.Label
     Friend WithEvents removeentrybt As System.Windows.Forms.Button
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
 End Class

@@ -31,14 +31,14 @@ Partial Class rsa_decrypt
         Me.message_lb = New System.Windows.Forms.Label()
         Me.message_txt = New System.Windows.Forms.TextBox()
         Me.decrypt_bt = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.open_private_key_dialog = New System.Windows.Forms.OpenFileDialog()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+        Me.form_head.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'open_privkey_bt
@@ -140,33 +140,33 @@ Partial Class rsa_decrypt
         Me.decrypt_bt.Text = "Entschlüsseln"
         Me.decrypt_bt.UseVisualStyleBackColor = False
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(652, 27)
-        Me.MenuStrip1.TabIndex = 13
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(652, 27)
+        Me.form_head.TabIndex = 13
+        Me.form_head.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wincrypttitle
         '
@@ -179,15 +179,15 @@ Partial Class rsa_decrypt
         Me.wincrypttitle.TabIndex = 14
         Me.wincrypttitle.Text = "RSA Entschlüsselung"
         '
-        'PictureBox1
+        'wincrypt_icon
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 15
-        Me.PictureBox1.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 15
+        Me.wincrypt_icon.TabStop = False
         '
         'rsa_decrypt
         '
@@ -195,9 +195,9 @@ Partial Class rsa_decrypt
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(652, 470)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.form_head)
         Me.Controls.Add(Me.decrypt_bt)
         Me.Controls.Add(Me.message_txt)
         Me.Controls.Add(Me.message_lb)
@@ -211,9 +211,9 @@ Partial Class rsa_decrypt
         Me.Name = "rsa_decrypt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RSA Entschlüsselung"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -226,10 +226,10 @@ Partial Class rsa_decrypt
     Friend WithEvents message_lb As System.Windows.Forms.Label
     Friend WithEvents message_txt As System.Windows.Forms.TextBox
     Friend WithEvents decrypt_bt As System.Windows.Forms.Button
-    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents open_private_key_dialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
 End Class

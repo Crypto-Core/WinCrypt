@@ -36,18 +36,18 @@ Partial Class textencrypt
         Me.arrow_1 = New System.Windows.Forms.PictureBox()
         Me.arrow_2 = New System.Windows.Forms.PictureBox()
         Me.arrow_3 = New System.Windows.Forms.PictureBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.arab_cb = New System.Windows.Forms.CheckBox()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
         CType(Me.TrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.arrow_1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.arrow_2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.arrow_3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.form_head.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'text_input
@@ -200,44 +200,44 @@ Partial Class textencrypt
         Me.arrow_3.TabIndex = 14
         Me.arrow_3.TabStop = False
         '
-        'CheckBox1
+        'arab_cb
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.CheckBox1.Location = New System.Drawing.Point(533, 43)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(56, 17)
-        Me.CheckBox1.TabIndex = 15
-        Me.CheckBox1.Text = "العربية"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.arab_cb.AutoSize = True
+        Me.arab_cb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.arab_cb.Location = New System.Drawing.Point(533, 43)
+        Me.arab_cb.Name = "arab_cb"
+        Me.arab_cb.Size = New System.Drawing.Size(56, 17)
+        Me.arab_cb.TabIndex = 15
+        Me.arab_cb.Text = "العربية"
+        Me.arab_cb.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(601, 27)
-        Me.MenuStrip1.TabIndex = 16
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(601, 27)
+        Me.form_head.TabIndex = 16
+        Me.form_head.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wincrypttitle
         '
@@ -250,15 +250,15 @@ Partial Class textencrypt
         Me.wincrypttitle.TabIndex = 17
         Me.wincrypttitle.Text = "Passwortgenerator"
         '
-        'PictureBox1
+        'wincrypt_icon
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 18
+        Me.wincrypt_icon.TabStop = False
         '
         'textencrypt
         '
@@ -266,10 +266,10 @@ Partial Class textencrypt
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(601, 430)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.form_head)
+        Me.Controls.Add(Me.arab_cb)
         Me.Controls.Add(Me.arrow_3)
         Me.Controls.Add(Me.arrow_2)
         Me.Controls.Add(Me.arrow_1)
@@ -293,9 +293,9 @@ Partial Class textencrypt
         CType(Me.arrow_1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.arrow_2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.arrow_3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -313,10 +313,10 @@ Partial Class textencrypt
     Friend WithEvents arrow_1 As System.Windows.Forms.PictureBox
     Friend WithEvents arrow_2 As System.Windows.Forms.PictureBox
     Friend WithEvents arrow_3 As System.Windows.Forms.PictureBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents arab_cb As System.Windows.Forms.CheckBox
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
 End Class

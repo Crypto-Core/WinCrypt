@@ -42,13 +42,13 @@
         Next
     End Sub
 
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Application.Exit()
     End Sub
 
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
-            MenuStrip1.Capture = False
+            form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub

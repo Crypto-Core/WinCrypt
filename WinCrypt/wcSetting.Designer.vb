@@ -35,21 +35,21 @@ Partial Class wcSetting
         Me.Label2 = New System.Windows.Forms.Label()
         Me.startwincb = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.masterkey_gb = New System.Windows.Forms.GroupBox()
         Me.show_bt = New System.Windows.Forms.Button()
         Me.key_txt = New System.Windows.Forms.TextBox()
         Me.key_lb = New System.Windows.Forms.Label()
         Me.key_cb = New System.Windows.Forms.CheckBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
         Me.wincrypttitle = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.masterkey_gb.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -121,6 +121,7 @@ Partial Class wcSetting
         Me.autostartgb.Controls.Add(Me.Label2)
         Me.autostartgb.Controls.Add(Me.startwincb)
         Me.autostartgb.Controls.Add(Me.Label1)
+        Me.autostartgb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.autostartgb.Location = New System.Drawing.Point(237, 37)
         Me.autostartgb.Name = "autostartgb"
         Me.autostartgb.Size = New System.Drawing.Size(200, 116)
@@ -195,19 +196,19 @@ Partial Class wcSetting
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│"
         '
-        'GroupBox1
+        'masterkey_gb
         '
-        Me.GroupBox1.Controls.Add(Me.show_bt)
-        Me.GroupBox1.Controls.Add(Me.key_txt)
-        Me.GroupBox1.Controls.Add(Me.key_lb)
-        Me.GroupBox1.Controls.Add(Me.key_cb)
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 158)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(415, 74)
-        Me.GroupBox1.TabIndex = 4
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Masterkey"
+        Me.masterkey_gb.Controls.Add(Me.show_bt)
+        Me.masterkey_gb.Controls.Add(Me.key_txt)
+        Me.masterkey_gb.Controls.Add(Me.key_lb)
+        Me.masterkey_gb.Controls.Add(Me.key_cb)
+        Me.masterkey_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.masterkey_gb.Location = New System.Drawing.Point(21, 158)
+        Me.masterkey_gb.Name = "masterkey_gb"
+        Me.masterkey_gb.Size = New System.Drawing.Size(415, 74)
+        Me.masterkey_gb.TabIndex = 4
+        Me.masterkey_gb.TabStop = False
+        Me.masterkey_gb.Text = "Masterkey"
         '
         'show_bt
         '
@@ -257,15 +258,15 @@ Partial Class wcSetting
         Me.key_cb.Text = "Einschalten"
         Me.key_cb.UseVisualStyleBackColor = True
         '
-        'PictureBox2
+        'wincrypt_icon
         '
-        Me.PictureBox2.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 20
-        Me.PictureBox2.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 20
+        Me.wincrypt_icon.TabStop = False
         '
         'wincrypttitle
         '
@@ -281,7 +282,7 @@ Partial Class wcSetting
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -289,22 +290,22 @@ Partial Class wcSetting
         Me.MenuStrip1.TabIndex = 22
         Me.MenuStrip1.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wcSetting
         '
@@ -312,10 +313,10 @@ Partial Class wcSetting
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(457, 269)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.masterkey_gb)
         Me.Controls.Add(Me.autostartgb)
         Me.Controls.Add(Me.languagegb)
         Me.Controls.Add(Me.okbt)
@@ -330,9 +331,9 @@ Partial Class wcSetting
         Me.languagegb.ResumeLayout(False)
         Me.autostartgb.ResumeLayout(False)
         Me.autostartgb.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.masterkey_gb.ResumeLayout(False)
+        Me.masterkey_gb.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -351,14 +352,14 @@ Partial Class wcSetting
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents masterkey_gb As System.Windows.Forms.GroupBox
     Friend WithEvents show_bt As System.Windows.Forms.Button
     Friend WithEvents key_txt As System.Windows.Forms.TextBox
     Friend WithEvents key_lb As System.Windows.Forms.Label
     Friend WithEvents key_cb As System.Windows.Forms.CheckBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
 End Class

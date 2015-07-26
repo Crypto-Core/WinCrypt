@@ -25,14 +25,14 @@ Partial Class systemidentification
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(systemidentification))
         Me.on_rb = New System.Windows.Forms.RadioButton()
         Me.off_rb = New System.Windows.Forms.RadioButton()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.systemidentification_lb = New System.Windows.Forms.Label()
         Me.ok_bt = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
         Me.wincrypttitle = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -62,19 +62,19 @@ Partial Class systemidentification
         Me.off_rb.Text = "Ausschalten"
         Me.off_rb.UseVisualStyleBackColor = False
         '
-        'Label1
+        'systemidentification_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(18, 31)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 40)
-        Me.Label1.Size = New System.Drawing.Size(432, 131)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = resources.GetString("Label1.Text")
+        Me.systemidentification_lb.AutoSize = True
+        Me.systemidentification_lb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.systemidentification_lb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.systemidentification_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.systemidentification_lb.Location = New System.Drawing.Point(18, 31)
+        Me.systemidentification_lb.Margin = New System.Windows.Forms.Padding(7, 0, 3, 0)
+        Me.systemidentification_lb.Name = "systemidentification_lb"
+        Me.systemidentification_lb.Padding = New System.Windows.Forms.Padding(0, 0, 0, 40)
+        Me.systemidentification_lb.Size = New System.Drawing.Size(432, 131)
+        Me.systemidentification_lb.TabIndex = 2
+        Me.systemidentification_lb.Text = resources.GetString("systemidentification_lb.Text")
         '
         'ok_bt
         '
@@ -89,15 +89,15 @@ Partial Class systemidentification
         Me.ok_bt.Text = "OK"
         Me.ok_bt.UseVisualStyleBackColor = False
         '
-        'PictureBox2
+        'wincrypt_icon
         '
-        Me.PictureBox2.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 17
-        Me.PictureBox2.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 17
+        Me.wincrypt_icon.TabStop = False
         '
         'wincrypttitle
         '
@@ -113,7 +113,7 @@ Partial Class systemidentification
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -121,22 +121,22 @@ Partial Class systemidentification
         Me.MenuStrip1.TabIndex = 19
         Me.MenuStrip1.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'systemidentification
         '
@@ -144,12 +144,12 @@ Partial Class systemidentification
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(468, 202)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.ok_bt)
         Me.Controls.Add(Me.off_rb)
         Me.Controls.Add(Me.on_rb)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.systemidentification_lb)
         Me.Controls.Add(Me.MenuStrip1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -157,7 +157,7 @@ Partial Class systemidentification
         Me.Name = "systemidentification"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Systemidentifikation"
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -166,11 +166,11 @@ Partial Class systemidentification
     End Sub
     Friend WithEvents on_rb As System.Windows.Forms.RadioButton
     Friend WithEvents off_rb As System.Windows.Forms.RadioButton
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents systemidentification_lb As System.Windows.Forms.Label
     Friend WithEvents ok_bt As System.Windows.Forms.Button
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
 End Class

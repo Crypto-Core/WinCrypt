@@ -9,9 +9,9 @@ Public Class passwordmanager
     Private Sub add_bt_Click(sender As Object, e As EventArgs) Handles add_bt.Click
         passwordmanager_add.Show()
     End Sub
-    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
-        If ListView1.SelectedItems.Count > 0 Then
-            index = CInt(ListView1.SelectedItems.Item(0).SubItems(2).Text)
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles database_viewer.SelectedIndexChanged
+        If database_viewer.SelectedItems.Count > 0 Then
+            index = CInt(database_viewer.SelectedItems.Item(0).SubItems(2).Text)
             user_txt.Text = ini.WertLesen(CStr(index), "user")
             password_txt.Text = ini.WertLesen(CStr(index), "password")
             source_txt.Text = ini.WertLesen(CStr(index), "source")
@@ -25,7 +25,7 @@ Public Class passwordmanager
         ini.WertSchreiben(CStr(index), "source", "")
         ini.WertSchreiben(CStr(index), "comment", "")
         ini.WertSchreiben(CStr(index), "index", "|")
-        ListView1.Items.Clear()
+        database_viewer.Items.Clear()
         For Each go As String In schleife.ToString
             Do
                 schleife += 1
@@ -35,7 +35,7 @@ Public Class passwordmanager
                 Else
                     If ini.WertLesen(Str(schleife), "index") = "|" Then
                     Else
-                        With ListView1.Items.Add(ini.WertLesen(CStr(schleife), "user"))
+                        With database_viewer.Items.Add(ini.WertLesen(CStr(schleife), "user"))
                             .SubItems.Add(ini.WertLesen(CStr(schleife), "source"))
                             .SubItems.Add(ini.WertLesen(CStr(schleife), "index"))
                         End With
@@ -116,11 +116,11 @@ Public Class passwordmanager
         End If
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
@@ -129,9 +129,9 @@ Public Class passwordmanager
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
-            MenuStrip1.Capture = False
+            form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub

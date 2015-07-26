@@ -41,22 +41,22 @@ Partial Class bruteforce
         Me.bruteforcerightPassword = New System.Windows.Forms.Label()
         Me.bruteforceLine = New System.Windows.Forms.Label()
         Me.bruteforceHash = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.StatusViewer = New System.Windows.Forms.Panel()
+        Me.line_lb = New System.Windows.Forms.Label()
         Me.bruteforcePassword = New System.Windows.Forms.Label()
         Me.bruteforceChecked = New System.Windows.Forms.ProgressBar()
         Me.showProgress = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.art_lb = New System.Windows.Forms.Label()
         Me.bruteforceHashtype = New System.Windows.Forms.ComboBox()
         Me.bruteforceToggle = New System.Windows.Forms.Button()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+        Me.StatusViewer.SuspendLayout()
+        Me.form_head.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bruteforcesearchedHash
@@ -168,29 +168,29 @@ Partial Class bruteforce
         Me.bruteforceHash.TabIndex = 9
         Me.bruteforceHash.Text = "Hash:"
         '
-        'Panel1
+        'StatusViewer
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.bruteforcePassword)
-        Me.Panel1.Controls.Add(Me.bruteforcerightPassword)
-        Me.Panel1.Controls.Add(Me.bruteforceHash)
-        Me.Panel1.Controls.Add(Me.bruteforceLine)
-        Me.Panel1.Controls.Add(Me.bruteforceStatus)
-        Me.Panel1.Location = New System.Drawing.Point(10, 103)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(403, 139)
-        Me.Panel1.TabIndex = 10
+        Me.StatusViewer.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.StatusViewer.Controls.Add(Me.line_lb)
+        Me.StatusViewer.Controls.Add(Me.bruteforcePassword)
+        Me.StatusViewer.Controls.Add(Me.bruteforcerightPassword)
+        Me.StatusViewer.Controls.Add(Me.bruteforceHash)
+        Me.StatusViewer.Controls.Add(Me.bruteforceLine)
+        Me.StatusViewer.Controls.Add(Me.bruteforceStatus)
+        Me.StatusViewer.Location = New System.Drawing.Point(10, 103)
+        Me.StatusViewer.Name = "StatusViewer"
+        Me.StatusViewer.Size = New System.Drawing.Size(403, 139)
+        Me.StatusViewer.TabIndex = 10
         '
-        'Label2
+        'line_lb
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(3, 97)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(397, 13)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "_________________________________________________________________"
+        Me.line_lb.AutoSize = True
+        Me.line_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.line_lb.Location = New System.Drawing.Point(3, 97)
+        Me.line_lb.Name = "line_lb"
+        Me.line_lb.Size = New System.Drawing.Size(397, 13)
+        Me.line_lb.TabIndex = 11
+        Me.line_lb.Text = "_________________________________________________________________"
         '
         'bruteforcePassword
         '
@@ -222,15 +222,15 @@ Partial Class bruteforce
         Me.showProgress.Text = "Zeige Fortschritt an"
         Me.showProgress.UseVisualStyleBackColor = True
         '
-        'Label1
+        'art_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(299, 39)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(23, 13)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Art:"
+        Me.art_lb.AutoSize = True
+        Me.art_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.art_lb.Location = New System.Drawing.Point(299, 39)
+        Me.art_lb.Name = "art_lb"
+        Me.art_lb.Size = New System.Drawing.Size(23, 13)
+        Me.art_lb.TabIndex = 15
+        Me.art_lb.Text = "Art:"
         '
         'bruteforceHashtype
         '
@@ -258,33 +258,33 @@ Partial Class bruteforce
         Me.bruteforceToggle.Text = "Brute Force"
         Me.bruteforceToggle.UseVisualStyleBackColor = False
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(421, 27)
-        Me.MenuStrip1.TabIndex = 17
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(421, 27)
+        Me.form_head.TabIndex = 17
+        Me.form_head.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wincrypttitle
         '
@@ -297,15 +297,15 @@ Partial Class bruteforce
         Me.wincrypttitle.TabIndex = 18
         Me.wincrypttitle.Text = "MD5 Brute-force"
         '
-        'PictureBox1
+        'wincrypt_icon
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 19
-        Me.PictureBox1.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 19
+        Me.wincrypt_icon.TabStop = False
         '
         'bruteforce
         '
@@ -313,15 +313,15 @@ Partial Class bruteforce
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(421, 276)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.form_head)
         Me.Controls.Add(Me.bruteforceToggle)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.art_lb)
         Me.Controls.Add(Me.bruteforceHashtype)
         Me.Controls.Add(Me.showProgress)
         Me.Controls.Add(Me.bruteforceChecked)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.StatusViewer)
         Me.Controls.Add(Me.openWordlist)
         Me.Controls.Add(Me.fileWordlist)
         Me.Controls.Add(Me.passwordlist_lb)
@@ -333,11 +333,11 @@ Partial Class bruteforce
         Me.Name = "bruteforce"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Hash Brute Force"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusViewer.ResumeLayout(False)
+        Me.StatusViewer.PerformLayout()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -354,17 +354,17 @@ Partial Class bruteforce
     Friend WithEvents bruteforcerightPassword As System.Windows.Forms.Label
     Friend WithEvents bruteforceLine As System.Windows.Forms.Label
     Friend WithEvents bruteforceHash As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents StatusViewer As System.Windows.Forms.Panel
+    Friend WithEvents line_lb As System.Windows.Forms.Label
     Friend WithEvents bruteforcePassword As System.Windows.Forms.Label
     Friend WithEvents bruteforceChecked As System.Windows.Forms.ProgressBar
     Friend WithEvents showProgress As System.Windows.Forms.CheckBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents art_lb As System.Windows.Forms.Label
     Friend WithEvents bruteforceHashtype As System.Windows.Forms.ComboBox
     Friend WithEvents bruteforceToggle As System.Windows.Forms.Button
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
 End Class

@@ -374,8 +374,8 @@ Public Class startwindow
         decrypt_list_status.SelectedIndex = decrypt_list_status.Items.Count - 1
     End Sub
     Private Sub crypt_file_pathbutton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles crypt_file_pathbutton.Click
-        FolderBrowserDialog1.ShowDialog()
-        pathtxt.Text = FolderBrowserDialog1.SelectedPath
+        folder_dialog.ShowDialog()
+        pathtxt.Text = folder_dialog.SelectedPath
         If iniread = "yes" Then
             If My.Computer.FileSystem.DirectoryExists(pathtxt.Text) Then
                 create_container_encrypt.Enabled = True
@@ -456,8 +456,8 @@ Public Class startwindow
     End Sub
 
     Private Sub Opencryptfile_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles opencryptfile.Click
-        OpenFileDialog1.ShowDialog()
-        decrypt_filepath.Text = OpenFileDialog1.FileName
+        open_encrypt_dialog.ShowDialog()
+        decrypt_filepath.Text = open_encrypt_dialog.FileName
         If iniread = "yes" Then
             If My.Computer.FileSystem.FileExists(decrypt_filepath.Text) Then
                 mount.Enabled = True
@@ -572,7 +572,7 @@ Public Class startwindow
         If iniread = "yes" Then
             generate_key_encrypt.Visible = False
             keycrypt.Visible = False
-            Label2.Visible = False
+            key_lb1.Visible = False
             keyencrypt.Visible = False
             key_lb.Visible = False
             textencrypt.password_txt.Visible = False
@@ -588,7 +588,7 @@ Public Class startwindow
             If iniread = "no" Then
                 generate_key_encrypt.Visible = True
                 keycrypt.Visible = True
-                Label2.Visible = True
+                key_lb1.Visible = True
                 keyencrypt.Visible = True
                 key_lb.Visible = True
                 textencrypt.password_txt.Visible = True
@@ -701,7 +701,7 @@ Public Class startwindow
         Me.WindowState = FormWindowState.Normal
     End Sub
 
-    Private Sub BeendenToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BeendenToolStripMenuItem1.Click
+    Private Sub BeendenToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles exit_bt_systemtray.Click
         If dismount.Enabled = True Then
             If MsgBox("Laufwerk " & drivecb.Text & " ist noch eingebunden!" & vbCrLf & "Möchten Sie WinCrypt wirklich schließen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 formclose = False
@@ -777,9 +777,9 @@ Public Class startwindow
 
     Private Sub DatenbankExportierenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DatenbankExportierenToolStripMenuItem1.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
-            SaveFileDialog1.ShowDialog()
+            export_db_dialog.ShowDialog()
             Try
-                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", SaveFileDialog1.FileName)
+                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", export_db_dialog.FileName)
             Catch ex As Exception
                 MsgBox(ErrorToString)
             End Try
@@ -840,22 +840,22 @@ Public Class startwindow
     End Sub
 
     Private Sub DatenbankImportierenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DatenbankImportierenToolStripMenuItem1.Click
-        OpenFileDialog2.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
+        import_db_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(import_db_dialog.FileName) Then
             If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 If langname = "English" Then
                     If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                     Else : End If
                 Else
                     If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
                     Else : End If
                 End If
             Else
-                My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                 If langname = "English" Then
                     MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                 Else
@@ -912,7 +912,7 @@ Public Class startwindow
 
             End Try
         End If
-        
+
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
@@ -928,73 +928,73 @@ Public Class startwindow
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
-            MenuStrip1.Capture = False
+            form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Application.Exit()
     End Sub
 
-    Private Sub BeendenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles BeendenToolStripMenuItem2.Click
+    Private Sub BeendenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles exit_bt_menu.Click
         Application.Exit()
     End Sub
 
-    Private Sub EinstellungToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EinstellungToolStripMenuItem1.Click
+    Private Sub EinstellungToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles setting_bt_menu.Click
         wcSetting.Show()
     End Sub
 
-    Private Sub DateiVerschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DateiVerschlüsselnToolStripMenuItem2.Click
+    Private Sub DateiVerschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles file_encrypt_bt_menu.Click
         fileencrypt.Show()
     End Sub
 
-    Private Sub DateiEntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DateiEntschlüsselnToolStripMenuItem2.Click
+    Private Sub DateiEntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles file_decrypt_bt_menu.Click
         filedecrypt.Show()
     End Sub
 
-    Private Sub TextVerUndEntschlüsselnToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TextVerUndEntschlüsselnToolStripMenuItem1.Click
+    Private Sub TextVerUndEntschlüsselnToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click
         textencrypt.Show()
     End Sub
 
-    Private Sub MD5KonverterToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MD5KonverterToolStripMenuItem2.Click
+    Private Sub MD5KonverterToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles md5_converter_bt_menu.Click
         converter.Show()
     End Sub
 
-    Private Sub MD5BruteforceToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MD5BruteforceToolStripMenuItem1.Click
+    Private Sub MD5BruteforceToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_menu.Click
         bruteforce.Show()
     End Sub
 
-    Private Sub VerschlüsselungToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerschlüsselungToolStripMenuItem.Click
+    Private Sub VerschlüsselungToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
         rsa_encrypt.Show()
     End Sub
 
-    Private Sub EntschlüsselungToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntschlüsselungToolStripMenuItem.Click
+    Private Sub EntschlüsselungToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles rsa_decrypt_bt_menu.Click
         rsa_decrypt.Show()
     End Sub
 
-    Private Sub SchlüsselErstellenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SchlüsselErstellenToolStripMenuItem1.Click
+    Private Sub SchlüsselErstellenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles rsa_create_keys_bt_menu.Click
         rsa_create_keys.Show()
     End Sub
 
-    Private Sub EMailSendenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles EMailSendenToolStripMenuItem2.Click
+    Private Sub EMailSendenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles send_mail_bt_menu.Click
         sendmail.Show()
     End Sub
 
-    Private Sub PasswortmanagerToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem2.Click
+    Private Sub PasswortmanagerToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_menu.Click
         passwordmanager.Show()
     End Sub
 
-    Private Sub DatenbankExportierenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DatenbankExportierenToolStripMenuItem2.Click
+    Private Sub DatenbankExportierenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles export_db_bt_menu.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
-            SaveFileDialog1.ShowDialog()
+            export_db_dialog.ShowDialog()
             Try
-                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", SaveFileDialog1.FileName)
+                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", export_db_dialog.FileName)
             Catch ex As Exception
                 MsgBox(ErrorToString)
             End Try
@@ -1012,23 +1012,23 @@ Public Class startwindow
         End If
     End Sub
 
-    Private Sub DatenbankImportierenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DatenbankImportierenToolStripMenuItem2.Click
-        OpenFileDialog2.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
+    Private Sub DatenbankImportierenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles import_db_bt_menu.Click
+        import_db_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(import_db_dialog.FileName) Then
             If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 If langname = "English" Then
                     If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                     Else : End If
                 Else
                     If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
                     Else : End If
                 End If
             Else
-                My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                 If langname = "English" Then
                     MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                 Else
@@ -1038,7 +1038,7 @@ Public Class startwindow
         Else : End If
     End Sub
 
-    Private Sub DatenbankLöschenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DatenbankLöschenToolStripMenuItem2.Click
+    Private Sub DatenbankLöschenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles delete_db_menu.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
             If langname = "English" Then
                 If MsgBox("Do you really want to drop the database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
@@ -1080,19 +1080,19 @@ Public Class startwindow
         End If
     End Sub
 
-    Private Sub SystemidentifikationToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SystemidentifikationToolStripMenuItem2.Click
+    Private Sub SystemidentifikationToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles systemidentification_bt_menu.Click
         systemidentification.Show()
     End Sub
 
-    Private Sub PasswortgeneratorToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles PasswortgeneratorToolStripMenuItem2.Click
+    Private Sub PasswortgeneratorToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles pw_generator_bt_menu.Click
         passwordgenerator.Show()
     End Sub
 
-    Private Sub DateienSicherLöschenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DateienSicherLöschenToolStripMenuItem1.Click
+    Private Sub DateienSicherLöschenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles delete_file_bt_menu.Click
         safedelete.Show()
     End Sub
 
-    Private Sub UpdateToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem2.Click
+    Private Sub UpdateToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles update_bt_menu.Click
         Try
             Process.Start(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe")
         Catch ex As Exception
@@ -1100,29 +1100,29 @@ Public Class startwindow
         End Try
     End Sub
 
-    Private Sub FeedbackToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem2.Click
+    Private Sub FeedbackToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles feedback_bt_menu.Click
         feedback.Show()
     End Sub
 
-    Private Sub AboutToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem2.Click
+    Private Sub AboutToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles about_bt_menu.Click
         about.ShowDialog()
     End Sub
 
-    Private Sub ÖffnenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ÖffnenToolStripMenuItem.Click
+    Private Sub ÖffnenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles open_bt_systemtray.Click
         systemtray.Visible = False
         Me.Show()
         Me.WindowState = FormWindowState.Normal
     End Sub
 
-    Private Sub FeedbackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem1.Click
+    Private Sub FeedbackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles feedback_bt_systemtray.Click
         feedback.Show()
     End Sub
 
-    Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
+    Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles about_bt_systemtray.Click
         about.ShowDialog()
     End Sub
 
-    Private Sub UpdateToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem1.Click
+    Private Sub UpdateToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles update_bt_systemtray.Click
         Try
             Process.Start(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe")
         Catch ex As Exception
@@ -1130,63 +1130,63 @@ Public Class startwindow
         End Try
     End Sub
 
-    Private Sub DateiVerschlüsselnToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DateiVerschlüsselnToolStripMenuItem3.Click
+    Private Sub DateiVerschlüsselnToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles file_encrypt__bt_systemtray.Click
         fileencrypt.Show()
     End Sub
 
-    Private Sub DateiEntschlüsselnToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DateiEntschlüsselnToolStripMenuItem3.Click
+    Private Sub DateiEntschlüsselnToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles file_decrypt_bt_systemtray.Click
         filedecrypt.Show()
     End Sub
 
-    Private Sub TextVerUndEntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles TextVerUndEntschlüsselnToolStripMenuItem2.Click
+    Private Sub TextVerUndEntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles text_encrypt_bt_systemtray.Click
         textencrypt.Show()
     End Sub
 
-    Private Sub MD5KonverterToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles MD5KonverterToolStripMenuItem3.Click
+    Private Sub MD5KonverterToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles md5_converter_bt_systemtray.Click
         converter.Show()
     End Sub
 
-    Private Sub MD5BruteforceToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles MD5BruteforceToolStripMenuItem2.Click
+    Private Sub MD5BruteforceToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_systemtray.Click
         bruteforce.Show()
     End Sub
 
-    Private Sub EMailSendenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles EMailSendenToolStripMenuItem3.Click
+    Private Sub EMailSendenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles send_mail_bt_systemtray.Click
         sendmail.Show()
     End Sub
 
-    Private Sub PasswortmanagerToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles PasswortmanagerToolStripMenuItem3.Click
+    Private Sub PasswortmanagerToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_systemtray.Click
         passwordmanager.Show()
     End Sub
 
-    Private Sub SystemidentifikationToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles SystemidentifikationToolStripMenuItem3.Click
+    Private Sub SystemidentifikationToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles systemidentification_bt_systemtray.Click
         systemidentification.Show()
     End Sub
 
-    Private Sub PasswortgeneratorToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles PasswortgeneratorToolStripMenuItem3.Click
+    Private Sub PasswortgeneratorToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles pwg_bt_systemtray.Click
         passwordgenerator.Show()
     End Sub
 
-    Private Sub DateienSicherLöschenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DateienSicherLöschenToolStripMenuItem2.Click
+    Private Sub DateienSicherLöschenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles file_delete_bt_systemtray.Click
         safedelete.Show()
     End Sub
 
-    Private Sub EntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles EntschlüsselnToolStripMenuItem2.Click
+    Private Sub EntschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_systemtray.Click
         rsa_decrypt.Show()
     End Sub
 
-    Private Sub VerschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles VerschlüsselnToolStripMenuItem2.Click
+    Private Sub VerschlüsselnToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles rsa_decrypt_bt_systemtray.Click
         rsa_encrypt.Show()
     End Sub
 
-    Private Sub SchlüsselErstellenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SchlüsselErstellenToolStripMenuItem2.Click
+    Private Sub SchlüsselErstellenToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles rsa_create_keys_bt_systemtray.Click
         rsa_create_keys.Show()
     End Sub
 
-    Private Sub DatenbankExportierenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DatenbankExportierenToolStripMenuItem3.Click
+    Private Sub DatenbankExportierenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles export_db_bt_systemtray.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
-            SaveFileDialog1.ShowDialog()
+            export_db_dialog.ShowDialog()
             Try
-                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", SaveFileDialog1.FileName)
+                My.Computer.FileSystem.CopyFile(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", export_db_dialog.FileName)
             Catch ex As Exception
                 MsgBox(ErrorToString)
             End Try
@@ -1204,23 +1204,23 @@ Public Class startwindow
         End If
     End Sub
 
-    Private Sub DatenbankImportierenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DatenbankImportierenToolStripMenuItem3.Click
-        OpenFileDialog2.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog2.FileName) Then
+    Private Sub DatenbankImportierenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles import_db_bt_systemtray.Click
+        import_db_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(import_db_dialog.FileName) Then
             If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 If langname = "English" Then
                     If MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                     Else : End If
                 Else
                     If MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                        My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                         MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
                     Else : End If
                 End If
             Else
-                My.Computer.FileSystem.CopyFile(OpenFileDialog2.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                My.Computer.FileSystem.CopyFile(import_db_dialog.FileName, root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                 If langname = "English" Then
                     MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
                 Else
@@ -1230,7 +1230,7 @@ Public Class startwindow
         Else : End If
     End Sub
 
-    Private Sub DatenbankLöschenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DatenbankLöschenToolStripMenuItem3.Click
+    Private Sub DatenbankLöschenToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles delete_db_bt_systemtray.Click
         If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
             If langname = "English" Then
                 If MsgBox("Do you really want to drop the database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then

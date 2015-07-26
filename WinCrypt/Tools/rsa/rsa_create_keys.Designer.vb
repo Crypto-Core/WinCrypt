@@ -23,47 +23,47 @@ Partial Class rsa_create_keys
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(rsa_create_keys))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.private_key_lb1 = New System.Windows.Forms.Label()
+        Me.public_key_lb1 = New System.Windows.Forms.Label()
         Me.save_privkey_bt = New System.Windows.Forms.Button()
         Me.save_pubkey_bt = New System.Windows.Forms.Button()
         Me.private_key_path_txt = New System.Windows.Forms.TextBox()
         Me.public_key_path_txt = New System.Windows.Forms.TextBox()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.save_keys_dialog = New System.Windows.Forms.SaveFileDialog()
         Me.generate_key_bt = New System.Windows.Forms.Button()
         Me.save_bt = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.private_key_lb2 = New System.Windows.Forms.Label()
         Me.privatekey_txt = New System.Windows.Forms.TextBox()
         Me.publickey_txt = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.XToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.public_key_lb2 = New System.Windows.Forms.Label()
+        Me.form_head = New System.Windows.Forms.MenuStrip()
+        Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+        Me.form_head.SuspendLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'private_key_lb1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(12, 53)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Private Key:"
+        Me.private_key_lb1.AutoSize = True
+        Me.private_key_lb1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.private_key_lb1.Location = New System.Drawing.Point(12, 53)
+        Me.private_key_lb1.Name = "private_key_lb1"
+        Me.private_key_lb1.Size = New System.Drawing.Size(64, 13)
+        Me.private_key_lb1.TabIndex = 0
+        Me.private_key_lb1.Text = "Private Key:"
         '
-        'Label2
+        'public_key_lb1
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(12, 82)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Public Key:"
+        Me.public_key_lb1.AutoSize = True
+        Me.public_key_lb1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.public_key_lb1.Location = New System.Drawing.Point(12, 82)
+        Me.public_key_lb1.Name = "public_key_lb1"
+        Me.public_key_lb1.Size = New System.Drawing.Size(60, 13)
+        Me.public_key_lb1.TabIndex = 1
+        Me.public_key_lb1.Text = "Public Key:"
         '
         'save_privkey_bt
         '
@@ -117,9 +117,9 @@ Partial Class rsa_create_keys
         Me.public_key_path_txt.Size = New System.Drawing.Size(437, 20)
         Me.public_key_path_txt.TabIndex = 5
         '
-        'SaveFileDialog1
+        'save_keys_dialog
         '
-        Me.SaveFileDialog1.Filter = "XML-Datei|*.xml"
+        Me.save_keys_dialog.Filter = "XML-Datei|*.xml"
         '
         'generate_key_bt
         '
@@ -150,15 +150,15 @@ Partial Class rsa_create_keys
         Me.save_bt.Text = "Speichern"
         Me.save_bt.UseVisualStyleBackColor = False
         '
-        'Label3
+        'private_key_lb2
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(12, 113)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Private Key"
+        Me.private_key_lb2.AutoSize = True
+        Me.private_key_lb2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.private_key_lb2.Location = New System.Drawing.Point(12, 113)
+        Me.private_key_lb2.Name = "private_key_lb2"
+        Me.private_key_lb2.Size = New System.Drawing.Size(61, 13)
+        Me.private_key_lb2.TabIndex = 8
+        Me.private_key_lb2.Text = "Private Key"
         '
         'privatekey_txt
         '
@@ -189,44 +189,44 @@ Partial Class rsa_create_keys
         Me.publickey_txt.Size = New System.Drawing.Size(606, 105)
         Me.publickey_txt.TabIndex = 10
         '
-        'Label4
+        'public_key_lb2
         '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(12, 297)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 13)
-        Me.Label4.TabIndex = 11
-        Me.Label4.Text = "Public Key"
+        Me.public_key_lb2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.public_key_lb2.AutoSize = True
+        Me.public_key_lb2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.public_key_lb2.Location = New System.Drawing.Point(12, 297)
+        Me.public_key_lb2.Name = "public_key_lb2"
+        Me.public_key_lb2.Size = New System.Drawing.Size(57, 13)
+        Me.public_key_lb2.TabIndex = 11
+        Me.public_key_lb2.Text = "Public Key"
         '
-        'MenuStrip1
+        'form_head
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.XToolStripMenuItem, Me.ToolStripMenuItem1})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.MenuStrip1.Size = New System.Drawing.Size(630, 27)
-        Me.MenuStrip1.TabIndex = 13
-        Me.MenuStrip1.Text = "WinCrypt"
+        Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        Me.form_head.Location = New System.Drawing.Point(0, 0)
+        Me.form_head.Name = "form_head"
+        Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.form_head.Size = New System.Drawing.Size(630, 27)
+        Me.form_head.TabIndex = 13
+        Me.form_head.Text = "WinCrypt"
         '
-        'XToolStripMenuItem
+        'exit_bt
         '
-        Me.XToolStripMenuItem.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.XToolStripMenuItem.Name = "XToolStripMenuItem"
-        Me.XToolStripMenuItem.Size = New System.Drawing.Size(29, 23)
-        Me.XToolStripMenuItem.Text = "X"
+        Me.exit_bt.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.exit_bt.ForeColor = System.Drawing.Color.White
+        Me.exit_bt.Name = "exit_bt"
+        Me.exit_bt.Size = New System.Drawing.Size(29, 23)
+        Me.exit_bt.Text = "X"
         '
-        'ToolStripMenuItem1
+        'minimize_bt
         '
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(32, 23)
-        Me.ToolStripMenuItem1.Text = "─"
+        Me.minimize_bt.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.minimize_bt.ForeColor = System.Drawing.Color.White
+        Me.minimize_bt.Name = "minimize_bt"
+        Me.minimize_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
+        Me.minimize_bt.Text = "─"
         '
         'wincrypttitle
         '
@@ -239,15 +239,15 @@ Partial Class rsa_create_keys
         Me.wincrypttitle.TabIndex = 14
         Me.wincrypttitle.Text = "RSA Schlüssel erstellen"
         '
-        'PictureBox1
+        'wincrypt_icon
         '
-        Me.PictureBox1.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
-        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 15
-        Me.PictureBox1.TabStop = False
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
+        Me.wincrypt_icon.Name = "wincrypt_icon"
+        Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
+        Me.wincrypt_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.wincrypt_icon.TabIndex = 15
+        Me.wincrypt_icon.TabStop = False
         '
         'rsa_create_keys
         '
@@ -255,49 +255,49 @@ Partial Class rsa_create_keys
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(630, 459)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.form_head)
+        Me.Controls.Add(Me.public_key_lb2)
         Me.Controls.Add(Me.publickey_txt)
         Me.Controls.Add(Me.privatekey_txt)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.private_key_lb2)
         Me.Controls.Add(Me.save_bt)
         Me.Controls.Add(Me.generate_key_bt)
         Me.Controls.Add(Me.public_key_path_txt)
         Me.Controls.Add(Me.private_key_path_txt)
         Me.Controls.Add(Me.save_pubkey_bt)
         Me.Controls.Add(Me.save_privkey_bt)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.public_key_lb1)
+        Me.Controls.Add(Me.private_key_lb1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "rsa_create_keys"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RSA Schlüssel erstellen"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.form_head.ResumeLayout(False)
+        Me.form_head.PerformLayout()
+        CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents private_key_lb1 As System.Windows.Forms.Label
+    Friend WithEvents public_key_lb1 As System.Windows.Forms.Label
     Friend WithEvents save_privkey_bt As System.Windows.Forms.Button
     Friend WithEvents save_pubkey_bt As System.Windows.Forms.Button
     Friend WithEvents private_key_path_txt As System.Windows.Forms.TextBox
     Friend WithEvents public_key_path_txt As System.Windows.Forms.TextBox
-    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents save_keys_dialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents generate_key_bt As System.Windows.Forms.Button
     Friend WithEvents save_bt As System.Windows.Forms.Button
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents private_key_lb2 As System.Windows.Forms.Label
     Friend WithEvents privatekey_txt As System.Windows.Forms.TextBox
     Friend WithEvents publickey_txt As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents XToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents public_key_lb2 As System.Windows.Forms.Label
+    Friend WithEvents form_head As System.Windows.Forms.MenuStrip
+    Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
 End Class

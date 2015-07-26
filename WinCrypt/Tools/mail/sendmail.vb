@@ -6,9 +6,9 @@ Public Class sendmail
     Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
     Dim mailini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
     Private Sub fileadd_bt_Click(sender As Object, e As EventArgs) Handles fileadd_bt.Click
-        OpenFileDialog1.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog1.FileName) Then
-            file_txt.Text = OpenFileDialog1.FileName
+        add_file_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(add_file_dialog.FileName) Then
+            file_txt.Text = add_file_dialog.FileName
             mailmessage.Attachments.Add(New System.Net.Mail.Attachment(file_txt.Text)) ' Anhang
         End If
 
@@ -77,25 +77,25 @@ Public Class sendmail
     End Sub
 
     Private Sub fileadd_bt1_Click(sender As Object, e As EventArgs) Handles fileadd_bt1.Click
-        OpenFileDialog1.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog1.FileName) Then
-            file_txt1.Text = OpenFileDialog1.FileName
+        add_file_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(add_file_dialog.FileName) Then
+            file_txt1.Text = add_file_dialog.FileName
             mailmessage.Attachments.Add(New System.Net.Mail.Attachment(file_txt1.Text)) ' Anhang
         End If
     End Sub
 
     Private Sub fileadd_bt2_Click(sender As Object, e As EventArgs) Handles fileadd_bt2.Click
-        OpenFileDialog1.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog1.FileName) Then
-            file_txt2.Text = OpenFileDialog1.FileName
+        add_file_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(add_file_dialog.FileName) Then
+            file_txt2.Text = add_file_dialog.FileName
             mailmessage.Attachments.Add(New System.Net.Mail.Attachment(file_txt2.Text)) ' Anhang
         End If
     End Sub
 
     Private Sub fileadd_bt3_Click(sender As Object, e As EventArgs) Handles fileadd_bt3.Click
-        OpenFileDialog1.ShowDialog()
-        If My.Computer.FileSystem.FileExists(OpenFileDialog1.FileName) Then
-            file_txt3.Text = OpenFileDialog1.FileName
+        add_file_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(add_file_dialog.FileName) Then
+            file_txt3.Text = add_file_dialog.FileName
             mailmessage.Attachments.Add(New System.Net.Mail.Attachment(file_txt3.Text)) ' Anhang
         End If
     End Sub
@@ -167,18 +167,18 @@ Public Class sendmail
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles MenuStrip1.MouseDown
+    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
-            MenuStrip1.Capture = False
+            form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles XToolStripMenuItem.Click
+    Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
 End Class
