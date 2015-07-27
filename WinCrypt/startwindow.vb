@@ -1260,4 +1260,10 @@ Public Class startwindow
         End If
 
     End Sub
+    Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
+        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+            wincrypttitle.Capture = False
+            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else : End If
+    End Sub
 End Class
