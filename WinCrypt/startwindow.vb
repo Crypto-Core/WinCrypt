@@ -116,9 +116,9 @@ Public Class Startwindow
                 My.Computer.FileSystem.RenameFile(
                     My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & ".zip", _removestring & "f.zip")
                 If Langname = "English" Then
-                    encrypt_list_status.Items.Add(String.Format("{0}Now is encrypted...........", "ARG0"))
+                    encrypt_list_status.Items.Add("Now is encrypted...........")
                 Else
-                    encrypt_list_status.Items.Add(String.Format("{0}Jetzt wird Verschlüsselt.......", "ARG0"))
+                    encrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
                 End If
                 Dim computerName = "."
                 Dim wmiServices = GetObject(
@@ -539,11 +539,11 @@ Public Class Startwindow
             Hide()
             systemtray.BalloonTipIcon = ToolTipIcon.Info
             If Langname = "English" Then
-                systemtray.BalloonTipText = String.Format("{0}C: \ drive is embedded.{1}WinCrypt runs in the background!", drivecb.Text, vbCrLf)
+                systemtray.BalloonTipText = "C: \ drive is embedded." & vbCrLf & "WinCrypt runs in the background!"
             Else
                 systemtray.BalloonTipText = String.Format("Laufwerk {0} ist eingebunden.{1}WinCrypt läuft im hintergrund!", drivecb.Text, vbCrLf)
             End If
-            systemtray.BalloonTipTitle = String.Format("Win{0}Crypt", "ARG0")
+            systemtray.BalloonTipTitle = "WinCrypt"
             systemtray.ShowBalloonTip(3000)
         Else
             Application.Exit()
@@ -706,11 +706,11 @@ Public Class Startwindow
             Hide()
             systemtray.BalloonTipIcon = ToolTipIcon.Info
             If Langname = "English" Then
-                systemtray.BalloonTipText = String.Format("{0}WinCrypt runs in the background!", "ARG0")
+                systemtray.BalloonTipText = "WinCrypt runs in the background!"
             Else
-                systemtray.BalloonTipText = String.Format("{0}WinCrypt läuft im hintergrund!", "ARG0")
+                systemtray.BalloonTipText = "WinCrypt läuft im hintergrund!"
             End If
-            systemtray.BalloonTipTitle = String.Format("{0}WinCrypt", "ARG0")
+            systemtray.BalloonTipTitle = "WinCrypt"
             systemtray.ShowBalloonTip(3000)
         End If
     End Sub

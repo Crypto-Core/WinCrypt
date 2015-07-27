@@ -29,10 +29,10 @@ Public Class WcSetting
     End Sub
 
     Private Sub okbt_Click(sender As Object, e As EventArgs) Handles okbt.Click
-        If languagecb.Text = String.Format("{0}Deutsch", "ARG0") Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
+        If languagecb.Text = "Deutsch" Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
         End If
-        If languagecb.Text = String.Format("{0}English", "ARG0") Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
+        If languagecb.Text = "English" Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
         Dim keyaes As New AES ' AES wird deklariert
@@ -121,11 +121,11 @@ Public Class WcSetting
         End If
         If _iniwrite.WertLesen("Info", "Lang") = "English" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf English gesetzt wurde
-            languagecb.Text = String.Format("{0}English", "ARG0") ' Wenn ja wird der ComboBox Text English sein
+            languagecb.Text = "English" ' Wenn ja wird der ComboBox Text English sein
         End If
         If _iniwrite.WertLesen("Info", "Lang") = "German" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf German gesetzt wurde
-            languagecb.Text = String.Format("{0}Deutsch", "ARG0") ' Wenn ja wird der ComboBox Text Deutsch sein
+            languagecb.Text = "Deutsch" ' Wenn ja wird der ComboBox Text Deutsch sein
         End If
     End Sub
 

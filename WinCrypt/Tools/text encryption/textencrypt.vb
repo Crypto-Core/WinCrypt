@@ -45,8 +45,8 @@ Namespace tools.text_encryption
 
         Private Sub TrackBar_Scroll(sender As Object, e As EventArgs) Handles TrackBar.Scroll
             If TrackBar.Value = 1 Then
-                text_input.Text = String.Format("{0}Text ausgabe", "ARG0")
-                text_output.Text = String.Format("{0}Text eingabe", "ARG0")
+                text_input.Text = "Text ausgabe"
+                text_output.Text = "Text eingabe"
                 text_output.ReadOnly = False
                 text_input.ReadOnly = True
                 encrypt_bt.Visible = False
@@ -56,8 +56,8 @@ Namespace tools.text_encryption
                 arrow_2.Image = My.Resources.uparrow
                 arrow_3.Image = My.Resources.uparrow
             Else
-                text_output.Text = String.Format("{0}Text ausgabe", "ARG0")
-                text_input.Text = String.Format("{0}Text eingabe", "ARG0")
+                text_output.Text = "Text ausgabe"
+                text_input.Text = "Text eingabe"
                 text_output.ReadOnly = True
                 text_input.ReadOnly = False
                 encrypt_bt.Visible = True

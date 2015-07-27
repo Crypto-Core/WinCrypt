@@ -36,9 +36,9 @@ Namespace tools.hash
                 '\\ Überprüfen ob der Hash richtig sein kann
                 If bruteforcesearchedHash.Text.Length < 32 Then
                     If _langname.langname = "English" Then
-                        MessageBox.Show(String.Format("{0}please enter a hash!", "ARG0"), String.Format("{0}note", "ARG0"), MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("please enter a hash!", "note", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MessageBox.Show(String.Format("{0}Bitte geben Sie einen Hash ein!", "ARG0"), String.Format("{0}Hinweis", "ARG0"), MessageBoxButtons.OK,
+                        MessageBox.Show("Bitte geben Sie einen Hash ein!", "Hinweis", MessageBoxButtons.OK,
                                         MessageBoxIcon.Information)
                     End If
                 Else
@@ -47,10 +47,10 @@ Namespace tools.hash
                         checkData = True
                     Else
                         If _langname.langname = "English" Then
-                            MessageBox.Show(String.Format("{0}the password list does not exist!", "ARG0"), String.Format("{0}passwordlist", "ARG0"), MessageBoxButtons.OK,
+                            MessageBox.Show("the password list does not exist!", "passwordlist", MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         Else
-                            MessageBox.Show(String.Format("{0}Die Passwortliste existiert nicht!", "ARG0"), String.Format("{0}Passwortliste", "ARG0"), MessageBoxButtons.OK,
+                            MessageBox.Show("Die Passwortliste existiert nicht!", "Passwortliste", MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         End If
                     End If
@@ -75,7 +75,7 @@ Namespace tools.hash
                     bruteforceHashtype.Enabled = False
                     bruteforceWorker_status.Start()
                     _bruteforceSate = True
-                    bruteforceToggle.Text = String.Format("{0}Cancel", "ARG0")
+                    bruteforceToggle.Text = "Cancel"
 
                     bgw.RunWorkerAsync()
                 End If
@@ -178,11 +178,11 @@ Namespace tools.hash
                 '\\ Fehlermeldung ausgeben
                 Select Case _langname.langname
                     Case "English"
-                        bruteforcerightPassword.Text = String.Format("{0}password: password not found!", "ARG0")
+                        bruteforcerightPassword.Text = "password: password not found!"
                     Case Else
-                        bruteforcerightPassword.Text = String.Format("{0}Passwort: Passwort nicht gefunden!", "ARG0")
+                        bruteforcerightPassword.Text = "Passwort: Passwort nicht gefunden!"
                 End Select
-                bruteforceLine.Text = String.Format("{0}Line:", "ARG0")
+                bruteforceLine.Text = "Line:"
 
                 '\\ Freigeben des verwendeten Speicher
                 GC.Collect()
@@ -212,7 +212,7 @@ Namespace tools.hash
             bruteforcesearchedHash.Enabled = True
             bruteforcerightPassword.Visible = True
             bruteforceLine.Visible = True
-            bruteforceToggle.Text = String.Format("{0}Brute Force", "ARG0")
+            bruteforceToggle.Text = "Brute Force"
             bruteforceHashtype.Enabled = True
 
             fileWordlist.Enabled = True
