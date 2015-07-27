@@ -1452,6 +1452,11 @@ Partial Class startwindow
         Me.gethotkey.Enabled = True
         Me.gethotkey.Interval = 10
         '
+        'export_db_dialog
+        '
+        Me.export_db_dialog.FileName = "export.db"
+        Me.export_db_dialog.Filter = "Database-file|*.db"
+        '
         'startwindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
