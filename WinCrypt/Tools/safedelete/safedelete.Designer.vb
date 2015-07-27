@@ -30,23 +30,23 @@ Partial Class safedelete
         Me.progressstatus = New System.Windows.Forms.ProgressBar()
         Me.selectpathbt = New System.Windows.Forms.Button()
         Me.filelb = New System.Windows.Forms.Label()
-        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        Me.bgwrk = New System.ComponentModel.BackgroundWorker()
+        Me.add_file_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.deletfilelist = New System.Windows.Forms.ListBox()
         Me.statuslb = New System.Windows.Forms.Label()
         Me.fileaddbt = New System.Windows.Forms.Button()
-        Me.dragdroplb = New System.Windows.Forms.Label()
         Me.removeentrybt = New System.Windows.Forms.Button()
         Me.form_head = New System.Windows.Forms.MenuStrip()
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.wincrypttitle = New System.Windows.Forms.Label()
         Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
-        Me.override_pb = New System.Windows.Forms.ProgressBar()
+        Me.overwrite_pb = New System.Windows.Forms.ProgressBar()
         Me.override_pb_lb = New System.Windows.Forms.Label()
         Me.abort_bt = New System.Windows.Forms.Button()
+        Me.report_bt = New System.Windows.Forms.Button()
+        Me.cleanlb1 = New System.Windows.Forms.Button()
         Me.form_head.SuspendLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,7 +57,7 @@ Partial Class safedelete
         Me.deletebt.FlatAppearance.BorderSize = 0
         Me.deletebt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.deletebt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.deletebt.Location = New System.Drawing.Point(192, 446)
+        Me.deletebt.Location = New System.Drawing.Point(179, 446)
         Me.deletebt.Name = "deletebt"
         Me.deletebt.Size = New System.Drawing.Size(75, 23)
         Me.deletebt.TabIndex = 0
@@ -128,10 +128,6 @@ Partial Class safedelete
         Me.filelb.TabIndex = 7
         Me.filelb.Text = "Ordner:"
         '
-        'bgwrk
-        '
-        Me.bgwrk.WorkerSupportsCancellation = True
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -145,12 +141,12 @@ Partial Class safedelete
         '
         Me.deletfilelist.AllowDrop = True
         Me.deletfilelist.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.deletfilelist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.deletfilelist.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.deletfilelist.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.deletfilelist.FormattingEnabled = True
         Me.deletfilelist.Location = New System.Drawing.Point(15, 230)
         Me.deletfilelist.Name = "deletfilelist"
-        Me.deletfilelist.Size = New System.Drawing.Size(405, 210)
+        Me.deletfilelist.Size = New System.Drawing.Size(405, 208)
         Me.deletfilelist.TabIndex = 10
         '
         'statuslb
@@ -176,24 +172,13 @@ Partial Class safedelete
         Me.fileaddbt.Text = "Datei hinzufügen"
         Me.fileaddbt.UseVisualStyleBackColor = False
         '
-        'dragdroplb
-        '
-        Me.dragdroplb.AutoSize = True
-        Me.dragdroplb.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.dragdroplb.ForeColor = System.Drawing.Color.DarkGray
-        Me.dragdroplb.Location = New System.Drawing.Point(12, 453)
-        Me.dragdroplb.Name = "dragdroplb"
-        Me.dragdroplb.Size = New System.Drawing.Size(53, 13)
-        Me.dragdroplb.TabIndex = 14
-        Me.dragdroplb.Text = "Drag&Drop"
-        '
         'removeentrybt
         '
         Me.removeentrybt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.removeentrybt.FlatAppearance.BorderSize = 0
         Me.removeentrybt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.removeentrybt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.removeentrybt.Location = New System.Drawing.Point(317, 443)
+        Me.removeentrybt.Location = New System.Drawing.Point(317, 446)
         Me.removeentrybt.Name = "removeentrybt"
         Me.removeentrybt.Size = New System.Drawing.Size(103, 23)
         Me.removeentrybt.TabIndex = 15
@@ -249,14 +234,14 @@ Partial Class safedelete
         Me.wincrypt_icon.TabIndex = 18
         Me.wincrypt_icon.TabStop = False
         '
-        'override_pb
+        'overwrite_pb
         '
-        Me.override_pb.ForeColor = System.Drawing.Color.Red
-        Me.override_pb.Location = New System.Drawing.Point(12, 144)
-        Me.override_pb.Maximum = 10
-        Me.override_pb.Name = "override_pb"
-        Me.override_pb.Size = New System.Drawing.Size(408, 23)
-        Me.override_pb.TabIndex = 21
+        Me.overwrite_pb.ForeColor = System.Drawing.Color.Red
+        Me.overwrite_pb.Location = New System.Drawing.Point(12, 144)
+        Me.overwrite_pb.Maximum = 10
+        Me.overwrite_pb.Name = "overwrite_pb"
+        Me.overwrite_pb.Size = New System.Drawing.Size(408, 23)
+        Me.overwrite_pb.TabIndex = 5
         '
         'override_pb_lb
         '
@@ -274,7 +259,7 @@ Partial Class safedelete
         Me.abort_bt.FlatAppearance.BorderSize = 0
         Me.abort_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.abort_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.abort_bt.Location = New System.Drawing.Point(192, 446)
+        Me.abort_bt.Location = New System.Drawing.Point(179, 446)
         Me.abort_bt.Name = "abort_bt"
         Me.abort_bt.Size = New System.Drawing.Size(75, 23)
         Me.abort_bt.TabIndex = 22
@@ -282,20 +267,48 @@ Partial Class safedelete
         Me.abort_bt.UseVisualStyleBackColor = False
         Me.abort_bt.Visible = False
         '
+        'report_bt
+        '
+        Me.report_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.report_bt.Enabled = False
+        Me.report_bt.FlatAppearance.BorderSize = 0
+        Me.report_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.report_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.report_bt.Location = New System.Drawing.Point(15, 446)
+        Me.report_bt.Name = "report_bt"
+        Me.report_bt.Size = New System.Drawing.Size(75, 23)
+        Me.report_bt.TabIndex = 23
+        Me.report_bt.Text = "Report"
+        Me.report_bt.UseVisualStyleBackColor = False
+        '
+        'cleanlb1
+        '
+        Me.cleanlb1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cleanlb1.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.cleanlb1.FlatAppearance.BorderSize = 0
+        Me.cleanlb1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cleanlb1.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
+        Me.cleanlb1.Location = New System.Drawing.Point(274, 446)
+        Me.cleanlb1.Name = "cleanlb1"
+        Me.cleanlb1.Size = New System.Drawing.Size(37, 23)
+        Me.cleanlb1.TabIndex = 24
+        Me.cleanlb1.UseVisualStyleBackColor = False
+        '
         'safedelete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(432, 475)
+        Me.Controls.Add(Me.cleanlb1)
+        Me.Controls.Add(Me.report_bt)
         Me.Controls.Add(Me.abort_bt)
         Me.Controls.Add(Me.override_pb_lb)
-        Me.Controls.Add(Me.override_pb)
+        Me.Controls.Add(Me.overwrite_pb)
         Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.form_head)
         Me.Controls.Add(Me.removeentrybt)
-        Me.Controls.Add(Me.dragdroplb)
         Me.Controls.Add(Me.fileaddbt)
         Me.Controls.Add(Me.statuslb)
         Me.Controls.Add(Me.deletfilelist)
@@ -327,21 +340,21 @@ Partial Class safedelete
     Friend WithEvents progressstatus As System.Windows.Forms.ProgressBar
     Friend WithEvents selectpathbt As System.Windows.Forms.Button
     Friend WithEvents filelb As System.Windows.Forms.Label
-    Friend WithEvents OpenFileDialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents add_file_dialog As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents FolderBrowserDialog As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents deletfilelist As System.Windows.Forms.ListBox
     Friend WithEvents statuslb As System.Windows.Forms.Label
     Friend WithEvents fileaddbt As System.Windows.Forms.Button
-    Friend WithEvents dragdroplb As System.Windows.Forms.Label
     Friend WithEvents removeentrybt As System.Windows.Forms.Button
     Friend WithEvents form_head As System.Windows.Forms.MenuStrip
     Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
     Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
-    Friend WithEvents override_pb As System.Windows.Forms.ProgressBar
+    Friend WithEvents overwrite_pb As System.Windows.Forms.ProgressBar
     Friend WithEvents override_pb_lb As System.Windows.Forms.Label
-    Friend WithEvents bgwrk As System.ComponentModel.BackgroundWorker
     Friend WithEvents abort_bt As System.Windows.Forms.Button
+    Friend WithEvents report_bt As System.Windows.Forms.Button
+    Friend WithEvents cleanlb1 As System.Windows.Forms.Button
 End Class

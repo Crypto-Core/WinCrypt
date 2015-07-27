@@ -135,4 +135,28 @@ Public Class passwordmanager
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
+
+    Private Sub user_txt_TextChanged(sender As Object, e As EventArgs) Handles user_txt.TextChanged
+        If user_txt.Text.Length > 1 Then
+            copy_user_bt.Enabled = True
+        Else
+            copy_user_bt.Enabled = False
+        End If
+    End Sub
+
+    Private Sub password_txt_TextChanged(sender As Object, e As EventArgs) Handles password_txt.TextChanged
+        If password_txt.Text.Length > 1 Then
+            copy_password_bt.Enabled = True
+        Else
+            copy_password_bt.Enabled = False
+        End If
+    End Sub
+
+    Private Sub source_txt_TextChanged(sender As Object, e As EventArgs) Handles source_txt.TextChanged
+        If source_txt.Text.Length > 1 Then
+            copy_source_bt.Enabled = True
+        Else
+            copy_source_bt.Enabled = False
+        End If
+    End Sub
 End Class

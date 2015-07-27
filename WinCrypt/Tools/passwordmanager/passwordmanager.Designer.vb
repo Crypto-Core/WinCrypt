@@ -215,6 +215,7 @@ Partial Class passwordmanager
         '
         Me.copy_user_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.copy_user_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.copy_user_bt.Enabled = False
         Me.copy_user_bt.FlatAppearance.BorderSize = 0
         Me.copy_user_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_user_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
@@ -229,6 +230,7 @@ Partial Class passwordmanager
         '
         Me.copy_password_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.copy_password_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.copy_password_bt.Enabled = False
         Me.copy_password_bt.FlatAppearance.BorderSize = 0
         Me.copy_password_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_password_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
@@ -243,6 +245,7 @@ Partial Class passwordmanager
         '
         Me.copy_source_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.copy_source_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.copy_source_bt.Enabled = False
         Me.copy_source_bt.FlatAppearance.BorderSize = 0
         Me.copy_source_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.copy_source_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight

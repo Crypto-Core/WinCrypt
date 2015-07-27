@@ -4,6 +4,7 @@ Imports System.Text
 Public Class safedelete
     Dim erasefile As New safedelete_function
     Dim delThread_Threading As System.Threading.Thread
+    Dim errorreport As New StringBuilder
     Declare Auto Function SendMessage Lib "user32.dll" (ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, ByVal lParam As Integer) As Integer
     Enum ProgressBarColor
         Green = &H1
@@ -15,7 +16,7 @@ Public Class safedelete
     End Sub
     Private Sub safedelete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Control.CheckForIllegalCrossThreadCalls = False
-        ChangeProgBarColor(override_pb, ProgressBarColor.Red)
+        ChangeProgBarColor(overwrite_pb, ProgressBarColor.Red)
     End Sub
     Private Function UnicodeStringToBytes(ByVal str As String) As Byte()
         Return System.Text.Encoding.Unicode.GetBytes(str)
@@ -45,16 +46,11 @@ Public Class safedelete
     Private Sub deletefilelist_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles deletfilelist.DragEnter
         e.Effect = e.AllowedEffect
     End Sub
-
-    Private Sub bgwrk_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgwrk.RunWorkerCompleted
-
-    End Sub
-
     Private Sub fileaddbt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles fileaddbt.Click
-        OpenFileDialog.ShowDialog()
-        If OpenFileDialog.FileName.Length > 0 Then
-            deletfilelist.Items.Add(OpenFileDialog.FileName)
-            OpenFileDialog.FileName = ""
+        add_file_dialog.ShowDialog()
+        If add_file_dialog.FileName.Length > 0 Then
+            deletfilelist.Items.Add(add_file_dialog.FileName)
+            add_file_dialog.FileName = ""
         Else : End If
     End Sub
 
@@ -98,7 +94,7 @@ Public Class safedelete
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else : End If
     End Sub
-    Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
+    Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = Windows.Forms.MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
@@ -106,19 +102,22 @@ Public Class safedelete
     End Sub
 
     Private Sub deletebt_Click(sender As Object, e As EventArgs) Handles deletebt.Click
-        deletebt.Visible = False
-        abort_bt.Visible = True
-
         delThread_Threading = New System.Threading.Thread(AddressOf delThreas)
         delThread_Threading.Start()
-        
+        deletebt.Visible = False
+        abort_bt.Visible = True
     End Sub
     Sub delThreas()
         If MsgBox("Möchten Sie wirklich alle Daten unwiederruflich löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
             deletfilelist.SelectedIndex = 0
+            file_txt.Enabled = False
+            selectpathbt.Enabled = False
+            fileaddbt.Enabled = False
+            overwritecb.Enabled = False
+            deletfilelist.Enabled = False
             For list_i As Integer = 0 To deletfilelist.Items.Count - 1
                 progressstatus.Maximum = deletfilelist.Items.Count
-                override_pb.Maximum = overwritecb.Text.Replace("x", "")
+                overwrite_pb.Maximum = overwritecb.Text.Replace("x", "")
                 Try
                     deletfilelist.SelectedIndex = list_i
                 Catch ex As Exception
@@ -128,41 +127,67 @@ Public Class safedelete
                     Try
                         Directory.Delete(deletfilelist.SelectedItem, True)
                     Catch ex As Exception
-                        'Add ReportList
+                        errorreport.Append(ErrorToString)
+                        errorreport.AppendLine()
+                        errorreport.AppendLine()
                     End Try
 
                 Else
 
                     For i As Integer = 0 To overwritecb.Text.Replace("x", "")
-
                         erasefile.SafeEraser(deletfilelist.SelectedItem, 1, False)
-                        override_pb.Value = i
-
+                        overwrite_pb.Value = i
                     Next
                 End If
                 progressstatus.Value = list_i
-
                 Try
                     File.Delete(deletfilelist.SelectedItem)
                 Catch ex As Exception
-
+                    errorreport.Append(ErrorToString)
+                    errorreport.AppendLine()
+                    errorreport.AppendLine()
                 End Try
             Next
             MsgBox("Alle Daten wurden unwiederruflich gelöscht!", MsgBoxStyle.Information)
-            progressstatus.Value = 0
-            override_pb.Value = 0
+            file_txt.Enabled = True
+            selectpathbt.Enabled = True
+            fileaddbt.Enabled = True
+            overwritecb.Enabled = True
+            deletfilelist.Enabled = True
+            report_bt.Enabled = True
             deletfilelist.Items.Clear()
         Else
-
+            deletebt.Visible = True
+            abort_bt.Visible = False
+            delThread_Threading.Abort()
         End If
+
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles abort_bt.Click
+    Private Sub abort_bt_Click(sender As Object, e As EventArgs) Handles abort_bt.Click
         deletebt.Visible = True
         abort_bt.Visible = False
         deletfilelist.Items.Clear()
         progressstatus.Value = 0
-        override_pb.Value = 0
+        overwrite_pb.Value = 0
         delThread_Threading.Abort()
+    End Sub
+
+    Private Sub report_bt_Click(sender As Object, e As EventArgs) Handles report_bt.Click
+        del_report.report_txt.Text = errorreport.ToString
+        del_report.Show()
+    End Sub
+
+    Private Sub cleanlb1_Click(sender As Object, e As EventArgs) Handles cleanlb1.Click
+        deletfilelist.Items.Clear()
+    End Sub
+
+    Private Sub report_bt_EnabledChanged(sender As Object, e As EventArgs) Handles report_bt.EnabledChanged
+        If report_bt.Enabled = True Then
+            abort_bt.Visible = False
+            deletebt.Visible = True
+            progressstatus.Value = 0
+            overwrite_pb.Value = 0
+        End If
     End Sub
 End Class
