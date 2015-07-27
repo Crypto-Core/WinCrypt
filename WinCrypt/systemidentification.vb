@@ -1,6 +1,7 @@
 ﻿Option Strict On
 
 Imports System.IO
+Imports Project_WinCrypt.classes
 
 Public Class Systemidentification
     ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
@@ -99,7 +100,7 @@ Public Class Systemidentification
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
-            WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else
         End If
     End Sub

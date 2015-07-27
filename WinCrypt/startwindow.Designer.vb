@@ -1457,7 +1457,7 @@ Partial Class Startwindow
         Me.export_db_dialog.FileName = "export.db"
         Me.export_db_dialog.Filter = "Database-file|*.db"
         '
-        'startwindow
+        'Startwindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1474,7 +1474,7 @@ Partial Class Startwindow
         Me.KeyPreview = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.MaximizeBox = False
-        Me.Name = "startwindow"
+        Me.Name = "Startwindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "WinCrypt 1.3"
         Me.MenuStrip.ResumeLayout(False)

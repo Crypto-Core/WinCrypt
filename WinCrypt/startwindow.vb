@@ -5,6 +5,7 @@ Imports System.IO
 Imports System.Threading
 Imports Microsoft.VisualBasic.FileIO
 Imports Microsoft.Win32
+Imports Project_WinCrypt.classes
 
 Public Class Startwindow
     ReadOnly _filezip As New Zip
@@ -623,9 +624,9 @@ Public Class Startwindow
             key_lb1.Visible = False
             keyencrypt.Visible = False
             key_lb.Visible = False
-            textencrypt.password_txt.Visible = False
-            textencrypt.password_lb.Visible = False
-            textencrypt.generate_bt.Visible = False
+            tools.text_encryption.Textencrypt.password_txt.Visible = False
+            tools.text_encryption.Textencrypt.password_lb.Visible = False
+            tools.text_encryption.Textencrypt.generate_bt.Visible = False
             tools.data_encryption.Filedecrypt.passwordtxt.Visible = False
             tools.data_encryption.Filedecrypt.pwdlb.Visible = False
             tools.data_encryption.Fileencrypt.passwordlb.Visible = False
@@ -639,9 +640,9 @@ Public Class Startwindow
                 key_lb1.Visible = True
                 keyencrypt.Visible = True
                 key_lb.Visible = True
-                textencrypt.password_txt.Visible = True
-                textencrypt.password_lb.Visible = True
-                textencrypt.generate_bt.Visible = True
+                tools.text_encryption.Textencrypt.password_txt.Visible = True
+                tools.text_encryption.Textencrypt.password_lb.Visible = True
+                tools.text_encryption.Textencrypt.generate_bt.Visible = True
                 tools.data_encryption.Filedecrypt.passwordtxt.Visible = True
                 tools.data_encryption.Filedecrypt.pwdlb.Visible = True
                 tools.data_encryption.Fileencrypt.passwordlb.Visible = True
@@ -921,35 +922,35 @@ Public Class Startwindow
     End Sub
 
     Private Sub textencrypt_bt_menu(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click
-        textencrypt.Show()
+        tools.text_encryption.Textencrypt.Show()
     End Sub
 
     Private Sub md5_converter_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_converter_bt_menu.Click
-        converter.Show()
+        tools.hash.converter.Show()
     End Sub
 
     Private Sub md5_bf_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_menu.Click
-        bruteforce.Show()
+        tools.hash.bruteforce.Show()
     End Sub
 
     Private Sub rsa_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
-        rsa_encrypt.Show()
+        tools.rsa.rsa_encrypt.Show()
     End Sub
 
     Private Sub rsa_decrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_decrypt_bt_menu.Click
-        rsa_decrypt.Show()
+        tools.rsa.rsa_decrypt.Show()
     End Sub
 
     Private Sub rsa_create_keys_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_create_keys_bt_menu.Click
-        rsa_create_keys.Show()
+        tools.rsa.rsa_create_keys.Show()
     End Sub
 
     Private Sub send_mail_bt_menu_Click(sender As Object, e As EventArgs) Handles send_mail_bt_menu.Click
-        sendmail.Show()
+        tools.mail.sendmail.Show()
     End Sub
 
     Private Sub pw_manager_bt_menu_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_menu.Click
-        passwordmanager.Show()
+        tools.passwordmanager.passwordmanager.Show()
     End Sub
 
     Private Sub export_db_bt_menu_Click(sender As Object, e As EventArgs) Handles export_db_bt_menu.Click
@@ -1076,11 +1077,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub pw_generator_bt_menu_Click(sender As Object, e As EventArgs) Handles pw_generator_bt_menu.Click
-        passwordgenerator.Show()
+        tools.passwordgenerator.passwordgenerator.Show()
     End Sub
 
     Private Sub delete_file_bt_menu_Click(sender As Object, e As EventArgs) Handles delete_file_bt_menu.Click
-        safedelete.Show()
+        tools.safedelete.safedelete.Show()
     End Sub
 
     Private Sub update_bt_menu_Click(sender As Object, e As EventArgs) Handles update_bt_menu.Click
@@ -1133,24 +1134,24 @@ Public Class Startwindow
 
     Private Sub text_encrypt_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles text_encrypt_bt_systemtray.Click
-        textencrypt.Show()
+        tools.text_encryption.Textencrypt.Show()
     End Sub
 
     Private Sub md5_converter_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles md5_converter_bt_systemtray.Click
-        converter.Show()
+        tools.hash.converter.Show()
     End Sub
 
     Private Sub md5_bf_bt_systemtray_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_systemtray.Click
-        bruteforce.Show()
+        tools.hash.bruteforce.Show()
     End Sub
 
     Private Sub send_mail_bt_systemtray_Click(sender As Object, e As EventArgs) Handles send_mail_bt_systemtray.Click
-        sendmail.Show()
+        tools.mail.sendmail.Show()
     End Sub
 
     Private Sub pw_manager_bt_systemtray_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_systemtray.Click
-        passwordmanager.Show()
+        tools.passwordmanager.passwordmanager.Show()
     End Sub
 
     Private Sub systemidentification_bt_systemtray_Click(sender As Object, e As EventArgs) _
@@ -1159,27 +1160,27 @@ Public Class Startwindow
     End Sub
 
     Private Sub pwg_bt_systemtray_Click(sender As Object, e As EventArgs) Handles pwg_bt_systemtray.Click
-        passwordgenerator.Show()
+        tools.passwordgenerator.passwordgenerator.Show()
     End Sub
 
     Private Sub file_delete_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles file_delete_bt_systemtray.Click
-        safedelete.Show()
+        tools.safedelete.safedelete.Show()
     End Sub
 
     Private Sub rsa_encrypt_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles rsa_encrypt_bt_systemtray.Click
-        rsa_decrypt.Show()
+        tools.rsa.rsa_decrypt.Show()
     End Sub
 
     Private Sub rsa_decrypt_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles rsa_decrypt_bt_systemtray.Click
-        rsa_encrypt.Show()
+        tools.rsa.rsa_encrypt.Show()
     End Sub
 
     Private Sub rsa_create_keys_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles rsa_create_keys_bt_systemtray.Click
-        rsa_create_keys.Show()
+        tools.rsa.rsa_create_keys.Show()
     End Sub
 
     Private Sub export_db_bt_systemtray_Click(sender As Object, e As EventArgs) Handles export_db_bt_systemtray.Click
@@ -1315,9 +1316,9 @@ Public Class Startwindow
             ' STRG+P öffnet den Passwortmanager
             If CBool(GetAsyncKeyState(Keys.F2)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                passwordmanager.Show()
-                passwordmanager.Focus()
-                passwordmgr_pass.Focus()
+                tools.passwordmanager.passwordmanager.Show()
+                tools.passwordmanager.passwordmanager.Focus()
+                tools.passwordmanager.passwordmgr_pass.Focus()
                 newpwmgrdatabase.Focus()
                 gethotkey.Enabled = True
             End If
@@ -1325,8 +1326,8 @@ Public Class Startwindow
             ' Shift+P öffnet den Passwortgenerator
             If CBool(GetAsyncKeyState(Keys.F2)) AndAlso CBool(GetAsyncKeyState(Keys.LShiftKey)) Then
                 gethotkey.Enabled = False
-                passwordgenerator.Show()
-                passwordgenerator.Focus()
+                tools.passwordgenerator.passwordgenerator.Show()
+                tools.passwordgenerator.passwordgenerator.Focus()
                 gethotkey.Enabled = True
             End If
 
@@ -1349,26 +1350,26 @@ Public Class Startwindow
             ' Shift+T öffnet das Text ver- und entschlüsseln fenster
             If CBool(GetAsyncKeyState(Keys.T)) AndAlso CBool(GetAsyncKeyState(Keys.LShiftKey)) Then
                 gethotkey.Enabled = False
-                textencrypt.Show()
-                textencrypt.Focus()
+                tools.text_encryption.Textencrypt.Show()
+                tools.text_encryption.Textencrypt.Focus()
                 gethotkey.Enabled = True
             End If
 
             ' Shift+M öffnet das E-Mail senden fenster
             If CBool(GetAsyncKeyState(Keys.M)) AndAlso CBool(GetAsyncKeyState(Keys.LShiftKey)) Then
                 gethotkey.Enabled = False
-                sendmail.Show()
-                sendmail.TopMost = True
-                sendmail.Focus()
-                sendmail.TopMost = False
+                tools.mail.sendmail.Show()
+                tools.mail.sendmail.TopMost = True
+                tools.mail.sendmail.Focus()
+                tools.mail.sendmail.TopMost = False
                 gethotkey.Enabled = True
             End If
 
             ' Shift+D öffnet das E-Mail senden fenster
             If CBool(GetAsyncKeyState(Keys.D)) AndAlso CBool(GetAsyncKeyState(Keys.LShiftKey)) Then
                 gethotkey.Enabled = False
-                safedelete.Show()
-                safedelete.Focus()
+                tools.safedelete.safedelete.Show()
+                tools.safedelete.safedelete.Focus()
                 gethotkey.Enabled = True
             End If
 
@@ -1384,16 +1385,16 @@ Public Class Startwindow
             ' STRG+F8 öffnet das fenster RSA Verschlüsselung
             If CBool(GetAsyncKeyState(Keys.F8)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                rsa_encrypt.Show()
-                rsa_encrypt.Focus()
+                tools.rsa.rsa_encrypt.Show()
+                tools.rsa.rsa_encrypt.Focus()
                 gethotkey.Enabled = True
             End If
 
             ' STRG+F9 öffnet das fenster RSA Entschlüsselung
             If CBool(GetAsyncKeyState(Keys.F9)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                rsa_decrypt.Show()
-                rsa_decrypt.Focus()
+                tools.rsa.rsa_decrypt.Show()
+                tools.rsa.rsa_decrypt.Focus()
                 gethotkey.Enabled = True
             End If
         Else
@@ -1404,7 +1405,7 @@ Public Class Startwindow
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
-            WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else
         End If
     End Sub
