@@ -310,6 +310,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die C: \ drive is embedded. ähnelt.
+        '''</summary>
+        Friend ReadOnly Property Startwindow_Form1_FormClosing_C____drive_is_embedded_() As String
+            Get
+                Return ResourceManager.GetString("Startwindow_Form1_FormClosing_C____drive_is_embedded_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die Laufwerk  ähnelt.
+        '''</summary>
+        Friend ReadOnly Property Startwindow_Form1_FormClosing_Laufwerk_() As String
+            Get
+                Return ResourceManager.GetString("Startwindow_Form1_FormClosing_Laufwerk_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die WinCrypt runs in the background! ähnelt.
+        '''</summary>
+        Friend ReadOnly Property Startwindow_Form1_FormClosing_WinCrypt_runs_in_the_background_() As String
+            Get
+                Return ResourceManager.GetString("Startwindow_Form1_FormClosing_WinCrypt_runs_in_the_background_", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property textencrypt() As System.Drawing.Bitmap

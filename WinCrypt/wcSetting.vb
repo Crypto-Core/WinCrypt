@@ -3,21 +3,21 @@ Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
-Public Class wcSetting
-    Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _
+Public Class WcSetting
+    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _
     ' Der aktuelle Pfad der Project WinCrypt.exe
-    Dim ReadOnly _
-        iniwrite As _
-            New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+    ReadOnly _
+        _iniwrite As _
+            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
-    Dim ReadOnly _
-        ini As _
-            New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+    ReadOnly _
+        _ini As _
+            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
-    Dim ReadOnly lang As New language ' Die Sprache wird deklariert
-    Dim ReadOnly wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
+    ReadOnly _lang As New language ' Die Sprache wird deklariert
+    ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
     ' Die Bios ID wird deklariert
-    Dim bios As String
+    Dim _bios As String
 
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
@@ -29,22 +29,22 @@ Public Class wcSetting
     End Sub
 
     Private Sub okbt_Click(sender As Object, e As EventArgs) Handles okbt.Click
-        If languagecb.Text = "Deutsch" Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
-            iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
+        If languagecb.Text = String.Format("{0}Deutsch", "ARG0") Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
+            _iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
         End If
-        If languagecb.Text = "English" Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
-            iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
+        If languagecb.Text = String.Format("{0}English", "ARG0") Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
+            _iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
         Dim keyaes As New AES ' AES wird deklariert
         Dim lGuid As GuidAttribute ' Die WinCrypt GUID wird deklariert
         lGuid = DirectCast(
             Assembly.GetExecutingAssembly().GetCustomAttributes(
-                GetType(GuidAttribute), False)(0),
+                GetType(GuidAttribute), False)(0), 
             GuidAttribute)
 
         If key_cb.Checked = True Then ' Es wird überprüft ob der Masterkey aktiviert wurde
             ' Wenn ja wird dieses Passwort in AES verschlüsselt und in der config.ini eingetragen
-            iniwrite.WertSchreiben("Key", "master", CStr(keyaes.AESEncrypt(key_txt.Text, bios, lGuid.Value)))
+            _iniwrite.WertSchreiben("Key", "master", CStr(keyaes.AESEncrypt(key_txt.Text, _bios, lGuid.Value)))
             My.Settings.Masterkey = True ' In den WinCrypt Einstellungen wird der wert Masterkey auf true gesetzt
         Else
             ' Wenn der Masterkey nicht aktiviert wurde wird der Masterkey in den Einstellungen auf false gesetzt
@@ -58,39 +58,39 @@ Public Class wcSetting
                 New INIDatei(
                     root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
-        startwindow.langname = i.WertLesen("Info", "Lang") _
+        Startwindow.Langname = i.WertLesen("Info", "Lang") _
         ' Die gewählte Sprache wird in dem String startwindow.langname gesetzt
-        lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
-        Me.Close() ' Das Fenster wird geschlossen
+        _lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
+        Close() ' Das Fenster wird geschlossen
     End Sub
 
-    Private Sub MakeShortcut(File As String, ShortcutFolder As String, Name As String, WorkDirectory As String)
-        Dim WshShell As Object = CreateObject("WScript.Shell") ' Es wird eine Verknüpfung deklariert
-        Dim NewShortcut As Object = WshShell.CreateShortcut(ShortcutFolder & "\" & Name & ".lnk") _
+    Private Sub MakeShortcut(file As String, shortcutFolder As String, Name As String, workDirectory As String)
+        Dim wshShell As Object = CreateObject("WScript.Shell") ' Es wird eine Verknüpfung deklariert
+        Dim newShortcut As Object = wshShell.CreateShortcut(shortcutFolder & "\" & Name & ".lnk") _
         ' Es wird eine neue Verknüpfung erstellt
-        NewShortcut.TargetPath = File 'Es wird das Schlüsselwort ausgelesen und gesetzt
+        newShortcut.TargetPath = file 'Es wird das Schlüsselwort ausgelesen und gesetzt
 
         ' Wenn WinCrypt minimiert starten gewählt wurde werden diese Einstellungen in den Verknüpfungseigenschaften gesetzt
         If startminwincryptrb.Checked = True Then
-            NewShortcut.WindowStyle = 7
+            newShortcut.WindowStyle = 7
         End If
 
         ' Wenn WinCrypt normal starten gewählt wurde werden diese Einstellungen in den Verknüpfungseigenschaften gesetzt
         If startnormalwincrypt.Checked = True Then
-            NewShortcut.WindowStyle = 1
+            newShortcut.WindowStyle = 1
         End If
-        NewShortcut.IconLocation = File & ",0" ' Das standardicon vom index 0 wird der Verknüpfung zugewiesen
-        NewShortcut.WorkingDirectory = WorkDirectory
-        NewShortcut.Save() ' Die Verknüpfungseinstellungen werden gespeichert
+        newShortcut.IconLocation = file & ",0" ' Das standardicon vom index 0 wird der Verknüpfung zugewiesen
+        newShortcut.WorkingDirectory = workDirectory
+        newShortcut.Save() ' Die Verknüpfungseinstellungen werden gespeichert
     End Sub
 
     Private Sub wcSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lang.check() ' Es wird die Sprache überprüft
+        _lang.check() ' Es wird die Sprache überprüft
 
         'Alle leerzeichen der Bios ID werden entfernt
-        For Each ver In wmiobj.Instances_
-            bios = ver.SerialNumber
-            bios.Replace(" ", "")
+        For Each ver In _wmiobj.Instances_
+            _bios = ver.SerialNumber
+            _bios.Replace(" ", "")
         Next
 
         If My.Settings.Masterkey = True Then _
@@ -99,15 +99,15 @@ Public Class wcSetting
         Else
             key_cb.Checked = False ' Wenn nicht wird die Masterkey Checkbox nicht ausgewählt
         End If
-        If ini.WertLesen("Info", "Shortcut") = "minimized" Then _
+        If _ini.WertLesen("Info", "Shortcut") = "minimized" Then _
             ' Es wird überprüft ob die Verknüpfung auf minimiert gesetzt wurde
             startminwincryptrb.Checked = True ' Wenn ja wird die ,,WinCrypt minimiert starten" RadioBox angewählt
-        Else :
+        Else
         End If
-        If ini.WertLesen("Info", "Shortcut") = "normal" Then _
+        If _ini.WertLesen("Info", "Shortcut") = "normal" Then _
             ' Es wird überprüft ob die Verknüpfung auf normal gesetzt wurde
             startnormalwincrypt.Checked = True ' Wenn ja wird die ,,WinCrypt normal starten" RadioBox angewählt
-        Else :
+        Else
         End If
 
         ' Es wird überprüft ob die WinCrypt verknüpfung im Startup Ordner existiert
@@ -119,13 +119,13 @@ Public Class wcSetting
         Else
             startwincb.Checked = False ' Falls nicht wird die ,,WinCrypt mit Windows starten" Checkbox nicht angewählt
         End If
-        If iniwrite.WertLesen("Info", "Lang") = "English" Then _
+        If _iniwrite.WertLesen("Info", "Lang") = "English" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf English gesetzt wurde
-            languagecb.Text = "English" ' Wenn ja wird der ComboBox Text English sein
+            languagecb.Text = String.Format("{0}English", "ARG0") ' Wenn ja wird der ComboBox Text English sein
         End If
-        If iniwrite.WertLesen("Info", "Lang") = "German" Then _
+        If _iniwrite.WertLesen("Info", "Lang") = "German" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf German gesetzt wurde
-            languagecb.Text = "Deutsch" ' Wenn ja wird der ComboBox Text Deutsch sein
+            languagecb.Text = String.Format("{0}Deutsch", "ARG0") ' Wenn ja wird der ComboBox Text Deutsch sein
         End If
     End Sub
 
@@ -157,11 +157,11 @@ Public Class wcSetting
                              "C:\Users\" & Environment.UserName &
                              "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt",
                              My.Application.Info.DirectoryPath)
-                ini.WertSchreiben("Info", "Shortcut", "minimized") _
+                _ini.WertSchreiben("Info", "Shortcut", "minimized") _
                 ' in der config.ini wird der Wert minimized gespeichert das WinCrypt beim Systemstart minimiert gestartet werden soll
-            Else :
+            Else
             End If
-        Else :
+        Else
         End If
     End Sub
 
@@ -175,9 +175,9 @@ Public Class wcSetting
                              "C:\Users\" & Environment.UserName &
                              "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt",
                              My.Application.Info.DirectoryPath)
-                ini.WertSchreiben("Info", "Shortcut", "normal") _
+                _ini.WertSchreiben("Info", "Shortcut", "normal") _
                 ' in der config.ini wird der Wert minimized gespeichert das WinCrypt beim Systemstart normal gestartet werden soll
-            Else :
+            Else
             End If
         End If
     End Sub
@@ -211,36 +211,36 @@ Public Class wcSetting
         Dim lGuid As GuidAttribute ' Es wird die Application GUID deklariert
         lGuid = DirectCast(
             Assembly.GetExecutingAssembly().GetCustomAttributes(
-                GetType(GuidAttribute), False)(0),
+                GetType(GuidAttribute), False)(0), 
             GuidAttribute)
         If My.Settings.Masterkey = True Then ' Wenn in den Masterkey einstellungen der Wert auf true steht
-            key_txt.Text = readkey.AESDecrypt(iniwrite.WertLesen("Key", "master"), bios, lGuid.Value) _
+            key_txt.Text = readkey.AESDecrypt(_iniwrite.WertLesen("Key", "master"), _bios, lGuid.Value) _
             ' dann wird das Passwort in AES verschlüsselt und in der config.ini geschrieben
-        Else :
+        Else
         End If
     End Sub
 
     Private Sub minimize_bt_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
-        Me.WindowState = FormWindowState.Minimized
+        WindowState = FormWindowState.Minimized
     End Sub
 
     Private Sub exit_bt_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
         If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
-            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+            WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else
         End If
     End Sub
 
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
-            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+            WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else
         End If
     End Sub
 End Class

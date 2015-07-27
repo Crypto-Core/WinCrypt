@@ -6478,4 +6478,13 @@
   <data name="MailSend16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\MailSend16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Startwindow_Form1_FormClosing_C____drive_is_embedded_" xml:space="preserve">
+    <value>C: \ drive is embedded.</value>
+  </data>
+  <data name="Startwindow_Form1_FormClosing_WinCrypt_runs_in_the_background_" xml:space="preserve">
+    <value>WinCrypt runs in the background!</value>
+  </data>
+  <data name="Startwindow_Form1_FormClosing_Laufwerk_" xml:space="preserve">
+    <value>Laufwerk </value>
+  </data>
 </root>

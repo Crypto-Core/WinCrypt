@@ -2,19 +2,19 @@
 
 Imports System.IO
 Imports Project_WinCrypt.classes
-
-Public Class passwordmanager
-    Dim ReadOnly aes As New AES
-    Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+Imports Project_WinCrypt.My
+Public Class Passwordmanager
+    ReadOnly _aes As New AES
+    ReadOnly _root As New DirectoryInfo(Computer.FileSystem.CurrentDirectory)
 
     Public _
-        ini As _
+        Ini As _
             New INIDatei(
-                root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
 
-    Public schleife As Integer = 0
-    Public index As Integer = 0
-    Public mgrpass As String
+    Public Schleife As Integer = 0
+    Public Index As Integer = 0
+    Public Mgrpass As String
 
     Private Sub add_bt_Click(sender As Object, e As EventArgs) Handles add_bt.Click
         passwordmanager_add.Show()
@@ -69,15 +69,14 @@ Public Class passwordmanager
         Try
             Dim readdb As String
             readdb =
-                My.Computer.FileSystem.ReadAllText(
-                    root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
-            If mgrpass = "" Then
+                Computer.FileSystem.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+            If Mgrpass = "" Then
             Else
-                My.Computer.FileSystem.WriteAllText(
-                    root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
-                    CStr(aes.AESEncrypt(readdb, mgrpass, startwindow.biosid)), False)
+                Computer.FileSystem.WriteAllText(
+                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                    CStr(_aes.AESEncrypt(readdb, Mgrpass, startwindow.biosid)), False)
             End If
-            mgrpass = ""
+            Mgrpass = ""
         Catch ex As Exception
 
         End Try
@@ -85,8 +84,8 @@ Public Class passwordmanager
 
     Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If _
-            My.Computer.FileSystem.FileExists(
-                root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            Computer.FileSystem.FileExists(
+                _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
             passwordmgr_pass.ShowDialog()
         Else
             If startwindow.langname = "English" Then
@@ -107,13 +106,13 @@ Public Class passwordmanager
                 End If
             End If
         End If
-        If mgrpass = "" Then
+        If Mgrpass = "" Then
             Me.Close()
         End If
     End Sub
 
     Private Sub copy_user_bt_Click(sender As Object, e As EventArgs) Handles copy_user_bt.Click
-        My.Computer.Clipboard.SetText(user_txt.Text)
+        Computer.Clipboard.SetText(user_txt.Text)
         If startwindow.langname = "English" Then
             MsgBox("User has been copied", MsgBoxStyle.Information)
         Else
@@ -122,7 +121,7 @@ Public Class passwordmanager
     End Sub
 
     Private Sub copy_password_bt_Click(sender As Object, e As EventArgs) Handles copy_password_bt.Click
-        My.Computer.Clipboard.SetText(password_txt.Text)
+        Computer.Clipboard.SetText(password_txt.Text)
         If startwindow.langname = "English" Then
             MsgBox("Password has been copied", MsgBoxStyle.Information)
         Else
@@ -131,7 +130,7 @@ Public Class passwordmanager
     End Sub
 
     Private Sub copy_source_bt_Click(sender As Object, e As EventArgs) Handles copy_source_bt.Click
-        My.Computer.Clipboard.SetText(source_txt.Text)
+        Computer.Clipboard.SetText(source_txt.Text)
         If startwindow.langname = "English" Then
             MsgBox("Source has been copied", MsgBoxStyle.Information)
         Else
@@ -151,7 +150,7 @@ Public Class passwordmanager
         If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+        Else
         End If
     End Sub
 
@@ -159,7 +158,7 @@ Public Class passwordmanager
         If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+        Else
         End If
     End Sub
 
