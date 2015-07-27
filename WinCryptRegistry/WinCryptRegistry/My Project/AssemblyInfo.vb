@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -8,17 +7,17 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("regist")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("regist")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("regist")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("regist")>
+<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-<Assembly: Guid("b1a1048b-a307-49dc-9840-588228811590")> 
+<Assembly: Guid("b1a1048b-a307-49dc-9840-588228811590")>
 
 ' Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 '
@@ -31,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("1.0.0.0")>

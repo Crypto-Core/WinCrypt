@@ -1,19 +1,19 @@
 ﻿Option Strict On
-Imports Shell32
-Imports System
+
 Imports System.IO
+Imports Shell32
 
 Public Class Unzip
-
     Private _file As String
-    Private _folder As String
+    Private ReadOnly _folder As String
     Private _towhere As String
 
-    Private _shell As Shell32.IShellDispatch2
+    Private ReadOnly _shell As IShellDispatch2
 
     ''' <summary>Event welches vor dem Entpacken (Unzip) ausgeführt wird.</summary>
     ''' <remarks></remarks>
     Public Event Unzipstart()
+
     ''' <summary>Event welches nach dem Entpacken (Unzip) ausgeführt wird.</summary>
     ''' <remarks></remarks>
     Public Event UnzipFinishd()
@@ -22,7 +22,7 @@ Public Class Unzip
     ''' <param name="file">Datei welche entpackt werden soll.</param>
     ''' <param name="towhere">Zielordner.</param>
     ''' <remarks></remarks>
-    Public Sub New(ByVal file As String, ByVal towhere As String)
+    Public Sub New(file As String, towhere As String)
         _file = file
         _towhere = towhere
         _folder = Path.Combine(Path.GetDirectoryName(_file), _towhere)
@@ -37,7 +37,7 @@ Public Class Unzip
             Directory.CreateDirectory(_folder)
         End If
         RaiseEvent Unzipstart()
-        Dim temp As Shell32.Folder = _shell.NameSpace((_folder))
+        Dim temp As Folder = _shell.NameSpace((_folder))
         Try
             If temp IsNot Nothing Then
                 temp.CopyHere(_shell.NameSpace((_file)).Items)
@@ -53,11 +53,11 @@ Public Class Unzip
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Property UnZipFile() As String
+    Public Property UnZipFile As String
         Get
             Return _file
         End Get
-        Set(ByVal value As String)
+        Set
             _file = value
         End Set
     End Property
@@ -66,11 +66,11 @@ Public Class Unzip
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Property UnzipTo() As String
+    Public Property UnzipTo As String
         Get
             Return _towhere
         End Get
-        Set(ByVal value As String)
+        Set
             _towhere = value
         End Set
     End Property

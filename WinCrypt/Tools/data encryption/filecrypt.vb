@@ -1,29 +1,32 @@
 ﻿Option Strict On
-Imports System
-Imports System.Collections.Generic
-Imports System.Text
+
+Imports System.Globalization
 Imports System.IO
-Imports System.Security
-Imports System.Security.Cryptography
-Imports System.Diagnostics
 Imports System.Runtime.CompilerServices
+Imports System.Security.Cryptography
+Imports System.Text
 
 Module CryptoStuff
     Dim selectcombo As String
-    Private Sub MakeKeyAndIV(ByVal password As String, ByVal salt() As Byte, ByVal key_size_bits As Integer, ByVal block_size_bits As Integer, ByRef key() As Byte, ByRef iv() As Byte)
+
+    Private Sub MakeKeyAndIV(password As String, salt() As Byte, key_size_bits As Integer, block_size_bits As Integer,
+                             ByRef key() As Byte, ByRef iv() As Byte)
         Dim derive_bytes As New Rfc2898DeriveBytes(password, salt, 1000)
-        key = derive_bytes.GetBytes(CInt(key_size_bits / 8))
-        iv = derive_bytes.GetBytes(CInt(block_size_bits / 8))
+        key = derive_bytes.GetBytes(CInt(key_size_bits/8))
+        iv = derive_bytes.GetBytes(CInt(block_size_bits/8))
     End Sub
 
 #Region "Encrypt Files and Streams"
-    Public Sub EncryptFile(ByVal password As String, ByVal in_file As String, ByVal out_file As String)
+
+    Public Sub EncryptFile(password As String, in_file As String, out_file As String)
         CryptFile(password, in_file, out_file, True)
     End Sub
-    Public Sub DecryptFile(ByVal password As String, ByVal in_file As String, ByVal out_file As String)
+
+    Public Sub DecryptFile(password As String, in_file As String, out_file As String)
         CryptFile(password, in_file, out_file, False)
     End Sub
-    Public Sub CryptFile(ByVal password As String, ByVal in_file As String, ByVal out_file As String, ByVal encrypt As Boolean)
+
+    Public Sub CryptFile(password As String, in_file As String, out_file As String, encrypt As Boolean)
         Try
             Using in_stream As New FileStream(in_file, FileMode.Open, FileAccess.Read)
                 Using out_stream As New FileStream(out_file, FileMode.Create, FileAccess.Write)
@@ -35,10 +38,11 @@ Module CryptoStuff
             startwindow.decrypt_list_status.Items.Add(ErrorToString)
         End Try
     End Sub
-    Public Sub CryptStream(ByVal password As String, ByVal in_stream As Stream, ByVal out_stream As Stream, ByVal encrypt As Boolean)
+
+    Public Sub CryptStream(password As String, in_stream As Stream, out_stream As Stream, encrypt As Boolean)
         Dim aes_provider As New AesCryptoServiceProvider()
-        Dim key_size_bits As Integer = 0
-        For i As Integer = 1024 To 1 Step -1
+        Dim key_size_bits = 0
+        For i = 1024 To 1 Step - 1
             If (aes_provider.ValidKeySize(i)) Then
                 key_size_bits = i
                 Exit For
@@ -59,7 +63,7 @@ Module CryptoStuff
         End If
         Try
             Using crypto_stream As New CryptoStream(out_stream, crypto_transform, CryptoStreamMode.Write)
-                Const block_size As Integer = 1024
+                Const block_size = 1024
                 Dim buffer(block_size) As Byte
                 Dim bytes_read As Integer
                 Do
@@ -80,10 +84,11 @@ Module CryptoStuff
 #End Region
 
 #Region "Encrypt Strings and Byte()"
-    Public Function CryptBytes(ByVal password As String, ByVal in_bytes() As Byte, ByVal encrypt As Boolean) As Byte()
+
+    Public Function CryptBytes(password As String, in_bytes() As Byte, encrypt As Boolean) As Byte()
         Dim aes_provider As New AesCryptoServiceProvider()
-        Dim key_size_bits As Integer = 0
-        For i As Integer = 1024 To 1 Step -1
+        Dim key_size_bits = 0
+        For i = 1024 To 1 Step - 1
             If (aes_provider.ValidKeySize(i)) Then
                 key_size_bits = i
                 Exit For
@@ -103,8 +108,8 @@ Module CryptoStuff
             crypto_transform = aes_provider.CreateDecryptor(key, iv)
         End If
         Using out_stream As New MemoryStream()
-            Using crypto_stream As New CryptoStream(out_stream, _
-                    crypto_transform, CryptoStreamMode.Write)
+            Using crypto_stream As New CryptoStream(out_stream,
+                                                    crypto_transform, CryptoStreamMode.Write)
                 crypto_stream.Write(in_bytes, 0, in_bytes.Length)
                 Try
                     crypto_stream.FlushFinalBlock()
@@ -120,19 +125,21 @@ Module CryptoStuff
         End Using
     End Function
 
-    <Extension()> _
-    Public Function Encrypt(ByVal the_string As String, ByVal password As String) As Byte()
-        Dim ascii_encoder As New System.Text.ASCIIEncoding()
+    <Extension>
+    Public Function Encrypt(the_string As String, password As String) As Byte()
+        Dim ascii_encoder As New ASCIIEncoding()
         Dim plain_bytes() As Byte = ascii_encoder.GetBytes(the_string)
         Return CryptBytes(password, plain_bytes, True)
     End Function
-    <Extension()> _
-    Public Function Decrypt(ByVal the_bytes() As Byte, ByVal password As String) As String
+
+    <Extension>
+    Public Function Decrypt(the_bytes() As Byte, password As String) As String
         Dim decrypted_bytes() As Byte = CryptBytes(password, the_bytes, False)
-        Dim ascii_encoder As New System.Text.ASCIIEncoding()
+        Dim ascii_encoder As New ASCIIEncoding()
         Return ascii_encoder.GetString(decrypted_bytes)
     End Function
-    Public Function CryptString(ByVal password As String, ByVal in_string As String, ByVal encrypt As Boolean) As String
+
+    Public Function CryptString(password As String, in_string As String, encrypt As Boolean) As String
         Dim in_bytes() As Byte = Encoding.ASCII.GetBytes(in_string)
         Using in_stream As New MemoryStream(in_bytes)
             Using out_stream As New MemoryStream()
@@ -145,31 +152,33 @@ Module CryptoStuff
         End Using
     End Function
 
-    <Extension()> _
-    Public Function ToHex(ByVal the_bytes() As Byte) As String
+    <Extension>
+    Public Function ToHex(the_bytes() As Byte) As String
         Return ToHex(the_bytes, False)
     End Function
-    <Extension()> _
-    Public Function ToHex(ByVal the_bytes() As Byte, ByVal add_spaces As Boolean) As String
-        Dim result As String = ""
-        Dim separator As String = ""
+
+    <Extension>
+    Public Function ToHex(the_bytes() As Byte, add_spaces As Boolean) As String
+        Dim result = ""
+        Dim separator = ""
         If (add_spaces) Then separator = " "
-        For i As Integer = 0 To the_bytes.Length - 1
+        For i = 0 To the_bytes.Length - 1
             result &= the_bytes(i).ToString("x2") & separator
         Next i
         Return result
     End Function
-    <Extension()> _
-    Public Function ToBytes(ByVal the_string As String) As Byte()
+
+    <Extension>
+    Public Function ToBytes(the_string As String) As Byte()
         Dim the_bytes As New List(Of Byte)()
         the_string = the_string.Replace(" ", "")
-        For i As Integer = 0 To the_string.Length - 1 Step 2
-            the_bytes.Add( _
-                Byte.Parse(the_string.Substring(i, 2), _
-                    System.Globalization.NumberStyles.HexNumber))
+        For i = 0 To the_string.Length - 1 Step 2
+            the_bytes.Add(
+                Byte.Parse(the_string.Substring(i, 2),
+                           NumberStyles.HexNumber))
         Next i
         Return the_bytes.ToArray()
     End Function
-#End Region
 
+#End Region
 End Module

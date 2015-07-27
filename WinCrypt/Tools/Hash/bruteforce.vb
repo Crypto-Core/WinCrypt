@@ -1,9 +1,14 @@
 ﻿Option Strict On
-Imports System.IO
-Public Class bruteforce
-    Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" (ByVal hProcess As IntPtr, ByVal dwMinimumWorkingSetSize As Int32, ByVal dwMaximumWorkingSetSize As Int32) As Int32
 
-    Dim langname As New language
+Imports System.ComponentModel
+Imports System.IO
+
+Public Class bruteforce
+    Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll"(hProcess As IntPtr,
+                                                                         dwMinimumWorkingSetSize As Int32,
+                                                                         dwMaximumWorkingSetSize As Int32) As Int32
+
+    Dim ReadOnly langname As New language
 
     Dim bruteforceSate As Boolean       '\\ status ob der bruteforce aktiv ist
 
@@ -16,7 +21,7 @@ Public Class bruteforce
 
     Private Sub bruteforceToggle_Click(sender As Object, e As EventArgs) Handles bruteforceToggle.Click
 
-        Dim checkData As Boolean = False
+        Dim checkData = False
         Dim progmax As Integer
         Dim lastLine As String = String.Empty
 
@@ -30,7 +35,8 @@ Public Class bruteforce
                 If langname.langname = "English" Then
                     MessageBox.Show("please enter a hash!", "note", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    MessageBox.Show("Bitte geben Sie einen Hash ein!", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Bitte geben Sie einen Hash ein!", "Hinweis", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information)
                 End If
             Else
                 '\\ Testen ob die WordList noch exisiteiert
@@ -38,9 +44,11 @@ Public Class bruteforce
                     checkData = True
                 Else
                     If langname.langname = "English" Then
-                        MessageBox.Show("the password list does not exist!", "passwordlist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("the password list does not exist!", "passwordlist", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("Die Passwortliste existiert nicht!", "Passwortliste", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("Die Passwortliste existiert nicht!", "Passwortliste", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
                     End If
                 End If
             End If
@@ -70,24 +78,22 @@ Public Class bruteforce
             End If
 
         End If
-
     End Sub
 
-    Private Sub openWordlist_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles openWordlist.Click
+    Private Sub openWordlist_Click(sender As Object, e As EventArgs) Handles openWordlist.Click
 
         '\\ Öffnen eines Auswahldialoges für Daten
         OpenFileDialog.ShowDialog()
         If My.Computer.FileSystem.FileExists(OpenFileDialog.FileName) Then fileWordlist.Text = OpenFileDialog.FileName
-
     End Sub
 
 
-    Private Sub bruteforceWorker(sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles bgw.DoWork
+    Private Sub bruteforceWorker(sender As Object, e As DoWorkEventArgs) Handles bgw.DoWork
 
         Dim internTick As Integer
 
         '\\ einlesen der Wortliste anhand des lokalen Pfad
-        For Each lineWordlist As String In IO.File.ReadAllLines(fileWordlist.Text)
+        For Each lineWordlist As String In File.ReadAllLines(fileWordlist.Text)
 
             '\\ anzeigewerte setzen
             checked += 1
@@ -127,7 +133,7 @@ Public Class bruteforce
         Next
     End Sub
 
-    Private Sub bruteforceWorker_status_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bruteforceWorker_status.Tick
+    Private Sub bruteforceWorker_status_Tick(sender As Object, e As EventArgs) Handles bruteforceWorker_status.Tick
 
         '\\ Ausgabe von Infromationen
         Select Case langname.langname
@@ -143,7 +149,6 @@ Public Class bruteforce
     End Sub
 
     Private Sub foundHash()
-
 
 
         '\\ Richtiges Passwort setzen
@@ -162,10 +167,9 @@ Public Class bruteforce
 
         '\\ Daten zurücksetzen
         resetData()
-
     End Sub
 
-    Private Sub missHash(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgw.RunWorkerCompleted
+    Private Sub missHash(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgw.RunWorkerCompleted
 
         If rightHash = Nothing Then
             '\\ Fehlermeldung ausgeben
@@ -181,7 +185,7 @@ Public Class bruteforce
             GC.Collect()
             GC.WaitForPendingFinalizers()
             If (Environment.OSVersion.Platform = PlatformID.Win32NT) Then
-                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1)
+                SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, - 1, - 1)
             End If
 
             '\\ Daten zurücksetzen
@@ -212,11 +216,9 @@ Public Class bruteforce
         openWordlist.Enabled = True
         bruteforceSate = False
         checked = 0
-
-
     End Sub
 
-    Private Sub progresscheck_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles showProgress.CheckedChanged
+    Private Sub progresscheck_CheckedChanged(sender As Object, e As EventArgs) Handles showProgress.CheckedChanged
 
         '\\ Größe der Form für die Progressbar anzeige anpassen
         If showProgress.Checked Then
@@ -224,34 +226,36 @@ Public Class bruteforce
         Else
             Me.Size = New Size(421, 276)
         End If
-
     End Sub
 
-    Private Sub md5_bruteforce_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub md5_bruteforce_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         '\\ Standartwerte Laden
         langname.check()
         bruteforceHashtype.SelectedIndex = 0
-
     End Sub
 
-    Private Sub bruteforceHashtype_SelectedIndexChanged(sender As Object, e As EventArgs) Handles bruteforceHashtype.SelectedIndexChanged
+    Private Sub bruteforceHashtype_SelectedIndexChanged(sender As Object, e As EventArgs) _
+        Handles bruteforceHashtype.SelectedIndexChanged
 
         '\\ den Hash Typen setzen
         Hashtype = bruteforceHashtype.Text
-
     End Sub
+
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
+
     Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
 
     Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
@@ -262,7 +266,8 @@ Public Class bruteforce
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub bruteforcesearchedHash_KeyDown(sender As Object, e As KeyEventArgs) Handles bruteforcesearchedHash.KeyDown
+    Private Sub bruteforcesearchedHash_KeyDown(sender As Object, e As KeyEventArgs) _
+        Handles bruteforcesearchedHash.KeyDown
         If e.KeyCode = Keys.Enter Then
             bruteforceToggle.PerformClick()
         End If

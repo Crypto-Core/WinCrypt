@@ -1,7 +1,11 @@
 ﻿Option Strict On
+
+Imports Microsoft.VisualBasic.ApplicationServices
+
 Namespace My
     Partial Friend Class MyApplication
-        Private Sub MyApplication_StartupNextInstance(ByVal sender As Object, ByVal e As Microsoft.VisualBasic.ApplicationServices.StartupNextInstanceEventArgs) Handles Me.StartupNextInstance
+        Private Sub MyApplication_StartupNextInstance(sender As Object, e As StartupNextInstanceEventArgs) _
+            Handles Me.StartupNextInstance
             If startwindow.WindowState = FormWindowState.Minimized Then
                 If startwindow.systemtray.Visible = True Then
                     startwindow.systemtray.Visible = False

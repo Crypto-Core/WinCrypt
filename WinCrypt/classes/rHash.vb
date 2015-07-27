@@ -1,7 +1,7 @@
 Option Strict On
+
 Imports System.Security.Cryptography
 Imports System.Text
-Imports System.IO
 
 Public Class rHash
     Public Enum HASH As Integer
@@ -14,49 +14,49 @@ Public Class rHash
     End Enum
 
     ''' <summary>
-    ''' Diese Funktion berechnet einen Hash von einem String
+    '''     Diese Funktion berechnet einen Hash von einem String
     ''' </summary>
     ''' <param name="Value">Den String von dem ein Hash berechnet werden soll</param>
     ''' <param name="Hash">Gibt den Hashalgorithmus an</param>
-    Public Shared Function HashString(ByVal Value As String, ByVal Hash As HASH) As String
+    Public Shared Function HashString(Value As String, Hash As HASH) As String
         Dim Data(0) As Byte
         Dim HashValue(0) As Byte
-        Dim Result As String = ""
-        Dim Tmp As String = ""
+        Dim Result = ""
+        Dim Tmp = ""
 
         Select Case Hash
-            Case rHash.HASH.MD5
+            Case HASH.MD5
                 Dim MD5 As New MD5CryptoServiceProvider
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = MD5.ComputeHash(Data)
 
-            Case rHash.HASH.SHA1
+            Case HASH.SHA1
                 Dim SHA1 As New SHA1Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = SHA1.ComputeHash(Data)
 
-            Case rHash.HASH.SHA256
+            Case HASH.SHA256
                 Dim SHA256 As New SHA256Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = SHA256.ComputeHash(Data)
 
-            Case rHash.HASH.SHA384
+            Case HASH.SHA384
                 Dim SHA384 As New SHA384Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = SHA384.ComputeHash(Data)
 
-            Case rHash.HASH.SHA512
+            Case HASH.SHA512
                 Dim SHA512 As New SHA512Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = SHA512.ComputeHash(Data)
 
-            Case rHash.HASH.RIPEMD160
+            Case HASH.RIPEMD160
                 Dim RIPEMD160 As New RIPEMD160Managed
                 Data = Encoding.ASCII.GetBytes(Value)
                 HashValue = RIPEMD160.ComputeHash(Data)
         End Select
 
-        For i As Integer = 0 To HashValue.Length - 1
+        For i = 0 To HashValue.Length - 1
             Tmp = Hex(HashValue(i))
             If Len(Tmp) = 1 Then Tmp = "0" & Tmp
             Result += Tmp

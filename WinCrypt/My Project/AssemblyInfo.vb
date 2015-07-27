@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -8,17 +7,17 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("WinCrypt")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("WinCrypt")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
-<Assembly: AssemblyTrademark("WinCrypt")> 
+<Assembly: AssemblyTitle("WinCrypt")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("WinCrypt")>
+<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyTrademark("WinCrypt")>
 
 <Assembly: ComVisible(False)>
 
 'Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-<Assembly: Guid("1e8d9e45-78c3-4543-9154-78edba384ffb")> 
+<Assembly: Guid("1e8d9e45-78c3-4543-9154-78edba384ffb")>
 
 ' Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 '
@@ -31,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.4.0.6")> 
-<Assembly: AssemblyFileVersion("1.4.0.6")> 
+<Assembly: AssemblyVersion("1.4.0.6")>
+<Assembly: AssemblyFileVersion("1.4.0.6")>

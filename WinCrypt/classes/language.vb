@@ -1,9 +1,16 @@
 ﻿Option Strict On
+
+Imports System.IO
+
 Public Class language
     Public langname As String
+
     Public Sub check()
-        Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
-        Dim lang As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+        Dim root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+        Dim _
+            lang As _
+                New INIDatei(
+                    root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
         If lang.WertLesen("Info", "Lang") = "English" Then 'ENGLISH
             startwindow.encrypt_gb.Text = "encrypt folder / drive"
             startwindow.crypt_file_pathbutton.Text = "add"
@@ -93,11 +100,16 @@ Public Class language
             systemidentification.on_rb.Text = "on"
             systemidentification.wincrypttitle.Text = "system identification"
             systemidentification.systemidentification_lb.Text = "The system identification allows the user passwords" _
-                & vbCrLf & "more needs to enter. This can be very useful if you passwords to" _
-                & vbCrLf & "can not remember well or you want the encrypted file / folder / -" _
-                & vbCrLf & "Text / data carrier only be opened by a computer. This may have the advantage" _
-                & vbCrLf & "if you lose a USB stick, so the data can be opened by anyone" _
-                & vbCrLf & "other than the owner of the PC with which it encrypted the data."
+                                                                & vbCrLf &
+                                                                "more needs to enter. This can be very useful if you passwords to" _
+                                                                & vbCrLf &
+                                                                "can not remember well or you want the encrypted file / folder / -" _
+                                                                & vbCrLf &
+                                                                "Text / data carrier only be opened by a computer. This may have the advantage" _
+                                                                & vbCrLf &
+                                                                "if you lose a USB stick, so the data can be opened by anyone" _
+                                                                & vbCrLf &
+                                                                "other than the owner of the PC with which it encrypted the data."
 
             'passwortgenerator.vb
             passwordgenerator.wincrypttitle.Text = "WinCrypt - passwordgenerator"
@@ -221,7 +233,6 @@ Public Class language
         End If
 
 
-
         If lang.WertLesen("Info", "Lang") = "German" Then 'DEUTSCH
             startwindow.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
             startwindow.crypt_file_pathbutton.Text = "Hinzufügen"
@@ -310,12 +321,18 @@ Public Class language
             systemidentification.on_rb.Text = "Einschalten"
             systemidentification.wincrypttitle.Text = "Systemidentifikation"
             systemidentification.systemidentification_lb.Text = "Systemidentifikation:" _
-                & vbCrLf & "Die Systemidentifikation ermöglicht es das der Benutzer keine Passwörter" _
-                & vbCrLf & "mehr eingeben braucht. Dies kann sehr sinnvoll sein wenn man sich Passwörter" _
-                & vbCrLf & "nicht gut merken kann oder man möchte dass die verschlüsselte Datei/Ordner/-" _
-                & vbCrLf & "Text/Datenträger nur von einem Computer geöffnet werden. Dies kann den Vorteil haben" _
-                & vbCrLf & "wenn man einen USB Stick verliert, so können die Daten von niemanden geöffnet werden" _
-                & vbCrLf & "außer dem Besitzer mit dem PC mit dem er die Daten verschlüsselt hat."
+                                                                & vbCrLf &
+                                                                "Die Systemidentifikation ermöglicht es das der Benutzer keine Passwörter" _
+                                                                & vbCrLf &
+                                                                "mehr eingeben braucht. Dies kann sehr sinnvoll sein wenn man sich Passwörter" _
+                                                                & vbCrLf &
+                                                                "nicht gut merken kann oder man möchte dass die verschlüsselte Datei/Ordner/-" _
+                                                                & vbCrLf &
+                                                                "Text/Datenträger nur von einem Computer geöffnet werden. Dies kann den Vorteil haben" _
+                                                                & vbCrLf &
+                                                                "wenn man einen USB Stick verliert, so können die Daten von niemanden geöffnet werden" _
+                                                                & vbCrLf &
+                                                                "außer dem Besitzer mit dem PC mit dem er die Daten verschlüsselt hat."
 
             'passwortgenerator.vb
             passwordgenerator.wincrypttitle.Text = "WinCrypt - Passwortgenerator"
@@ -440,5 +457,4 @@ Public Class language
 
         End If
     End Sub
-
 End Class

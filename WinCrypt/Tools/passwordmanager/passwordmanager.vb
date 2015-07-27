@@ -1,15 +1,26 @@
 ﻿Option Strict On
+
+Imports System.IO
+
 Public Class passwordmanager
-    Dim aes As New AES
-    Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
-    Public ini As New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+    Dim ReadOnly aes As New AES
+    Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+
+    Public _
+        ini As _
+            New INIDatei(
+                root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+
     Public schleife As Integer = 0
     Public index As Integer = 0
     Public mgrpass As String
+
     Private Sub add_bt_Click(sender As Object, e As EventArgs) Handles add_bt.Click
         passwordmanager_add.Show()
     End Sub
-    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles database_viewer.SelectedIndexChanged
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) _
+        Handles database_viewer.SelectedIndexChanged
         If database_viewer.SelectedItems.Count > 0 Then
             index = CInt(database_viewer.SelectedItems.Item(0).SubItems(2).Text)
             user_txt.Text = ini.WertLesen(CStr(index), "user")
@@ -52,13 +63,18 @@ Public Class passwordmanager
         ini.WertSchreiben(CStr(index), "source", source_txt.Text)
         ini.WertSchreiben(CStr(index), "comment", comment_txt.Text.Replace((vbCrLf), ("\r\n")))
     End Sub
+
     Private Sub passwordmanager_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
             Dim readdb As String
-            readdb = My.Computer.FileSystem.ReadAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+            readdb =
+                My.Computer.FileSystem.ReadAllText(
+                    root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
             If mgrpass = "" Then
             Else
-                My.Computer.FileSystem.WriteAllText(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(aes.AESEncrypt(readdb, mgrpass, startwindow.biosid)), False)
+                My.Computer.FileSystem.WriteAllText(
+                    root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                    CStr(aes.AESEncrypt(readdb, mgrpass, startwindow.biosid)), False)
             End If
             mgrpass = ""
         Catch ex As Exception
@@ -67,17 +83,23 @@ Public Class passwordmanager
     End Sub
 
     Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If My.Computer.FileSystem.FileExists(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+        If _
+            My.Computer.FileSystem.FileExists(
+                root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
             passwordmgr_pass.ShowDialog()
         Else
             If startwindow.langname = "English" Then
-                If MsgBox("It has not yet created any database you want to create a database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If _
+                    MsgBox("It has not yet created any database you want to create a database?", MsgBoxStyle.YesNo) =
+                    MsgBoxResult.Yes Then
                     newpwmgrdatabase.ShowDialog()
                 Else
                     Me.Close()
                 End If
             Else
-                If MsgBox("Es wurde noch keine Datenbank angelegt, möchten Sie eine Datenbank anlegen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If _
+                    MsgBox("Es wurde noch keine Datenbank angelegt, möchten Sie eine Datenbank anlegen?",
+                           MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                     newpwmgrdatabase.ShowDialog()
                 Else
                     Me.Close()
@@ -123,17 +145,21 @@ Public Class passwordmanager
     Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
+
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
+
     Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
 
     Private Sub user_txt_TextChanged(sender As Object, e As EventArgs) Handles user_txt.TextChanged

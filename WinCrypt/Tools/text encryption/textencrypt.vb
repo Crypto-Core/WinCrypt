@@ -1,32 +1,35 @@
 ﻿Option Strict On
-Public Class textencrypt
 
-    Private Sub encrypt_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_bt.Click
-        Dim lGuid As System.Runtime.InteropServices.GuidAttribute
-        lGuid = DirectCast(System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes( _
-                  GetType(System.Runtime.InteropServices.GuidAttribute), False)(0),  _
-                  System.Runtime.InteropServices.GuidAttribute)
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+Public Class textencrypt
+    Private Sub encrypt_bt_Click(sender As Object, e As EventArgs) Handles encrypt_bt.Click
+        Dim lGuid As GuidAttribute
+        lGuid = DirectCast(
+            Assembly.GetExecutingAssembly().GetCustomAttributes(
+                GetType(GuidAttribute), False)(0),
+            GuidAttribute)
         Dim AES2 As New AES
         If startwindow.iniread = "true" Then
             text_output.Text = CStr(AES2.AESEncrypt(text_input.Text, startwindow.biosid, lGuid.Value))
         Else
             text_output.Text = CStr(AES2.AESEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
         End If
-
     End Sub
 
-    Private Sub generate_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles generate_bt.Click
+    Private Sub generate_bt_Click(sender As Object, e As EventArgs) Handles generate_bt.Click
         Dim num_characters As Integer
         Dim i As Integer
-        Dim txt As String = ""
+        Dim txt = ""
         Dim ch As Integer
         Randomize()
         num_characters = CInt(32)
         For i = 1 To num_characters
-            ch = CInt(Int((26 + 26 + 10) * Rnd()))
+            ch = CInt(Int((26 + 26 + 10)*Rnd()))
             If ch < 26 Then
                 txt = txt & Chr(ch + Asc("A"))
-            ElseIf ch < 2 * 26 Then
+            ElseIf ch < 2*26 Then
                 ch = ch - 26
                 txt = txt & Chr(ch + Asc("a"))
             Else
@@ -37,7 +40,7 @@ Public Class textencrypt
         password_txt.Text = txt
     End Sub
 
-    Private Sub TrackBar_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar.Scroll
+    Private Sub TrackBar_Scroll(sender As Object, e As EventArgs) Handles TrackBar.Scroll
         If TrackBar.Value = 1 Then
             text_input.Text = "Text ausgabe"
             text_output.Text = "Text eingabe"
@@ -67,11 +70,12 @@ Public Class textencrypt
         End If
     End Sub
 
-    Private Sub decrypt_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles decrypt_bt.Click
-        Dim lGuid As System.Runtime.InteropServices.GuidAttribute
-        lGuid = DirectCast(System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes( _
-                  GetType(System.Runtime.InteropServices.GuidAttribute), False)(0),  _
-                  System.Runtime.InteropServices.GuidAttribute)
+    Private Sub decrypt_bt_Click(sender As Object, e As EventArgs) Handles decrypt_bt.Click
+        Dim lGuid As GuidAttribute
+        lGuid = DirectCast(
+            Assembly.GetExecutingAssembly().GetCustomAttributes(
+                GetType(GuidAttribute), False)(0),
+            GuidAttribute)
         Dim AES2 As New AES
         If startwindow.iniread = "true" Then
             text_input.Text = AES2.AESDecrypt(text_output.Text, startwindow.biosid, lGuid.Value)
@@ -79,7 +83,8 @@ Public Class textencrypt
             text_input.Text = AES2.AESDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
         End If
     End Sub
-    Private Sub password_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles password_txt.TextChanged
+
+    Private Sub password_txt_TextChanged(sender As Object, e As EventArgs) Handles password_txt.TextChanged
         If password_txt.Text.Length < 6 Then
             encrypt_bt.Enabled = False
             decrypt_bt.Enabled = False
@@ -89,27 +94,28 @@ Public Class textencrypt
         End If
     End Sub
 
-    Private Sub textencrypt_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub textencrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If startwindow.iniread = "true" Then
             decrypt_bt.Enabled = True
             encrypt_bt.Enabled = True
-        Else : End If
+        Else :
+        End If
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles arab_cb.CheckedChanged
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles arab_cb.CheckedChanged
         If arab_cb.Checked = True Then
             If TrackBar.Value = 1 Then
-                text_input.RightToLeft = Windows.Forms.RightToLeft.Yes
+                text_input.RightToLeft = RightToLeft.Yes
             End If
             If TrackBar.Value = 0 Then
-                text_input.RightToLeft = Windows.Forms.RightToLeft.Yes
+                text_input.RightToLeft = RightToLeft.Yes
             End If
         Else
             If TrackBar.Value = 1 Then
-                text_input.RightToLeft = Windows.Forms.RightToLeft.No
+                text_input.RightToLeft = RightToLeft.No
             End If
             If TrackBar.Value = 0 Then
-                text_input.RightToLeft = Windows.Forms.RightToLeft.No
+                text_input.RightToLeft = RightToLeft.No
             End If
         End If
     End Sub
@@ -121,16 +127,20 @@ Public Class textencrypt
     Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
         Me.Close()
     End Sub
+
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
+
     Private Sub MenuStrip1_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
-        If (e.Button = Windows.Forms.MouseButtons.Left) Then
+        If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
             Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else : End If
+        Else :
+        End If
     End Sub
 End Class
