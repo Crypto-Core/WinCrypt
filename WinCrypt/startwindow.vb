@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿
+Option Explicit On
+Imports System.IO
 Imports System.Threading
 Imports System.Net
 Imports System
