@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports Project_WinCrypt.classes
 
 Public Class wcSetting
     Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _

@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports Project_WinCrypt.classes
 
 Public Class masterkey
     Dim decrypt As New AES

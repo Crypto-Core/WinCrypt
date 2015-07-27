@@ -1,6 +1,7 @@
 ﻿Option Strict On
 
 Imports System.IO
+Imports Project_WinCrypt.classes
 
 Public Class passwordmanager_add
     Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)

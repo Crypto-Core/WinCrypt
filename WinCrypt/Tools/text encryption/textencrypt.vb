@@ -2,6 +2,7 @@
 
 Imports System.Reflection
 Imports System.Runtime.InteropServices
+Imports Project_WinCrypt.classes
 
 Public Class textencrypt
     Private Sub encrypt_bt_Click(sender As Object, e As EventArgs) Handles encrypt_bt.Click

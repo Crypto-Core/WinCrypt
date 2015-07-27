@@ -3,6 +3,7 @@
 Imports System.IO
 Imports System.Net
 Imports System.Net.Mail
+Imports Project_WinCrypt.classes
 
 Public Class sendmail
     Dim ReadOnly mailmessage As New MailMessage

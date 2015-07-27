@@ -1,6 +1,7 @@
 ﻿Option Strict On
 
 Imports System.IO
+Imports Project_WinCrypt.classes
 
 Public Class passwordmgr_pass
     Public pass As String
