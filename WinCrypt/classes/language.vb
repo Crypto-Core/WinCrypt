@@ -23,7 +23,7 @@
             startwindow.file_encrypt_bt_menu.Text = "file encrypt"
             startwindow.file_decrypt_bt_menu.Text = "file decrypt"
             startwindow.text_encrypt_bt_menu.Text = "text de- and encrypt"
-            startwindow.md5_converter_bt_menu.Text = "MD5 converter"
+            startwindow.md5_converter_bt_menu.Text = "converter"
             startwindow.rsa_encrypt_bt_menu.Text = "encryption"
             startwindow.rsa_decrypt_bt_menu.Text = "decryption"
             startwindow.rsa_create_keys_bt_menu.Text = "create key's"
@@ -49,7 +49,7 @@
             startwindow.file_encrypt__bt_systemtray.Text = "file encrypt"
             startwindow.file_decrypt_bt_systemtray.Text = "file decrypt"
             startwindow.text_encrypt_bt_systemtray.Text = "text en- and decrypt"
-            startwindow.md5_converter_bt_systemtray.Text = "MD5 converter"
+            startwindow.md5_converter_bt_systemtray.Text = "converter"
             startwindow.rsa_encrypt_bt_systemtray.Text = "decryption"
             startwindow.rsa_decrypt_bt_systemtray.Text = "decryption"
             startwindow.rsa_create_keys_bt_systemtray.Text = "create key's"
@@ -160,7 +160,7 @@
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb
-            converter.wincrypttitle.Text = "MD5 Converter"
+            converter.wincrypttitle.Text = "Converter"
             converter.convert_bt.Text = "Convert"
 
             'md5_bruteforce.vb
@@ -242,7 +242,7 @@
             startwindow.file_encrypt_bt_menu.Text = "Datei verschlüsseln"
             startwindow.file_decrypt_bt_menu.Text = "Datei entschlüsseln"
             startwindow.text_encrypt_bt_menu.Text = "Text ver- und entschlüsseln"
-            startwindow.md5_converter_bt_menu.Text = "MD5 Konverter"
+            startwindow.md5_converter_bt_menu.Text = "Konverter"
             startwindow.rsa_encrypt_bt_menu.Text = "Verschlüsselung"
             startwindow.rsa_decrypt_bt_menu.Text = "Entschlüsselung"
             startwindow.rsa_create_keys_bt_menu.Text = "Schlüssel erstellen"
@@ -380,7 +380,7 @@
             langname = lang.WertLesen("Info", "Lang")
 
             'md5_main.vb
-            converter.wincrypttitle.Text = "MD5 Konverter"
+            converter.wincrypttitle.Text = "Konverter"
             converter.convert_bt.Text = "Konvertieren"
 
             'md5_bruteforce.vb
