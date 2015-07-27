@@ -1,4 +1,5 @@
-﻿Public Class del_report
+﻿Option Strict On
+Public Class del_report
     Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
         Me.Close()
     End Sub

@@ -1,6 +1,6 @@
-﻿Imports System.IO
+﻿Option Strict On
+Imports System.IO
 Imports System.Text
-
 Public Class safedelete
     Dim erasefile As New safedelete_function
     Dim delThread_Threading As System.Threading.Thread
@@ -117,15 +117,15 @@ Public Class safedelete
             deletfilelist.Enabled = False
             For list_i As Integer = 0 To deletfilelist.Items.Count - 1
                 progressstatus.Maximum = deletfilelist.Items.Count
-                overwrite_pb.Maximum = overwritecb.Text.Replace("x", "")
+                overwrite_pb.Maximum = CInt(overwritecb.Text.Replace("x", ""))
                 Try
                     deletfilelist.SelectedIndex = list_i
                 Catch ex As Exception
 
                 End Try
-                If My.Computer.FileSystem.DirectoryExists(deletfilelist.SelectedItem) Then
+                If My.Computer.FileSystem.DirectoryExists(CStr(deletfilelist.SelectedItem)) Then
                     Try
-                        Directory.Delete(deletfilelist.SelectedItem, True)
+                        Directory.Delete(CStr(deletfilelist.SelectedItem), True)
                     Catch ex As Exception
                         errorreport.Append(ErrorToString)
                         errorreport.AppendLine()
@@ -134,14 +134,14 @@ Public Class safedelete
 
                 Else
 
-                    For i As Integer = 0 To overwritecb.Text.Replace("x", "")
-                        erasefile.SafeEraser(deletfilelist.SelectedItem, 1, False)
+                    For i As Integer = 0 To CInt(overwritecb.Text.Replace("x", ""))
+                        erasefile.SafeEraser(CStr(deletfilelist.SelectedItem), 1, False)
                         overwrite_pb.Value = i
                     Next
                 End If
                 progressstatus.Value = list_i
                 Try
-                    File.Delete(deletfilelist.SelectedItem)
+                    File.Delete(CStr(deletfilelist.SelectedItem))
                 Catch ex As Exception
                     errorreport.Append(ErrorToString)
                     errorreport.AppendLine()
@@ -165,6 +165,12 @@ Public Class safedelete
     End Sub
 
     Private Sub abort_bt_Click(sender As Object, e As EventArgs) Handles abort_bt.Click
+        file_txt.Enabled = True
+        selectpathbt.Enabled = True
+        fileaddbt.Enabled = True
+        overwritecb.Enabled = True
+        deletfilelist.Enabled = True
+        report_bt.Enabled = True
         deletebt.Visible = True
         abort_bt.Visible = False
         deletfilelist.Items.Clear()

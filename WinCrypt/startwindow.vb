@@ -665,8 +665,6 @@ Public Class startwindow
     End Sub
 
     Private Sub startwindow_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
-        Dim count As New counter
-        count.counter()
         If My.Application.CommandLineArgs.Count > 0 Then
             Dim v_array As Array
             Dim commandlineargs As String = Environment.CommandLine

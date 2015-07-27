@@ -179,14 +179,13 @@
   <ItemGroup>
     <Compile Include="classes\AES.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="classes\counter.vb" />
     <Compile Include="info\feedback.Designer.vb">
       <DependentUpon>feedback.vb</DependentUpon>
     </Compile>
     <Compile Include="info\feedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="safedelete_function.vb" />
+    <Compile Include="classes\safedelete_function.vb" />
     <Compile Include="tools\data encryption\filedecrypt.Designer.vb">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </Compile>

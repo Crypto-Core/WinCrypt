@@ -1,4 +1,5 @@
-﻿Public Class language
+﻿Option Strict On
+Public Class language
     Public langname As String
     Public Sub check()
         Dim root As New System.IO.DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)

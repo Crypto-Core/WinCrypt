@@ -1,7 +1,5 @@
 ﻿Imports System.IO
 Imports System.Text
-
-
 Public Class safedelete_function
     Dim delThread As System.Threading.Thread
     Public Function SafeEraser(ByVal filepath As String, ByVal repeat As Integer, ByVal delete As Boolean)

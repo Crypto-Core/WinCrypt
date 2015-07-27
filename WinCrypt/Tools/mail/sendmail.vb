@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Option Strict On
+Imports System.Net
 Imports System.Net.Mail
 Public Class sendmail
     Dim mailmessage As New System.Net.Mail.MailMessage
