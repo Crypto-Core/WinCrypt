@@ -116,9 +116,9 @@ Public Class Startwindow
                 My.Computer.FileSystem.RenameFile(
                     My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & ".zip", _removestring & "f.zip")
                 If Langname = "English" Then
-                    encrypt_list_status.Items.Add("Now is encrypted...........")
+                    encrypt_list_status.Items.Add(String.Format("{0}Now is encrypted...........", "ARG0"))
                 Else
-                    encrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
+                    encrypt_list_status.Items.Add(String.Format("{0}Jetzt wird Verschlüsselt.......", "ARG0"))
                 End If
                 Dim computerName = "."
                 Dim wmiServices = GetObject(
