@@ -3,17 +3,17 @@ Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
-Public Class masterkey
-    Dim decrypt As New AES
-    Dim ReadOnly root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+Public Class Masterkey
+    Dim _decrypt As New AES
+    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
 
-    Dim ReadOnly _
-        readinikey As _
-            New INIDatei(root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+    ReadOnly _
+        _readinikey As _
+            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
-    Dim ReadOnly wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
-    Dim bios As String
-    Dim ReadOnly lang As New language
+    ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
+    Dim _bios As String
+    ReadOnly _lang As New language
 
     Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
         Try
@@ -21,13 +21,13 @@ Public Class masterkey
             Dim lGuid As GuidAttribute
             lGuid = DirectCast(
                 Assembly.GetExecutingAssembly().GetCustomAttributes(
-                    GetType(GuidAttribute), False)(0),
+                    GetType(GuidAttribute), False)(0), 
                 GuidAttribute)
-            If readinikey.WertLesen("Key", "master") = encrypt.AESEncrypt(key_txt.Text, bios, lGuid.Value) Then
-                Me.Hide()
-                startwindow.ShowDialog()
+            If _readinikey.WertLesen("Key", "master") = encrypt.AESEncrypt(key_txt.Text, _bios, lGuid.Value) Then
+                Hide()
+                Startwindow.ShowDialog()
             Else
-                If lang.langname = "English" Then
+                If _lang.langname = "English" Then
                     MsgBox("wrong masterkey!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Falscher Masterkey!", MsgBoxStyle.Critical)
@@ -46,10 +46,10 @@ Public Class masterkey
     End Sub
 
     Private Sub masterkey_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lang.check()
-        For Each ver In wmiobj.Instances_
-            bios = ver.SerialNumber
-            bios.Replace(" ", "")
+        _lang.check()
+        For Each ver In _wmiobj.Instances_
+            _bios = ver.SerialNumber
+            _bios.Replace(" ", "")
         Next
     End Sub
 
@@ -60,16 +60,16 @@ Public Class masterkey
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False
-            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+            WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else
         End If
     End Sub
 
     Private Sub wincrypttitle_MouseDown(sender As Object, e As MouseEventArgs) Handles wincrypttitle.MouseDown
         If (e.Button = MouseButtons.Left) Then
             wincrypttitle.Capture = False
-            Me.WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
-        Else :
+            WndProc(Message.Create(Me.Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
+        Else
         End If
     End Sub
 

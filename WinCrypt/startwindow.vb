@@ -85,14 +85,15 @@ Public Class Startwindow
                     Next
                 Next
                 If _removestring = "" Then
-                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
+                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & Selecteddrive.Replace(" ", "") &
                               ".wcp", True)
                 Else
-                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
+                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & _removestring.Replace(" ", "") &
                               ".wcp", True)
                 End If
+
                 If Langname = "English" Then
                     encrypt_list_status.Items.Add("Container encrypted.....")
                 Else
@@ -140,12 +141,12 @@ Public Class Startwindow
                     Next
                 Next
                 If _removestring = "" Then
-                    CryptFile(keycrypt.Text,
+                    tools.data_encryption.CryptFile(keycrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & Selecteddrive.Replace(" ", "") &
                               ".wcp", True)
                 Else
-                    CryptFile(keycrypt.Text,
+                    tools.data_encryption.CryptFile(keycrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & _removestring.Replace(" ", "") &
                               ".wcp", True)
@@ -179,7 +180,7 @@ Public Class Startwindow
                 keyencrypt.UseSystemPasswordChar = True
                 Dim lastBackslash As Integer = decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal)
                 Dim removeStr As String = decrypt_filepath.Text.Remove(0, lastBackslash + 1)
-                DecryptFile(Biosid, decrypt_filepath.Text,
+                tools.data_encryption.DecryptFile(Biosid, decrypt_filepath.Text,
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                 If Errormount = "error" Then
 
@@ -233,7 +234,7 @@ Public Class Startwindow
                 keyencrypt.UseSystemPasswordChar = True
                 Dim lastBackslash As Integer = decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal)
                 Dim removeStr As String = decrypt_filepath.Text.Remove(0, lastBackslash + 1)
-                DecryptFile(keyencrypt.Text, decrypt_filepath.Text,
+                tools.data_encryption.DecryptFile(keyencrypt.Text, decrypt_filepath.Text,
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                 If Errormount = "error" Then
 
@@ -313,11 +314,11 @@ Public Class Startwindow
                     decrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
                 End If
                 If removeStr = "" Then
-                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
+                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\Drive-" &
                               decrypt_filepath.Text.Replace(":\", "") & ".wcp", True)
                 Else
-                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
+                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\" &
                               removeStr.Replace(".wcp", "") & ".wcp", True)
                 End If
@@ -368,12 +369,12 @@ Public Class Startwindow
                     decrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
                 End If
                 If removeStr = "" Then
-                    CryptFile(keyencrypt.Text,
+                    tools.data_encryption.CryptFile(keyencrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\Drive-" &
                               decrypt_filepath.Text.Replace(":\", "") & ".wcp", True)
                 Else
-                    CryptFile(keyencrypt.Text,
+                    tools.data_encryption.CryptFile(keyencrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\" &
                               removeStr.Replace(".wcp", "") & ".wcp", True)
@@ -625,11 +626,11 @@ Public Class Startwindow
             textencrypt.password_txt.Visible = False
             textencrypt.password_lb.Visible = False
             textencrypt.generate_bt.Visible = False
-            filedecrypt.passwordtxt.Visible = False
-            filedecrypt.pwdlb.Visible = False
-            fileencrypt.passwordlb.Visible = False
-            fileencrypt.passwordtxt.Visible = False
-            fileencrypt.generatebt.Visible = False
+            tools.data_encryption.Filedecrypt.passwordtxt.Visible = False
+            tools.data_encryption.Filedecrypt.pwdlb.Visible = False
+            tools.data_encryption.Fileencrypt.passwordlb.Visible = False
+            tools.data_encryption.Fileencrypt.passwordtxt.Visible = False
+            tools.data_encryption.Fileencrypt.generatebt.Visible = False
             Text = String.Format("WinCrypt {0}.{1} (Systemidentifikation)", My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
         Else
             If Iniread = "no" Then
@@ -641,11 +642,11 @@ Public Class Startwindow
                 textencrypt.password_txt.Visible = True
                 textencrypt.password_lb.Visible = True
                 textencrypt.generate_bt.Visible = True
-                filedecrypt.passwordtxt.Visible = True
-                filedecrypt.pwdlb.Visible = True
-                fileencrypt.passwordlb.Visible = True
-                fileencrypt.passwordtxt.Visible = True
-                fileencrypt.generatebt.Visible = True
+                tools.data_encryption.Filedecrypt.passwordtxt.Visible = True
+                tools.data_encryption.Filedecrypt.pwdlb.Visible = True
+                tools.data_encryption.Fileencrypt.passwordlb.Visible = True
+                tools.data_encryption.Fileencrypt.passwordtxt.Visible = True
+                tools.data_encryption.Fileencrypt.generatebt.Visible = True
             End If
         End If
         For Each ver In _wmiobj.Instances_
@@ -720,14 +721,14 @@ Public Class Startwindow
             vArray = Split(commandlineargs, """ ")
             Mypath = vArray(1)
             If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
-                filedecrypt.Show()
-                filedecrypt.filetxt.Text = Mypath.ToString
-                filedecrypt.pathtxt.Text = Mypath.Replace(".wc", "")
-                filedecrypt.pathtxt.Enabled = True
-                filedecrypt.passwordtxt.Enabled = True
-                filedecrypt.savefile.Enabled = True
+                tools.data_encryption.Filedecrypt.Show()
+                tools.data_encryption.Filedecrypt.filetxt.Text = Mypath.ToString
+                tools.data_encryption.Filedecrypt.pathtxt.Text = Mypath.Replace(".wc", "")
+                tools.data_encryption.Filedecrypt.pathtxt.Enabled = True
+                tools.data_encryption.Filedecrypt.passwordtxt.Enabled = True
+                tools.data_encryption.Filedecrypt.savefile.Enabled = True
                 If Iniread = "yes" Then
-                    filedecrypt.decrypt.Enabled = True
+                    tools.data_encryption.Filedecrypt.decrypt.Enabled = True
                 End If
             End If
 
@@ -912,11 +913,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub fileencrypt_bt_menu(sender As Object, e As EventArgs) Handles file_encrypt_bt_menu.Click
-        fileencrypt.Show()
+        tools.data_encryption.Fileencrypt.Show()
     End Sub
 
     Private Sub filedecrypt_bt_menu(sender As Object, e As EventArgs) Handles file_decrypt_bt_menu.Click
-        filedecrypt.Show()
+        tools.data_encryption.Filedecrypt.Show()
     End Sub
 
     Private Sub textencrypt_bt_menu(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click
@@ -1122,12 +1123,12 @@ Public Class Startwindow
 
     Private Sub file_encrypt__bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles file_encrypt__bt_systemtray.Click
-        fileencrypt.Show()
+        tools.data_encryption.Fileencrypt.Show()
     End Sub
 
     Private Sub file_decrypt_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles file_decrypt_bt_systemtray.Click
-        filedecrypt.Show()
+        tools.data_encryption.Filedecrypt.Show()
     End Sub
 
     Private Sub text_encrypt_bt_systemtray_Click(sender As Object, e As EventArgs) _
@@ -1332,16 +1333,16 @@ Public Class Startwindow
             ' STRG+E öffnet Datei verschlüsseln
             If CBool(GetAsyncKeyState(Keys.F3)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                fileencrypt.Show()
-                fileencrypt.Focus()
+                tools.data_encryption.Fileencrypt.Show()
+                tools.data_encryption.Fileencrypt.Focus()
                 gethotkey.Enabled = True
             End If
 
             ' STRG+D öffnet Datei entschlüsseln
             If CBool(GetAsyncKeyState(Keys.F4)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                filedecrypt.Show()
-                filedecrypt.Focus()
+                tools.data_encryption.Filedecrypt.Show()
+                tools.data_encryption.Filedecrypt.Focus()
                 gethotkey.Enabled = True
             End If
 

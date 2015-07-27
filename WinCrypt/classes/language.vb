@@ -141,24 +141,24 @@ Public Class language
             textencrypt.wincrypttitle.Text = "Text en- and decrypt"
 
             'DateiEntschlüsseln.vb
-            filedecrypt.wincrypttitle.Text = "file decrypt"
-            filedecrypt.filelb.Text = "file:"
-            filedecrypt.pathlb.Text = "path:"
-            filedecrypt.pwdlb.Text = "password:"
-            filedecrypt.openfile.Text = "open"
-            filedecrypt.savefile.Text = "safe as"
-            filedecrypt.decrypt.Text = "decrypt"
+            tools.data_encryption.Filedecrypt.wincrypttitle.Text = "file decrypt"
+            tools.data_encryption.Filedecrypt.filelb.Text = "file:"
+            tools.data_encryption.Filedecrypt.pathlb.Text = "path:"
+            tools.data_encryption.Filedecrypt.pwdlb.Text = "password:"
+            tools.data_encryption.Filedecrypt.openfile.Text = "open"
+            tools.data_encryption.Filedecrypt.savefile.Text = "safe as"
+            tools.data_encryption.Filedecrypt.decrypt.Text = "decrypt"
 
             'DateiVerschlüsseln.vb
 
-            fileencrypt.wincrypttitle.Text = "file encrypt"
-            fileencrypt.filelb.Text = "file:"
-            fileencrypt.pathlb.Text = "path:"
-            fileencrypt.passwordlb.Text = "password:"
-            fileencrypt.fileopenbt.Text = "open"
-            fileencrypt.savefilebt.Text = "safe as"
-            fileencrypt.encryptbt.Text = "encrypt"
-            fileencrypt.generatebt.Text = "generate"
+            tools.data_encryption.Fileencrypt.wincrypttitle.Text = "file encrypt"
+            tools.data_encryption.Fileencrypt.filelb.Text = "file:"
+            tools.data_encryption.Fileencrypt.pathlb.Text = "path:"
+            tools.data_encryption.Fileencrypt.passwordlb.Text = "password:"
+            tools.data_encryption.Fileencrypt.fileopenbt.Text = "open"
+            tools.data_encryption.Fileencrypt.savefilebt.Text = "safe as"
+            tools.data_encryption.Fileencrypt.encryptbt.Text = "encrypt"
+            tools.data_encryption.Fileencrypt.generatebt.Text = "generate"
 
             'Einstellung.vb
             wcSetting.wincrypttitle.Text = "setting"
@@ -365,24 +365,24 @@ Public Class language
             textencrypt.wincrypttitle.Text = "Text ver- und entschlüsseln"
 
             'DateiEntschlüsseln.vb
-            filedecrypt.wincrypttitle.Text = "Datei entschlüsseln"
-            filedecrypt.filelb.Text = "Datei:"
-            filedecrypt.pathlb.Text = "Pfad:"
-            filedecrypt.pwdlb.Text = "Passwort:"
-            filedecrypt.openfile.Text = "Öffnen"
-            filedecrypt.savefile.Text = "Speichern unter..."
-            filedecrypt.decrypt.Text = "Entschlüsseln"
+            tools.data_encryption.Filedecrypt.wincrypttitle.Text = "Datei entschlüsseln"
+            tools.data_encryption.Filedecrypt.filelb.Text = "Datei:"
+            tools.data_encryption.Filedecrypt.pathlb.Text = "Pfad:"
+            tools.data_encryption.Filedecrypt.pwdlb.Text = "Passwort:"
+            tools.data_encryption.Filedecrypt.openfile.Text = "Öffnen"
+            tools.data_encryption.Filedecrypt.savefile.Text = "Speichern unter..."
+            tools.data_encryption.Filedecrypt.decrypt.Text = "Entschlüsseln"
 
             'DateiVerschlüsseln.vb
 
-            fileencrypt.wincrypttitle.Text = "Datei verschlüsseln"
-            fileencrypt.filelb.Text = "Datei:"
-            fileencrypt.pathlb.Text = "Pfad:"
-            fileencrypt.passwordlb.Text = "Passwort:"
-            fileencrypt.fileopenbt.Text = "Öffnen"
-            fileencrypt.savefilebt.Text = "Speichern unter..."
-            fileencrypt.encryptbt.Text = "Verschlüsseln"
-            fileencrypt.generatebt.Text = "Generieren"
+            tools.data_encryption.Fileencrypt.wincrypttitle.Text = "Datei verschlüsseln"
+            tools.data_encryption.Fileencrypt.filelb.Text = "Datei:"
+            tools.data_encryption.Fileencrypt.pathlb.Text = "Pfad:"
+            tools.data_encryption.Fileencrypt.passwordlb.Text = "Passwort:"
+            tools.data_encryption.Fileencrypt.fileopenbt.Text = "Öffnen"
+            tools.data_encryption.Fileencrypt.savefilebt.Text = "Speichern unter..."
+            tools.data_encryption.Fileencrypt.encryptbt.Text = "Verschlüsseln"
+            tools.data_encryption.Fileencrypt.generatebt.Text = "Generieren"
 
             'Einstellung.vb
             wcSetting.wincrypttitle.Text = "Einstellung"

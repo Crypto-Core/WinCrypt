@@ -110,6 +110,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die Key size:  ähnelt.
+        '''</summary>
+        Friend ReadOnly Property CryptoStuff_CryptStream_Key_size__() As String
+            Get
+                Return ResourceManager.GetString("CryptoStuff_CryptStream_Key_size__", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Data_Erase_16() As System.Drawing.Bitmap

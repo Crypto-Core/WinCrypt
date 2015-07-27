@@ -6487,4 +6487,7 @@
   <data name="Startwindow_Form1_FormClosing_Laufwerk_" xml:space="preserve">
     <value>Laufwerk </value>
   </data>
+  <data name="CryptoStuff_CryptStream_Key_size__" xml:space="preserve">
+    <value>Key size: </value>
+  </data>
 </root>
