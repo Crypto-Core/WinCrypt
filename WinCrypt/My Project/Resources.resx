@@ -121,9 +121,6 @@
   <data name="WinCryptRegistry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\WinCryptRegistry.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Drive128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Drive128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Close16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Close-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,14 +133,17 @@
   <data name="maxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\maxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Vista_DeviceConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vista_DeviceConnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Startwindow_Form1_FormClosing_C____drive_is_embedded_" xml:space="preserve">
+    <value>C: \ drive is embedded.</value>
   </data>
   <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Clean-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Clean-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Vista_DeviceConnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vista_DeviceConnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Data-Import-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Data-Import-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +162,9 @@
   </data>
   <data name="setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MailSend16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\MailSend16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wcp1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -6448,6 +6451,9 @@
   <data name="arrowdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrowdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Startwindow_Form1_FormClosing_WinCrypt_runs_in_the_background_" xml:space="preserve">
+    <value>WinCrypt runs in the background!</value>
+  </data>
   <data name="unlock16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\unlock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6457,11 +6463,14 @@
   <data name="Lock16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Lock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WinCrypt_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\WinCrypt_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CryptoStuff_CryptStream_Key_size__" xml:space="preserve">
+    <value>Key size: </value>
   </data>
   <data name="crypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\crypt.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Startwindow_Form1_FormClosing_Laufwerk_" xml:space="preserve">
+    <value>Laufwerk </value>
   </data>
   <data name="Interop_Shell32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interop.Shell32.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6475,19 +6484,10 @@
   <data name="Delete16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Delete-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MailSend16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\MailSend16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wc-icon16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wc-icon16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Startwindow_Form1_FormClosing_C____drive_is_embedded_" xml:space="preserve">
-    <value>C: \ drive is embedded.</value>
-  </data>
-  <data name="Startwindow_Form1_FormClosing_WinCrypt_runs_in_the_background_" xml:space="preserve">
-    <value>WinCrypt runs in the background!</value>
-  </data>
-  <data name="Startwindow_Form1_FormClosing_Laufwerk_" xml:space="preserve">
-    <value>Laufwerk </value>
-  </data>
-  <data name="CryptoStuff_CryptStream_Key_size__" xml:space="preserve">
-    <value>Key size: </value>
+  <data name="wc-icon128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wc-icon128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

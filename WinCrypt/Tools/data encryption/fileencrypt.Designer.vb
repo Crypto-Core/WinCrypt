@@ -232,7 +232,7 @@
             '
             'wincrypt_icon
             '
-            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
             Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
             Me.wincrypt_icon.Name = "wincrypt_icon"
             Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
@@ -240,7 +240,7 @@
             Me.wincrypt_icon.TabIndex = 26
             Me.wincrypt_icon.TabStop = False
             '
-            'fileencrypt
+            'Fileencrypt
             '
             Me.AllowDrop = True
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -265,7 +265,7 @@
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False
-            Me.Name = "fileencrypt"
+            Me.Name = "Fileencrypt"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "Datei Verschlüsseln"
             Me.form_head.ResumeLayout(False)

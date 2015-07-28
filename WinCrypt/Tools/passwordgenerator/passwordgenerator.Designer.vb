@@ -59,8 +59,8 @@
             'generatetxt
             '
             Me.generatetxt.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                                            Or System.Windows.Forms.AnchorStyles.Left) _
-                                           Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                Or System.Windows.Forms.AnchorStyles.Left) _
+                Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.generatetxt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.generatetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.generatetxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
@@ -207,7 +207,7 @@
             '
             'wincrypt_icon
             '
-            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
             Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
             Me.wincrypt_icon.Name = "wincrypt_icon"
             Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)

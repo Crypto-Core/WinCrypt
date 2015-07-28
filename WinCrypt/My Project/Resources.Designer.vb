@@ -161,16 +161,6 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Drive128() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Drive128", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property eye() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("eye", resourceCulture)
@@ -414,22 +404,32 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property wcp1() As System.Drawing.Icon
+        Friend ReadOnly Property wc_icon128() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("wcp1", resourceCulture)
-                Return CType(obj,System.Drawing.Icon)
+                Dim obj As Object = ResourceManager.GetObject("wc-icon128", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property WinCrypt_logo() As System.Drawing.Bitmap
+        Friend ReadOnly Property wc_icon16() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("WinCrypt_logo", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("wc-icon16", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        '''</summary>
+        Friend ReadOnly Property wcp1() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("wcp1", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         

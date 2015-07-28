@@ -22,7 +22,7 @@ Partial Class Newpwmgrdatabase
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(newpwmgrdatabase))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Newpwmgrdatabase))
         Me.createdb_bt = New System.Windows.Forms.Button()
         Me.password_lb = New System.Windows.Forms.Label()
         Me.password_txt = New System.Windows.Forms.TextBox()
@@ -111,7 +111,7 @@ Partial Class Newpwmgrdatabase
         '
         'wincrypt_icon
         '
-        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
         Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
         Me.wincrypt_icon.Name = "wincrypt_icon"
         Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
@@ -119,7 +119,7 @@ Partial Class Newpwmgrdatabase
         Me.wincrypt_icon.TabIndex = 15
         Me.wincrypt_icon.TabStop = False
         '
-        'newpwmgrdatabase
+        'Newpwmgrdatabase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -134,7 +134,7 @@ Partial Class Newpwmgrdatabase
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "newpwmgrdatabase"
+        Me.Name = "Newpwmgrdatabase"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Datenbank anlegen"
         Me.form_head.ResumeLayout(False)

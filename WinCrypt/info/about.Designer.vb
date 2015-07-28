@@ -45,7 +45,7 @@ Partial Class about
         Me.product_lb.AutoSize = True
         Me.product_lb.Font = New System.Drawing.Font("Courier New", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.product_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.product_lb.Location = New System.Drawing.Point(127, 147)
+        Me.product_lb.Location = New System.Drawing.Point(127, 161)
         Me.product_lb.Name = "product_lb"
         Me.product_lb.Size = New System.Drawing.Size(166, 23)
         Me.product_lb.TabIndex = 1
@@ -69,7 +69,7 @@ Partial Class about
         '
         Me.version_lb.AutoSize = True
         Me.version_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.version_lb.Location = New System.Drawing.Point(168, 169)
+        Me.version_lb.Location = New System.Drawing.Point(168, 183)
         Me.version_lb.Name = "version_lb"
         Me.version_lb.Size = New System.Drawing.Size(84, 13)
         Me.version_lb.TabIndex = 5
@@ -109,8 +109,8 @@ Partial Class about
         '
         'wincrypt_logo
         '
-        Me.wincrypt_logo.Image = Global.Project_WinCrypt.My.Resources.Resources.Drive128
-        Me.wincrypt_logo.Location = New System.Drawing.Point(146, 22)
+        Me.wincrypt_logo.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon128
+        Me.wincrypt_logo.Location = New System.Drawing.Point(146, 28)
         Me.wincrypt_logo.Name = "wincrypt_logo"
         Me.wincrypt_logo.Size = New System.Drawing.Size(128, 128)
         Me.wincrypt_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -123,9 +123,9 @@ Partial Class about
         Me.dev_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dev_txt.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dev_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.dev_txt.Location = New System.Drawing.Point(10, 185)
+        Me.dev_txt.Location = New System.Drawing.Point(10, 200)
         Me.dev_txt.Name = "dev_txt"
-        Me.dev_txt.Size = New System.Drawing.Size(400, 103)
+        Me.dev_txt.Size = New System.Drawing.Size(400, 88)
         Me.dev_txt.TabIndex = 10
         Me.dev_txt.Text = "Harry Machura, Ruben Gasda"
         '
@@ -150,7 +150,7 @@ Partial Class about
         '
         'wincrypt_icon
         '
-        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+        Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
         Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
         Me.wincrypt_icon.Name = "wincrypt_icon"
         Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)

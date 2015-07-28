@@ -81,7 +81,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Drive-icon.ico</ApplicationIcon>
+    <ApplicationIcon>wc-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3B96E1825A2D30042C57AAD4DFA4DE92EE0B9DAB</ManifestCertificateThumbprint>
@@ -185,6 +185,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="classes\safedelete_function.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="My\ApplicationEvents.vb" />
     <Compile Include="tools\data encryption\filedecrypt.Designer.vb">
       <DependentUpon>filedecrypt.vb</DependentUpon>
@@ -216,11 +221,6 @@
     </Compile>
     <Compile Include="masterkey.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="tools\hash\bruteforce.Designer.vb">
       <DependentUpon>bruteforce.vb</DependentUpon>
@@ -448,7 +448,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\Drive128.png" />
     <None Include="resources\key2.png" />
     <None Include="resources\eye.png" />
     <None Include="resources\wcp.ico" />
@@ -463,9 +462,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\WinCrypt_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\updateflat.png" />
@@ -514,6 +510,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drive-icon.ico" />
+    <Content Include="wc-icon.ico" />
+    <None Include="resources\wc-icon128.png" />
+    <None Include="resources\wc-icon16.png" />
     <None Include="resources\MailSend16.png" />
     <None Include="resources\Data-Erase-16.png" />
     <None Include="resources\Data-Import-16.png" />
