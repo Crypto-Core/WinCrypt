@@ -509,7 +509,6 @@
     <None Include="resources\maxi.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Drive-icon.ico" />
     <Content Include="wc-icon.ico" />
     <None Include="resources\wc-icon128.png" />
     <None Include="resources\wc-icon16.png" />

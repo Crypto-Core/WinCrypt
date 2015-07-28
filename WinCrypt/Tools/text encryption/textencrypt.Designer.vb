@@ -253,7 +253,7 @@
             '
             'wincrypt_icon
             '
-            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.icon
+            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
             Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
             Me.wincrypt_icon.Name = "wincrypt_icon"
             Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)
@@ -261,7 +261,7 @@
             Me.wincrypt_icon.TabIndex = 18
             Me.wincrypt_icon.TabStop = False
             '
-            'textencrypt
+            'Textencrypt
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -287,7 +287,7 @@
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False
-            Me.Name = "textencrypt"
+            Me.Name = "Textencrypt"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "Text verschlüsseln"
             CType(Me.TrackBar, System.ComponentModel.ISupportInitialize).EndInit()
