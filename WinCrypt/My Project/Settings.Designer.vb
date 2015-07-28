@@ -65,6 +65,78 @@ Namespace My
                 Me("Masterkey") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("45, 45, 48")>  _
+        Public Property backgroundcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("backgroundcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("backgroundcolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ButtonHighlight")>  _
+        Public Property textcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("textcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("textcolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("45, 45, 48")>  _
+        Public Property formheadcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("formheadcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("formheadcolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("62, 62, 64")>  _
+        Public Property buttoncolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("buttoncolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("buttoncolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 122, 204")>  _
+        Public Property inputtextcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("inputtextcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("inputtextcolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("51, 51, 55")>  _
+        Public Property inputbackgroundcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("inputbackgroundcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("inputbackgroundcolor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

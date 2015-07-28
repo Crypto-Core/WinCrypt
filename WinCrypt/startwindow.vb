@@ -591,6 +591,8 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
         Iniread = _ini.WertLesen("systemidentification", "status")
@@ -1409,5 +1411,10 @@ Public Class Startwindow
             WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        MsgBox(ColorTranslator.ToHtml(Button1.BackColor))
+
     End Sub
 End Class

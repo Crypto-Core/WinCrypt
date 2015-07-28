@@ -45,12 +45,27 @@ Partial Class WcSetting
         Me.form_head = New System.Windows.Forms.MenuStrip()
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
+        Me.design_gb = New System.Windows.Forms.GroupBox()
+        Me.inputbackground_bt = New System.Windows.Forms.Label()
+        Me.inputbackground_lb = New System.Windows.Forms.Label()
+        Me.formhead_color_bt = New System.Windows.Forms.Label()
+        Me.formhead_color_lb = New System.Windows.Forms.Label()
+        Me.bgcolor_bt = New System.Windows.Forms.Label()
+        Me.bgcolor_lb = New System.Windows.Forms.Label()
+        Me.designcolor_dialog = New System.Windows.Forms.ColorDialog()
+        Me.inputtextcolor_bt = New System.Windows.Forms.Label()
+        Me.inputtextcolor_lb = New System.Windows.Forms.Label()
+        Me.textcolor_bt = New System.Windows.Forms.Label()
+        Me.textcolor_lb = New System.Windows.Forms.Label()
+        Me.buttoncolor_bt = New System.Windows.Forms.Label()
+        Me.buttoncolor_lb = New System.Windows.Forms.Label()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
         Me.masterkey_gb.SuspendLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.form_head.SuspendLayout()
+        Me.design_gb.SuspendLayout()
         Me.SuspendLayout()
         '
         'registfiletypegb
@@ -83,7 +98,7 @@ Partial Class WcSetting
         Me.okbt.FlatAppearance.BorderSize = 0
         Me.okbt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.okbt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.okbt.Location = New System.Drawing.Point(21, 238)
+        Me.okbt.Location = New System.Drawing.Point(21, 354)
         Me.okbt.Name = "okbt"
         Me.okbt.Size = New System.Drawing.Size(75, 23)
         Me.okbt.TabIndex = 1
@@ -307,12 +322,153 @@ Partial Class WcSetting
         Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
         Me.minimize_bt.Text = "─"
         '
+        'design_gb
+        '
+        Me.design_gb.Controls.Add(Me.buttoncolor_bt)
+        Me.design_gb.Controls.Add(Me.buttoncolor_lb)
+        Me.design_gb.Controls.Add(Me.textcolor_bt)
+        Me.design_gb.Controls.Add(Me.textcolor_lb)
+        Me.design_gb.Controls.Add(Me.inputtextcolor_bt)
+        Me.design_gb.Controls.Add(Me.inputtextcolor_lb)
+        Me.design_gb.Controls.Add(Me.inputbackground_bt)
+        Me.design_gb.Controls.Add(Me.inputbackground_lb)
+        Me.design_gb.Controls.Add(Me.formhead_color_bt)
+        Me.design_gb.Controls.Add(Me.formhead_color_lb)
+        Me.design_gb.Controls.Add(Me.bgcolor_bt)
+        Me.design_gb.Controls.Add(Me.bgcolor_lb)
+        Me.design_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.design_gb.Location = New System.Drawing.Point(21, 238)
+        Me.design_gb.Name = "design_gb"
+        Me.design_gb.Size = New System.Drawing.Size(416, 110)
+        Me.design_gb.TabIndex = 23
+        Me.design_gb.TabStop = False
+        Me.design_gb.Text = "Design"
+        '
+        'inputbackground_bt
+        '
+        Me.inputbackground_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.inputbackground_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.inputbackground_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.inputbackground_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.inputbackground_bt.Location = New System.Drawing.Point(168, 75)
+        Me.inputbackground_bt.Name = "inputbackground_bt"
+        Me.inputbackground_bt.Size = New System.Drawing.Size(16, 16)
+        Me.inputbackground_bt.TabIndex = 5
+        '
+        'inputbackground_lb
+        '
+        Me.inputbackground_lb.AutoSize = True
+        Me.inputbackground_lb.Location = New System.Drawing.Point(61, 76)
+        Me.inputbackground_lb.Name = "inputbackground_lb"
+        Me.inputbackground_lb.Size = New System.Drawing.Size(104, 13)
+        Me.inputbackground_lb.TabIndex = 4
+        Me.inputbackground_lb.Text = "Eingabe Hintergrund"
+        '
+        'formhead_color_bt
+        '
+        Me.formhead_color_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.formhead_color_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.formhead_color_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.formhead_color_bt.Location = New System.Drawing.Point(168, 49)
+        Me.formhead_color_bt.Name = "formhead_color_bt"
+        Me.formhead_color_bt.Size = New System.Drawing.Size(16, 16)
+        Me.formhead_color_bt.TabIndex = 3
+        '
+        'formhead_color_lb
+        '
+        Me.formhead_color_lb.AutoSize = True
+        Me.formhead_color_lb.Location = New System.Drawing.Point(61, 50)
+        Me.formhead_color_lb.Name = "formhead_color_lb"
+        Me.formhead_color_lb.Size = New System.Drawing.Size(59, 13)
+        Me.formhead_color_lb.TabIndex = 2
+        Me.formhead_color_lb.Text = "Form Head"
+        '
+        'bgcolor_bt
+        '
+        Me.bgcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.bgcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.bgcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bgcolor_bt.Location = New System.Drawing.Point(168, 25)
+        Me.bgcolor_bt.Name = "bgcolor_bt"
+        Me.bgcolor_bt.Size = New System.Drawing.Size(16, 16)
+        Me.bgcolor_bt.TabIndex = 1
+        '
+        'bgcolor_lb
+        '
+        Me.bgcolor_lb.AutoSize = True
+        Me.bgcolor_lb.Location = New System.Drawing.Point(61, 26)
+        Me.bgcolor_lb.Name = "bgcolor_lb"
+        Me.bgcolor_lb.Size = New System.Drawing.Size(62, 13)
+        Me.bgcolor_lb.TabIndex = 0
+        Me.bgcolor_lb.Text = "Hintergrund"
+        '
+        'inputtextcolor_bt
+        '
+        Me.inputtextcolor_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.inputtextcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.inputtextcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.inputtextcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.inputtextcolor_bt.Location = New System.Drawing.Point(339, 75)
+        Me.inputtextcolor_bt.Name = "inputtextcolor_bt"
+        Me.inputtextcolor_bt.Size = New System.Drawing.Size(16, 16)
+        Me.inputtextcolor_bt.TabIndex = 7
+        '
+        'inputtextcolor_lb
+        '
+        Me.inputtextcolor_lb.AutoSize = True
+        Me.inputtextcolor_lb.Location = New System.Drawing.Point(232, 76)
+        Me.inputtextcolor_lb.Name = "inputtextcolor_lb"
+        Me.inputtextcolor_lb.Size = New System.Drawing.Size(70, 13)
+        Me.inputtextcolor_lb.TabIndex = 6
+        Me.inputtextcolor_lb.Text = "Eingabe Text"
+        '
+        'textcolor_bt
+        '
+        Me.textcolor_bt.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.textcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.textcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.textcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.textcolor_bt.Location = New System.Drawing.Point(339, 49)
+        Me.textcolor_bt.Name = "textcolor_bt"
+        Me.textcolor_bt.Size = New System.Drawing.Size(16, 16)
+        Me.textcolor_bt.TabIndex = 9
+        '
+        'textcolor_lb
+        '
+        Me.textcolor_lb.AutoSize = True
+        Me.textcolor_lb.Location = New System.Drawing.Point(232, 50)
+        Me.textcolor_lb.Name = "textcolor_lb"
+        Me.textcolor_lb.Size = New System.Drawing.Size(28, 13)
+        Me.textcolor_lb.TabIndex = 8
+        Me.textcolor_lb.Text = "Text"
+        '
+        'buttoncolor_bt
+        '
+        Me.buttoncolor_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.buttoncolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.buttoncolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.buttoncolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.buttoncolor_bt.Location = New System.Drawing.Point(339, 26)
+        Me.buttoncolor_bt.Name = "buttoncolor_bt"
+        Me.buttoncolor_bt.Size = New System.Drawing.Size(16, 16)
+        Me.buttoncolor_bt.TabIndex = 11
+        '
+        'buttoncolor_lb
+        '
+        Me.buttoncolor_lb.AutoSize = True
+        Me.buttoncolor_lb.Location = New System.Drawing.Point(232, 27)
+        Me.buttoncolor_lb.Name = "buttoncolor_lb"
+        Me.buttoncolor_lb.Size = New System.Drawing.Size(66, 13)
+        Me.buttoncolor_lb.TabIndex = 10
+        Me.buttoncolor_lb.Text = "Schaltfläche"
+        '
         'WcSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(457, 269)
+        Me.ClientSize = New System.Drawing.Size(457, 389)
+        Me.Controls.Add(Me.design_gb)
         Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.form_head)
@@ -336,6 +492,8 @@ Partial Class WcSetting
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.form_head.ResumeLayout(False)
         Me.form_head.PerformLayout()
+        Me.design_gb.ResumeLayout(False)
+        Me.design_gb.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -362,4 +520,18 @@ Partial Class WcSetting
     Friend WithEvents form_head As System.Windows.Forms.MenuStrip
     Friend WithEvents exit_bt As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents design_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents bgcolor_lb As System.Windows.Forms.Label
+    Friend WithEvents designcolor_dialog As System.Windows.Forms.ColorDialog
+    Friend WithEvents formhead_color_lb As System.Windows.Forms.Label
+    Friend WithEvents bgcolor_bt As System.Windows.Forms.Label
+    Friend WithEvents inputbackground_bt As System.Windows.Forms.Label
+    Friend WithEvents inputbackground_lb As System.Windows.Forms.Label
+    Friend WithEvents formhead_color_bt As System.Windows.Forms.Label
+    Friend WithEvents buttoncolor_bt As System.Windows.Forms.Label
+    Friend WithEvents buttoncolor_lb As System.Windows.Forms.Label
+    Friend WithEvents textcolor_bt As System.Windows.Forms.Label
+    Friend WithEvents textcolor_lb As System.Windows.Forms.Label
+    Friend WithEvents inputtextcolor_bt As System.Windows.Forms.Label
+    Friend WithEvents inputtextcolor_lb As System.Windows.Forms.Label
 End Class

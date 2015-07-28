@@ -18,6 +18,7 @@ Public Class WcSetting
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
     ' Die Bios ID wird deklariert
     Dim _bios As String
+    Dim _loadcolor As New designcolor
 
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
@@ -61,6 +62,7 @@ Public Class WcSetting
         Startwindow.Langname = i.WertLesen("Info", "Lang") _
         ' Die gewählte Sprache wird in dem String startwindow.langname gesetzt
         _lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
+        _loadcolor.color()
         Close() ' Das Fenster wird geschlossen
     End Sub
 
@@ -85,6 +87,7 @@ Public Class WcSetting
     End Sub
 
     Private Sub wcSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        _loadcolor.color()
         _lang.check() ' Es wird die Sprache überprüft
 
         'Alle leerzeichen der Bios ID werden entfernt
@@ -242,5 +245,41 @@ Public Class WcSetting
             WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else
         End If
+    End Sub
+
+    Private Sub bgcolor_bt_Click(sender As Object, e As EventArgs) Handles bgcolor_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.backgroundcolor = designcolor_dialog.Color
+        bgcolor_bt.BackColor = My.Settings.backgroundcolor
+    End Sub
+
+    Private Sub formhead_color_bt_Click(sender As Object, e As EventArgs) Handles formhead_color_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.formheadcolor = designcolor_dialog.Color
+        formhead_color_bt.BackColor = My.Settings.formheadcolor
+    End Sub
+
+    Private Sub inputbackground_bt_Click(sender As Object, e As EventArgs) Handles inputbackground_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.inputbackgroundcolor = designcolor_dialog.Color
+        inputbackground_bt.BackColor = My.Settings.inputbackgroundcolor
+    End Sub
+
+    Private Sub buttoncolor_bt_Click(sender As Object, e As EventArgs) Handles buttoncolor_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.buttoncolor = designcolor_dialog.Color
+        buttoncolor_bt.BackColor = My.Settings.buttoncolor
+    End Sub
+
+    Private Sub textcolor_bt_Click(sender As Object, e As EventArgs) Handles textcolor_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.textcolor = designcolor_dialog.Color
+        textcolor_bt.BackColor = My.Settings.textcolor
+    End Sub
+
+    Private Sub inputtextcolor_bt_Click(sender As Object, e As EventArgs) Handles inputtextcolor_bt.Click
+        designcolor_dialog.ShowDialog()
+        My.Settings.inputtextcolor = designcolor_dialog.Color
+        inputtextcolor_bt.BackColor = My.Settings.inputtextcolor
     End Sub
 End Class

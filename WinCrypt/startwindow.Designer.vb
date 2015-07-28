@@ -195,7 +195,7 @@ Partial Class Startwindow
         '
         'file_bt_menu
         '
-        Me.file_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.file_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.file_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.setting_bt_menu, Me.exit_bt_menu})
         Me.file_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_bt_menu.Name = "file_bt_menu"
@@ -208,7 +208,7 @@ Partial Class Startwindow
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
-        Me.setting_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.setting_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.setting_bt_menu.Text = "Einstellung"
         '
         'exit_bt_menu
@@ -217,11 +217,12 @@ Partial Class Startwindow
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
-        Me.exit_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.exit_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.exit_bt_menu.Text = "Beenden"
         '
         'tools_bt_menu
         '
+        Me.tools_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.tools_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt_bt_menu, Me.file_decrypt_bt_menu, Me.text_encrypt_bt_menu, Me.hash_bt_menu, Me.rsa_bt_menu, Me.mail_bt_menu, Me.pw_manager_bt_menu, Me.systemidentification_bt_menu, Me.pw_generator_bt_menu, Me.delete_file_bt_menu})
         Me.tools_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.tools_bt_menu.Name = "tools_bt_menu"
@@ -401,7 +402,7 @@ Partial Class Startwindow
         '
         'info_bt_menu
         '
-        Me.info_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.info_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.info_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.update_bt_menu, Me.feedback_bt_menu, Me.about_bt_menu})
         Me.info_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.info_bt_menu.Name = "info_bt_menu"
@@ -414,7 +415,7 @@ Partial Class Startwindow
         Me.update_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.update_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
         Me.update_bt_menu.Name = "update_bt_menu"
-        Me.update_bt_menu.Size = New System.Drawing.Size(124, 22)
+        Me.update_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.update_bt_menu.Text = "Update"
         '
         'feedback_bt_menu
@@ -423,7 +424,7 @@ Partial Class Startwindow
         Me.feedback_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.feedback_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
         Me.feedback_bt_menu.Name = "feedback_bt_menu"
-        Me.feedback_bt_menu.Size = New System.Drawing.Size(124, 22)
+        Me.feedback_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.feedback_bt_menu.Text = "Feedback"
         '
         'about_bt_menu
@@ -432,7 +433,7 @@ Partial Class Startwindow
         Me.about_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.about_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
         Me.about_bt_menu.Name = "about_bt_menu"
-        Me.about_bt_menu.Size = New System.Drawing.Size(124, 22)
+        Me.about_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.about_bt_menu.Text = "About"
         '
         'DateiToolStripMenuItem
@@ -1076,6 +1077,7 @@ Partial Class Startwindow
         '
         'mount_gb
         '
+        Me.mount_gb.BackColor = System.Drawing.Color.Transparent
         Me.mount_gb.Controls.Add(Me.cleanlb2)
         Me.mount_gb.Controls.Add(Me.drive_lb)
         Me.mount_gb.Controls.Add(Me.key_lb)
@@ -1236,6 +1238,7 @@ Partial Class Startwindow
         '
         'encrypt_gb
         '
+        Me.encrypt_gb.BackColor = System.Drawing.Color.Transparent
         Me.encrypt_gb.Controls.Add(Me.cleanlb1)
         Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
         Me.encrypt_gb.Controls.Add(Me.key_lb1)
@@ -1367,6 +1370,7 @@ Partial Class Startwindow
         '
         'wincrypt_icon
         '
+        Me.wincrypt_icon.BackColor = System.Drawing.Color.Transparent
         Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
         Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
         Me.wincrypt_icon.Name = "wincrypt_icon"
