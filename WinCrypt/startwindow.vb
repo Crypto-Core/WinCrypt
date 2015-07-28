@@ -591,10 +591,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        wincrypttitle.Text = String.Format("WinCrypt {0}.{1}", My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
+        Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
+        wincrypttitle.Text = Text
         Iniread = _ini.WertLesen("systemidentification", "status")
         If My.Settings.Masterkey = True Then
-            masterkey.ShowDialog()
+            Masterkey.ShowDialog()
         Else
         End If
         _lang.check()
@@ -632,7 +633,7 @@ Public Class Startwindow
             tools.data_encryption.Fileencrypt.passwordlb.Visible = False
             tools.data_encryption.Fileencrypt.passwordtxt.Visible = False
             tools.data_encryption.Fileencrypt.generatebt.Visible = False
-            Text = String.Format("WinCrypt {0}.{1} (Systemidentifikation)", My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
+            wincrypttitle.Text = String.Format("WinCrypt {0}.{1} (Systemidentifikation)", My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
         Else
             If Iniread = "no" Then
                 generate_key_encrypt.Visible = True

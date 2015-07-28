@@ -138,7 +138,7 @@ Partial Class Systemidentification
         Me.minimize_bt.Size = New System.Drawing.Size(32, 23)
         Me.minimize_bt.Text = "─"
         '
-        'systemidentification
+        'Systemidentification
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -154,9 +154,9 @@ Partial Class Systemidentification
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "systemidentification"
+        Me.Name = "Systemidentification"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Systemidentifikation"
+        Me.Text = "systemidentification"
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.form_head.ResumeLayout(False)
         Me.form_head.PerformLayout()

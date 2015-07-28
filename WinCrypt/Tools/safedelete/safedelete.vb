@@ -208,11 +208,15 @@ Namespace tools.safedelete
 
         Private Sub report_bt_EnabledChanged(sender As Object, e As EventArgs) Handles report_bt.EnabledChanged
             If report_bt.Enabled = True Then
-                abort_bt.Visible = False
                 deletebt.Visible = True
+                abort_bt.Visible = False
                 progressstatus.Value = 0
                 overwrite_pb.Value = 0
             End If
+        End Sub
+
+        Private Sub deletfilelist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles deletfilelist.SelectedIndexChanged
+
         End Sub
     End Class
 End Namespace

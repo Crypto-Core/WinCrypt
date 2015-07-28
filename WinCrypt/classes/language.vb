@@ -82,6 +82,7 @@ Namespace classes
                 tools.rsa.rsa_encrypt.encryption_message_lb.Text = "encryption message"
                 tools.rsa.rsa_encrypt.encryption_bt.Text = "encrypt"
                 tools.rsa.rsa_encrypt.wincrypttitle.Text = "RSA Encrypt"
+                tools.rsa.rsa_encrypt.Text = "RSA Encrypt"
 
                 'rsa_decrypt.vb
                 tools.rsa.rsa_decrypt.open_privkey_bt.Text = "open"
@@ -89,6 +90,7 @@ Namespace classes
                 tools.rsa.rsa_decrypt.message_lb.Text = "message"
                 tools.rsa.rsa_decrypt.decrypt_bt.Text = "decrypt"
                 tools.rsa.rsa_decrypt.wincrypttitle.Text = "RSA Decrypt"
+                tools.rsa.rsa_decrypt.Text = "RSA Decrypt"
 
                 'rsa_create_keys.vb
                 tools.rsa.rsa_create_keys.save_privkey_bt.Text = "save as"
@@ -96,15 +98,19 @@ Namespace classes
                 tools.rsa.rsa_create_keys.generate_key_bt.Text = "generate keys"
                 tools.rsa.rsa_create_keys.save_bt.Text = "save"
                 tools.rsa.rsa_create_keys.wincrypttitle.Text = "RSA create key's"
+                tools.rsa.rsa_create_keys.Text = "RSA create key's"
 
-                'Form3
+                'systemidentification
                 Systemidentification.off_rb.Text = "off"
                 Systemidentification.on_rb.Text = "on"
                 Systemidentification.wincrypttitle.Text = "system identification"
+                Systemidentification.Text = "system identification"
                 Systemidentification.systemidentification_lb.Text = String.Format("The system identification allows the user passwords{0}more needs to enter. This can be very useful if you passwords to{0}can not remember well or you want the encrypted file / folder / -{0}Text / data carrier only be opened by a computer. This may have the advantage{0}if you lose a USB stick, so the data can be opened by anyone{0}other than the owner of the PC with which it encrypted the data.", vbCrLf)
 
                 'passwortgenerator.vb
+                tools.passwordgenerator.passwordgenerator.Text = "WinCrypt - passwordgenerator"
                 tools.passwordgenerator.passwordgenerator.wincrypttitle.Text = "WinCrypt - passwordgenerator"
+                tools.passwordgenerator.passwordgenerator.specialchar.Text = "specialchar (!§$%&/()=?)"
                 tools.passwordgenerator.passwordgenerator.uppercasecb.Text = "uppercase"
                 tools.passwordgenerator.passwordgenerator.lowercasecb.Text = "lower case"
                 tools.passwordgenerator.passwordgenerator.numberscb.Text = "numbers"
@@ -120,6 +126,9 @@ Namespace classes
                 tools.safedelete.safedelete.fileaddbt.Text = "add file"
                 tools.safedelete.safedelete.removeentrybt.Text = "remove entry"
                 tools.safedelete.safedelete.wincrypttitle.Text = "safe delete"
+                tools.safedelete.safedelete.Text = "safe delete"
+                tools.safedelete.safedelete.abort_bt.Text = "abort"
+                tools.safedelete.del_report.saveas_bt.Text = "save as..."
 
                 'textencrypt.vb
                 tools.text_encryption.Textencrypt.encrypt_lb.Text = "encypt"
@@ -131,9 +140,11 @@ Namespace classes
                 tools.text_encryption.Textencrypt.decrypt_bt.Text = "decrypt"
                 tools.text_encryption.Textencrypt.encrypt_bt.Text = "encrypt"
                 tools.text_encryption.Textencrypt.wincrypttitle.Text = "Text en- and decrypt"
+                tools.text_encryption.Textencrypt.Text = "Text en- and decrypt"
 
                 'DateiEntschlüsseln.vb
                 tools.data_encryption.Filedecrypt.wincrypttitle.Text = "file decrypt"
+                tools.data_encryption.Filedecrypt.Text = "file decrypt"
                 tools.data_encryption.Filedecrypt.filelb.Text = "file:"
                 tools.data_encryption.Filedecrypt.pathlb.Text = "path:"
                 tools.data_encryption.Filedecrypt.pwdlb.Text = "password:"
@@ -142,8 +153,8 @@ Namespace classes
                 tools.data_encryption.Filedecrypt.decrypt.Text = "decrypt"
 
                 'DateiVerschlüsseln.vb
-
                 tools.data_encryption.Fileencrypt.wincrypttitle.Text = "file encrypt"
+                tools.data_encryption.Fileencrypt.Text = "file encrypt"
                 tools.data_encryption.Fileencrypt.filelb.Text = "file:"
                 tools.data_encryption.Fileencrypt.pathlb.Text = "path:"
                 tools.data_encryption.Fileencrypt.passwordlb.Text = "password:"
@@ -154,6 +165,7 @@ Namespace classes
 
                 'Einstellung.vb
                 WcSetting.wincrypttitle.Text = "setting"
+                WcSetting.Text = "setting"
                 WcSetting.registfiletypegb.Text = "register WinCrypt file types"
                 WcSetting.registfiletype.Text = "regist"
                 WcSetting.languagegb.Text = "language"
@@ -165,6 +177,7 @@ Namespace classes
 
                 'md5_main.vb
                 tools.hash.converter.wincrypttitle.Text = "MD5 Converter"
+                tools.hash.converter.Text = "MD5 Converter"
                 tools.hash.converter.convert_bt.Text = "Convert"
 
                 'md5_bruteforce.vb
@@ -174,6 +187,7 @@ Namespace classes
 
                 'sendmail.vb
                 tools.mail.Sendmail.wincrypttitle.Text = "send e-mail"
+                tools.mail.Sendmail.Text = "send e-mail"
                 tools.mail.Sendmail.email_lb.Text = "email:"
                 tools.mail.Sendmail.password_lb.Text = "password:"
                 tools.mail.Sendmail.server_lb.Text = "server:"
@@ -192,6 +206,7 @@ Namespace classes
 
                 'passwordmanager.vb
                 tools.passwordmanager.Passwordmanager.wincrypttitle.Text = "passwordmanager"
+                tools.passwordmanager.Passwordmanager.Text = "passwordmanager"
                 tools.passwordmanager.Passwordmanager.ColumnHeader1.Text = "user"
                 tools.passwordmanager.Passwordmanager.ColumnHeader2.Text = "source"
                 tools.passwordmanager.Passwordmanager.ColumnHeader3.Text = "index"
@@ -208,11 +223,13 @@ Namespace classes
 
                 'newpwmgrdatabase.vb
                 Newpwmgrdatabase.wincrypttitle.Text = "create database"
+                Newpwmgrdatabase.Text = "create database"
                 Newpwmgrdatabase.createdb_bt.Text = "create database"
                 Newpwmgrdatabase.password_lb.Text = "password:"
 
                 'Passwordmanager_add.vb
                 tools.passwordmanager.passwordmanager_add.wincrypttitle.Text = "passwordmanager - add"
+                tools.passwordmanager.passwordmanager_add.Text = "passwordmanager - add"
                 tools.passwordmanager.passwordmanager_add.user_lb.Text = "user:"
                 tools.passwordmanager.passwordmanager_add.password_lb.Text = "password:"
                 tools.passwordmanager.passwordmanager_add.source_lb.Text = "source:"
@@ -221,7 +238,26 @@ Namespace classes
 
                 'passwordmgr_pass.vb
                 tools.passwordmanager.passwordmgr_pass.wincrypttitle.Text = "passwordmanager - password"
+                tools.passwordmanager.passwordmgr_pass.Text = "passwordmanager - password"
                 tools.passwordmanager.passwordmgr_pass.password_lb.Text = "password:"
+
+                'feedback.vb
+                feedback.name_lb.Text = "name"
+                feedback.email_lb.Text = "e-Mail"
+                feedback.subject_lb.Text = "subject"
+                Dim subitem0 As New ListBox
+                subitem0.Items.Clear()
+                feedback.subject_cb.Items.Clear()
+                subitem0.Items.Add("error")
+                subitem0.Items.Add("suggestion")
+                subitem0.Items.Add("thanksgiving")
+                subitem0.Items.Add("help")
+                subitem0.Items.Add("other")
+                For i = 0 To subitem0.Items.Count - 1
+                    feedback.subject_cb.Items.Add(subitem0.Items.Item(i).ToString)
+                Next
+                feedback.message_lb.Text = "message"
+                feedback.send_bt.Text = "send"
             End If
 
 
@@ -290,6 +326,7 @@ Namespace classes
                 tools.rsa.rsa_encrypt.encryption_message_lb.Text = "Verschlüsselte Nachricht"
                 tools.rsa.rsa_encrypt.encryption_bt.Text = "Verschlüsseln"
                 tools.rsa.rsa_encrypt.wincrypttitle.Text = "RSA Verschlüsselung"
+                tools.rsa.rsa_encrypt.Text = "RSA Verschlüsselung"
 
                 'rsa_decrypt.vb
                 tools.rsa.rsa_decrypt.open_privkey_bt.Text = "Öffnen"
@@ -297,6 +334,7 @@ Namespace classes
                 tools.rsa.rsa_decrypt.message_lb.Text = "Nachricht"
                 tools.rsa.rsa_decrypt.decrypt_bt.Text = "Entschlüsseln"
                 tools.rsa.rsa_decrypt.wincrypttitle.Text = "RSA Entschlüsselung"
+                tools.rsa.rsa_decrypt.Text = "RSA Entschlüsselung"
 
                 'masterkey.vb
                 Masterkey.abort_bt.Text = "Abbrechen"
@@ -307,11 +345,13 @@ Namespace classes
                 tools.rsa.rsa_create_keys.generate_key_bt.Text = "Schlüssel generieren"
                 tools.rsa.rsa_create_keys.save_bt.Text = "Speichern"
                 tools.rsa.rsa_create_keys.wincrypttitle.Text = "RSA Schlüssel erstellen"
+                tools.rsa.rsa_create_keys.Text = "RSA Schlüssel erstellen"
 
                 'Form3
                 Systemidentification.off_rb.Text = "Ausschalten"
                 Systemidentification.on_rb.Text = "Einschalten"
                 Systemidentification.wincrypttitle.Text = "Systemidentifikation"
+                Systemidentification.Text = "Systemidentifikation"
                 Systemidentification.systemidentification_lb.Text = "Systemidentifikation:" _
                                                                     & vbCrLf &
                                                                     "Die Systemidentifikation ermöglicht es das der Benutzer keine Passwörter" _
@@ -328,6 +368,7 @@ Namespace classes
 
                 'passwortgenerator.vb
                 tools.passwordgenerator.passwordgenerator.wincrypttitle.Text = "WinCrypt - Passwortgenerator"
+                tools.passwordgenerator.passwordgenerator.Text = "WinCrypt - Passwortgenerator"
                 tools.passwordgenerator.passwordgenerator.uppercasecb.Text = "Großbuchstaben"
                 tools.passwordgenerator.passwordgenerator.lowercasecb.Text = "Kleinbuchstaben"
                 tools.passwordgenerator.passwordgenerator.numberscb.Text = "Zahlen"
@@ -336,6 +377,7 @@ Namespace classes
                 tools.passwordgenerator.passwordgenerator.generatebt.Text = "Generieren"
 
                 'safedelete.vb
+                tools.safedelete.safedelete.Text = "Dateien sicher löschen"
                 tools.safedelete.safedelete.selectpathbt.Text = "Auswählen"
                 tools.safedelete.safedelete.filelb.Text = "Ordner:"
                 tools.safedelete.safedelete.overwritelb.Text = "Überschreiben"
@@ -343,6 +385,9 @@ Namespace classes
                 tools.safedelete.safedelete.fileaddbt.Text = "Datei hinzufügen"
                 tools.safedelete.safedelete.removeentrybt.Text = "Eintrag entfernen"
                 tools.safedelete.safedelete.wincrypttitle.Text = "Dateien sicher löschen"
+                tools.safedelete.safedelete.Text = "Dateien sicher löschen"
+                tools.safedelete.safedelete.abort_bt.Text = "Abbrechen"
+                tools.safedelete.del_report.saveas_bt.Text = "Speichern unter..."
 
 
                 'textencrypt.vb
@@ -355,9 +400,11 @@ Namespace classes
                 tools.text_encryption.Textencrypt.decrypt_bt.Text = "Entschlüsseln"
                 tools.text_encryption.Textencrypt.encrypt_bt.Text = "Verschlüsseln"
                 tools.text_encryption.Textencrypt.wincrypttitle.Text = "Text ver- und entschlüsseln"
+                tools.text_encryption.Textencrypt.Text = "Text ver- und entschlüsseln"
 
                 'DateiEntschlüsseln.vb
                 tools.data_encryption.Filedecrypt.wincrypttitle.Text = "Datei entschlüsseln"
+                tools.data_encryption.Filedecrypt.Text = "Datei entschlüsseln"
                 tools.data_encryption.Filedecrypt.filelb.Text = "Datei:"
                 tools.data_encryption.Filedecrypt.pathlb.Text = "Pfad:"
                 tools.data_encryption.Filedecrypt.pwdlb.Text = "Passwort:"
@@ -366,8 +413,8 @@ Namespace classes
                 tools.data_encryption.Filedecrypt.decrypt.Text = "Entschlüsseln"
 
                 'DateiVerschlüsseln.vb
-
                 tools.data_encryption.Fileencrypt.wincrypttitle.Text = "Datei verschlüsseln"
+                tools.data_encryption.Fileencrypt.Text = "Datei verschlüsseln"
                 tools.data_encryption.Fileencrypt.filelb.Text = "Datei:"
                 tools.data_encryption.Fileencrypt.pathlb.Text = "Pfad:"
                 tools.data_encryption.Fileencrypt.passwordlb.Text = "Passwort:"
@@ -378,6 +425,7 @@ Namespace classes
 
                 'Einstellung.vb
                 WcSetting.wincrypttitle.Text = "Einstellung"
+                WcSetting.Text = "Einstellung"
                 WcSetting.registfiletypegb.Text = "WinCrypt Dateitypen registrieren"
                 WcSetting.registfiletype.Text = "Registrieren"
                 WcSetting.languagegb.Text = "Sprache"
@@ -389,6 +437,7 @@ Namespace classes
 
                 'md5_main.vb
                 tools.hash.converter.wincrypttitle.Text = "MD5 Konverter"
+                tools.hash.converter.Text = "MD5 Konverter"
                 tools.hash.converter.convert_bt.Text = "Konvertieren"
 
                 'md5_bruteforce.vb
@@ -398,6 +447,7 @@ Namespace classes
 
                 'sendmail.vb
                 tools.mail.Sendmail.wincrypttitle.Text = "E-Mail senden"
+                tools.mail.Sendmail.Text = "E-Mail senden"
                 tools.mail.Sendmail.email_lb.Text = "E-Mail:"
                 tools.mail.Sendmail.password_lb.Text = "Passwort:"
                 tools.mail.Sendmail.server_lb.Text = "Server:"
@@ -416,6 +466,7 @@ Namespace classes
 
                 'passwordmanager.vb
                 tools.passwordmanager.Passwordmanager.wincrypttitle.Text = "Passwortmanager"
+                tools.passwordmanager.Passwordmanager.Text = "Passwortmanager"
                 tools.passwordmanager.Passwordmanager.ColumnHeader1.Text = "Benutzer"
                 tools.passwordmanager.Passwordmanager.ColumnHeader2.Text = "Quelle"
                 tools.passwordmanager.Passwordmanager.ColumnHeader3.Text = "Index"
@@ -432,11 +483,13 @@ Namespace classes
 
                 'newpwmgrdatabase.vb
                 Newpwmgrdatabase.wincrypttitle.Text = "Datenbank erstellen"
+                Newpwmgrdatabase.Text = "Datenbank erstellen"
                 Newpwmgrdatabase.createdb_bt.Text = "Datenbank erstellen"
                 Newpwmgrdatabase.password_lb.Text = "Passwort:"
 
                 'Passwordmanager_add.vb
                 tools.passwordmanager.passwordmanager_add.wincrypttitle.Text = "Passwortmanager - Hinzufügen"
+                tools.passwordmanager.passwordmanager_add.Text = "Passwortmanager - Hinzufügen"
                 tools.passwordmanager.passwordmanager_add.user_lb.Text = "Benutzer:"
                 tools.passwordmanager.passwordmanager_add.password_lb.Text = "Passwort:"
                 tools.passwordmanager.passwordmanager_add.source_lb.Text = "Quelle:"
@@ -445,8 +498,26 @@ Namespace classes
 
                 'passwordmgr_pass.vb
                 tools.passwordmanager.passwordmgr_pass.wincrypttitle.Text = "Passwortmanager - Passwort"
+                tools.passwordmanager.passwordmgr_pass.Text = "Passwortmanager - Passwort"
                 tools.passwordmanager.passwordmgr_pass.password_lb.Text = "Passwort:"
 
+                'feedback.vb
+                feedback.name_lb.Text = "Name"
+                feedback.email_lb.Text = "E-Mail"
+                feedback.subject_lb.Text = "Betreff"
+                Dim subitem0 As New ListBox
+                subitem0.Items.Clear()
+                feedback.subject_cb.Items.Clear()
+                subitem0.Items.Add("Fehler")
+                subitem0.Items.Add("Verbesserungsvorschlag")
+                subitem0.Items.Add("Danksagung")
+                subitem0.Items.Add("Hilfe")
+                subitem0.Items.Add("anderes")
+                For i = 0 To subitem0.Items.Count - 1
+                    feedback.subject_cb.Items.Add(subitem0.Items.Item(i).ToString)
+                Next
+                feedback.message_lb.Text = "Nachricht"
+                feedback.send_bt.Text = "Senden"
             End If
         End Sub
     End Class
