@@ -6,13 +6,13 @@ Imports System.Text
 Namespace classes
 
     Public Class rHash
-        Public Enum HASH As Integer
-            MD5 = 0
-            SHA1 = 1
-            SHA256 = 2
-            SHA384 = 3
-            SHA512 = 4
-            RIPEMD160 = 5
+        Public Enum HASH
+            MD5
+            SHA1
+            SHA256
+            SHA384
+            SHA512
+            RIPEMD160
         End Enum
 
         ''' <summary>
