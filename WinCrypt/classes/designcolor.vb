@@ -367,6 +367,27 @@ Public Class designcolor
         '// about_bt_menu
         Startwindow.about_bt_menu.ForeColor = textcolor
         Startwindow.about_bt_menu.BackColor = bgcolor
+
+        '// drivecb
+        Startwindow.drivecb.BackColor = buttoncolor
+        Startwindow.drivecb.ForeColor = textcolor
+
+        '// mount
+        Startwindow.mount.BackColor = buttoncolor
+        Startwindow.mount.ForeColor = textcolor
+
+        '// dismount
+        Startwindow.dismount.BackColor = buttoncolor
+        Startwindow.dismount.ForeColor = textcolor
+
+        '// generate_key_encrypt
+        Startwindow.generate_key_encrypt.BackColor = buttoncolor
+        Startwindow.generate_key_encrypt.ForeColor = textcolor
+
+        '// create_container_encrypt
+        Startwindow.create_container_encrypt.BackColor = buttoncolor
+        Startwindow.create_container_encrypt.ForeColor = textcolor
+
     End Sub
     Private Sub wcSetting_color()
         '// form_head
@@ -494,9 +515,9 @@ Public Class designcolor
         WcSetting.okbt.ForeColor = textcolor
         WcSetting.okbt.BackColor = buttoncolor
 
-
-
-
+        '// ComboBox1
+        WcSetting.ComboBox1.BackColor = buttoncolor
+        WcSetting.ComboBox1.ForeColor = textcolor
 
     End Sub
     Private Sub systemidentification_color()
