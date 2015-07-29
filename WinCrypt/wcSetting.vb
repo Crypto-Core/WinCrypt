@@ -284,7 +284,7 @@ Public Class WcSetting
         inputtextcolor_bt.BackColor = designcolor_dialog.Color
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles standard_restore_bt.Click
         _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
         _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
         _ini.WertSchreiben("Design", "InputBackgroundColor", "#333337")

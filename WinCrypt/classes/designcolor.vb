@@ -344,6 +344,10 @@ Public Class designcolor
         WcSetting.wincrypttitle.ForeColor = textcolor
         WcSetting.wincrypttitle.BackColor = formheadcolor
 
+        '// standard_restore_bt
+        WcSetting.standard_restore_bt.ForeColor = textcolor
+        WcSetting.standard_restore_bt.BackColor = buttoncolor
+
         '// exit_bt
         WcSetting.exit_bt.ForeColor = textcolor
         WcSetting.exit_bt.BackColor = formheadcolor

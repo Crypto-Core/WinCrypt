@@ -46,6 +46,7 @@ Partial Class WcSetting
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.design_gb = New System.Windows.Forms.GroupBox()
+        Me.standard_restore_bt = New System.Windows.Forms.Button()
         Me.buttoncolor_bt = New System.Windows.Forms.Label()
         Me.buttoncolor_lb = New System.Windows.Forms.Label()
         Me.textcolor_bt = New System.Windows.Forms.Label()
@@ -59,7 +60,6 @@ Partial Class WcSetting
         Me.bgcolor_bt = New System.Windows.Forms.Label()
         Me.bgcolor_lb = New System.Windows.Forms.Label()
         Me.designcolor_dialog = New System.Windows.Forms.ColorDialog()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
@@ -325,7 +325,7 @@ Partial Class WcSetting
         '
         'design_gb
         '
-        Me.design_gb.Controls.Add(Me.Button1)
+        Me.design_gb.Controls.Add(Me.standard_restore_bt)
         Me.design_gb.Controls.Add(Me.buttoncolor_bt)
         Me.design_gb.Controls.Add(Me.buttoncolor_lb)
         Me.design_gb.Controls.Add(Me.textcolor_bt)
@@ -345,6 +345,19 @@ Partial Class WcSetting
         Me.design_gb.TabIndex = 23
         Me.design_gb.TabStop = False
         Me.design_gb.Text = "Design"
+        '
+        'standard_restore_bt
+        '
+        Me.standard_restore_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.standard_restore_bt.FlatAppearance.BorderSize = 0
+        Me.standard_restore_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.standard_restore_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.standard_restore_bt.Location = New System.Drawing.Point(269, 121)
+        Me.standard_restore_bt.Name = "standard_restore_bt"
+        Me.standard_restore_bt.Size = New System.Drawing.Size(141, 23)
+        Me.standard_restore_bt.TabIndex = 24
+        Me.standard_restore_bt.Text = "Standard wiederherstellen"
+        Me.standard_restore_bt.UseVisualStyleBackColor = False
         '
         'buttoncolor_bt
         '
@@ -464,19 +477,6 @@ Partial Class WcSetting
         Me.bgcolor_lb.TabIndex = 0
         Me.bgcolor_lb.Text = "Hintergrund"
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(269, 121)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(141, 23)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Standard wiederherstellen"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'WcSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -549,5 +549,5 @@ Partial Class WcSetting
     Friend WithEvents textcolor_lb As System.Windows.Forms.Label
     Friend WithEvents inputtextcolor_bt As System.Windows.Forms.Label
     Friend WithEvents inputtextcolor_lb As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents standard_restore_bt As System.Windows.Forms.Button
 End Class
