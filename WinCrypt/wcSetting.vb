@@ -38,10 +38,10 @@ Public Class WcSetting
             _iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
 
-        If RadioButton2.Checked Then
+        If use_template_rb2.Checked Then
             _iniwrite.WertSchreiben("Design", "UseTemplate", "False") ' Wenn ja denn wird diese in der config.ini eingetragen
         Else
-            _iniwrite.WertSchreiben("Design", "UseTemplate", ComboBox1.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
+            _iniwrite.WertSchreiben("Design", "UseTemplate", useTemplate_cb.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
 
 
@@ -99,6 +99,14 @@ Public Class WcSetting
         designcolor.color()
         _lang.check() ' Es wird die Sprache überprüft
 
+        If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
+            use_template_rb.Checked = False
+            use_template_rb2.Checked = True
+        Else
+            useTemplate_cb.Text = _iniwrite.WertLesen("Design", "UseTemplate")
+            use_template_rb.Checked = True
+            use_template_rb2.Checked = False
+        End If
         'Alle leerzeichen der Bios ID werden entfernt
         For Each ver In _wmiobj.Instances_
             _bios = ver.SerialNumber
@@ -138,6 +146,11 @@ Public Class WcSetting
         If _iniwrite.WertLesen("Info", "Lang") = "German" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf German gesetzt wurde
             languagecb.Text = "Deutsch" ' Wenn ja wird der ComboBox Text Deutsch sein
+        End If
+        If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
+            use_template_rb2.Checked = True
+        Else
+            use_template_rb2.Checked = False
         End If
     End Sub
 
@@ -328,8 +341,12 @@ Public Class WcSetting
     Private Sub design_import_Click(sender As Object, e As EventArgs) Handles design_import.Click
         import_design_dialog.ShowDialog()
         If My.Computer.FileSystem.FileExists(import_design_dialog.FileName) = True Then
+            If use_template_rb2.Checked Then
+                _iniwrite.WertSchreiben("Design", "UseTemplate", "False") ' Wenn ja denn wird diese in der config.ini eingetragen
+            Else
+                _iniwrite.WertSchreiben("Design", "UseTemplate", useTemplate_cb.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
+            End If
             Dim readDesign As New IniDatei(import_design_dialog.FileName)
-            Dim UseTemplate As String = readDesign.WertLesen("Design", "UseTemplate")
             Dim BackgroundColor_hex As String = readDesign.WertLesen("Design", "BackgroundColor")
             Dim FormHeadColor_hex As String = readDesign.WertLesen("Design", "FormHeadColor")
             Dim InputBackgroundColor_hex As String = readDesign.WertLesen("Design", "InputBackgroundColor")
@@ -337,49 +354,6 @@ Public Class WcSetting
             Dim TextColor_hex As String = readDesign.WertLesen("Design", "TextColor")
             Dim InputTextColor_hex As String = readDesign.WertLesen("Design", "InputTextColor")
 
-            If UseTemplate = "False" Then
-                ComboBox1.Text = "Standard"
-                ComboBox1.Enabled = False
-                bgcolor_lb.Enabled = True
-                formhead_color_lb.Enabled = True
-                inputbackground_lb.Enabled = True
-                buttoncolor_lb.Enabled = True
-                textcolor_lb.Enabled = True
-                inputtextcolor_lb.Enabled = True
-                bgcolor_bt.Enabled = True
-                formhead_color_bt.Enabled = True
-                inputbackground_bt.Enabled = True
-                buttoncolor_bt.Enabled = True
-                textcolor_bt.Enabled = True
-                inputtextcolor_bt.Enabled = True
-                design_export.Enabled = True
-                design_import.Enabled = True
-                standard_restore_bt.Enabled = True
-                RadioButton1.Checked = False
-                RadioButton2.Checked = True
-            Else
-                ComboBox1.Text = UseTemplate
-                ComboBox1.Enabled = True
-                bgcolor_lb.Enabled = False
-                formhead_color_lb.Enabled = False
-                inputbackground_lb.Enabled = False
-                buttoncolor_lb.Enabled = False
-                textcolor_lb.Enabled = False
-                inputtextcolor_lb.Enabled = False
-                bgcolor_bt.Enabled = False
-                formhead_color_bt.Enabled = False
-                inputbackground_bt.Enabled = False
-                buttoncolor_bt.Enabled = False
-                textcolor_bt.Enabled = False
-                inputtextcolor_bt.Enabled = False
-                design_export.Enabled = False
-                design_import.Enabled = False
-                standard_restore_bt.Enabled = False
-                RadioButton1.Checked = True
-                RadioButton2.Checked = False
-            End If
-
-            _iniwrite.WertSchreiben("Design", "UseTemplate", UseTemplate)
             _iniwrite.WertSchreiben("Design", "BackgroundColor", BackgroundColor_hex)
             _iniwrite.WertSchreiben("Design", "FormHeadColor", FormHeadColor_hex)
             _iniwrite.WertSchreiben("Design", "InputBackgroundColor", InputBackgroundColor_hex)
@@ -407,8 +381,8 @@ Public Class WcSetting
         End If
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
-        ComboBox1.Enabled = True
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles use_template_rb.CheckedChanged
+        useTemplate_cb.Enabled = True
         bgcolor_lb.Enabled = False
         formhead_color_lb.Enabled = False
         inputbackground_lb.Enabled = False
@@ -426,8 +400,8 @@ Public Class WcSetting
         standard_restore_bt.Enabled = False
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
-        ComboBox1.Enabled = False
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles use_template_rb2.CheckedChanged
+        useTemplate_cb.Enabled = False
         bgcolor_lb.Enabled = True
         formhead_color_lb.Enabled = True
         inputbackground_lb.Enabled = True
@@ -445,9 +419,9 @@ Public Class WcSetting
         standard_restore_bt.Enabled = True
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles useTemplate_cb.SelectedIndexChanged
 
-        Select Case ComboBox1.Text
+        Select Case useTemplate_cb.Text
             Case "Standard"
                 _ini.WertSchreiben("Design", "UseTemplate", "Standard")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")

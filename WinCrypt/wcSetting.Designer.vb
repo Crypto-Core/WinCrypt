@@ -33,8 +33,8 @@ Partial Class WcSetting
         Me.line3 = New System.Windows.Forms.Label()
         Me.startminwincryptrb = New System.Windows.Forms.RadioButton()
         Me.line2 = New System.Windows.Forms.Label()
-        Me.startwincb = New System.Windows.Forms.CheckBox()
         Me.line = New System.Windows.Forms.Label()
+        Me.startwincb = New System.Windows.Forms.CheckBox()
         Me.masterkey_gb = New System.Windows.Forms.GroupBox()
         Me.key_txt = New System.Windows.Forms.TextBox()
         Me.key_cb = New System.Windows.Forms.CheckBox()
@@ -44,6 +44,9 @@ Partial Class WcSetting
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.design_gb = New System.Windows.Forms.GroupBox()
+        Me.use_template_rb2 = New System.Windows.Forms.RadioButton()
+        Me.use_template_rb = New System.Windows.Forms.RadioButton()
+        Me.useTemplate_cb = New System.Windows.Forms.ComboBox()
         Me.design_export = New System.Windows.Forms.Button()
         Me.design_import = New System.Windows.Forms.Button()
         Me.standard_restore_bt = New System.Windows.Forms.Button()
@@ -62,9 +65,6 @@ Partial Class WcSetting
         Me.designcolor_dialog = New System.Windows.Forms.ColorDialog()
         Me.design_export_dialog = New System.Windows.Forms.SaveFileDialog()
         Me.import_design_dialog = New System.Windows.Forms.OpenFileDialog()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
@@ -196,6 +196,16 @@ Partial Class WcSetting
         Me.line2.TabIndex = 5
         Me.line2.Text = "────"
         '
+        'line
+        '
+        Me.line.AutoSize = True
+        Me.line.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.line.Location = New System.Drawing.Point(14, 41)
+        Me.line.Name = "line"
+        Me.line.Size = New System.Drawing.Size(14, 60)
+        Me.line.TabIndex = 4
+        Me.line.Text = "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│"
+        '
         'startwincb
         '
         Me.startwincb.AutoSize = True
@@ -206,16 +216,6 @@ Partial Class WcSetting
         Me.startwincb.TabIndex = 0
         Me.startwincb.Text = "WinCrypt mit Windows starten"
         Me.startwincb.UseVisualStyleBackColor = True
-        '
-        'line
-        '
-        Me.line.AutoSize = True
-        Me.line.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.line.Location = New System.Drawing.Point(14, 41)
-        Me.line.Name = "line"
-        Me.line.Size = New System.Drawing.Size(14, 60)
-        Me.line.TabIndex = 4
-        Me.line.Text = "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "│"
         '
         'masterkey_gb
         '
@@ -303,9 +303,9 @@ Partial Class WcSetting
         '
         'design_gb
         '
-        Me.design_gb.Controls.Add(Me.RadioButton2)
-        Me.design_gb.Controls.Add(Me.RadioButton1)
-        Me.design_gb.Controls.Add(Me.ComboBox1)
+        Me.design_gb.Controls.Add(Me.use_template_rb2)
+        Me.design_gb.Controls.Add(Me.use_template_rb)
+        Me.design_gb.Controls.Add(Me.useTemplate_cb)
         Me.design_gb.Controls.Add(Me.design_export)
         Me.design_gb.Controls.Add(Me.design_import)
         Me.design_gb.Controls.Add(Me.standard_restore_bt)
@@ -328,6 +328,40 @@ Partial Class WcSetting
         Me.design_gb.TabIndex = 23
         Me.design_gb.TabStop = False
         Me.design_gb.Text = "Design"
+        '
+        'use_template_rb2
+        '
+        Me.use_template_rb2.AutoSize = True
+        Me.use_template_rb2.Location = New System.Drawing.Point(17, 52)
+        Me.use_template_rb2.Name = "use_template_rb2"
+        Me.use_template_rb2.Size = New System.Drawing.Size(109, 17)
+        Me.use_template_rb2.TabIndex = 29
+        Me.use_template_rb2.TabStop = True
+        Me.use_template_rb2.Text = "eigenes Template"
+        Me.use_template_rb2.UseVisualStyleBackColor = True
+        '
+        'use_template_rb
+        '
+        Me.use_template_rb.AutoSize = True
+        Me.use_template_rb.Location = New System.Drawing.Point(17, 25)
+        Me.use_template_rb.Name = "use_template_rb"
+        Me.use_template_rb.Size = New System.Drawing.Size(130, 17)
+        Me.use_template_rb.TabIndex = 28
+        Me.use_template_rb.TabStop = True
+        Me.use_template_rb.Text = "Templates verwenden"
+        Me.use_template_rb.UseVisualStyleBackColor = True
+        '
+        'useTemplate_cb
+        '
+        Me.useTemplate_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.useTemplate_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.useTemplate_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.useTemplate_cb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.useTemplate_cb.Items.AddRange(New Object() {"Standard", "DarkStyle", "LightStyle"})
+        Me.useTemplate_cb.Location = New System.Drawing.Point(147, 24)
+        Me.useTemplate_cb.Name = "useTemplate_cb"
+        Me.useTemplate_cb.Size = New System.Drawing.Size(187, 21)
+        Me.useTemplate_cb.TabIndex = 27
         '
         'design_export
         '
@@ -502,40 +536,6 @@ Partial Class WcSetting
         Me.import_design_dialog.FileName = "ExportDesign.wcDesign"
         Me.import_design_dialog.Filter = "wcDesign|*.wcDesign"
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.ComboBox1.Items.AddRange(New Object() {"Standard", "DarkStyle", "LightStyle"})
-        Me.ComboBox1.Location = New System.Drawing.Point(147, 24)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(187, 21)
-        Me.ComboBox1.TabIndex = 27
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(17, 25)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(130, 17)
-        Me.RadioButton1.TabIndex = 28
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Templates verwenden"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(17, 52)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(109, 17)
-        Me.RadioButton2.TabIndex = 29
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "eigenes Template"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'WcSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -611,7 +611,7 @@ Partial Class WcSetting
     Friend WithEvents design_export As System.Windows.Forms.Button
     Friend WithEvents design_export_dialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents import_design_dialog As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents use_template_rb2 As RadioButton
+    Friend WithEvents use_template_rb As RadioButton
+    Friend WithEvents useTemplate_cb As ComboBox
 End Class

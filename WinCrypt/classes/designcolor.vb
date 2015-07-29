@@ -39,46 +39,6 @@ Public Class designcolor
             _ini.WertSchreiben("Design", "UseTemplate", "Standard")
         End If
 
-        If UseTemplate = "False" Then
-            WcSetting.ComboBox1.Enabled = False
-            WcSetting.bgcolor_lb.Enabled = True
-            WcSetting.formhead_color_lb.Enabled = True
-            WcSetting.inputbackground_lb.Enabled = True
-            WcSetting.buttoncolor_lb.Enabled = True
-            WcSetting.textcolor_lb.Enabled = True
-            WcSetting.inputtextcolor_lb.Enabled = True
-            WcSetting.bgcolor_bt.Enabled = True
-            WcSetting.formhead_color_bt.Enabled = True
-            WcSetting.inputbackground_bt.Enabled = True
-            WcSetting.buttoncolor_bt.Enabled = True
-            WcSetting.textcolor_bt.Enabled = True
-            WcSetting.inputtextcolor_bt.Enabled = True
-            WcSetting.design_export.Enabled = True
-            WcSetting.design_import.Enabled = True
-            WcSetting.standard_restore_bt.Enabled = True
-            WcSetting.RadioButton1.Checked = False
-            WcSetting.RadioButton2.Checked = True
-        Else
-            WcSetting.ComboBox1.Text = UseTemplate
-            WcSetting.ComboBox1.Enabled = True
-            WcSetting.bgcolor_lb.Enabled = False
-            WcSetting.formhead_color_lb.Enabled = False
-            WcSetting.inputbackground_lb.Enabled = False
-            WcSetting.buttoncolor_lb.Enabled = False
-            WcSetting.textcolor_lb.Enabled = False
-            WcSetting.inputtextcolor_lb.Enabled = False
-            WcSetting.bgcolor_bt.Enabled = False
-            WcSetting.formhead_color_bt.Enabled = False
-            WcSetting.inputbackground_bt.Enabled = False
-            WcSetting.buttoncolor_bt.Enabled = False
-            WcSetting.textcolor_bt.Enabled = False
-            WcSetting.inputtextcolor_bt.Enabled = False
-            WcSetting.design_export.Enabled = False
-            WcSetting.design_import.Enabled = False
-            WcSetting.standard_restore_bt.Enabled = False
-            WcSetting.RadioButton1.Checked = True
-            WcSetting.RadioButton2.Checked = False
-        End If
 
         '// Farben von Startwindow.vb werden angepasst
         startwindows_color()
@@ -516,8 +476,8 @@ Public Class designcolor
         WcSetting.okbt.BackColor = buttoncolor
 
         '// ComboBox1
-        WcSetting.ComboBox1.BackColor = buttoncolor
-        WcSetting.ComboBox1.ForeColor = textcolor
+        WcSetting.useTemplate_cb.BackColor = buttoncolor
+        WcSetting.useTemplate_cb.ForeColor = textcolor
 
     End Sub
     Private Sub systemidentification_color()
