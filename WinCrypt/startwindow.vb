@@ -1412,9 +1412,4 @@ Public Class Startwindow
         Else
         End If
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        MsgBox(ColorTranslator.ToHtml(Button1.BackColor))
-
-    End Sub
 End Class

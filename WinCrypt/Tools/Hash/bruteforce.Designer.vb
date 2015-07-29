@@ -300,6 +300,7 @@
             '
             'wincrypt_icon
             '
+            Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
             Me.wincrypt_icon.Location = New System.Drawing.Point(9, 6)
             Me.wincrypt_icon.Name = "wincrypt_icon"
             Me.wincrypt_icon.Size = New System.Drawing.Size(16, 16)

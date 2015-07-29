@@ -333,7 +333,7 @@ Partial Class Startwindow
         Me.send_mail_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.send_mail_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.MailSend16
         Me.send_mail_bt_menu.Name = "send_mail_bt_menu"
-        Me.send_mail_bt_menu.Size = New System.Drawing.Size(149, 22)
+        Me.send_mail_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.send_mail_bt_menu.Text = "E-Mail senden"
         '
         'pw_manager_bt_menu

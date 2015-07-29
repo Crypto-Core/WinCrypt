@@ -4,22 +4,21 @@ Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
 Public Class WcSetting
+    Dim designcolor As New designcolor
     ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _
     ' Der aktuelle Pfad der Project WinCrypt.exe
     ReadOnly _
         _iniwrite As _
-            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
     ReadOnly _
         _ini As _
-            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
-    ReadOnly _lang As New language ' Die Sprache wird deklariert
+    ReadOnly _lang As New Language ' Die Sprache wird deklariert
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
     ' Die Bios ID wird deklariert
     Dim _bios As String
-    Dim _loadcolor As New designcolor
-
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
             Process.Start(My.Application.Info.DirectoryPath & "\WinCryptRegistry.exe") _
@@ -30,6 +29,7 @@ Public Class WcSetting
     End Sub
 
     Private Sub okbt_Click(sender As Object, e As EventArgs) Handles okbt.Click
+        Dim colorload As New designcolor
         If languagecb.Text = "Deutsch" Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
         End If
@@ -45,7 +45,7 @@ Public Class WcSetting
 
         If key_cb.Checked = True Then ' Es wird überprüft ob der Masterkey aktiviert wurde
             ' Wenn ja wird dieses Passwort in AES verschlüsselt und in der config.ini eingetragen
-            _iniwrite.WertSchreiben("Key", "master", CStr(keyaes.AESEncrypt(key_txt.Text, _bios, lGuid.Value)))
+            _iniwrite.WertSchreiben("Key", "master", CStr(keyaes.AesEncrypt(key_txt.Text, _bios, lGuid.Value)))
             My.Settings.Masterkey = True ' In den WinCrypt Einstellungen wird der wert Masterkey auf true gesetzt
         Else
             ' Wenn der Masterkey nicht aktiviert wurde wird der Masterkey in den Einstellungen auf false gesetzt
@@ -56,13 +56,13 @@ Public Class WcSetting
         Dim root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
         Dim _
             i As _
-                New INIDatei(
+                New IniDatei(
                     root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
         Startwindow.Langname = i.WertLesen("Info", "Lang") _
         ' Die gewählte Sprache wird in dem String startwindow.langname gesetzt
         _lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
-        _loadcolor.color()
+        colorload.color()
         Close() ' Das Fenster wird geschlossen
     End Sub
 
@@ -87,7 +87,7 @@ Public Class WcSetting
     End Sub
 
     Private Sub wcSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        _loadcolor.color()
+        designcolor.color()
         _lang.check() ' Es wird die Sprache überprüft
 
         'Alle leerzeichen der Bios ID werden entfernt
@@ -217,7 +217,7 @@ Public Class WcSetting
                 GetType(GuidAttribute), False)(0), 
             GuidAttribute)
         If My.Settings.Masterkey = True Then ' Wenn in den Masterkey einstellungen der Wert auf true steht
-            key_txt.Text = readkey.AESDecrypt(_iniwrite.WertLesen("Key", "master"), _bios, lGuid.Value) _
+            key_txt.Text = readkey.AesDecrypt(_iniwrite.WertLesen("Key", "master"), _bios, lGuid.Value) _
             ' dann wird das Passwort in AES verschlüsselt und in der config.ini geschrieben
         Else
         End If
@@ -249,37 +249,49 @@ Public Class WcSetting
 
     Private Sub bgcolor_bt_Click(sender As Object, e As EventArgs) Handles bgcolor_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.backgroundcolor = designcolor_dialog.Color
-        bgcolor_bt.BackColor = My.Settings.backgroundcolor
+        _ini.WertSchreiben("Design", "BackgroundColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        bgcolor_bt.BackColor = designcolor_dialog.Color
+
     End Sub
 
     Private Sub formhead_color_bt_Click(sender As Object, e As EventArgs) Handles formhead_color_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.formheadcolor = designcolor_dialog.Color
-        formhead_color_bt.BackColor = My.Settings.formheadcolor
+        _ini.WertSchreiben("Design", "FormHeadColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        formhead_color_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub inputbackground_bt_Click(sender As Object, e As EventArgs) Handles inputbackground_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.inputbackgroundcolor = designcolor_dialog.Color
-        inputbackground_bt.BackColor = My.Settings.inputbackgroundcolor
+        _ini.WertSchreiben("Design", "InputBackgroundColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        inputbackground_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub buttoncolor_bt_Click(sender As Object, e As EventArgs) Handles buttoncolor_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.buttoncolor = designcolor_dialog.Color
-        buttoncolor_bt.BackColor = My.Settings.buttoncolor
+        _ini.WertSchreiben("Design", "ButtonColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        buttoncolor_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub textcolor_bt_Click(sender As Object, e As EventArgs) Handles textcolor_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.textcolor = designcolor_dialog.Color
-        textcolor_bt.BackColor = My.Settings.textcolor
+        _ini.WertSchreiben("Design", "TextColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        textcolor_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub inputtextcolor_bt_Click(sender As Object, e As EventArgs) Handles inputtextcolor_bt.Click
         designcolor_dialog.ShowDialog()
-        My.Settings.inputtextcolor = designcolor_dialog.Color
-        inputtextcolor_bt.BackColor = My.Settings.inputtextcolor
+        _ini.WertSchreiben("Design", "InputTextColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
+        inputtextcolor_bt.BackColor = designcolor_dialog.Color
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
+        _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
+        _ini.WertSchreiben("Design", "InputBackgroundColor", "#333337")
+        _ini.WertSchreiben("Design", "buttoncolor", "#3e3e40")
+        _ini.WertSchreiben("Design", "TextColor", "#ffffff")
+        _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
+        Dim colorload As New designcolor
+        colorload.color()
     End Sub
 End Class

@@ -5,23 +5,5 @@
     <Setting Name="Masterkey" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="backgroundcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">45, 45, 48</Value>
-    </Setting>
-    <Setting Name="textcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">ButtonHighlight</Value>
-    </Setting>
-    <Setting Name="formheadcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">45, 45, 48</Value>
-    </Setting>
-    <Setting Name="buttoncolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">62, 62, 64</Value>
-    </Setting>
-    <Setting Name="inputtextcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">0, 122, 204</Value>
-    </Setting>
-    <Setting Name="inputbackgroundcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">51, 51, 55</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
