@@ -8,19 +8,38 @@ Public Class feedback
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles send_bt.Click
 
         If name_txt.Text.Length < 3 Then
-            MsgBox("Bitte gebe einen Namen ein!", MsgBoxStyle.Exclamation)
+            If Startwindow.Langname = "English" Then
+                MsgBox("Please enter a name!", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("Bitte gebe einen Namen ein!", MsgBoxStyle.Exclamation)
+            End If
         Else
             If mail_txt.Text.Length < 5 Then
-                MsgBox("Bitte gebe eine E-Mail ein!", MsgBoxStyle.Exclamation)
+
+                If Startwindow.Langname = "English" Then
+                    MsgBox("Please enter an email!", MsgBoxStyle.Exclamation)
+                Else
+                    MsgBox("Bitte gebe eine E-Mail ein!", MsgBoxStyle.Exclamation)
+                End If
             Else
                 If message_txt.Text.Length < 3 Then
-                    MsgBox("Bitte gebe eine Nachricht ein!", MsgBoxStyle.Exclamation)
+
+                    If Startwindow.Langname = "English" Then
+                        MsgBox("Please enter your message!", MsgBoxStyle.Exclamation)
+                    Else
+                        MsgBox("Bitte gebe eine Nachricht ein!", MsgBoxStyle.Exclamation)
+                    End If
                 Else
                     i.OpenRead(
                         "http://wincrypt.org/feedback/mail_send.php?name=" & name_txt.Text & ChrW(38) & "email=" &
                         mail_txt.Text & ChrW(38) & "betreff=" & subject_cb.Text & ChrW(38) & "nachricht=" &
                         message_txt.Text.Replace(" ", "+").Replace(vbCrLf, "%0D") & ChrW(38) & "Submit=Senden")
-                    MsgBox("Feedback wurde gesendet, vielen Dank für Ihr Feedback!", MsgBoxStyle.Information)
+                    If Startwindow.Langname = "English" Then
+                        MsgBox("Feedback has been sent, thank you for your feedback!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Feedback wurde gesendet, vielen Dank für Ihr Feedback!", MsgBoxStyle.Information)
+                    End If
+
                 End If
             End If
         End If

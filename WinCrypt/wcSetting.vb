@@ -309,8 +309,12 @@ Public Class WcSetting
             exportDesign.WertSchreiben("Design", "TextColor", ColorTranslator.ToHtml(textcolor_bt.BackColor))
             exportDesign.WertSchreiben("Design", "InputTextColor", ColorTranslator.ToHtml(inputtextcolor_bt.BackColor))
         End If
+        If _lang.langname = "English" Then
+            MsgBox("design exported!", MsgBoxStyle.Information)
+        Else
+            MsgBox("Design exportiert!", MsgBoxStyle.Information)
+        End If
 
-        MsgBox("Design exportiert!", MsgBoxStyle.Information)
     End Sub
 
     Private Sub design_import_Click(sender As Object, e As EventArgs) Handles design_import.Click
@@ -340,7 +344,12 @@ Public Class WcSetting
 
             Dim loadDesign As New designcolor
             loadDesign.color()
-            MsgBox("Design importiert!", MsgBoxStyle.Information)
+
+            If _lang.langname = "English" Then
+                MsgBox("design imported!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Design importiert!", MsgBoxStyle.Information)
+            End If
         Else
 
         End If

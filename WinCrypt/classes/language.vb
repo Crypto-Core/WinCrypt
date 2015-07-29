@@ -174,6 +174,15 @@ Namespace classes
                 WcSetting.startnormalwincrypt.Text = "Start WinCrypt normal"
                 WcSetting.key_cb.Text = "On"
                 langname = lang.WertLesen("Info", "Lang")
+                WcSetting.bgcolor_lb.Text = "background"
+                WcSetting.formhead_color_lb.Text = "form head"
+                WcSetting.inputbackground_lb.Text = "input background"
+                WcSetting.buttoncolor_lb.Text = "button color"
+                WcSetting.textcolor_lb.Text = "text color"
+                WcSetting.inputtextcolor_lb.Text = "input text color"
+                WcSetting.design_export.Text = "export design"
+                WcSetting.design_import.Text = "import design"
+                WcSetting.standard_restore_bt.Text = "restore standard"
 
                 'md5_main.vb
                 tools.hash.converter.wincrypttitle.Text = "MD5 Converter"
@@ -434,6 +443,15 @@ Namespace classes
                 WcSetting.startnormalwincrypt.Text = "WinCrypt normal starten"
                 WcSetting.key_cb.Text = "Einschalten"
                 langname = lang.WertLesen("Info", "Lang")
+                WcSetting.bgcolor_lb.Text = "Hintergrund"
+                WcSetting.formhead_color_lb.Text = "Form Head"
+                WcSetting.inputbackground_lb.Text = "Eingabe Hintergrund"
+                WcSetting.buttoncolor_lb.Text = "Schaltfläche"
+                WcSetting.textcolor_lb.Text = "Text"
+                WcSetting.inputtextcolor_lb.Text = "Eingabe Text"
+                WcSetting.design_export.Text = "Design exportieren"
+                WcSetting.design_import.Text = "Design importieren"
+                WcSetting.standard_restore_bt.Text = "Standard wiederherstellen"
 
                 'md5_main.vb
                 tools.hash.converter.wincrypttitle.Text = "MD5 Konverter"

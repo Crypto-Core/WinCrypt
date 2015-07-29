@@ -48,13 +48,23 @@ Namespace classes
                 Try
                     outString = Encoding.UTF8.GetString(rsaCryptoEnt.Decrypt(byteData, True))
                 Catch ex As Exception
-                    MsgBox("Falscher Schlüssel!", MsgBoxStyle.Exclamation)
+                    If Startwindow.Langname = "English" Then
+                        MsgBox("wrong key!", MsgBoxStyle.Exclamation)
+                    Else
+                        MsgBox("Falscher Schlüssel!", MsgBoxStyle.Exclamation)
+                    End If
+
                 End Try
                 rsaCryptoEnt.Dispose()
                 Return outString
             Catch ex As Exception
                 Return ""
-                MsgBox("Verschlüsselte Nachricht stimmt nicht mit dem Private Key überein!", MsgBoxStyle.Exclamation)
+                If Startwindow.Langname = "English" Then
+                    MsgBox("Verschlüsselte Nachricht stimmt nicht mit dem Private Key überein!", MsgBoxStyle.Exclamation)
+                Else
+                    MsgBox("Encrypted message does not match the private key!", MsgBoxStyle.Exclamation)
+                End If
+
             End Try
         End Function
     End Module

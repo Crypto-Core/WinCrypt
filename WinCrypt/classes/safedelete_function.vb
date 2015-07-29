@@ -35,7 +35,12 @@ Namespace classes
                 Else
                 End If
             Catch ex As Exception
-                MsgBox("Datei konnte nicht gelöscht werden: " & ErrorToString(), MsgBoxStyle.Critical)
+                If Startwindow.Langname = "English" Then
+                    MsgBox("File could not be deleted: " & ErrorToString(), MsgBoxStyle.Critical)
+                Else
+                    MsgBox("Datei konnte nicht gelöscht werden: " & ErrorToString(), MsgBoxStyle.Critical)
+                End If
+
             End Try
         End Function
     End Class
