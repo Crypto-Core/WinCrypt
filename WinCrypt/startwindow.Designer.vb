@@ -208,7 +208,7 @@ Partial Class Startwindow
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
-        Me.setting_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.setting_bt_menu.Size = New System.Drawing.Size(132, 22)
         Me.setting_bt_menu.Text = "Einstellung"
         '
         'exit_bt_menu
@@ -217,7 +217,7 @@ Partial Class Startwindow
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
-        Me.exit_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.exit_bt_menu.Size = New System.Drawing.Size(132, 22)
         Me.exit_bt_menu.Text = "Beenden"
         '
         'tools_bt_menu
@@ -226,7 +226,7 @@ Partial Class Startwindow
         Me.tools_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt_bt_menu, Me.file_decrypt_bt_menu, Me.text_encrypt_bt_menu, Me.hash_bt_menu, Me.rsa_bt_menu, Me.mail_bt_menu, Me.pw_manager_bt_menu, Me.systemidentification_bt_menu, Me.pw_generator_bt_menu, Me.delete_file_bt_menu})
         Me.tools_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.tools_bt_menu.Name = "tools_bt_menu"
-        Me.tools_bt_menu.Size = New System.Drawing.Size(47, 20)
+        Me.tools_bt_menu.Size = New System.Drawing.Size(48, 20)
         Me.tools_bt_menu.Text = "Tools"
         '
         'file_encrypt_bt_menu
@@ -235,7 +235,7 @@ Partial Class Startwindow
         Me.file_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.file_encrypt_bt_menu.Name = "file_encrypt_bt_menu"
-        Me.file_encrypt_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.file_encrypt_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.file_encrypt_bt_menu.Text = "Datei verschlüsseln"
         '
         'file_decrypt_bt_menu
@@ -244,7 +244,7 @@ Partial Class Startwindow
         Me.file_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.file_decrypt_bt_menu.Name = "file_decrypt_bt_menu"
-        Me.file_decrypt_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.file_decrypt_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.file_decrypt_bt_menu.Text = "Datei entschlüsseln"
         '
         'text_encrypt_bt_menu
@@ -253,7 +253,7 @@ Partial Class Startwindow
         Me.text_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.text_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.text_encrypt_bt_menu.Name = "text_encrypt_bt_menu"
-        Me.text_encrypt_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.text_encrypt_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.text_encrypt_bt_menu.Text = "Text ver- und entschlüsseln"
         '
         'hash_bt_menu
@@ -262,7 +262,7 @@ Partial Class Startwindow
         Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu})
         Me.hash_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_menu.Name = "hash_bt_menu"
-        Me.hash_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.hash_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.hash_bt_menu.Text = "Hash"
         '
         'md5_converter_bt_menu
@@ -287,7 +287,7 @@ Partial Class Startwindow
         Me.rsa_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.rsa_encrypt_bt_menu, Me.rsa_decrypt_bt_menu, Me.rsa_create_keys_bt_menu})
         Me.rsa_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_bt_menu.Name = "rsa_bt_menu"
-        Me.rsa_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.rsa_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.rsa_bt_menu.Text = "RSA"
         '
         'rsa_encrypt_bt_menu
@@ -324,7 +324,7 @@ Partial Class Startwindow
         Me.mail_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mail_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.mail_bt_menu.Name = "mail_bt_menu"
-        Me.mail_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.mail_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.mail_bt_menu.Text = "E-Mail"
         '
         'send_mail_bt_menu
@@ -333,7 +333,7 @@ Partial Class Startwindow
         Me.send_mail_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.send_mail_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.MailSend16
         Me.send_mail_bt_menu.Name = "send_mail_bt_menu"
-        Me.send_mail_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.send_mail_bt_menu.Size = New System.Drawing.Size(149, 22)
         Me.send_mail_bt_menu.Text = "E-Mail senden"
         '
         'pw_manager_bt_menu
@@ -343,7 +343,7 @@ Partial Class Startwindow
         Me.pw_manager_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_manager_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.pw_manager_bt_menu.Name = "pw_manager_bt_menu"
-        Me.pw_manager_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.pw_manager_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.pw_manager_bt_menu.Text = "Passwortmanager"
         '
         'export_db_bt_menu
@@ -379,7 +379,7 @@ Partial Class Startwindow
         Me.systemidentification_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.systemidentification_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.systemidentification_bt_menu.Name = "systemidentification_bt_menu"
-        Me.systemidentification_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.systemidentification_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.systemidentification_bt_menu.Text = "Systemidentifikation"
         '
         'pw_generator_bt_menu
@@ -388,7 +388,7 @@ Partial Class Startwindow
         Me.pw_generator_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_generator_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.pw_generator_bt_menu.Name = "pw_generator_bt_menu"
-        Me.pw_generator_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.pw_generator_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.pw_generator_bt_menu.Text = "Passwortgenerator"
         '
         'delete_file_bt_menu
@@ -397,7 +397,7 @@ Partial Class Startwindow
         Me.delete_file_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.delete_file_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.delete_file_bt_menu.Name = "delete_file_bt_menu"
-        Me.delete_file_bt_menu.Size = New System.Drawing.Size(217, 22)
+        Me.delete_file_bt_menu.Size = New System.Drawing.Size(218, 22)
         Me.delete_file_bt_menu.Text = "Dateien sicher löschen"
         '
         'info_bt_menu
@@ -415,7 +415,7 @@ Partial Class Startwindow
         Me.update_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.update_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
         Me.update_bt_menu.Name = "update_bt_menu"
-        Me.update_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.update_bt_menu.Size = New System.Drawing.Size(124, 22)
         Me.update_bt_menu.Text = "Update"
         '
         'feedback_bt_menu
@@ -424,7 +424,7 @@ Partial Class Startwindow
         Me.feedback_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.feedback_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
         Me.feedback_bt_menu.Name = "feedback_bt_menu"
-        Me.feedback_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.feedback_bt_menu.Size = New System.Drawing.Size(124, 22)
         Me.feedback_bt_menu.Text = "Feedback"
         '
         'about_bt_menu
@@ -433,7 +433,7 @@ Partial Class Startwindow
         Me.about_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.about_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
         Me.about_bt_menu.Name = "about_bt_menu"
-        Me.about_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.about_bt_menu.Size = New System.Drawing.Size(124, 22)
         Me.about_bt_menu.Text = "About"
         '
         'DateiToolStripMenuItem
@@ -478,7 +478,7 @@ Partial Class Startwindow
         Me.DateiVerschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.DateiVerschlüsselnToolStripMenuItem.Name = "DateiVerschlüsselnToolStripMenuItem"
-        Me.DateiVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.DateiVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.DateiVerschlüsselnToolStripMenuItem.Text = "Datei verschlüsseln"
         '
         'DateiEntschlüsselnToolStripMenuItem
@@ -487,7 +487,7 @@ Partial Class Startwindow
         Me.DateiEntschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.DateiEntschlüsselnToolStripMenuItem.Name = "DateiEntschlüsselnToolStripMenuItem"
-        Me.DateiEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.DateiEntschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.DateiEntschlüsselnToolStripMenuItem.Text = "Datei entschlüsseln"
         '
         'TextVerschlüsselnToolStripMenuItem
@@ -496,7 +496,7 @@ Partial Class Startwindow
         Me.TextVerschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.TextVerschlüsselnToolStripMenuItem.Name = "TextVerschlüsselnToolStripMenuItem"
-        Me.TextVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.TextVerschlüsselnToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.TextVerschlüsselnToolStripMenuItem.Text = "Text ver- und entschlüsseln"
         '
         'MD5ToolStripMenuItem
@@ -505,7 +505,7 @@ Partial Class Startwindow
         Me.MD5ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem, Me.MD5CrackerToolStripMenuItem})
         Me.MD5ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5ToolStripMenuItem.Name = "MD5ToolStripMenuItem"
-        Me.MD5ToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.MD5ToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.MD5ToolStripMenuItem.Text = "Hash"
         '
         'MD5KonverterToolStripMenuItem
@@ -530,7 +530,7 @@ Partial Class Startwindow
         Me.RSAToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntschlüsselnToolStripMenuItem, Me.VerschlüsselnToolStripMenuItem, Me.KeyErstellenToolStripMenuItem})
         Me.RSAToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.RSAToolStripMenuItem.Name = "RSAToolStripMenuItem"
-        Me.RSAToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.RSAToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.RSAToolStripMenuItem.Text = "RSA"
         '
         'EntschlüsselnToolStripMenuItem
@@ -567,7 +567,7 @@ Partial Class Startwindow
         Me.EMailToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EMailToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.EMailToolStripMenuItem.Name = "EMailToolStripMenuItem"
-        Me.EMailToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.EMailToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.EMailToolStripMenuItem.Text = "E-Mail"
         '
         'EMailSendenToolStripMenuItem
@@ -586,7 +586,7 @@ Partial Class Startwindow
         Me.PasswortmanagerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.PasswortmanagerToolStripMenuItem.Name = "PasswortmanagerToolStripMenuItem"
-        Me.PasswortmanagerToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.PasswortmanagerToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.PasswortmanagerToolStripMenuItem.Text = "Passwortmanager"
         '
         'DatenbankExportierenToolStripMenuItem
@@ -622,7 +622,7 @@ Partial Class Startwindow
         Me.SystemidentifikationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.SystemidentifikationToolStripMenuItem.Name = "SystemidentifikationToolStripMenuItem"
-        Me.SystemidentifikationToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.SystemidentifikationToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.SystemidentifikationToolStripMenuItem.Text = "Systemidentifikation"
         '
         'PasswortgeneratorToolStripMenuItem
@@ -631,7 +631,7 @@ Partial Class Startwindow
         Me.PasswortgeneratorToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.PasswortgeneratorToolStripMenuItem.Name = "PasswortgeneratorToolStripMenuItem"
-        Me.PasswortgeneratorToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.PasswortgeneratorToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.PasswortgeneratorToolStripMenuItem.Text = "Passwortgenerator"
         '
         'DateiSicherLöschenToolStripMenuItem
@@ -640,7 +640,7 @@ Partial Class Startwindow
         Me.DateiSicherLöschenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.DateiSicherLöschenToolStripMenuItem.Name = "DateiSicherLöschenToolStripMenuItem"
-        Me.DateiSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
+        Me.DateiSicherLöschenToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.DateiSicherLöschenToolStripMenuItem.Text = "Dateien sicher löschen"
         '
         'InfoToolStripMenuItem
@@ -737,7 +737,7 @@ Partial Class Startwindow
         Me.file_encrypt__bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_encrypt__bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.file_encrypt__bt_systemtray.Name = "file_encrypt__bt_systemtray"
-        Me.file_encrypt__bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.file_encrypt__bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.file_encrypt__bt_systemtray.Text = "Datei verschlüsseln"
         '
         'file_decrypt_bt_systemtray
@@ -746,7 +746,7 @@ Partial Class Startwindow
         Me.file_decrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_decrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.file_decrypt_bt_systemtray.Name = "file_decrypt_bt_systemtray"
-        Me.file_decrypt_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.file_decrypt_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.file_decrypt_bt_systemtray.Text = "Datei entschlüsseln"
         '
         'text_encrypt_bt_systemtray
@@ -755,7 +755,7 @@ Partial Class Startwindow
         Me.text_encrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.text_encrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.text_encrypt_bt_systemtray.Name = "text_encrypt_bt_systemtray"
-        Me.text_encrypt_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.text_encrypt_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.text_encrypt_bt_systemtray.Text = "Text ver- und entschlüsseln"
         '
         'hash_bt_systemtray
@@ -764,7 +764,7 @@ Partial Class Startwindow
         Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_systemtray, Me.md5_bf_bt_systemtray})
         Me.hash_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_systemtray.Name = "hash_bt_systemtray"
-        Me.hash_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.hash_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.hash_bt_systemtray.Text = "Hash"
         '
         'md5_converter_bt_systemtray
@@ -789,7 +789,7 @@ Partial Class Startwindow
         Me.rsa_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.rsa_encrypt_bt_systemtray, Me.rsa_decrypt_bt_systemtray, Me.rsa_create_keys_bt_systemtray})
         Me.rsa_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_bt_systemtray.Name = "rsa_bt_systemtray"
-        Me.rsa_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.rsa_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.rsa_bt_systemtray.Text = "RSA"
         '
         'rsa_encrypt_bt_systemtray
@@ -825,7 +825,7 @@ Partial Class Startwindow
         Me.mail_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.send_mail_bt_systemtray})
         Me.mail_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mail_bt_systemtray.Name = "mail_bt_systemtray"
-        Me.mail_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.mail_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.mail_bt_systemtray.Text = "E-Mail"
         '
         'send_mail_bt_systemtray
@@ -844,7 +844,7 @@ Partial Class Startwindow
         Me.pw_manager_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_manager_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.pw_manager_bt_systemtray.Name = "pw_manager_bt_systemtray"
-        Me.pw_manager_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.pw_manager_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.pw_manager_bt_systemtray.Text = "Passwortmanager"
         '
         'export_db_bt_systemtray
@@ -877,7 +877,7 @@ Partial Class Startwindow
         Me.systemidentification_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.systemidentification_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.systemidentification_bt_systemtray.Name = "systemidentification_bt_systemtray"
-        Me.systemidentification_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.systemidentification_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.systemidentification_bt_systemtray.Text = "Systemidentifikation"
         '
         'pwg_bt_systemtray
@@ -886,7 +886,7 @@ Partial Class Startwindow
         Me.pwg_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pwg_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.pwg_bt_systemtray.Name = "pwg_bt_systemtray"
-        Me.pwg_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.pwg_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.pwg_bt_systemtray.Text = "Passwortgenerator"
         '
         'file_delete_bt_systemtray
@@ -895,7 +895,7 @@ Partial Class Startwindow
         Me.file_delete_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_delete_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.file_delete_bt_systemtray.Name = "file_delete_bt_systemtray"
-        Me.file_delete_bt_systemtray.Size = New System.Drawing.Size(217, 22)
+        Me.file_delete_bt_systemtray.Size = New System.Drawing.Size(218, 22)
         Me.file_delete_bt_systemtray.Text = "Dateien sicher löschen"
         '
         'open_bt_systemtray
@@ -1104,7 +1104,7 @@ Partial Class Startwindow
         Me.cleanlb2.FlatAppearance.BorderSize = 0
         Me.cleanlb2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cleanlb2.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
-        Me.cleanlb2.Location = New System.Drawing.Point(530, 215)
+        Me.cleanlb2.Location = New System.Drawing.Point(525, 215)
         Me.cleanlb2.Name = "cleanlb2"
         Me.cleanlb2.Size = New System.Drawing.Size(37, 23)
         Me.cleanlb2.TabIndex = 9
@@ -1114,7 +1114,7 @@ Partial Class Startwindow
         '
         Me.drive_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.drive_lb.AutoSize = True
-        Me.drive_lb.Location = New System.Drawing.Point(293, 249)
+        Me.drive_lb.Location = New System.Drawing.Point(288, 249)
         Me.drive_lb.Name = "drive_lb"
         Me.drive_lb.Size = New System.Drawing.Size(54, 13)
         Me.drive_lb.TabIndex = 9
@@ -1124,7 +1124,7 @@ Partial Class Startwindow
         '
         Me.key_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.key_lb.AutoSize = True
-        Me.key_lb.Location = New System.Drawing.Point(13, 230)
+        Me.key_lb.Location = New System.Drawing.Point(8, 230)
         Me.key_lb.Name = "key_lb"
         Me.key_lb.Size = New System.Drawing.Size(55, 13)
         Me.key_lb.TabIndex = 8
@@ -1133,7 +1133,7 @@ Partial Class Startwindow
         'file_lb
         '
         Me.file_lb.AutoSize = True
-        Me.file_lb.Location = New System.Drawing.Point(13, 16)
+        Me.file_lb.Location = New System.Drawing.Point(8, 16)
         Me.file_lb.Name = "file_lb"
         Me.file_lb.Size = New System.Drawing.Size(35, 13)
         Me.file_lb.TabIndex = 7
@@ -1149,7 +1149,7 @@ Partial Class Startwindow
         Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.decrypt_list_status.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.decrypt_list_status.FormattingEnabled = True
-        Me.decrypt_list_status.Location = New System.Drawing.Point(16, 63)
+        Me.decrypt_list_status.Location = New System.Drawing.Point(11, 63)
         Me.decrypt_list_status.Name = "decrypt_list_status"
         Me.decrypt_list_status.Size = New System.Drawing.Size(552, 145)
         Me.decrypt_list_status.TabIndex = 6
@@ -1162,7 +1162,7 @@ Partial Class Startwindow
         Me.drivecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.drivecb.FormattingEnabled = True
         Me.drivecb.Items.AddRange(New Object() {"A:\", "B:\", "C:\", "D:\", "E:\", "F:\", "G:\", "H:\", "I:\", "J:\", "K:\", "L:\", "M:\", "N:\", "O:\", "P:\", "Q:\", "R:\", "S:\", "T:\", "U:\", "V:\", "W:\", "X:\", "Y:\", "Z:\"})
-        Me.drivecb.Location = New System.Drawing.Point(353, 246)
+        Me.drivecb.Location = New System.Drawing.Point(348, 246)
         Me.drivecb.Name = "drivecb"
         Me.drivecb.Size = New System.Drawing.Size(46, 21)
         Me.drivecb.TabIndex = 5
@@ -1176,7 +1176,7 @@ Partial Class Startwindow
         Me.keyencrypt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.keyencrypt.Enabled = False
         Me.keyencrypt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.keyencrypt.Location = New System.Drawing.Point(16, 246)
+        Me.keyencrypt.Location = New System.Drawing.Point(11, 246)
         Me.keyencrypt.Name = "keyencrypt"
         Me.keyencrypt.Size = New System.Drawing.Size(261, 20)
         Me.keyencrypt.TabIndex = 4
@@ -1189,7 +1189,7 @@ Partial Class Startwindow
         Me.decrypt_filepath.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.decrypt_filepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.decrypt_filepath.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.decrypt_filepath.Location = New System.Drawing.Point(16, 32)
+        Me.decrypt_filepath.Location = New System.Drawing.Point(11, 32)
         Me.decrypt_filepath.Name = "decrypt_filepath"
         Me.decrypt_filepath.Size = New System.Drawing.Size(471, 20)
         Me.decrypt_filepath.TabIndex = 3
@@ -1201,7 +1201,7 @@ Partial Class Startwindow
         Me.dismount.Enabled = False
         Me.dismount.FlatAppearance.BorderSize = 0
         Me.dismount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.dismount.Location = New System.Drawing.Point(492, 244)
+        Me.dismount.Location = New System.Drawing.Point(487, 244)
         Me.dismount.Name = "dismount"
         Me.dismount.Size = New System.Drawing.Size(75, 23)
         Me.dismount.TabIndex = 2
@@ -1215,7 +1215,7 @@ Partial Class Startwindow
         Me.mount.Enabled = False
         Me.mount.FlatAppearance.BorderSize = 0
         Me.mount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.mount.Location = New System.Drawing.Point(411, 244)
+        Me.mount.Location = New System.Drawing.Point(406, 244)
         Me.mount.Name = "mount"
         Me.mount.Size = New System.Drawing.Size(75, 23)
         Me.mount.TabIndex = 1
@@ -1229,7 +1229,7 @@ Partial Class Startwindow
         Me.opencryptfile.FlatAppearance.BorderSize = 0
         Me.opencryptfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.opencryptfile.ForeColor = System.Drawing.Color.White
-        Me.opencryptfile.Location = New System.Drawing.Point(492, 30)
+        Me.opencryptfile.Location = New System.Drawing.Point(487, 30)
         Me.opencryptfile.Name = "opencryptfile"
         Me.opencryptfile.Size = New System.Drawing.Size(75, 23)
         Me.opencryptfile.TabIndex = 0

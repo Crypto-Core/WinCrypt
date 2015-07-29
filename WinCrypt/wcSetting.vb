@@ -30,13 +30,21 @@ Public Class WcSetting
     End Sub
 
     Private Sub okbt_Click(sender As Object, e As EventArgs) Handles okbt.Click
-        Dim colorload As New designcolor
+        Dim c As New designcolor
         If languagecb.Text = "Deutsch" Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
         End If
         If languagecb.Text = "English" Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
+
+        If RadioButton2.Checked Then
+            _iniwrite.WertSchreiben("Design", "UseTemplate", "False") ' Wenn ja denn wird diese in der config.ini eingetragen
+        Else
+            _iniwrite.WertSchreiben("Design", "UseTemplate", ComboBox1.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
+        End If
+
+
         Dim keyaes As New AES ' AES wird deklariert
         Dim lGuid As GuidAttribute ' Die WinCrypt GUID wird deklariert
         lGuid = DirectCast(
@@ -63,7 +71,7 @@ Public Class WcSetting
         Startwindow.Langname = i.WertLesen("Info", "Lang") _
         ' Die gewählte Sprache wird in dem String startwindow.langname gesetzt
         _lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
-        colorload.color()
+        c.color()
         Close() ' Das Fenster wird geschlossen
     End Sub
 
@@ -186,12 +194,12 @@ Public Class WcSetting
         End If
     End Sub
 
-    Private Sub show_bt_MouseDown(sender As Object, e As MouseEventArgs) Handles show_bt.MouseDown
+    Private Sub show_bt_MouseDown(sender As Object, e As MouseEventArgs)
         key_txt.UseSystemPasswordChar = False _
         'Wenn auf dem Button haltend gedrückt wird um das Passwort vom Masterkey anzeigen zu lassen
     End Sub
 
-    Private Sub show_bt_MouseUp(sender As Object, e As MouseEventArgs) Handles show_bt.MouseUp
+    Private Sub show_bt_MouseUp(sender As Object, e As MouseEventArgs)
         key_txt.UseSystemPasswordChar = True _
         'Wenn auf dem Button nicht gedrückt wird wird der klartext vom Masterkey verborgen
     End Sub
@@ -201,14 +209,10 @@ Public Class WcSetting
         If key_cb.Checked = True Then ' wird überprüft ob sie auf true gesetzt wurde
             ' Wenn ja so wird das Key textfeld, key label, der showbutton freigegeben und in den Masterkey einstellungen wird der Wert auf true gesetzt
             key_txt.Enabled = True
-            key_lb.Enabled = True
-            show_bt.Enabled = True
             My.Settings.Masterkey = True
         Else
             'Wenn nicht, so wird das Key textfeld, das key label und der showbutton deaktiviert und in den Masterkey einstellungen wird der Wert auf false gesetzt
             key_txt.Enabled = False
-            key_lb.Enabled = False
-            show_bt.Enabled = False
             My.Settings.Masterkey = False
         End If
         Dim readkey As New AES ' Es wird AES deklariert
@@ -292,6 +296,7 @@ Public Class WcSetting
         _ini.WertSchreiben("Design", "ButtonColor", "#3e3e40")
         _ini.WertSchreiben("Design", "TextColor", "#ffffff")
         _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
+        _ini.WertSchreiben("Design", "UseTemplate", "Standard")
         Dim colorload As New designcolor
         colorload.color()
     End Sub
@@ -308,6 +313,9 @@ Public Class WcSetting
             exportDesign.WertSchreiben("Design", "ButtonColor", ColorTranslator.ToHtml(buttoncolor_bt.BackColor))
             exportDesign.WertSchreiben("Design", "TextColor", ColorTranslator.ToHtml(textcolor_bt.BackColor))
             exportDesign.WertSchreiben("Design", "InputTextColor", ColorTranslator.ToHtml(inputtextcolor_bt.BackColor))
+
+            'exportDesign.WertSchreiben("Design", "UseTemplate", ColorTranslator.ToHtml(inputtextcolor_bt.BackColor))
+
         End If
         If _lang.langname = "English" Then
             MsgBox("design exported!", MsgBoxStyle.Information)
@@ -321,6 +329,7 @@ Public Class WcSetting
         import_design_dialog.ShowDialog()
         If My.Computer.FileSystem.FileExists(import_design_dialog.FileName) = True Then
             Dim readDesign As New IniDatei(import_design_dialog.FileName)
+            Dim UseTemplate As String = readDesign.WertLesen("Design", "UseTemplate")
             Dim BackgroundColor_hex As String = readDesign.WertLesen("Design", "BackgroundColor")
             Dim FormHeadColor_hex As String = readDesign.WertLesen("Design", "FormHeadColor")
             Dim InputBackgroundColor_hex As String = readDesign.WertLesen("Design", "InputBackgroundColor")
@@ -328,6 +337,49 @@ Public Class WcSetting
             Dim TextColor_hex As String = readDesign.WertLesen("Design", "TextColor")
             Dim InputTextColor_hex As String = readDesign.WertLesen("Design", "InputTextColor")
 
+            If UseTemplate = "False" Then
+                ComboBox1.Text = "Standard"
+                ComboBox1.Enabled = False
+                bgcolor_lb.Enabled = True
+                formhead_color_lb.Enabled = True
+                inputbackground_lb.Enabled = True
+                buttoncolor_lb.Enabled = True
+                textcolor_lb.Enabled = True
+                inputtextcolor_lb.Enabled = True
+                bgcolor_bt.Enabled = True
+                formhead_color_bt.Enabled = True
+                inputbackground_bt.Enabled = True
+                buttoncolor_bt.Enabled = True
+                textcolor_bt.Enabled = True
+                inputtextcolor_bt.Enabled = True
+                design_export.Enabled = True
+                design_import.Enabled = True
+                standard_restore_bt.Enabled = True
+                RadioButton1.Checked = False
+                RadioButton2.Checked = True
+            Else
+                ComboBox1.Text = UseTemplate
+                ComboBox1.Enabled = True
+                bgcolor_lb.Enabled = False
+                formhead_color_lb.Enabled = False
+                inputbackground_lb.Enabled = False
+                buttoncolor_lb.Enabled = False
+                textcolor_lb.Enabled = False
+                inputtextcolor_lb.Enabled = False
+                bgcolor_bt.Enabled = False
+                formhead_color_bt.Enabled = False
+                inputbackground_bt.Enabled = False
+                buttoncolor_bt.Enabled = False
+                textcolor_bt.Enabled = False
+                inputtextcolor_bt.Enabled = False
+                design_export.Enabled = False
+                design_import.Enabled = False
+                standard_restore_bt.Enabled = False
+                RadioButton1.Checked = True
+                RadioButton2.Checked = False
+            End If
+
+            _iniwrite.WertSchreiben("Design", "UseTemplate", UseTemplate)
             _iniwrite.WertSchreiben("Design", "BackgroundColor", BackgroundColor_hex)
             _iniwrite.WertSchreiben("Design", "FormHeadColor", FormHeadColor_hex)
             _iniwrite.WertSchreiben("Design", "InputBackgroundColor", InputBackgroundColor_hex)
@@ -353,5 +405,75 @@ Public Class WcSetting
         Else
 
         End If
+    End Sub
+
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        ComboBox1.Enabled = True
+        bgcolor_lb.Enabled = False
+        formhead_color_lb.Enabled = False
+        inputbackground_lb.Enabled = False
+        buttoncolor_lb.Enabled = False
+        textcolor_lb.Enabled = False
+        inputtextcolor_lb.Enabled = False
+        bgcolor_bt.Enabled = False
+        formhead_color_bt.Enabled = False
+        inputbackground_bt.Enabled = False
+        buttoncolor_bt.Enabled = False
+        textcolor_bt.Enabled = False
+        inputtextcolor_bt.Enabled = False
+        design_export.Enabled = False
+        design_import.Enabled = False
+        standard_restore_bt.Enabled = False
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        ComboBox1.Enabled = False
+        bgcolor_lb.Enabled = True
+        formhead_color_lb.Enabled = True
+        inputbackground_lb.Enabled = True
+        buttoncolor_lb.Enabled = True
+        textcolor_lb.Enabled = True
+        inputtextcolor_lb.Enabled = True
+        bgcolor_bt.Enabled = True
+        formhead_color_bt.Enabled = True
+        inputbackground_bt.Enabled = True
+        buttoncolor_bt.Enabled = True
+        textcolor_bt.Enabled = True
+        inputtextcolor_bt.Enabled = True
+        design_export.Enabled = True
+        design_import.Enabled = True
+        standard_restore_bt.Enabled = True
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+        Select Case ComboBox1.Text
+            Case "Standard"
+                _ini.WertSchreiben("Design", "UseTemplate", "Standard")
+                _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
+                _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
+                _ini.WertSchreiben("Design", "InputBackgroundColor", "#333337")
+                _ini.WertSchreiben("Design", "ButtonColor", "#3e3e40")
+                _ini.WertSchreiben("Design", "TextColor", "White")
+                _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
+            Case "DarkStyle"
+                _ini.WertSchreiben("Design", "UseTemplate", "DarkStyle")
+                _ini.WertSchreiben("Design", "BackgroundColor", "#2D2D30")
+                _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
+                _ini.WertSchreiben("Design", "InputBackgroundColor", "#1B1B1C")
+                _ini.WertSchreiben("Design", "ButtonColor", "#1B1B1C")
+                _ini.WertSchreiben("Design", "TextColor", "White")
+                _ini.WertSchreiben("Design", "InputTextColor", "White")
+            Case "LightStyle"
+                _ini.WertSchreiben("Design", "UseTemplate", "LightStyle")
+                _ini.WertSchreiben("Design", "BackgroundColor", "#E2E2E2")
+                _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
+                _ini.WertSchreiben("Design", "InputBackgroundColor", "#F6F6F6")
+                _ini.WertSchreiben("Design", "ButtonColor", "#F6F6F6")
+                _ini.WertSchreiben("Design", "TextColor", "Black")
+                _ini.WertSchreiben("Design", "InputTextColor", "Black")
+        End Select
+        Dim colorload As New designcolor
+        colorload.color()
     End Sub
 End Class

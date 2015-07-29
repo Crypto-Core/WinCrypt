@@ -33,7 +33,7 @@ Namespace classes
                 Startwindow.file_encrypt_bt_menu.Text = "file encrypt"
                 Startwindow.file_decrypt_bt_menu.Text = "file decrypt"
                 Startwindow.text_encrypt_bt_menu.Text = "text de- and encrypt"
-                Startwindow.md5_converter_bt_menu.Text = "MD5 converter"
+                Startwindow.md5_converter_bt_menu.Text = "converter"
                 Startwindow.rsa_encrypt_bt_menu.Text = "encryption"
                 Startwindow.rsa_decrypt_bt_menu.Text = "decryption"
                 Startwindow.rsa_create_keys_bt_menu.Text = "create key's"
@@ -59,7 +59,7 @@ Namespace classes
                 Startwindow.file_encrypt__bt_systemtray.Text = "file encrypt"
                 Startwindow.file_decrypt_bt_systemtray.Text = "file decrypt"
                 Startwindow.text_encrypt_bt_systemtray.Text = "text en- and decrypt"
-                Startwindow.md5_converter_bt_systemtray.Text = "MD5 converter"
+                Startwindow.md5_converter_bt_systemtray.Text = "converter"
                 Startwindow.rsa_encrypt_bt_systemtray.Text = "decryption"
                 Startwindow.rsa_decrypt_bt_systemtray.Text = "decryption"
                 Startwindow.rsa_create_keys_bt_systemtray.Text = "create key's"
@@ -166,7 +166,7 @@ Namespace classes
                 'Einstellung.vb
                 WcSetting.wincrypttitle.Text = "setting"
                 WcSetting.Text = "setting"
-                WcSetting.registfiletypegb.Text = "register WinCrypt file types"
+                WcSetting.registfiletypegb.Text = "register file types"
                 WcSetting.registfiletype.Text = "regist"
                 WcSetting.languagegb.Text = "language"
                 WcSetting.startwincb.Text = "WinCrypt start with Windows"
@@ -435,7 +435,7 @@ Namespace classes
                 'Einstellung.vb
                 WcSetting.wincrypttitle.Text = "Einstellung"
                 WcSetting.Text = "Einstellung"
-                WcSetting.registfiletypegb.Text = "WinCrypt Dateitypen registrieren"
+                WcSetting.registfiletypegb.Text = "Dateitypen registrieren"
                 WcSetting.registfiletype.Text = "Registrieren"
                 WcSetting.languagegb.Text = "Sprache"
                 WcSetting.startwincb.Text = "WinCrypt mit Windows starten"
@@ -454,8 +454,8 @@ Namespace classes
                 WcSetting.standard_restore_bt.Text = "Standard wiederherstellen"
 
                 'md5_main.vb
-                tools.hash.converter.wincrypttitle.Text = "MD5 Konverter"
-                tools.hash.converter.Text = "MD5 Konverter"
+                tools.hash.converter.wincrypttitle.Text = "Konverter"
+                tools.hash.converter.Text = "Konverter"
                 tools.hash.converter.convert_bt.Text = "Konvertieren"
 
                 'md5_bruteforce.vb

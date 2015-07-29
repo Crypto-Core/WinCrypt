@@ -36,9 +36,7 @@ Partial Class WcSetting
         Me.startwincb = New System.Windows.Forms.CheckBox()
         Me.line = New System.Windows.Forms.Label()
         Me.masterkey_gb = New System.Windows.Forms.GroupBox()
-        Me.show_bt = New System.Windows.Forms.Button()
         Me.key_txt = New System.Windows.Forms.TextBox()
-        Me.key_lb = New System.Windows.Forms.Label()
         Me.key_cb = New System.Windows.Forms.CheckBox()
         Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
         Me.wincrypttitle = New System.Windows.Forms.Label()
@@ -64,6 +62,9 @@ Partial Class WcSetting
         Me.designcolor_dialog = New System.Windows.Forms.ColorDialog()
         Me.design_export_dialog = New System.Windows.Forms.SaveFileDialog()
         Me.import_design_dialog = New System.Windows.Forms.OpenFileDialog()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
@@ -77,12 +78,12 @@ Partial Class WcSetting
         '
         Me.registfiletypegb.Controls.Add(Me.registfiletype)
         Me.registfiletypegb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.registfiletypegb.Location = New System.Drawing.Point(21, 37)
+        Me.registfiletypegb.Location = New System.Drawing.Point(13, 37)
         Me.registfiletypegb.Name = "registfiletypegb"
-        Me.registfiletypegb.Size = New System.Drawing.Size(200, 64)
+        Me.registfiletypegb.Size = New System.Drawing.Size(144, 56)
         Me.registfiletypegb.TabIndex = 0
         Me.registfiletypegb.TabStop = False
-        Me.registfiletypegb.Text = "WinCrypt Dateitypen registrieren"
+        Me.registfiletypegb.Text = "Dateitypen registrieren"
         '
         'registfiletype
         '
@@ -90,9 +91,9 @@ Partial Class WcSetting
         Me.registfiletype.FlatAppearance.BorderSize = 0
         Me.registfiletype.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.registfiletype.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.registfiletype.Location = New System.Drawing.Point(61, 25)
+        Me.registfiletype.Location = New System.Drawing.Point(10, 21)
         Me.registfiletype.Name = "registfiletype"
-        Me.registfiletype.Size = New System.Drawing.Size(75, 23)
+        Me.registfiletype.Size = New System.Drawing.Size(121, 23)
         Me.registfiletype.TabIndex = 0
         Me.registfiletype.Text = "Registrieren"
         Me.registfiletype.UseVisualStyleBackColor = False
@@ -103,7 +104,7 @@ Partial Class WcSetting
         Me.okbt.FlatAppearance.BorderSize = 0
         Me.okbt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.okbt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.okbt.Location = New System.Drawing.Point(21, 394)
+        Me.okbt.Location = New System.Drawing.Point(288, 407)
         Me.okbt.Name = "okbt"
         Me.okbt.Size = New System.Drawing.Size(75, 23)
         Me.okbt.TabIndex = 1
@@ -114,9 +115,9 @@ Partial Class WcSetting
         '
         Me.languagegb.Controls.Add(Me.languagecb)
         Me.languagegb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.languagegb.Location = New System.Drawing.Point(21, 107)
+        Me.languagegb.Location = New System.Drawing.Point(13, 99)
         Me.languagegb.Name = "languagegb"
-        Me.languagegb.Size = New System.Drawing.Size(200, 45)
+        Me.languagegb.Size = New System.Drawing.Size(144, 53)
         Me.languagegb.TabIndex = 2
         Me.languagegb.TabStop = False
         Me.languagegb.Text = "Sprache"
@@ -124,14 +125,14 @@ Partial Class WcSetting
         'languagecb
         '
         Me.languagecb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.languagecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.languagecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.languagecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.languagecb.Items.AddRange(New Object() {"Deutsch", "English"})
-        Me.languagecb.Location = New System.Drawing.Point(47, 18)
+        Me.languagecb.Location = New System.Drawing.Point(10, 20)
         Me.languagecb.Name = "languagecb"
         Me.languagecb.Size = New System.Drawing.Size(121, 21)
         Me.languagecb.TabIndex = 0
-        Me.languagecb.Text = "Deutsch"
         '
         'autostartgb
         '
@@ -139,10 +140,10 @@ Partial Class WcSetting
         Me.autostartgb.Controls.Add(Me.line3)
         Me.autostartgb.Controls.Add(Me.startminwincryptrb)
         Me.autostartgb.Controls.Add(Me.line2)
-        Me.autostartgb.Controls.Add(Me.startwincb)
         Me.autostartgb.Controls.Add(Me.line)
+        Me.autostartgb.Controls.Add(Me.startwincb)
         Me.autostartgb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.autostartgb.Location = New System.Drawing.Point(237, 37)
+        Me.autostartgb.Location = New System.Drawing.Point(163, 37)
         Me.autostartgb.Name = "autostartgb"
         Me.autostartgb.Size = New System.Drawing.Size(200, 116)
         Me.autostartgb.TabIndex = 3
@@ -153,7 +154,7 @@ Partial Class WcSetting
         '
         Me.startnormalwincrypt.AutoSize = True
         Me.startnormalwincrypt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.startnormalwincrypt.Location = New System.Drawing.Point(53, 91)
+        Me.startnormalwincrypt.Location = New System.Drawing.Point(52, 91)
         Me.startnormalwincrypt.Name = "startnormalwincrypt"
         Me.startnormalwincrypt.Size = New System.Drawing.Size(137, 17)
         Me.startnormalwincrypt.TabIndex = 2
@@ -165,7 +166,7 @@ Partial Class WcSetting
         Me.line3.AutoSize = True
         Me.line3.BackColor = System.Drawing.Color.Transparent
         Me.line3.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.line3.Location = New System.Drawing.Point(22, 92)
+        Me.line3.Location = New System.Drawing.Point(21, 92)
         Me.line3.Name = "line3"
         Me.line3.Size = New System.Drawing.Size(35, 15)
         Me.line3.TabIndex = 6
@@ -176,7 +177,7 @@ Partial Class WcSetting
         Me.startminwincryptrb.AutoSize = True
         Me.startminwincryptrb.Checked = True
         Me.startminwincryptrb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.startminwincryptrb.Location = New System.Drawing.Point(53, 63)
+        Me.startminwincryptrb.Location = New System.Drawing.Point(52, 63)
         Me.startminwincryptrb.Name = "startminwincryptrb"
         Me.startminwincryptrb.Size = New System.Drawing.Size(146, 17)
         Me.startminwincryptrb.TabIndex = 4
@@ -199,7 +200,7 @@ Partial Class WcSetting
         '
         Me.startwincb.AutoSize = True
         Me.startwincb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.startwincb.Location = New System.Drawing.Point(15, 31)
+        Me.startwincb.Location = New System.Drawing.Point(15, 27)
         Me.startwincb.Name = "startwincb"
         Me.startwincb.Size = New System.Drawing.Size(167, 17)
         Me.startwincb.TabIndex = 0
@@ -218,31 +219,15 @@ Partial Class WcSetting
         '
         'masterkey_gb
         '
-        Me.masterkey_gb.Controls.Add(Me.show_bt)
         Me.masterkey_gb.Controls.Add(Me.key_txt)
-        Me.masterkey_gb.Controls.Add(Me.key_lb)
         Me.masterkey_gb.Controls.Add(Me.key_cb)
         Me.masterkey_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.masterkey_gb.Location = New System.Drawing.Point(21, 158)
+        Me.masterkey_gb.Location = New System.Drawing.Point(13, 156)
         Me.masterkey_gb.Name = "masterkey_gb"
-        Me.masterkey_gb.Size = New System.Drawing.Size(415, 74)
+        Me.masterkey_gb.Size = New System.Drawing.Size(350, 51)
         Me.masterkey_gb.TabIndex = 4
         Me.masterkey_gb.TabStop = False
         Me.masterkey_gb.Text = "Masterkey"
-        '
-        'show_bt
-        '
-        Me.show_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.show_bt.Enabled = False
-        Me.show_bt.FlatAppearance.BorderSize = 0
-        Me.show_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.show_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.show_bt.Image = Global.Project_WinCrypt.My.Resources.Resources.eye
-        Me.show_bt.Location = New System.Drawing.Point(378, 17)
-        Me.show_bt.Name = "show_bt"
-        Me.show_bt.Size = New System.Drawing.Size(31, 23)
-        Me.show_bt.TabIndex = 3
-        Me.show_bt.UseVisualStyleBackColor = False
         '
         'key_txt
         '
@@ -250,28 +235,17 @@ Partial Class WcSetting
         Me.key_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.key_txt.Enabled = False
         Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.key_txt.Location = New System.Drawing.Point(40, 19)
+        Me.key_txt.Location = New System.Drawing.Point(92, 18)
         Me.key_txt.Name = "key_txt"
-        Me.key_txt.Size = New System.Drawing.Size(332, 20)
+        Me.key_txt.Size = New System.Drawing.Size(242, 20)
         Me.key_txt.TabIndex = 2
         Me.key_txt.UseSystemPasswordChar = True
-        '
-        'key_lb
-        '
-        Me.key_lb.AutoSize = True
-        Me.key_lb.Enabled = False
-        Me.key_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.key_lb.Location = New System.Drawing.Point(6, 22)
-        Me.key_lb.Name = "key_lb"
-        Me.key_lb.Size = New System.Drawing.Size(28, 13)
-        Me.key_lb.TabIndex = 1
-        Me.key_lb.Text = "Key:"
         '
         'key_cb
         '
         Me.key_cb.AutoSize = True
         Me.key_cb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.key_cb.Location = New System.Drawing.Point(328, 45)
+        Me.key_cb.Location = New System.Drawing.Point(5, 21)
         Me.key_cb.Name = "key_cb"
         Me.key_cb.Size = New System.Drawing.Size(81, 17)
         Me.key_cb.TabIndex = 0
@@ -306,7 +280,7 @@ Partial Class WcSetting
         Me.form_head.Location = New System.Drawing.Point(0, 0)
         Me.form_head.Name = "form_head"
         Me.form_head.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.form_head.Size = New System.Drawing.Size(457, 27)
+        Me.form_head.Size = New System.Drawing.Size(377, 27)
         Me.form_head.TabIndex = 22
         Me.form_head.Text = "WinCrypt"
         '
@@ -329,6 +303,9 @@ Partial Class WcSetting
         '
         'design_gb
         '
+        Me.design_gb.Controls.Add(Me.RadioButton2)
+        Me.design_gb.Controls.Add(Me.RadioButton1)
+        Me.design_gb.Controls.Add(Me.ComboBox1)
         Me.design_gb.Controls.Add(Me.design_export)
         Me.design_gb.Controls.Add(Me.design_import)
         Me.design_gb.Controls.Add(Me.standard_restore_bt)
@@ -345,9 +322,9 @@ Partial Class WcSetting
         Me.design_gb.Controls.Add(Me.bgcolor_bt)
         Me.design_gb.Controls.Add(Me.bgcolor_lb)
         Me.design_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.design_gb.Location = New System.Drawing.Point(21, 238)
+        Me.design_gb.Location = New System.Drawing.Point(13, 210)
         Me.design_gb.Name = "design_gb"
-        Me.design_gb.Size = New System.Drawing.Size(416, 150)
+        Me.design_gb.Size = New System.Drawing.Size(350, 191)
         Me.design_gb.TabIndex = 23
         Me.design_gb.TabStop = False
         Me.design_gb.Text = "Design"
@@ -358,7 +335,7 @@ Partial Class WcSetting
         Me.design_export.FlatAppearance.BorderSize = 0
         Me.design_export.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.design_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.design_export.Location = New System.Drawing.Point(6, 121)
+        Me.design_export.Location = New System.Drawing.Point(17, 152)
         Me.design_export.Name = "design_export"
         Me.design_export.Size = New System.Drawing.Size(107, 23)
         Me.design_export.TabIndex = 26
@@ -371,7 +348,7 @@ Partial Class WcSetting
         Me.design_import.FlatAppearance.BorderSize = 0
         Me.design_import.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.design_import.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.design_import.Location = New System.Drawing.Point(119, 121)
+        Me.design_import.Location = New System.Drawing.Point(132, 152)
         Me.design_import.Name = "design_import"
         Me.design_import.Size = New System.Drawing.Size(107, 23)
         Me.design_import.TabIndex = 25
@@ -384,9 +361,9 @@ Partial Class WcSetting
         Me.standard_restore_bt.FlatAppearance.BorderSize = 0
         Me.standard_restore_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.standard_restore_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.standard_restore_bt.Location = New System.Drawing.Point(269, 121)
+        Me.standard_restore_bt.Location = New System.Drawing.Point(249, 152)
         Me.standard_restore_bt.Name = "standard_restore_bt"
-        Me.standard_restore_bt.Size = New System.Drawing.Size(141, 23)
+        Me.standard_restore_bt.Size = New System.Drawing.Size(85, 23)
         Me.standard_restore_bt.TabIndex = 24
         Me.standard_restore_bt.Text = "Standard wiederherstellen"
         Me.standard_restore_bt.UseVisualStyleBackColor = False
@@ -397,7 +374,7 @@ Partial Class WcSetting
         Me.buttoncolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.buttoncolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.buttoncolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.buttoncolor_bt.Location = New System.Drawing.Point(339, 26)
+        Me.buttoncolor_bt.Location = New System.Drawing.Point(318, 77)
         Me.buttoncolor_bt.Name = "buttoncolor_bt"
         Me.buttoncolor_bt.Size = New System.Drawing.Size(16, 16)
         Me.buttoncolor_bt.TabIndex = 11
@@ -405,7 +382,7 @@ Partial Class WcSetting
         'buttoncolor_lb
         '
         Me.buttoncolor_lb.AutoSize = True
-        Me.buttoncolor_lb.Location = New System.Drawing.Point(232, 27)
+        Me.buttoncolor_lb.Location = New System.Drawing.Point(211, 78)
         Me.buttoncolor_lb.Name = "buttoncolor_lb"
         Me.buttoncolor_lb.Size = New System.Drawing.Size(66, 13)
         Me.buttoncolor_lb.TabIndex = 10
@@ -417,7 +394,7 @@ Partial Class WcSetting
         Me.textcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.textcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.textcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.textcolor_bt.Location = New System.Drawing.Point(339, 49)
+        Me.textcolor_bt.Location = New System.Drawing.Point(318, 100)
         Me.textcolor_bt.Name = "textcolor_bt"
         Me.textcolor_bt.Size = New System.Drawing.Size(16, 16)
         Me.textcolor_bt.TabIndex = 9
@@ -425,7 +402,7 @@ Partial Class WcSetting
         'textcolor_lb
         '
         Me.textcolor_lb.AutoSize = True
-        Me.textcolor_lb.Location = New System.Drawing.Point(232, 50)
+        Me.textcolor_lb.Location = New System.Drawing.Point(211, 101)
         Me.textcolor_lb.Name = "textcolor_lb"
         Me.textcolor_lb.Size = New System.Drawing.Size(28, 13)
         Me.textcolor_lb.TabIndex = 8
@@ -437,7 +414,7 @@ Partial Class WcSetting
         Me.inputtextcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.inputtextcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.inputtextcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.inputtextcolor_bt.Location = New System.Drawing.Point(339, 75)
+        Me.inputtextcolor_bt.Location = New System.Drawing.Point(318, 126)
         Me.inputtextcolor_bt.Name = "inputtextcolor_bt"
         Me.inputtextcolor_bt.Size = New System.Drawing.Size(16, 16)
         Me.inputtextcolor_bt.TabIndex = 7
@@ -445,7 +422,7 @@ Partial Class WcSetting
         'inputtextcolor_lb
         '
         Me.inputtextcolor_lb.AutoSize = True
-        Me.inputtextcolor_lb.Location = New System.Drawing.Point(232, 76)
+        Me.inputtextcolor_lb.Location = New System.Drawing.Point(211, 127)
         Me.inputtextcolor_lb.Name = "inputtextcolor_lb"
         Me.inputtextcolor_lb.Size = New System.Drawing.Size(70, 13)
         Me.inputtextcolor_lb.TabIndex = 6
@@ -457,7 +434,7 @@ Partial Class WcSetting
         Me.inputbackground_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.inputbackground_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.inputbackground_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.inputbackground_bt.Location = New System.Drawing.Point(168, 75)
+        Me.inputbackground_bt.Location = New System.Drawing.Point(147, 126)
         Me.inputbackground_bt.Name = "inputbackground_bt"
         Me.inputbackground_bt.Size = New System.Drawing.Size(16, 16)
         Me.inputbackground_bt.TabIndex = 5
@@ -465,7 +442,7 @@ Partial Class WcSetting
         'inputbackground_lb
         '
         Me.inputbackground_lb.AutoSize = True
-        Me.inputbackground_lb.Location = New System.Drawing.Point(61, 76)
+        Me.inputbackground_lb.Location = New System.Drawing.Point(40, 127)
         Me.inputbackground_lb.Name = "inputbackground_lb"
         Me.inputbackground_lb.Size = New System.Drawing.Size(104, 13)
         Me.inputbackground_lb.TabIndex = 4
@@ -476,7 +453,7 @@ Partial Class WcSetting
         Me.formhead_color_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.formhead_color_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.formhead_color_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.formhead_color_bt.Location = New System.Drawing.Point(168, 49)
+        Me.formhead_color_bt.Location = New System.Drawing.Point(147, 100)
         Me.formhead_color_bt.Name = "formhead_color_bt"
         Me.formhead_color_bt.Size = New System.Drawing.Size(16, 16)
         Me.formhead_color_bt.TabIndex = 3
@@ -484,7 +461,7 @@ Partial Class WcSetting
         'formhead_color_lb
         '
         Me.formhead_color_lb.AutoSize = True
-        Me.formhead_color_lb.Location = New System.Drawing.Point(61, 50)
+        Me.formhead_color_lb.Location = New System.Drawing.Point(40, 101)
         Me.formhead_color_lb.Name = "formhead_color_lb"
         Me.formhead_color_lb.Size = New System.Drawing.Size(59, 13)
         Me.formhead_color_lb.TabIndex = 2
@@ -495,7 +472,7 @@ Partial Class WcSetting
         Me.bgcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.bgcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.bgcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bgcolor_bt.Location = New System.Drawing.Point(168, 25)
+        Me.bgcolor_bt.Location = New System.Drawing.Point(147, 76)
         Me.bgcolor_bt.Name = "bgcolor_bt"
         Me.bgcolor_bt.Size = New System.Drawing.Size(16, 16)
         Me.bgcolor_bt.TabIndex = 1
@@ -503,7 +480,7 @@ Partial Class WcSetting
         'bgcolor_lb
         '
         Me.bgcolor_lb.AutoSize = True
-        Me.bgcolor_lb.Location = New System.Drawing.Point(61, 26)
+        Me.bgcolor_lb.Location = New System.Drawing.Point(40, 77)
         Me.bgcolor_lb.Name = "bgcolor_lb"
         Me.bgcolor_lb.Size = New System.Drawing.Size(62, 13)
         Me.bgcolor_lb.TabIndex = 0
@@ -525,12 +502,46 @@ Partial Class WcSetting
         Me.import_design_dialog.FileName = "ExportDesign.wcDesign"
         Me.import_design_dialog.Filter = "wcDesign|*.wcDesign"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.ComboBox1.Items.AddRange(New Object() {"Standard", "DarkStyle", "LightStyle"})
+        Me.ComboBox1.Location = New System.Drawing.Point(147, 24)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(187, 21)
+        Me.ComboBox1.TabIndex = 27
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(17, 25)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(130, 17)
+        Me.RadioButton1.TabIndex = 28
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Templates verwenden"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(17, 52)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(109, 17)
+        Me.RadioButton2.TabIndex = 29
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "eigenes Template"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'WcSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(457, 429)
+        Me.ClientSize = New System.Drawing.Size(377, 438)
         Me.Controls.Add(Me.design_gb)
         Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.wincrypttitle)
@@ -574,9 +585,7 @@ Partial Class WcSetting
     Friend WithEvents line2 As System.Windows.Forms.Label
     Friend WithEvents line As System.Windows.Forms.Label
     Friend WithEvents masterkey_gb As System.Windows.Forms.GroupBox
-    Friend WithEvents show_bt As System.Windows.Forms.Button
     Friend WithEvents key_txt As System.Windows.Forms.TextBox
-    Friend WithEvents key_lb As System.Windows.Forms.Label
     Friend WithEvents key_cb As System.Windows.Forms.CheckBox
     Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
     Friend WithEvents wincrypttitle As System.Windows.Forms.Label
@@ -602,4 +611,7 @@ Partial Class WcSetting
     Friend WithEvents design_export As System.Windows.Forms.Button
     Friend WithEvents design_export_dialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents import_design_dialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
