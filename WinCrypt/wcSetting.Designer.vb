@@ -46,6 +46,8 @@ Partial Class WcSetting
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.design_gb = New System.Windows.Forms.GroupBox()
+        Me.design_export = New System.Windows.Forms.Button()
+        Me.design_import = New System.Windows.Forms.Button()
         Me.standard_restore_bt = New System.Windows.Forms.Button()
         Me.buttoncolor_bt = New System.Windows.Forms.Label()
         Me.buttoncolor_lb = New System.Windows.Forms.Label()
@@ -60,6 +62,8 @@ Partial Class WcSetting
         Me.bgcolor_bt = New System.Windows.Forms.Label()
         Me.bgcolor_lb = New System.Windows.Forms.Label()
         Me.designcolor_dialog = New System.Windows.Forms.ColorDialog()
+        Me.design_export_dialog = New System.Windows.Forms.SaveFileDialog()
+        Me.import_design_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.registfiletypegb.SuspendLayout()
         Me.languagegb.SuspendLayout()
         Me.autostartgb.SuspendLayout()
@@ -325,6 +329,8 @@ Partial Class WcSetting
         '
         'design_gb
         '
+        Me.design_gb.Controls.Add(Me.design_export)
+        Me.design_gb.Controls.Add(Me.design_import)
         Me.design_gb.Controls.Add(Me.standard_restore_bt)
         Me.design_gb.Controls.Add(Me.buttoncolor_bt)
         Me.design_gb.Controls.Add(Me.buttoncolor_lb)
@@ -345,6 +351,32 @@ Partial Class WcSetting
         Me.design_gb.TabIndex = 23
         Me.design_gb.TabStop = False
         Me.design_gb.Text = "Design"
+        '
+        'design_export
+        '
+        Me.design_export.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.design_export.FlatAppearance.BorderSize = 0
+        Me.design_export.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.design_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.design_export.Location = New System.Drawing.Point(6, 121)
+        Me.design_export.Name = "design_export"
+        Me.design_export.Size = New System.Drawing.Size(107, 23)
+        Me.design_export.TabIndex = 26
+        Me.design_export.Text = "Design exportieren"
+        Me.design_export.UseVisualStyleBackColor = False
+        '
+        'design_import
+        '
+        Me.design_import.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.design_import.FlatAppearance.BorderSize = 0
+        Me.design_import.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.design_import.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.design_import.Location = New System.Drawing.Point(119, 121)
+        Me.design_import.Name = "design_import"
+        Me.design_import.Size = New System.Drawing.Size(107, 23)
+        Me.design_import.TabIndex = 25
+        Me.design_import.Text = "Design importieren"
+        Me.design_import.UseVisualStyleBackColor = False
         '
         'standard_restore_bt
         '
@@ -477,6 +509,22 @@ Partial Class WcSetting
         Me.bgcolor_lb.TabIndex = 0
         Me.bgcolor_lb.Text = "Hintergrund"
         '
+        'designcolor_dialog
+        '
+        Me.designcolor_dialog.AnyColor = True
+        Me.designcolor_dialog.Color = System.Drawing.Color.DimGray
+        Me.designcolor_dialog.FullOpen = True
+        '
+        'design_export_dialog
+        '
+        Me.design_export_dialog.FileName = "DesignExport.wcDesign"
+        Me.design_export_dialog.Filter = "wcDesign|*.wcDesign"
+        '
+        'import_design_dialog
+        '
+        Me.import_design_dialog.FileName = "ExportDesign.wcDesign"
+        Me.import_design_dialog.Filter = "wcDesign|*.wcDesign"
+        '
         'WcSetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -550,4 +598,8 @@ Partial Class WcSetting
     Friend WithEvents inputtextcolor_bt As System.Windows.Forms.Label
     Friend WithEvents inputtextcolor_lb As System.Windows.Forms.Label
     Friend WithEvents standard_restore_bt As System.Windows.Forms.Button
+    Friend WithEvents design_import As System.Windows.Forms.Button
+    Friend WithEvents design_export As System.Windows.Forms.Button
+    Friend WithEvents design_export_dialog As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents import_design_dialog As System.Windows.Forms.OpenFileDialog
 End Class

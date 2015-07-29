@@ -235,5 +235,10 @@ Namespace tools.data_encryption
         Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
             WindowState = FormWindowState.Minimized
         End Sub
+
+        Private Sub Fileencrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
+        End Sub
     End Class
 End Namespace

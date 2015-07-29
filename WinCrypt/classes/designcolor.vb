@@ -348,6 +348,15 @@ Public Class designcolor
         WcSetting.standard_restore_bt.ForeColor = textcolor
         WcSetting.standard_restore_bt.BackColor = buttoncolor
 
+        '// design_export
+        WcSetting.design_export.ForeColor = textcolor
+        WcSetting.design_export.BackColor = buttoncolor
+
+        '// design_import
+        WcSetting.design_import.ForeColor = textcolor
+        WcSetting.design_import.BackColor = buttoncolor
+
+
         '// exit_bt
         WcSetting.exit_bt.ForeColor = textcolor
         WcSetting.exit_bt.BackColor = formheadcolor

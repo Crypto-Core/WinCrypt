@@ -18,6 +18,7 @@ Public Class WcSetting
     ReadOnly _lang As New Language ' Die Sprache wird deklariert
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
     ' Die Bios ID wird deklariert
+
     Dim _bios As String
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
@@ -288,10 +289,60 @@ Public Class WcSetting
         _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
         _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
         _ini.WertSchreiben("Design", "InputBackgroundColor", "#333337")
-        _ini.WertSchreiben("Design", "buttoncolor", "#3e3e40")
+        _ini.WertSchreiben("Design", "ButtonColor", "#3e3e40")
         _ini.WertSchreiben("Design", "TextColor", "#ffffff")
         _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
         Dim colorload As New designcolor
         colorload.color()
+    End Sub
+
+    Private Sub design_export_Click_1(sender As Object, e As EventArgs) Handles design_export.Click
+
+        design_export_dialog.ShowDialog()
+        My.Computer.FileSystem.WriteAllText(design_export_dialog.FileName, "", False)
+        If My.Computer.FileSystem.FileExists(design_export_dialog.FileName) Then
+            Dim exportDesign As New IniDatei(design_export_dialog.FileName)
+            exportDesign.WertSchreiben("Design", "BackgroundColor", ColorTranslator.ToHtml(bgcolor_bt.BackColor))
+            exportDesign.WertSchreiben("Design", "FormHeadColor", ColorTranslator.ToHtml(formhead_color_bt.BackColor))
+            exportDesign.WertSchreiben("Design", "InputBackgroundColor", ColorTranslator.ToHtml(inputbackground_bt.BackColor))
+            exportDesign.WertSchreiben("Design", "ButtonColor", ColorTranslator.ToHtml(buttoncolor_bt.BackColor))
+            exportDesign.WertSchreiben("Design", "TextColor", ColorTranslator.ToHtml(textcolor_bt.BackColor))
+            exportDesign.WertSchreiben("Design", "InputTextColor", ColorTranslator.ToHtml(inputtextcolor_bt.BackColor))
+        End If
+
+        MsgBox("Design exportiert!", MsgBoxStyle.Information)
+    End Sub
+
+    Private Sub design_import_Click(sender As Object, e As EventArgs) Handles design_import.Click
+        import_design_dialog.ShowDialog()
+        If My.Computer.FileSystem.FileExists(import_design_dialog.FileName) = True Then
+            Dim readDesign As New IniDatei(import_design_dialog.FileName)
+            Dim BackgroundColor_hex As String = readDesign.WertLesen("Design", "BackgroundColor")
+            Dim FormHeadColor_hex As String = readDesign.WertLesen("Design", "FormHeadColor")
+            Dim InputBackgroundColor_hex As String = readDesign.WertLesen("Design", "InputBackgroundColor")
+            Dim ButtonColor_hex As String = readDesign.WertLesen("Design", "ButtonColor")
+            Dim TextColor_hex As String = readDesign.WertLesen("Design", "TextColor")
+            Dim InputTextColor_hex As String = readDesign.WertLesen("Design", "InputTextColor")
+
+            _iniwrite.WertSchreiben("Design", "BackgroundColor", BackgroundColor_hex)
+            _iniwrite.WertSchreiben("Design", "FormHeadColor", FormHeadColor_hex)
+            _iniwrite.WertSchreiben("Design", "InputBackgroundColor", InputBackgroundColor_hex)
+            _iniwrite.WertSchreiben("Design", "ButtonColor", ButtonColor_hex)
+            _iniwrite.WertSchreiben("Design", "TextColor", TextColor_hex)
+            _iniwrite.WertSchreiben("Design", "InputTextColor", InputTextColor_hex)
+
+            bgcolor_bt.BackColor = ColorTranslator.FromHtml(BackgroundColor_hex)
+            formhead_color_bt.BackColor = ColorTranslator.FromHtml(FormHeadColor_hex)
+            inputbackground_bt.BackColor = ColorTranslator.FromHtml(InputBackgroundColor_hex)
+            buttoncolor_bt.BackColor = ColorTranslator.FromHtml(ButtonColor_hex)
+            textcolor_bt.BackColor = ColorTranslator.FromHtml(TextColor_hex)
+            inputtextcolor_bt.BackColor = ColorTranslator.FromHtml(InputTextColor_hex)
+
+            Dim loadDesign As New designcolor
+            loadDesign.color()
+            MsgBox("Design importiert!", MsgBoxStyle.Information)
+        Else
+
+        End If
     End Sub
 End Class
