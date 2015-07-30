@@ -26,7 +26,6 @@ Partial Class about
         Me.product_lb = New System.Windows.Forms.Label()
         Me.ok_bt = New System.Windows.Forms.Button()
         Me.version_lb = New System.Windows.Forms.Label()
-        Me.lizenz_lb = New System.Windows.Forms.LinkLabel()
         Me.copyright_lb = New System.Windows.Forms.Label()
         Me.gpl_txt = New System.Windows.Forms.RichTextBox()
         Me.wincrypt_logo = New System.Windows.Forms.PictureBox()
@@ -58,9 +57,9 @@ Partial Class about
         Me.ok_bt.FlatAppearance.BorderSize = 0
         Me.ok_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ok_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ok_bt.Location = New System.Drawing.Point(163, 466)
+        Me.ok_bt.Location = New System.Drawing.Point(276, 465)
         Me.ok_bt.Name = "ok_bt"
-        Me.ok_bt.Size = New System.Drawing.Size(95, 23)
+        Me.ok_bt.Size = New System.Drawing.Size(134, 23)
         Me.ok_bt.TabIndex = 4
         Me.ok_bt.Text = "OK"
         Me.ok_bt.UseVisualStyleBackColor = False
@@ -75,22 +74,11 @@ Partial Class about
         Me.version_lb.TabIndex = 5
         Me.version_lb.Text = "(Version 0.0.0.0)"
         '
-        'lizenz_lb
-        '
-        Me.lizenz_lb.AutoSize = True
-        Me.lizenz_lb.LinkColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.lizenz_lb.Location = New System.Drawing.Point(375, 492)
-        Me.lizenz_lb.Name = "lizenz_lb"
-        Me.lizenz_lb.Size = New System.Drawing.Size(37, 13)
-        Me.lizenz_lb.TabIndex = 6
-        Me.lizenz_lb.TabStop = True
-        Me.lizenz_lb.Text = "Lizenz"
-        '
         'copyright_lb
         '
         Me.copyright_lb.AutoSize = True
         Me.copyright_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.copyright_lb.Location = New System.Drawing.Point(116, 492)
+        Me.copyright_lb.Location = New System.Drawing.Point(6, 470)
         Me.copyright_lb.Name = "copyright_lb"
         Me.copyright_lb.Size = New System.Drawing.Size(189, 13)
         Me.copyright_lb.TabIndex = 7
@@ -101,9 +89,10 @@ Partial Class about
         Me.gpl_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.gpl_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.gpl_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.gpl_txt.Location = New System.Drawing.Point(10, 294)
+        Me.gpl_txt.Location = New System.Drawing.Point(10, 275)
         Me.gpl_txt.Name = "gpl_txt"
-        Me.gpl_txt.Size = New System.Drawing.Size(400, 166)
+        Me.gpl_txt.ReadOnly = True
+        Me.gpl_txt.Size = New System.Drawing.Size(400, 185)
         Me.gpl_txt.TabIndex = 8
         Me.gpl_txt.Text = resources.GetString("gpl_txt.Text")
         '
@@ -125,7 +114,8 @@ Partial Class about
         Me.dev_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.dev_txt.Location = New System.Drawing.Point(10, 200)
         Me.dev_txt.Name = "dev_txt"
-        Me.dev_txt.Size = New System.Drawing.Size(400, 88)
+        Me.dev_txt.ReadOnly = True
+        Me.dev_txt.Size = New System.Drawing.Size(400, 69)
         Me.dev_txt.TabIndex = 10
         Me.dev_txt.Text = "Harry Machura, Ruben Gasda"
         '
@@ -174,7 +164,7 @@ Partial Class about
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(420, 512)
+        Me.ClientSize = New System.Drawing.Size(420, 493)
         Me.Controls.Add(Me.wincrypttitle)
         Me.Controls.Add(Me.wincrypt_icon)
         Me.Controls.Add(Me.form_head)
@@ -182,7 +172,6 @@ Partial Class about
         Me.Controls.Add(Me.wincrypt_logo)
         Me.Controls.Add(Me.gpl_txt)
         Me.Controls.Add(Me.copyright_lb)
-        Me.Controls.Add(Me.lizenz_lb)
         Me.Controls.Add(Me.version_lb)
         Me.Controls.Add(Me.ok_bt)
         Me.Controls.Add(Me.product_lb)
@@ -202,7 +191,6 @@ Partial Class about
     Friend WithEvents product_lb As System.Windows.Forms.Label
     Friend WithEvents ok_bt As System.Windows.Forms.Button
     Friend WithEvents version_lb As System.Windows.Forms.Label
-    Friend WithEvents lizenz_lb As System.Windows.Forms.LinkLabel
     Friend WithEvents copyright_lb As System.Windows.Forms.Label
     Friend WithEvents gpl_txt As System.Windows.Forms.RichTextBox
     Friend WithEvents wincrypt_logo As System.Windows.Forms.PictureBox

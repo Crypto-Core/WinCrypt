@@ -11,8 +11,8 @@ Public Class about
         wincrypt_logo.Select()
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) _
-        Handles lizenz_lb.LinkClicked
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+
         Process.Start("https://wincrypt.org/lizenz/")
     End Sub
 

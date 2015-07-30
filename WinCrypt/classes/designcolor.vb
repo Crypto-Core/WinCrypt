@@ -608,8 +608,6 @@ Public Class designcolor
         about.copyright_lb.ForeColor = textcolor
         about.copyright_lb.BackColor = bgcolor
 
-        '// lizenz_lb
-        about.lizenz_lb.BackColor = bgcolor
 
     End Sub
     Private Sub feedback_color()
