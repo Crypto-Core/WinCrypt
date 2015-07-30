@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B29E146-3780-49E1-B410-A8930B012349}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WinCrypt_Designer.My.MyApplication</StartupObject>
+    <RootNamespace>WinCrypt_Designer</RootNamespace>
+    <AssemblyName>WinCrypt Designer</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>WinCrypt Designer.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>WinCrypt Designer.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about.Designer.vb">
+      <DependentUpon>about.vb</DependentUpon>
+    </Compile>
+    <Compile Include="about.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="designer_frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="designer_frm.Designer.vb">
+      <DependentUpon>designer_frm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalPicker.Designer.vb">
+      <DependentUpon>GlobalPicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalPicker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inifile.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="WinCrypt_frm.Designer.vb">
+      <DependentUpon>WinCrypt_frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WinCrypt_frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="designer_frm.resx">
+      <DependentUpon>designer_frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GlobalPicker.resx">
+      <DependentUpon>GlobalPicker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinCrypt_frm.resx">
+      <DependentUpon>WinCrypt_frm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Resources\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-New-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clean-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crypt.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Erase-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Export-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data-Import-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feedback-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Identity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Interop.Shell32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MailSend16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pwmanager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regist.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textencrypt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uparrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updateflat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vista_DeviceConnect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vista_DeviceDisconnect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wc-icon16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wc-icon128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wcp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinCryptRegistry.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinCryptUpdate.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1438291712_color_wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1438293349_color-picker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\wc-icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
