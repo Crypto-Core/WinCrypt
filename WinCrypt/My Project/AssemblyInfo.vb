@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.Resources
+Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' Allgemeine Informationen über eine Assembly werden über die folgenden 
@@ -30,5 +31,6 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.4.5.5")> 
-<Assembly: AssemblyFileVersion("1.4.5.5")> 
+<Assembly: AssemblyVersion("1.4.5.5")>
+<Assembly: AssemblyFileVersion("1.4.5.5")>
+<Assembly: NeutralResourcesLanguage("en-US")>

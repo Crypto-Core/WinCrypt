@@ -31,10 +31,10 @@ Public Class WcSetting
 
     Private Sub okbt_Click(sender As Object, e As EventArgs) Handles okbt.Click
         Dim c As New designcolor
-        If languagecb.Text = "Deutsch" Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
+        If languagecb.SelectedIndex = 0 Then ' Es wird überprüft ob die Sprache Deutsch ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "German") ' Wenn ja wird diese in der config.ini eingetragen
         End If
-        If languagecb.Text = "English" Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
+        If languagecb.SelectedIndex = 1 Then ' Es wird überprüft ob die Sprache English ausgewählt wurde
             _iniwrite.WertSchreiben("Info", "Lang", "English") ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
 
@@ -141,11 +141,11 @@ Public Class WcSetting
         End If
         If _iniwrite.WertLesen("Info", "Lang") = "English" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf English gesetzt wurde
-            languagecb.Text = "English" ' Wenn ja wird der ComboBox Text English sein
+            languagecb.SelectedIndex = 1 ' Wenn ja wird der ComboBox Text English sein
         End If
         If _iniwrite.WertLesen("Info", "Lang") = "German" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf German gesetzt wurde
-            languagecb.Text = "Deutsch" ' Wenn ja wird der ComboBox Text Deutsch sein
+            languagecb.SelectedIndex = 0 ' Wenn ja wird der ComboBox Text Deutsch sein
         End If
         If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
             use_template_rb2.Checked = True
@@ -450,4 +450,5 @@ Public Class WcSetting
         Dim colorload As New designcolor
         colorload.color()
     End Sub
+
 End Class

@@ -351,8 +351,12 @@
     <EmbeddedResource Include="tools\safedelete\del_report.resx">
       <DependentUpon>del_report.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="wcSetting.de-DE.resx">
+      <DependentUpon>wcSetting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wcSetting.resx">
       <DependentUpon>wcSetting.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="masterkey.resx">
       <DependentUpon>masterkey.vb</DependentUpon>
