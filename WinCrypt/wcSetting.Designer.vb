@@ -272,7 +272,7 @@ Partial Class WcSetting
         Me.useTemplate_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.useTemplate_cb, "useTemplate_cb")
         Me.useTemplate_cb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.useTemplate_cb.Items.AddRange(New Object() {resources.GetString("useTemplate_cb.Items"), resources.GetString("useTemplate_cb.Items1"), resources.GetString("useTemplate_cb.Items2")})
+        Me.useTemplate_cb.Items.AddRange(New Object() {resources.GetString("useTemplate_cb.Items"), resources.GetString("useTemplate_cb.Items1")})
         Me.useTemplate_cb.Name = "useTemplate_cb"
         '
         'design_export

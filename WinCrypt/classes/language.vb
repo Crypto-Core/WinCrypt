@@ -164,32 +164,32 @@ Namespace classes
                 tools.data_encryption.Fileencrypt.generatebt.Text = "generate"
 
                 'Einstellung.vb
-                WcSetting.wincrypttitle.Text = "setting"
-                WcSetting.Text = "setting"
-                WcSetting.registfiletypegb.Text = "register file types"
-                WcSetting.registfiletype.Text = "regist"
-                WcSetting.languagegb.Text = "language"
-                WcSetting.startwincb.Text = "start with Windows"
-                WcSetting.startminwincryptrb.Text = "Start minimized"
-                WcSetting.startnormalwincrypt.Text = "Start normal"
-                WcSetting.key_cb.Text = "On"
-                langname = lang.WertLesen("Info", "Lang")
-                WcSetting.bgcolor_lb.Text = "background"
-                WcSetting.formhead_color_lb.Text = "form head"
-                WcSetting.inputbackground_lb.Text = "input background"
-                WcSetting.buttoncolor_lb.Text = "button color"
-                WcSetting.textcolor_lb.Text = "text color"
-                WcSetting.inputtextcolor_lb.Text = "input text color"
-                WcSetting.design_export.Text = "export design"
-                WcSetting.design_import.Text = "import design"
-                WcSetting.standard_restore_bt.Text = "restore standard"
+                'WcSetting.wincrypttitle.Text = "setting"
+                'WcSetting.Text = "setting"
+                'WcSetting.registfiletypegb.Text = "register file types"
+                'WcSetting.registfiletype.Text = "regist"
+                'WcSetting.languagegb.Text = "language"
+                'WcSetting.startwincb.Text = "start with Windows"
+                'WcSetting.startminwincryptrb.Text = "Start minimized"
+                'WcSetting.startnormalwincrypt.Text = "Start normal"
+                'WcSetting.key_cb.Text = "On"
+                'langname = lang.WertLesen("Info", "Lang")
+                'WcSetting.bgcolor_lb.Text = "background"
+                'WcSetting.formhead_color_lb.Text = "form head"
+                'WcSetting.inputbackground_lb.Text = "input background"
+                'WcSetting.buttoncolor_lb.Text = "button color"
+                'WcSetting.textcolor_lb.Text = "text color"
+                'WcSetting.inputtextcolor_lb.Text = "input text color"
+                'WcSetting.design_export.Text = "export design"
+                'WcSetting.design_import.Text = "import design"
+                'WcSetting.standard_restore_bt.Text = "restore standard"
 
-                'md5_main.vb
+                'main.vb
                 tools.hash.converter.wincrypttitle.Text = "Converter"
                 tools.hash.converter.Text = "Converter"
                 tools.hash.converter.convert_bt.Text = "Convert"
 
-                'md5_bruteforce.vb
+                'bruteforce.vb
                 tools.hash.Bruteforce.passwordlist_lb.Text = "passwordlist:"
                 tools.hash.Bruteforce.openWordlist.Text = "open"
                 tools.hash.Bruteforce.showProgress.Text = "show progress"

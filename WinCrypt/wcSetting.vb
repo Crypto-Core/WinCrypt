@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.Globalization
+Imports System.IO
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
@@ -49,7 +51,7 @@ Public Class WcSetting
         Dim lGuid As GuidAttribute ' Die WinCrypt GUID wird deklariert
         lGuid = DirectCast(
             Assembly.GetExecutingAssembly().GetCustomAttributes(
-                GetType(GuidAttribute), False)(0), 
+                GetType(GuidAttribute), False)(0),
             GuidAttribute)
 
         If key_cb.Checked = True Then ' Es wird überprüft ob der Masterkey aktiviert wurde
@@ -232,7 +234,7 @@ Public Class WcSetting
         Dim lGuid As GuidAttribute ' Es wird die Application GUID deklariert
         lGuid = DirectCast(
             Assembly.GetExecutingAssembly().GetCustomAttributes(
-                GetType(GuidAttribute), False)(0), 
+                GetType(GuidAttribute), False)(0),
             GuidAttribute)
         If My.Settings.Masterkey = True Then ' Wenn in den Masterkey einstellungen der Wert auf true steht
             key_txt.Text = readkey.AesDecrypt(_iniwrite.WertLesen("Key", "master"), _bios, lGuid.Value) _
@@ -429,14 +431,6 @@ Public Class WcSetting
 
         Select Case useTemplate_cb.SelectedIndex
             Case 0
-                _ini.WertSchreiben("Design", "UseTemplate", "Standard")
-                _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
-                _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
-                _ini.WertSchreiben("Design", "InputBackgroundColor", "#333337")
-                _ini.WertSchreiben("Design", "ButtonColor", "#3e3e40")
-                _ini.WertSchreiben("Design", "TextColor", "White")
-                _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
-            Case 1
                 _ini.WertSchreiben("Design", "UseTemplate", "DarkStyle")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#2D2D30")
                 _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
@@ -444,7 +438,7 @@ Public Class WcSetting
                 _ini.WertSchreiben("Design", "ButtonColor", "#1B1B1C")
                 _ini.WertSchreiben("Design", "TextColor", "White")
                 _ini.WertSchreiben("Design", "InputTextColor", "White")
-            Case 2
+            Case 1
                 _ini.WertSchreiben("Design", "UseTemplate", "LightStyle")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#E2E2E2")
                 _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
@@ -459,5 +453,29 @@ Public Class WcSetting
 
     Private Sub languagecb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles languagecb.SelectedIndexChanged
 
+        Select Case languagecb.SelectedIndex
+            Case 0
+                ChangeLanguage("de-DE")
+            Case 1
+                ChangeLanguage("en-US")
+        End Select
+
     End Sub
+
+
+    Private Sub ChangeLanguage(ByVal lang As String)
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(WcSetting))
+
+        For Each c As Control In Me.Controls
+            resources.ApplyResources(c, c.Name, New CultureInfo(lang))
+        Next c
+
+        For Each g As GroupBox In Me.Controls.OfType(Of GroupBox)
+
+            For Each t As Control In g.Controls
+                resources.ApplyResources(t, t.Name, New CultureInfo(lang))
+            Next
+        Next
+    End Sub
+
 End Class

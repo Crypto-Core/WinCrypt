@@ -126,12 +126,6 @@
   <data name="okbt.Text" xml:space="preserve">
     <value>Ok</value>
   </data>
-  <data name="languagecb.Items" xml:space="preserve">
-    <value>Deutsch (Deutschland)</value>
-  </data>
-  <data name="languagecb.Items1" xml:space="preserve">
-    <value>Englisch (USA)</value>
-  </data>
   <data name="languagegb.Text" xml:space="preserve">
     <value>Sprache</value>
   </data>
