@@ -515,6 +515,7 @@
     <None Include="resources\maxi.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\WinCryptUpdate.exe" />
     <Content Include="wc-icon.ico" />
     <None Include="resources\wc-icon128.png" />
     <None Include="resources\wc-icon16.png" />

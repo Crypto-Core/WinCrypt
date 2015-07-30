@@ -16,7 +16,7 @@ Public Class updatewindow
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         version = ini.WertLesen("Info", "Version")
-        Dim httpRequest As HttpWebRequest = HttpWebRequest.Create("http://wincrypt.org/update/index.html")
+        Dim httpRequest As HttpWebRequest = HttpWebRequest.Create("https://wincrypt.org/update/version.html")
         Dim httpResponse As HttpWebResponse = httpRequest.GetResponse()
         Dim reader = New StreamReader(httpResponse.GetResponseStream)
         Dim httpContent As String = reader.ReadToEnd
@@ -34,8 +34,8 @@ Public Class updatewindow
 
                 End Try
                 downloader = New WebClient
-                downloader.DownloadFileAsync(New Uri("http://wincrypt.org/update/files/Project%20WinCrypt.exe"),
-                                             My.Computer.FileSystem.CurrentDirectory & "\Project WinCrypt.exe")
+                downloader.DownloadFileAsync(New Uri("https://wincrypt.org/update/files/update.zip"),
+                                             My.Computer.FileSystem.SpecialDirectories.Temp & "\update.zip")
             End If
             If newupdate = MsgBoxResult.No Then
                 Application.Exit()
@@ -48,8 +48,25 @@ Public Class updatewindow
 
     Private Sub downloader_DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs) _
         Handles downloader.DownloadFileCompleted
-        Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Project WinCrypt.exe")
-        Me.Close()
+        If My.Computer.FileSystem.DirectoryExists(My.Computer.FileSystem.CurrentDirectory) Then
+            Dim di As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+            For Each fi As FileInfo In di.GetFiles("*.*", SearchOption.AllDirectories)
+                If fi.Name = "WinCryptUpdate.exe" Then
+                Else
+                    My.Computer.FileSystem.DeleteFile(fi.FullName)
+                End If
+            Next
+            Dim alleOrdner() As String
+            alleOrdner = Directory.GetDirectories(My.Computer.FileSystem.CurrentDirectory)
+            For i = 0 To alleOrdner.Length - 1
+                If alleOrdner(i) <> My.Computer.FileSystem.CurrentDirectory Then
+                    My.Computer.FileSystem.DeleteDirectory(alleOrdner(i), FileIO.DeleteDirectoryOption.DeleteAllContents)
+                End If
+            Next i
+        Else
+        End If
+        Dim extract As New Unzip(My.Computer.FileSystem.SpecialDirectories.Temp & "\update.zip", My.Computer.FileSystem.CurrentDirectory)
+        extract.UnzipNow()
     End Sub
 
     Private Sub downloader_DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs) _
