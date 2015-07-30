@@ -24,12 +24,12 @@ Partial Class startwindow
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'Form1
+        'startwindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(189, 0)
-        Me.Name = "Form1"
+        Me.ClientSize = New System.Drawing.Size(552, 0)
+        Me.Name = "startwindow"
         Me.Text = "Regist"
         Me.ResumeLayout(False)
 

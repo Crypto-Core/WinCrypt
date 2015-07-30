@@ -208,7 +208,7 @@ Partial Class Startwindow
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
-        Me.setting_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.setting_bt_menu.Size = New System.Drawing.Size(132, 22)
         Me.setting_bt_menu.Text = "Einstellung"
         '
         'exit_bt_menu
@@ -217,7 +217,7 @@ Partial Class Startwindow
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
-        Me.exit_bt_menu.Size = New System.Drawing.Size(152, 22)
+        Me.exit_bt_menu.Size = New System.Drawing.Size(132, 22)
         Me.exit_bt_menu.Text = "Beenden"
         '
         'tools_bt_menu
@@ -1338,9 +1338,9 @@ Partial Class Startwindow
         Me.crypt_file_pathbutton.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.crypt_file_pathbutton.FlatAppearance.BorderSize = 0
         Me.crypt_file_pathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(487, 31)
+        Me.crypt_file_pathbutton.Location = New System.Drawing.Point(486, 31)
         Me.crypt_file_pathbutton.Name = "crypt_file_pathbutton"
-        Me.crypt_file_pathbutton.Size = New System.Drawing.Size(75, 23)
+        Me.crypt_file_pathbutton.Size = New System.Drawing.Size(76, 23)
         Me.crypt_file_pathbutton.TabIndex = 2
         Me.crypt_file_pathbutton.Text = "Hinzufügen"
         Me.crypt_file_pathbutton.UseVisualStyleBackColor = False
@@ -1367,7 +1367,7 @@ Partial Class Startwindow
         Me.pathtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pathtxt.Location = New System.Drawing.Point(11, 33)
         Me.pathtxt.Name = "pathtxt"
-        Me.pathtxt.Size = New System.Drawing.Size(471, 22)
+        Me.pathtxt.Size = New System.Drawing.Size(469, 22)
         Me.pathtxt.TabIndex = 3
         '
         'wincrypt_icon

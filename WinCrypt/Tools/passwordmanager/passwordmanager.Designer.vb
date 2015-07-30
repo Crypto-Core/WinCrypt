@@ -58,9 +58,9 @@
             Me.add_bt.FlatAppearance.BorderSize = 0
             Me.add_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.add_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.add_bt.Location = New System.Drawing.Point(174, 422)
+            Me.add_bt.Location = New System.Drawing.Point(166, 422)
             Me.add_bt.Name = "add_bt"
-            Me.add_bt.Size = New System.Drawing.Size(75, 23)
+            Me.add_bt.Size = New System.Drawing.Size(83, 23)
             Me.add_bt.TabIndex = 1
             Me.add_bt.Text = "Hinzufügen"
             Me.add_bt.UseVisualStyleBackColor = False

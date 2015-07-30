@@ -131,7 +131,7 @@
             Me.generate_key_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.generate_key_bt.Location = New System.Drawing.Point(12, 424)
             Me.generate_key_bt.Name = "generate_key_bt"
-            Me.generate_key_bt.Size = New System.Drawing.Size(117, 23)
+            Me.generate_key_bt.Size = New System.Drawing.Size(137, 23)
             Me.generate_key_bt.TabIndex = 6
             Me.generate_key_bt.Text = "Schlüssel generieren"
             Me.generate_key_bt.UseVisualStyleBackColor = False

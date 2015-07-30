@@ -179,9 +179,9 @@
             Me.removeentrybt.FlatAppearance.BorderSize = 0
             Me.removeentrybt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.removeentrybt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.removeentrybt.Location = New System.Drawing.Point(317, 446)
+            Me.removeentrybt.Location = New System.Drawing.Point(313, 446)
             Me.removeentrybt.Name = "removeentrybt"
-            Me.removeentrybt.Size = New System.Drawing.Size(103, 23)
+            Me.removeentrybt.Size = New System.Drawing.Size(107, 23)
             Me.removeentrybt.TabIndex = 15
             Me.removeentrybt.Text = "Eintrag entfernen"
             Me.removeentrybt.UseVisualStyleBackColor = False
@@ -289,7 +289,7 @@
             Me.cleanlb1.FlatAppearance.BorderSize = 0
             Me.cleanlb1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.cleanlb1.Image = Global.Project_WinCrypt.My.Resources.Resources.Clean_16
-            Me.cleanlb1.Location = New System.Drawing.Point(274, 446)
+            Me.cleanlb1.Location = New System.Drawing.Point(270, 446)
             Me.cleanlb1.Name = "cleanlb1"
             Me.cleanlb1.Size = New System.Drawing.Size(37, 23)
             Me.cleanlb1.TabIndex = 24

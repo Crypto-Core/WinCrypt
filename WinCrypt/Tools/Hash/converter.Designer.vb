@@ -45,9 +45,9 @@
             Me.convert_bt.FlatAppearance.BorderSize = 0
             Me.convert_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.convert_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.convert_bt.Location = New System.Drawing.Point(197, 99)
+            Me.convert_bt.Location = New System.Drawing.Point(191, 99)
             Me.convert_bt.Name = "convert_bt"
-            Me.convert_bt.Size = New System.Drawing.Size(75, 23)
+            Me.convert_bt.Size = New System.Drawing.Size(87, 23)
             Me.convert_bt.TabIndex = 0
             Me.convert_bt.Text = "Konvertieren"
             Me.convert_bt.UseVisualStyleBackColor = False

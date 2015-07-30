@@ -84,9 +84,9 @@
             Me.encrypt_bt.FlatAppearance.BorderSize = 0
             Me.encrypt_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.encrypt_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.encrypt_bt.Location = New System.Drawing.Point(505, 398)
+            Me.encrypt_bt.Location = New System.Drawing.Point(497, 398)
             Me.encrypt_bt.Name = "encrypt_bt"
-            Me.encrypt_bt.Size = New System.Drawing.Size(84, 23)
+            Me.encrypt_bt.Size = New System.Drawing.Size(92, 23)
             Me.encrypt_bt.TabIndex = 5
             Me.encrypt_bt.Text = "Verschlüsseln"
             Me.encrypt_bt.UseVisualStyleBackColor = False
@@ -132,9 +132,9 @@
             Me.decrypt_bt.FlatAppearance.BorderSize = 0
             Me.decrypt_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.decrypt_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.decrypt_bt.Location = New System.Drawing.Point(505, 398)
+            Me.decrypt_bt.Location = New System.Drawing.Point(497, 397)
             Me.decrypt_bt.Name = "decrypt_bt"
-            Me.decrypt_bt.Size = New System.Drawing.Size(84, 23)
+            Me.decrypt_bt.Size = New System.Drawing.Size(92, 23)
             Me.decrypt_bt.TabIndex = 9
             Me.decrypt_bt.Text = "Entschlüsseln"
             Me.decrypt_bt.UseVisualStyleBackColor = False
