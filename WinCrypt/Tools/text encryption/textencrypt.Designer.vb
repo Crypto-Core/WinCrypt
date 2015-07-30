@@ -152,22 +152,22 @@
             'encrypt_lb
             '
             Me.encrypt_lb.AutoSize = True
-            Me.encrypt_lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.encrypt_lb.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.encrypt_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.encrypt_lb.Location = New System.Drawing.Point(147, 40)
+            Me.encrypt_lb.Location = New System.Drawing.Point(159, 39)
             Me.encrypt_lb.Name = "encrypt_lb"
-            Me.encrypt_lb.Size = New System.Drawing.Size(117, 16)
+            Me.encrypt_lb.Size = New System.Drawing.Size(104, 17)
             Me.encrypt_lb.TabIndex = 10
             Me.encrypt_lb.Text = "Verschlüsseln >"
             '
             'decrypt_lb
             '
             Me.decrypt_lb.AutoSize = True
-            Me.decrypt_lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.decrypt_lb.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.decrypt_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.decrypt_lb.Location = New System.Drawing.Point(355, 40)
             Me.decrypt_lb.Name = "decrypt_lb"
-            Me.decrypt_lb.Size = New System.Drawing.Size(115, 16)
+            Me.decrypt_lb.Size = New System.Drawing.Size(104, 17)
             Me.decrypt_lb.TabIndex = 11
             Me.decrypt_lb.Text = "< Entschlüsseln"
             '
