@@ -421,8 +421,8 @@ Public Class WcSetting
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles useTemplate_cb.SelectedIndexChanged
 
-        Select Case useTemplate_cb.Text
-            Case "Standard"
+        Select Case useTemplate_cb.SelectedIndex
+            Case 0
                 _ini.WertSchreiben("Design", "UseTemplate", "Standard")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
                 _ini.WertSchreiben("Design", "FormHeadColor", "#2d2d30")
@@ -430,7 +430,7 @@ Public Class WcSetting
                 _ini.WertSchreiben("Design", "ButtonColor", "#3e3e40")
                 _ini.WertSchreiben("Design", "TextColor", "White")
                 _ini.WertSchreiben("Design", "InputTextColor", "#007acc")
-            Case "DarkStyle"
+            Case 1
                 _ini.WertSchreiben("Design", "UseTemplate", "DarkStyle")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#2D2D30")
                 _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
@@ -438,7 +438,7 @@ Public Class WcSetting
                 _ini.WertSchreiben("Design", "ButtonColor", "#1B1B1C")
                 _ini.WertSchreiben("Design", "TextColor", "White")
                 _ini.WertSchreiben("Design", "InputTextColor", "White")
-            Case "LightStyle"
+            Case 2
                 _ini.WertSchreiben("Design", "UseTemplate", "LightStyle")
                 _ini.WertSchreiben("Design", "BackgroundColor", "#E2E2E2")
                 _ini.WertSchreiben("Design", "FormHeadColor", "#007ACC")
@@ -451,4 +451,7 @@ Public Class WcSetting
         colorload.color()
     End Sub
 
+    Private Sub languagecb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles languagecb.SelectedIndexChanged
+
+    End Sub
 End Class

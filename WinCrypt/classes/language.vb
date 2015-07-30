@@ -169,9 +169,9 @@ Namespace classes
                 WcSetting.registfiletypegb.Text = "register file types"
                 WcSetting.registfiletype.Text = "regist"
                 WcSetting.languagegb.Text = "language"
-                WcSetting.startwincb.Text = "WinCrypt start with Windows"
-                WcSetting.startminwincryptrb.Text = "Start minimized WinCrypt"
-                WcSetting.startnormalwincrypt.Text = "Start WinCrypt normal"
+                WcSetting.startwincb.Text = "start with Windows"
+                WcSetting.startminwincryptrb.Text = "Start minimized"
+                WcSetting.startnormalwincrypt.Text = "Start normal"
                 WcSetting.key_cb.Text = "On"
                 langname = lang.WertLesen("Info", "Lang")
                 WcSetting.bgcolor_lb.Text = "background"
@@ -185,8 +185,8 @@ Namespace classes
                 WcSetting.standard_restore_bt.Text = "restore standard"
 
                 'md5_main.vb
-                tools.hash.converter.wincrypttitle.Text = "MD5 Converter"
-                tools.hash.converter.Text = "MD5 Converter"
+                tools.hash.converter.wincrypttitle.Text = "Converter"
+                tools.hash.converter.Text = "Converter"
                 tools.hash.converter.convert_bt.Text = "Convert"
 
                 'md5_bruteforce.vb
@@ -290,7 +290,7 @@ Namespace classes
                 Startwindow.file_encrypt_bt_menu.Text = "Datei verschlüsseln"
                 Startwindow.file_decrypt_bt_menu.Text = "Datei entschlüsseln"
                 Startwindow.text_encrypt_bt_menu.Text = "Text ver- und entschlüsseln"
-                Startwindow.md5_converter_bt_menu.Text = "MD5 Konverter"
+                Startwindow.md5_converter_bt_menu.Text = "Konverter"
                 Startwindow.rsa_encrypt_bt_menu.Text = "Verschlüsselung"
                 Startwindow.rsa_decrypt_bt_menu.Text = "Entschlüsselung"
                 Startwindow.rsa_create_keys_bt_menu.Text = "Schlüssel erstellen"
@@ -438,9 +438,9 @@ Namespace classes
                 WcSetting.registfiletypegb.Text = "Dateitypen registrieren"
                 WcSetting.registfiletype.Text = "Registrieren"
                 WcSetting.languagegb.Text = "Sprache"
-                WcSetting.startwincb.Text = "WinCrypt mit Windows starten"
-                WcSetting.startminwincryptrb.Text = "WinCrypt minimiert starten"
-                WcSetting.startnormalwincrypt.Text = "WinCrypt normal starten"
+                WcSetting.startwincb.Text = "mit Windows starten"
+                WcSetting.startminwincryptrb.Text = "minimiert starten"
+                WcSetting.startnormalwincrypt.Text = "normal starten"
                 WcSetting.key_cb.Text = "Einschalten"
                 langname = lang.WertLesen("Info", "Lang")
                 WcSetting.bgcolor_lb.Text = "Hintergrund"

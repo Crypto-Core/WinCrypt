@@ -76,50 +76,49 @@ Partial Class WcSetting
         '
         'registfiletypegb
         '
-        resources.ApplyResources(Me.registfiletypegb, "registfiletypegb")
         Me.registfiletypegb.Controls.Add(Me.registfiletype)
         Me.registfiletypegb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.registfiletypegb, "registfiletypegb")
         Me.registfiletypegb.Name = "registfiletypegb"
         Me.registfiletypegb.TabStop = False
         '
         'registfiletype
         '
-        resources.ApplyResources(Me.registfiletype, "registfiletype")
         Me.registfiletype.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.registfiletype.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.registfiletype, "registfiletype")
         Me.registfiletype.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.registfiletype.Name = "registfiletype"
         Me.registfiletype.UseVisualStyleBackColor = False
         '
         'okbt
         '
-        resources.ApplyResources(Me.okbt, "okbt")
         Me.okbt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.okbt.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.okbt, "okbt")
         Me.okbt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.okbt.Name = "okbt"
         Me.okbt.UseVisualStyleBackColor = False
         '
         'languagegb
         '
-        resources.ApplyResources(Me.languagegb, "languagegb")
         Me.languagegb.Controls.Add(Me.languagecb)
         Me.languagegb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.languagegb, "languagegb")
         Me.languagegb.Name = "languagegb"
         Me.languagegb.TabStop = False
         '
         'languagecb
         '
-        resources.ApplyResources(Me.languagecb, "languagecb")
         Me.languagecb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.languagecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.languagecb, "languagecb")
         Me.languagecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.languagecb.Items.AddRange(New Object() {resources.GetString("languagecb.Items"), resources.GetString("languagecb.Items1")})
         Me.languagecb.Name = "languagecb"
         '
         'autostartgb
         '
-        resources.ApplyResources(Me.autostartgb, "autostartgb")
         Me.autostartgb.Controls.Add(Me.startnormalwincrypt)
         Me.autostartgb.Controls.Add(Me.line3)
         Me.autostartgb.Controls.Add(Me.startminwincryptrb)
@@ -127,6 +126,7 @@ Partial Class WcSetting
         Me.autostartgb.Controls.Add(Me.line)
         Me.autostartgb.Controls.Add(Me.startwincb)
         Me.autostartgb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.autostartgb, "autostartgb")
         Me.autostartgb.Name = "autostartgb"
         Me.autostartgb.TabStop = False
         '
@@ -172,18 +172,18 @@ Partial Class WcSetting
         '
         'masterkey_gb
         '
-        resources.ApplyResources(Me.masterkey_gb, "masterkey_gb")
         Me.masterkey_gb.Controls.Add(Me.key_txt)
         Me.masterkey_gb.Controls.Add(Me.key_cb)
         Me.masterkey_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.masterkey_gb, "masterkey_gb")
         Me.masterkey_gb.Name = "masterkey_gb"
         Me.masterkey_gb.TabStop = False
         '
         'key_txt
         '
-        resources.ApplyResources(Me.key_txt, "key_txt")
         Me.key_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.key_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        resources.ApplyResources(Me.key_txt, "key_txt")
         Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.key_txt.Name = "key_txt"
         Me.key_txt.UseSystemPasswordChar = True
@@ -197,8 +197,8 @@ Partial Class WcSetting
         '
         'wincrypt_icon
         '
-        resources.ApplyResources(Me.wincrypt_icon, "wincrypt_icon")
         Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
+        resources.ApplyResources(Me.wincrypt_icon, "wincrypt_icon")
         Me.wincrypt_icon.Name = "wincrypt_icon"
         Me.wincrypt_icon.TabStop = False
         '
@@ -210,9 +210,9 @@ Partial Class WcSetting
         '
         'form_head
         '
-        resources.ApplyResources(Me.form_head, "form_head")
         Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        resources.ApplyResources(Me.form_head, "form_head")
         Me.form_head.Name = "form_head"
         '
         'exit_bt
@@ -229,7 +229,6 @@ Partial Class WcSetting
         '
         'design_gb
         '
-        resources.ApplyResources(Me.design_gb, "design_gb")
         Me.design_gb.Controls.Add(Me.use_template_rb2)
         Me.design_gb.Controls.Add(Me.use_template_rb)
         Me.design_gb.Controls.Add(Me.useTemplate_cb)
@@ -249,6 +248,7 @@ Partial Class WcSetting
         Me.design_gb.Controls.Add(Me.bgcolor_bt)
         Me.design_gb.Controls.Add(Me.bgcolor_lb)
         Me.design_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.design_gb, "design_gb")
         Me.design_gb.Name = "design_gb"
         Me.design_gb.TabStop = False
         '
@@ -268,47 +268,47 @@ Partial Class WcSetting
         '
         'useTemplate_cb
         '
-        resources.ApplyResources(Me.useTemplate_cb, "useTemplate_cb")
         Me.useTemplate_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.useTemplate_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.useTemplate_cb, "useTemplate_cb")
         Me.useTemplate_cb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.useTemplate_cb.Items.AddRange(New Object() {resources.GetString("useTemplate_cb.Items"), resources.GetString("useTemplate_cb.Items1"), resources.GetString("useTemplate_cb.Items2")})
         Me.useTemplate_cb.Name = "useTemplate_cb"
         '
         'design_export
         '
-        resources.ApplyResources(Me.design_export, "design_export")
         Me.design_export.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.design_export.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.design_export, "design_export")
         Me.design_export.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.design_export.Name = "design_export"
         Me.design_export.UseVisualStyleBackColor = False
         '
         'design_import
         '
-        resources.ApplyResources(Me.design_import, "design_import")
         Me.design_import.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.design_import.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.design_import, "design_import")
         Me.design_import.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.design_import.Name = "design_import"
         Me.design_import.UseVisualStyleBackColor = False
         '
         'standard_restore_bt
         '
-        resources.ApplyResources(Me.standard_restore_bt, "standard_restore_bt")
         Me.standard_restore_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.standard_restore_bt.FlatAppearance.BorderSize = 0
+        resources.ApplyResources(Me.standard_restore_bt, "standard_restore_bt")
         Me.standard_restore_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.standard_restore_bt.Name = "standard_restore_bt"
         Me.standard_restore_bt.UseVisualStyleBackColor = False
         '
         'buttoncolor_bt
         '
-        resources.ApplyResources(Me.buttoncolor_bt, "buttoncolor_bt")
         Me.buttoncolor_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.buttoncolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.buttoncolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.buttoncolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.buttoncolor_bt, "buttoncolor_bt")
         Me.buttoncolor_bt.Name = "buttoncolor_bt"
         '
         'buttoncolor_lb
@@ -318,11 +318,11 @@ Partial Class WcSetting
         '
         'textcolor_bt
         '
-        resources.ApplyResources(Me.textcolor_bt, "textcolor_bt")
         Me.textcolor_bt.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.textcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.textcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.textcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.textcolor_bt, "textcolor_bt")
         Me.textcolor_bt.Name = "textcolor_bt"
         '
         'textcolor_lb
@@ -332,11 +332,11 @@ Partial Class WcSetting
         '
         'inputtextcolor_bt
         '
-        resources.ApplyResources(Me.inputtextcolor_bt, "inputtextcolor_bt")
         Me.inputtextcolor_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.inputtextcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.inputtextcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.inputtextcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.inputtextcolor_bt, "inputtextcolor_bt")
         Me.inputtextcolor_bt.Name = "inputtextcolor_bt"
         '
         'inputtextcolor_lb
@@ -346,11 +346,11 @@ Partial Class WcSetting
         '
         'inputbackground_bt
         '
-        resources.ApplyResources(Me.inputbackground_bt, "inputbackground_bt")
         Me.inputbackground_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.inputbackground_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.inputbackground_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.inputbackground_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.inputbackground_bt, "inputbackground_bt")
         Me.inputbackground_bt.Name = "inputbackground_bt"
         '
         'inputbackground_lb
@@ -360,10 +360,10 @@ Partial Class WcSetting
         '
         'formhead_color_bt
         '
-        resources.ApplyResources(Me.formhead_color_bt, "formhead_color_bt")
         Me.formhead_color_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.formhead_color_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.formhead_color_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.formhead_color_bt, "formhead_color_bt")
         Me.formhead_color_bt.Name = "formhead_color_bt"
         '
         'formhead_color_lb
@@ -373,10 +373,10 @@ Partial Class WcSetting
         '
         'bgcolor_bt
         '
-        resources.ApplyResources(Me.bgcolor_bt, "bgcolor_bt")
         Me.bgcolor_bt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.bgcolor_bt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.bgcolor_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        resources.ApplyResources(Me.bgcolor_bt, "bgcolor_bt")
         Me.bgcolor_bt.Name = "bgcolor_bt"
         '
         'bgcolor_lb
