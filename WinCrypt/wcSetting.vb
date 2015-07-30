@@ -266,6 +266,7 @@ Public Class WcSetting
     End Sub
 
     Private Sub bgcolor_bt_Click(sender As Object, e As EventArgs) Handles bgcolor_bt.Click
+        designcolor_dialog.Color = bgcolor_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "BackgroundColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         bgcolor_bt.BackColor = designcolor_dialog.Color
@@ -273,30 +274,35 @@ Public Class WcSetting
     End Sub
 
     Private Sub formhead_color_bt_Click(sender As Object, e As EventArgs) Handles formhead_color_bt.Click
+        designcolor_dialog.Color = formhead_color_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "FormHeadColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         formhead_color_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub inputbackground_bt_Click(sender As Object, e As EventArgs) Handles inputbackground_bt.Click
+        designcolor_dialog.Color = inputbackground_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "InputBackgroundColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         inputbackground_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub buttoncolor_bt_Click(sender As Object, e As EventArgs) Handles buttoncolor_bt.Click
+        designcolor_dialog.Color = buttoncolor_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "ButtonColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         buttoncolor_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub textcolor_bt_Click(sender As Object, e As EventArgs) Handles textcolor_bt.Click
+        designcolor_dialog.Color = textcolor_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "TextColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         textcolor_bt.BackColor = designcolor_dialog.Color
     End Sub
 
     Private Sub inputtextcolor_bt_Click(sender As Object, e As EventArgs) Handles inputtextcolor_bt.Click
+        designcolor_dialog.Color = inputtextcolor_bt.BackColor
         designcolor_dialog.ShowDialog()
         _ini.WertSchreiben("Design", "InputTextColor", ColorTranslator.ToHtml(designcolor_dialog.Color))
         inputtextcolor_bt.BackColor = designcolor_dialog.Color
