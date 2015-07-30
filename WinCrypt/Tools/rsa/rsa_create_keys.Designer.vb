@@ -62,7 +62,7 @@
             Me.public_key_lb1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.public_key_lb1.Location = New System.Drawing.Point(12, 82)
             Me.public_key_lb1.Name = "public_key_lb1"
-            Me.public_key_lb1.Size = New System.Drawing.Size(60, 13)
+            Me.public_key_lb1.Size = New System.Drawing.Size(61, 13)
             Me.public_key_lb1.TabIndex = 1
             Me.public_key_lb1.Text = "Public Key:"
             '
@@ -103,7 +103,7 @@
             Me.private_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.private_key_path_txt.Location = New System.Drawing.Point(82, 50)
             Me.private_key_path_txt.Name = "private_key_path_txt"
-            Me.private_key_path_txt.Size = New System.Drawing.Size(437, 20)
+            Me.private_key_path_txt.Size = New System.Drawing.Size(437, 22)
             Me.private_key_path_txt.TabIndex = 4
             '
             'public_key_path_txt
@@ -115,7 +115,7 @@
             Me.public_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.public_key_path_txt.Location = New System.Drawing.Point(82, 79)
             Me.public_key_path_txt.Name = "public_key_path_txt"
-            Me.public_key_path_txt.Size = New System.Drawing.Size(437, 20)
+            Me.public_key_path_txt.Size = New System.Drawing.Size(437, 22)
             Me.public_key_path_txt.TabIndex = 5
             '
             'save_keys_dialog
@@ -197,7 +197,7 @@
             Me.public_key_lb2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.public_key_lb2.Location = New System.Drawing.Point(12, 297)
             Me.public_key_lb2.Name = "public_key_lb2"
-            Me.public_key_lb2.Size = New System.Drawing.Size(57, 13)
+            Me.public_key_lb2.Size = New System.Drawing.Size(58, 13)
             Me.public_key_lb2.TabIndex = 11
             Me.public_key_lb2.Text = "Public Key"
             '
@@ -232,11 +232,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(151, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(140, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "RSA Schlüssel erstellen"
             '
@@ -271,6 +271,7 @@
             Me.Controls.Add(Me.save_privkey_bt)
             Me.Controls.Add(Me.public_key_lb1)
             Me.Controls.Add(Me.private_key_lb1)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "rsa_create_keys"

@@ -59,7 +59,7 @@
             Me.noHash_Textbox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.noHash_Textbox.Location = New System.Drawing.Point(49, 38)
             Me.noHash_Textbox.Name = "noHash_Textbox"
-            Me.noHash_Textbox.Size = New System.Drawing.Size(290, 20)
+            Me.noHash_Textbox.Size = New System.Drawing.Size(290, 22)
             Me.noHash_Textbox.TabIndex = 1
             '
             'text_lb
@@ -68,7 +68,7 @@
             Me.text_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.text_lb.Location = New System.Drawing.Point(12, 41)
             Me.text_lb.Name = "text_lb"
-            Me.text_lb.Size = New System.Drawing.Size(31, 13)
+            Me.text_lb.Size = New System.Drawing.Size(29, 13)
             Me.text_lb.TabIndex = 2
             Me.text_lb.Text = "Text:"
             '
@@ -80,7 +80,7 @@
             Me.isHash_Textbox.Location = New System.Drawing.Point(15, 73)
             Me.isHash_Textbox.Name = "isHash_Textbox"
             Me.isHash_Textbox.ReadOnly = True
-            Me.isHash_Textbox.Size = New System.Drawing.Size(442, 20)
+            Me.isHash_Textbox.Size = New System.Drawing.Size(442, 22)
             Me.isHash_Textbox.TabIndex = 4
             Me.isHash_Textbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             '
@@ -103,7 +103,7 @@
             Me.art_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.art_lb.Location = New System.Drawing.Point(342, 41)
             Me.art_lb.Name = "art_lb"
-            Me.art_lb.Size = New System.Drawing.Size(23, 13)
+            Me.art_lb.Size = New System.Drawing.Size(25, 13)
             Me.art_lb.TabIndex = 6
             Me.art_lb.Text = "Art:"
             '
@@ -138,11 +138,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(96, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(97, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "MD5 Konverter"
             '
@@ -171,6 +171,7 @@
             Me.Controls.Add(Me.text_lb)
             Me.Controls.Add(Me.noHash_Textbox)
             Me.Controls.Add(Me.convert_bt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

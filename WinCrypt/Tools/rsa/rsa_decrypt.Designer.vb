@@ -75,7 +75,7 @@
             Me.privkey_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.privkey_path_txt.Location = New System.Drawing.Point(82, 45)
             Me.privkey_path_txt.Name = "privkey_path_txt"
-            Me.privkey_path_txt.Size = New System.Drawing.Size(477, 20)
+            Me.privkey_path_txt.Size = New System.Drawing.Size(477, 22)
             Me.privkey_path_txt.TabIndex = 2
             '
             'encrypt_message_lb
@@ -84,7 +84,7 @@
             Me.encrypt_message_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.encrypt_message_lb.Location = New System.Drawing.Point(12, 86)
             Me.encrypt_message_lb.Name = "encrypt_message_lb"
-            Me.encrypt_message_lb.Size = New System.Drawing.Size(124, 13)
+            Me.encrypt_message_lb.Size = New System.Drawing.Size(131, 13)
             Me.encrypt_message_lb.TabIndex = 3
             Me.encrypt_message_lb.Text = "Verschlüsselte Nachricht"
             '
@@ -109,7 +109,7 @@
             Me.message_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.message_lb.Location = New System.Drawing.Point(12, 283)
             Me.message_lb.Name = "message_lb"
-            Me.message_lb.Size = New System.Drawing.Size(53, 13)
+            Me.message_lb.Size = New System.Drawing.Size(56, 13)
             Me.message_lb.TabIndex = 5
             Me.message_lb.Text = "Nachricht"
             '
@@ -172,11 +172,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(136, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(126, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "RSA Entschlüsselung"
             '
@@ -207,6 +207,7 @@
             Me.Controls.Add(Me.privkey_path_txt)
             Me.Controls.Add(Me.privkey_lb)
             Me.Controls.Add(Me.open_privkey_bt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "rsa_decrypt"

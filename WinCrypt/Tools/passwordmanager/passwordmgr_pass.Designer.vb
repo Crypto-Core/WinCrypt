@@ -55,7 +55,7 @@
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.password_txt.Location = New System.Drawing.Point(12, 47)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(337, 20)
+            Me.password_txt.Size = New System.Drawing.Size(337, 22)
             Me.password_txt.TabIndex = 1
             Me.password_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             Me.password_txt.UseSystemPasswordChar = True
@@ -66,7 +66,7 @@
             Me.password_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.password_lb.Location = New System.Drawing.Point(9, 31)
             Me.password_lb.Name = "password_lb"
-            Me.password_lb.Size = New System.Drawing.Size(53, 13)
+            Me.password_lb.Size = New System.Drawing.Size(56, 13)
             Me.password_lb.TabIndex = 2
             Me.password_lb.Text = "Passwort:"
             '
@@ -92,11 +92,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(182, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(177, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "Passwortmanager - Passwort"
             '
@@ -122,6 +122,7 @@
             Me.Controls.Add(Me.password_lb)
             Me.Controls.Add(Me.password_txt)
             Me.Controls.Add(Me.ok_bt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

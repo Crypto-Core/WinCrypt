@@ -80,7 +80,7 @@
             Me.length.Location = New System.Drawing.Point(195, 387)
             Me.length.MaxLength = 5
             Me.length.Name = "length"
-            Me.length.Size = New System.Drawing.Size(75, 20)
+            Me.length.Size = New System.Drawing.Size(75, 22)
             Me.length.TabIndex = 2
             Me.length.Text = "32"
             '
@@ -93,7 +93,7 @@
             Me.uppercasecb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.uppercasecb.Location = New System.Drawing.Point(12, 343)
             Me.uppercasecb.Name = "uppercasecb"
-            Me.uppercasecb.Size = New System.Drawing.Size(105, 17)
+            Me.uppercasecb.Size = New System.Drawing.Size(112, 17)
             Me.uppercasecb.TabIndex = 3
             Me.uppercasecb.Text = "Großbuchstaben"
             Me.uppercasecb.UseVisualStyleBackColor = True
@@ -107,7 +107,7 @@
             Me.lowercasecb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.lowercasecb.Location = New System.Drawing.Point(12, 366)
             Me.lowercasecb.Name = "lowercasecb"
-            Me.lowercasecb.Size = New System.Drawing.Size(105, 17)
+            Me.lowercasecb.Size = New System.Drawing.Size(112, 17)
             Me.lowercasecb.TabIndex = 4
             Me.lowercasecb.Text = "Kleinbuchstaben"
             Me.lowercasecb.UseVisualStyleBackColor = True
@@ -121,7 +121,7 @@
             Me.numberscb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.numberscb.Location = New System.Drawing.Point(12, 389)
             Me.numberscb.Name = "numberscb"
-            Me.numberscb.Size = New System.Drawing.Size(59, 17)
+            Me.numberscb.Size = New System.Drawing.Size(61, 17)
             Me.numberscb.TabIndex = 5
             Me.numberscb.Text = "Zahlen"
             Me.numberscb.UseVisualStyleBackColor = True
@@ -133,7 +133,7 @@
             Me.lengthlb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.lengthlb.Location = New System.Drawing.Point(152, 390)
             Me.lengthlb.Name = "lengthlb"
-            Me.lengthlb.Size = New System.Drawing.Size(37, 13)
+            Me.lengthlb.Size = New System.Drawing.Size(38, 13)
             Me.lengthlb.TabIndex = 6
             Me.lengthlb.Text = "Länge"
             '
@@ -161,7 +161,7 @@
             Me.specialchar.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.specialchar.Location = New System.Drawing.Point(12, 320)
             Me.specialchar.Name = "specialchar"
-            Me.specialchar.Size = New System.Drawing.Size(157, 17)
+            Me.specialchar.Size = New System.Drawing.Size(161, 17)
             Me.specialchar.TabIndex = 9
             Me.specialchar.Text = "Sonderzeichen (!""§$%&/()=?)"
             Me.specialchar.UseVisualStyleBackColor = True
@@ -197,11 +197,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(121, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(118, 17)
             Me.wincrypttitle.TabIndex = 32
             Me.wincrypttitle.Text = "Passwortgenerator"
             '
@@ -233,6 +233,7 @@
             Me.Controls.Add(Me.length)
             Me.Controls.Add(Me.generatetxt)
             Me.Controls.Add(Me.generatebt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MinimumSize = New System.Drawing.Size(300, 300)

@@ -50,7 +50,7 @@
             Me.user_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.user_txt.Location = New System.Drawing.Point(69, 47)
             Me.user_txt.Name = "user_txt"
-            Me.user_txt.Size = New System.Drawing.Size(256, 20)
+            Me.user_txt.Size = New System.Drawing.Size(256, 22)
             Me.user_txt.TabIndex = 0
             '
             'password_txt
@@ -62,7 +62,7 @@
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.password_txt.Location = New System.Drawing.Point(70, 73)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(255, 20)
+            Me.password_txt.Size = New System.Drawing.Size(255, 22)
             Me.password_txt.TabIndex = 1
             '
             'source_txt
@@ -74,7 +74,7 @@
             Me.source_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.source_txt.Location = New System.Drawing.Point(70, 99)
             Me.source_txt.Name = "source_txt"
-            Me.source_txt.Size = New System.Drawing.Size(255, 20)
+            Me.source_txt.Size = New System.Drawing.Size(255, 22)
             Me.source_txt.TabIndex = 2
             '
             'comment_txt
@@ -112,7 +112,7 @@
             Me.user_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.user_lb.Location = New System.Drawing.Point(11, 50)
             Me.user_lb.Name = "user_lb"
-            Me.user_lb.Size = New System.Drawing.Size(52, 13)
+            Me.user_lb.Size = New System.Drawing.Size(56, 13)
             Me.user_lb.TabIndex = 5
             Me.user_lb.Text = "Benutzer:"
             '
@@ -122,7 +122,7 @@
             Me.password_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.password_lb.Location = New System.Drawing.Point(11, 76)
             Me.password_lb.Name = "password_lb"
-            Me.password_lb.Size = New System.Drawing.Size(53, 13)
+            Me.password_lb.Size = New System.Drawing.Size(56, 13)
             Me.password_lb.TabIndex = 6
             Me.password_lb.Text = "Passwort:"
             '
@@ -132,7 +132,7 @@
             Me.source_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.source_lb.Location = New System.Drawing.Point(12, 102)
             Me.source_lb.Name = "source_lb"
-            Me.source_lb.Size = New System.Drawing.Size(40, 13)
+            Me.source_lb.Size = New System.Drawing.Size(43, 13)
             Me.source_lb.TabIndex = 7
             Me.source_lb.Text = "Quelle:"
             '
@@ -142,7 +142,7 @@
             Me.comment_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.comment_lb.Location = New System.Drawing.Point(12, 127)
             Me.comment_lb.Name = "comment_lb"
-            Me.comment_lb.Size = New System.Drawing.Size(60, 13)
+            Me.comment_lb.Size = New System.Drawing.Size(65, 13)
             Me.comment_lb.TabIndex = 8
             Me.comment_lb.Text = "Kommentar"
             '
@@ -168,11 +168,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(74, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(73, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "Hinzufügen"
             '
@@ -204,6 +204,7 @@
             Me.Controls.Add(Me.source_txt)
             Me.Controls.Add(Me.password_txt)
             Me.Controls.Add(Me.user_txt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MinimumSize = New System.Drawing.Size(295, 218)

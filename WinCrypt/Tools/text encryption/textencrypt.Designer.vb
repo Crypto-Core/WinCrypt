@@ -98,7 +98,7 @@
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.password_txt.Location = New System.Drawing.Point(71, 400)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(237, 20)
+            Me.password_txt.Size = New System.Drawing.Size(237, 22)
             Me.password_txt.TabIndex = 6
             Me.password_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             '
@@ -108,7 +108,7 @@
             Me.password_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.password_lb.Location = New System.Drawing.Point(12, 403)
             Me.password_lb.Name = "password_lb"
-            Me.password_lb.Size = New System.Drawing.Size(53, 13)
+            Me.password_lb.Size = New System.Drawing.Size(56, 13)
             Me.password_lb.TabIndex = 7
             Me.password_lb.Text = "Passwort:"
             '
@@ -207,7 +207,7 @@
             Me.arab_cb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.arab_cb.Location = New System.Drawing.Point(533, 43)
             Me.arab_cb.Name = "arab_cb"
-            Me.arab_cb.Size = New System.Drawing.Size(56, 17)
+            Me.arab_cb.Size = New System.Drawing.Size(58, 17)
             Me.arab_cb.TabIndex = 15
             Me.arab_cb.Text = "العربية"
             Me.arab_cb.UseVisualStyleBackColor = True
@@ -243,11 +243,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(121, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(118, 17)
             Me.wincrypttitle.TabIndex = 17
             Me.wincrypttitle.Text = "Passwortgenerator"
             '
@@ -284,6 +284,7 @@
             Me.Controls.Add(Me.text_output)
             Me.Controls.Add(Me.text_input)
             Me.Controls.Add(Me.TrackBar)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

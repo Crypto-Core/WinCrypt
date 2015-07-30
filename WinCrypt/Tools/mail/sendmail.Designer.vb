@@ -72,7 +72,7 @@
             Me.email_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.email_txt.Location = New System.Drawing.Point(54, 46)
             Me.email_txt.Name = "email_txt"
-            Me.email_txt.Size = New System.Drawing.Size(140, 20)
+            Me.email_txt.Size = New System.Drawing.Size(140, 22)
             Me.email_txt.TabIndex = 0
             '
             'password_txt
@@ -82,7 +82,7 @@
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.password_txt.Location = New System.Drawing.Point(260, 46)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(145, 20)
+            Me.password_txt.Size = New System.Drawing.Size(145, 22)
             Me.password_txt.TabIndex = 1
             Me.password_txt.UseSystemPasswordChar = True
             '
@@ -93,7 +93,7 @@
             Me.server_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.server_txt.Location = New System.Drawing.Point(512, 46)
             Me.server_txt.Name = "server_txt"
-            Me.server_txt.Size = New System.Drawing.Size(112, 20)
+            Me.server_txt.Size = New System.Drawing.Size(112, 22)
             Me.server_txt.TabIndex = 2
             '
             'emailto_txt
@@ -103,7 +103,7 @@
             Me.emailto_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.emailto_txt.Location = New System.Drawing.Point(76, 76)
             Me.emailto_txt.Name = "emailto_txt"
-            Me.emailto_txt.Size = New System.Drawing.Size(548, 20)
+            Me.emailto_txt.Size = New System.Drawing.Size(548, 22)
             Me.emailto_txt.TabIndex = 3
             '
             'subject_txt
@@ -113,7 +113,7 @@
             Me.subject_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.subject_txt.Location = New System.Drawing.Point(76, 102)
             Me.subject_txt.Name = "subject_txt"
-            Me.subject_txt.Size = New System.Drawing.Size(548, 20)
+            Me.subject_txt.Size = New System.Drawing.Size(548, 22)
             Me.subject_txt.TabIndex = 4
             '
             'message_txt
@@ -134,7 +134,7 @@
             Me.file_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.file_txt.Location = New System.Drawing.Point(62, 460)
             Me.file_txt.Name = "file_txt"
-            Me.file_txt.Size = New System.Drawing.Size(387, 20)
+            Me.file_txt.Size = New System.Drawing.Size(387, 22)
             Me.file_txt.TabIndex = 6
             '
             'file_txt1
@@ -144,7 +144,7 @@
             Me.file_txt1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.file_txt1.Location = New System.Drawing.Point(62, 489)
             Me.file_txt1.Name = "file_txt1"
-            Me.file_txt1.Size = New System.Drawing.Size(387, 20)
+            Me.file_txt1.Size = New System.Drawing.Size(387, 22)
             Me.file_txt1.TabIndex = 7
             '
             'file_txt2
@@ -154,7 +154,7 @@
             Me.file_txt2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.file_txt2.Location = New System.Drawing.Point(62, 515)
             Me.file_txt2.Name = "file_txt2"
-            Me.file_txt2.Size = New System.Drawing.Size(387, 20)
+            Me.file_txt2.Size = New System.Drawing.Size(387, 22)
             Me.file_txt2.TabIndex = 8
             '
             'file_txt3
@@ -164,7 +164,7 @@
             Me.file_txt3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.file_txt3.Location = New System.Drawing.Point(62, 541)
             Me.file_txt3.Name = "file_txt3"
-            Me.file_txt3.Size = New System.Drawing.Size(387, 20)
+            Me.file_txt3.Size = New System.Drawing.Size(387, 22)
             Me.file_txt3.TabIndex = 9
             '
             'email_lb
@@ -173,7 +173,7 @@
             Me.email_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.email_lb.Location = New System.Drawing.Point(12, 49)
             Me.email_lb.Name = "email_lb"
-            Me.email_lb.Size = New System.Drawing.Size(36, 13)
+            Me.email_lb.Size = New System.Drawing.Size(39, 13)
             Me.email_lb.TabIndex = 10
             Me.email_lb.Text = "E-Mail"
             '
@@ -183,7 +183,7 @@
             Me.password_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.password_lb.Location = New System.Drawing.Point(206, 49)
             Me.password_lb.Name = "password_lb"
-            Me.password_lb.Size = New System.Drawing.Size(50, 13)
+            Me.password_lb.Size = New System.Drawing.Size(53, 13)
             Me.password_lb.TabIndex = 11
             Me.password_lb.Text = "Passwort"
             '
@@ -203,7 +203,7 @@
             Me.emailto_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.emailto_lb.Location = New System.Drawing.Point(12, 79)
             Me.emailto_lb.Name = "emailto_lb"
-            Me.emailto_lb.Size = New System.Drawing.Size(58, 13)
+            Me.emailto_lb.Size = New System.Drawing.Size(63, 13)
             Me.emailto_lb.TabIndex = 13
             Me.emailto_lb.Text = "Empfänger"
             '
@@ -213,7 +213,7 @@
             Me.subject_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.subject_lb.Location = New System.Drawing.Point(12, 105)
             Me.subject_lb.Name = "subject_lb"
-            Me.subject_lb.Size = New System.Drawing.Size(38, 13)
+            Me.subject_lb.Size = New System.Drawing.Size(42, 13)
             Me.subject_lb.TabIndex = 14
             Me.subject_lb.Text = "Betreff"
             '
@@ -223,7 +223,7 @@
             Me.attachment_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.attachment_lb.Location = New System.Drawing.Point(12, 463)
             Me.attachment_lb.Name = "attachment_lb"
-            Me.attachment_lb.Size = New System.Drawing.Size(44, 13)
+            Me.attachment_lb.Size = New System.Drawing.Size(48, 13)
             Me.attachment_lb.TabIndex = 15
             Me.attachment_lb.Text = "Anhang"
             '
@@ -233,7 +233,7 @@
             Me.attachment_lb1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.attachment_lb1.Location = New System.Drawing.Point(12, 492)
             Me.attachment_lb1.Name = "attachment_lb1"
-            Me.attachment_lb1.Size = New System.Drawing.Size(44, 13)
+            Me.attachment_lb1.Size = New System.Drawing.Size(48, 13)
             Me.attachment_lb1.TabIndex = 16
             Me.attachment_lb1.Text = "Anhang"
             '
@@ -243,7 +243,7 @@
             Me.attachment_lb2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.attachment_lb2.Location = New System.Drawing.Point(12, 518)
             Me.attachment_lb2.Name = "attachment_lb2"
-            Me.attachment_lb2.Size = New System.Drawing.Size(44, 13)
+            Me.attachment_lb2.Size = New System.Drawing.Size(48, 13)
             Me.attachment_lb2.TabIndex = 17
             Me.attachment_lb2.Text = "Anhang"
             '
@@ -253,7 +253,7 @@
             Me.attachment_lb3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.attachment_lb3.Location = New System.Drawing.Point(12, 544)
             Me.attachment_lb3.Name = "attachment_lb3"
-            Me.attachment_lb3.Size = New System.Drawing.Size(44, 13)
+            Me.attachment_lb3.Size = New System.Drawing.Size(48, 13)
             Me.attachment_lb3.TabIndex = 18
             Me.attachment_lb3.Text = "Anhang"
             '
@@ -372,7 +372,7 @@
             Me.pubkey_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.pubkey_txt.Location = New System.Drawing.Point(62, 431)
             Me.pubkey_txt.Name = "pubkey_txt"
-            Me.pubkey_txt.Size = New System.Drawing.Size(387, 20)
+            Me.pubkey_txt.Size = New System.Drawing.Size(387, 22)
             Me.pubkey_txt.TabIndex = 27
             Me.pubkey_txt.Visible = False
             '
@@ -382,7 +382,7 @@
             Me.pubkey_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.pubkey_lb.Location = New System.Drawing.Point(-1, 434)
             Me.pubkey_lb.Name = "pubkey_lb"
-            Me.pubkey_lb.Size = New System.Drawing.Size(57, 13)
+            Me.pubkey_lb.Size = New System.Drawing.Size(58, 13)
             Me.pubkey_lb.TabIndex = 28
             Me.pubkey_lb.Text = "Public Key"
             Me.pubkey_lb.Visible = False
@@ -393,7 +393,7 @@
             Me.rsa_cb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.rsa_cb.Location = New System.Drawing.Point(553, 433)
             Me.rsa_cb.Name = "rsa_cb"
-            Me.rsa_cb.Size = New System.Drawing.Size(70, 17)
+            Me.rsa_cb.Size = New System.Drawing.Size(71, 17)
             Me.rsa_cb.TabIndex = 29
             Me.rsa_cb.Text = "RSA Mail"
             Me.rsa_cb.UseVisualStyleBackColor = True
@@ -429,11 +429,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(94, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(91, 17)
             Me.wincrypttitle.TabIndex = 31
             Me.wincrypttitle.Text = "E-Mail senden"
             '
@@ -486,6 +486,7 @@
             Me.Controls.Add(Me.server_txt)
             Me.Controls.Add(Me.password_txt)
             Me.Controls.Add(Me.email_txt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

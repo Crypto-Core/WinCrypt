@@ -110,11 +110,11 @@
             '
             Me.wincrypttitle.AutoSize = True
             Me.wincrypttitle.BackColor = System.Drawing.Color.Transparent
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(31, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(195, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(191, 17)
             Me.wincrypttitle.TabIndex = 23
             Me.wincrypttitle.Text = "Dateien sicher löschen - Report"
             '
@@ -130,6 +130,7 @@
             Me.Controls.Add(Me.report_txt)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.form_head)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

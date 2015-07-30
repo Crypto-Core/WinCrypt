@@ -70,7 +70,7 @@ Partial Class about
         Me.version_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.version_lb.Location = New System.Drawing.Point(168, 183)
         Me.version_lb.Name = "version_lb"
-        Me.version_lb.Size = New System.Drawing.Size(84, 13)
+        Me.version_lb.Size = New System.Drawing.Size(87, 13)
         Me.version_lb.TabIndex = 5
         Me.version_lb.Text = "(Version 0.0.0.0)"
         '
@@ -80,7 +80,7 @@ Partial Class about
         Me.copyright_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.copyright_lb.Location = New System.Drawing.Point(6, 470)
         Me.copyright_lb.Name = "copyright_lb"
-        Me.copyright_lb.Size = New System.Drawing.Size(189, 13)
+        Me.copyright_lb.Size = New System.Drawing.Size(203, 13)
         Me.copyright_lb.TabIndex = 7
         Me.copyright_lb.Text = "Copyright (C) [Jahr]  [Name des Autors]"
         '
@@ -110,7 +110,7 @@ Partial Class about
         '
         Me.dev_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.dev_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dev_txt.Font = New System.Drawing.Font("Courier New", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dev_txt.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dev_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.dev_txt.Location = New System.Drawing.Point(10, 200)
         Me.dev_txt.Name = "dev_txt"
@@ -151,11 +151,11 @@ Partial Class about
         'wincrypttitle
         '
         Me.wincrypttitle.AutoSize = True
-        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(43, 16)
+        Me.wincrypttitle.Size = New System.Drawing.Size(43, 17)
         Me.wincrypttitle.TabIndex = 15
         Me.wincrypttitle.Text = "About"
         '
@@ -175,6 +175,7 @@ Partial Class about
         Me.Controls.Add(Me.version_lb)
         Me.Controls.Add(Me.ok_bt)
         Me.Controls.Add(Me.product_lb)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "about"

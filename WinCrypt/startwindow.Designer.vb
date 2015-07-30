@@ -208,7 +208,7 @@ Partial Class Startwindow
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
-        Me.setting_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.setting_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.setting_bt_menu.Text = "Einstellung"
         '
         'exit_bt_menu
@@ -217,7 +217,7 @@ Partial Class Startwindow
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
-        Me.exit_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.exit_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.exit_bt_menu.Text = "Beenden"
         '
         'tools_bt_menu
@@ -241,6 +241,7 @@ Partial Class Startwindow
         'file_decrypt_bt_menu
         '
         Me.file_decrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.file_decrypt_bt_menu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.file_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.file_decrypt_bt_menu.Name = "file_decrypt_bt_menu"
@@ -1089,6 +1090,7 @@ Partial Class Startwindow
         Me.mount_gb.Controls.Add(Me.dismount)
         Me.mount_gb.Controls.Add(Me.mount)
         Me.mount_gb.Controls.Add(Me.opencryptfile)
+        Me.mount_gb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mount_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mount_gb.Location = New System.Drawing.Point(12, 309)
         Me.mount_gb.Name = "mount_gb"
@@ -1116,7 +1118,7 @@ Partial Class Startwindow
         Me.drive_lb.AutoSize = True
         Me.drive_lb.Location = New System.Drawing.Point(288, 249)
         Me.drive_lb.Name = "drive_lb"
-        Me.drive_lb.Size = New System.Drawing.Size(54, 13)
+        Me.drive_lb.Size = New System.Drawing.Size(57, 13)
         Me.drive_lb.TabIndex = 9
         Me.drive_lb.Text = "Laufwerk:"
         '
@@ -1126,7 +1128,7 @@ Partial Class Startwindow
         Me.key_lb.AutoSize = True
         Me.key_lb.Location = New System.Drawing.Point(8, 230)
         Me.key_lb.Name = "key_lb"
-        Me.key_lb.Size = New System.Drawing.Size(55, 13)
+        Me.key_lb.Size = New System.Drawing.Size(57, 13)
         Me.key_lb.TabIndex = 8
         Me.key_lb.Text = "Schlüssel:"
         '
@@ -1135,7 +1137,7 @@ Partial Class Startwindow
         Me.file_lb.AutoSize = True
         Me.file_lb.Location = New System.Drawing.Point(8, 16)
         Me.file_lb.Name = "file_lb"
-        Me.file_lb.Size = New System.Drawing.Size(35, 13)
+        Me.file_lb.Size = New System.Drawing.Size(37, 13)
         Me.file_lb.TabIndex = 7
         Me.file_lb.Text = "Datei:"
         '
@@ -1178,7 +1180,7 @@ Partial Class Startwindow
         Me.keyencrypt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.keyencrypt.Location = New System.Drawing.Point(11, 246)
         Me.keyencrypt.Name = "keyencrypt"
-        Me.keyencrypt.Size = New System.Drawing.Size(261, 20)
+        Me.keyencrypt.Size = New System.Drawing.Size(261, 22)
         Me.keyencrypt.TabIndex = 4
         Me.keyencrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1191,7 +1193,7 @@ Partial Class Startwindow
         Me.decrypt_filepath.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.decrypt_filepath.Location = New System.Drawing.Point(11, 32)
         Me.decrypt_filepath.Name = "decrypt_filepath"
-        Me.decrypt_filepath.Size = New System.Drawing.Size(471, 20)
+        Me.decrypt_filepath.Size = New System.Drawing.Size(471, 22)
         Me.decrypt_filepath.TabIndex = 3
         '
         'dismount
@@ -1289,7 +1291,7 @@ Partial Class Startwindow
         Me.key_lb1.AutoSize = True
         Me.key_lb1.Location = New System.Drawing.Point(11, 56)
         Me.key_lb1.Name = "key_lb1"
-        Me.key_lb1.Size = New System.Drawing.Size(55, 13)
+        Me.key_lb1.Size = New System.Drawing.Size(57, 13)
         Me.key_lb1.TabIndex = 7
         Me.key_lb1.Text = "Schlüssel:"
         '
@@ -1312,7 +1314,7 @@ Partial Class Startwindow
         Me.path_encrypt.AutoSize = True
         Me.path_encrypt.Location = New System.Drawing.Point(8, 17)
         Me.path_encrypt.Name = "path_encrypt"
-        Me.path_encrypt.Size = New System.Drawing.Size(32, 13)
+        Me.path_encrypt.Size = New System.Drawing.Size(33, 13)
         Me.path_encrypt.TabIndex = 6
         Me.path_encrypt.Text = "Pfad:"
         '
@@ -1352,7 +1354,7 @@ Partial Class Startwindow
         Me.keycrypt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.keycrypt.Location = New System.Drawing.Point(11, 72)
         Me.keycrypt.Name = "keycrypt"
-        Me.keycrypt.Size = New System.Drawing.Size(351, 20)
+        Me.keycrypt.Size = New System.Drawing.Size(351, 22)
         Me.keycrypt.TabIndex = 4
         Me.keycrypt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1365,7 +1367,7 @@ Partial Class Startwindow
         Me.pathtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pathtxt.Location = New System.Drawing.Point(11, 33)
         Me.pathtxt.Name = "pathtxt"
-        Me.pathtxt.Size = New System.Drawing.Size(471, 20)
+        Me.pathtxt.Size = New System.Drawing.Size(471, 22)
         Me.pathtxt.TabIndex = 3
         '
         'wincrypt_icon
@@ -1399,11 +1401,11 @@ Partial Class Startwindow
         'wincrypttitle
         '
         Me.wincrypttitle.AutoSize = True
-        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(82, 16)
+        Me.wincrypttitle.Size = New System.Drawing.Size(82, 17)
         Me.wincrypttitle.TabIndex = 13
         Me.wincrypttitle.Text = "WinCrypt 0.0"
         '
@@ -1473,6 +1475,7 @@ Partial Class Startwindow
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.encrypt_gb)
         Me.Controls.Add(Me.form_head)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True

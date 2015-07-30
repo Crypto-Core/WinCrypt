@@ -62,7 +62,7 @@
             Me.pubkey_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.pubkey_lb.Location = New System.Drawing.Point(9, 43)
             Me.pubkey_lb.Name = "pubkey_lb"
-            Me.pubkey_lb.Size = New System.Drawing.Size(60, 13)
+            Me.pubkey_lb.Size = New System.Drawing.Size(61, 13)
             Me.pubkey_lb.TabIndex = 1
             Me.pubkey_lb.Text = "Public Key:"
             '
@@ -75,7 +75,7 @@
             Me.pubkey_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.pubkey_path_txt.Location = New System.Drawing.Point(75, 40)
             Me.pubkey_path_txt.Name = "pubkey_path_txt"
-            Me.pubkey_path_txt.Size = New System.Drawing.Size(510, 20)
+            Me.pubkey_path_txt.Size = New System.Drawing.Size(510, 22)
             Me.pubkey_path_txt.TabIndex = 2
             '
             'encryption_message_txt
@@ -112,7 +112,7 @@
             Me.message_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.message_lb.Location = New System.Drawing.Point(12, 69)
             Me.message_lb.Name = "message_lb"
-            Me.message_lb.Size = New System.Drawing.Size(53, 13)
+            Me.message_lb.Size = New System.Drawing.Size(56, 13)
             Me.message_lb.TabIndex = 5
             Me.message_lb.Text = "Nachricht"
             '
@@ -123,7 +123,7 @@
             Me.encryption_message_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.encryption_message_lb.Location = New System.Drawing.Point(15, 270)
             Me.encryption_message_lb.Name = "encryption_message_lb"
-            Me.encryption_message_lb.Size = New System.Drawing.Size(124, 13)
+            Me.encryption_message_lb.Size = New System.Drawing.Size(131, 13)
             Me.encryption_message_lb.TabIndex = 6
             Me.encryption_message_lb.Text = "Verschlüsselte Nachricht"
             '
@@ -172,11 +172,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(138, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(127, 17)
             Me.wincrypttitle.TabIndex = 14
             Me.wincrypttitle.Text = "RSA Verschlüsselung"
             '
@@ -207,6 +207,7 @@
             Me.Controls.Add(Me.pubkey_path_txt)
             Me.Controls.Add(Me.pubkey_lb)
             Me.Controls.Add(Me.pubkey_path_bt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "rsa_encrypt"

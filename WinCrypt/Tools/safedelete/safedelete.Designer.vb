@@ -72,7 +72,7 @@
             Me.file_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.file_txt.Location = New System.Drawing.Point(12, 55)
             Me.file_txt.Name = "file_txt"
-            Me.file_txt.Size = New System.Drawing.Size(327, 20)
+            Me.file_txt.Size = New System.Drawing.Size(327, 22)
             Me.file_txt.TabIndex = 1
             '
             'overwritecb
@@ -82,7 +82,7 @@
             Me.overwritecb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.overwritecb.FormattingEnabled = True
             Me.overwritecb.Items.AddRange(New Object() {"1x", "3x", "10x", "20x", "100x"})
-            Me.overwritecb.Location = New System.Drawing.Point(89, 81)
+            Me.overwritecb.Location = New System.Drawing.Point(100, 81)
             Me.overwritecb.Name = "overwritecb"
             Me.overwritecb.Size = New System.Drawing.Size(55, 21)
             Me.overwritecb.TabIndex = 2
@@ -94,7 +94,7 @@
             Me.overwritelb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.overwritelb.Location = New System.Drawing.Point(9, 84)
             Me.overwritelb.Name = "overwritelb"
-            Me.overwritelb.Size = New System.Drawing.Size(79, 13)
+            Me.overwritelb.Size = New System.Drawing.Size(85, 13)
             Me.overwritelb.TabIndex = 3
             Me.overwritelb.Text = "Überschreiben:"
             '
@@ -125,7 +125,7 @@
             Me.filelb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.filelb.Location = New System.Drawing.Point(9, 39)
             Me.filelb.Name = "filelb"
-            Me.filelb.Size = New System.Drawing.Size(42, 13)
+            Me.filelb.Size = New System.Drawing.Size(47, 13)
             Me.filelb.TabIndex = 7
             Me.filelb.Text = "Ordner:"
             '
@@ -156,7 +156,7 @@
             Me.statuslb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.statuslb.Location = New System.Drawing.Point(9, 182)
             Me.statuslb.Name = "statuslb"
-            Me.statuslb.Size = New System.Drawing.Size(40, 13)
+            Me.statuslb.Size = New System.Drawing.Size(42, 13)
             Me.statuslb.TabIndex = 12
             Me.statuslb.Text = "Status:"
             '
@@ -217,11 +217,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(144, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(138, 17)
             Me.wincrypttitle.TabIndex = 17
             Me.wincrypttitle.Text = "Dateien sicher löschen"
             '
@@ -250,7 +250,7 @@
             Me.override_pb_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.override_pb_lb.Location = New System.Drawing.Point(9, 128)
             Me.override_pb_lb.Name = "override_pb_lb"
-            Me.override_pb_lb.Size = New System.Drawing.Size(79, 13)
+            Me.override_pb_lb.Size = New System.Drawing.Size(85, 13)
             Me.override_pb_lb.TabIndex = 20
             Me.override_pb_lb.Text = "Überschrieben:"
             '
@@ -321,6 +321,7 @@
             Me.Controls.Add(Me.overwritecb)
             Me.Controls.Add(Me.file_txt)
             Me.Controls.Add(Me.deletebt)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

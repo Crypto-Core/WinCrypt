@@ -48,7 +48,7 @@ Partial Class feedback
         Me.name_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.name_txt.Location = New System.Drawing.Point(50, 37)
         Me.name_txt.Name = "name_txt"
-        Me.name_txt.Size = New System.Drawing.Size(309, 20)
+        Me.name_txt.Size = New System.Drawing.Size(309, 22)
         Me.name_txt.TabIndex = 0
         '
         'mail_txt
@@ -58,7 +58,7 @@ Partial Class feedback
         Me.mail_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.mail_txt.Location = New System.Drawing.Point(50, 65)
         Me.mail_txt.Name = "mail_txt"
-        Me.mail_txt.Size = New System.Drawing.Size(309, 20)
+        Me.mail_txt.Size = New System.Drawing.Size(309, 22)
         Me.mail_txt.TabIndex = 1
         '
         'message_txt
@@ -92,7 +92,7 @@ Partial Class feedback
         Me.name_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.name_lb.Location = New System.Drawing.Point(9, 40)
         Me.name_lb.Name = "name_lb"
-        Me.name_lb.Size = New System.Drawing.Size(35, 13)
+        Me.name_lb.Size = New System.Drawing.Size(36, 13)
         Me.name_lb.TabIndex = 5
         Me.name_lb.Text = "Name"
         '
@@ -102,7 +102,7 @@ Partial Class feedback
         Me.email_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.email_lb.Location = New System.Drawing.Point(9, 68)
         Me.email_lb.Name = "email_lb"
-        Me.email_lb.Size = New System.Drawing.Size(36, 13)
+        Me.email_lb.Size = New System.Drawing.Size(39, 13)
         Me.email_lb.TabIndex = 6
         Me.email_lb.Text = "E-Mail"
         '
@@ -112,7 +112,7 @@ Partial Class feedback
         Me.subject_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.subject_lb.Location = New System.Drawing.Point(9, 94)
         Me.subject_lb.Name = "subject_lb"
-        Me.subject_lb.Size = New System.Drawing.Size(38, 13)
+        Me.subject_lb.Size = New System.Drawing.Size(42, 13)
         Me.subject_lb.TabIndex = 7
         Me.subject_lb.Text = "Betreff"
         '
@@ -122,7 +122,7 @@ Partial Class feedback
         Me.message_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.message_lb.Location = New System.Drawing.Point(9, 131)
         Me.message_lb.Name = "message_lb"
-        Me.message_lb.Size = New System.Drawing.Size(53, 13)
+        Me.message_lb.Size = New System.Drawing.Size(56, 13)
         Me.message_lb.TabIndex = 8
         Me.message_lb.Text = "Nachricht"
         '
@@ -180,11 +180,11 @@ Partial Class feedback
         'wincrypttitle
         '
         Me.wincrypttitle.AutoSize = True
-        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(70, 16)
+        Me.wincrypttitle.Size = New System.Drawing.Size(63, 17)
         Me.wincrypttitle.TabIndex = 15
         Me.wincrypttitle.Text = "Feedback"
         '
@@ -206,6 +206,7 @@ Partial Class feedback
         Me.Controls.Add(Me.message_txt)
         Me.Controls.Add(Me.mail_txt)
         Me.Controls.Add(Me.name_txt)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False

@@ -43,7 +43,7 @@ Partial Class Systemidentification
         Me.on_rb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.on_rb.Location = New System.Drawing.Point(262, 134)
         Me.on_rb.Name = "on_rb"
-        Me.on_rb.Size = New System.Drawing.Size(80, 17)
+        Me.on_rb.Size = New System.Drawing.Size(84, 17)
         Me.on_rb.TabIndex = 0
         Me.on_rb.Text = "Einschalten"
         Me.on_rb.UseVisualStyleBackColor = False
@@ -56,7 +56,7 @@ Partial Class Systemidentification
         Me.off_rb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.off_rb.Location = New System.Drawing.Point(145, 134)
         Me.off_rb.Name = "off_rb"
-        Me.off_rb.Size = New System.Drawing.Size(83, 17)
+        Me.off_rb.Size = New System.Drawing.Size(87, 17)
         Me.off_rb.TabIndex = 1
         Me.off_rb.TabStop = True
         Me.off_rb.Text = "Ausschalten"
@@ -72,7 +72,7 @@ Partial Class Systemidentification
         Me.systemidentification_lb.Margin = New System.Windows.Forms.Padding(7, 0, 3, 0)
         Me.systemidentification_lb.Name = "systemidentification_lb"
         Me.systemidentification_lb.Padding = New System.Windows.Forms.Padding(0, 0, 0, 40)
-        Me.systemidentification_lb.Size = New System.Drawing.Size(432, 131)
+        Me.systemidentification_lb.Size = New System.Drawing.Size(469, 131)
         Me.systemidentification_lb.TabIndex = 2
         Me.systemidentification_lb.Text = resources.GetString("systemidentification_lb.Text")
         '
@@ -102,11 +102,11 @@ Partial Class Systemidentification
         'wincrypttitle
         '
         Me.wincrypttitle.AutoSize = True
-        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(127, 16)
+        Me.wincrypttitle.Size = New System.Drawing.Size(123, 17)
         Me.wincrypttitle.TabIndex = 18
         Me.wincrypttitle.Text = "Systemidentifikation"
         '
@@ -151,6 +151,7 @@ Partial Class Systemidentification
         Me.Controls.Add(Me.on_rb)
         Me.Controls.Add(Me.systemidentification_lb)
         Me.Controls.Add(Me.form_head)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False

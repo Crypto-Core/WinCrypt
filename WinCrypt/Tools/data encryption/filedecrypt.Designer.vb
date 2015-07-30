@@ -64,7 +64,7 @@
             Me.pwdlb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.pwdlb.Location = New System.Drawing.Point(5, 93)
             Me.pwdlb.Name = "pwdlb"
-            Me.pwdlb.Size = New System.Drawing.Size(53, 13)
+            Me.pwdlb.Size = New System.Drawing.Size(56, 13)
             Me.pwdlb.TabIndex = 19
             Me.pwdlb.Text = "Passwort:"
             '
@@ -74,7 +74,7 @@
             Me.pathlb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.pathlb.Location = New System.Drawing.Point(6, 64)
             Me.pathlb.Name = "pathlb"
-            Me.pathlb.Size = New System.Drawing.Size(32, 13)
+            Me.pathlb.Size = New System.Drawing.Size(33, 13)
             Me.pathlb.TabIndex = 18
             Me.pathlb.Text = "Pfad:"
             '
@@ -87,7 +87,7 @@
             Me.passwordtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.passwordtxt.Location = New System.Drawing.Point(64, 90)
             Me.passwordtxt.Name = "passwordtxt"
-            Me.passwordtxt.Size = New System.Drawing.Size(241, 20)
+            Me.passwordtxt.Size = New System.Drawing.Size(241, 22)
             Me.passwordtxt.TabIndex = 17
             Me.passwordtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             '
@@ -114,7 +114,7 @@
             Me.pathtxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.pathtxt.Location = New System.Drawing.Point(46, 61)
             Me.pathtxt.Name = "pathtxt"
-            Me.pathtxt.Size = New System.Drawing.Size(259, 20)
+            Me.pathtxt.Size = New System.Drawing.Size(259, 22)
             Me.pathtxt.TabIndex = 15
             '
             'savefile
@@ -137,7 +137,7 @@
             Me.filelb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.filelb.Location = New System.Drawing.Point(5, 35)
             Me.filelb.Name = "filelb"
-            Me.filelb.Size = New System.Drawing.Size(35, 13)
+            Me.filelb.Size = New System.Drawing.Size(37, 13)
             Me.filelb.TabIndex = 13
             Me.filelb.Text = "Datei:"
             '
@@ -149,7 +149,7 @@
             Me.filetxt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.filetxt.Location = New System.Drawing.Point(46, 32)
             Me.filetxt.Name = "filetxt"
-            Me.filetxt.Size = New System.Drawing.Size(259, 20)
+            Me.filetxt.Size = New System.Drawing.Size(259, 22)
             Me.filetxt.TabIndex = 12
             Me.filetxt.Tag = "Test"
             '
@@ -176,7 +176,7 @@
             Me.dragdroplb.ForeColor = System.Drawing.SystemColors.ButtonShadow
             Me.dragdroplb.Location = New System.Drawing.Point(1, 161)
             Me.dragdroplb.Name = "dragdroplb"
-            Me.dragdroplb.Size = New System.Drawing.Size(53, 13)
+            Me.dragdroplb.Size = New System.Drawing.Size(58, 13)
             Me.dragdroplb.TabIndex = 22
             Me.dragdroplb.Text = "Drag&Drop"
             '
@@ -211,11 +211,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(124, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(118, 17)
             Me.wincrypttitle.TabIndex = 24
             Me.wincrypttitle.Text = "Datei entschlüsseln"
             '
@@ -250,6 +250,7 @@
             Me.Controls.Add(Me.filelb)
             Me.Controls.Add(Me.filetxt)
             Me.Controls.Add(Me.openfile)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

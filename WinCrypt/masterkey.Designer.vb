@@ -44,7 +44,7 @@ Partial Class Masterkey
         Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.key_txt.Location = New System.Drawing.Point(13, 116)
         Me.key_txt.Name = "key_txt"
-        Me.key_txt.Size = New System.Drawing.Size(266, 20)
+        Me.key_txt.Size = New System.Drawing.Size(266, 22)
         Me.key_txt.TabIndex = 0
         Me.key_txt.UseSystemPasswordChar = True
         '
@@ -54,7 +54,7 @@ Partial Class Masterkey
         Me.key_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.key_lb.Location = New System.Drawing.Point(10, 100)
         Me.key_lb.Name = "key_lb"
-        Me.key_lb.Size = New System.Drawing.Size(59, 13)
+        Me.key_lb.Size = New System.Drawing.Size(62, 13)
         Me.key_lb.TabIndex = 1
         Me.key_lb.Text = "Masterkey:"
         '
@@ -126,11 +126,11 @@ Partial Class Masterkey
         'wincrypttitle
         '
         Me.wincrypttitle.AutoSize = True
-        Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(71, 16)
+        Me.wincrypttitle.Size = New System.Drawing.Size(68, 17)
         Me.wincrypttitle.TabIndex = 15
         Me.wincrypttitle.Text = "Masterkey"
         '
@@ -148,6 +148,7 @@ Partial Class Masterkey
         Me.Controls.Add(Me.ok_bt)
         Me.Controls.Add(Me.key_lb)
         Me.Controls.Add(Me.key_txt)
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False

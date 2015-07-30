@@ -67,7 +67,7 @@
             Me.bruteforcesearchedHash.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.bruteforcesearchedHash.Location = New System.Drawing.Point(43, 36)
             Me.bruteforcesearchedHash.Name = "bruteforcesearchedHash"
-            Me.bruteforcesearchedHash.Size = New System.Drawing.Size(252, 20)
+            Me.bruteforcesearchedHash.Size = New System.Drawing.Size(252, 22)
             Me.bruteforcesearchedHash.TabIndex = 1
             Me.bruteforcesearchedHash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             '
@@ -77,7 +77,7 @@
             Me.md5_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.md5_lb.Location = New System.Drawing.Point(6, 39)
             Me.md5_lb.Name = "md5_lb"
-            Me.md5_lb.Size = New System.Drawing.Size(35, 13)
+            Me.md5_lb.Size = New System.Drawing.Size(36, 13)
             Me.md5_lb.TabIndex = 2
             Me.md5_lb.Text = "Hash:"
             '
@@ -87,7 +87,7 @@
             Me.passwordlist_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.passwordlist_lb.Location = New System.Drawing.Point(6, 61)
             Me.passwordlist_lb.Name = "passwordlist_lb"
-            Me.passwordlist_lb.Size = New System.Drawing.Size(71, 13)
+            Me.passwordlist_lb.Size = New System.Drawing.Size(77, 13)
             Me.passwordlist_lb.TabIndex = 3
             Me.passwordlist_lb.Text = "Passwortliste:"
             '
@@ -98,7 +98,7 @@
             Me.fileWordlist.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.fileWordlist.Location = New System.Drawing.Point(10, 77)
             Me.fileWordlist.Name = "fileWordlist"
-            Me.fileWordlist.Size = New System.Drawing.Size(322, 20)
+            Me.fileWordlist.Size = New System.Drawing.Size(322, 22)
             Me.fileWordlist.TabIndex = 4
             '
             'openWordlist
@@ -189,7 +189,7 @@
             Me.line_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.line_lb.Location = New System.Drawing.Point(3, 97)
             Me.line_lb.Name = "line_lb"
-            Me.line_lb.Size = New System.Drawing.Size(397, 13)
+            Me.line_lb.Size = New System.Drawing.Size(332, 13)
             Me.line_lb.TabIndex = 11
             Me.line_lb.Text = "_________________________________________________________________"
             '
@@ -218,7 +218,7 @@
             Me.showProgress.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.showProgress.Location = New System.Drawing.Point(9, 252)
             Me.showProgress.Name = "showProgress"
-            Me.showProgress.Size = New System.Drawing.Size(117, 17)
+            Me.showProgress.Size = New System.Drawing.Size(126, 17)
             Me.showProgress.TabIndex = 13
             Me.showProgress.Text = "Zeige Fortschritt an"
             Me.showProgress.UseVisualStyleBackColor = True
@@ -229,7 +229,7 @@
             Me.art_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.art_lb.Location = New System.Drawing.Point(299, 39)
             Me.art_lb.Name = "art_lb"
-            Me.art_lb.Size = New System.Drawing.Size(23, 13)
+            Me.art_lb.Size = New System.Drawing.Size(25, 13)
             Me.art_lb.TabIndex = 15
             Me.art_lb.Text = "Art:"
             '
@@ -241,9 +241,9 @@
             Me.bruteforceHashtype.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.bruteforceHashtype.FormattingEnabled = True
             Me.bruteforceHashtype.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
-            Me.bruteforceHashtype.Location = New System.Drawing.Point(323, 36)
+            Me.bruteforceHashtype.Location = New System.Drawing.Point(330, 36)
             Me.bruteforceHashtype.Name = "bruteforceHashtype"
-            Me.bruteforceHashtype.Size = New System.Drawing.Size(90, 21)
+            Me.bruteforceHashtype.Size = New System.Drawing.Size(83, 21)
             Me.bruteforceHashtype.TabIndex = 14
             '
             'bruteforceToggle
@@ -290,11 +290,11 @@
             'wincrypttitle
             '
             Me.wincrypttitle.AutoSize = True
-            Me.wincrypttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.wincrypttitle.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(104, 16)
+            Me.wincrypttitle.Size = New System.Drawing.Size(105, 17)
             Me.wincrypttitle.TabIndex = 18
             Me.wincrypttitle.Text = "MD5 Brute-force"
             '
@@ -328,6 +328,7 @@
             Me.Controls.Add(Me.passwordlist_lb)
             Me.Controls.Add(Me.md5_lb)
             Me.Controls.Add(Me.bruteforcesearchedHash)
+            Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.MaximizeBox = False

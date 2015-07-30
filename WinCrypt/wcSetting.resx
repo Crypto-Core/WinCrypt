@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="registfiletype.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="registfiletype.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 21</value>
+  </data>
+  <data name="registfiletype.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="registfiletype.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="registfiletype.Text" xml:space="preserve">
+    <value>register</value>
+  </data>
   <data name="&gt;&gt;registfiletype.Name" xml:space="preserve">
     <value>registfiletype</value>
   </data>
@@ -129,14 +147,12 @@
   <data name="&gt;&gt;registfiletype.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="registfiletypegb.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 37</value>
   </data>
   <data name="registfiletypegb.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 56</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="registfiletypegb.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -154,22 +170,6 @@
   </data>
   <data name="&gt;&gt;registfiletypegb.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="registfiletype.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="registfiletype.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 21</value>
-  </data>
-  <data name="registfiletype.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 23</value>
-  </data>
-  <data name="registfiletype.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="registfiletype.Text" xml:space="preserve">
-    <value>register</value>
   </data>
   <data name="okbt.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -197,6 +197,24 @@
   </data>
   <data name="&gt;&gt;okbt.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="languagecb.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="languagecb.Items" xml:space="preserve">
+    <value>Deutsch (Deutschland)</value>
+  </data>
+  <data name="languagecb.Items1" xml:space="preserve">
+    <value>English (USA)</value>
+  </data>
+  <data name="languagecb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="languagecb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 21</value>
+  </data>
+  <data name="languagecb.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;languagecb.Name" xml:space="preserve">
     <value>languagecb</value>
@@ -234,23 +252,20 @@
   <data name="&gt;&gt;languagegb.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="languagecb.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="startnormalwincrypt.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="languagecb.Items" xml:space="preserve">
-    <value>Deutsch (Deutschland)</value>
+  <data name="startnormalwincrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 91</value>
   </data>
-  <data name="languagecb.Items1" xml:space="preserve">
-    <value>English (USA)</value>
+  <data name="startnormalwincrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 17</value>
   </data>
-  <data name="languagecb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
+  <data name="startnormalwincrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="languagecb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 21</value>
-  </data>
-  <data name="languagecb.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="startnormalwincrypt.Text" xml:space="preserve">
+    <value>start normally</value>
   </data>
   <data name="&gt;&gt;startnormalwincrypt.Name" xml:space="preserve">
     <value>startnormalwincrypt</value>
@@ -264,6 +279,24 @@
   <data name="&gt;&gt;startnormalwincrypt.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="line3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="line3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt</value>
+  </data>
+  <data name="line3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 92</value>
+  </data>
+  <data name="line3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="line3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="line3.Text" xml:space="preserve">
+    <value>────</value>
+  </data>
   <data name="&gt;&gt;line3.Name" xml:space="preserve">
     <value>line3</value>
   </data>
@@ -275,6 +308,21 @@
   </data>
   <data name="&gt;&gt;line3.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="startminwincryptrb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="startminwincryptrb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 63</value>
+  </data>
+  <data name="startminwincryptrb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 17</value>
+  </data>
+  <data name="startminwincryptrb.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="startminwincryptrb.Text" xml:space="preserve">
+    <value>start minimized</value>
   </data>
   <data name="&gt;&gt;startminwincryptrb.Name" xml:space="preserve">
     <value>startminwincryptrb</value>
@@ -288,6 +336,24 @@
   <data name="&gt;&gt;startminwincryptrb.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="line2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="line2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt</value>
+  </data>
+  <data name="line2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 64</value>
+  </data>
+  <data name="line2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 15</value>
+  </data>
+  <data name="line2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="line2.Text" xml:space="preserve">
+    <value>────</value>
+  </data>
   <data name="&gt;&gt;line2.Name" xml:space="preserve">
     <value>line2</value>
   </data>
@@ -300,6 +366,27 @@
   <data name="&gt;&gt;line2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="line.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="line.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt</value>
+  </data>
+  <data name="line.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 41</value>
+  </data>
+  <data name="line.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 60</value>
+  </data>
+  <data name="line.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="line.Text" xml:space="preserve">
+    <value>│
+│
+│
+│</value>
+  </data>
   <data name="&gt;&gt;line.Name" xml:space="preserve">
     <value>line</value>
   </data>
@@ -311,6 +398,21 @@
   </data>
   <data name="&gt;&gt;line.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="startwincb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="startwincb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 27</value>
+  </data>
+  <data name="startwincb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 17</value>
+  </data>
+  <data name="startwincb.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="startwincb.Text" xml:space="preserve">
+    <value>Start with Windows</value>
   </data>
   <data name="&gt;&gt;startwincb.Name" xml:space="preserve">
     <value>startwincb</value>
@@ -348,107 +450,17 @@
   <data name="&gt;&gt;autostartgb.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="startnormalwincrypt.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="key_txt.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="startnormalwincrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 91</value>
+  <data name="key_txt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 18</value>
   </data>
-  <data name="startnormalwincrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
+  <data name="key_txt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 22</value>
   </data>
-  <data name="startnormalwincrypt.TabIndex" type="System.Int32, mscorlib">
+  <data name="key_txt.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="startnormalwincrypt.Text" xml:space="preserve">
-    <value>start normally</value>
-  </data>
-  <data name="line3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="line3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 9.75pt</value>
-  </data>
-  <data name="line3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 92</value>
-  </data>
-  <data name="line3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 15</value>
-  </data>
-  <data name="line3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="line3.Text" xml:space="preserve">
-    <value>────</value>
-  </data>
-  <data name="startminwincryptrb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="startminwincryptrb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 63</value>
-  </data>
-  <data name="startminwincryptrb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 17</value>
-  </data>
-  <data name="startminwincryptrb.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="startminwincryptrb.Text" xml:space="preserve">
-    <value>start minimized</value>
-  </data>
-  <data name="line2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="line2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 9.75pt</value>
-  </data>
-  <data name="line2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 64</value>
-  </data>
-  <data name="line2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 15</value>
-  </data>
-  <data name="line2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="line2.Text" xml:space="preserve">
-    <value>────</value>
-  </data>
-  <data name="line.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="line.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 9.75pt</value>
-  </data>
-  <data name="line.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 41</value>
-  </data>
-  <data name="line.Size" type="System.Drawing.Size, System.Drawing">
-    <value>14, 60</value>
-  </data>
-  <data name="line.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="line.Text" xml:space="preserve">
-    <value>│
-│
-│
-│</value>
-  </data>
-  <data name="startwincb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="startwincb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 27</value>
-  </data>
-  <data name="startwincb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 17</value>
-  </data>
-  <data name="startwincb.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="startwincb.Text" xml:space="preserve">
-    <value>Start with Windows</value>
   </data>
   <data name="&gt;&gt;key_txt.Name" xml:space="preserve">
     <value>key_txt</value>
@@ -461,6 +473,21 @@
   </data>
   <data name="&gt;&gt;key_txt.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="key_cb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="key_cb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 21</value>
+  </data>
+  <data name="key_cb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="key_cb.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="key_cb.Text" xml:space="preserve">
+    <value>use</value>
   </data>
   <data name="&gt;&gt;key_cb.Name" xml:space="preserve">
     <value>key_cb</value>
@@ -498,33 +525,6 @@
   <data name="&gt;&gt;masterkey_gb.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="key_txt.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="key_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 18</value>
-  </data>
-  <data name="key_txt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 20</value>
-  </data>
-  <data name="key_txt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="key_cb.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="key_cb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 21</value>
-  </data>
-  <data name="key_cb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 17</value>
-  </data>
-  <data name="key_cb.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="key_cb.Text" xml:space="preserve">
-    <value>use</value>
-  </data>
   <data name="wincrypt_icon.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 6</value>
   </data>
@@ -553,13 +553,13 @@
     <value>True</value>
   </data>
   <data name="wincrypttitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
+    <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="wincrypttitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 6</value>
   </data>
   <data name="wincrypttitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 16</value>
+    <value>48, 17</value>
   </data>
   <data name="wincrypttitle.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -579,8 +579,29 @@
   <data name="&gt;&gt;wincrypttitle.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="form_head.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="form_head.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <data name="exit_bt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lucida Sans Unicode, 9pt, style=Bold</value>
+  </data>
+  <data name="exit_bt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 23</value>
+  </data>
+  <data name="exit_bt.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="minimize_bt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt, style=Bold</value>
+  </data>
+  <data name="minimize_bt.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="minimize_bt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 23</value>
+  </data>
+  <data name="minimize_bt.Text" xml:space="preserve">
+    <value>─</value>
   </data>
   <data name="form_head.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -609,27 +630,6 @@
   <data name="&gt;&gt;form_head.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="exit_bt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lucida Sans Unicode, 9pt, style=Bold</value>
-  </data>
-  <data name="exit_bt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 23</value>
-  </data>
-  <data name="exit_bt.Text" xml:space="preserve">
-    <value>X</value>
-  </data>
-  <data name="minimize_bt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt, style=Bold</value>
-  </data>
-  <data name="minimize_bt.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="minimize_bt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 23</value>
-  </data>
-  <data name="minimize_bt.Text" xml:space="preserve">
-    <value>─</value>
-  </data>
   <data name="use_template_rb2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -637,7 +637,7 @@
     <value>17, 52</value>
   </data>
   <data name="use_template_rb2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 17</value>
+    <value>110, 17</value>
   </data>
   <data name="use_template_rb2.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -664,7 +664,7 @@
     <value>17, 25</value>
   </data>
   <data name="use_template_rb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+    <value>75, 17</value>
   </data>
   <data name="use_template_rb.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -823,7 +823,7 @@
     <value>211, 78</value>
   </data>
   <data name="buttoncolor_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
+    <value>43, 13</value>
   </data>
   <data name="buttoncolor_lb.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -871,7 +871,7 @@
     <value>211, 101</value>
   </data>
   <data name="textcolor_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 13</value>
+    <value>26, 13</value>
   </data>
   <data name="textcolor_lb.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -919,7 +919,7 @@
     <value>211, 127</value>
   </data>
   <data name="inputtextcolor_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 13</value>
+    <value>57, 13</value>
   </data>
   <data name="inputtextcolor_lb.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -967,7 +967,7 @@
     <value>40, 127</value>
   </data>
   <data name="inputbackground_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
+    <value>101, 13</value>
   </data>
   <data name="inputbackground_lb.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1015,7 +1015,7 @@
     <value>40, 101</value>
   </data>
   <data name="formhead_color_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
+    <value>43, 13</value>
   </data>
   <data name="formhead_color_lb.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1063,7 +1063,7 @@
     <value>40, 77</value>
   </data>
   <data name="bgcolor_lb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 13</value>
+    <value>70, 13</value>
   </data>
   <data name="bgcolor_lb.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1107,29 +1107,32 @@
   <data name="&gt;&gt;design_gb.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="designcolor_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="designcolor_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
-  </data>
-  <data name="design_export_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="design_export_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>281, 17</value>
-  </data>
+  </metadata>
   <data name="design_export_dialog.Filter" xml:space="preserve">
     <value>wcDesign|*.wcDesign</value>
   </data>
-  <data name="import_design_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="import_design_dialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>448, 17</value>
-  </data>
+  </metadata>
   <data name="import_design_dialog.Filter" xml:space="preserve">
     <value>wcDesign|*.wcDesign</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>377, 438</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
