@@ -30,7 +30,7 @@
             Me.uppercasecb = New System.Windows.Forms.CheckBox()
             Me.lowercasecb = New System.Windows.Forms.CheckBox()
             Me.numberscb = New System.Windows.Forms.CheckBox()
-            Me.lengthlb = New System.Windows.Forms.Label()
+            Me.length_lb = New System.Windows.Forms.Label()
             Me.copybt = New System.Windows.Forms.Button()
             Me.specialchar = New System.Windows.Forms.CheckBox()
             Me.form_head = New System.Windows.Forms.MenuStrip()
@@ -38,6 +38,14 @@
             Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
             Me.wincrypttitle = New System.Windows.Forms.Label()
             Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+            Me.lines_lb = New System.Windows.Forms.Label()
+            Me.lines = New System.Windows.Forms.TextBox()
+            Me.plus = New System.Windows.Forms.Button()
+            Me.minus = New System.Windows.Forms.Button()
+            Me.pw_length = New System.Windows.Forms.Label()
+            Me.saveas_bt = New System.Windows.Forms.Button()
+            Me.save_pw_dialog = New System.Windows.Forms.SaveFileDialog()
+            Me.attachments = New System.Windows.Forms.CheckBox()
             Me.form_head.SuspendLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
@@ -68,7 +76,7 @@
             Me.generatetxt.Multiline = True
             Me.generatetxt.Name = "generatetxt"
             Me.generatetxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-            Me.generatetxt.Size = New System.Drawing.Size(616, 279)
+            Me.generatetxt.Size = New System.Drawing.Size(616, 266)
             Me.generatetxt.TabIndex = 1
             '
             'length
@@ -77,10 +85,10 @@
             Me.length.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.length.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.length.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-            Me.length.Location = New System.Drawing.Point(195, 387)
+            Me.length.Location = New System.Drawing.Point(205, 386)
             Me.length.MaxLength = 5
             Me.length.Name = "length"
-            Me.length.Size = New System.Drawing.Size(75, 22)
+            Me.length.Size = New System.Drawing.Size(39, 22)
             Me.length.TabIndex = 2
             Me.length.Text = "32"
             '
@@ -126,16 +134,16 @@
             Me.numberscb.Text = "Zahlen"
             Me.numberscb.UseVisualStyleBackColor = True
             '
-            'lengthlb
+            'length_lb
             '
-            Me.lengthlb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.lengthlb.AutoSize = True
-            Me.lengthlb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.lengthlb.Location = New System.Drawing.Point(152, 390)
-            Me.lengthlb.Name = "lengthlb"
-            Me.lengthlb.Size = New System.Drawing.Size(38, 13)
-            Me.lengthlb.TabIndex = 6
-            Me.lengthlb.Text = "Länge"
+            Me.length_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.length_lb.AutoSize = True
+            Me.length_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.length_lb.Location = New System.Drawing.Point(152, 390)
+            Me.length_lb.Name = "length_lb"
+            Me.length_lb.Size = New System.Drawing.Size(38, 13)
+            Me.length_lb.TabIndex = 6
+            Me.length_lb.Text = "Länge"
             '
             'copybt
             '
@@ -215,18 +223,124 @@
             Me.wincrypt_icon.TabIndex = 33
             Me.wincrypt_icon.TabStop = False
             '
+            'lines_lb
+            '
+            Me.lines_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.lines_lb.AutoSize = True
+            Me.lines_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.lines_lb.Location = New System.Drawing.Point(152, 359)
+            Me.lines_lb.Name = "lines_lb"
+            Me.lines_lb.Size = New System.Drawing.Size(38, 13)
+            Me.lines_lb.TabIndex = 34
+            Me.lines_lb.Text = "Zeilen"
+            '
+            'lines
+            '
+            Me.lines.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.lines.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lines.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.lines.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+            Me.lines.Location = New System.Drawing.Point(205, 357)
+            Me.lines.MaxLength = 100000
+            Me.lines.Name = "lines"
+            Me.lines.Size = New System.Drawing.Size(39, 22)
+            Me.lines.TabIndex = 35
+            Me.lines.Text = "1"
+            '
+            'plus
+            '
+            Me.plus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.plus.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+            Me.plus.FlatAppearance.BorderSize = 0
+            Me.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.plus.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.plus.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.plus.Image = Global.Project_WinCrypt.My.Resources.Resources.AddNew16
+            Me.plus.Location = New System.Drawing.Point(281, 355)
+            Me.plus.Name = "plus"
+            Me.plus.Size = New System.Drawing.Size(25, 25)
+            Me.plus.TabIndex = 36
+            Me.plus.UseVisualStyleBackColor = False
+            '
+            'minus
+            '
+            Me.minus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.minus.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+            Me.minus.FlatAppearance.BorderSize = 0
+            Me.minus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.minus.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.minus.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.minus.Image = Global.Project_WinCrypt.My.Resources.Resources.Minus_16
+            Me.minus.Location = New System.Drawing.Point(250, 355)
+            Me.minus.Name = "minus"
+            Me.minus.Size = New System.Drawing.Size(25, 25)
+            Me.minus.TabIndex = 37
+            Me.minus.UseVisualStyleBackColor = False
+            '
+            'pw_length
+            '
+            Me.pw_length.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.pw_length.AutoSize = True
+            Me.pw_length.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.pw_length.Location = New System.Drawing.Point(12, 304)
+            Me.pw_length.Name = "pw_length"
+            Me.pw_length.Size = New System.Drawing.Size(50, 13)
+            Me.pw_length.TabIndex = 38
+            Me.pw_length.Text = "Zeichen:"
+            '
+            'saveas_bt
+            '
+            Me.saveas_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.saveas_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+            Me.saveas_bt.FlatAppearance.BorderSize = 0
+            Me.saveas_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.saveas_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.saveas_bt.Location = New System.Drawing.Point(500, 307)
+            Me.saveas_bt.Name = "saveas_bt"
+            Me.saveas_bt.Size = New System.Drawing.Size(128, 23)
+            Me.saveas_bt.TabIndex = 39
+            Me.saveas_bt.Text = "Speichern unter..."
+            Me.saveas_bt.UseVisualStyleBackColor = False
+            Me.saveas_bt.Visible = False
+            '
+            'save_pw_dialog
+            '
+            Me.save_pw_dialog.FileName = "pwlist.txt"
+            Me.save_pw_dialog.Filter = "text file|*.txt"
+            Me.save_pw_dialog.OverwritePrompt = False
+            '
+            'attachments
+            '
+            Me.attachments.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.attachments.AutoSize = True
+            Me.attachments.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.attachments.Location = New System.Drawing.Point(519, 336)
+            Me.attachments.Name = "attachments"
+            Me.attachments.Size = New System.Drawing.Size(85, 17)
+            Me.attachments.TabIndex = 40
+            Me.attachments.Text = "Anhängen?"
+            Me.attachments.UseVisualStyleBackColor = True
+            Me.attachments.Visible = False
+            '
             'passwordgenerator
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(640, 418)
+            Me.Controls.Add(Me.attachments)
+            Me.Controls.Add(Me.saveas_bt)
+            Me.Controls.Add(Me.pw_length)
+            Me.Controls.Add(Me.minus)
+            Me.Controls.Add(Me.plus)
+            Me.Controls.Add(Me.lines)
+            Me.Controls.Add(Me.lines_lb)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.wincrypttitle)
             Me.Controls.Add(Me.form_head)
             Me.Controls.Add(Me.specialchar)
             Me.Controls.Add(Me.copybt)
-            Me.Controls.Add(Me.lengthlb)
+            Me.Controls.Add(Me.length_lb)
             Me.Controls.Add(Me.numberscb)
             Me.Controls.Add(Me.lowercasecb)
             Me.Controls.Add(Me.uppercasecb)
@@ -253,7 +367,7 @@
         Friend WithEvents uppercasecb As System.Windows.Forms.CheckBox
         Friend WithEvents lowercasecb As System.Windows.Forms.CheckBox
         Friend WithEvents numberscb As System.Windows.Forms.CheckBox
-        Friend WithEvents lengthlb As System.Windows.Forms.Label
+        Friend WithEvents length_lb As System.Windows.Forms.Label
         Friend WithEvents copybt As System.Windows.Forms.Button
         Friend WithEvents specialchar As System.Windows.Forms.CheckBox
         Friend WithEvents form_head As System.Windows.Forms.MenuStrip
@@ -261,5 +375,13 @@
         Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents wincrypttitle As System.Windows.Forms.Label
         Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
+        Friend WithEvents lines_lb As System.Windows.Forms.Label
+        Friend WithEvents lines As System.Windows.Forms.TextBox
+        Friend WithEvents plus As System.Windows.Forms.Button
+        Friend WithEvents minus As System.Windows.Forms.Button
+        Friend WithEvents pw_length As System.Windows.Forms.Label
+        Friend WithEvents saveas_bt As System.Windows.Forms.Button
+        Friend WithEvents save_pw_dialog As System.Windows.Forms.SaveFileDialog
+        Friend WithEvents attachments As System.Windows.Forms.CheckBox
     End Class
 End Namespace

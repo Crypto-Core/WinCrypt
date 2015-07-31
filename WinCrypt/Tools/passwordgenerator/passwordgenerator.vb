@@ -1,6 +1,4 @@
-﻿Option Strict On
-
-Imports System.Text
+﻿Imports System.Text
 
 Namespace tools.passwordgenerator
 
@@ -32,11 +30,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, suln.Length)
-                                sb.Append(suln.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, suln.Length)
+                                    sb.Append(suln.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -46,11 +47,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, snl.Length)
-                                sb.Append(snl.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, snl.Length)
+                                    sb.Append(snl.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -60,11 +64,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, sn.Length)
-                                sb.Append(sn.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, sn.Length)
+                                    sb.Append(sn.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -74,11 +81,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, s.Length)
-                                sb.Append(s.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, s.Length)
+                                    sb.Append(s.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -88,11 +98,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, sul.Length)
-                                sb.Append(sul.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, sul.Length)
+                                    sb.Append(sul.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -102,11 +115,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, snu.Length)
-                                sb.Append(snu.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, snu.Length)
+                                    sb.Append(snu.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -116,11 +132,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, su.Length)
-                                sb.Append(su.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, su.Length)
+                                    sb.Append(su.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -131,11 +150,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, nl.Length)
-                                sb.Append(nl.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, nl.Length)
+                                    sb.Append(nl.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -145,11 +167,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, n.Length)
-                                sb.Append(n.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, n.Length)
+                                    sb.Append(n.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -159,11 +184,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, l.Length)
-                                sb.Append(l.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, l.Length)
+                                    sb.Append(l.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -173,11 +201,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, u.Length)
-                                sb.Append(u.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, u.Length)
+                                    sb.Append(u.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -186,11 +217,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, nlu.Length)
-                                sb.Append(nlu.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, nlu.Length)
+                                    sb.Append(nlu.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -199,11 +233,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = False Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, sl.Length)
-                                sb.Append(sl.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, sl.Length)
+                                    sb.Append(sl.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -213,11 +250,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = False Then
                         If numberscb.Checked = True Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, nu.Length)
-                                sb.Append(nu.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, nu.Length)
+                                    sb.Append(nu.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -227,11 +267,14 @@ Namespace tools.passwordgenerator
                 If uppercasecb.Checked = True Then
                     If lowercasecb.Checked = True Then
                         If numberscb.Checked = False Then
-                            For o = 1 To CInt(length.Text)
-                                Dim idx As Integer = r.Next(0, ul.Length)
-                                sb.Append(ul.Substring(idx, 1))
+                            For z = 1 To Int(lines.Text)
+                                For o = 1 To CInt(length.Text)
+                                    Dim idx As Integer = r.Next(0, ul.Length)
+                                    sb.Append(ul.Substring(idx, 1))
+                                Next
+                                sb.Append(vbCrLf)
                             Next
-                            generatetxt.Text = sb.ToString
+                            generatetxt.Text = sb.ToString.Substring(0, sb.Length - 2)
                         End If
                     End If
                 End If
@@ -248,6 +291,20 @@ Namespace tools.passwordgenerator
         End Sub
 
         Private Sub generatetxt_TextChanged(sender As Object, e As EventArgs) Handles generatetxt.TextChanged
+            If generatetxt.Text.Length < 1 Then
+                attachments.Visible = False
+                saveas_bt.Visible = False
+            Else
+                attachments.Visible = True
+                saveas_bt.Visible = True
+            End If
+            Dim replace_char As String = generatetxt.Text
+            If Startwindow.Langname = "English" Then
+                pw_length.Text = "length: " & replace_char.Replace(vbCrLf, "").Length
+            Else
+                pw_length.Text = "Zeichen: " & replace_char.Replace(vbCrLf, "").Length
+            End If
+
             If generatetxt.Text.Length > 0 Then
                 copybt.Enabled = True
             Else
@@ -273,6 +330,33 @@ Namespace tools.passwordgenerator
 
         Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
             Close()
+        End Sub
+
+        Private Sub plus_Click(sender As Object, e As EventArgs) Handles plus.Click
+            lines.Text += 1
+        End Sub
+
+        Private Sub minus_Click(sender As Object, e As EventArgs) Handles minus.Click
+            lines.Text -= 1
+        End Sub
+
+        Private Sub saveas_bt_Click(sender As Object, e As EventArgs) Handles saveas_bt.Click
+            save_pw_dialog.ShowDialog()
+            
+        End Sub
+
+        Private Sub save_pw_dialog_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles save_pw_dialog.FileOk
+            If attachments.Checked = True Then
+                My.Computer.FileSystem.WriteAllText(save_pw_dialog.FileName, generatetxt.Text & vbNewLine, attachments.Checked)
+            Else
+                My.Computer.FileSystem.WriteAllText(save_pw_dialog.FileName, generatetxt.Text, attachments.Checked)
+            End If
+
+            If Startwindow.Langname = "English" Then
+                MsgBox("saved!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Gespeichert!", MsgBoxStyle.Information)
+            End If
         End Sub
     End Class
 End Namespace

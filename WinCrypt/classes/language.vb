@@ -13,6 +13,7 @@ Namespace classes
                 lang As _
                     New IniDatei(
                         root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            langname = lang.WertLesen("Info", "Lang")
             If lang.WertLesen("Info", "Lang") = "English" Then 'ENGLISH
                 Startwindow.encrypt_gb.Text = "encrypt folder / drive"
                 Startwindow.crypt_file_pathbutton.Text = "add"
@@ -114,9 +115,13 @@ Namespace classes
                 tools.passwordgenerator.passwordgenerator.uppercasecb.Text = "uppercase"
                 tools.passwordgenerator.passwordgenerator.lowercasecb.Text = "lower case"
                 tools.passwordgenerator.passwordgenerator.numberscb.Text = "numbers"
-                tools.passwordgenerator.passwordgenerator.lengthlb.Text = "length:"
+                tools.passwordgenerator.passwordgenerator.length_lb.Text = "length:"
                 tools.passwordgenerator.passwordgenerator.copybt.Text = "copy"
                 tools.passwordgenerator.passwordgenerator.generatebt.Text = "generate"
+                tools.passwordgenerator.passwordgenerator.lines_lb.Text = "lines:"
+                tools.passwordgenerator.passwordgenerator.pw_length.Text = "length: "
+                tools.passwordgenerator.passwordgenerator.saveas_bt.Text = "save as..."
+                tools.passwordgenerator.passwordgenerator.attachments.Text = "Attachments?"
 
                 'safedelete.vb
                 tools.safedelete.safedelete.selectpathbt.Text = "select"
@@ -381,9 +386,13 @@ Namespace classes
                 tools.passwordgenerator.passwordgenerator.uppercasecb.Text = "Großbuchstaben"
                 tools.passwordgenerator.passwordgenerator.lowercasecb.Text = "Kleinbuchstaben"
                 tools.passwordgenerator.passwordgenerator.numberscb.Text = "Zahlen"
-                tools.passwordgenerator.passwordgenerator.lengthlb.Text = "Länge:"
+                tools.passwordgenerator.passwordgenerator.length_lb.Text = "Länge:"
                 tools.passwordgenerator.passwordgenerator.copybt.Text = "Kopieren"
                 tools.passwordgenerator.passwordgenerator.generatebt.Text = "Generieren"
+                tools.passwordgenerator.passwordgenerator.lines_lb.Text = "Zeilen:"
+                tools.passwordgenerator.passwordgenerator.pw_length.Text = "Zeichen: "
+                tools.passwordgenerator.passwordgenerator.saveas_bt.Text = "Speichern unter..."
+                tools.passwordgenerator.passwordgenerator.attachments.Text = "Anhängen?"
 
                 'safedelete.vb
                 tools.safedelete.safedelete.Text = "Dateien sicher löschen"

@@ -1100,8 +1100,8 @@ Public Class designcolor
         tools.passwordgenerator.passwordgenerator.numberscb.BackColor = bgcolor
 
         '// lengthlb
-        tools.passwordgenerator.passwordgenerator.lengthlb.ForeColor = textcolor
-        tools.passwordgenerator.passwordgenerator.lengthlb.BackColor = bgcolor
+        tools.passwordgenerator.passwordgenerator.length_lb.ForeColor = textcolor
+        tools.passwordgenerator.passwordgenerator.length_lb.BackColor = bgcolor
 
         '// length
         tools.passwordgenerator.passwordgenerator.length.ForeColor = inputtextcolor
@@ -1114,6 +1114,36 @@ Public Class designcolor
         '// generatebt
         tools.passwordgenerator.passwordgenerator.generatebt.ForeColor = textcolor
         tools.passwordgenerator.passwordgenerator.generatebt.BackColor = buttoncolor
+
+        '// lines
+        tools.passwordgenerator.passwordgenerator.lines.ForeColor = inputtextcolor
+        tools.passwordgenerator.passwordgenerator.lines.BackColor = inputbackgroundcolor
+
+        '// lines_lb
+        tools.passwordgenerator.passwordgenerator.lines_lb.BackColor = bgcolor
+        tools.passwordgenerator.passwordgenerator.lines_lb.ForeColor = textcolor
+
+        '// minus
+        tools.passwordgenerator.passwordgenerator.minus.BackColor = buttoncolor
+
+        '// plus
+        tools.passwordgenerator.passwordgenerator.plus.BackColor = buttoncolor
+
+        '// lengthlb
+        tools.passwordgenerator.passwordgenerator.length_lb.ForeColor = textcolor
+        tools.passwordgenerator.passwordgenerator.length_lb.BackColor = bgcolor
+
+        '// saveas_bt
+        tools.passwordgenerator.passwordgenerator.saveas_bt.ForeColor = textcolor
+        tools.passwordgenerator.passwordgenerator.saveas_bt.BackColor = buttoncolor
+
+        '// pw_length
+        tools.passwordgenerator.passwordgenerator.pw_length.ForeColor = textcolor
+        tools.passwordgenerator.passwordgenerator.pw_length.BackColor = bgcolor
+
+        '// attachments
+        tools.passwordgenerator.passwordgenerator.attachments.ForeColor = textcolor
+        tools.passwordgenerator.passwordgenerator.attachments.BackColor = bgcolor
     End Sub
     Private Sub Newpwmgrdatabase_color()
         '// Newpwmgrdatabase

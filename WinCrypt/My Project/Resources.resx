@@ -6436,6 +6436,9 @@
   <data name="Data-Export-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Data-Export-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wc-icon128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\wc-icon128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Key16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Key-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6478,6 +6481,9 @@
   <data name="feedback16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\feedback-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Add-New-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Add-New-161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="updateflat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\updateflat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6487,7 +6493,7 @@
   <data name="wc-icon16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\wc-icon16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wc-icon128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\wc-icon128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Minus-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Minus-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -516,6 +516,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\WinCryptUpdate.exe" />
+    <None Include="resources\Add-New-161.png" />
+    <None Include="resources\Minus-16.png" />
     <Content Include="wc-icon.ico" />
     <None Include="resources\wc-icon128.png" />
     <None Include="resources\wc-icon16.png" />
