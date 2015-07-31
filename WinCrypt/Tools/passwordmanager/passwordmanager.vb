@@ -85,16 +85,18 @@ Namespace tools.passwordmanager
         End Sub
 
         Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             If _
                 Computer.FileSystem.FileExists(
                     _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 passwordmgr_pass.ShowDialog()
             Else
-                If startwindow.langname = "English" Then
+                If Startwindow.Langname = "English" Then
                     If _
                         MsgBox("It has not yet created any database you want to create a database?", MsgBoxStyle.YesNo) =
                         MsgBoxResult.Yes Then
-                        newpwmgrdatabase.ShowDialog()
+                        Newpwmgrdatabase.ShowDialog()
                     Else
                         Close()
                     End If
@@ -102,7 +104,7 @@ Namespace tools.passwordmanager
                     If _
                         MsgBox("Es wurde noch keine Datenbank angelegt, möchten Sie eine Datenbank anlegen?",
                                MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
-                        newpwmgrdatabase.ShowDialog()
+                        Newpwmgrdatabase.ShowDialog()
                     Else
                         Close()
                     End If

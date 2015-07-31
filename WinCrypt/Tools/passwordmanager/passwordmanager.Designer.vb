@@ -115,9 +115,9 @@
             Me.user_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.user_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.user_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-            Me.user_txt.Location = New System.Drawing.Point(315, 47)
+            Me.user_txt.Location = New System.Drawing.Point(319, 47)
             Me.user_txt.Name = "user_txt"
-            Me.user_txt.Size = New System.Drawing.Size(328, 22)
+            Me.user_txt.Size = New System.Drawing.Size(324, 22)
             Me.user_txt.TabIndex = 4
             '
             'password_txt
@@ -127,9 +127,9 @@
             Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-            Me.password_txt.Location = New System.Drawing.Point(315, 73)
+            Me.password_txt.Location = New System.Drawing.Point(319, 73)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(328, 22)
+            Me.password_txt.Size = New System.Drawing.Size(324, 22)
             Me.password_txt.TabIndex = 5
             '
             'source_txt
@@ -139,9 +139,9 @@
             Me.source_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.source_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.source_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-            Me.source_txt.Location = New System.Drawing.Point(315, 99)
+            Me.source_txt.Location = New System.Drawing.Point(319, 99)
             Me.source_txt.Name = "source_txt"
-            Me.source_txt.Size = New System.Drawing.Size(328, 22)
+            Me.source_txt.Size = New System.Drawing.Size(324, 22)
             Me.source_txt.TabIndex = 6
             '
             'comment_txt

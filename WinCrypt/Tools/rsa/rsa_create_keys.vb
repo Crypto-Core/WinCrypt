@@ -2,6 +2,8 @@
 Namespace tools.rsa
     Public Class rsa_create_keys
         Private Sub rsa_create_keys_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             private_key_path_txt.Text = String.Format("{0}\Private Key.xml", My.Computer.FileSystem.SpecialDirectories.Desktop)
             public_key_path_txt.Text = String.Format("{0}\Public Key.xml", My.Computer.FileSystem.SpecialDirectories.Desktop)
         End Sub

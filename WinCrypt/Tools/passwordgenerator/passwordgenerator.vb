@@ -358,5 +358,10 @@ Namespace tools.passwordgenerator
                 MsgBox("Gespeichert!", MsgBoxStyle.Information)
             End If
         End Sub
+
+        Private Sub passwordgenerator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
+        End Sub
     End Class
 End Namespace

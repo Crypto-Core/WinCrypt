@@ -232,7 +232,8 @@ Namespace tools.hash
         End Sub
 
         Private Sub md5_bruteforce_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             '\\ Standartwerte Laden
             _langname.check()
             bruteforceHashtype.SelectedIndex = 0

@@ -89,4 +89,9 @@ Public Class Newpwmgrdatabase
             createdb_bt.PerformClick()
         End If
     End Sub
+
+    Private Sub Newpwmgrdatabase_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
+    End Sub
 End Class

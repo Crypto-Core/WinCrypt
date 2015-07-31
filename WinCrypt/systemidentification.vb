@@ -66,6 +66,8 @@ Public Class Systemidentification
     End Sub
 
     Private Sub systemidentification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
         If Startwindow.Iniread = "yes" Then
             on_rb.Checked = True
         Else

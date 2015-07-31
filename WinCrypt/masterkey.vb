@@ -46,6 +46,8 @@ Public Class Masterkey
     End Sub
 
     Private Sub masterkey_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
         _lang.check()
         For Each ver In _wmiobj.Instances_
             _bios = ver.SerialNumber

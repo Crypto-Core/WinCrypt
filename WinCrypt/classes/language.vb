@@ -217,6 +217,7 @@ Namespace classes
                 tools.mail.Sendmail.attachment_lb1.Text = "attachment"
                 tools.mail.Sendmail.attachment_lb2.Text = "attachment"
                 tools.mail.Sendmail.attachment_lb3.Text = "attachment"
+                tools.mail.Sendmail.subject_lb.Text = "subject"
 
                 'passwordmanager.vb
                 tools.passwordmanager.Passwordmanager.wincrypttitle.Text = "passwordmanager"
@@ -490,6 +491,7 @@ Namespace classes
                 tools.mail.Sendmail.attachment_lb1.Text = "Anhang"
                 tools.mail.Sendmail.attachment_lb2.Text = "Anhang"
                 tools.mail.Sendmail.attachment_lb3.Text = "Anhang"
+                tools.mail.Sendmail.subject_lb.Text = "Betreff:"
 
                 'passwordmanager.vb
                 tools.passwordmanager.Passwordmanager.wincrypttitle.Text = "Passwortmanager"

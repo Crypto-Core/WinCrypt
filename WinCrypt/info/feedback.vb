@@ -46,6 +46,8 @@ Public Class feedback
     End Sub
 
     Private Sub feedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
         subject_cb.SelectedIndex = 0
     End Sub
 

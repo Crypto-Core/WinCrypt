@@ -25,6 +25,8 @@ Namespace tools.safedelete
         End Sub
 
         Private Sub safedelete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             CheckForIllegalCrossThreadCalls = False
             ChangeProgBarColor(overwrite_pb, ProgressBarColor.Red)
         End Sub

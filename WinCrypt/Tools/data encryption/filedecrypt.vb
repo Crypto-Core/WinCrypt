@@ -195,5 +195,10 @@ Namespace tools.data_encryption
                 decrypt.PerformClick()
             End If
         End Sub
+
+        Private Sub Filedecrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
+        End Sub
     End Class
 End Namespace

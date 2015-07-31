@@ -137,12 +137,14 @@ Namespace tools.mail
         End Sub
 
         Private Sub sendmail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             If _
                 My.Computer.FileSystem.FileExists(
                     _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") = True Then
                 Dim aes As New AES
                 email_txt.Text = _mailini.WertLesen("MailAccount", "mail")
-                password_txt.Text = aes.AESDecrypt(_mailini.WertLesen("MailAccount", "password"), Startwindow.Biosid,
+                password_txt.Text = aes.AesDecrypt(_mailini.WertLesen("MailAccount", "password"), Startwindow.Biosid,
                                                    Startwindow.Biosid)
                 server_txt.Text = _mailini.WertLesen("MailAccount", "server")
                 message_txt.Size = New Size(612, 270)

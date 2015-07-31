@@ -5,6 +5,8 @@ Public Class about
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim loadcolor As New designcolor
+        loadcolor.color()
         copyright_lb.Text = "Copyright (C) " & DateTime.Today.Year & " Harry Machura"
         product_lb.Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         version_lb.Text = "(Version " & My.Application.Info.Version.ToString & ")"

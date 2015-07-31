@@ -98,7 +98,9 @@ Namespace tools.text_encryption
         End Sub
 
         Private Sub textencrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            If startwindow.iniread = "true" Then
+            Dim loadcolor As New designcolor
+            loadcolor.color()
+            If Startwindow.Iniread = "true" Then
                 decrypt_bt.Enabled = True
                 encrypt_bt.Enabled = True
             Else

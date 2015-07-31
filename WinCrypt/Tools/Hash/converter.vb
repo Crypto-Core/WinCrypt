@@ -22,6 +22,8 @@ Namespace tools.hash
         End Sub
 
         Private Sub Hash_converter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
             toHash_ComboBox.SelectedIndex = 0
         End Sub
 

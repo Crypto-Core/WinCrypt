@@ -64,7 +64,6 @@ Partial Class Systemidentification
         '
         'systemidentification_lb
         '
-        Me.systemidentification_lb.AutoSize = True
         Me.systemidentification_lb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.systemidentification_lb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.systemidentification_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
@@ -72,7 +71,7 @@ Partial Class Systemidentification
         Me.systemidentification_lb.Margin = New System.Windows.Forms.Padding(7, 0, 3, 0)
         Me.systemidentification_lb.Name = "systemidentification_lb"
         Me.systemidentification_lb.Padding = New System.Windows.Forms.Padding(0, 0, 0, 40)
-        Me.systemidentification_lb.Size = New System.Drawing.Size(469, 131)
+        Me.systemidentification_lb.Size = New System.Drawing.Size(438, 131)
         Me.systemidentification_lb.TabIndex = 2
         Me.systemidentification_lb.Text = resources.GetString("systemidentification_lb.Text")
         '

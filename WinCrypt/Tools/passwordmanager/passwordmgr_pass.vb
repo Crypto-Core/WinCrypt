@@ -86,5 +86,10 @@ Namespace tools.passwordmanager
                 ok_bt.PerformClick()
             End If
         End Sub
+
+        Private Sub passwordmgr_pass_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            Dim loadcolor As New designcolor
+            loadcolor.color()
+        End Sub
     End Class
 End Namespace
