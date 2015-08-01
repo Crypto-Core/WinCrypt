@@ -1,5 +1,7 @@
 # WinCrypt
 
+![alt tag](https://wincrypt.org/wp-content/uploads/2015/08/wc-icon128.png)
+
 WinCrypt ist eine OpenSource Verschlüsselungsprogramm auf Basis von .NET 
 Es ermöglich Ihnen Daten Sicher zu ver-/ ent-schlüsseln auf Basis von AES-256 (Advanced Encryption Standard)
 Ebenfalls ist WinCrypt einfach zu verwenden und benötigt keine Vorkenntnisse bez. Verschlüsselungen.
