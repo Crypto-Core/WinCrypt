@@ -8,4 +8,4 @@ Weitere Informationen zum Projektumfang finden Sie auf unserer [Homepage](https:
 Weitere Links: Change Log (coming soon) / [Team](https://wincrypt.org/team/) / Alle Tools (coming soon) / [Hilfe] (https://wincrypt.org/hilfe/) 
 
 Es gibt sicherlich genug anderer Verschlüsselungsprogramme wie TrueCrypt oder BitLocker.
-Dabei ist TrueCrypt ein wunderbares Open Sorce Programm zum Verschlüsseln von Festplatten, jedoch wurde dieses leider 2014 eingestellt. BitLocker hingegen ist nicht Open Sorce und somit unseren Erachtens nach nicht vertrauenswürdig.
+Dabei ist TrueCrypt ein wunderbares OpenSource Programm zum Verschlüsseln von Festplatten, jedoch wurde dieses leider 2014 eingestellt. BitLocker hingegen ist nicht Open Sorce und somit unseren Erachtens nach nicht vertrauenswürdig.
