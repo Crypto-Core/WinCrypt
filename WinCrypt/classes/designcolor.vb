@@ -13,10 +13,14 @@ Public Class designcolor
     Public buttoncolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "ButtonColor"))
     Public textcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "TextColor"))
     Public inputtextcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "InputTextColor"))
+    Public Event reload()
+
+
     Sub color()
         '// Überprüfen ob die Werte existieren und wenn nicht, Werte schreiben
         If ColorTranslator.ToHtml(bgcolor).Length = 0 Then
             _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
+
         End If
 
         If ColorTranslator.ToHtml(formheadcolor).Length = 0 Then
@@ -1725,6 +1729,5 @@ Public Class designcolor
         '// encrypt_bt
         tools.text_encryption.Textencrypt.encrypt_bt.ForeColor = textcolor
         tools.text_encryption.Textencrypt.encrypt_bt.BackColor = buttoncolor
-
     End Sub
 End Class

@@ -3,7 +3,6 @@
 Imports System.IO
 Imports Shell32
 
-
 Public Class Unzip
     Private _file As String
     Private ReadOnly _folder As String

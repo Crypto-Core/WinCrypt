@@ -8,6 +8,7 @@ Imports Microsoft.Win32
 Imports Project_WinCrypt.classes
 
 Public Class Startwindow
+    Dim WithEvents loadcolor As New designcolor
     ReadOnly _filezip As New Zip
     Dim _selectcombo As String
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
@@ -18,7 +19,7 @@ Public Class Startwindow
     Public Langname As String
     Public Errormount As String
     Dim _removestring As String
-    ReadOnly _lang As New language
+    ReadOnly _lang As New Language
     Public Formclose As Boolean = False
     Public Timerclose As Boolean = False
     Dim _finishcrypt As Integer = 0
@@ -27,13 +28,13 @@ Public Class Startwindow
 
     ReadOnly _
         _ini As _
-            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
     Function GetFolderSize(dirPath As String,
                            Optional ByVal includeSubFolders As Boolean = True) As Long
         Dim lngDirSize As Long
         Dim objFileInfo As FileInfo
-        Dim objDir = New DirectoryInfo(DirPath)
+        Dim objDir = New DirectoryInfo(dirPath)
         Dim objSubFolder As DirectoryInfo
         Try
             For Each objFileInfo In objDir.GetFiles()
@@ -67,7 +68,7 @@ Public Class Startwindow
                 encrypttimer.Enabled = True
                 Dim computerName = "."
                 Dim wmiServices = GetObject(
-                    "winmgmts:{impersonationLevel=Impersonate}!//" & ComputerName)
+                    "winmgmts:{impersonationLevel=Impersonate}!//" & computerName)
                 Dim wmiDiskDrives = wmiServices.ExecQuery("SELECT Caption, DeviceID FROM Win32_DiskDrive")
                 For Each wmiDiskDrive In wmiDiskDrives
                     Dim deviceid As String = wmiDiskDrive.Caption
@@ -122,7 +123,7 @@ Public Class Startwindow
                 End If
                 Dim computerName = "."
                 Dim wmiServices = GetObject(
-                    "winmgmts:{impersonationLevel=Impersonate}!//" & ComputerName)
+                    "winmgmts:{impersonationLevel=Impersonate}!//" & computerName)
                 Dim wmiDiskDrives = wmiServices.ExecQuery("SELECT Caption, DeviceID FROM Win32_DiskDrive")
                 For Each wmiDiskDrive In wmiDiskDrives
                     Dim deviceid As String = wmiDiskDrive.Caption
@@ -591,7 +592,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim loadcolor As New designcolor
+
         loadcolor.color()
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
@@ -913,7 +914,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub settingbt_menu(sender As Object, e As EventArgs) Handles setting_bt_menu.Click
-        wcSetting.Show()
+        WcSetting.Show()
     End Sub
 
     Private Sub fileencrypt_bt_menu(sender As Object, e As EventArgs) Handles file_encrypt_bt_menu.Click
@@ -933,7 +934,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub md5_bf_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_menu.Click
-        tools.hash.bruteforce.Show()
+        tools.hash.Bruteforce.Show()
     End Sub
 
     Private Sub rsa_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
@@ -949,11 +950,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub send_mail_bt_menu_Click(sender As Object, e As EventArgs) Handles send_mail_bt_menu.Click
-        tools.mail.sendmail.Show()
+        tools.mail.Sendmail.Show()
     End Sub
 
     Private Sub pw_manager_bt_menu_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_menu.Click
-        tools.passwordmanager.passwordmanager.Show()
+        tools.passwordmanager.Passwordmanager.Show()
     End Sub
 
     Private Sub export_db_bt_menu_Click(sender As Object, e As EventArgs) Handles export_db_bt_menu.Click
@@ -1076,7 +1077,7 @@ Public Class Startwindow
 
     Private Sub systemidentification_bt_menu_Click(sender As Object, e As EventArgs) _
         Handles systemidentification_bt_menu.Click
-        systemidentification.Show()
+        Systemidentification.Show()
     End Sub
 
     Private Sub pw_generator_bt_menu_Click(sender As Object, e As EventArgs) Handles pw_generator_bt_menu.Click
@@ -1146,20 +1147,20 @@ Public Class Startwindow
     End Sub
 
     Private Sub md5_bf_bt_systemtray_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_systemtray.Click
-        tools.hash.bruteforce.Show()
+        tools.hash.Bruteforce.Show()
     End Sub
 
     Private Sub send_mail_bt_systemtray_Click(sender As Object, e As EventArgs) Handles send_mail_bt_systemtray.Click
-        tools.mail.sendmail.Show()
+        tools.mail.Sendmail.Show()
     End Sub
 
     Private Sub pw_manager_bt_systemtray_Click(sender As Object, e As EventArgs) Handles pw_manager_bt_systemtray.Click
-        tools.passwordmanager.passwordmanager.Show()
+        tools.passwordmanager.Passwordmanager.Show()
     End Sub
 
     Private Sub systemidentification_bt_systemtray_Click(sender As Object, e As EventArgs) _
         Handles systemidentification_bt_systemtray.Click
-        systemidentification.Show()
+        Systemidentification.Show()
     End Sub
 
     Private Sub pwg_bt_systemtray_Click(sender As Object, e As EventArgs) Handles pwg_bt_systemtray.Click
@@ -1319,10 +1320,10 @@ Public Class Startwindow
             ' STRG+P öffnet den Passwortmanager
             If CBool(GetAsyncKeyState(Keys.F2)) AndAlso CBool(GetAsyncKeyState(Keys.ControlKey)) Then
                 gethotkey.Enabled = False
-                tools.passwordmanager.passwordmanager.Show()
-                tools.passwordmanager.passwordmanager.Focus()
+                tools.passwordmanager.Passwordmanager.Show()
+                tools.passwordmanager.Passwordmanager.Focus()
                 tools.passwordmanager.passwordmgr_pass.Focus()
-                newpwmgrdatabase.Focus()
+                Newpwmgrdatabase.Focus()
                 gethotkey.Enabled = True
             End If
 
@@ -1361,10 +1362,10 @@ Public Class Startwindow
             ' Shift+M öffnet das E-Mail senden fenster
             If CBool(GetAsyncKeyState(Keys.M)) AndAlso CBool(GetAsyncKeyState(Keys.LShiftKey)) Then
                 gethotkey.Enabled = False
-                tools.mail.sendmail.Show()
-                tools.mail.sendmail.TopMost = True
-                tools.mail.sendmail.Focus()
-                tools.mail.sendmail.TopMost = False
+                tools.mail.Sendmail.Show()
+                tools.mail.Sendmail.TopMost = True
+                tools.mail.Sendmail.Focus()
+                tools.mail.Sendmail.TopMost = False
                 gethotkey.Enabled = True
             End If
 
