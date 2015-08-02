@@ -263,7 +263,7 @@
         exportDesign.WertSchreiben("Design", "InputBackgroundColor", inputcolor_hex_txt.Text)
         exportDesign.WertSchreiben("Design", "ButtonColor", buttoncolor_hex_txt.Text)
         exportDesign.WertSchreiben("Design", "TextColor", txtcolor_hex_txt.Text)
-        exportDesign.WertSchreiben("Design", "InputTextColor", inputcolor_hex_txt.Text)
+        exportDesign.WertSchreiben("Design", "InputTextColor", textinoutcolor_hex_lb.Text)
         MsgBox("Design exported!", MsgBoxStyle.Information)
     End Sub
 
