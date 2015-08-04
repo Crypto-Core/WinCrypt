@@ -223,7 +223,7 @@ Namespace tools.safedelete
 
         Private Sub safedelete_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
             If Startwindow.vCommand = True Then
-                Application.Exit()
+                Startwindow.Close()
             End If
         End Sub
     End Class

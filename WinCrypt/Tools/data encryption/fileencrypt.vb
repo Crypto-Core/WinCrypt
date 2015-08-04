@@ -245,7 +245,7 @@ Namespace tools.data_encryption
 
         Private Sub Fileencrypt_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
             If Startwindow.vCommand = True Then
-                Application.Exit()
+                Startwindow.Close()
             End If
         End Sub
     End Class

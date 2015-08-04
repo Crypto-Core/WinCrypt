@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
@@ -11,13 +11,13 @@ Namespace tools.text_encryption
             Dim lGuid As GuidAttribute
             lGuid = DirectCast(
                 Assembly.GetExecutingAssembly().GetCustomAttributes(
-                    GetType(GuidAttribute), False)(0), 
+                    GetType(GuidAttribute), False)(0),
                 GuidAttribute)
             Dim aes2 As New AES
             If Startwindow.Iniread = "true" Then
-                text_output.Text = CStr(aes2.AESEncrypt(text_input.Text, Startwindow.Biosid, lGuid.Value))
+                text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, Startwindow.Biosid, lGuid.Value))
             Else
-                text_output.Text = CStr(aes2.AESEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
+                text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
             End If
         End Sub
 
@@ -61,7 +61,7 @@ Namespace tools.text_encryption
                 text_output.ReadOnly = True
                 text_input.ReadOnly = False
                 encrypt_bt.Visible = True
-                If startwindow.iniread = "true" Then
+                If Startwindow.Iniread = "true" Then
                     generate_bt.Visible = False
                 Else
                     generate_bt.Visible = True
@@ -77,13 +77,13 @@ Namespace tools.text_encryption
             Dim lGuid As GuidAttribute
             lGuid = DirectCast(
                 Assembly.GetExecutingAssembly().GetCustomAttributes(
-                    GetType(GuidAttribute), False)(0), 
+                    GetType(GuidAttribute), False)(0),
                 GuidAttribute)
             Dim aes2 As New AES
             If Startwindow.Iniread = "true" Then
-                text_input.Text = aes2.AESDecrypt(text_output.Text, Startwindow.Biosid, lGuid.Value)
+                text_input.Text = aes2.AesDecrypt(text_output.Text, Startwindow.Biosid, lGuid.Value)
             Else
-                text_input.Text = aes2.AESDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
+                text_input.Text = aes2.AesDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
             End If
         End Sub
 
@@ -146,6 +146,12 @@ Namespace tools.text_encryption
                 form_head.Capture = False
                 WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
             Else
+            End If
+        End Sub
+
+        Private Sub Textencrypt_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Startwindow.Close()
             End If
         End Sub
     End Class

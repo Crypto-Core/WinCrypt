@@ -758,6 +758,31 @@ Public Class Startwindow
                     tools.passwordgenerator.passwordgenerator.ShowDialog()
 
                 End If
+                If Mypath = "-mail" Then
+                    Hide()
+                    vCommand = True
+                    tools.mail.Sendmail.ShowDialog()
+                End If
+                If Mypath = "-txtencrypt" Then
+                    Hide()
+                    vCommand = True
+                    tools.text_encryption.Textencrypt.ShowDialog()
+                End If
+                If Mypath = "-rsaencrypt" Then
+                    Hide()
+                    vCommand = True
+                    tools.rsa.rsa_encrypt.ShowDialog()
+                End If
+                If Mypath = "-rsadecrypt" Then
+                    Hide()
+                    vCommand = True
+                    tools.rsa.rsa_decrypt.ShowDialog()
+                End If
+                If Mypath = "-rsacreate" Then
+                    Hide()
+                    vCommand = True
+                    tools.rsa.rsa_decrypt.ShowDialog()
+                End If
                 If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
                     tools.data_encryption.Filedecrypt.Show()
                     tools.data_encryption.Filedecrypt.filetxt.Text = Mypath.ToString

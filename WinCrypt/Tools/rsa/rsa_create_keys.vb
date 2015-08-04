@@ -1,4 +1,6 @@
 ﻿Option Strict On
+Imports System.ComponentModel
+
 Namespace tools.rsa
     Public Class rsa_create_keys
         Private Sub rsa_create_keys_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -53,6 +55,12 @@ Namespace tools.rsa
                 form_head.Capture = False
                 WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
             Else
+            End If
+        End Sub
+
+        Private Sub rsa_create_keys_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Startwindow.Close()
             End If
         End Sub
     End Class

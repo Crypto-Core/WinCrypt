@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports System.IO
 Imports System.Net
 Imports System.Net.Mail
@@ -14,7 +14,7 @@ Namespace tools.mail
 
         ReadOnly _
             _mailini As _
-                New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
+                New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
 
         Private Sub fileadd_bt_Click(sender As Object, e As EventArgs) Handles fileadd_bt.Click
             add_file_dialog.ShowDialog()
@@ -52,7 +52,7 @@ Namespace tools.mail
                         If MsgBox("Möchtest du dein E-Mail Konto speichern?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                             _mailini.WertSchreiben("MailAccount", "mail", email_txt.Text)
                             _mailini.WertSchreiben("MailAccount", "password",
-                                                  aes.AESEncrypt(password_txt.Text, Startwindow.Biosid, Startwindow.Biosid))
+                                                  aes.AesEncrypt(password_txt.Text, Startwindow.Biosid, Startwindow.Biosid))
                             _mailini.WertSchreiben("MailAccount", "server", server_txt.Text)
                         End If
                     End If
@@ -86,7 +86,7 @@ Namespace tools.mail
                         If MsgBox("Möchtest du dein E-Mail Konto speichern?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                             _mailini.WertSchreiben("MailAccount", "mail", email_txt.Text)
                             _mailini.WertSchreiben("MailAccount", "password",
-                                                  aes.AESEncrypt(password_txt.Text, Startwindow.Biosid, Startwindow.Biosid))
+                                                  aes.AesEncrypt(password_txt.Text, Startwindow.Biosid, Startwindow.Biosid))
                             _mailini.WertSchreiben("MailAccount", "server", server_txt.Text)
                         End If
                     End If
@@ -215,6 +215,12 @@ Namespace tools.mail
 
         Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
             Close()
+        End Sub
+
+        Private Sub Sendmail_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Startwindow.Close()
+            End If
         End Sub
     End Class
 End Namespace

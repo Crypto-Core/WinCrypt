@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports Project_WinCrypt.classes
 
 Namespace tools.rsa
@@ -47,6 +47,12 @@ Namespace tools.rsa
         Private Sub rsa_decrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
+        End Sub
+
+        Private Sub rsa_decrypt_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Startwindow.Close()
+            End If
         End Sub
     End Class
 End Namespace
