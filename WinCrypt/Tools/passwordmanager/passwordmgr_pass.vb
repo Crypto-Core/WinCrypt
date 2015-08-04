@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports System.IO
 Imports Project_WinCrypt.classes
 
@@ -13,7 +13,7 @@ Namespace tools.passwordmanager
         Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
             If password_txt.Text.Length < 8 Then
 
-                If startwindow.langname = "English" Then
+                If Startwindow.Langname = "English" Then
                     MsgBox("The password must be at least 8 characters estend consist!", MsgBoxStyle.Exclamation)
                 Else
                     MsgBox("Das Passwort muss mindestend aus 8 Zeichen bestehen!", MsgBoxStyle.Exclamation)
@@ -21,31 +21,31 @@ Namespace tools.passwordmanager
             Else
                 Dim textdecrypt As String
                 textdecrypt =
-                    _aes.AESDecrypt(
+                    _aes.AesDecrypt(
                         My.Computer.FileSystem.ReadAllText(
                             _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
-                        password_txt.Text, startwindow.biosid)
+                        password_txt.Text, Startwindow.Biosid)
                 If textdecrypt = "error" Then
                 Else
-                    tools.passwordmanager.passwordmanager.Mgrpass = password_txt.Text
+                    tools.passwordmanager.Passwordmanager.Mgrpass = password_txt.Text
                     My.Computer.FileSystem.WriteAllText(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
                         textdecrypt, False)
-                    tools.passwordmanager.passwordmanager.database_viewer.Items.Clear()
-                    For Each go As String In tools.passwordmanager.passwordmanager.Schleife.ToString
+                    tools.passwordmanager.Passwordmanager.database_viewer.Items.Clear()
+                    For Each go As String In tools.passwordmanager.Passwordmanager.Schleife.ToString
                         Do
-                            tools.passwordmanager.passwordmanager.Schleife += 1
-                            If tools.passwordmanager.passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.passwordmanager.Schleife), "index") = "" Then
-                                tools.passwordmanager.passwordmanager.Schleife = 0
+                            tools.passwordmanager.Passwordmanager.Schleife += 1
+                            If tools.passwordmanager.Passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "" Then
+                                tools.passwordmanager.Passwordmanager.Schleife = 0
                                 Exit Do
                             Else
-                                If tools.passwordmanager.passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.passwordmanager.Schleife), "index") = "|" Then
+                                If tools.passwordmanager.Passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "|" Then
                                 Else
                                     With _
-                                        tools.passwordmanager.passwordmanager.database_viewer.Items.Add(
-                                            tools.passwordmanager.passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.passwordmanager.Schleife), "user"))
-                                        .SubItems.Add(tools.passwordmanager.passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.passwordmanager.Schleife), "source"))
-                                        .SubItems.Add(tools.passwordmanager.passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.passwordmanager.Schleife), "index"))
+                                        tools.passwordmanager.Passwordmanager.database_viewer.Items.Add(
+                                            tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "user"))
+                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "source"))
+                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "index"))
                                     End With
                                 End If
                             End If

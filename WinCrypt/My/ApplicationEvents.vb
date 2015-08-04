@@ -15,6 +15,7 @@ Namespace My
             End If
             Try
                 Dim pfadDesGelinktenObjects As String = e.CommandLine.Item(0).ToString
+
                 Try
                     If pfadDesGelinktenObjects.Remove(0, pfadDesGelinktenObjects.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
                         tools.data_encryption.Filedecrypt.Show()
@@ -34,7 +35,7 @@ Namespace My
                         End If
                     End If
                 Catch ex As Exception
-                    MsgBox("Der Dateiname darf keine leerzeichen enthalten", MsgBoxStyle.Exclamation)
+
                 End Try
             Catch ex As Exception
             End Try

@@ -1,4 +1,6 @@
 ﻿Option Strict On
+Imports System.ComponentModel
+
 Namespace tools.data_encryption
     Public Class Fileencrypt
         Private Sub fileopenbt_Click(sender As Object, e As EventArgs) Handles fileopenbt.Click
@@ -17,7 +19,7 @@ Namespace tools.data_encryption
                 savepathtxt.Text = FolderBrowserDialog.SelectedPath
                 passwordtxt.Enabled = True
                 generatebt.Enabled = True
-                If startwindow.iniread = "yes" Then
+                If Startwindow.Iniread = "yes" Then
                     encryptbt.Enabled = True
                 Else
                 End If
@@ -54,7 +56,7 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub passwordtxt_TextChanged(sender As Object, e As EventArgs) Handles passwordtxt.TextChanged
-            If startwindow.iniread = "yes" Then
+            If Startwindow.Iniread = "yes" Then
                 encryptbt.Enabled = True
             Else
                 If passwordtxt.Text.Length < 6 Then
@@ -68,14 +70,14 @@ Namespace tools.data_encryption
         Private Sub encryptbt_Click(sender As Object, e As EventArgs) Handles encryptbt.Click
             Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal),
                                                      filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
-            If startwindow.iniread = "yes" Then
+            If Startwindow.Iniread = "yes" Then
                 If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                     If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
                         CryptFile(Startwindow.Biosid, filetxt.Text,
                                                         savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
 
-                        If startwindow.langname = "English" Then
+                        If Startwindow.Langname = "English" Then
                             statuslb.Text = String.Format("File {0} encrypted!", i.Substring(1, i.Length - 1))
                         Else
                             statuslb.Text = String.Format("Datei {0} wurde verschlüsselt!", i.Substring(1, i.Length - 1))
@@ -89,14 +91,14 @@ Namespace tools.data_encryption
                         encryptbt.Enabled = False
                         generatebt.Enabled = False
                     Else
-                        If startwindow.langname = "English" Then
+                        If Startwindow.Langname = "English" Then
                             MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
                         Else
                             MsgBox("Speicherort existiert nicht!", MsgBoxStyle.Exclamation)
                         End If
                     End If
                 Else
-                    If startwindow.langname = "English" Then
+                    If Startwindow.Langname = "English" Then
                         MsgBox("File does not exist!!", MsgBoxStyle.Exclamation)
                     Else
                         MsgBox("Datei existiert nicht!", MsgBoxStyle.Exclamation)
@@ -107,7 +109,7 @@ Namespace tools.data_encryption
                     If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
                         If passwordtxt.Text.Length < 6 Then
 
-                            If startwindow.langname = "English" Then
+                            If Startwindow.Langname = "English" Then
                                 MsgBox("Password is too short!", MsgBoxStyle.Information)
                             Else
                                 MsgBox("Passwort zu kurz!", MsgBoxStyle.Information)
@@ -117,7 +119,7 @@ Namespace tools.data_encryption
                                                             savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)
                             My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
 
-                            If startwindow.langname = "English" Then
+                            If Startwindow.Langname = "English" Then
                                 statuslb.Text = String.Format("File {0} encrypted!", i.Substring(1, i.Length - 1))
                             Else
                                 statuslb.Text = String.Format("Datei {0} wurde verschlüsselt!", i.Substring(1, i.Length - 1))
@@ -132,14 +134,14 @@ Namespace tools.data_encryption
                             generatebt.Enabled = False
                         End If
                     Else
-                        If startwindow.langname = "English" Then
+                        If Startwindow.Langname = "English" Then
                             MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
                         Else
                             MsgBox("Speicherort existiert nicht!", MsgBoxStyle.Exclamation)
                         End If
                     End If
                 Else
-                    If startwindow.langname = "English" Then
+                    If Startwindow.Langname = "English" Then
                         MsgBox("File does not exist!!", MsgBoxStyle.Exclamation)
                     Else
                         MsgBox("Datei existiert nicht!", MsgBoxStyle.Exclamation)
@@ -239,6 +241,12 @@ Namespace tools.data_encryption
         Private Sub Fileencrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
+        End Sub
+
+        Private Sub Fileencrypt_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Application.Exit()
+            End If
         End Sub
     End Class
 End Namespace

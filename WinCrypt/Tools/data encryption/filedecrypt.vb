@@ -1,4 +1,6 @@
 ﻿Option Strict On
+Imports System.ComponentModel
+
 Namespace tools.data_encryption
     Public Class Filedecrypt
         Private Sub safevile_Click(sender As Object, e As EventArgs) Handles savefile.Click
@@ -7,7 +9,7 @@ Namespace tools.data_encryption
                 pathtxt.Text = FolderBrowserDialog.SelectedPath &
                                filetxt.Text.Remove(0, filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)).Replace(".wc", "")
                 passwordtxt.Enabled = True
-                If startwindow.iniread = "yes" Then
+                If Startwindow.Iniread = "yes" Then
                     decrypt.Enabled = True
                 Else
                 End If
@@ -19,7 +21,7 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub passwordtxt_TextChanged(sender As Object, e As EventArgs) Handles passwordtxt.TextChanged
-            If startwindow.iniread = "yes" Then
+            If Startwindow.Iniread = "yes" Then
 
             Else
                 If passwordtxt.Text.Length < 6 Then
@@ -31,7 +33,7 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub dencrypt_Click(sender As Object, e As EventArgs) Handles decrypt.Click
-            If startwindow.iniread = "yes" Then
+            If Startwindow.Iniread = "yes" Then
                 Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal),
                                                          filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
                 If My.Computer.FileSystem.FileExists(filetxt.Text) Then
@@ -199,6 +201,12 @@ Namespace tools.data_encryption
         Private Sub Filedecrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
+        End Sub
+
+        Private Sub Filedecrypt_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Application.Exit()
+            End If
         End Sub
     End Class
 End Namespace

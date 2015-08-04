@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports System.IO
 Imports Project_WinCrypt.classes
 Imports Project_WinCrypt.My
@@ -11,7 +11,7 @@ Namespace tools.passwordmanager
 
         Public _
             Ini As _
-                New INIDatei(
+                New IniDatei(
                     _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
 
         Public Schleife As Integer = 0
@@ -25,33 +25,33 @@ Namespace tools.passwordmanager
         Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) _
             Handles database_viewer.SelectedIndexChanged
             If database_viewer.SelectedItems.Count > 0 Then
-                index = CInt(database_viewer.SelectedItems.Item(0).SubItems(2).Text)
-                user_txt.Text = ini.WertLesen(CStr(index), "user")
-                password_txt.Text = ini.WertLesen(CStr(index), "password")
-                source_txt.Text = ini.WertLesen(CStr(index), "source")
-                comment_txt.Text = ini.WertLesen(CStr(index), "comment").Replace("\r\n", vbCrLf)
+                Index = CInt(database_viewer.SelectedItems.Item(0).SubItems(2).Text)
+                user_txt.Text = Ini.WertLesen(CStr(Index), "user")
+                password_txt.Text = Ini.WertLesen(CStr(Index), "password")
+                source_txt.Text = Ini.WertLesen(CStr(Index), "source")
+                comment_txt.Text = Ini.WertLesen(CStr(Index), "comment").Replace("\r\n", vbCrLf)
             End If
         End Sub
 
         Private Sub delete_bt_Click(sender As Object, e As EventArgs) Handles delete_bt.Click
-            ini.WertSchreiben(CStr(index), "user", "")
-            ini.WertSchreiben(CStr(index), "password", "")
-            ini.WertSchreiben(CStr(index), "source", "")
-            ini.WertSchreiben(CStr(index), "comment", "")
-            ini.WertSchreiben(CStr(index), "index", "|")
+            Ini.WertSchreiben(CStr(Index), "user", "")
+            Ini.WertSchreiben(CStr(Index), "password", "")
+            Ini.WertSchreiben(CStr(Index), "source", "")
+            Ini.WertSchreiben(CStr(Index), "comment", "")
+            Ini.WertSchreiben(CStr(Index), "index", "|")
             database_viewer.Items.Clear()
-            For Each go As String In schleife.ToString
+            For Each go As String In Schleife.ToString
                 Do
-                    schleife += 1
-                    If ini.WertLesen(Str(schleife), "index") = "" Then
-                        schleife = 0
+                    Schleife += 1
+                    If Ini.WertLesen(Str(Schleife), "index") = "" Then
+                        Schleife = 0
                         Exit Do
                     Else
-                        If ini.WertLesen(Str(schleife), "index") = "|" Then
+                        If Ini.WertLesen(Str(Schleife), "index") = "|" Then
                         Else
-                            With database_viewer.Items.Add(ini.WertLesen(CStr(schleife), "user"))
-                                .SubItems.Add(ini.WertLesen(CStr(schleife), "source"))
-                                .SubItems.Add(ini.WertLesen(CStr(schleife), "index"))
+                            With database_viewer.Items.Add(Ini.WertLesen(CStr(Schleife), "user"))
+                                .SubItems.Add(Ini.WertLesen(CStr(Schleife), "source"))
+                                .SubItems.Add(Ini.WertLesen(CStr(Schleife), "index"))
                             End With
                         End If
                     End If
@@ -61,10 +61,10 @@ Namespace tools.passwordmanager
         End Sub
 
         Private Sub show_bt_Click(sender As Object, e As EventArgs) Handles save_bt.Click
-            ini.WertSchreiben(CStr(index), "user", user_txt.Text)
-            ini.WertSchreiben(CStr(index), "password", password_txt.Text)
-            ini.WertSchreiben(CStr(index), "source", source_txt.Text)
-            ini.WertSchreiben(CStr(index), "comment", comment_txt.Text.Replace((vbCrLf), ("\r\n")))
+            Ini.WertSchreiben(CStr(Index), "user", user_txt.Text)
+            Ini.WertSchreiben(CStr(Index), "password", password_txt.Text)
+            Ini.WertSchreiben(CStr(Index), "source", source_txt.Text)
+            Ini.WertSchreiben(CStr(Index), "comment", comment_txt.Text.Replace((vbCrLf), ("\r\n")))
         End Sub
 
         Private Sub passwordmanager_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -76,7 +76,7 @@ Namespace tools.passwordmanager
                 Else
                     Computer.FileSystem.WriteAllText(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
-                        CStr(_aes.AESEncrypt(readdb, Mgrpass, startwindow.biosid)), False)
+                        CStr(_aes.AesEncrypt(readdb, Mgrpass, Startwindow.Biosid)), False)
                 End If
                 Mgrpass = ""
             Catch ex As Exception
@@ -117,7 +117,7 @@ Namespace tools.passwordmanager
 
         Private Sub copy_user_bt_Click(sender As Object, e As EventArgs) Handles copy_user_bt.Click
             Computer.Clipboard.SetText(user_txt.Text)
-            If startwindow.langname = "English" Then
+            If Startwindow.Langname = "English" Then
                 MsgBox("User has been copied", MsgBoxStyle.Information)
             Else
                 MsgBox("Benutzer wurde kopiert", MsgBoxStyle.Information)
@@ -126,7 +126,7 @@ Namespace tools.passwordmanager
 
         Private Sub copy_password_bt_Click(sender As Object, e As EventArgs) Handles copy_password_bt.Click
             Computer.Clipboard.SetText(password_txt.Text)
-            If startwindow.langname = "English" Then
+            If Startwindow.Langname = "English" Then
                 MsgBox("Password has been copied", MsgBoxStyle.Information)
             Else
                 MsgBox("Passwort wurde kopiert", MsgBoxStyle.Information)
@@ -135,7 +135,7 @@ Namespace tools.passwordmanager
 
         Private Sub copy_source_bt_Click(sender As Object, e As EventArgs) Handles copy_source_bt.Click
             Computer.Clipboard.SetText(source_txt.Text)
-            If startwindow.langname = "English" Then
+            If Startwindow.Langname = "English" Then
                 MsgBox("Source has been copied", MsgBoxStyle.Information)
             Else
                 MsgBox("Quelle wurde kopiert", MsgBoxStyle.Information)
@@ -187,6 +187,12 @@ Namespace tools.passwordmanager
                 copy_source_bt.Enabled = True
             Else
                 copy_source_bt.Enabled = False
+            End If
+        End Sub
+
+        Private Sub Passwordmanager_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Startwindow.Close()
             End If
         End Sub
     End Class

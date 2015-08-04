@@ -1,4 +1,5 @@
-﻿Imports System.Text
+﻿Imports System.ComponentModel
+Imports System.Text
 
 Namespace tools.passwordgenerator
 
@@ -283,7 +284,7 @@ Namespace tools.passwordgenerator
 
         Private Sub copybt_Click_1(sender As Object, e As EventArgs) Handles copybt.Click
             My.Computer.Clipboard.SetText(generatetxt.Text)
-            If startwindow.langname = "English" Then
+            If Startwindow.Langname = "English" Then
                 MsgBox("Text copied!!", MsgBoxStyle.Information, "Copy")
             Else
                 MsgBox("Text kopiert!", MsgBoxStyle.Information, "Kopiert")
@@ -342,7 +343,7 @@ Namespace tools.passwordgenerator
 
         Private Sub saveas_bt_Click(sender As Object, e As EventArgs) Handles saveas_bt.Click
             save_pw_dialog.ShowDialog()
-            
+
         End Sub
 
         Private Sub save_pw_dialog_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles save_pw_dialog.FileOk
@@ -362,6 +363,12 @@ Namespace tools.passwordgenerator
         Private Sub passwordgenerator_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
+        End Sub
+
+        Private Sub passwordgenerator_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Application.Exit()
+            End If
         End Sub
     End Class
 End Namespace

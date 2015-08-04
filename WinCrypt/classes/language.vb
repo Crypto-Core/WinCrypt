@@ -134,6 +134,8 @@ Namespace classes
                 tools.safedelete.safedelete.Text = "safe delete"
                 tools.safedelete.safedelete.abort_bt.Text = "abort"
                 tools.safedelete.del_report.saveas_bt.Text = "save as..."
+                tools.safedelete.safedelete.override_pb_lb.Text = "overwrite:"
+                tools.safedelete.safedelete.statuslb.Text = "status:"
 
                 'textencrypt.vb
                 tools.text_encryption.Textencrypt.encrypt_lb.Text = "encypt"
@@ -407,6 +409,8 @@ Namespace classes
                 tools.safedelete.safedelete.Text = "Dateien sicher löschen"
                 tools.safedelete.safedelete.abort_bt.Text = "Abbrechen"
                 tools.safedelete.del_report.saveas_bt.Text = "Speichern unter..."
+                tools.safedelete.safedelete.override_pb_lb.Text = "Überschrieben:"
+                tools.safedelete.safedelete.statuslb.Text = "Status:"
 
 
                 'textencrypt.vb

@@ -24,6 +24,7 @@ Public Class Startwindow
     Public Timerclose As Boolean = False
     Dim _finishcrypt As Integer = 0
     Dim _finunmount As Integer = 0
+    Public vCommand As Boolean = False
     ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
 
     ReadOnly _
@@ -720,30 +721,66 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If My.Application.CommandLineArgs.Count > 0 Then
-            Dim vArray As Array
-            Dim commandlineargs As String = Environment.CommandLine
-            vArray = Split(commandlineargs, """ ")
-            Mypath = vArray(1)
-            If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
-                tools.data_encryption.Filedecrypt.Show()
-                tools.data_encryption.Filedecrypt.filetxt.Text = Mypath.ToString
-                tools.data_encryption.Filedecrypt.pathtxt.Text = Mypath.Replace(".wc", "")
-                tools.data_encryption.Filedecrypt.pathtxt.Enabled = True
-                tools.data_encryption.Filedecrypt.passwordtxt.Enabled = True
-                tools.data_encryption.Filedecrypt.savefile.Enabled = True
-                If Iniread = "yes" Then
-                    tools.data_encryption.Filedecrypt.decrypt.Enabled = True
+        Try
+            If My.Application.CommandLineArgs.Count > 0 Then
+                Dim vArray As Array
+                Dim commandlineargs As String = Environment.CommandLine
+                vArray = Split(commandlineargs, """ ")
+                Mypath = vArray(1)
+                If Mypath = "-delete" Then
+                    Hide()
+                    vCommand = True
+                    tools.safedelete.safedelete.ShowDialog()
                 End If
-            End If
+                If Mypath = "-fileencrypt" Then
+                    Hide()
+                    vCommand = True
+                    tools.data_encryption.Fileencrypt.ShowDialog()
+                End If
+                If Mypath = "-filedecrypt" Then
+                    Hide()
+                    vCommand = True
+                    tools.data_encryption.Filedecrypt.ShowDialog()
+                End If
+                If Mypath = "-about" Then
+                    Hide()
+                    vCommand = True
+                    about.ShowDialog()
+                End If
+                If Mypath = "-passwordmanager" Then
+                    Hide()
+                    vCommand = True
+                    tools.passwordmanager.Passwordmanager.ShowDialog()
+                End If
+                If Mypath = "-passwordgenerator" Then
+                    Hide()
+                    vCommand = True
+                    tools.passwordgenerator.passwordgenerator.ShowDialog()
 
-            If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wcp" Then
-                decrypt_filepath.Text = Mypath.ToString
-                If Iniread = "yes" Then
-                    mount.Enabled = True
+                End If
+                If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
+                    tools.data_encryption.Filedecrypt.Show()
+                    tools.data_encryption.Filedecrypt.filetxt.Text = Mypath.ToString
+                    tools.data_encryption.Filedecrypt.pathtxt.Text = Mypath.Replace(".wc", "")
+                    tools.data_encryption.Filedecrypt.pathtxt.Enabled = True
+                    tools.data_encryption.Filedecrypt.passwordtxt.Enabled = True
+                    tools.data_encryption.Filedecrypt.savefile.Enabled = True
+                    If Iniread = "yes" Then
+                        tools.data_encryption.Filedecrypt.decrypt.Enabled = True
+                    End If
+                End If
+
+                If Mypath.Remove(0, Mypath.LastIndexOf(".", StringComparison.Ordinal)) = ".wcp" Then
+                    decrypt_filepath.Text = Mypath.ToString
+                    If Iniread = "yes" Then
+                        mount.Enabled = True
+                    End If
                 End If
             End If
-        End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub systemtray_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles systemtray.MouseDoubleClick

@@ -96,9 +96,9 @@
             Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.password_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-            Me.password_txt.Location = New System.Drawing.Point(71, 400)
+            Me.password_txt.Location = New System.Drawing.Point(74, 400)
             Me.password_txt.Name = "password_txt"
-            Me.password_txt.Size = New System.Drawing.Size(237, 22)
+            Me.password_txt.Size = New System.Drawing.Size(234, 22)
             Me.password_txt.TabIndex = 6
             Me.password_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
             '

@@ -1,5 +1,5 @@
 ﻿Option Strict On
-
+Imports System.ComponentModel
 Imports System.IO
 Imports System.Text
 Imports System.Threading
@@ -21,7 +21,7 @@ Namespace tools.safedelete
         End Enum
 
         Private Shared Sub ChangeProgBarColor(progressBarName As ProgressBar, progressBarColor As ProgressBarColor)
-            SendMessage(progressBarName.Handle, &H410, ProgressBarColor, 0)
+            SendMessage(progressBarName.Handle, &H410, progressBarColor, 0)
         End Sub
 
         Private Sub safedelete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -47,9 +47,9 @@ Namespace tools.safedelete
 
         Private Sub SucheAlleOrdner(pfad As String)
             Dim alleOrdner() As String
-            alleOrdner = Directory.GetDirectories(Pfad)
+            alleOrdner = Directory.GetDirectories(pfad)
             For i = 0 To alleOrdner.Length - 1
-                If alleOrdner(i) <> Pfad Then
+                If alleOrdner(i) <> pfad Then
                     deletfilelist.Items.Add(alleOrdner(i))
                     Call SucheAlleOrdner(alleOrdner(i))
                 End If
@@ -122,7 +122,7 @@ Namespace tools.safedelete
         End Sub
 
         Private Sub deletebt_Click(sender As Object, e As EventArgs) Handles deletebt.Click
-            _delThreadThreading = New Thread(AddressOf delThreas)
+            _delThreadThreading = New Thread(AddressOf DelThreas)
             _delThreadThreading.Start()
             deletebt.Visible = False
             abort_bt.Visible = True
@@ -219,6 +219,12 @@ Namespace tools.safedelete
 
         Private Sub deletfilelist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles deletfilelist.SelectedIndexChanged
 
+        End Sub
+
+        Private Sub safedelete_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+            If Startwindow.vCommand = True Then
+                Application.Exit()
+            End If
         End Sub
     End Class
 End Namespace
