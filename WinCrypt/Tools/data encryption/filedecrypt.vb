@@ -38,7 +38,7 @@ Namespace tools.data_encryption
                                                          filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
                 If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                     If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal))) Then
-                        DecryptFile(Startwindow.Biosid, filetxt.Text, pathtxt.Text)
+                        classes.DecryptFile(Startwindow.Biosid, filetxt.Text, pathtxt.Text)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
                         If Startwindow.Langname = "English" Then
                             statuslb.Text = String.Format("File {0} was decrypted!!", i.Substring(1, i.Length - 1))
@@ -63,7 +63,7 @@ Namespace tools.data_encryption
                                                          filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
                 If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                     If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal))) Then
-                        DecryptFile(passwordtxt.Text, filetxt.Text, pathtxt.Text)
+                        classes.DecryptFile(passwordtxt.Text, filetxt.Text, pathtxt.Text)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
                         If Startwindow.Langname = "English" Then
                             statuslb.Text = String.Format("File {0} was decrypted!!", i.Substring(1, i.Length - 1))

@@ -73,7 +73,7 @@ Namespace tools.data_encryption
             If Startwindow.Iniread = "yes" Then
                 If My.Computer.FileSystem.FileExists(filetxt.Text) Then
                     If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
-                        CryptFile(Startwindow.Biosid, filetxt.Text,
+                        classes.CryptFile(Startwindow.Biosid, filetxt.Text,
                                                         savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
 
@@ -115,7 +115,7 @@ Namespace tools.data_encryption
                                 MsgBox("Passwort zu kurz!", MsgBoxStyle.Information)
                             End If
                         Else
-                            CryptFile(passwordtxt.Text, filetxt.Text,
+                            classes.CryptFile(passwordtxt.Text, filetxt.Text,
                                                             savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)
                             My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
 
