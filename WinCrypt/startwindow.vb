@@ -88,11 +88,11 @@ Public Class Startwindow
                     Next
                 Next
                 If _removestring = "" Then
-                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
+                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & Selecteddrive.Replace(" ", "") &
                               ".wcp", True)
                 Else
-                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
+                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & _removestring.Replace(" ", "") &
                               ".wcp", True)
                 End If
@@ -144,12 +144,12 @@ Public Class Startwindow
                     Next
                 Next
                 If _removestring = "" Then
-                    tools.data_encryption.CryptFile(keycrypt.Text,
+                    CryptFile(keycrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & Selecteddrive.Replace(" ", "") &
                               ".wcp", True)
                 Else
-                    tools.data_encryption.CryptFile(keycrypt.Text,
+                    CryptFile(keycrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & _removestring & "f.zip",
                               My.Computer.FileSystem.SpecialDirectories.Desktop & "\" & _removestring.Replace(" ", "") &
                               ".wcp", True)
@@ -183,7 +183,7 @@ Public Class Startwindow
                 keyencrypt.UseSystemPasswordChar = True
                 Dim lastBackslash As Integer = decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal)
                 Dim removeStr As String = decrypt_filepath.Text.Remove(0, lastBackslash + 1)
-                tools.data_encryption.DecryptFile(Biosid, decrypt_filepath.Text,
+                DecryptFile(Biosid, decrypt_filepath.Text,
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                 If Errormount = "error" Then
 
@@ -237,7 +237,7 @@ Public Class Startwindow
                 keyencrypt.UseSystemPasswordChar = True
                 Dim lastBackslash As Integer = decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal)
                 Dim removeStr As String = decrypt_filepath.Text.Remove(0, lastBackslash + 1)
-                tools.data_encryption.DecryptFile(keyencrypt.Text, decrypt_filepath.Text,
+                DecryptFile(keyencrypt.Text, decrypt_filepath.Text,
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                 If Errormount = "error" Then
 
@@ -317,11 +317,11 @@ Public Class Startwindow
                     decrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
                 End If
                 If removeStr = "" Then
-                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
+                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\Drive-" &
                               decrypt_filepath.Text.Replace(":\", "") & ".wcp", True)
                 Else
-                    tools.data_encryption.CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
+                    CryptFile(Biosid, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\" &
                               removeStr.Replace(".wcp", "") & ".wcp", True)
                 End If
@@ -372,12 +372,12 @@ Public Class Startwindow
                     decrypt_list_status.Items.Add("Jetzt wird Verschlüsselt.......")
                 End If
                 If removeStr = "" Then
-                    tools.data_encryption.CryptFile(keyencrypt.Text,
+                    CryptFile(keyencrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\Drive-" &
                               decrypt_filepath.Text.Replace(":\", "") & ".wcp", True)
                 Else
-                    tools.data_encryption.CryptFile(keyencrypt.Text,
+                    CryptFile(keyencrypt.Text,
                               My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & "f.zip",
                               My.Computer.FileSystem.GetFileInfo(decrypt_filepath.Text).Directory.FullName & "\" &
                               removeStr.Replace(".wcp", "") & ".wcp", True)

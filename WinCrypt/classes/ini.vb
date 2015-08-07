@@ -60,19 +60,19 @@ Namespace classes
                                   Optional ByVal bufferSize As Integer = 1024) As String
             Try
                 If Pfad = "" Then
-                    MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Auslesen des Wertes nicht möglich." _
+                    MessageBox.Show("Es ist kein Pfad zur INI angegeben. Deshalb ist das Auslesen des Wertes nicht möglich." _
                            & vbCrLf & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Angeforderter Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
+                           & schluessel, "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     WertLesen = "Lesefehler"
                     Exit Function
                 End If
 
 
                 If File.Exists(Pfad) = False Then
-                    MsgBox("Die angegebene INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
-                           & "Auslesen des Wertes nicht möglich." & vbCrLf & vbCrLf & "INI-Datei: " & Pfad _
+                    MessageBox.Show("Die angegebene INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
+                           & "Auslesen des Wertes nicht möglich." & vbCrLf & vbCrLf & "INI-Datei:  " & Pfad _
                            & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Angeforderter Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
+                           & schluessel, "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     WertLesen = "Lesefehler"
                     Exit Function
                 End If
@@ -88,24 +88,24 @@ Namespace classes
         Public Sub WertSchreiben(sektion As String, schluessel As String, wert As String)
             Try
                 If Not (File.Exists(Pfad)) Then
-                    MsgBox("Die Datei " & vbCrLf & Pfad & vbCrLf & "existiert nicht und wird neu angelegt")
+
                 End If
                 Dim filetest = CShort(FreeFile())
                 FileOpen(filetest, Pfad, OpenMode.Binary, OpenAccess.ReadWrite, OpenShare.LockReadWrite)
                 FileClose(filetest)
                 If Pfad = "" Then
-                    MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Schreiben des Wertes nicht möglich." _
+                    MessageBox.Show("Es ist kein Pfad zur INI angegeben. Deshalb ist das Schreiben des Wertes nicht möglich." _
                            & vbCrLf & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Zu schreibender Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
+                           & schluessel, "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 Dim ordner As String
                 ordner = Path.GetDirectoryName(Pfad)
                 If Directory.Exists(ordner) = False Then
-                    MsgBox("Die angegebene Ordner für die INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
+                    MessageBox.Show("Die angegebene Ordner für die INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
                            & "Schreiben des Wertes nicht möglich." & vbCrLf & vbCrLf & "Fehlender Ordner: " & ordner _
                            & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Zu schreibender Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei existiet nicht")
+                           & schluessel, "Pfad zur INI-Datei existiet nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 WritePrivateProfileString(sektion, schluessel, Wert, Pfad)
@@ -117,23 +117,23 @@ Namespace classes
         Public Sub SchlüsselLöschen(sektion As String, schluessel As String)
             Try
                 If Pfad = "" Then
-                    MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen des Schlüssels nicht möglich." _
+                    MessageBox.Show("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen des Schlüssels nicht möglich." _
                            & vbCrLf & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Zu löschender Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
+                           & schluessel, "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 Dim ordner As String
                 ordner = Path.GetDirectoryName(Pfad)
                 If Directory.Exists(ordner) = False Then
-                    MsgBox("Die angegebene Ordner für die INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
+                    MessageBox.Show("Die angegebene Ordner für die INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
                            & "Löschen des Wertes nicht möglich." & vbCrLf & vbCrLf & "Fehlender Ordner: " & ordner _
                            & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Zu löschender Schlüssel: " _
-                           & schluessel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei existiert nicht")
+                           & schluessel, "Pfad zur INI-Datei existiert nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 WritePrivateProfileString(sektion, schluessel, Nothing, Pfad)
             Catch ex As Exception
-                MsgBox(ex.Message)
+                MessageBox.Show(ex.Message)
             End Try
         End Sub
 

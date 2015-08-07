@@ -175,7 +175,7 @@
     <value>Flat</value>
   </data>
   <data name="okbt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 407</value>
+    <value>307, 410</value>
   </data>
   <data name="okbt.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -454,7 +454,7 @@
     <value>False</value>
   </data>
   <data name="key_txt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 20</value>
+    <value>109, 17</value>
   </data>
   <data name="key_txt.Size" type="System.Drawing.Size, System.Drawing">
     <value>254, 22</value>
@@ -1084,7 +1084,7 @@
     <value>17</value>
   </data>
   <data name="design_gb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 210</value>
+    <value>13, 213</value>
   </data>
   <data name="design_gb.Size" type="System.Drawing.Size, System.Drawing">
     <value>369, 191</value>
@@ -1129,7 +1129,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>394, 438</value>
+    <value>394, 443</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>

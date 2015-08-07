@@ -100,7 +100,6 @@ Public Class WcSetting
     Private Sub wcSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         designcolor.color()
         _lang.check() ' Es wird die Sprache überprüft
-
         If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
             use_template_rb.Checked = False
             use_template_rb2.Checked = True
@@ -477,5 +476,4 @@ Public Class WcSetting
             Next
         Next
     End Sub
-
 End Class
