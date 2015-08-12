@@ -43,6 +43,7 @@
             Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
             Me.wincrypttitle = New System.Windows.Forms.Label()
             Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+            Me.ComboBox1 = New System.Windows.Forms.ComboBox()
             CType(Me.TrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.arrow_1, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.arrow_2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,7 +133,7 @@
             Me.decrypt_bt.FlatAppearance.BorderSize = 0
             Me.decrypt_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.decrypt_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.decrypt_bt.Location = New System.Drawing.Point(497, 397)
+            Me.decrypt_bt.Location = New System.Drawing.Point(497, 398)
             Me.decrypt_bt.Name = "decrypt_bt"
             Me.decrypt_bt.Size = New System.Drawing.Size(92, 23)
             Me.decrypt_bt.TabIndex = 9
@@ -261,12 +262,26 @@
             Me.wincrypt_icon.TabIndex = 18
             Me.wincrypt_icon.TabStop = False
             '
+            'ComboBox1
+            '
+            Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.ComboBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.ComboBox1.FormattingEnabled = True
+            Me.ComboBox1.Items.AddRange(New Object() {"AES", "RC4"})
+            Me.ComboBox1.Location = New System.Drawing.Point(12, 39)
+            Me.ComboBox1.Name = "ComboBox1"
+            Me.ComboBox1.Size = New System.Drawing.Size(51, 21)
+            Me.ComboBox1.TabIndex = 19
+            Me.ComboBox1.Text = "AES"
+            '
             'Textencrypt
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(601, 430)
+            Me.Controls.Add(Me.ComboBox1)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.wincrypttitle)
             Me.Controls.Add(Me.form_head)
@@ -321,5 +336,6 @@
         Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents wincrypttitle As System.Windows.Forms.Label
         Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
+        Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     End Class
 End Namespace

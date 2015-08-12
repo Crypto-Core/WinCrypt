@@ -182,6 +182,7 @@
     <Compile Include="classes\AES.vb" />
     <Compile Include="classes\designcolor.vb" />
     <Compile Include="classes\MD5fileHash.vb" />
+    <Compile Include="classes\RC4.vb" />
     <Compile Include="info\feedback.Designer.vb">
       <DependentUpon>feedback.vb</DependentUpon>
     </Compile>

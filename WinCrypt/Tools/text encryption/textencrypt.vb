@@ -14,10 +14,20 @@ Namespace tools.text_encryption
                     GetType(GuidAttribute), False)(0),
                 GuidAttribute)
             Dim aes2 As New AES
+            Dim RC4 As New RC4
             If Startwindow.Iniread = "true" Then
-                text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, Startwindow.Biosid, lGuid.Value))
+                If ComboBox1.SelectedIndex = 0 Then
+                    text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, Startwindow.Biosid, lGuid.Value))
+                Else
+                    text_output.Text = CStr(RC4.RC4Encrypt(text_input.Text, Startwindow.Biosid))
+                End If
+
             Else
-                text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
+                If ComboBox1.SelectedIndex = 0 Then
+                    text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
+                Else
+                    text_output.Text = CStr(RC4.RC4Encrypt(text_input.Text, password_txt.Text))
+                End If
             End If
         End Sub
 
@@ -80,10 +90,22 @@ Namespace tools.text_encryption
                     GetType(GuidAttribute), False)(0),
                 GuidAttribute)
             Dim aes2 As New AES
+            Dim RC4 As New RC4
             If Startwindow.Iniread = "true" Then
-                text_input.Text = aes2.AesDecrypt(text_output.Text, Startwindow.Biosid, lGuid.Value)
+                If ComboBox1.SelectedIndex = 0 Then
+                    text_input.Text = aes2.AesDecrypt(text_output.Text, Startwindow.Biosid, lGuid.Value)
+                Else
+                    text_input.Text = CStr(RC4.RC4Decrypt(text_output.Text, Startwindow.Biosid))
+                End If
+
             Else
-                text_input.Text = aes2.AesDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
+                If ComboBox1.SelectedIndex = 0 Then
+                    text_input.Text = aes2.AesDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
+                Else
+                    text_input.Text = CStr(RC4.RC4Decrypt(text_output.Text, password_txt.Text))
+
+                End If
+
             End If
         End Sub
 
