@@ -595,16 +595,18 @@ Public Class Startwindow
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim Dcolor As New designcolor
         Dcolor.color()
-        If My.Settings.Update = False Then
+        If _ini.WertLesen("Info", "Update") = "" Then
             Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
             extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
             extractUpdate.Close()
             loadcolor.color()
-            My.Settings.Update = True
+            _ini.WertSchreiben("Info", "Update", "1")
         Else
 
         End If
         
+
+
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
         Iniread = _ini.WertLesen("systemidentification", "status")
