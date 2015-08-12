@@ -275,6 +275,18 @@ Namespace classes
                 Next
                 feedback.message_lb.Text = "message"
                 feedback.send_bt.Text = "send"
+
+
+                'MD5fileHash.vb
+                MD5FileHash_frm.wincrypttitle.Text = "MD5 file checksum"
+                MD5FileHash_frm.file_lb.Text = "file:"
+                MD5FileHash_frm.md5_lb.Text = "md5:"
+                MD5FileHash_frm.open_bt.Text = "open"
+                MD5FileHash_frm.copy_bt.Text = "copy"
+                MD5FileHash_frm.generate_bt.Text = "generate"
+
+                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "MD5 file checksum"
+                Startwindow.MD5DateiCheksumToolStripMenuItem.Text = "MD5 file checksum"
             End If
 
 
@@ -551,6 +563,18 @@ Namespace classes
                 Next
                 feedback.message_lb.Text = "Nachricht"
                 feedback.send_bt.Text = "Senden"
+
+                'MD5fileHash.vb
+                MD5FileHash_frm.wincrypttitle.Text = "MD5 Datei checksum"
+                MD5FileHash_frm.file_lb.Text = "Datei:"
+                MD5FileHash_frm.md5_lb.Text = "MD5:"
+                MD5FileHash_frm.open_bt.Text = "Öffnen"
+                MD5FileHash_frm.copy_bt.Text = "Kopieren"
+                MD5FileHash_frm.generate_bt.Text = "Generieren"
+
+                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "MD5 Datei checksum"
+                Startwindow.MD5DateiCheksumToolStripMenuItem.Text = "MD5 Datei checksum"
+
             End If
         End Sub
     End Class

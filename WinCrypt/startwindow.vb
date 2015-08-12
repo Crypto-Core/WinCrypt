@@ -593,6 +593,8 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim Dcolor As New designcolor
+        Dcolor.color()
         If My.Settings.Update = False Then
             Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
             extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
@@ -1482,5 +1484,13 @@ Public Class Startwindow
             WndProc(Message.Create(Handle, &HA1, CType(&H2, IntPtr), IntPtr.Zero))
         Else
         End If
+    End Sub
+
+    Private Sub MD5DateiCheksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiCheksumToolStripMenuItem.Click
+        MD5FileHash_frm.Show()
+    End Sub
+
+    Private Sub MD5DateiChecksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
+        MD5FileHash_frm.Show()
     End Sub
 End Class

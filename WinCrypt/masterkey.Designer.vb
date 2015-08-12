@@ -63,6 +63,7 @@ Partial Class Masterkey
         Me.ok_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ok_bt.FlatAppearance.BorderSize = 0
         Me.ok_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ok_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.ok_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ok_bt.Location = New System.Drawing.Point(13, 142)
         Me.ok_bt.Name = "ok_bt"
@@ -76,6 +77,7 @@ Partial Class Masterkey
         Me.abort_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.abort_bt.FlatAppearance.BorderSize = 0
         Me.abort_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.abort_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.abort_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.abort_bt.Location = New System.Drawing.Point(204, 142)
         Me.abort_bt.Name = "abort_bt"

@@ -80,4 +80,8 @@ Public Class Masterkey
             ok_bt.PerformClick()
         End If
     End Sub
+
+    Private Sub form_head_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles form_head.ItemClicked
+
+    End Sub
 End Class

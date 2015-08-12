@@ -169,6 +169,8 @@ Partial Class Startwindow
         Me.gethotkey = New System.Windows.Forms.Timer(Me.components)
         Me.export_db_dialog = New System.Windows.Forms.SaveFileDialog()
         Me.open_encrypt_dialog = New System.Windows.Forms.OpenFileDialog()
+        Me.MD5DateiChecksumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5DateiCheksumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.systemtray_menu.SuspendLayout()
         Me.mount_gb.SuspendLayout()
@@ -208,7 +210,7 @@ Partial Class Startwindow
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
-        Me.setting_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.setting_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.setting_bt_menu.Text = "Einstellung"
         '
         'exit_bt_menu
@@ -217,7 +219,7 @@ Partial Class Startwindow
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
-        Me.exit_bt_menu.Size = New System.Drawing.Size(132, 22)
+        Me.exit_bt_menu.Size = New System.Drawing.Size(152, 22)
         Me.exit_bt_menu.Text = "Beenden"
         '
         'tools_bt_menu
@@ -260,7 +262,7 @@ Partial Class Startwindow
         'hash_bt_menu
         '
         Me.hash_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu})
+        Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu, Me.MD5DateiChecksumToolStripMenuItem})
         Me.hash_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_menu.Name = "hash_bt_menu"
         Me.hash_bt_menu.Size = New System.Drawing.Size(217, 22)
@@ -271,7 +273,7 @@ Partial Class Startwindow
         Me.md5_converter_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_converter_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_converter_bt_menu.Name = "md5_converter_bt_menu"
-        Me.md5_converter_bt_menu.Size = New System.Drawing.Size(162, 22)
+        Me.md5_converter_bt_menu.Size = New System.Drawing.Size(186, 22)
         Me.md5_converter_bt_menu.Text = "MD5 Konverter"
         '
         'md5_bf_bt_menu
@@ -279,7 +281,7 @@ Partial Class Startwindow
         Me.md5_bf_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_bf_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_bf_bt_menu.Name = "md5_bf_bt_menu"
-        Me.md5_bf_bt_menu.Size = New System.Drawing.Size(162, 22)
+        Me.md5_bf_bt_menu.Size = New System.Drawing.Size(186, 22)
         Me.md5_bf_bt_menu.Text = "MD5 Brute-force"
         '
         'rsa_bt_menu
@@ -702,7 +704,7 @@ Partial Class Startwindow
         Me.about_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
         Me.about_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.about_bt_systemtray.Name = "about_bt_systemtray"
-        Me.about_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.about_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.about_bt_systemtray.Text = "About"
         '
         'feedback_bt_systemtray
@@ -711,7 +713,7 @@ Partial Class Startwindow
         Me.feedback_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
         Me.feedback_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.feedback_bt_systemtray.Name = "feedback_bt_systemtray"
-        Me.feedback_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.feedback_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.feedback_bt_systemtray.Text = "Feedback"
         '
         'update_bt_systemtray
@@ -720,7 +722,7 @@ Partial Class Startwindow
         Me.update_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
         Me.update_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.update_bt_systemtray.Name = "update_bt_systemtray"
-        Me.update_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.update_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.update_bt_systemtray.Text = "Update"
         '
         'tools_bt_systemtray
@@ -729,7 +731,7 @@ Partial Class Startwindow
         Me.tools_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.tools_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.tools_bt_systemtray.Name = "tools_bt_systemtray"
-        Me.tools_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.tools_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.tools_bt_systemtray.Text = "Tools"
         '
         'file_encrypt__bt_systemtray
@@ -762,7 +764,7 @@ Partial Class Startwindow
         'hash_bt_systemtray
         '
         Me.hash_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_systemtray, Me.md5_bf_bt_systemtray})
+        Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_systemtray, Me.md5_bf_bt_systemtray, Me.MD5DateiCheksumToolStripMenuItem})
         Me.hash_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_systemtray.Name = "hash_bt_systemtray"
         Me.hash_bt_systemtray.Size = New System.Drawing.Size(217, 22)
@@ -773,7 +775,7 @@ Partial Class Startwindow
         Me.md5_converter_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_converter_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_converter_bt_systemtray.Name = "md5_converter_bt_systemtray"
-        Me.md5_converter_bt_systemtray.Size = New System.Drawing.Size(162, 22)
+        Me.md5_converter_bt_systemtray.Size = New System.Drawing.Size(180, 22)
         Me.md5_converter_bt_systemtray.Text = "MD5 Konverter"
         '
         'md5_bf_bt_systemtray
@@ -781,7 +783,7 @@ Partial Class Startwindow
         Me.md5_bf_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_bf_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_bf_bt_systemtray.Name = "md5_bf_bt_systemtray"
-        Me.md5_bf_bt_systemtray.Size = New System.Drawing.Size(162, 22)
+        Me.md5_bf_bt_systemtray.Size = New System.Drawing.Size(180, 22)
         Me.md5_bf_bt_systemtray.Text = "MD5 Brute-force"
         '
         'rsa_bt_systemtray
@@ -835,7 +837,7 @@ Partial Class Startwindow
         Me.send_mail_bt_systemtray.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.send_mail_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.send_mail_bt_systemtray.Name = "send_mail_bt_systemtray"
-        Me.send_mail_bt_systemtray.Size = New System.Drawing.Size(149, 22)
+        Me.send_mail_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.send_mail_bt_systemtray.Text = "E-Mail senden"
         '
         'pw_manager_bt_systemtray
@@ -904,7 +906,7 @@ Partial Class Startwindow
         Me.open_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.open_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.open_bt_systemtray.Name = "open_bt_systemtray"
-        Me.open_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.open_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.open_bt_systemtray.Text = "Öffnen"
         '
         'exit_bt_systemtray
@@ -913,7 +915,7 @@ Partial Class Startwindow
         Me.exit_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_systemtray.ImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.exit_bt_systemtray.Name = "exit_bt_systemtray"
-        Me.exit_bt_systemtray.Size = New System.Drawing.Size(124, 22)
+        Me.exit_bt_systemtray.Size = New System.Drawing.Size(152, 22)
         Me.exit_bt_systemtray.Text = "Beenden"
         '
         'DateiVerschlüsselnToolStripMenuItem1
@@ -1463,6 +1465,22 @@ Partial Class Startwindow
         Me.export_db_dialog.FileName = "export.db"
         Me.export_db_dialog.Filter = "Database-file|*.db"
         '
+        'MD5DateiChecksumToolStripMenuItem
+        '
+        Me.MD5DateiChecksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MD5DateiChecksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MD5DateiChecksumToolStripMenuItem.Name = "MD5DateiChecksumToolStripMenuItem"
+        Me.MD5DateiChecksumToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.MD5DateiChecksumToolStripMenuItem.Text = "MD5 Datei checksum"
+        '
+        'MD5DateiCheksumToolStripMenuItem
+        '
+        Me.MD5DateiCheksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MD5DateiCheksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MD5DateiCheksumToolStripMenuItem.Name = "MD5DateiCheksumToolStripMenuItem"
+        Me.MD5DateiCheksumToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MD5DateiCheksumToolStripMenuItem.Text = "MD5 Datei cheksum"
+        '
         'Startwindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1643,5 +1661,7 @@ Partial Class Startwindow
     Friend WithEvents gethotkey As System.Windows.Forms.Timer
     Friend WithEvents export_db_dialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents open_encrypt_dialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents MD5DateiChecksumToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MD5DateiCheksumToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

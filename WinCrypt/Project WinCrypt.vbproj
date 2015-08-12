@@ -181,6 +181,7 @@
   <ItemGroup>
     <Compile Include="classes\AES.vb" />
     <Compile Include="classes\designcolor.vb" />
+    <Compile Include="classes\MD5fileHash.vb" />
     <Compile Include="info\feedback.Designer.vb">
       <DependentUpon>feedback.vb</DependentUpon>
     </Compile>
@@ -204,6 +205,12 @@
       <DependentUpon>fileencrypt.vb</DependentUpon>
     </Compile>
     <Compile Include="tools\data encryption\fileencrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tools\hash\MD5FileHash_frm.Designer.vb">
+      <DependentUpon>MD5FileHash_frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tools\hash\MD5FileHash_frm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tools\safedelete\del_report.Designer.vb">
@@ -348,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tools\data encryption\fileencrypt.resx">
       <DependentUpon>fileencrypt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tools\hash\MD5FileHash_frm.resx">
+      <DependentUpon>MD5FileHash_frm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tools\safedelete\del_report.resx">
       <DependentUpon>del_report.vb</DependentUpon>

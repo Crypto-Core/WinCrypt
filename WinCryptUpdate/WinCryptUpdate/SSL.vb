@@ -5,7 +5,7 @@ Public Class SSL
         Dim lKey As String = Nothing
         Try
             Dim local As New X509Certificate(localKey)
-            lKey = local.GetPublicKeyString
+            lKey = local.GetCertHashString
         Catch ex As Exception
             MsgBox("Local SSL certificate does not exist!", MsgBoxStyle.Critical)
         End Try
@@ -20,7 +20,7 @@ Public Class SSL
 
         Dim currentServicePoint As ServicePoint = req.ServicePoint
 
-        Dim sKey As String = currentServicePoint.Certificate.GetPublicKeyString
+        Dim sKey As String = currentServicePoint.Certificate.GetCertHashString
         If lKey = sKey Then
             Return True
         Else

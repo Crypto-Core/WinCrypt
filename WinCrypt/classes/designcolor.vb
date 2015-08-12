@@ -109,6 +109,8 @@ Public Class designcolor
 
         '// Farben von Textencrypt.vb werden angepasst
         Textencrypt_color()
+
+        md5filehash()
     End Sub
     Private Sub startwindows_color()
         '// Die Farben werden in den Einstellungen geladen
@@ -352,6 +354,11 @@ Public Class designcolor
         Startwindow.create_container_encrypt.BackColor = buttoncolor
         Startwindow.create_container_encrypt.ForeColor = textcolor
 
+        Startwindow.MD5DateiCheksumToolStripMenuItem.ForeColor = textcolor
+        Startwindow.MD5DateiCheksumToolStripMenuItem.BackColor = bgcolor
+
+        Startwindow.MD5DateiChecksumToolStripMenuItem.ForeColor = textcolor
+        Startwindow.MD5DateiChecksumToolStripMenuItem.BackColor = bgcolor
     End Sub
     Private Sub wcSetting_color()
         '// form_head
@@ -1729,5 +1736,33 @@ Public Class designcolor
         '// encrypt_bt
         tools.text_encryption.Textencrypt.encrypt_bt.ForeColor = textcolor
         tools.text_encryption.Textencrypt.encrypt_bt.BackColor = buttoncolor
+    End Sub
+
+    Private Sub md5filehash()
+        MD5FileHash_frm.form_head.BackColor = formheadcolor
+        MD5FileHash_frm.wincrypttitle.BackColor = formheadcolor
+        MD5FileHash_frm.wincrypt_icon.BackColor = formheadcolor
+        MD5FileHash_frm.minimize_bt.BackColor = formheadcolor
+        MD5FileHash_frm.exit_bt.BackColor = formheadcolor
+        MD5FileHash_frm.exit_bt.ForeColor = textcolor
+        MD5FileHash_frm.minimize_bt.ForeColor = textcolor
+        MD5FileHash_frm.wincrypttitle.ForeColor = textcolor
+        MD5FileHash_frm.file_lb.ForeColor = textcolor
+        MD5FileHash_frm.md5_lb.ForeColor = textcolor
+        MD5FileHash_frm.open_bt.ForeColor = textcolor
+        MD5FileHash_frm.copy_bt.ForeColor = textcolor
+        MD5FileHash_frm.generate_bt.ForeColor = textcolor
+        MD5FileHash_frm.ForeColor = textcolor
+        MD5FileHash_frm.md5_lb.ForeColor = textcolor
+        MD5FileHash_frm.BackColor = bgcolor
+        MD5FileHash_frm.file_lb.BackColor = bgcolor
+        MD5FileHash_frm.file_txt.ForeColor = inputtextcolor
+        MD5FileHash_frm.file_txt.BackColor = inputbackgroundcolor
+        MD5FileHash_frm.md5_hash_txt.ForeColor = inputtextcolor
+        MD5FileHash_frm.md5_hash_txt.BackColor = inputbackgroundcolor
+        MD5FileHash_frm.copy_bt.BackColor = buttoncolor
+        MD5FileHash_frm.open_bt.BackColor = buttoncolor
+
+        MD5FileHash_frm.generate_bt.BackColor = buttoncolor
     End Sub
 End Class
