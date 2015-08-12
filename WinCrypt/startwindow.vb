@@ -593,7 +593,9 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
+        extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
+        extractUpdate.Close()
         loadcolor.color()
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
