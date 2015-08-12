@@ -12,7 +12,12 @@ Public Class SSL
 
         Dim res As HttpWebResponse = Nothing
         Dim req As HttpWebRequest = CType(WebRequest.Create(serverKey), HttpWebRequest)
-        res = CType(req.GetResponse(), HttpWebResponse)
+        Try
+            res = CType(req.GetResponse(), HttpWebResponse)
+        Catch ex As Exception
+            MsgBox("Warning: Possibly an attack was also carried out your connection!", MsgBoxStyle.Critical)
+        End Try
+
         Dim currentServicePoint As ServicePoint = req.ServicePoint
 
         Dim sKey As String = currentServicePoint.Certificate.GetPublicKeyString
