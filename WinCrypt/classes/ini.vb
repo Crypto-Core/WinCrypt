@@ -69,10 +69,8 @@ Namespace classes
 
 
                 If File.Exists(Pfad) = False Then
-                    MessageBox.Show("Die angegebene INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
-                           & "Auslesen des Wertes nicht möglich." & vbCrLf & vbCrLf & "INI-Datei:  " & Pfad _
-                           & vbCrLf & "Angeforderte Sektion: " & sektion & vbCrLf & "Angeforderter Schlüssel: " _
-                           & schluessel, "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    My.Computer.FileSystem.CreateDirectory(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt")
+                    My.Computer.FileSystem.WriteAllText(Pfad, My.Resources.config, False)
                     WertLesen = "Lesefehler"
                     Exit Function
                 End If

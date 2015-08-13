@@ -465,6 +465,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\config.ini" />
     <None Include="resources\key2.png" />
     <None Include="resources\eye.png" />
     <None Include="resources\wcp.ico" />

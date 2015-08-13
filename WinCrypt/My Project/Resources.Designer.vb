@@ -111,6 +111,27 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die [Info]
+        '''Update=
+        '''Version=1473
+        '''[Design]
+        '''BackgroundColor=#2d2d30
+        '''FormHeadColor=#2d2d30
+        '''InputBackgroundColor=#333337
+        '''buttoncolor=#3e3e40
+        '''TextColor=#ffffff
+        '''UseTemplate=False
+        '''InputTextColor=#007acc
+        '''[systemidentification]
+        '''status=no ähnelt.
+        '''</summary>
+        Friend ReadOnly Property config() As String
+            Get
+                Return ResourceManager.GetString("config", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.IO.UnmanagedMemoryStream ähnlich wie System.IO.MemoryStream.
         '''</summary>
         Friend ReadOnly Property crypt() As System.IO.UnmanagedMemoryStream

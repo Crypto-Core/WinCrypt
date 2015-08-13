@@ -25,7 +25,7 @@ Public Class Startwindow
     Dim _finishcrypt As Integer = 0
     Dim _finunmount As Integer = 0
     Public vCommand As Boolean = False
-    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+    Public _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
 
     ReadOnly _
         _ini As _
@@ -593,8 +593,6 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim Dcolor As New designcolor
-        Dcolor.color()
         If _ini.WertLesen("Info", "Update") = "" Then
             Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
             extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
@@ -604,8 +602,6 @@ Public Class Startwindow
         Else
 
         End If
-        
-
 
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
@@ -733,6 +729,8 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dim loadColor As New designcolor
+        loadColor.color()
         Try
             If My.Application.CommandLineArgs.Count > 0 Then
                 Dim vArray As Array
