@@ -48,8 +48,11 @@
             Me.abort_bt = New System.Windows.Forms.Button()
             Me.report_bt = New System.Windows.Forms.Button()
             Me.cleanlb1 = New System.Windows.Forms.Button()
+            Me.loadBall = New System.Windows.Forms.PictureBox()
+            Me.Button1 = New System.Windows.Forms.Button()
             Me.form_head.SuspendLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.loadBall, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'deletebt
@@ -241,7 +244,7 @@
             Me.overwrite_pb.Location = New System.Drawing.Point(12, 144)
             Me.overwrite_pb.Maximum = 10
             Me.overwrite_pb.Name = "overwrite_pb"
-            Me.overwrite_pb.Size = New System.Drawing.Size(408, 23)
+            Me.overwrite_pb.Size = New System.Drawing.Size(386, 23)
             Me.overwrite_pb.TabIndex = 5
             '
             'override_pb_lb
@@ -295,12 +298,38 @@
             Me.cleanlb1.TabIndex = 24
             Me.cleanlb1.UseVisualStyleBackColor = False
             '
+            'loadBall
+            '
+            Me.loadBall.Enabled = False
+            Me.loadBall.Image = Global.Project_WinCrypt.My.Resources.Resources.Ballload
+            Me.loadBall.Location = New System.Drawing.Point(404, 144)
+            Me.loadBall.Name = "loadBall"
+            Me.loadBall.Size = New System.Drawing.Size(23, 23)
+            Me.loadBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+            Me.loadBall.TabIndex = 25
+            Me.loadBall.TabStop = False
+            '
+            'Button1
+            '
+            Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
+            Me.Button1.FlatAppearance.BorderSize = 0
+            Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.Button1.Location = New System.Drawing.Point(190, 115)
+            Me.Button1.Name = "Button1"
+            Me.Button1.Size = New System.Drawing.Size(75, 23)
+            Me.Button1.TabIndex = 26
+            Me.Button1.Text = "Auswählen"
+            Me.Button1.UseVisualStyleBackColor = False
+            '
             'safedelete
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(432, 475)
+            Me.Controls.Add(Me.Button1)
+            Me.Controls.Add(Me.loadBall)
             Me.Controls.Add(Me.cleanlb1)
             Me.Controls.Add(Me.report_bt)
             Me.Controls.Add(Me.abort_bt)
@@ -331,6 +360,7 @@
             Me.form_head.ResumeLayout(False)
             Me.form_head.PerformLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.loadBall, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -359,5 +389,7 @@
         Friend WithEvents abort_bt As System.Windows.Forms.Button
         Friend WithEvents report_bt As System.Windows.Forms.Button
         Friend WithEvents cleanlb1 As System.Windows.Forms.Button
+        Friend WithEvents loadBall As System.Windows.Forms.PictureBox
+        Friend WithEvents Button1 As System.Windows.Forms.Button
     End Class
 End Namespace

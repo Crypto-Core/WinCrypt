@@ -122,6 +122,7 @@ Namespace tools.safedelete
         End Sub
 
         Private Sub deletebt_Click(sender As Object, e As EventArgs) Handles deletebt.Click
+            loadBall.Enabled = True
             _delThreadThreading = New Thread(AddressOf DelThreas)
             _delThreadThreading.Start()
             deletebt.Visible = False
@@ -130,6 +131,7 @@ Namespace tools.safedelete
 
         Sub DelThreas()
             If MsgBox("Möchten Sie wirklich alle Daten unwiederruflich löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+
                 deletfilelist.SelectedIndex = 0
                 file_txt.Enabled = False
                 selectpathbt.Enabled = False
@@ -169,6 +171,8 @@ Namespace tools.safedelete
                         _errorreport.AppendLine()
                     End Try
                 Next
+                loadBall.Enabled = False
+                loadBall.Image = My.Resources.Ballload
                 MsgBox("Alle Daten wurden unwiederruflich gelöscht!", MsgBoxStyle.Information)
                 file_txt.Enabled = True
                 selectpathbt.Enabled = True
@@ -178,6 +182,8 @@ Namespace tools.safedelete
                 report_bt.Enabled = True
                 deletfilelist.Items.Clear()
             Else
+                loadBall.Enabled = False
+                loadBall.Image = My.Resources.Ballload
                 deletebt.Visible = True
                 abort_bt.Visible = False
                 _delThreadThreading.Abort()
@@ -215,10 +221,6 @@ Namespace tools.safedelete
                 progressstatus.Value = 0
                 overwrite_pb.Value = 0
             End If
-        End Sub
-
-        Private Sub deletfilelist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles deletfilelist.SelectedIndexChanged
-
         End Sub
 
         Private Sub safedelete_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

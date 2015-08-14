@@ -530,6 +530,10 @@
     <None Include="resources\Add-New-161.png" />
     <None Include="resources\Minus-16.png" />
     <None Include="resources\WinCryptUpdate.exe" />
+    <None Include="resources\LOAD.gif" />
+    <None Include="resources\loadred.gif" />
+    <None Include="resources\loadred1.gif" />
+    <None Include="resources\Ballload.gif" />
     <Content Include="wc-icon.ico" />
     <None Include="resources\wc-icon128.png" />
     <None Include="resources\wc-icon16.png" />
