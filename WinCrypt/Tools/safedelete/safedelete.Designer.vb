@@ -49,7 +49,6 @@
             Me.report_bt = New System.Windows.Forms.Button()
             Me.cleanlb1 = New System.Windows.Forms.Button()
             Me.loadBall = New System.Windows.Forms.PictureBox()
-            Me.Button1 = New System.Windows.Forms.Button()
             Me.form_head.SuspendLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.loadBall, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -309,26 +308,12 @@
             Me.loadBall.TabIndex = 25
             Me.loadBall.TabStop = False
             '
-            'Button1
-            '
-            Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-            Me.Button1.FlatAppearance.BorderSize = 0
-            Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.Button1.Location = New System.Drawing.Point(190, 115)
-            Me.Button1.Name = "Button1"
-            Me.Button1.Size = New System.Drawing.Size(75, 23)
-            Me.Button1.TabIndex = 26
-            Me.Button1.Text = "Auswählen"
-            Me.Button1.UseVisualStyleBackColor = False
-            '
             'safedelete
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(432, 475)
-            Me.Controls.Add(Me.Button1)
             Me.Controls.Add(Me.loadBall)
             Me.Controls.Add(Me.cleanlb1)
             Me.Controls.Add(Me.report_bt)
@@ -390,6 +375,5 @@
         Friend WithEvents report_bt As System.Windows.Forms.Button
         Friend WithEvents cleanlb1 As System.Windows.Forms.Button
         Friend WithEvents loadBall As System.Windows.Forms.PictureBox
-        Friend WithEvents Button1 As System.Windows.Forms.Button
     End Class
 End Namespace

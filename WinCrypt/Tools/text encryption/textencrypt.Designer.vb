@@ -43,7 +43,7 @@
             Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
             Me.wincrypttitle = New System.Windows.Forms.Label()
             Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
-            Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+            Me.algo_cb = New System.Windows.Forms.ComboBox()
             CType(Me.TrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.arrow_1, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.arrow_2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -262,18 +262,18 @@
             Me.wincrypt_icon.TabIndex = 18
             Me.wincrypt_icon.TabStop = False
             '
-            'ComboBox1
+            'algo_cb
             '
-            Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.ComboBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.ComboBox1.FormattingEnabled = True
-            Me.ComboBox1.Items.AddRange(New Object() {"AES", "RC4"})
-            Me.ComboBox1.Location = New System.Drawing.Point(12, 39)
-            Me.ComboBox1.Name = "ComboBox1"
-            Me.ComboBox1.Size = New System.Drawing.Size(51, 21)
-            Me.ComboBox1.TabIndex = 19
-            Me.ComboBox1.Text = "AES"
+            Me.algo_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.algo_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.algo_cb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+            Me.algo_cb.FormattingEnabled = True
+            Me.algo_cb.Items.AddRange(New Object() {"AES", "RC4"})
+            Me.algo_cb.Location = New System.Drawing.Point(12, 39)
+            Me.algo_cb.Name = "algo_cb"
+            Me.algo_cb.Size = New System.Drawing.Size(51, 21)
+            Me.algo_cb.TabIndex = 19
+            Me.algo_cb.Text = "AES"
             '
             'Textencrypt
             '
@@ -281,7 +281,7 @@
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(601, 430)
-            Me.Controls.Add(Me.ComboBox1)
+            Me.Controls.Add(Me.algo_cb)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.wincrypttitle)
             Me.Controls.Add(Me.form_head)
@@ -336,6 +336,6 @@
         Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents wincrypttitle As System.Windows.Forms.Label
         Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
-        Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+        Friend WithEvents algo_cb As System.Windows.Forms.ComboBox
     End Class
 End Namespace

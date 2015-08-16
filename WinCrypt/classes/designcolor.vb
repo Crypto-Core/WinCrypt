@@ -1737,8 +1737,8 @@ Public Class designcolor
         tools.text_encryption.Textencrypt.encrypt_bt.ForeColor = textcolor
         tools.text_encryption.Textencrypt.encrypt_bt.BackColor = buttoncolor
 
-        tools.text_encryption.Textencrypt.ComboBox1.ForeColor = textcolor
-        tools.text_encryption.Textencrypt.ComboBox1.BackColor = inputtextcolor
+        tools.text_encryption.Textencrypt.algo_cb.ForeColor = inputtextcolor
+        tools.text_encryption.Textencrypt.algo_cb.BackColor = inputbackgroundcolor
     End Sub
 
     Private Sub md5filehash()

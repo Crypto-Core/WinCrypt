@@ -294,9 +294,9 @@
             Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
             Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
             Me.wincrypttitle.Name = "wincrypttitle"
-            Me.wincrypttitle.Size = New System.Drawing.Size(105, 17)
+            Me.wincrypttitle.Size = New System.Drawing.Size(106, 17)
             Me.wincrypttitle.TabIndex = 18
-            Me.wincrypttitle.Text = "MD5 Brute-force"
+            Me.wincrypttitle.Text = "Hash Brute-force"
             '
             'wincrypt_icon
             '
