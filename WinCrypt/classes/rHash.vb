@@ -65,5 +65,51 @@ Namespace classes
             Next
             Return Result
         End Function
+        Public Shared Function HashByte(ByVal bytes As Byte(), Hash As HASH) As String
+
+            Dim HashValue(0) As Byte
+            Dim Result = ""
+            Dim Tmp = ""
+
+            Select Case Hash
+                Case Hash.MD5
+                    Dim MD5 As New MD5CryptoServiceProvider
+
+                    HashValue = MD5.ComputeHash(bytes)
+
+                Case Hash.SHA1
+                    Dim SHA1 As New SHA1Managed
+
+                    HashValue = SHA1.ComputeHash(bytes)
+
+                Case Hash.SHA256
+                    Dim SHA256 As New SHA256Managed
+
+                    HashValue = SHA256.ComputeHash(bytes)
+
+                Case Hash.SHA384
+                    Dim SHA384 As New SHA384Managed
+
+                    HashValue = SHA384.ComputeHash(bytes)
+
+                Case Hash.SHA512
+                    Dim SHA512 As New SHA512Managed
+
+                    HashValue = SHA512.ComputeHash(bytes)
+
+                Case Hash.RIPEMD160
+                    Dim RIPEMD160 As New RIPEMD160Managed
+
+                    HashValue = RIPEMD160.ComputeHash(bytes)
+            End Select
+
+            For i = 0 To HashValue.Length - 1
+                Tmp = Hex(HashValue(i))
+                If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+                Result += Tmp
+            Next
+            Return Result
+        End Function
     End Class
+
 End Namespace

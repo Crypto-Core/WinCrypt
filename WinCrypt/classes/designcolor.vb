@@ -1436,6 +1436,10 @@ Public Class designcolor
         '// save_bt
         tools.rsa.rsa_create_keys.save_bt.ForeColor = textcolor
         tools.rsa.rsa_create_keys.save_bt.BackColor = buttoncolor
+
+        '// bit_cb
+        tools.rsa.rsa_create_keys.bit_cb.ForeColor = inputtextcolor
+        tools.rsa.rsa_create_keys.bit_cb.BackColor = inputbackgroundcolor
     End Sub
     Private Sub rsa_decrypt_color()
         '// form_head
@@ -1492,6 +1496,10 @@ Public Class designcolor
         '// decrypt_bt
         tools.rsa.rsa_decrypt.decrypt_bt.ForeColor = textcolor
         tools.rsa.rsa_decrypt.decrypt_bt.BackColor = buttoncolor
+
+        '// bit_cb
+        tools.rsa.rsa_decrypt.bit_cb.ForeColor = inputtextcolor
+        tools.rsa.rsa_decrypt.bit_cb.BackColor = inputbackgroundcolor
     End Sub
     Private Sub rsa_encrypt_color()
         '// form_head
@@ -1549,6 +1557,9 @@ Public Class designcolor
         tools.rsa.rsa_encrypt.encryption_bt.ForeColor = textcolor
         tools.rsa.rsa_encrypt.encryption_bt.BackColor = buttoncolor
 
+        '// bit_cb
+        tools.rsa.rsa_encrypt.bit_cb.ForeColor = inputtextcolor
+        tools.rsa.rsa_encrypt.bit_cb.BackColor = inputbackgroundcolor
     End Sub
     Private Sub del_report_color()
         '// form_head

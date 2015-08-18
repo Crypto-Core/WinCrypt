@@ -42,6 +42,7 @@
             Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
             Me.wincrypttitle = New System.Windows.Forms.Label()
             Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+            Me.bit_cb = New System.Windows.Forms.ComboBox()
             Me.form_head.SuspendLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
@@ -73,9 +74,9 @@
             Me.save_privkey_bt.FlatAppearance.BorderSize = 0
             Me.save_privkey_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.save_privkey_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.save_privkey_bt.Location = New System.Drawing.Point(525, 48)
+            Me.save_privkey_bt.Location = New System.Drawing.Point(515, 48)
             Me.save_privkey_bt.Name = "save_privkey_bt"
-            Me.save_privkey_bt.Size = New System.Drawing.Size(93, 23)
+            Me.save_privkey_bt.Size = New System.Drawing.Size(103, 23)
             Me.save_privkey_bt.TabIndex = 2
             Me.save_privkey_bt.Text = "Speichern unter"
             Me.save_privkey_bt.UseVisualStyleBackColor = False
@@ -87,9 +88,9 @@
             Me.save_pubkey_bt.FlatAppearance.BorderSize = 0
             Me.save_pubkey_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.save_pubkey_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-            Me.save_pubkey_bt.Location = New System.Drawing.Point(525, 77)
+            Me.save_pubkey_bt.Location = New System.Drawing.Point(515, 77)
             Me.save_pubkey_bt.Name = "save_pubkey_bt"
-            Me.save_pubkey_bt.Size = New System.Drawing.Size(93, 23)
+            Me.save_pubkey_bt.Size = New System.Drawing.Size(103, 23)
             Me.save_pubkey_bt.TabIndex = 3
             Me.save_pubkey_bt.Text = "Speichern unter"
             Me.save_pubkey_bt.UseVisualStyleBackColor = False
@@ -103,7 +104,7 @@
             Me.private_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.private_key_path_txt.Location = New System.Drawing.Point(82, 50)
             Me.private_key_path_txt.Name = "private_key_path_txt"
-            Me.private_key_path_txt.Size = New System.Drawing.Size(437, 22)
+            Me.private_key_path_txt.Size = New System.Drawing.Size(427, 22)
             Me.private_key_path_txt.TabIndex = 4
             '
             'public_key_path_txt
@@ -115,12 +116,12 @@
             Me.public_key_path_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.public_key_path_txt.Location = New System.Drawing.Point(82, 79)
             Me.public_key_path_txt.Name = "public_key_path_txt"
-            Me.public_key_path_txt.Size = New System.Drawing.Size(437, 22)
+            Me.public_key_path_txt.Size = New System.Drawing.Size(427, 22)
             Me.public_key_path_txt.TabIndex = 5
             '
             'save_keys_dialog
             '
-            Me.save_keys_dialog.Filter = "XML-Datei|*.xml"
+            Me.save_keys_dialog.Filter = "KEY-file|*.key"
             '
             'generate_key_bt
             '
@@ -250,12 +251,26 @@
             Me.wincrypt_icon.TabIndex = 15
             Me.wincrypt_icon.TabStop = False
             '
+            'bit_cb
+            '
+            Me.bit_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.bit_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.bit_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.bit_cb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+            Me.bit_cb.FormattingEnabled = True
+            Me.bit_cb.Items.AddRange(New Object() {"1024", "2048", "4096"})
+            Me.bit_cb.Location = New System.Drawing.Point(155, 425)
+            Me.bit_cb.Name = "bit_cb"
+            Me.bit_cb.Size = New System.Drawing.Size(57, 21)
+            Me.bit_cb.TabIndex = 16
+            '
             'rsa_create_keys
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(630, 459)
+            Me.Controls.Add(Me.bit_cb)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.wincrypttitle)
             Me.Controls.Add(Me.form_head)
@@ -272,6 +287,7 @@
             Me.Controls.Add(Me.public_key_lb1)
             Me.Controls.Add(Me.private_key_lb1)
             Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
             Me.Name = "rsa_create_keys"
@@ -302,5 +318,6 @@
         Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents wincrypttitle As System.Windows.Forms.Label
         Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
+        Friend WithEvents bit_cb As System.Windows.Forms.ComboBox
     End Class
 End Namespace

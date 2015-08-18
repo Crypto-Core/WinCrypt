@@ -38,6 +38,7 @@
             Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
             Me.wincrypttitle = New System.Windows.Forms.Label()
             Me.wincrypt_icon = New System.Windows.Forms.PictureBox()
+            Me.bit_cb = New System.Windows.Forms.ComboBox()
             Me.form_head.SuspendLayout()
             CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
@@ -190,12 +191,26 @@
             Me.wincrypt_icon.TabIndex = 15
             Me.wincrypt_icon.TabStop = False
             '
+            'bit_cb
+            '
+            Me.bit_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.bit_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.bit_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.bit_cb.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+            Me.bit_cb.FormattingEnabled = True
+            Me.bit_cb.Items.AddRange(New Object() {"1024", "2048", "4096"})
+            Me.bit_cb.Location = New System.Drawing.Point(485, 444)
+            Me.bit_cb.Name = "bit_cb"
+            Me.bit_cb.Size = New System.Drawing.Size(57, 21)
+            Me.bit_cb.TabIndex = 17
+            '
             'rsa_decrypt
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(652, 470)
+            Me.Controls.Add(Me.bit_cb)
             Me.Controls.Add(Me.wincrypt_icon)
             Me.Controls.Add(Me.wincrypttitle)
             Me.Controls.Add(Me.form_head)
@@ -234,5 +249,6 @@
         Friend WithEvents minimize_bt As System.Windows.Forms.ToolStripMenuItem
         Friend WithEvents wincrypttitle As System.Windows.Forms.Label
         Friend WithEvents wincrypt_icon As System.Windows.Forms.PictureBox
+        Friend WithEvents bit_cb As System.Windows.Forms.ComboBox
     End Class
 End Namespace

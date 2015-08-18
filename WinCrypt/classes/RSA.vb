@@ -12,6 +12,8 @@ Namespace classes
         End Structure
 
         Function Create_RSA_Key(Optional ByVal keysize As Integer = 2048) As RsaKeyStruct
+            Dim createbit As Integer = tools.rsa.rsa_create_keys.createbit
+            keysize = createbit
             Dim rsaKey As RsaKeyStruct
             Dim rsaCrypto As New RSACryptoServiceProvider(keysize)
             rsaKey.OpenKey = rsaCrypto.ToXmlString(False)
@@ -21,11 +23,14 @@ Namespace classes
         End Function
 
         Function RSA_encrypt(data As String, openkeyXml As String, Optional ByVal keysize As Integer = 2048) As String
+            Dim encryptbit As Integer = tools.rsa.rsa_encrypt.encryptbit
+            keysize = encryptbit
             Dim rsaCryptoVer As New RSACryptoServiceProvider(keysize)
             Dim byteData As Byte() = UTF8Encoding.UTF8.GetBytes(data)
             Dim outString As String = String.Empty
             Try
                 rsaCryptoVer.FromXmlString(openkeyXml)
+
                 outString = Convert.ToBase64String(rsaCryptoVer.Encrypt(byteData, True))
                 rsaCryptoVer.Dispose()
                 Return outString
@@ -36,6 +41,8 @@ Namespace classes
         End Function
 
         Function RSA_decrypt(data As String, privatekeyXml As String, Optional ByVal keysize As Integer = 2048) As String
+            Dim decryptbit As Integer = tools.rsa.rsa_decrypt.decryptbit
+            keysize = decryptbit
             Dim rsaCryptoEnt As New RSACryptoServiceProvider(keysize)
             Try
                 Dim byteData As Byte() = Convert.FromBase64String(data)

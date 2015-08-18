@@ -6,17 +6,30 @@ Namespace tools.rsa
 
     Public Class rsa_decrypt
         Dim privkey As String
-
+        Public decryptbit As Integer
         Private Sub Button1_Click(sender As Object, e As EventArgs) Handles open_privkey_bt.Click
             open_private_key_dialog.ShowDialog()
             If My.Computer.FileSystem.FileExists(open_private_key_dialog.FileName) Then
                 privkey_path_txt.Text = open_private_key_dialog.FileName
                 privkey = My.Computer.FileSystem.ReadAllText(open_private_key_dialog.FileName)
+                privkey = privkey.Replace("---BEGIN WINCRYPT RSA PRIVATEKEY---", Nothing).Replace("---END WINCRYPT RSA PRIVATEKEY---", Nothing).Replace(vbCrLf, Nothing)
+                Try
+                    Dim privkeybyte() As Byte = System.Convert.FromBase64String(privkey)
+                    privkey = System.Text.Encoding.Default.GetString(privkeybyte)
+                Catch ex As Exception
+                    If Startwindow.Langname = "English" Then
+                        MessageBox.Show("this is not a WinCrypt privatekey!", "error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Else
+                        MessageBox.Show("Dies ist kein WinCrypt privatekey!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End If
+
+                End Try
+                
             Else
             End If
         End Sub
 
-        Private Sub Button2_Click(sender As Object, e As EventArgs) Handles decrypt_bt.Click
+        Private Sub decrypt_bt_Click(sender As Object, e As EventArgs) Handles decrypt_bt.Click
             message_txt.Text = classes.RSA.RSA_decrypt(encrypt_message_txt.Text, privkey)
         End Sub
 
@@ -45,6 +58,8 @@ Namespace tools.rsa
         End Sub
 
         Private Sub rsa_decrypt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            bit_cb.SelectedIndex = 1
+            decryptbit = CInt(bit_cb.Text)
             Dim loadcolor As New designcolor
             loadcolor.color()
         End Sub
@@ -53,6 +68,10 @@ Namespace tools.rsa
             If Startwindow.vCommand = True Then
                 Startwindow.Close()
             End If
+        End Sub
+
+        Private Sub bit_cb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles bit_cb.SelectedIndexChanged
+            decryptbit = CInt(bit_cb.Text)
         End Sub
     End Class
 End Namespace
