@@ -47,10 +47,6 @@ Namespace classes
 
         End Sub
 
-
-
-
-
         Public langname As String
 
         Public Sub check()
@@ -61,65 +57,6 @@ Namespace classes
                         root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
             langname = lang.WertLesen("Info", "Lang")
             If lang.WertLesen("Info", "Lang") = "English" Then 'ENGLISH
-                Startwindow.encrypt_gb.Text = "encrypt folder / drive"
-                Startwindow.crypt_file_pathbutton.Text = "add"
-                Startwindow.generate_key_encrypt.Text = "generate"
-                Startwindow.create_container_encrypt.Text = "create container"
-                Startwindow.path_encrypt.Text = "path:"
-                Startwindow.key_lb1.Text = "key:"
-                Startwindow.mount_gb.Text = "mount cryptfile"
-                Startwindow.file_lb.Text = "file:"
-                Startwindow.opencryptfile.Text = "open"
-                Startwindow.key_lb.Text = "key:"
-                Startwindow.drive_lb.Text = "drive:"
-
-                Startwindow.file_bt_menu.Text = "file"
-                Startwindow.setting_bt_menu.Text = "setting"
-                Startwindow.exit_bt_menu.Text = "exit"
-                Startwindow.tools_bt_menu.Text = "tools"
-                Startwindow.file_encrypt_bt_menu.Text = "file encrypt"
-                Startwindow.file_decrypt_bt_menu.Text = "file decrypt"
-                Startwindow.text_encrypt_bt_menu.Text = "text de- and encrypt"
-                Startwindow.md5_converter_bt_menu.Text = "converter"
-                Startwindow.rsa_encrypt_bt_menu.Text = "encryption"
-                Startwindow.rsa_decrypt_bt_menu.Text = "decryption"
-                Startwindow.rsa_create_keys_bt_menu.Text = "create key's"
-                Startwindow.send_mail_bt_menu.Text = "send e-mail"
-                Startwindow.pw_manager_bt_menu.Text = "passwordmanager"
-                Startwindow.export_db_bt_menu.Text = "export database"
-                Startwindow.import_db_bt_menu.Text = "import database"
-                Startwindow.delete_db_menu.Text = "delete database"
-                Startwindow.systemidentification_bt_menu.Text = "systemidentification"
-                Startwindow.pw_generator_bt_menu.Text = "passwordgenerator"
-                Startwindow.delete_file_bt_menu.Text = "delete files safetly"
-                Startwindow.info_bt_menu.Text = "info"
-                Startwindow.update_bt_menu.Text = "update"
-                Startwindow.feedback_bt_menu.Text = "feedback"
-                Startwindow.about_bt_menu.Text = "about"
-
-                Startwindow.about_bt_systemtray.Text = "about"
-                Startwindow.feedback_bt_systemtray.Text = "feedback"
-                Startwindow.update_bt_systemtray.Text = "update"
-                Startwindow.tools_bt_systemtray.Text = "tools"
-                Startwindow.open_bt_systemtray.Text = "open"
-                Startwindow.exit_bt_systemtray.Text = "exit"
-                Startwindow.file_encrypt__bt_systemtray.Text = "file encrypt"
-                Startwindow.file_decrypt_bt_systemtray.Text = "file decrypt"
-                Startwindow.text_encrypt_bt_systemtray.Text = "text en- and decrypt"
-                Startwindow.md5_converter_bt_systemtray.Text = "converter"
-                Startwindow.rsa_encrypt_bt_systemtray.Text = "decryption"
-                Startwindow.rsa_decrypt_bt_systemtray.Text = "decryption"
-                Startwindow.rsa_create_keys_bt_systemtray.Text = "create key's"
-                Startwindow.send_mail_bt_systemtray.Text = "send e-mail"
-                Startwindow.pw_manager_bt_systemtray.Text = "passwordmanager"
-                Startwindow.export_db_bt_systemtray.Text = "export database"
-                Startwindow.import_db_bt_systemtray.Text = "import database"
-                Startwindow.delete_db_bt_systemtray.Text = "delete database"
-                Startwindow.systemidentification_bt_systemtray.Text = "systemidentification"
-                Startwindow.pwg_bt_systemtray.Text = "passwordgenerator"
-                Startwindow.file_delete_bt_systemtray.Text = "delete files safetly"
-
-
                 'masterkey.vb
                 Masterkey.abort_bt.Text = "abort"
 
@@ -316,64 +253,6 @@ Namespace classes
 
 
             If lang.WertLesen("Info", "Lang") = "German" Then 'DEUTSCH
-                Startwindow.encrypt_gb.Text = "Ordner/Laufwerk Verschlüsseln"
-                Startwindow.crypt_file_pathbutton.Text = "Hinzufügen"
-                Startwindow.generate_key_encrypt.Text = "Generieren"
-                Startwindow.create_container_encrypt.Text = "Container erstellen"
-                Startwindow.path_encrypt.Text = "Pfad:"
-                Startwindow.key_lb1.Text = "Schlüssel:"
-                Startwindow.mount_gb.Text = "Cryptdatei Mounten"
-                Startwindow.file_lb.Text = "Datei:"
-                Startwindow.opencryptfile.Text = "Öffnen"
-                Startwindow.key_lb.Text = "Schlüssel:"
-                Startwindow.drive_lb.Text = "Laufwerk:"
-
-                Startwindow.file_bt_menu.Text = "Datei"
-                Startwindow.setting_bt_menu.Text = "Einstellung"
-                Startwindow.exit_bt_menu.Text = "Beenden"
-                Startwindow.tools_bt_menu.Text = "Tools"
-                Startwindow.file_encrypt_bt_menu.Text = "Datei verschlüsseln"
-                Startwindow.file_decrypt_bt_menu.Text = "Datei entschlüsseln"
-                Startwindow.text_encrypt_bt_menu.Text = "Text ver- und entschlüsseln"
-                Startwindow.md5_converter_bt_menu.Text = "Konverter"
-                Startwindow.rsa_encrypt_bt_menu.Text = "Verschlüsselung"
-                Startwindow.rsa_decrypt_bt_menu.Text = "Entschlüsselung"
-                Startwindow.rsa_create_keys_bt_menu.Text = "Schlüssel erstellen"
-                Startwindow.send_mail_bt_menu.Text = "E-Mail senden"
-                Startwindow.pw_manager_bt_menu.Text = "Passwortmanager"
-                Startwindow.export_db_bt_menu.Text = "Datenbank exportieren"
-                Startwindow.import_db_bt_menu.Text = "Datenbank importieren"
-                Startwindow.delete_db_menu.Text = "Datenbank löschen"
-                Startwindow.systemidentification_bt_menu.Text = "Systemidentifikation"
-                Startwindow.pw_generator_bt_menu.Text = "Passwortgenerator"
-                Startwindow.delete_file_bt_menu.Text = "Dateien sicher löschen"
-                Startwindow.info_bt_menu.Text = "Info"
-                Startwindow.update_bt_menu.Text = "Update"
-                Startwindow.feedback_bt_menu.Text = "Feedback"
-                Startwindow.about_bt_menu.Text = "About"
-
-                Startwindow.about_bt_systemtray.Text = "About"
-                Startwindow.feedback_bt_systemtray.Text = "Feedback"
-                Startwindow.update_bt_systemtray.Text = "Update"
-                Startwindow.tools_bt_systemtray.Text = "Tools"
-                Startwindow.open_bt_systemtray.Text = "Öffnen"
-                Startwindow.exit_bt_systemtray.Text = "Beenden"
-                Startwindow.file_encrypt__bt_systemtray.Text = "Datei verschlüsseln"
-                Startwindow.file_decrypt_bt_systemtray.Text = "Datei entschlüsseln"
-                Startwindow.text_encrypt_bt_systemtray.Text = "Text ver- und entschlüsseln"
-                Startwindow.md5_converter_bt_systemtray.Text = "MD5 Konverter"
-                Startwindow.rsa_encrypt_bt_systemtray.Text = "Entschlüsselung"
-                Startwindow.rsa_decrypt_bt_systemtray.Text = "Verschlüsselung"
-                Startwindow.rsa_create_keys_bt_systemtray.Text = "Schlüssel erstellen"
-                Startwindow.send_mail_bt_systemtray.Text = "E-Mail senden"
-                Startwindow.pw_manager_bt_systemtray.Text = "Passwortmanager"
-                Startwindow.export_db_bt_systemtray.Text = "Datenbank exportieren"
-                Startwindow.import_db_bt_systemtray.Text = "Datenbank importieren"
-                Startwindow.delete_db_bt_systemtray.Text = "Datenbank löschen"
-                Startwindow.systemidentification_bt_systemtray.Text = "Systemidentifikation"
-                Startwindow.pwg_bt_systemtray.Text = "Passwortgenerator"
-                Startwindow.file_delete_bt_systemtray.Text = "Dateien sicher löschen"
-
                 'rsa_encrypt.vb
                 tools.rsa.rsa_encrypt.pubkey_path_bt.Text = "Öffnen"
                 tools.rsa.rsa_encrypt.message_lb.Text = "Nachricht"
