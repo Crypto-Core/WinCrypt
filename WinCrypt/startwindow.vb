@@ -591,15 +591,19 @@ Public Class Startwindow
             End If
         End If
     End Sub
-
     Private Sub startwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If _ini.WertLesen("Info", "Lang") = "English" Then Language.ChangeLanguage("en-US")
+        If _ini.WertLesen("Info", "Lang") = "German" Then Language.ChangeLanguage("de-DE")
+
+
         Dim loadColor As New designcolor
         loadColor.color()
         If _ini.WertLesen("Info", "Update") = "" Then
             Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
             extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
             extractUpdate.Close()
-            loadcolor.color()
+            loadColor.color()
             _ini.WertSchreiben("Info", "Update", "1")
         Else
 

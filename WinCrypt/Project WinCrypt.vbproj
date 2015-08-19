@@ -351,6 +351,9 @@
     <EmbeddedResource Include="info\feedback.resx">
       <DependentUpon>feedback.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="startwindow.de-DE.resx">
+      <DependentUpon>startwindow.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tools\data encryption\filedecrypt.resx">
       <DependentUpon>filedecrypt.vb</DependentUpon>
     </EmbeddedResource>

@@ -454,26 +454,10 @@ Public Class WcSetting
 
         Select Case languagecb.SelectedIndex
             Case 0
-                ChangeLanguage("de-DE")
+                Language.ChangeLanguage("de-DE")
             Case 1
-                ChangeLanguage("en-US")
+                Language.ChangeLanguage("en-US")
         End Select
 
-    End Sub
-
-
-    Private Sub ChangeLanguage(ByVal lang As String)
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(WcSetting))
-
-        For Each c As Control In Me.Controls
-            resources.ApplyResources(c, c.Name, New CultureInfo(lang))
-        Next c
-
-        For Each g As GroupBox In Me.Controls.OfType(Of GroupBox)
-
-            For Each t As Control In g.Controls
-                resources.ApplyResources(t, t.Name, New CultureInfo(lang))
-            Next
-        Next
     End Sub
 End Class

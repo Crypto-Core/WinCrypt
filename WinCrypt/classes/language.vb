@@ -1,10 +1,56 @@
 ﻿Option Strict On
 
+Imports System.ComponentModel
+Imports System.Globalization
 Imports System.IO
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+Imports Project_WinCrypt.classes
 
 Namespace classes
 
     Public Class Language
+
+        Public Shared Sub ChangeLanguage(ByVal lang As String)
+            Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(WcSetting))
+
+            For Each c As Control In WcSetting.Controls
+                resources.ApplyResources(c, c.Name, New CultureInfo(lang))
+            Next c
+
+            For Each g As GroupBox In WcSetting.Controls.OfType(Of GroupBox)()
+
+                For Each t As Control In g.Controls
+                    resources.ApplyResources(t, t.Name, New CultureInfo(lang))
+                Next
+            Next
+
+            Dim resources_main As ComponentResourceManager = New ComponentResourceManager(GetType(Startwindow))
+
+            For Each c As Control In Startwindow.Controls
+                resources_main.ApplyResources(c, c.Name, New CultureInfo(lang))
+            Next c
+
+            For Each g As GroupBox In Startwindow.Controls.OfType(Of GroupBox)()
+
+                For Each t As Control In g.Controls
+                    resources_main.ApplyResources(t, t.Name, New CultureInfo(lang))
+                Next
+            Next
+
+            For Each s As ToolStripMenuItem In Startwindow.MenuStrip.Items
+                resources_main.ApplyResources(s, s.Name, New CultureInfo(lang))
+                For Each s2 As ToolStripMenuItem In s.DropDownItems
+                    resources_main.ApplyResources(s2, s2.Name, New CultureInfo(lang))
+                Next
+            Next
+
+        End Sub
+
+
+
+
+
         Public langname As String
 
         Public Sub check()
