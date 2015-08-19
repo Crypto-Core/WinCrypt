@@ -1497,4 +1497,8 @@ Public Class Startwindow
     Private Sub MD5DateiChecksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
         MD5FileHash_frm.Show()
     End Sub
+
+    Private Sub form_head_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles form_head.ItemClicked
+
+    End Sub
 End Class

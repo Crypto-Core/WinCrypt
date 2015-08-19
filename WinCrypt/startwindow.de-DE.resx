@@ -118,6 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="file_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="file_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>Datei Verschlüsseln</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Text" xml:space="preserve">
+    <value>Datei Entschlüsseln</value>
+  </data>
+  <data name="text_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="text_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>Text Ver-/ endschlüselung</value>
+  </data>
+  <data name="hash_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="hash_bt_menu.Text" xml:space="preserve">
+    <value>Hash</value>
+  </data>
+  <data name="rsa_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="mail_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="mail_bt_menu.Text" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="pw_manager_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="pw_manager_bt_menu.Text" xml:space="preserve">
+    <value>Passwortmanager</value>
+  </data>
+  <data name="systemidentification_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="systemidentification_bt_menu.Text" xml:space="preserve">
+    <value>Systemidentifikation</value>
+  </data>
+  <data name="pw_generator_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="pw_generator_bt_menu.Text" xml:space="preserve">
+    <value>Passwordgenerator</value>
+  </data>
+  <data name="delete_file_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 22</value>
+  </data>
+  <data name="delete_file_bt_menu.Text" xml:space="preserve">
+    <value>Daten sicher Löschen</value>
+  </data>
+  <data name="tools_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 20</value>
+  </data>
+  <data name="tools_bt_menu.Text" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="info_bt_menu.Text" xml:space="preserve">
+    <value>Info</value>
+  </data>
   <data name="setting_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
@@ -130,11 +196,53 @@
   <data name="exit_bt_menu.Text" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="tools_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 20</value>
+  <data name="md5_converter_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 22</value>
   </data>
-  <data name="tools_bt_menu.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="md5_converter_bt_menu.Text" xml:space="preserve">
+    <value>Konverter</value>
+  </data>
+  <data name="md5_bf_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 22</value>
+  </data>
+  <data name="md5_bf_bt_menu.Text" xml:space="preserve">
+    <value>Brute-Force</value>
+  </data>
+  <data name="MD5DateiChecksumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 22</value>
+  </data>
+  <data name="MD5DateiChecksumToolStripMenuItem.Text" xml:space="preserve">
+    <value>Datei Checksumme</value>
+  </data>
+  <data name="rsa_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="rsa_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="rsa_create_keys_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="send_mail_bt_menu.Text" xml:space="preserve">
+    <value>E-Mail senden</value>
+  </data>
+  <data name="export_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="export_db_bt_menu.Text" xml:space="preserve">
+    <value>Datenbank Exportieren</value>
+  </data>
+  <data name="import_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="import_db_bt_menu.Text" xml:space="preserve">
+    <value>Datenbank Importieren</value>
+  </data>
+  <data name="delete_db_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="delete_db_menu.Text" xml:space="preserve">
+    <value>Datenbank Löschen</value>
   </data>
   <data name="update_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
@@ -153,9 +261,6 @@
   </data>
   <data name="about_bt_menu.Text" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="info_bt_menu.Text" xml:space="preserve">
-    <value>Info</value>
   </data>
   <data name="systemtray.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -180,6 +285,9 @@
         GACWthQAgAcAAAADAAAAAwAAAAMAAIAHAACABwAAgAcAAIAHAADABwAAwAMAAMABAAD/AQAA/wEAAP+B
         AAD/gQAA/+cAAA==
 </value>
+  </data>
+  <data name="mount_gb.Text" xml:space="preserve">
+    <value>Cryptdatei Mounten</value>
   </data>
   <data name="drive_lb.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
@@ -208,8 +316,8 @@
   <data name="opencryptfile.Text" xml:space="preserve">
     <value>Öffnen</value>
   </data>
-  <data name="mount_gb.Text" xml:space="preserve">
-    <value>Cryptdatei Mounten</value>
+  <data name="encrypt_gb.Text" xml:space="preserve">
+    <value>Ordner/Laufwerk Verschlüsseln</value>
   </data>
   <data name="key_lb1.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
@@ -231,9 +339,6 @@
   </data>
   <data name="crypt_file_pathbutton.Text" xml:space="preserve">
     <value>Hinzufügen</value>
-  </data>
-  <data name="encrypt_gb.Text" xml:space="preserve">
-    <value>Ordner/Laufwerk Verschlüsseln</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
