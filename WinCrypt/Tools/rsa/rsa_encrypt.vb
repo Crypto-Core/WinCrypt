@@ -6,7 +6,7 @@ Namespace tools.rsa
 
     Public Class rsa_encrypt
         Public encryptbit As Integer
-        Dim _pubkey As String
+        Private _pubkey As String
 
         Private Sub pubkey_path_bt_Click(sender As Object, e As EventArgs) Handles pubkey_path_bt.Click
             open_public_key_dialog.ShowDialog()

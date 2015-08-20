@@ -8,9 +8,9 @@ Imports Microsoft.Win32
 Imports Project_WinCrypt.classes
 
 Public Class Startwindow
-    Dim WithEvents loadcolor As New designcolor
+    Private WithEvents loadcolor As New designcolor
     ReadOnly _filezip As New Zip
-    Dim _selectcombo As String
+    Private _selectcombo As String
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
     Public Biosid As String
     Public Iniread As String
@@ -18,12 +18,12 @@ Public Class Startwindow
     Public Selecteddrive As String
     Public Langname As String
     Public Errormount As String
-    Dim _removestring As String
+    Private _removestring As String
     ReadOnly _lang As New Language
     Public Formclose As Boolean = False
     Public Timerclose As Boolean = False
-    Dim _finishcrypt As Integer = 0
-    Dim _finunmount As Integer = 0
+    Private _finishcrypt As Integer = 0
+    Private _finunmount As Integer = 0
     Public vCommand As Boolean = False
     Public _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
 
@@ -599,15 +599,35 @@ Public Class Startwindow
 
         Dim loadColor As New designcolor
         loadColor.color()
-        If _ini.WertLesen("Info", "Update") = "" Then
-            Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
-            extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
-            extractUpdate.Close()
-            loadColor.color()
-            _ini.WertSchreiben("Info", "Update", "1")
-        Else
+        Try
+            If _ini.WertLesen("Info", "Update") = "" Then
+                Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
+                extractUpdate.Write(My.Resources.WinCryptUpdate, 0, My.Resources.WinCryptUpdate.Length)
+                extractUpdate.Close()
+                loadColor.color()
+                _ini.WertSchreiben("Info", "Update", "1")
+            Else
 
-        End If
+            End If
+        Catch ex As Exception
+            If MessageBox.Show("WinCrypt kann die Datei WinCryptUpdate.exe nicht ändern. Bitte starten Sie WinCrypt als Administrator." & vbNewLine & "Möchten Sie WinCrypt als Administrator starten?", "Benutzerrechte", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+                Dim procStartInfo As New ProcessStartInfo
+                Dim procExecuting As New Process
+
+                With procStartInfo
+                    .UseShellExecute = True
+                    .FileName = My.Application.Info.DirectoryPath & "\Project WinCrypt.exe"
+                    .WindowStyle = ProcessWindowStyle.Normal
+                    .Verb = "runas" 'add this to prompt for elevation
+                End With
+
+                procExecuting = Process.Start(procStartInfo)
+                Application.Exit()
+            Else
+
+            End If
+
+        End Try
 
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text

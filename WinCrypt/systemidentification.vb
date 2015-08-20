@@ -11,7 +11,7 @@ Public Class Systemidentification
             New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
     ReadOnly _restart As String = Startwindow.Iniread
-    Dim _restart1 As String = "no"
+    Private _restart1 As String = "no"
     Public Property Filezip As Zip = New Zip
 
     Private Sub Ok(sender As Object, e As EventArgs) Handles ok_bt.Click

@@ -3,7 +3,7 @@
 Imports System.Net
 
 Public Class feedback
-    Dim ReadOnly i As New WebClient
+    Private ReadOnly i As New WebClient
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles send_bt.Click
 

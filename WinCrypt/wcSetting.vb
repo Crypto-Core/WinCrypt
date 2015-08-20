@@ -6,7 +6,7 @@ Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
 Public Class WcSetting
-    Dim designcolor As New designcolor
+    Private designcolor As New designcolor
     ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _
     ' Der aktuelle Pfad der Project WinCrypt.exe
     ReadOnly _
@@ -21,7 +21,7 @@ Public Class WcSetting
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _
     ' Die Bios ID wird deklariert
 
-    Dim _bios As String
+    Private _bios As String
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
             Process.Start(My.Application.Info.DirectoryPath & "\WinCryptRegistry.exe") _
@@ -45,7 +45,6 @@ Public Class WcSetting
         Else
             _iniwrite.WertSchreiben("Design", "UseTemplate", useTemplate_cb.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
         End If
-
 
         Dim keyaes As New AES ' AES wird deklariert
         Dim lGuid As GuidAttribute ' Die WinCrypt GUID wird deklariert
@@ -123,6 +122,7 @@ Public Class WcSetting
         If _ini.WertLesen("Info", "Shortcut") = "minimized" Then _
             ' Es wird überprüft ob die Verknüpfung auf minimiert gesetzt wurde
             startminwincryptrb.Checked = True ' Wenn ja wird die ,,WinCrypt minimiert starten" RadioBox angewählt
+            WindowState = FormWindowState.Minimized
         Else
         End If
         If _ini.WertLesen("Info", "Shortcut") = "normal" Then _

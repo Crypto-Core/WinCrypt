@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
 Public Class Masterkey
-    Dim _decrypt As New AES
+    Private _decrypt As New AES
     ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
 
     ReadOnly _
@@ -12,7 +12,7 @@ Public Class Masterkey
             New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
-    Dim _bios As String
+    Private _bios As String
     ReadOnly _lang As New language
 
     Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click

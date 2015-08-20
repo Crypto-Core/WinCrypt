@@ -5,7 +5,7 @@ Imports Project_WinCrypt.classes
 Namespace tools.rsa
 
     Public Class rsa_decrypt
-        Dim privkey As String
+        Private privkey As String
         Public decryptbit As Integer
         Private Sub Button1_Click(sender As Object, e As EventArgs) Handles open_privkey_bt.Click
             open_private_key_dialog.ShowDialog()

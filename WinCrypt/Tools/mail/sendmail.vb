@@ -6,7 +6,6 @@ Imports System.Net.Mail
 Imports Project_WinCrypt.classes
 
 Namespace tools.mail
-
     Public Class Sendmail
         ReadOnly _mailmessage As New MailMessage
         Dim _pubkey As String

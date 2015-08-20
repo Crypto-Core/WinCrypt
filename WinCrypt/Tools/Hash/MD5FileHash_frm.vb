@@ -1,5 +1,5 @@
 ﻿Public Class MD5FileHash_frm
-    Dim md5 As New classes.MD5fileHash
+    Private md5 As New classes.MD5fileHash
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
             form_head.Capture = False

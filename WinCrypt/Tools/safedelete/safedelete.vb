@@ -9,7 +9,7 @@ Namespace tools.safedelete
 
     Public Class safedelete
         ReadOnly _erasefile As New SafedeleteFunction
-        Dim _delThreadThreading As Thread
+        Private _delThreadThreading As Thread
         ReadOnly _errorreport As New StringBuilder
         Declare Auto Function SendMessage Lib "user32.dll" (hWnd As IntPtr, msg As Integer, wParam As Integer,
                                                            lParam As Integer) As Integer

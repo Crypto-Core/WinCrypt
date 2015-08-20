@@ -6553,4 +6553,7 @@
         AACABwAAgAcAAIAHAADABwAAwAMAAMABAAD/AQAA/wEAAP+BAAD/gQAA/+cAAA==
 </value>
   </data>
+  <data name="file_bt_menu.Text" xml:space="preserve">
+    <value>Datei</value>
+  </data>
 </root>
