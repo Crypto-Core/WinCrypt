@@ -36,7 +36,6 @@ Namespace classes
             symmetricKey.Clear()
             Return Convert.ToBase64String(cipherTextBytes)
         End Function
-
         Public Function AesDecrypt(cipherText As String, password As String, salt As String) As String
             Dim HashAlgorithm = "SHA1"
             Dim passwordIterations = CStr(2)
@@ -57,13 +56,11 @@ Namespace classes
             Try
                 Using decryptor As ICryptoTransform = symmetricKey.CreateDecryptor(keyBytes, initialVectorBytes)
                     Using memStream = New MemoryStream(cipherTextBytes)
-
                         Using cryptoStream = New CryptoStream(memStream, decryptor, CryptoStreamMode.Read)
                             byteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length)
                             memStream.Close()
                             cryptoStream.Close()
                         End Using
-
                     End Using
                 End Using
                 symmetricKey.Clear()
@@ -78,26 +75,20 @@ Namespace classes
             End Try
         End Function
     End Class
-
     Module CryptoStuff
         Public Property Selectcombo As String
-
         Private Sub MakeKeyAndIv(password As String, salt() As Byte, keySizeBits As Integer, blockSizeBits As Integer, ByRef key() As Byte, ByRef iv() As Byte)
             Dim deriveBytes As New Rfc2898DeriveBytes(password, salt, 1000)
             key = deriveBytes.GetBytes(CInt(keySizeBits / 8))
             iv = deriveBytes.GetBytes(CInt(blockSizeBits / 8))
         End Sub
-
 #Region "Encrypt Files and Streams"
-
         Public Sub EncryptFile(password As String, inFile As String, outFile As String)
             CryptFile(password, inFile, outFile, True)
         End Sub
-
         Public Sub DecryptFile(password As String, inFile As String, outFile As String)
             CryptFile(password, inFile, outFile, False)
         End Sub
-
         Public Sub CryptFile(password As String, inFile As String, outFile As String, encrypt As Boolean)
             Try
                 Using inStream As New FileStream(inFile, FileMode.Open, FileAccess.Read)
@@ -110,7 +101,6 @@ Namespace classes
                 Startwindow.decrypt_list_status.Items.Add(ErrorToString)
             End Try
         End Sub
-
         Public Sub CryptStream(password As String, inStream As Stream, outStream As Stream, encrypt As Boolean)
             Dim aesProvider As New AesCryptoServiceProvider()
             Dim keySizeBits = 0
@@ -151,11 +141,9 @@ Namespace classes
             End Try
             cryptoTransform.Dispose()
         End Sub
-
 #End Region
 
 #Region "Encrypt Strings and Byte()"
-
         Public Function CryptBytes(password As String, inBytes() As Byte, encrypt As Boolean) As Byte()
             Dim aesProvider As New AesCryptoServiceProvider()
             Dim keySizeBits = 0
@@ -193,21 +181,18 @@ Namespace classes
                 End Using
             End Using
         End Function
-
         <Extension>
         Public Function Encrypt(theString As String, password As String) As Byte()
             Dim asciiEncoder As New ASCIIEncoding()
             Dim plainBytes() As Byte = asciiEncoder.GetBytes(theString)
             Return CryptBytes(password, plainBytes, True)
         End Function
-
         <Extension>
         Public Function Decrypt(theBytes() As Byte, password As String) As String
             Dim decryptedBytes() As Byte = CryptBytes(password, theBytes, False)
             Dim asciiEncoder As New ASCIIEncoding()
             Return asciiEncoder.GetString(decryptedBytes)
         End Function
-
         Public Function CryptString(password As String, inString As String, encrypt As Boolean) As String
             Dim inBytes() As Byte = Encoding.ASCII.GetBytes(inString)
             Using inStream As New MemoryStream(inBytes)
@@ -220,12 +205,10 @@ Namespace classes
                 End Using
             End Using
         End Function
-
         <Extension>
         Public Function ToHex(theBytes() As Byte) As String
             Return theBytes.ToHex(False)
         End Function
-
         <Extension>
         Public Function ToHex(theBytes() As Byte, addSpaces As Boolean) As String
             Dim result = ""
@@ -236,7 +219,6 @@ Namespace classes
             Next i
             Return result
         End Function
-
         <Extension>
         Public Function ToBytes(theString As String) As Byte()
             Dim theBytes As New List(Of Byte)()
@@ -246,7 +228,6 @@ Namespace classes
             Next i
             Return theBytes.ToArray()
         End Function
-
 #End Region
     End Module
 End Namespace

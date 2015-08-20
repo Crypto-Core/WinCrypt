@@ -1,9 +1,6 @@
 ﻿Option Strict On
-
 Imports System.IO
-
 Namespace classes
-
     Public Class IniDatei
         Public Pfad As String
 
@@ -54,8 +51,6 @@ Namespace classes
                                                                                                                        As _
                                                                                                                        String) _
             As Integer
-
-
         Public Function WertLesen(sektion As String, schluessel As String, Optional ByVal standardwert As String = "",
                                   Optional ByVal bufferSize As Integer = 1024) As String
             Try
@@ -66,7 +61,6 @@ Namespace classes
                     WertLesen = "Lesefehler"
                     Exit Function
                 End If
-
 
                 If File.Exists(Pfad) = False Then
                     My.Computer.FileSystem.CreateDirectory(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt")
@@ -79,7 +73,6 @@ Namespace classes
             End Try
             Dim sTemp As String = Space(BufferSize)
             Dim length As Integer = GetPrivateProfileString(sektion, schluessel, standardwert, sTemp, bufferSize, Pfad)
-
             Return Left(sTemp, length)
         End Function
 

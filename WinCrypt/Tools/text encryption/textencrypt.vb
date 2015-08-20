@@ -5,7 +5,6 @@ Imports System.Runtime.InteropServices
 Imports Project_WinCrypt.classes
 
 Namespace tools.text_encryption
-
     Public Class Textencrypt
         Private Sub encrypt_bt_Click(sender As Object, e As EventArgs) Handles encrypt_bt.Click
             Dim lGuid As GuidAttribute
@@ -21,7 +20,6 @@ Namespace tools.text_encryption
                 Else
                     text_output.Text = CStr(RC4.RC4Encrypt(text_input.Text, Startwindow.Biosid))
                 End If
-
             Else
                 If algo_cb.SelectedIndex = 0 Then
                     text_output.Text = CStr(aes2.AesEncrypt(text_input.Text, password_txt.Text, lGuid.Value))
@@ -97,15 +95,12 @@ Namespace tools.text_encryption
                 Else
                     text_input.Text = CStr(RC4.RC4Decrypt(text_output.Text, Startwindow.Biosid))
                 End If
-
             Else
                 If algo_cb.SelectedIndex = 0 Then
                     text_input.Text = aes2.AesDecrypt(text_output.Text, password_txt.Text, lGuid.Value)
                 Else
                     text_input.Text = CStr(RC4.RC4Decrypt(text_output.Text, password_txt.Text))
-
                 End If
-
             End If
         End Sub
 
@@ -125,8 +120,7 @@ Namespace tools.text_encryption
             If Startwindow.Iniread = "true" Then
                 decrypt_bt.Enabled = True
                 encrypt_bt.Enabled = True
-            Else
-            End If
+            Else : End If
         End Sub
 
         Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles arab_cb.CheckedChanged

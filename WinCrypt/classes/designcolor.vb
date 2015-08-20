@@ -5,7 +5,6 @@ Public Class designcolor
     ReadOnly _
         _ini As _
             New classes.IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
-
     Public UseTemplate As String = _ini.WertLesen("Design", "UseTemplate")
     Public bgcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "BackgroundColor"))
     Public formheadcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "FormHeadColor"))
@@ -14,13 +13,10 @@ Public Class designcolor
     Public textcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "TextColor"))
     Public inputtextcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "InputTextColor"))
     Public Event reload()
-
-
     Sub color()
         '// Überprüfen ob die Werte existieren und wenn nicht, Werte schreiben
         If ColorTranslator.ToHtml(bgcolor).Length = 0 Then
             _ini.WertSchreiben("Design", "BackgroundColor", "#2d2d30")
-
         End If
 
         If ColorTranslator.ToHtml(formheadcolor).Length = 0 Then
@@ -146,7 +142,6 @@ Public Class designcolor
         Startwindow.tools_bt_menu.ForeColor = textcolor
         Startwindow.info_bt_menu.ForeColor = textcolor
 
-
         '// Der Hintergrund vom Startfenster wird farblich angepasst
         Startwindow.BackColor = bgcolor
         Startwindow.ForeColor = textcolor
@@ -260,7 +255,6 @@ Public Class designcolor
         '// hash_bt_menu
         Startwindow.hash_bt_menu.ForeColor = textcolor
         Startwindow.hash_bt_menu.BackColor = bgcolor
-
 
         '//md5_converter_bt_menu
         Startwindow.md5_converter_bt_menu.ForeColor = textcolor
@@ -384,7 +378,6 @@ Public Class designcolor
         WcSetting.design_import.ForeColor = textcolor
         WcSetting.design_import.BackColor = buttoncolor
 
-
         '// exit_bt
         WcSetting.exit_bt.ForeColor = textcolor
         WcSetting.exit_bt.BackColor = formheadcolor
@@ -444,7 +437,6 @@ Public Class designcolor
         '// masterkey_gb
         WcSetting.masterkey_gb.ForeColor = textcolor
         WcSetting.masterkey_gb.BackColor = bgcolor
-
 
         '// key_txt
         WcSetting.key_txt.ForeColor = inputtextcolor

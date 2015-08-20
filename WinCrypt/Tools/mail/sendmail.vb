@@ -17,7 +17,7 @@ Namespace tools.mail
 
         Private Sub fileadd_bt_Click(sender As Object, e As EventArgs) Handles fileadd_bt.Click
             add_file_dialog.ShowDialog()
-            If My.Computer.FileSystem.FileExists(add_file_dialog.FileName) Then
+            If File.Exists(add_file_dialog.FileName) Then
                 file_txt.Text = add_file_dialog.FileName
                 _mailmessage.Attachments.Add(New Attachment(file_txt.Text)) ' Anhang
             End If
@@ -41,9 +41,9 @@ Namespace tools.mail
 
                     client.Send(_mailmessage) ' E-Mail Senden
                     MsgBox("Nachricht wurde an " & emailto_txt.Text & " erfolgreich gesendet!", MsgBoxStyle.Information)
+
                     If _
-                        My.Computer.FileSystem.FileExists(
-                            _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") =
+                        File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") =
                         True Then
 
                     Else

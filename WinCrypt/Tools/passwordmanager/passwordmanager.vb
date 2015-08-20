@@ -87,9 +87,7 @@ Namespace tools.passwordmanager
         Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
-            If _
-                Computer.FileSystem.FileExists(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            If File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 passwordmgr_pass.ShowDialog()
             Else
                 If Startwindow.Langname = "English" Then
