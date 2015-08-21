@@ -333,9 +333,9 @@ Public Class WcSetting
 
         End If
         If _lang.langname = "English" Then
-            MsgBox("design exported!", MsgBoxStyle.Information)
+            MessageBox.Show("design exported!", "Design", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            MsgBox("Design exportiert!", MsgBoxStyle.Information)
+            MessageBox.Show("Design exportiert!", "Design", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
@@ -376,9 +376,9 @@ Public Class WcSetting
             loadDesign.color()
 
             If _lang.langname = "English" Then
-                MsgBox("design imported!", MsgBoxStyle.Information)
+                MessageBox.Show("design imported!", "Design", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Design importiert!", MsgBoxStyle.Information)
+                MessageBox.Show("Design importiert!", "Design", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Else
 

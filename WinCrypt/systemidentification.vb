@@ -18,20 +18,18 @@ Public Class Systemidentification
         If _restart = _restart1 Then
         Else
             If Startwindow.Formclose = True Then
+
                 If _
-                    MsgBox(
-                        "Laufwerk " & Startwindow.drivecb.Text & " ist eingebunden" & vbCrLf &
-                        "Sie müssen dieses Laufwerk vorher erst schließen. Möchten Sie dieses Laufwerk schließen?",
-                        MsgBoxStyle.YesNo, "Achtung") = MsgBoxResult.Yes Then
+                    MessageBox.Show("Laufwerk " & Startwindow.drivecb.Text & " ist eingebunden" & vbCrLf & "Sie müssen dieses Laufwerk vorher erst schließen. Möchten Sie dieses Laufwerk schließen?", "Achtung", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                     Startwindow.dismount.PerformClick()
                 Else
                 End If
             Else
                 If Startwindow.Langname = "English" Then
+                    
                     If _
-                        MsgBox(
-                            "Need to accept the change WinCrypt be restarted." & vbCrLf &
-                            "Do you want to WinCrypt restart?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        MessageBox.Show("Need to accept the change WinCrypt be restarted." & vbCrLf &
+                            "Do you want to WinCrypt restart?", "warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                         If on_rb.Checked = True Then
                             _ini.WertSchreiben("systemidentification", "status", "yes")
                             _restart1 = "yes"
@@ -45,9 +43,8 @@ Public Class Systemidentification
                     End If
                 Else
                     If _
-                        MsgBox(
-                            "Um die änderung zu übernehmen muss WinCrypt neu gestartet werden" & vbCrLf &
-                            "Möchte Sie das Programm neu starten?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        MessageBox.Show("Um die änderung zu übernehmen muss WinCrypt neu gestartet werden" & vbCrLf &
+                            "Möchte Sie das Programm neu starten?", "Hinweis", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = MsgBoxResult.Yes Then
                         If on_rb.Checked = True Then
                             _ini.WertSchreiben("systemidentification", "status", "yes")
                             _restart1 = "yes"

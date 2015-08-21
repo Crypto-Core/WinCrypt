@@ -7,27 +7,27 @@ Public Class feedback
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles send_bt.Click
 
-        If name_txt.Text.Length < 3 Then
+        If CInt(name_txt.Text.Length) < 3 Then
             If Startwindow.Langname = "English" Then
-                MsgBox("Please enter a name!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Please enter a name!", "Name", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MsgBox("Bitte gebe einen Namen ein!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Bitte gebe einen Namen ein!", "Name", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
-            If mail_txt.Text.Length < 5 Then
+            If CInt(mail_txt.Text.Length) < 5 Then
 
                 If Startwindow.Langname = "English" Then
-                    MsgBox("Please enter an email!", MsgBoxStyle.Exclamation)
+                    MessageBox.Show("Please enter an email!", "E-Mail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    MsgBox("Bitte gebe eine E-Mail ein!", MsgBoxStyle.Exclamation)
+                    MessageBox.Show("Bitte gebe eine E-Mail ein!", "E-Mail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             Else
-                If message_txt.Text.Length < 3 Then
+                If CInt(message_txt.Text.Length) < 3 Then
 
                     If Startwindow.Langname = "English" Then
-                        MsgBox("Please enter your message!", MsgBoxStyle.Exclamation)
+                        MessageBox.Show("Please enter your message!", "message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
-                        MsgBox("Bitte gebe eine Nachricht ein!", MsgBoxStyle.Exclamation)
+                        MessageBox.Show("Bitte gebe eine Nachricht ein!", "Nachricht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
                     i.OpenRead(
@@ -35,9 +35,9 @@ Public Class feedback
                         mail_txt.Text & ChrW(38) & "betreff=" & subject_cb.Text & ChrW(38) & "nachricht=" &
                         message_txt.Text.Replace(" ", "+").Replace(vbCrLf, "%0D") & ChrW(38) & "Submit=Senden")
                     If Startwindow.Langname = "English" Then
-                        MsgBox("Feedback has been sent, thank you for your feedback!", MsgBoxStyle.Information)
+                        MessageBox.Show("Feedback has been sent, thank you for your feedback!", "Thanks", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Feedback wurde gesendet, vielen Dank für Ihr Feedback!", MsgBoxStyle.Information)
+                        MessageBox.Show("Feedback wurde gesendet, vielen Dank für Ihr Feedback!", "Danke", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
 
                 End If

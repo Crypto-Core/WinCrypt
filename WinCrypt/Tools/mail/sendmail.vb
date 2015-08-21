@@ -41,15 +41,14 @@ Namespace tools.mail
                     _mailmessage.Body = classes.RSA.RSA_encrypt(message_txt.Text, _pubkey) ' Nachricht
 
                     client.Send(_mailmessage) ' E-Mail Senden
-                    MsgBox("Nachricht wurde an " & emailto_txt.Text & " erfolgreich gesendet!", MsgBoxStyle.Information)
-
+                    MessageBox.Show("Nachricht wurde an " & emailto_txt.Text & " erfolgreich gesendet!", "Nachricht", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     If _
                         File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") =
                         True Then
 
                     Else
                         Dim aes As New AES
-                        If MsgBox("Möchtest du dein E-Mail Konto speichern?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        If MessageBox.Show("Möchtest du dein E-Mail Konto speichern?", "Konto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                             _mailini.WertSchreiben("MailAccount", "mail", email_txt.Text)
                             _mailini.WertSchreiben("MailAccount", "password",
                                                   aes.AesEncrypt(password_txt.Text, Startwindow.Biosid, Startwindow.Biosid))
@@ -57,7 +56,7 @@ Namespace tools.mail
                         End If
                     End If
                 Catch ex As Exception
-                    MsgBox(ErrorToString, MsgBoxStyle.Critical)
+                    MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             Else
                 Try
@@ -151,7 +150,7 @@ Namespace tools.mail
 
         Private Sub account_bt_Click(sender As Object, e As EventArgs) Handles account_bt.Click
             If File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") Then
-                If MsgBox("Möchten Sie wirklich ihr E-Mail Konto entfernen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If MessageBox.Show("Möchten Sie wirklich ihr E-Mail Konto entfernen?", "Konto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                     File.Delete(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
                     account_bt.Visible = False
                     message_txt.Size = New Size(612, 297)

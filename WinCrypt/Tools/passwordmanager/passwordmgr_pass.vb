@@ -11,12 +11,11 @@ Namespace tools.passwordmanager
         ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
         Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
-            If password_txt.Text.Length < 8 Then
-
+            If CInt(password_txt.Text.Length) < 8 Then
                 If Startwindow.Langname = "English" Then
-                    MsgBox("The password must be at least 8 characters estend consist!", MsgBoxStyle.Exclamation)
+                    MessageBox.Show("The password must be at least 8 characters estend consist!", "password", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
-                    MsgBox("Das Passwort muss mindestend aus 8 Zeichen bestehen!", MsgBoxStyle.Exclamation)
+                    MessageBox.Show("Das Passwort muss mindestend aus 8 Zeichen bestehen!", "Passwort", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             Else
                 Dim textdecrypt As String

@@ -114,7 +114,7 @@ Namespace tools.safedelete
             abort_bt.Visible = True
         End Sub
         Sub DelThreas()
-            If MsgBox("Möchten Sie wirklich alle Daten unwiederruflich löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            If MessageBox.Show("Möchten Sie wirklich alle Daten unwiederruflich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                 deletfilelist.SelectedIndex = 0
                 file_txt.Enabled = False
                 selectpathbt.Enabled = False
@@ -155,7 +155,7 @@ Namespace tools.safedelete
                 Next
                 loadBall.Enabled = False
                 loadBall.Image = My.Resources.Ballload
-                MsgBox("Alle Daten wurden unwiederruflich gelöscht!", MsgBoxStyle.Information)
+                MessageBox.Show("Alle Daten wurden unwiederruflich gelöscht!", "Gelöscht", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 file_txt.Enabled = True
                 selectpathbt.Enabled = True
                 fileaddbt.Enabled = True

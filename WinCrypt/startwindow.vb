@@ -198,16 +198,16 @@ Public Class Startwindow
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
                     Catch ex As Exception
                         If Langname = "English" Then
-                            MsgBox("Error: Drive not found!", MsgBoxStyle.Critical)
+                            MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Else
-                            MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
+                            MessageBox.Show("Fehler: Laufwerk nicht gefunden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                         Application.Restart()
                     End Try
                     If Langname = "English" Then
-                        decrypt_list_status.Items.Add("Container embedded!")
+                        decrypt_list_status.Items.Add(CStr("Container embedded!"))
                     Else
-                        decrypt_list_status.Items.Add("Container eingebunden!")
+                        decrypt_list_status.Items.Add(CStr("Container eingebunden!"))
                     End If
                     My.Computer.Audio.Play(My.Resources.Vista_DeviceConnect, AudioPlayMode.WaitToComplete)
                     Process.Start("explorer.exe", CStr(drivecb.SelectedItem))
@@ -217,17 +217,17 @@ Public Class Startwindow
 
             Else
                 If Langname = "English" Then
-                    MsgBox("Error: Drive not found!", MsgBoxStyle.Critical)
+                    MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
+                    MessageBox.Show("Fehler: Laufwerk nicht gefunden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         Else
-            If drivecb.Text.Length > 2 Then
+            If CInt(drivecb.Text.Length) > 2 Then
                 If Langname = "English" Then
-                    decrypt_list_status.Items.Add("Container is decrypted.....")
+                    decrypt_list_status.Items.Add(CStr("Container is decrypted....."))
                 Else
-                    decrypt_list_status.Items.Add("Container wird entschlüsselt.....")
+                    decrypt_list_status.Items.Add(CStr("Container wird entschlüsselt....."))
                 End If
                 keyencrypt.Enabled = False
                 decrypt_filepath.Enabled = False
@@ -251,16 +251,16 @@ Public Class Startwindow
                             My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
                     Catch ex As Exception
                         If Langname = "English" Then
-                            MsgBox("Error: Drive not found!", MsgBoxStyle.Critical)
+                            MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Else
-                            MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
+                            MessageBox.Show("Fehler: Laufwerk nicht gefunden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
                         Application.Restart()
                     End Try
                     If Langname = "English" Then
-                        decrypt_list_status.Items.Add("Container embedded!")
+                        decrypt_list_status.Items.Add(CStr("Container embedded!"))
                     Else
-                        decrypt_list_status.Items.Add("Container eingebunden!")
+                        decrypt_list_status.Items.Add(CStr("Container eingebunden!"))
                     End If
                     My.Computer.Audio.Play(My.Resources.Vista_DeviceConnect, AudioPlayMode.WaitToComplete)
                     Process.Start("explorer.exe", CStr(drivecb.SelectedItem))
@@ -269,9 +269,9 @@ Public Class Startwindow
                 End If
             Else
                 If Langname = "English" Then
-                    MsgBox("Error: Drive not found!", MsgBoxStyle.Critical)
+                    MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    MsgBox("Fehler: Laufwerk nicht gefunden!", MsgBoxStyle.Critical)
+                    MessageBox.Show("Fehler: Laufwerk nicht gefunden!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         End If
@@ -461,20 +461,20 @@ Public Class Startwindow
             End If
             encrypttimer.Enabled = True
         Else
-            If keycrypt.Text.Length < 6 Then
+            If CInt(keycrypt.Text.Length) < 6 Then
                 If Langname = "English" Then
-                    MsgBox("The key must have at least 6 characters", MsgBoxStyle.Information)
+                    MessageBox.Show("The key must have at least 6 characters", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    MsgBox("Der Schlüssel muss mindestens aus 6 Zeichen bestehen", MsgBoxStyle.Information)
+                    MessageBox.Show("Der Schlüssel muss mindestens aus 6 Zeichen bestehen", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
                 Dim lastBackslash = CStr(pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal))
                 Dim removeStr As String = pathtxt.Text.Remove(0, CInt(CDbl(lastBackslash) + 1))
                 _filezip.zip(pathtxt.Text, My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                 If Langname = "English" Then
-                    encrypt_list_status.Items.Add("Path is then compressed...........")
+                    encrypt_list_status.Items.Add(CStr("Path is then compressed..........."))
                 Else
-                    encrypt_list_status.Items.Add("Pfad wird kompremiert..........")
+                    encrypt_list_status.Items.Add(CStr("Pfad wird kompremiert.........."))
                 End If
                 encrypttimer.Enabled = True
             End If
@@ -844,23 +844,22 @@ Public Class Startwindow
     Private Sub BeendenToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles exit_bt_systemtray.Click
         If dismount.Enabled = True Then
             If _
-                MsgBox(
-                    "Laufwerk " & drivecb.Text & " ist noch eingebunden!" & vbCrLf &
-                    "Möchten Sie WinCrypt wirklich schließen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                MessageBox.Show("Laufwerk " & drivecb.Text & " ist noch eingebunden!" & vbCrLf &
+                    "Möchten Sie WinCrypt wirklich schließen?", "Laufwerk", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = MsgBoxResult.Yes Then
                 Formclose = False
                 Timerclose = True
                 If dismount.Enabled = True Then
                     If Errormount = "error" Then
 
                     Else
-                        Dim lastBackslash As Integer = decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal)
-                        Dim removeStr As String = decrypt_filepath.Text.Remove(0, lastBackslash + 1)
+                        Dim lastBackslash As Integer = CInt(decrypt_filepath.Text.LastIndexOf("\", StringComparison.Ordinal))
+                        Dim removeStr As String = decrypt_filepath.Text.Remove(0, CInt(lastBackslash) + 1)
                         _filezip.zip(CStr(drivecb.SelectedItem),
                                     My.Computer.FileSystem.SpecialDirectories.Temp & "\" & removeStr & ".zip")
                         If Langname = "English" Then
-                            decrypt_list_status.Items.Add("Path is then compressed..........")
+                            decrypt_list_status.Items.Add(CStr("Path is then compressed.........."))
                         Else
-                            decrypt_list_status.Items.Add("Pfad wird kompremiert..........")
+                            decrypt_list_status.Items.Add(CStr("Pfad wird kompremiert.........."))
                         End If
                         encryptmounttimer.Enabled = True
                         My.Computer.Audio.Play(My.Resources.Vista_DeviceDisconnect, AudioPlayMode.Background)
@@ -1064,13 +1063,11 @@ Public Class Startwindow
             End If
         Else
             If Langname = "English" Then
-                MsgBox(
-                    "It has not yet created any database!" & vbCrLf &
-                    "Specify in advance a database to be able to export them to.", MsgBoxStyle.Exclamation)
+                MessageBox.Show("It has not yet created any database!" & vbCrLf &
+                    "Specify in advance a database to be able to export them to.", "database", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MsgBox(
-                    "Es wurde noch keine Datenbank angelegt!" & vbCrLf &
-                    "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Es wurde noch keine Datenbank angelegt!" & vbCrLf &
+                    "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         End If
     End Sub
@@ -1137,23 +1134,23 @@ Public Class Startwindow
                     File.Delete(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
                     If Langname = "English" Then
-                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 Else
                     If Langname = "English" Then
-                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has not been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde nicht gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 End If
             End If
         Else
             If Langname = "English" Then
-                MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("It has not yet created any database by deleting them!", "database", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MsgBox("Es wurde noch keine Datenbank angelegt um diese zu löschen!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Es wurde noch keine Datenbank angelegt um diese zu löschen!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         End If
     End Sub
@@ -1279,22 +1276,20 @@ Public Class Startwindow
                     _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
                     export_db_dialog.FileName)
             Catch ex As Exception
-                MsgBox(ErrorToString)
+                MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
             If Langname = "English" Then
-                MsgBox("Database has been exported successfully!", MsgBoxStyle.Information)
+                MessageBox.Show("Database has been exported successfully!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Datenbank wurde erfolgreich exportiert!", MsgBoxStyle.Information)
+                MessageBox.Show("Datenbank wurde erfolgreich exportiert!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Else
             If Langname = "English" Then
-                MsgBox(
-                    "It has not yet created any database!" & vbCrLf &
-                    "Specify in advance a database to be able to export them to.", MsgBoxStyle.Exclamation)
+                MessageBox.Show("It has not yet created any database!" & vbCrLf &
+                    "Specify in advance a database to be able to export them to.", "database", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MsgBox(
-                    "Es wurde noch keine Datenbank angelegt!" & vbCrLf &
-                    "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Es wurde noch keine Datenbank angelegt!" & vbCrLf &
+                    "Legen Sie vorher eine Datenbank an um diese exportieren zu können.", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         End If
     End Sub
@@ -1308,22 +1303,21 @@ Public Class Startwindow
                 Then
                 If Langname = "English" Then
                     If _
-                        MsgBox("There is already a database." & vbCrLf & "Do you want to overwrite it?",
-                               MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        MessageBox.Show("There is already a database." & vbCrLf & "Do you want to overwrite it?", "database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
                                                         _root.Root.FullName & "Users\" & Environment.UserName &
                                                         "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
-                        MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has been imported successfully!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
                 Else
+
                     If _
-                        MsgBox("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?",
-                               MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        MessageBox.Show("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", "Datenbank", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
                                                         _root.Root.FullName & "Users\" & Environment.UserName &
                                                         "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
-                        MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde erfolgreich Importiert!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
                 End If
@@ -1332,9 +1326,9 @@ Public Class Startwindow
                                                 _root.Root.FullName & "Users\" & Environment.UserName &
                                                 "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
                 If Langname = "English" Then
-                    MsgBox("Database has been imported successfully!", MsgBoxStyle.Information)
+                    MessageBox.Show("Database has been imported successfully!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    MsgBox("Datenbank wurde erfolgreich Importiert!", MsgBoxStyle.Information)
+                    MessageBox.Show("Datenbank wurde erfolgreich Importiert!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             End If
         Else
@@ -1346,43 +1340,43 @@ Public Class Startwindow
             File.Exists(
                 _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
             If Langname = "English" Then
-                If MsgBox("Do you really want to drop the database?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If MessageBox.Show("Do you really want to drop the database?", "database", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                     File.Delete(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
                     If Langname = "English" Then
-                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has been deleted!", "databse", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 Else
                     If Langname = "English" Then
-                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has not been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde nicht gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 End If
             Else
-                If MsgBox("Wollen Sie wirklich die Datenbank löschen?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                If MessageBox.Show("Wollen Sie wirklich die Datenbank löschen?", "Datenbank", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                     File.Delete(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
                     If Langname = "English" Then
-                        MsgBox("Database has been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 Else
                     If Langname = "English" Then
-                        MsgBox("Database has not been deleted!", MsgBoxStyle.Information)
+                        MessageBox.Show("Database has not been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
-                        MsgBox("Datenbank wurde nicht gelöscht!", MsgBoxStyle.Information)
+                        MessageBox.Show("Datenbank wurde nicht gelöscht!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 End If
             End If
         Else
             If Langname = "English" Then
-                MsgBox("It has not yet created any database by deleting them!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("It has not yet created any database by deleting them!", "database", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
-                MsgBox("Es wurde noch keine Datenbank angelegt um diese zu löschen!", MsgBoxStyle.Exclamation)
+                MessageBox.Show("Es wurde noch keine Datenbank angelegt um diese zu löschen!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         End If
     End Sub

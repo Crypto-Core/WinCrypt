@@ -92,16 +92,16 @@ Namespace tools.passwordmanager
             Else
                 If Startwindow.Langname = "English" Then
                     If _
-                        MsgBox("It has not yet created any database you want to create a database?", MsgBoxStyle.YesNo) =
+                        MessageBox.Show("It has not yet created any database you want to create a database?", "database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) =
                         MsgBoxResult.Yes Then
                         Newpwmgrdatabase.ShowDialog()
                     Else
                         Close()
                     End If
                 Else
+
                     If _
-                        MsgBox("Es wurde noch keine Datenbank angelegt, möchten Sie eine Datenbank anlegen?",
-                               MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        MessageBox.Show("Es wurde noch keine Datenbank angelegt, möchten Sie eine Datenbank anlegen?", "Datenbank", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         Newpwmgrdatabase.ShowDialog()
                     Else
                         Close()
@@ -116,35 +116,35 @@ Namespace tools.passwordmanager
         Private Sub copy_user_bt_Click(sender As Object, e As EventArgs) Handles copy_user_bt.Click
             Computer.Clipboard.SetText(user_txt.Text)
             If Startwindow.Langname = "English" Then
-                MsgBox("User has been copied", MsgBoxStyle.Information)
+                MessageBox.Show("User has been copied", "copied", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Benutzer wurde kopiert", MsgBoxStyle.Information)
+                MessageBox.Show("Benutzer wurde kopiert", "Kopiert", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Sub
 
         Private Sub copy_password_bt_Click(sender As Object, e As EventArgs) Handles copy_password_bt.Click
             Computer.Clipboard.SetText(password_txt.Text)
             If Startwindow.Langname = "English" Then
-                MsgBox("Password has been copied", MsgBoxStyle.Information)
+                MessageBox.Show("Password has been copied", "copied", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Passwort wurde kopiert", MsgBoxStyle.Information)
+                MessageBox.Show("Passwort wurde kopiert", "Kopiert", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Sub
 
         Private Sub copy_source_bt_Click(sender As Object, e As EventArgs) Handles copy_source_bt.Click
             Computer.Clipboard.SetText(source_txt.Text)
             If Startwindow.Langname = "English" Then
-                MsgBox("Source has been copied", MsgBoxStyle.Information)
+                MessageBox.Show("Source has been copied", "copied", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Quelle wurde kopiert", MsgBoxStyle.Information)
+                MessageBox.Show("Quelle wurde kopiert", "Kopiert", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Sub
 
-        Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
+        Private Sub minimize_bt_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
             WindowState = FormWindowState.Minimized
         End Sub
 
-        Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
+        Private Sub exit_bt_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
             Close()
         End Sub
 

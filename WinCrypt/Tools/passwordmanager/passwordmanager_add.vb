@@ -52,9 +52,9 @@ Namespace tools.passwordmanager
                     End If
                 Loop
                 If Startwindow.Langname = "English" Then
-                    MsgBox("Entry was successfully added!", MsgBoxStyle.Information)
+                    MessageBox.Show("Entry was successfully added!", "added", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
-                    MsgBox("Eintrag wurde erfolgreich hinzugefügt!", MsgBoxStyle.Information)
+                    MessageBox.Show("Eintrag wurde erfolgreich hinzugefügt!", "Hinzugefügt", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
                 Return
             Next go

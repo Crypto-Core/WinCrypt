@@ -89,9 +89,9 @@ Namespace tools.data_encryption
                         generatebt.Enabled = False
                     Else
                         If Startwindow.Langname = "English" Then
-                            MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
+                            MessageBox.Show("Location does not exist!", "Location", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         Else
-                            MsgBox("Speicherort existiert nicht!", MsgBoxStyle.Exclamation)
+                            MessageBox.Show("Speicherort existiert nicht!", "Speicherort", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End If
                     End If
                 Else
@@ -133,16 +133,16 @@ Namespace tools.data_encryption
                         End If
                     Else
                         If Startwindow.Langname = "English" Then
-                            MsgBox("Location does not exist!", MsgBoxStyle.Exclamation)
+                            MessageBox.Show("Location does not exist!", "Location", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         Else
-                            MsgBox("Speicherort existiert nicht!", MsgBoxStyle.Exclamation)
+                            MessageBox.Show("Speicherort existiert nicht!", "Speicherort", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End If
                     End If
                 Else
                     If Startwindow.Langname = "English" Then
-                        MsgBox("File does not exist!!", MsgBoxStyle.Exclamation)
+                        MessageBox.Show("File does not exist!", "file", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
-                        MsgBox("Datei existiert nicht!", MsgBoxStyle.Exclamation)
+                        MessageBox.Show("Datei existiert nicht!", "Datei", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 End If
             End If

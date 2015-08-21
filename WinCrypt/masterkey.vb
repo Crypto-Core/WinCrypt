@@ -28,9 +28,9 @@ Public Class Masterkey
                 Startwindow.ShowDialog()
             Else
                 If _lang.langname = "English" Then
-                    MsgBox("wrong masterkey!", MsgBoxStyle.Critical)
+                    MessageBox.Show("wrong masterkey!", "masterkey", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    MsgBox("Falscher Masterkey!", MsgBoxStyle.Critical)
+                    MessageBox.Show("Falscher Masterkey", "Masterkey", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         Catch ex As Exception

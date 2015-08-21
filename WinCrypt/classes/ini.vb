@@ -131,20 +131,19 @@ Namespace classes
         Public Sub SektionLöschen(sektion As String)
             Try
                 If Pfad = Nothing Then
-                    MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen der Sektion nicht möglich." _
-                           & vbCrLf & vbCrLf & "Angeforderte Sektion: " & sektion, MsgBoxStyle.Exclamation,
-                           "Pfad zur INI-Datei fehlt")
+                    MessageBox.Show("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen der Sektion nicht möglich." _
+                           & vbCrLf & vbCrLf & "Angeforderte Sektion: " & sektion, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 If File.Exists(Pfad) = False Then
-                    MsgBox("Die angegebene INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
+                    MessageBox.Show("Die angegebene INI-Datei exstiert auf diesem Rechner nicht. Deshalb ist das " _
                            & "Löschen der Sektion nicht möglich." & vbCrLf & vbCrLf & "INI-Datei: " & Pfad _
-                           & vbCrLf & "Angeforderte Sektion: ", MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
+                           & vbCrLf & "Angeforderte Sektion: ", "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Exit Sub
                 End If
                 DeletePrivateProfileSection(Sektion, 0, 0, Pfad)
             Catch ex As Exception
-                MsgBox(ex.Message)
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End Sub
 
@@ -152,9 +151,8 @@ Namespace classes
             Try
                 If Pfad = Nothing Then
                     If fehlermeldungAnzeigen = True Then
-                        MsgBox("Es ist kein Pfad zur INI, von der ein Backup angelegt werden soll, angegeben." _
-                               & "Das Backup konnte NICHT angelegt werden.", MsgBoxStyle.Exclamation,
-                               "Pfad zur INI-Datei fehlt")
+                        MessageBox.Show("Es ist kein Pfad zur INI, von der ein Backup angelegt werden soll, angegeben." _
+                               & "Das Backup konnte NICHT angelegt werden.", "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                     Exit Sub
                 End If
@@ -162,39 +160,36 @@ Namespace classes
                 ordner = Path.GetDirectoryName(Pfad)
                 If Directory.Exists(ordner) = False Then
                     If fehlermeldungAnzeigen = True Then
-                        MsgBox(zielpfad & vbCrLf & vbCrLf & "Dieser Ordner existiert nicht." _
-                               & vbCrLf & vbCrLf & "Das Backup konnte NICHT angelegt werden.", MsgBoxStyle.Exclamation,
-                               "Zielordner existiert nicht")
+                        MessageBox.Show(zielpfad & vbCrLf & vbCrLf & "Dieser Ordner existiert nicht." _
+                               & vbCrLf & vbCrLf & "Das Backup konnte NICHT angelegt werden.", "Zielordner existiert nicht", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                     Exit Sub
                 End If
                 File.Copy(Pfad, zielpfad)
             Catch ex As Exception
-                MsgBox(ex.Message)
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End Sub
 
         Public Sub DateiLöschen(Optional ByVal fehlermeldungAnzeigen As Boolean = False)
             If Pfad = Nothing Then
                 If fehlermeldungAnzeigen = True Then
-                    MsgBox("Es ist kein Pfad zur INI, die gelöscht werden soll, angegeben." _
-                           & "Das Löschen konnte NICHT durchgeführt werden.", MsgBoxStyle.Exclamation,
-                           "Pfad zur INI-Datei fehlt")
+                    MessageBox.Show("Es ist kein Pfad zur INI, die gelöscht werden soll, angegeben." _
+                           & "Das Löschen konnte NICHT durchgeführt werden.", "Pfad zur INI-Datei fehlt", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
                 Exit Sub
             End If
             Try
                 If File.Exists(Pfad) = False Then
-                    If FehlermeldungAnzeigen = True Then
-                        MsgBox(Pfad & vbCrLf & vbCrLf & "Diese Datei existiert bereits nicht mehr. " _
-                               & "Das Löschen hat sich damit erübrigt.", MsgBoxStyle.Exclamation,
-                               "Datei existiert nicht mehr")
+                    If fehlermeldungAnzeigen = True Then
+                        MessageBox.Show(Pfad & vbCrLf & vbCrLf & "Diese Datei existiert bereits nicht mehr. " _
+                               & "Das Löschen hat sich damit erübrigt.", "Datei existiert nicht mehr", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                     Exit Sub
                 End If
                 File.Delete(Pfad)
             Catch ex As Exception
-                MsgBox(ex.Message)
+                MessageBox.Show(ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End Sub
     End Class
