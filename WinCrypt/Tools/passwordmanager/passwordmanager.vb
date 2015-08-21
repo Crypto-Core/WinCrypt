@@ -7,12 +7,10 @@ Imports Project_WinCrypt.My
 Namespace tools.passwordmanager
     Public Class Passwordmanager
         ReadOnly _aes As New AES
-        ReadOnly _root As New DirectoryInfo(Computer.FileSystem.CurrentDirectory)
-
         Public _
             Ini As _
                 New IniDatei(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
 
         Public Schleife As Integer = 0
         Public Index As Integer = 0
@@ -71,11 +69,11 @@ Namespace tools.passwordmanager
             Try
                 Dim readdb As String
                 readdb =
-                    Computer.FileSystem.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    Computer.FileSystem.ReadAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
                 If Mgrpass = Nothing Then
                 Else
                     Computer.FileSystem.WriteAllText(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                        Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
                         CStr(_aes.AesEncrypt(readdb, Mgrpass, Startwindow.Biosid)), False)
                 End If
                 Mgrpass = Nothing
@@ -87,7 +85,7 @@ Namespace tools.passwordmanager
         Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
-            If File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            If File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
                 passwordmgr_pass.ShowDialog()
             Else
                 If Startwindow.Langname = "English" Then

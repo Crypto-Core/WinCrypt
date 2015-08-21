@@ -8,7 +8,6 @@ Namespace tools.passwordmanager
     Public Class passwordmgr_pass
         Public Pass As String
         ReadOnly _aes As New AES
-        ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
         Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
             If CInt(password_txt.Text.Length) < 8 Then
@@ -21,12 +20,12 @@ Namespace tools.passwordmanager
                 Dim textdecrypt As String
 
                 textdecrypt = _aes.AesDecrypt(
-                        File.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
+                        File.ReadAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
                         password_txt.Text, Startwindow.Biosid)
                 If textdecrypt = "error" Then
                 Else
                     tools.passwordmanager.Passwordmanager.Mgrpass = password_txt.Text
-                    File.WriteAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", textdecrypt)
+                    File.WriteAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", textdecrypt)
                     tools.passwordmanager.Passwordmanager.database_viewer.Items.Clear()
                     For Each go As String In tools.passwordmanager.Passwordmanager.Schleife.ToString
                         Do

@@ -5,11 +5,9 @@ Imports Project_WinCrypt.classes
 
 Public Class Masterkey
     Private _decrypt As New AES
-    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
-
     ReadOnly _
         _readinikey As _
-            New INIDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS")
     Private _bios As String

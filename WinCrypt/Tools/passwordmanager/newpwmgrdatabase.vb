@@ -5,7 +5,6 @@ Imports Project_WinCrypt.classes
 
 Public Class Newpwmgrdatabase
     ReadOnly _aes As New AES
-    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
     Private Sub createdb_bt_Click(sender As Object, e As EventArgs) Handles createdb_bt.Click
         If password_txt.Text.Length < 8 Then
@@ -17,7 +16,7 @@ Public Class Newpwmgrdatabase
         Else
             Dim newentry As String = "[1]" & vbCrLf & "user=" & vbCrLf & "password=" & vbCrLf & "source=" & vbCrLf &
                                      "comment=" & vbCrLf & "index=|"
-            File.WriteAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(_aes.AesEncrypt(newentry, password_txt.Text, Startwindow.Biosid)))
+            File.WriteAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(_aes.AesEncrypt(newentry, password_txt.Text, Startwindow.Biosid)))
             tools.passwordmanager.Passwordmanager.Mgrpass = password_txt.Text
             If Startwindow.Langname = "English" Then
                 MessageBox.Show("Database has been successfully created!", "database created", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -26,9 +25,9 @@ Public Class Newpwmgrdatabase
             End If
             Dim textdecrypt As String
             textdecrypt =
-                _aes.AesDecrypt(File.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
+                _aes.AesDecrypt(File.ReadAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
                     password_txt.Text, Startwindow.Biosid)
-            File.WriteAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",textdecrypt)
+            File.WriteAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", textdecrypt)
             tools.passwordmanager.Passwordmanager.database_viewer.Items.Clear()
             For Each go In tools.passwordmanager.Passwordmanager.Schleife.ToString
                 Do

@@ -7,15 +7,13 @@ Imports Project_WinCrypt.classes
 
 Public Class WcSetting
     Private designcolor As New designcolor
-    ReadOnly _root As New DirectoryInfo(Application.StartupPath) _
-    ' Der aktuelle Pfad der Project WinCrypt.exe
     ReadOnly _
         _iniwrite As _
-            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
     ReadOnly _
         _ini As _
-            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
     ' Die config.ini wird eingelesen
     ReadOnly _lang As New Language ' Die Sprache wird deklariert
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _

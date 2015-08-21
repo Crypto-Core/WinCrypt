@@ -6,12 +6,10 @@ Imports Project_WinCrypt.classes
 Namespace tools.passwordmanager
 
     Public Class passwordmanager_add
-        ReadOnly _root As New DirectoryInfo(Application.StartupPath)
-
         ReadOnly _
             _ini As _
-                New INIDatei(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                New IniDatei(
+                    Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
 
         Public Property Aes1 As AES = New AES
 
