@@ -26,32 +26,32 @@ Namespace tools.passwordmanager
             Handles database_viewer.SelectedIndexChanged
             If database_viewer.SelectedItems.Count > 0 Then
                 Index = CInt(database_viewer.SelectedItems.Item(0).SubItems(2).Text)
-                user_txt.Text = Ini.WertLesen(CStr(Index), "user")
-                password_txt.Text = Ini.WertLesen(CStr(Index), "password")
-                source_txt.Text = Ini.WertLesen(CStr(Index), "source")
-                comment_txt.Text = Ini.WertLesen(CStr(Index), "comment").Replace("\r\n", vbCrLf)
+                user_txt.Text = Ini.worthreading(CStr(Index), "user")
+                password_txt.Text = Ini.worthreading(CStr(Index), "password")
+                source_txt.Text = Ini.worthreading(CStr(Index), "source")
+                comment_txt.Text = Ini.worthreading(CStr(Index), "comment").Replace("\r\n", vbCrLf)
             End If
         End Sub
 
         Private Sub delete_bt_Click(sender As Object, e As EventArgs) Handles delete_bt.Click
-            Ini.WertSchreiben(CStr(Index), "user", "")
-            Ini.WertSchreiben(CStr(Index), "password", "")
-            Ini.WertSchreiben(CStr(Index), "source", "")
-            Ini.WertSchreiben(CStr(Index), "comment", "")
+            Ini.WertSchreiben(CStr(Index), "user", Nothing)
+            Ini.WertSchreiben(CStr(Index), "password", Nothing)
+            Ini.WertSchreiben(CStr(Index), "source", Nothing)
+            Ini.WertSchreiben(CStr(Index), "comment", Nothing)
             Ini.WertSchreiben(CStr(Index), "index", "|")
             database_viewer.Items.Clear()
             For Each go As String In Schleife.ToString
                 Do
                     Schleife += 1
-                    If Ini.WertLesen(Str(Schleife), "index") = "" Then
+                    If Ini.worthreading(Str(Schleife), "index") = Nothing Then
                         Schleife = 0
                         Exit Do
                     Else
-                        If Ini.WertLesen(Str(Schleife), "index") = "|" Then
+                        If Ini.worthreading(Str(Schleife), "index") = "|" Then
                         Else
-                            With database_viewer.Items.Add(Ini.WertLesen(CStr(Schleife), "user"))
-                                .SubItems.Add(Ini.WertLesen(CStr(Schleife), "source"))
-                                .SubItems.Add(Ini.WertLesen(CStr(Schleife), "index"))
+                            With database_viewer.Items.Add(Ini.worthreading(CStr(Schleife), "user"))
+                                .SubItems.Add(Ini.worthreading(CStr(Schleife), "source"))
+                                .SubItems.Add(Ini.worthreading(CStr(Schleife), "index"))
                             End With
                         End If
                     End If
@@ -72,13 +72,13 @@ Namespace tools.passwordmanager
                 Dim readdb As String
                 readdb =
                     Computer.FileSystem.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
-                If Mgrpass = "" Then
+                If Mgrpass = Nothing Then
                 Else
                     Computer.FileSystem.WriteAllText(
                         _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
                         CStr(_aes.AesEncrypt(readdb, Mgrpass, Startwindow.Biosid)), False)
                 End If
-                Mgrpass = ""
+                Mgrpass = Nothing
             Catch ex As Exception
 
             End Try
@@ -108,7 +108,7 @@ Namespace tools.passwordmanager
                     End If
                 End If
             End If
-            If Mgrpass = "" Then
+            If Mgrpass = Nothing Then
                 Close()
             End If
         End Sub

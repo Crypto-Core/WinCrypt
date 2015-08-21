@@ -1,17 +1,17 @@
 ﻿Imports System.IO
 
 Public Class designcolor
-    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
     ReadOnly _
         _ini As _
             New classes.IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
-    Public UseTemplate As String = _ini.WertLesen("Design", "UseTemplate")
-    Public bgcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "BackgroundColor"))
-    Public formheadcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "FormHeadColor"))
-    Public inputbackgroundcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "InputBackgroundColor"))
-    Public buttoncolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "ButtonColor"))
-    Public textcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "TextColor"))
-    Public inputtextcolor As Color = ColorTranslator.FromHtml(_ini.WertLesen("Design", "InputTextColor"))
+    Public UseTemplate As String = _ini.worthreading("Design", "UseTemplate")
+    Public bgcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "BackgroundColor"))
+    Public formheadcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "FormHeadColor"))
+    Public inputbackgroundcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "InputBackgroundColor"))
+    Public buttoncolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "ButtonColor"))
+    Public textcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "TextColor"))
+    Public inputtextcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "InputTextColor"))
     Public Event reload()
     Sub color()
         '// Überprüfen ob die Werte existieren und wenn nicht, Werte schreiben

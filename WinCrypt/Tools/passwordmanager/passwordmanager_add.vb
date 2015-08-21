@@ -6,7 +6,7 @@ Imports Project_WinCrypt.classes
 Namespace tools.passwordmanager
 
     Public Class passwordmanager_add
-        ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+        ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
         ReadOnly _
             _ini As _
@@ -35,17 +35,17 @@ Namespace tools.passwordmanager
             For Each go As String In tools.passwordmanager.Passwordmanager.Schleife.ToString
                 Do
                     tools.passwordmanager.Passwordmanager.Schleife += 1
-                    If _ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "" Then
+                    If _ini.worthreading(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = Nothing Then
                         tools.passwordmanager.Passwordmanager.Schleife = 0
                         Exit Do
                     Else
-                        If _ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "|" Then
+                        If _ini.worthreading(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "|" Then
                         Else
                             With _
-                                tools.passwordmanager.Passwordmanager.database_viewer.Items.Add(_ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife),
+                                tools.passwordmanager.Passwordmanager.database_viewer.Items.Add(_ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife),
                                                                                                               "user"))
-                                .SubItems.Add(_ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "source"))
-                                .SubItems.Add(_ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "index"))
+                                .SubItems.Add(_ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife), "source"))
+                                .SubItems.Add(_ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife), "index"))
                             End With
                             Close()
                         End If

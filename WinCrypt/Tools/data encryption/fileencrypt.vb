@@ -1,28 +1,26 @@
 ﻿Option Strict On
 Imports System.ComponentModel
-
+Imports System.IO
 Namespace tools.data_encryption
     Public Class Fileencrypt
         Private Sub fileopenbt_Click(sender As Object, e As EventArgs) Handles fileopenbt.Click
             OpenFileDialog.ShowDialog()
-            If My.Computer.FileSystem.FileExists(OpenFileDialog.FileName) Then
+            If File.Exists(OpenFileDialog.FileName) Then
                 filetxt.Text = OpenFileDialog.FileName
                 savefilebt.Enabled = True
                 savepathtxt.Enabled = True
-            Else
-            End If
+            Else : End If
         End Sub
 
         Private Sub savefilebt_Click(sender As Object, e As EventArgs) Handles savefilebt.Click
             FolderBrowserDialog.ShowDialog()
-            If My.Computer.FileSystem.DirectoryExists(FolderBrowserDialog.SelectedPath) Then
+            If Directory.Exists(FolderBrowserDialog.SelectedPath) Then
                 savepathtxt.Text = FolderBrowserDialog.SelectedPath
                 passwordtxt.Enabled = True
                 generatebt.Enabled = True
                 If Startwindow.Iniread = "yes" Then
                     encryptbt.Enabled = True
-                Else
-                End If
+                Else : End If
             Else
             End If
         End Sub
@@ -30,23 +28,23 @@ Namespace tools.data_encryption
         Private Sub generatebt_Click(sender As Object, e As EventArgs) Handles generatebt.Click
             Dim numCharacters As Integer
             Dim i As Integer
-            Dim txt = ""
+            Dim txt = Nothing
             Dim ch As Integer
             Randomize()
             numCharacters = CInt(32)
             For i = 1 To numCharacters
                 ch = CInt(Int((26 + 26 + 10) * Rnd()))
                 If ch < 26 Then
-                    txt = txt & Chr(ch + Asc("A"))
+                    txt = CStr(txt) & Chr(ch + Asc("A"))
                 ElseIf ch < 2 * 26 Then
                     ch = ch - 26
-                    txt = txt & Chr(ch + Asc("a"))
+                    txt = CStr(txt) & Chr(ch + Asc("a"))
                 Else
                     ch = ch - 26 - 26
-                    txt = txt & Chr(ch + Asc("0"))
+                    txt = CStr(txt) & Chr(ch + Asc("0"))
                 End If
             Next i
-            passwordtxt.Text = txt
+            passwordtxt.Text = CStr(txt)
         End Sub
 
         Private Sub passwordtxt_KeyDown(sender As Object, e As KeyEventArgs) Handles passwordtxt.KeyDown
@@ -71,20 +69,19 @@ Namespace tools.data_encryption
             Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal),
                                                      filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
             If Startwindow.Iniread = "yes" Then
-                If My.Computer.FileSystem.FileExists(filetxt.Text) Then
-                    If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
+                If File.Exists(filetxt.Text) Then
+                    If Directory.Exists(savepathtxt.Text) Then
                         classes.CryptFile(Startwindow.Biosid, filetxt.Text,
-                                                        savepathtxt.Text & "\" & i.Substring(1, i.Length - 1) & ".wc", True)
+                                                        savepathtxt.Text & "\" & i.Substring(1, Int(i.Length - 1)) & ".wc", True)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
-
                         If Startwindow.Langname = "English" Then
                             statuslb.Text = String.Format("File {0} encrypted!", i.Substring(1, i.Length - 1))
                         Else
                             statuslb.Text = String.Format("Datei {0} wurde verschlüsselt!", i.Substring(1, i.Length - 1))
                         End If
-                        filetxt.Text = ""
-                        savepathtxt.Text = ""
-                        passwordtxt.Text = ""
+                        filetxt.Text = Nothing
+                        savepathtxt.Text = Nothing
+                        passwordtxt.Text = Nothing
                         savepathtxt.Enabled = False
                         passwordtxt.Enabled = False
                         savefilebt.Enabled = False
@@ -98,21 +95,22 @@ Namespace tools.data_encryption
                         End If
                     End If
                 Else
-                    If Startwindow.Langname = "English" Then
-                        MsgBox("File does not exist!!", MsgBoxStyle.Exclamation)
+                    If Startwindow.Langname = CStr("English") Then
+                        MessageBox.Show(CStr("File does not exist!"), CStr("File"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Else
-                        MsgBox("Datei existiert nicht!", MsgBoxStyle.Exclamation)
+                        MessageBox.Show("Datei existiert nicht!", "Datei", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 End If
             Else
-                If My.Computer.FileSystem.FileExists(filetxt.Text) Then
-                    If My.Computer.FileSystem.DirectoryExists(savepathtxt.Text) Then
-                        If passwordtxt.Text.Length < 6 Then
 
-                            If Startwindow.Langname = "English" Then
-                                MsgBox("Password is too short!", MsgBoxStyle.Information)
+                If File.Exists(CStr(filetxt.Text)) Then
+                    If Directory.Exists(CStr(savepathtxt.Text)) Then
+                        If Int(passwordtxt.Text.Length) < 6 Then
+                            If Startwindow.Langname = CStr("English") Then
+                                MessageBox.Show(CStr("Password is too short!"), CStr("Password"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             Else
-                                MsgBox("Passwort zu kurz!", MsgBoxStyle.Information)
+                                MessageBox.Show(CStr("Passwort ist zu kurz!"), CStr("Passwort"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
                             End If
                         Else
                             classes.CryptFile(passwordtxt.Text, filetxt.Text,
@@ -124,9 +122,9 @@ Namespace tools.data_encryption
                             Else
                                 statuslb.Text = String.Format("Datei {0} wurde verschlüsselt!", i.Substring(1, i.Length - 1))
                             End If
-                            filetxt.Text = ""
-                            savepathtxt.Text = ""
-                            passwordtxt.Text = ""
+                            filetxt.Text = Nothing
+                            savepathtxt.Text = Nothing
+                            passwordtxt.Text = Nothing
                             savepathtxt.Enabled = False
                             passwordtxt.Enabled = False
                             savefilebt.Enabled = False
@@ -207,7 +205,7 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub filetxt_TextChanged(sender As Object, e As EventArgs) Handles filetxt.TextChanged
-            If My.Computer.FileSystem.FileExists(filetxt.Text) Then
+            If File.Exists(CStr(filetxt.Text)) Then
                 savefilebt.Enabled = True
                 savepathtxt.Enabled = True
             Else

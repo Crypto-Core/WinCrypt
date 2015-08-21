@@ -1,4 +1,6 @@
-﻿Public Class MD5FileHash_frm
+﻿Imports System.IO
+Imports System.Windows.Forms
+Public Class MD5FileHash_frm
     Private md5 As New classes.MD5fileHash
     Private Sub form_head_MouseDown(sender As Object, e As MouseEventArgs) Handles form_head.MouseDown
         If (e.Button = MouseButtons.Left) Then
@@ -25,7 +27,7 @@
     End Sub
 
     Private Sub file_txt_TextChanged(sender As Object, e As EventArgs) Handles file_txt.TextChanged
-        If My.Computer.FileSystem.FileExists(file_txt.Text) Then
+        If File.Exists(file_txt.Text) Then
             generate_bt.Enabled = True
             copy_bt.Enabled = True
         Else
@@ -36,12 +38,12 @@
 
     Private Sub copy_bt_Click(sender As Object, e As EventArgs) Handles copy_bt.Click
         Try
-            My.Computer.Clipboard.SetText(md5_hash_txt.Text)
+            Clipboard.SetText(md5_hash_txt.Text)
             MessageBox.Show("Hash wurde kopiert!", "Kopiert!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
 
         End Try
-        
+
     End Sub
 
     Private Sub generate_bt_Click(sender As Object, e As EventArgs) Handles generate_bt.Click
@@ -50,11 +52,10 @@
 
     Private Sub open_bt_Click(sender As Object, e As EventArgs) Handles open_bt.Click
         openfile_dialog.ShowDialog()
-        If My.Computer.FileSystem.FileExists(openfile_dialog.FileName) Then
-            file_txt.Text = openfile_dialog.FileName
-        Else
 
-        End If
+        If File.Exists(openfile_dialog.FileName) Then
+            file_txt.Text = openfile_dialog.FileName
+        Else : End If
     End Sub
 
     Private Sub MD5FileHash_frm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

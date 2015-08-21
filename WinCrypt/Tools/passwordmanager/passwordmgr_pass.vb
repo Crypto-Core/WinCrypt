@@ -8,9 +8,9 @@ Namespace tools.passwordmanager
     Public Class passwordmgr_pass
         Public Pass As String
         ReadOnly _aes As New AES
-        ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+        ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
-        Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
+        Private Sub ok_bt_Click(sender As Object, e As EventArgs) Handles ok_bt.Click
             If password_txt.Text.Length < 8 Then
 
                 If Startwindow.Langname = "English" Then
@@ -20,32 +20,29 @@ Namespace tools.passwordmanager
                 End If
             Else
                 Dim textdecrypt As String
-                textdecrypt =
-                    _aes.AesDecrypt(
-                        My.Computer.FileSystem.ReadAllText(
-                            _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
+
+                textdecrypt = _aes.AesDecrypt(
+                        File.ReadAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
                         password_txt.Text, Startwindow.Biosid)
                 If textdecrypt = "error" Then
                 Else
                     tools.passwordmanager.Passwordmanager.Mgrpass = password_txt.Text
-                    My.Computer.FileSystem.WriteAllText(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
-                        textdecrypt, False)
+                    File.WriteAllText(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", textdecrypt)
                     tools.passwordmanager.Passwordmanager.database_viewer.Items.Clear()
                     For Each go As String In tools.passwordmanager.Passwordmanager.Schleife.ToString
                         Do
                             tools.passwordmanager.Passwordmanager.Schleife += 1
-                            If tools.passwordmanager.Passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "" Then
+                            If tools.passwordmanager.Passwordmanager.Ini.worthreading(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = Nothing Then
                                 tools.passwordmanager.Passwordmanager.Schleife = 0
                                 Exit Do
                             Else
-                                If tools.passwordmanager.Passwordmanager.Ini.WertLesen(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "|" Then
+                                If tools.passwordmanager.Passwordmanager.Ini.worthreading(Str(tools.passwordmanager.Passwordmanager.Schleife), "index") = "|" Then
                                 Else
                                     With _
                                         tools.passwordmanager.Passwordmanager.database_viewer.Items.Add(
-                                            tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "user"))
-                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "source"))
-                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.WertLesen(CStr(tools.passwordmanager.Passwordmanager.Schleife), "index"))
+                                            tools.passwordmanager.Passwordmanager.Ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife), "user"))
+                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife), "source"))
+                                        .SubItems.Add(tools.passwordmanager.Passwordmanager.Ini.worthreading(CStr(tools.passwordmanager.Passwordmanager.Schleife), "index"))
                                     End With
                                 End If
                             End If
@@ -58,7 +55,7 @@ Namespace tools.passwordmanager
         End Sub
 
         Private Sub passwordmgr_pass_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-            password_txt.Text = ""
+            password_txt.Text = Nothing
         End Sub
 
         Private Sub XToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles exit_bt.Click

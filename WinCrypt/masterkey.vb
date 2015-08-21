@@ -5,7 +5,7 @@ Imports Project_WinCrypt.classes
 
 Public Class Masterkey
     Private _decrypt As New AES
-    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
     ReadOnly _
         _readinikey As _
@@ -23,7 +23,7 @@ Public Class Masterkey
                 Assembly.GetExecutingAssembly().GetCustomAttributes(
                     GetType(GuidAttribute), False)(0), 
                 GuidAttribute)
-            If _readinikey.WertLesen("Key", "master") = encrypt.AESEncrypt(key_txt.Text, _bios, lGuid.Value) Then
+            If _readinikey.worthreading("Key", "master") = encrypt.AESEncrypt(key_txt.Text, _bios, lGuid.Value) Then
                 Hide()
                 Startwindow.ShowDialog()
             Else
@@ -51,7 +51,7 @@ Public Class Masterkey
         _lang.check()
         For Each ver In _wmiobj.Instances_
             _bios = ver.SerialNumber
-            _bios.Replace(" ", "")
+            _bios.Replace(" ", Nothing)
         Next
     End Sub
 

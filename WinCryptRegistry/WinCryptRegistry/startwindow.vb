@@ -32,11 +32,11 @@ Public Class startwindow
             Dim sValue2 = "text"
             Dim sEntry3 = "Nullfile"
             objSubKey = My.Computer.Registry.ClassesRoot.CreateSubKey(sKey)
-            objSubKey.SetValue("", Wert)
+            objSubKey.SetValue(Nothing, Wert)
             objSubKey.SetValue(sEntry, sValue)
             objSubKey.SetValue(sEntry2, sValue2)
             objSubKey2 = My.Computer.Registry.ClassesRoot.CreateSubKey(sKey2)
-            objSubKey2.SetValue(sEntry3, "")
+            objSubKey2.SetValue(sEntry3, Nothing)
             Dim objSubKey3 As RegistryKey
             Dim sKey3 As String = namedesdateityps
             Dim sKey4 As String = namedesdateityps & "\shell\open\command"
@@ -47,11 +47,11 @@ Public Class startwindow
             Dim sValue6 As String = """" + pfadzuicon + """"
             Dim objSubKey4 As RegistryKey
             objSubKey3 = My.Computer.Registry.ClassesRoot.CreateSubKey(sKey3)
-            objSubKey3.SetValue("", sValue3)
+            objSubKey3.SetValue(Nothing, sValue3)
             objSubKey4 = My.Computer.Registry.ClassesRoot.CreateSubKey(sKey4)
-            objSubKey4.SetValue("", sValue5)
+            objSubKey4.SetValue(Nothing, sValue5)
             objSubKey5 = My.Computer.Registry.ClassesRoot.CreateSubKey(skey5)
-            objSubKey5.SetValue("", sValue6)
+            objSubKey5.SetValue(Nothing, sValue6)
             Return True
         Catch ex As Exception
             Return False

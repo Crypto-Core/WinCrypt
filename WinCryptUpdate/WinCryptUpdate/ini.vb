@@ -63,15 +63,15 @@ Public Class INIDatei
         As Integer
 
 
-    Public Function WertLesen(Sektion As String, Schlüssel As String, Optional ByVal Standardwert As String = "",
+    Public Function worthreading(Sektion As String, Schlüssel As String, Optional ByVal Standardwert As String = Nothing,
                               Optional ByVal BufferSize As Integer = 1024) As String
         Try
             ' Testen, ob ein Pfad zur INI vorhanden ist
-            If Pfad = "" Then
+            If Pfad = Nothing Then
                 MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Auslesen des Wertes nicht möglich." _
                        & vbCrLf & vbCrLf & "Angeforderte Sektion: " & Sektion & vbCrLf & "Angeforderter Schlüssel: " _
                        & Schlüssel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
-                WertLesen = "Lesefehler"
+                worthreading = "Lesefehler"
                 Exit Function
             End If
 
@@ -81,7 +81,7 @@ Public Class INIDatei
                        & "Auslesen des Wertes nicht möglich." & vbCrLf & vbCrLf & "INI-Datei: " & Pfad _
                        & vbCrLf & "Angeforderte Sektion: " & Sektion & vbCrLf & "Angeforderter Schlüssel: " _
                        & Schlüssel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
-                WertLesen = "Lesefehler"
+                worthreading = "Lesefehler"
                 Exit Function
             End If
         Catch ex As Exception
@@ -110,7 +110,7 @@ Public Class INIDatei
             'Dim fs As New System.IO.FileStream(Pfad, IO.FileMode.)
             'Dim fs As New System.IO.FileStream(Pfad, IO.FileMode.OpenOrCreate, IO.FileAccess.Write)
             ' Testen, ob ein Pfad zur INI vorhanden ist
-            If Pfad = "" Then
+            If Pfad = Nothing Then
                 MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Schreiben des Wertes nicht möglich." _
                        & vbCrLf & vbCrLf & "Angeforderte Sektion: " & Sektion & vbCrLf & "Zu schreibender Schlüssel: " _
                        & Schlüssel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
@@ -138,7 +138,7 @@ Public Class INIDatei
     Public Sub SchlüsselLöschen(Sektion As String, Schlüssel As String)
         Try
             ' Testen, ob ein Pfad zur INI vorhanden ist
-            If Pfad = "" Then
+            If Pfad = Nothing Then
                 MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen des Schlüssels nicht möglich." _
                        & vbCrLf & vbCrLf & "Angeforderte Sektion: " & Sektion & vbCrLf & "Zu löschender Schlüssel: " _
                        & Schlüssel, MsgBoxStyle.Exclamation, "Pfad zur INI-Datei fehlt")
@@ -166,7 +166,7 @@ Public Class INIDatei
     Public Sub SektionLöschen(Sektion As String)
         Try
             ' Testen, ob ein Pfad zur INI vorhanden ist
-            If Pfad = "" Then
+            If Pfad = Nothing Then
                 MsgBox("Es ist kein Pfad zur INI angegeben. Deshalb ist das Löschen der Sektion nicht möglich." _
                        & vbCrLf & vbCrLf & "Angeforderte Sektion: " & Sektion, MsgBoxStyle.Exclamation,
                        "Pfad zur INI-Datei fehlt")
@@ -195,7 +195,7 @@ Public Class INIDatei
 
 
             ' Testen, ob ein Pfad zur INI (der Quelldatei) vorhanden ist
-            If Pfad = "" Then
+            If Pfad = Nothing Then
                 If FehlermeldungAnzeigen = True Then
                     MsgBox("Es ist kein Pfad zur INI, von der ein Backup angelegt werden soll, angegeben." _
                            & "Das Backup konnte NICHT angelegt werden.", MsgBoxStyle.Exclamation,
@@ -224,7 +224,7 @@ Public Class INIDatei
 
     Public Sub DateiLöschen(Optional ByVal FehlermeldungAnzeigen As Boolean = False)
         ' Testen, ob ein Pfad zur INI (der Quelldatei) vorhanden ist
-        If Pfad = "" Then
+        If Pfad = Nothing Then
             If FehlermeldungAnzeigen = True Then
                 MsgBox("Es ist kein Pfad zur INI, die gelöscht werden soll, angegeben." _
                        & "Das Löschen konnte NICHT durchgeführt werden.", MsgBoxStyle.Exclamation,

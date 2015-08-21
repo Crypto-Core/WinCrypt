@@ -11,7 +11,7 @@ Namespace classes
             Dim InitialVector = "gGw3zFYrtsrXExYu"
             Dim KeySize = 256
             If (String.IsNullOrEmpty(plainText)) Then
-                Return ""
+                Return Nothing
                 Exit Function
             End If
             Dim initialVectorBytes As Byte() = Encoding.ASCII.GetBytes(InitialVector)
@@ -42,7 +42,7 @@ Namespace classes
             Dim InitialVector = "gGw3zFYrtsrXExYu"
             Dim KeySize = 256
             If (String.IsNullOrEmpty(cipherText)) Then
-                Return ""
+                Return Nothing
             End If
             Dim initialVectorBytes As Byte() = Encoding.ASCII.GetBytes(InitialVector)
             Dim saltValueBytes As Byte() = Encoding.ASCII.GetBytes(salt)
@@ -211,8 +211,8 @@ Namespace classes
         End Function
         <Extension>
         Public Function ToHex(theBytes() As Byte, addSpaces As Boolean) As String
-            Dim result = ""
-            Dim separator = ""
+            Dim result = Nothing
+            Dim separator = Nothing
             If (addSpaces) Then separator = " "
             For i = 0 To theBytes.Length - 1
                 result &= theBytes(i).ToString("x2") & separator
@@ -222,7 +222,7 @@ Namespace classes
         <Extension>
         Public Function ToBytes(theString As String) As Byte()
             Dim theBytes As New List(Of Byte)()
-            theString = theString.Replace(" ", "")
+            theString = theString.Replace(" ", Nothing)
             For i = 0 To theString.Length - 1 Step 2
                 theBytes.Add(Byte.Parse(theString.Substring(i, 2), NumberStyles.HexNumber))
             Next i

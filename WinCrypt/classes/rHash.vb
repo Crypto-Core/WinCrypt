@@ -60,10 +60,10 @@ Namespace classes
 
             For i = 0 To HashValue.Length - 1
                 Tmp = Hex(HashValue(i))
-                If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+                If Len(Tmp) = 1 Then Tmp = 0 & CStr(Tmp)
                 Result += Tmp
             Next
-            Return Result
+            Return CStr(Result)
         End Function
         Public Shared Function HashByte(ByVal bytes As Byte(), Hash As HASH) As String
 

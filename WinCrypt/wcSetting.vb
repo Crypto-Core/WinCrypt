@@ -7,7 +7,7 @@ Imports Project_WinCrypt.classes
 
 Public Class WcSetting
     Private designcolor As New designcolor
-    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory) _
+    ReadOnly _root As New DirectoryInfo(Application.StartupPath) _
     ' Der aktuelle Pfad der Project WinCrypt.exe
     ReadOnly _
         _iniwrite As _
@@ -24,10 +24,10 @@ Public Class WcSetting
     Private _bios As String
     Private Sub registfiletype_Click(sender As Object, e As EventArgs) Handles registfiletype.Click
         Try
-            Process.Start(My.Application.Info.DirectoryPath & "\WinCryptRegistry.exe") _
+            Process.Start(Application.StartupPath & "\WinCryptRegistry.exe") _
             ' regist.exe wird ausgeführt und die Dateitypen .wc und .wcp werden regestriert
         Catch ex As Exception
-            MsgBox(ErrorToString, MsgBoxStyle.Information) ' Falls ein Fehler auftritt wird dieser angezeigt
+            MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error) ' Falls ein Fehler auftritt wird dieser angezeigt
         End Try
     End Sub
 
@@ -63,13 +63,13 @@ Public Class WcSetting
         End If
 
         ' Das Hauptlaufwerk wird deklariert um die config.ini zu lesen
-        Dim root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+        Dim root As New DirectoryInfo(Application.StartupPath)
         Dim _
             i As _
                 New IniDatei(
                     root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
 
-        Startwindow.Langname = i.WertLesen("Info", "Lang") _
+        Startwindow.Langname = i.worthreading("Info", "Lang") _
         ' Die gewählte Sprache wird in dem String startwindow.langname gesetzt
         _lang.check() 'Es wird die gespeicherte Sprache ausgelesen und durchgeführt
         c.color()
@@ -99,18 +99,18 @@ Public Class WcSetting
     Private Sub wcSetting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         designcolor.color()
         _lang.check() ' Es wird die Sprache überprüft
-        If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
+        If _iniwrite.worthreading("Design", "UseTemplate") = "False" Then
             use_template_rb.Checked = False
             use_template_rb2.Checked = True
         Else
-            useTemplate_cb.Text = _iniwrite.WertLesen("Design", "UseTemplate")
+            useTemplate_cb.Text = _iniwrite.worthreading("Design", "UseTemplate")
             use_template_rb.Checked = True
             use_template_rb2.Checked = False
         End If
         'Alle leerzeichen der Bios ID werden entfernt
         For Each ver In _wmiobj.Instances_
             _bios = ver.SerialNumber
-            _bios.Replace(" ", "")
+            _bios.Replace(" ", Nothing)
         Next
 
         If My.Settings.Masterkey = True Then _
@@ -119,36 +119,33 @@ Public Class WcSetting
         Else
             key_cb.Checked = False ' Wenn nicht wird die Masterkey Checkbox nicht ausgewählt
         End If
-        If _ini.WertLesen("Info", "Shortcut") = "minimized" Then _
+        If _ini.worthreading("Info", "Shortcut") = "minimized" Then _
             ' Es wird überprüft ob die Verknüpfung auf minimiert gesetzt wurde
             startminwincryptrb.Checked = True ' Wenn ja wird die ,,WinCrypt minimiert starten" RadioBox angewählt
             WindowState = FormWindowState.Minimized
         Else
         End If
-        If _ini.WertLesen("Info", "Shortcut") = "normal" Then _
+        If _ini.worthreading("Info", "Shortcut") = "normal" Then _
             ' Es wird überprüft ob die Verknüpfung auf normal gesetzt wurde
             startnormalwincrypt.Checked = True ' Wenn ja wird die ,,WinCrypt normal starten" RadioBox angewählt
         Else
         End If
 
         ' Es wird überprüft ob die WinCrypt verknüpfung im Startup Ordner existiert
-        If _
-            My.Computer.FileSystem.FileExists(
-                "C:\Users\" & Environment.UserName &
-                "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WinCrypt.lnk") Then
+        If File.Exists("C:\Users\" & Environment.UserName & "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WinCrypt.lnk") Then
             startwincb.Checked = True ' Falls ja wird die ,,WinCrypt mit Windows starten" Checkbox angewählt
         Else
             startwincb.Checked = False ' Falls nicht wird die ,,WinCrypt mit Windows starten" Checkbox nicht angewählt
         End If
-        If _iniwrite.WertLesen("Info", "Lang") = "English" Then _
+        If _iniwrite.worthreading("Info", "Lang") = "English" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf English gesetzt wurde
             languagecb.SelectedIndex = 1 ' Wenn ja wird der ComboBox Text English sein
         End If
-        If _iniwrite.WertLesen("Info", "Lang") = "German" Then _
+        If _iniwrite.worthreading("Info", "Lang") = "German" Then _
             ' Es wird überprüft ob in der config.ini der Sprachwert auf German gesetzt wurde
             languagecb.SelectedIndex = 0 ' Wenn ja wird der ComboBox Text Deutsch sein
         End If
-        If _iniwrite.WertLesen("Design", "UseTemplate") = "False" Then
+        If _iniwrite.worthreading("Design", "UseTemplate") = "False" Then
             use_template_rb2.Checked = True
         Else
             use_template_rb2.Checked = False
@@ -160,14 +157,13 @@ Public Class WcSetting
         'ob sie auf true oder false gesetzt wurde
         If startwincb.Checked = True Then
             'Wenn sie auf true gesetzt wurde so wird die WinCrypt verknüpfung in dem Startup ordner erstellt
-            MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe",
+            MakeShortcut(Application.StartupPath & "\Project WinCrypt.exe",
                          "C:\Users\" & Environment.UserName &
                          "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt",
-                         My.Application.Info.DirectoryPath)
+                         Application.StartupPath)
         Else
             ' Wenn nicht, wird die Verknüpfung gelöscht bzw. entfernt
-            My.Computer.FileSystem.DeleteFile(
-                "C:\Users\" & Environment.UserName &
+            File.Delete("C:\Users\" & Environment.UserName &
                 "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WinCrypt.lnk")
         End If
     End Sub
@@ -179,10 +175,10 @@ Public Class WcSetting
             If startwincb.Checked = True Then _
                 'dann wird überprüft ob ob überhaupt die WinCrypt verknüpfung im Startup ordner erstellt werden soll
                 'Wenn ja, wird die Verknüpfung erstellt und die Einstellung in die Config.ini geschrieben
-                MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe",
+                MakeShortcut(Application.StartupPath & "\Project WinCrypt.exe",
                              "C:\Users\" & Environment.UserName &
                              "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt",
-                             My.Application.Info.DirectoryPath)
+                             Application.StartupPath)
                 _ini.WertSchreiben("Info", "Shortcut", "minimized") _
                 ' in der config.ini wird der Wert minimized gespeichert das WinCrypt beim Systemstart minimiert gestartet werden soll
             Else
@@ -197,10 +193,10 @@ Public Class WcSetting
         If startnormalwincrypt.Checked = True Then 'wenn ja, ob sie auf True gesetzt wurde
             If startwincb.Checked = True Then _
                 'dann wird überprüft ob ob überhaupt die WinCrypt verknüpfung im Startup ordner erstellt werden soll
-                MakeShortcut(My.Application.Info.DirectoryPath & "\Project WinCrypt.exe",
+                MakeShortcut(Application.StartupPath & "\Project WinCrypt.exe",
                              "C:\Users\" & Environment.UserName &
                              "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup", "WinCrypt",
-                             My.Application.Info.DirectoryPath)
+                             Application.StartupPath)
                 _ini.WertSchreiben("Info", "Shortcut", "normal") _
                 ' in der config.ini wird der Wert minimized gespeichert das WinCrypt beim Systemstart normal gestartet werden soll
             Else
@@ -233,10 +229,10 @@ Public Class WcSetting
         Dim lGuid As GuidAttribute ' Es wird die Application GUID deklariert
         lGuid = DirectCast(
             Assembly.GetExecutingAssembly().GetCustomAttributes(
-                GetType(GuidAttribute), False)(0),
+                GetType(GuidAttribute), False)(0), 
             GuidAttribute)
         If My.Settings.Masterkey = True Then ' Wenn in den Masterkey einstellungen der Wert auf true steht
-            key_txt.Text = readkey.AesDecrypt(_iniwrite.WertLesen("Key", "master"), _bios, lGuid.Value) _
+            key_txt.Text = readkey.AesDecrypt(_iniwrite.worthreading("Key", "master"), _bios, lGuid.Value) _
             ' dann wird das Passwort in AES verschlüsselt und in der config.ini geschrieben
         Else
         End If
@@ -322,10 +318,9 @@ Public Class WcSetting
     End Sub
 
     Private Sub design_export_Click_1(sender As Object, e As EventArgs) Handles design_export.Click
-
         design_export_dialog.ShowDialog()
-        My.Computer.FileSystem.WriteAllText(design_export_dialog.FileName, "", False)
-        If My.Computer.FileSystem.FileExists(design_export_dialog.FileName) Then
+        File.WriteAllText(design_export_dialog.FileName, Nothing)
+        If File.Exists(design_export_dialog.FileName) Then
             Dim exportDesign As New IniDatei(design_export_dialog.FileName)
             exportDesign.WertSchreiben("Design", "BackgroundColor", ColorTranslator.ToHtml(bgcolor_bt.BackColor))
             exportDesign.WertSchreiben("Design", "FormHeadColor", ColorTranslator.ToHtml(formhead_color_bt.BackColor))
@@ -347,19 +342,21 @@ Public Class WcSetting
 
     Private Sub design_import_Click(sender As Object, e As EventArgs) Handles design_import.Click
         import_design_dialog.ShowDialog()
-        If My.Computer.FileSystem.FileExists(import_design_dialog.FileName) = True Then
+    End Sub
+    Private Sub import_design_dialog_FileOk(sender As Object, e As CancelEventArgs) Handles import_design_dialog.FileOk
+        If File.Exists(import_design_dialog.FileName) = True Then
             If use_template_rb2.Checked Then
                 _iniwrite.WertSchreiben("Design", "UseTemplate", "False") ' Wenn ja denn wird diese in der config.ini eingetragen
             Else
                 _iniwrite.WertSchreiben("Design", "UseTemplate", useTemplate_cb.Text) ' Wenn ja denn wird diese in der config.ini eingetragen
             End If
             Dim readDesign As New IniDatei(import_design_dialog.FileName)
-            Dim BackgroundColor_hex As String = readDesign.WertLesen("Design", "BackgroundColor")
-            Dim FormHeadColor_hex As String = readDesign.WertLesen("Design", "FormHeadColor")
-            Dim InputBackgroundColor_hex As String = readDesign.WertLesen("Design", "InputBackgroundColor")
-            Dim ButtonColor_hex As String = readDesign.WertLesen("Design", "ButtonColor")
-            Dim TextColor_hex As String = readDesign.WertLesen("Design", "TextColor")
-            Dim InputTextColor_hex As String = readDesign.WertLesen("Design", "InputTextColor")
+            Dim BackgroundColor_hex As String = readDesign.worthreading("Design", "BackgroundColor")
+            Dim FormHeadColor_hex As String = readDesign.worthreading("Design", "FormHeadColor")
+            Dim InputBackgroundColor_hex As String = readDesign.worthreading("Design", "InputBackgroundColor")
+            Dim ButtonColor_hex As String = readDesign.worthreading("Design", "ButtonColor")
+            Dim TextColor_hex As String = readDesign.worthreading("Design", "TextColor")
+            Dim InputTextColor_hex As String = readDesign.worthreading("Design", "InputTextColor")
 
             _iniwrite.WertSchreiben("Design", "BackgroundColor", BackgroundColor_hex)
             _iniwrite.WertSchreiben("Design", "FormHeadColor", FormHeadColor_hex)
@@ -387,7 +384,6 @@ Public Class WcSetting
 
         End If
     End Sub
-
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles use_template_rb.CheckedChanged
         useTemplate_cb.Enabled = True
         bgcolor_lb.Enabled = False

@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Text
-
+Imports System.Windows.Forms
+Imports System.IO
 Namespace tools.passwordgenerator
 
     Public Class passwordgenerator
@@ -283,11 +284,11 @@ Namespace tools.passwordgenerator
         End Sub
 
         Private Sub copybt_Click_1(sender As Object, e As EventArgs) Handles copybt.Click
-            My.Computer.Clipboard.SetText(generatetxt.Text)
+            Clipboard.SetText(generatetxt.Text)
             If Startwindow.Langname = "English" Then
-                MsgBox("Text copied!!", MsgBoxStyle.Information, "Copy")
+                MessageBox.Show("Text copied!", "copied", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Text kopiert!", MsgBoxStyle.Information, "Kopiert")
+                MessageBox.Show("Text kopiert!", "Kopiert", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Sub
 
@@ -301,9 +302,9 @@ Namespace tools.passwordgenerator
             End If
             Dim replace_char As String = generatetxt.Text
             If Startwindow.Langname = "English" Then
-                pw_length.Text = "length: " & replace_char.Replace(vbCrLf, "").Length
+                pw_length.Text = "length: " & replace_char.Replace(vbCrLf, Nothing).Length
             Else
-                pw_length.Text = "Zeichen: " & replace_char.Replace(vbCrLf, "").Length
+                pw_length.Text = "Zeichen: " & replace_char.Replace(vbCrLf, Nothing).Length
             End If
 
             If generatetxt.Text.Length > 0 Then
@@ -348,15 +349,15 @@ Namespace tools.passwordgenerator
 
         Private Sub save_pw_dialog_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles save_pw_dialog.FileOk
             If attachments.Checked = True Then
-                My.Computer.FileSystem.WriteAllText(save_pw_dialog.FileName, generatetxt.Text & vbNewLine, attachments.Checked)
+                File.AppendAllText(save_pw_dialog.FileName, generatetxt.Text & vbNewLine)
             Else
-                My.Computer.FileSystem.WriteAllText(save_pw_dialog.FileName, generatetxt.Text, attachments.Checked)
+                File.WriteAllText(save_pw_dialog.FileName, generatetxt.Text)
             End If
 
             If Startwindow.Langname = "English" Then
-                MsgBox("saved!", MsgBoxStyle.Information)
+                MessageBox.Show("saved!", "saved", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MsgBox("Gespeichert!", MsgBoxStyle.Information)
+                MessageBox.Show("Gespeichert!", "Gespeichert", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Sub
 

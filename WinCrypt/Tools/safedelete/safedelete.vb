@@ -56,7 +56,7 @@ Namespace tools.safedelete
             add_file_dialog.ShowDialog()
             If add_file_dialog.FileName.Length > 0 Then
                 deletfilelist.Items.Add(add_file_dialog.FileName)
-                add_file_dialog.FileName = ""
+                add_file_dialog.FileName = Nothing
             Else
             End If
         End Sub
@@ -123,7 +123,7 @@ Namespace tools.safedelete
                 deletfilelist.Enabled = False
                 For list_i = 0 To deletfilelist.Items.Count - 1
                     progressstatus.Maximum = deletfilelist.Items.Count
-                    overwrite_pb.Maximum = CInt(overwritecb.Text.Replace("x", ""))
+                    overwrite_pb.Maximum = CInt(overwritecb.Text.Replace("x", Nothing))
                     Try
                         deletfilelist.SelectedIndex = list_i
                     Catch ex As Exception
@@ -139,7 +139,7 @@ Namespace tools.safedelete
                             _errorreport.AppendLine()
                         End Try
                     Else
-                        For i = 0 To CInt(overwritecb.Text.Replace("x", ""))
+                        For i = 0 To CInt(overwritecb.Text.Replace("x", Nothing))
                             _erasefile.SafeEraser(CStr(deletfilelist.SelectedItem), 1, False)
                             overwrite_pb.Value = i
                         Next

@@ -1,18 +1,17 @@
 ﻿Option Strict On
 Imports System.ComponentModel
-
+Imports System.IO
 Namespace tools.data_encryption
     Public Class Filedecrypt
         Private Sub safevile_Click(sender As Object, e As EventArgs) Handles savefile.Click
             FolderBrowserDialog.ShowDialog()
-            If My.Computer.FileSystem.DirectoryExists(FolderBrowserDialog.SelectedPath) Then
+            If Directory.Exists(FolderBrowserDialog.SelectedPath) Then
                 pathtxt.Text = FolderBrowserDialog.SelectedPath &
-                               filetxt.Text.Remove(0, filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)).Replace(".wc", "")
+                               filetxt.Text.Remove(0, CInt(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))).Replace(".wc", Nothing)
                 passwordtxt.Enabled = True
-                If Startwindow.Iniread = "yes" Then
+                If Startwindow.Iniread = CStr("yes") Then
                     decrypt.Enabled = True
-                Else
-                End If
+                Else : End If
             End If
         End Sub
 
@@ -21,10 +20,9 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub passwordtxt_TextChanged(sender As Object, e As EventArgs) Handles passwordtxt.TextChanged
-            If Startwindow.Iniread = "yes" Then
-
+            If Startwindow.Iniread = CStr("yes") Then
             Else
-                If passwordtxt.Text.Length < 6 Then
+                If CInt(passwordtxt.Text.Length) < 6 Then
                     decrypt.Enabled = False
                 Else
                     decrypt.Enabled = True
@@ -33,46 +31,46 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub dencrypt_Click(sender As Object, e As EventArgs) Handles decrypt.Click
-            If Startwindow.Iniread = "yes" Then
-                Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal),
-                                                         filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
-                If My.Computer.FileSystem.FileExists(filetxt.Text) Then
-                    If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal))) Then
+            If Startwindow.Iniread = CStr("yes") Then
+                Dim i As String = filetxt.Text.Substring(CInt(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)),
+                                                         CInt(filetxt.Text.Length) - CInt(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)))
+                If File.Exists(filetxt.Text) Then
+                    If Directory.Exists(pathtxt.Text.Substring(0, CInt(pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal)))) Then
                         classes.DecryptFile(Startwindow.Biosid, filetxt.Text, pathtxt.Text)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
-                        If Startwindow.Langname = "English" Then
+                        If CStr(Startwindow.Langname) = "English" Then
                             statuslb.Text = String.Format("File {0} was decrypted!!", i.Substring(1, i.Length - 1))
                         Else
                             statuslb.Text = String.Format("Datei {0} wurde entschlüsselt!", i.Substring(1, i.Length - 1))
                         End If
-                        filetxt.Text = ""
-                        pathtxt.Text = ""
-                        passwordtxt.Text = ""
+                        filetxt.Text = Nothing
+                        pathtxt.Text = Nothing
+                        passwordtxt.Text = Nothing
                         pathtxt.Enabled = False
                         passwordtxt.Enabled = False
                         savefile.Enabled = False
                         decrypt.Enabled = False
                     Else
-                        MsgBox("Pfad existiert nicht!")
+                        MessageBox.Show("Pfad existriert nicht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Else
-                    MsgBox("Datei existiert nicht!")
+                    MessageBox.Show("Datei existiert nicht!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             Else
-                Dim i As String = filetxt.Text.Substring(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal),
-                                                         filetxt.Text.Length - filetxt.Text.LastIndexOf("\", StringComparison.Ordinal))
-                If My.Computer.FileSystem.FileExists(filetxt.Text) Then
-                    If My.Computer.FileSystem.DirectoryExists(pathtxt.Text.Substring(0, pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal))) Then
+                Dim i As String = filetxt.Text.Substring(CInt(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)),
+                                                         CInt(filetxt.Text.Length) - CInt(filetxt.Text.LastIndexOf("\", StringComparison.Ordinal)))
+                If File.Exists(filetxt.Text) Then
+                    If Directory.Exists(pathtxt.Text.Substring(0, CInt(pathtxt.Text.LastIndexOf("\", StringComparison.Ordinal)))) Then
                         classes.DecryptFile(passwordtxt.Text, filetxt.Text, pathtxt.Text)
                         My.Computer.Audio.Play(My.Resources.crypt, AudioPlayMode.Background)
                         If Startwindow.Langname = "English" Then
-                            statuslb.Text = String.Format("File {0} was decrypted!!", i.Substring(1, i.Length - 1))
+                            statuslb.Text = String.Format("File {0} was decrypted!!", i.Substring(1, CInt(i.Length) - 1))
                         Else
-                            statuslb.Text = String.Format("Datei {0} wurde entschlüsselt!", i.Substring(1, i.Length - 1))
+                            statuslb.Text = String.Format("Datei {0} wurde entschlüsselt!", i.Substring(1, CInt(i.Length) - 1))
                         End If
-                        filetxt.Text = ""
-                        pathtxt.Text = ""
-                        passwordtxt.Text = ""
+                        filetxt.Text = Nothing
+                        pathtxt.Text = Nothing
+                        passwordtxt.Text = Nothing
                         pathtxt.Enabled = False
                         passwordtxt.Enabled = False
                         savefile.Enabled = False
@@ -151,7 +149,7 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub filetxt_TextChanged(sender As Object, e As EventArgs) Handles filetxt.TextChanged
-            If My.Computer.FileSystem.FileExists(filetxt.Text) Then
+            If File.Exists(filetxt.Text) Then
                 pathtxt.Enabled = True
                 savefile.Enabled = True
             Else
@@ -160,14 +158,15 @@ Namespace tools.data_encryption
 
         Private Sub openfile_Click(sender As Object, e As EventArgs) Handles openfile.Click
             OpenFileDialog.ShowDialog()
-            If My.Computer.FileSystem.FileExists(OpenFileDialog.FileName) Then
-                filetxt.Text = OpenFileDialog.FileName
+        End Sub
+        Private Sub OpenFileDialog_FileOk(sender As Object, e As CancelEventArgs) Handles OpenFileDialog.FileOk
+            If File.Exists(CStr(OpenFileDialog.FileName)) Then
+                filetxt.Text = CStr(OpenFileDialog.FileName)
                 pathtxt.Enabled = True
                 savefile.Enabled = True
             Else
             End If
         End Sub
-
         Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles minimize_bt.Click
             WindowState = FormWindowState.Minimized
         End Sub
@@ -208,5 +207,6 @@ Namespace tools.data_encryption
                 Startwindow.Close()
             End If
         End Sub
+
     End Class
 End Namespace

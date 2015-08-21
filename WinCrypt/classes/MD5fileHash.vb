@@ -7,8 +7,8 @@ Namespace classes
         Public Function MD5FileHash(ByVal sFile As String) As String
             Dim MD5 As New MD5CryptoServiceProvider
             Dim Hash As Byte()
-            Dim Result As String = ""
-            Dim Tmp As String = ""
+            Dim Result As String = Nothing
+            Dim Tmp As String = Nothing
 
             Dim FN As New FileStream(sFile, FileMode.Open, FileAccess.Read, FileShare.Read, 8192)
             MD5.ComputeHash(FN)
@@ -17,7 +17,7 @@ Namespace classes
             Hash = MD5.Hash
             For i As Integer = 0 To Hash.Length - 1
                 Tmp = Hex(Hash(i))
-                If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+                If Len(Tmp) = 1 Then Tmp = 0 & Tmp
                 Result += Tmp
             Next
             Return Result

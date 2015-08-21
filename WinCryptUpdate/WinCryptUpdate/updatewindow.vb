@@ -15,7 +15,7 @@ Public Class updatewindow
     Public updateversion As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        version = ini.WertLesen("Info", "Version")
+        version = ini.worthreading("Info", "Version")
         Dim checkSSL As New SSL
 
         If checkSSL.SSL_validation(My.Application.Info.DirectoryPath & "\sig.cer", "https://wincrypt.org") = True Then

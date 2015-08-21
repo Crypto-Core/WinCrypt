@@ -6,11 +6,11 @@ Namespace tools.rsa
     Public Class rsa_decrypt
         Private privkey As String
         Public decryptbit As Integer
-        Private Sub Button1_Click(sender As Object, e As EventArgs) Handles open_privkey_bt.Click
+        Private Sub open_privkey_bt_Click(sender As Object, e As EventArgs) Handles open_privkey_bt.Click
             open_private_key_dialog.ShowDialog()
             If File.Exists(open_private_key_dialog.FileName) Then
                 privkey_path_txt.Text = open_private_key_dialog.FileName
-                privkey = My.Computer.FileSystem.ReadAllText(open_private_key_dialog.FileName)
+                privkey = File.ReadAllText(open_private_key_dialog.FileName)
                 privkey = privkey.Replace("---BEGIN WINCRYPT RSA PRIVATEKEY---", Nothing).Replace("---END WINCRYPT RSA PRIVATEKEY---", Nothing).Replace(vbCrLf, Nothing)
                 Try
                     Dim privkeybyte() As Byte = System.Convert.FromBase64String(privkey)

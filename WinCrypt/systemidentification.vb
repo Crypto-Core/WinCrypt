@@ -4,7 +4,7 @@ Imports System.IO
 Imports Project_WinCrypt.classes
 
 Public Class Systemidentification
-    ReadOnly _root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
 
     ReadOnly _
         _ini As _

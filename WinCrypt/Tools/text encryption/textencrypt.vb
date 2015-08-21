@@ -32,27 +32,27 @@ Namespace tools.text_encryption
         Private Sub generate_bt_Click(sender As Object, e As EventArgs) Handles generate_bt.Click
             Dim numCharacters As Integer
             Dim i As Integer
-            Dim txt = ""
+            Dim txt = Nothing
             Dim ch As Integer
             Randomize()
             numCharacters = CInt(32)
             For i = 1 To numCharacters
                 ch = CInt(Int((26 + 26 + 10) * Rnd()))
                 If ch < 26 Then
-                    txt = txt & Chr(ch + Asc("A"))
+                    txt = CStr(txt) & Chr(ch + Asc("A"))
                 ElseIf ch < 2 * 26 Then
                     ch = ch - 26
-                    txt = txt & Chr(ch + Asc("a"))
+                    txt = CStr(txt) & Chr(ch + Asc("a"))
                 Else
                     ch = ch - 26 - 26
-                    txt = txt & Chr(ch + Asc("0"))
+                    txt = CStr(txt) & Chr(ch + Asc("0"))
                 End If
             Next i
-            password_txt.Text = txt
+            password_txt.Text = CStr(txt)
         End Sub
 
         Private Sub TrackBar_Scroll(sender As Object, e As EventArgs) Handles TrackBar.Scroll
-            If TrackBar.Value = 1 Then
+            If CInt(TrackBar.Value) = CInt(1) Then
                 text_input.Text = "Text ausgabe"
                 text_output.Text = "Text eingabe"
                 text_output.ReadOnly = False

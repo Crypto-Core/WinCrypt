@@ -20,7 +20,7 @@ Namespace My
                     If pfadDesGelinktenObjects.Remove(0, pfadDesGelinktenObjects.LastIndexOf(".", StringComparison.Ordinal)) = ".wc" Then
                         tools.data_encryption.Filedecrypt.Show()
                         tools.data_encryption.Filedecrypt.filetxt.Text = pfadDesGelinktenObjects.ToString
-                        tools.data_encryption.Filedecrypt.pathtxt.Text = pfadDesGelinktenObjects.Replace(".wc", "")
+                        tools.data_encryption.Filedecrypt.pathtxt.Text = pfadDesGelinktenObjects.Replace(".wc", Nothing)
                         tools.data_encryption.Filedecrypt.pathtxt.Enabled = True
                         tools.data_encryption.Filedecrypt.passwordtxt.Enabled = True
                         tools.data_encryption.Filedecrypt.savefile.Enabled = True

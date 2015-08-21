@@ -50,13 +50,13 @@ Namespace classes
         Public langname As String
 
         Public Sub check()
-            Dim root As New DirectoryInfo(My.Computer.FileSystem.CurrentDirectory)
+            Dim root As New DirectoryInfo(Application.StartupPath)
             Dim _
                 lang As _
                     New IniDatei(
                         root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
-            langname = lang.WertLesen("Info", "Lang")
-            If lang.WertLesen("Info", "Lang") = "English" Then 'ENGLISH
+            langname = lang.worthreading("Info", "Lang")
+            If lang.worthreading("Info", "Lang") = "English" Then 'ENGLISH
                 'masterkey.vb
                 Masterkey.abort_bt.Text = "abort"
 
@@ -252,7 +252,7 @@ Namespace classes
             End If
 
 
-            If lang.WertLesen("Info", "Lang") = "German" Then 'DEUTSCH
+            If lang.worthreading("Info", "Lang") = "German" Then 'DEUTSCH
                 'rsa_encrypt.vb
                 tools.rsa.rsa_encrypt.pubkey_path_bt.Text = "Öffnen"
                 tools.rsa.rsa_encrypt.message_lb.Text = "Nachricht"
@@ -372,7 +372,7 @@ Namespace classes
                 WcSetting.startminwincryptrb.Text = "minimiert starten"
                 WcSetting.startnormalwincrypt.Text = "normal starten"
                 WcSetting.key_cb.Text = "Einschalten"
-                langname = lang.WertLesen("Info", "Lang")
+                langname = lang.worthreading("Info", "Lang")
                 WcSetting.bgcolor_lb.Text = "Hintergrund"
                 WcSetting.formhead_color_lb.Text = "Form Head"
                 WcSetting.inputbackground_lb.Text = "Eingabe Hintergrund"

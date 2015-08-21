@@ -2,6 +2,7 @@
 Imports System.ComponentModel
 Imports Project_WinCrypt.classes
 Imports System.IO
+Imports System.Text
 Namespace tools.rsa
     Public Class rsa_encrypt
         Public encryptbit As Integer
@@ -10,11 +11,11 @@ Namespace tools.rsa
             open_public_key_dialog.ShowDialog()
             If File.Exists(open_public_key_dialog.FileName) Then
                 pubkey_path_txt.Text = open_public_key_dialog.FileName
-                _pubkey = My.Computer.FileSystem.ReadAllText(open_public_key_dialog.FileName)
+                _pubkey = File.ReadAllText(open_public_key_dialog.FileName)
                 _pubkey = _pubkey.Replace("---BEGIN WINCRYPT RSA PUBLICKEY---", Nothing).Replace("---END WINCRYPT RSA PUBLICKEY---", Nothing).Replace(vbCrLf, Nothing)
                 Try
-                    Dim pubkeybyte() As Byte = System.Convert.FromBase64String(_pubkey)
-                    _pubkey = System.Text.Encoding.Default.GetString(pubkeybyte)
+                    Dim pubkeybyte() As Byte = Convert.FromBase64String(_pubkey)
+                    _pubkey = Encoding.Default.GetString(pubkeybyte)
                 Catch ex As Exception
                     If Startwindow.Langname = "English" Then
                         MessageBox.Show("Dies ist kein WinCrypt publickey!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

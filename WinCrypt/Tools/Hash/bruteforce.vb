@@ -43,7 +43,7 @@ Namespace tools.hash
                     End If
                 Else
                     '\\ Testen ob die WordList noch exisiteiert
-                    If My.Computer.FileSystem.FileExists(fileWordlist.Text) Then
+                    If File.Exists(fileWordlist.Text) Then
                         checkData = True
                     Else
                         If _langname.langname = "English" Then
@@ -87,7 +87,7 @@ Namespace tools.hash
 
             '\\ Öffnen eines Auswahldialoges für Daten
             OpenFileDialog.ShowDialog()
-            If My.Computer.FileSystem.FileExists(OpenFileDialog.FileName) Then fileWordlist.Text = OpenFileDialog.FileName
+            If File.Exists(OpenFileDialog.FileName) Then fileWordlist.Text = OpenFileDialog.FileName
         End Sub
 
 

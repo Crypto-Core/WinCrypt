@@ -1,5 +1,7 @@
 ﻿Option Strict On
 Imports System.ComponentModel
+Imports System.IO
+Imports System.Text
 Namespace tools.rsa
     Public Class rsa_create_keys
         Public createbit As Integer
@@ -8,13 +10,13 @@ Namespace tools.rsa
             loadcolor.color()
             bit_cb.SelectedIndex = 1
             createbit = CInt(bit_cb.Text)
-            private_key_path_txt.Text = String.Format("{0}\Private Key.key", My.Computer.FileSystem.SpecialDirectories.Desktop)
-            public_key_path_txt.Text = String.Format("{0}\Public Key.key", My.Computer.FileSystem.SpecialDirectories.Desktop)
+            private_key_path_txt.Text = String.Format("{0}\Private Key.key", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory))
+            public_key_path_txt.Text = String.Format("{0}\Public Key.key", Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory))
         End Sub
         Private Sub generate_key_bt_Click(sender As Object, e As EventArgs) Handles generate_key_bt.Click
             Dim rsaKey As classes.RsaKeyStruct = classes.Create_RSA_Key
-            Dim pubBytes() As Byte = System.Text.Encoding.Default.GetBytes(rsaKey.OpenKey)
-            Dim privBytes() As Byte = System.Text.Encoding.Default.GetBytes(rsaKey.PrivatKey)
+            Dim pubBytes() As Byte = Encoding.Default.GetBytes(rsaKey.OpenKey)
+            Dim privBytes() As Byte = Encoding.Default.GetBytes(rsaKey.PrivatKey)
             privatekey_txt.Text = "---BEGIN WINCRYPT RSA PRIVATEKEY---" & vbCrLf & System.Convert.ToBase64String(privBytes) & vbCrLf & "---END WINCRYPT RSA PRIVATEKEY---"
             publickey_txt.Text = "---BEGIN WINCRYPT RSA PUBLICKEY---" & vbCrLf & System.Convert.ToBase64String(pubBytes) & vbCrLf & "---END WINCRYPT RSA PUBLICKEY---"
             save_bt.Enabled = True
@@ -24,14 +26,14 @@ Namespace tools.rsa
             save_keys_dialog.ShowDialog()
             private_key_path_txt.Text = save_keys_dialog.FileName
         End Sub
-        Private Sub Button2_Click(sender As Object, e As EventArgs) Handles save_pubkey_bt.Click
+        Private Sub save_pubkey_bt_Click(sender As Object, e As EventArgs) Handles save_pubkey_bt.Click
             save_keys_dialog.FileName = "Public Key.key"
             save_keys_dialog.ShowDialog()
             public_key_path_txt.Text = save_keys_dialog.FileName
         End Sub
         Private Sub save_bt_Click(sender As Object, e As EventArgs) Handles save_bt.Click
-            My.Computer.FileSystem.WriteAllText(private_key_path_txt.Text, privatekey_txt.Text, False)
-            My.Computer.FileSystem.WriteAllText(public_key_path_txt.Text, publickey_txt.Text, False)
+            File.WriteAllText(private_key_path_txt.Text, privatekey_txt.Text)
+            File.WriteAllText(public_key_path_txt.Text, publickey_txt.Text)
         End Sub
         Private Sub exit_bt_Click(sender As Object, e As EventArgs) Handles exit_bt.Click
             Close()

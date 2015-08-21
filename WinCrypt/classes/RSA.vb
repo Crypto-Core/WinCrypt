@@ -35,7 +35,7 @@ Namespace classes
                 rsaCryptoVer.Dispose()
                 Return outString
             Catch ex As Exception
-                Return ""
+                Return Nothing
                 MsgBox(ErrorToString, MsgBoxStyle.Critical)
             End Try
         End Function
@@ -65,7 +65,7 @@ Namespace classes
                 rsaCryptoEnt.Dispose()
                 Return outString
             Catch ex As Exception
-                Return ""
+                Return Nothing
                 If Startwindow.Langname = "English" Then
                     MsgBox("Verschlüsselte Nachricht stimmt nicht mit dem Private Key überein!", MsgBoxStyle.Exclamation)
                 Else
