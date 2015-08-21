@@ -9,11 +9,11 @@ Public Class WcSetting
     Private designcolor As New designcolor
     ReadOnly _
         _iniwrite As _
-            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) _
     ' Die config.ini wird eingelesen
     ReadOnly _
         _ini As _
-            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini") _
+            New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) _
     ' Die config.ini wird eingelesen
     ReadOnly _lang As New Language ' Die Sprache wird deklariert
     ReadOnly _wmiobj As Object = GetObject("winmgmts://localhost/root/cimv2:Win32_BIOS") _

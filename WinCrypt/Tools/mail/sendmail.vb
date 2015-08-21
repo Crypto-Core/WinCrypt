@@ -11,7 +11,7 @@ Namespace tools.mail
         Dim _pubkey As String
         ReadOnly _
             _mailini As _
-                New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
+                New IniDatei(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
 
         Private Sub fileadd_bt_Click(sender As Object, e As EventArgs) Handles fileadd_bt.Click
             add_file_dialog.ShowDialog()
@@ -40,7 +40,7 @@ Namespace tools.mail
                     client.Send(_mailmessage) ' E-Mail Senden
                     MessageBox.Show("Nachricht wurde an " & emailto_txt.Text & " erfolgreich gesendet!", "Nachricht", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     If _
-                        File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") =
+                        File.Exists(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) =
                         True Then
 
                     Else
@@ -71,7 +71,7 @@ Namespace tools.mail
                     _mailmessage.Body = message_txt.Text ' Nachricht
                     client.Send(_mailmessage) ' E-Mail Senden
                     MessageBox.Show("Nachricht wurde an " & emailto_txt.Text & " erfolgreich gesendet!", "Nachricht gesendet!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    If File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") = True Then
+                    If File.Exists(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) = True Then
 
                     Else
                         Dim aes As New AES
@@ -132,7 +132,7 @@ Namespace tools.mail
             Dim loadcolor As New designcolor
             loadcolor.color()
 
-            If File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") = True Then
+            If File.Exists(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) = True Then
                 Dim aes As New AES
                 email_txt.Text = _mailini.worthreading("MailAccount", "mail")
                 password_txt.Text = aes.AesDecrypt(_mailini.worthreading("MailAccount", "password"), Startwindow.Biosid,
@@ -146,9 +146,9 @@ Namespace tools.mail
         End Sub
 
         Private Sub account_bt_Click(sender As Object, e As EventArgs) Handles account_bt.Click
-            If File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini") Then
+            If File.Exists(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
                 If MessageBox.Show("Möchten Sie wirklich ihr E-Mail Konto entfernen?", "Konto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
-                    File.Delete(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\mail.ini")
+                    File.Delete(String.Format("{0}\WinCrypt\mail.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     account_bt.Visible = False
                     message_txt.Size = New Size(612, 297)
                     message_txt.Location = New Point(12, 128)

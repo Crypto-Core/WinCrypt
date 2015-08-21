@@ -63,7 +63,7 @@ Namespace classes
                 End If
 
                 If File.Exists(Pfad) = False Then
-                    Directory.CreateDirectory(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt")
+                    Directory.CreateDirectory(String.Format("{0}\WinCrypt", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     File.WriteAllText(Pfad, My.Resources.config)
                     worthreading = "Lesefehler"
                     Exit Function

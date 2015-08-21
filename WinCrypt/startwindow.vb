@@ -24,11 +24,9 @@ Public Class Startwindow
     Private _finishcrypt As Integer = 0
     Private _finunmount As Integer = 0
     Public vCommand As Boolean = False
-    Public _root As New DirectoryInfo(Application.StartupPath)
-
     ReadOnly _
         _ini As _
-            New IniDatei(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
 
     Function GetFolderSize(dirPath As String,
                            Optional ByVal includeSubFolders As Boolean = True) As Long
@@ -1045,13 +1043,12 @@ Public Class Startwindow
     End Sub
 
     Private Sub export_db_bt_menu_Click(sender As Object, e As EventArgs) Handles export_db_bt_menu.Click
+
         If _
-            File.Exists(
-                _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
             export_db_dialog.ShowDialog()
             Try
-                File.Copy(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                File.Copy(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)),
                     export_db_dialog.FileName)
             Catch ex As Exception
                 MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1076,14 +1073,12 @@ Public Class Startwindow
         import_db_dialog.ShowDialog()
         If File.Exists(import_db_dialog.FileName) Then
             If _
-                File.Exists(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") _
+                File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) _
                 Then
                 If Langname = "English" Then
                     If MessageBox.Show("There is already a database." & vbCrLf & "Do you want to overwrite it?", "overwrite database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
-                                                        _root.Root.FullName & "Users\" & Environment.UserName &
-                                                        "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                         MessageBox.Show("Database has been imported successfully!", "database imported", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
@@ -1091,16 +1086,14 @@ Public Class Startwindow
 
                     If MessageBox.Show("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", "Datenbank überschreiben", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
-                                                        _root.Root.FullName & "Users\" & Environment.UserName &
-                                                        "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                         MessageBox.Show("Datenbank wurde erfolgreich Importiert!", "Datenbank importiert", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
                 End If
             Else
                 File.Copy(import_db_dialog.FileName,
-                                                _root.Root.FullName & "Users\" & Environment.UserName &
-                                                "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                 If Langname = "English" Then
                     MessageBox.Show("Database has been imported successfully!", "database imported", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
@@ -1112,11 +1105,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub delete_db_menu_Click(sender As Object, e As EventArgs) Handles delete_db_menu.Click
-        If File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+        If File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
             If Langname = "English" Then
                 If MessageBox.Show("Do you really want to drop the database?", "database drop", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                     File.Delete(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     If Langname = "English" Then
                         MessageBox.Show("Database has been deleted!", "delete database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
@@ -1132,7 +1125,7 @@ Public Class Startwindow
             Else
                 If MessageBox.Show("Wollen Sie wirklich die Datenbank löschen?", "Datenbank löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                     File.Delete(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     If Langname = "English" Then
                         MessageBox.Show("Database has been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
@@ -1269,11 +1262,10 @@ Public Class Startwindow
 
     Private Sub export_db_bt_systemtray_Click(sender As Object, e As EventArgs) Handles export_db_bt_systemtray.Click
 
-        If File.Exists(_root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+        If File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
             export_db_dialog.ShowDialog()
             Try
-                File.Copy(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                File.Copy(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)),
                     export_db_dialog.FileName)
             Catch ex As Exception
                 MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1298,15 +1290,13 @@ Public Class Startwindow
         import_db_dialog.ShowDialog()
         If File.Exists(import_db_dialog.FileName) Then
             If _
-                File.Exists(
-                    _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") _
+                File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) _
                 Then
                 If Langname = "English" Then
                     If _
                         MessageBox.Show("There is already a database." & vbCrLf & "Do you want to overwrite it?", "database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
-                                                        _root.Root.FullName & "Users\" & Environment.UserName &
-                                                        "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                         MessageBox.Show("Database has been imported successfully!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
@@ -1315,16 +1305,14 @@ Public Class Startwindow
                     If _
                         MessageBox.Show("Es existiert bereits eine Datenbank." & vbCrLf & "Möchten Sie diese überschreiben?", "Datenbank", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = MsgBoxResult.Yes Then
                         File.Copy(import_db_dialog.FileName,
-                                                        _root.Root.FullName & "Users\" & Environment.UserName &
-                                                        "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                         MessageBox.Show("Datenbank wurde erfolgreich Importiert!", "Datenbank", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                     End If
                 End If
             Else
                 File.Copy(import_db_dialog.FileName,
-                                                _root.Root.FullName & "Users\" & Environment.UserName &
-                                                "\AppData\Roaming\WinCrypt\pwmanager.ini", True)
+                                                String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), True)
                 If Langname = "English" Then
                     MessageBox.Show("Database has been imported successfully!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
@@ -1338,11 +1326,11 @@ Public Class Startwindow
     Private Sub delete_db_bt_systemtray_Click(sender As Object, e As EventArgs) Handles delete_db_bt_systemtray.Click
         If _
             File.Exists(
-                _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+                String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
             If Langname = "English" Then
                 If MessageBox.Show("Do you really want to drop the database?", "database", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                     File.Delete(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     If Langname = "English" Then
                         MessageBox.Show("Database has been deleted!", "databse", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
@@ -1358,7 +1346,7 @@ Public Class Startwindow
             Else
                 If MessageBox.Show("Wollen Sie wirklich die Datenbank löschen?", "Datenbank", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = MsgBoxResult.Yes Then
                     File.Delete(
-                        _root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                     If Langname = "English" Then
                         MessageBox.Show("Database has been deleted!", "database", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else

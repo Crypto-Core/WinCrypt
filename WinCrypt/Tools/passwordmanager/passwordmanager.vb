@@ -10,7 +10,7 @@ Namespace tools.passwordmanager
         Public _
             Ini As _
                 New IniDatei(
-                    Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
 
         Public Schleife As Integer = 0
         Public Index As Integer = 0
@@ -69,11 +69,11 @@ Namespace tools.passwordmanager
             Try
                 Dim readdb As String
                 readdb =
-                    Computer.FileSystem.ReadAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    Computer.FileSystem.ReadAllText(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                 If Mgrpass = Nothing Then
                 Else
                     Computer.FileSystem.WriteAllText(
-                        Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini",
+                        String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)),
                         CStr(_aes.AesEncrypt(readdb, Mgrpass, Startwindow.Biosid)), False)
                 End If
                 Mgrpass = Nothing
@@ -85,7 +85,7 @@ Namespace tools.passwordmanager
         Private Sub passwordmanager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Dim loadcolor As New designcolor
             loadcolor.color()
-            If File.Exists(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini") Then
+            If File.Exists(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))) Then
                 passwordmgr_pass.ShowDialog()
             Else
                 If Startwindow.Langname = "English" Then

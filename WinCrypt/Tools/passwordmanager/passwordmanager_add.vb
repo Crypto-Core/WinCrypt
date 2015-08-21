@@ -9,7 +9,7 @@ Namespace tools.passwordmanager
         ReadOnly _
             _ini As _
                 New IniDatei(
-                    Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini")
+                    String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
 
         Public Property Aes1 As AES = New AES
 

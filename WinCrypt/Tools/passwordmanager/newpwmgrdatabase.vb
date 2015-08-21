@@ -16,7 +16,7 @@ Public Class Newpwmgrdatabase
         Else
             Dim newentry As String = "[1]" & vbCrLf & "user=" & vbCrLf & "password=" & vbCrLf & "source=" & vbCrLf &
                                      "comment=" & vbCrLf & "index=|"
-            File.WriteAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", CStr(_aes.AesEncrypt(newentry, password_txt.Text, Startwindow.Biosid)))
+            File.WriteAllText(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), CStr(_aes.AesEncrypt(newentry, password_txt.Text, Startwindow.Biosid)))
             tools.passwordmanager.Passwordmanager.Mgrpass = password_txt.Text
             If Startwindow.Langname = "English" Then
                 MessageBox.Show("Database has been successfully created!", "database created", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -25,9 +25,9 @@ Public Class Newpwmgrdatabase
             End If
             Dim textdecrypt As String
             textdecrypt =
-                _aes.AesDecrypt(File.ReadAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini"),
+                _aes.AesDecrypt(File.ReadAllText(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))),
                     password_txt.Text, Startwindow.Biosid)
-            File.WriteAllText(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\pwmanager.ini", textdecrypt)
+            File.WriteAllText(String.Format("{0}\WinCrypt\pwmanager.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), textdecrypt)
             tools.passwordmanager.Passwordmanager.database_viewer.Items.Clear()
             For Each go In tools.passwordmanager.Passwordmanager.Schleife.ToString
                 Do

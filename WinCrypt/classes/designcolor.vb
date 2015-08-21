@@ -1,10 +1,9 @@
 ﻿Imports System.IO
 
 Public Class designcolor
-    ReadOnly _root As New DirectoryInfo(Application.StartupPath)
     ReadOnly _
         _ini As _
-            New classes.IniDatei(_root.Root.FullName & "\Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            New classes.IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
     Public UseTemplate As String = _ini.worthreading("Design", "UseTemplate")
     Public bgcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "BackgroundColor"))
     Public formheadcolor As Color = ColorTranslator.FromHtml(_ini.worthreading("Design", "FormHeadColor"))

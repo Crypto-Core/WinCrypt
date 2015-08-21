@@ -6,7 +6,7 @@ Imports Project_WinCrypt.classes
 Public Class Systemidentification
     ReadOnly _
         _ini As _
-            New IniDatei(Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+            New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
 
     ReadOnly _restart As String = Startwindow.Iniread
     Private _restart1 As String = "no"

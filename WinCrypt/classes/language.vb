@@ -53,7 +53,7 @@ Namespace classes
             Dim _
                 lang As _
                     New IniDatei(
-                        Startwindow._root.Root.FullName & "Users\" & Environment.UserName & "\AppData\Roaming\WinCrypt\config.ini")
+                        String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
             langname = lang.worthreading("Info", "Lang")
             If lang.worthreading("Info", "Lang") = "English" Then 'ENGLISH
                 'masterkey.vb
