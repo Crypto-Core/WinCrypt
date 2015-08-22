@@ -179,10 +179,6 @@ Partial Class Startwindow
         Me.form_head.SuspendLayout()
         Me.SuspendLayout()
         '
-        'folder_dialog
-        '
-        resources.ApplyResources(Me.folder_dialog, "folder_dialog")
-        '
         'encrypttimer
         '
         '
@@ -191,790 +187,790 @@ Partial Class Startwindow
         '
         'MenuStrip
         '
-        resources.ApplyResources(Me.MenuStrip, "MenuStrip")
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_bt_menu, Me.tools_bt_menu, Me.info_bt_menu})
+        resources.ApplyResources(Me.MenuStrip, "MenuStrip")
         Me.MenuStrip.Name = "MenuStrip"
         '
         'file_bt_menu
         '
-        resources.ApplyResources(Me.file_bt_menu, "file_bt_menu")
         Me.file_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.file_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.setting_bt_menu, Me.exit_bt_menu})
         Me.file_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_bt_menu.Name = "file_bt_menu"
+        resources.ApplyResources(Me.file_bt_menu, "file_bt_menu")
         '
         'setting_bt_menu
         '
-        resources.ApplyResources(Me.setting_bt_menu, "setting_bt_menu")
         Me.setting_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.setting_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.setting_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.setting_bt_menu.Name = "setting_bt_menu"
+        resources.ApplyResources(Me.setting_bt_menu, "setting_bt_menu")
         '
         'exit_bt_menu
         '
-        resources.ApplyResources(Me.exit_bt_menu, "exit_bt_menu")
         Me.exit_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.exit_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.exit_bt_menu.Name = "exit_bt_menu"
+        resources.ApplyResources(Me.exit_bt_menu, "exit_bt_menu")
         '
         'tools_bt_menu
         '
-        resources.ApplyResources(Me.tools_bt_menu, "tools_bt_menu")
         Me.tools_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.tools_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt_bt_menu, Me.file_decrypt_bt_menu, Me.text_encrypt_bt_menu, Me.hash_bt_menu, Me.rsa_bt_menu, Me.mail_bt_menu, Me.pw_manager_bt_menu, Me.systemidentification_bt_menu, Me.pw_generator_bt_menu, Me.delete_file_bt_menu})
         Me.tools_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.tools_bt_menu.Name = "tools_bt_menu"
+        resources.ApplyResources(Me.tools_bt_menu, "tools_bt_menu")
         '
         'file_encrypt_bt_menu
         '
-        resources.ApplyResources(Me.file_encrypt_bt_menu, "file_encrypt_bt_menu")
         Me.file_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.file_encrypt_bt_menu.Name = "file_encrypt_bt_menu"
+        resources.ApplyResources(Me.file_encrypt_bt_menu, "file_encrypt_bt_menu")
         '
         'file_decrypt_bt_menu
         '
-        resources.ApplyResources(Me.file_decrypt_bt_menu, "file_decrypt_bt_menu")
         Me.file_decrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        resources.ApplyResources(Me.file_decrypt_bt_menu, "file_decrypt_bt_menu")
         Me.file_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.file_decrypt_bt_menu.Name = "file_decrypt_bt_menu"
         '
         'text_encrypt_bt_menu
         '
-        resources.ApplyResources(Me.text_encrypt_bt_menu, "text_encrypt_bt_menu")
         Me.text_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.text_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.text_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.text_encrypt_bt_menu.Name = "text_encrypt_bt_menu"
+        resources.ApplyResources(Me.text_encrypt_bt_menu, "text_encrypt_bt_menu")
         '
         'hash_bt_menu
         '
-        resources.ApplyResources(Me.hash_bt_menu, "hash_bt_menu")
         Me.hash_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu, Me.MD5DateiChecksumToolStripMenuItem})
         Me.hash_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_menu.Name = "hash_bt_menu"
+        resources.ApplyResources(Me.hash_bt_menu, "hash_bt_menu")
         '
         'md5_converter_bt_menu
         '
-        resources.ApplyResources(Me.md5_converter_bt_menu, "md5_converter_bt_menu")
         Me.md5_converter_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_converter_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_converter_bt_menu.Name = "md5_converter_bt_menu"
+        resources.ApplyResources(Me.md5_converter_bt_menu, "md5_converter_bt_menu")
         '
         'md5_bf_bt_menu
         '
-        resources.ApplyResources(Me.md5_bf_bt_menu, "md5_bf_bt_menu")
         Me.md5_bf_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_bf_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_bf_bt_menu.Name = "md5_bf_bt_menu"
+        resources.ApplyResources(Me.md5_bf_bt_menu, "md5_bf_bt_menu")
         '
         'MD5DateiChecksumToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5DateiChecksumToolStripMenuItem, "MD5DateiChecksumToolStripMenuItem")
         Me.MD5DateiChecksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MD5DateiChecksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5DateiChecksumToolStripMenuItem.Name = "MD5DateiChecksumToolStripMenuItem"
+        resources.ApplyResources(Me.MD5DateiChecksumToolStripMenuItem, "MD5DateiChecksumToolStripMenuItem")
         '
         'rsa_bt_menu
         '
-        resources.ApplyResources(Me.rsa_bt_menu, "rsa_bt_menu")
         Me.rsa_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.rsa_encrypt_bt_menu, Me.rsa_decrypt_bt_menu, Me.rsa_create_keys_bt_menu})
         Me.rsa_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_bt_menu.Name = "rsa_bt_menu"
+        resources.ApplyResources(Me.rsa_bt_menu, "rsa_bt_menu")
         '
         'rsa_encrypt_bt_menu
         '
-        resources.ApplyResources(Me.rsa_encrypt_bt_menu, "rsa_encrypt_bt_menu")
         Me.rsa_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.rsa_encrypt_bt_menu.Name = "rsa_encrypt_bt_menu"
+        resources.ApplyResources(Me.rsa_encrypt_bt_menu, "rsa_encrypt_bt_menu")
         '
         'rsa_decrypt_bt_menu
         '
-        resources.ApplyResources(Me.rsa_decrypt_bt_menu, "rsa_decrypt_bt_menu")
         Me.rsa_decrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.rsa_decrypt_bt_menu.Name = "rsa_decrypt_bt_menu"
+        resources.ApplyResources(Me.rsa_decrypt_bt_menu, "rsa_decrypt_bt_menu")
         '
         'rsa_create_keys_bt_menu
         '
-        resources.ApplyResources(Me.rsa_create_keys_bt_menu, "rsa_create_keys_bt_menu")
         Me.rsa_create_keys_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_create_keys_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_create_keys_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
         Me.rsa_create_keys_bt_menu.Name = "rsa_create_keys_bt_menu"
+        resources.ApplyResources(Me.rsa_create_keys_bt_menu, "rsa_create_keys_bt_menu")
         '
         'mail_bt_menu
         '
-        resources.ApplyResources(Me.mail_bt_menu, "mail_bt_menu")
         Me.mail_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.mail_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.send_mail_bt_menu})
         Me.mail_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mail_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.mail_bt_menu.Name = "mail_bt_menu"
+        resources.ApplyResources(Me.mail_bt_menu, "mail_bt_menu")
         '
         'send_mail_bt_menu
         '
-        resources.ApplyResources(Me.send_mail_bt_menu, "send_mail_bt_menu")
         Me.send_mail_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.send_mail_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.send_mail_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.MailSend16
         Me.send_mail_bt_menu.Name = "send_mail_bt_menu"
+        resources.ApplyResources(Me.send_mail_bt_menu, "send_mail_bt_menu")
         '
         'pw_manager_bt_menu
         '
-        resources.ApplyResources(Me.pw_manager_bt_menu, "pw_manager_bt_menu")
         Me.pw_manager_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pw_manager_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.export_db_bt_menu, Me.import_db_bt_menu, Me.delete_db_menu})
         Me.pw_manager_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_manager_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.pw_manager_bt_menu.Name = "pw_manager_bt_menu"
+        resources.ApplyResources(Me.pw_manager_bt_menu, "pw_manager_bt_menu")
         '
         'export_db_bt_menu
         '
-        resources.ApplyResources(Me.export_db_bt_menu, "export_db_bt_menu")
         Me.export_db_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.export_db_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.export_db_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Export_16
         Me.export_db_bt_menu.Name = "export_db_bt_menu"
+        resources.ApplyResources(Me.export_db_bt_menu, "export_db_bt_menu")
         '
         'import_db_bt_menu
         '
-        resources.ApplyResources(Me.import_db_bt_menu, "import_db_bt_menu")
         Me.import_db_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.import_db_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.import_db_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Import_16
         Me.import_db_bt_menu.Name = "import_db_bt_menu"
+        resources.ApplyResources(Me.import_db_bt_menu, "import_db_bt_menu")
         '
         'delete_db_menu
         '
-        resources.ApplyResources(Me.delete_db_menu, "delete_db_menu")
         Me.delete_db_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.delete_db_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.delete_db_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Data_Erase_16
         Me.delete_db_menu.Name = "delete_db_menu"
+        resources.ApplyResources(Me.delete_db_menu, "delete_db_menu")
         '
         'systemidentification_bt_menu
         '
-        resources.ApplyResources(Me.systemidentification_bt_menu, "systemidentification_bt_menu")
         Me.systemidentification_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.systemidentification_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.systemidentification_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.systemidentification_bt_menu.Name = "systemidentification_bt_menu"
+        resources.ApplyResources(Me.systemidentification_bt_menu, "systemidentification_bt_menu")
         '
         'pw_generator_bt_menu
         '
-        resources.ApplyResources(Me.pw_generator_bt_menu, "pw_generator_bt_menu")
         Me.pw_generator_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pw_generator_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_generator_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.pw_generator_bt_menu.Name = "pw_generator_bt_menu"
+        resources.ApplyResources(Me.pw_generator_bt_menu, "pw_generator_bt_menu")
         '
         'delete_file_bt_menu
         '
-        resources.ApplyResources(Me.delete_file_bt_menu, "delete_file_bt_menu")
         Me.delete_file_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.delete_file_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.delete_file_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.delete_file_bt_menu.Name = "delete_file_bt_menu"
+        resources.ApplyResources(Me.delete_file_bt_menu, "delete_file_bt_menu")
         '
         'info_bt_menu
         '
-        resources.ApplyResources(Me.info_bt_menu, "info_bt_menu")
         Me.info_bt_menu.BackColor = System.Drawing.Color.Transparent
         Me.info_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.update_bt_menu, Me.feedback_bt_menu, Me.about_bt_menu})
         Me.info_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.info_bt_menu.Name = "info_bt_menu"
+        resources.ApplyResources(Me.info_bt_menu, "info_bt_menu")
         '
         'update_bt_menu
         '
-        resources.ApplyResources(Me.update_bt_menu, "update_bt_menu")
         Me.update_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.update_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.update_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
         Me.update_bt_menu.Name = "update_bt_menu"
+        resources.ApplyResources(Me.update_bt_menu, "update_bt_menu")
         '
         'feedback_bt_menu
         '
-        resources.ApplyResources(Me.feedback_bt_menu, "feedback_bt_menu")
         Me.feedback_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.feedback_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.feedback_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
         Me.feedback_bt_menu.Name = "feedback_bt_menu"
+        resources.ApplyResources(Me.feedback_bt_menu, "feedback_bt_menu")
         '
         'about_bt_menu
         '
-        resources.ApplyResources(Me.about_bt_menu, "about_bt_menu")
         Me.about_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.about_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.about_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
         Me.about_bt_menu.Name = "about_bt_menu"
+        resources.ApplyResources(Me.about_bt_menu, "about_bt_menu")
         '
         'DateiToolStripMenuItem
         '
-        resources.ApplyResources(Me.DateiToolStripMenuItem, "DateiToolStripMenuItem")
         Me.DateiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EinstellungToolStripMenuItem, Me.BeendenToolStripMenuItem})
         Me.DateiToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiToolStripMenuItem.Name = "DateiToolStripMenuItem"
+        resources.ApplyResources(Me.DateiToolStripMenuItem, "DateiToolStripMenuItem")
         '
         'EinstellungToolStripMenuItem
         '
-        resources.ApplyResources(Me.EinstellungToolStripMenuItem, "EinstellungToolStripMenuItem")
         Me.EinstellungToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EinstellungToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EinstellungToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.setting
         Me.EinstellungToolStripMenuItem.Name = "EinstellungToolStripMenuItem"
+        resources.ApplyResources(Me.EinstellungToolStripMenuItem, "EinstellungToolStripMenuItem")
         '
         'BeendenToolStripMenuItem
         '
-        resources.ApplyResources(Me.BeendenToolStripMenuItem, "BeendenToolStripMenuItem")
         Me.BeendenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.BeendenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.BeendenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
         Me.BeendenToolStripMenuItem.Name = "BeendenToolStripMenuItem"
+        resources.ApplyResources(Me.BeendenToolStripMenuItem, "BeendenToolStripMenuItem")
         '
         'ToolsToolStripMenuItem
         '
-        resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DateiVerschlüsselnToolStripMenuItem, Me.DateiEntschlüsselnToolStripMenuItem, Me.TextVerschlüsselnToolStripMenuItem, Me.MD5ToolStripMenuItem, Me.RSAToolStripMenuItem, Me.EMailToolStripMenuItem, Me.PasswortmanagerToolStripMenuItem, Me.SystemidentifikationToolStripMenuItem, Me.PasswortgeneratorToolStripMenuItem, Me.DateiSicherLöschenToolStripMenuItem})
         Me.ToolsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        resources.ApplyResources(Me.ToolsToolStripMenuItem, "ToolsToolStripMenuItem")
         '
         'DateiVerschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.DateiVerschlüsselnToolStripMenuItem, "DateiVerschlüsselnToolStripMenuItem")
         Me.DateiVerschlüsselnToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DateiVerschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.DateiVerschlüsselnToolStripMenuItem.Name = "DateiVerschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.DateiVerschlüsselnToolStripMenuItem, "DateiVerschlüsselnToolStripMenuItem")
         '
         'DateiEntschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.DateiEntschlüsselnToolStripMenuItem, "DateiEntschlüsselnToolStripMenuItem")
         Me.DateiEntschlüsselnToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DateiEntschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.DateiEntschlüsselnToolStripMenuItem.Name = "DateiEntschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.DateiEntschlüsselnToolStripMenuItem, "DateiEntschlüsselnToolStripMenuItem")
         '
         'TextVerschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.TextVerschlüsselnToolStripMenuItem, "TextVerschlüsselnToolStripMenuItem")
         Me.TextVerschlüsselnToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.TextVerschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.TextVerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.TextVerschlüsselnToolStripMenuItem.Name = "TextVerschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.TextVerschlüsselnToolStripMenuItem, "TextVerschlüsselnToolStripMenuItem")
         '
         'MD5ToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5ToolStripMenuItem, "MD5ToolStripMenuItem")
         Me.MD5ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MD5ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem, Me.MD5CrackerToolStripMenuItem})
         Me.MD5ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5ToolStripMenuItem.Name = "MD5ToolStripMenuItem"
+        resources.ApplyResources(Me.MD5ToolStripMenuItem, "MD5ToolStripMenuItem")
         '
         'MD5KonverterToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5KonverterToolStripMenuItem, "MD5KonverterToolStripMenuItem")
         Me.MD5KonverterToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MD5KonverterToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5KonverterToolStripMenuItem.Name = "MD5KonverterToolStripMenuItem"
+        resources.ApplyResources(Me.MD5KonverterToolStripMenuItem, "MD5KonverterToolStripMenuItem")
         '
         'MD5CrackerToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5CrackerToolStripMenuItem, "MD5CrackerToolStripMenuItem")
         Me.MD5CrackerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MD5CrackerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5CrackerToolStripMenuItem.Name = "MD5CrackerToolStripMenuItem"
+        resources.ApplyResources(Me.MD5CrackerToolStripMenuItem, "MD5CrackerToolStripMenuItem")
         '
         'RSAToolStripMenuItem
         '
-        resources.ApplyResources(Me.RSAToolStripMenuItem, "RSAToolStripMenuItem")
         Me.RSAToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.RSAToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntschlüsselnToolStripMenuItem, Me.VerschlüsselnToolStripMenuItem, Me.KeyErstellenToolStripMenuItem})
         Me.RSAToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.RSAToolStripMenuItem.Name = "RSAToolStripMenuItem"
+        resources.ApplyResources(Me.RSAToolStripMenuItem, "RSAToolStripMenuItem")
         '
         'EntschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.EntschlüsselnToolStripMenuItem, "EntschlüsselnToolStripMenuItem")
         Me.EntschlüsselnToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EntschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.EntschlüsselnToolStripMenuItem.Name = "EntschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.EntschlüsselnToolStripMenuItem, "EntschlüsselnToolStripMenuItem")
         '
         'VerschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.VerschlüsselnToolStripMenuItem, "VerschlüsselnToolStripMenuItem")
         Me.VerschlüsselnToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.VerschlüsselnToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.VerschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.VerschlüsselnToolStripMenuItem.Name = "VerschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.VerschlüsselnToolStripMenuItem, "VerschlüsselnToolStripMenuItem")
         '
         'KeyErstellenToolStripMenuItem
         '
-        resources.ApplyResources(Me.KeyErstellenToolStripMenuItem, "KeyErstellenToolStripMenuItem")
         Me.KeyErstellenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.KeyErstellenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.KeyErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
         Me.KeyErstellenToolStripMenuItem.Name = "KeyErstellenToolStripMenuItem"
+        resources.ApplyResources(Me.KeyErstellenToolStripMenuItem, "KeyErstellenToolStripMenuItem")
         '
         'EMailToolStripMenuItem
         '
-        resources.ApplyResources(Me.EMailToolStripMenuItem, "EMailToolStripMenuItem")
         Me.EMailToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EMailToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem})
         Me.EMailToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EMailToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.EMailToolStripMenuItem.Name = "EMailToolStripMenuItem"
+        resources.ApplyResources(Me.EMailToolStripMenuItem, "EMailToolStripMenuItem")
         '
         'EMailSendenToolStripMenuItem
         '
-        resources.ApplyResources(Me.EMailSendenToolStripMenuItem, "EMailSendenToolStripMenuItem")
         Me.EMailSendenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.EMailSendenToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.EMailSendenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.EMailSendenToolStripMenuItem.Name = "EMailSendenToolStripMenuItem"
+        resources.ApplyResources(Me.EMailSendenToolStripMenuItem, "EMailSendenToolStripMenuItem")
         '
         'PasswortmanagerToolStripMenuItem
         '
-        resources.ApplyResources(Me.PasswortmanagerToolStripMenuItem, "PasswortmanagerToolStripMenuItem")
         Me.PasswortmanagerToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.PasswortmanagerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatenbankExportierenToolStripMenuItem, Me.DatenbankImportierenToolStripMenuItem, Me.DatenbankLöschenToolStripMenuItem})
         Me.PasswortmanagerToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PasswortmanagerToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.PasswortmanagerToolStripMenuItem.Name = "PasswortmanagerToolStripMenuItem"
+        resources.ApplyResources(Me.PasswortmanagerToolStripMenuItem, "PasswortmanagerToolStripMenuItem")
         '
         'DatenbankExportierenToolStripMenuItem
         '
-        resources.ApplyResources(Me.DatenbankExportierenToolStripMenuItem, "DatenbankExportierenToolStripMenuItem")
         Me.DatenbankExportierenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankExportierenToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.DatenbankExportierenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DatenbankExportierenToolStripMenuItem.Name = "DatenbankExportierenToolStripMenuItem"
+        resources.ApplyResources(Me.DatenbankExportierenToolStripMenuItem, "DatenbankExportierenToolStripMenuItem")
         '
         'DatenbankImportierenToolStripMenuItem
         '
-        resources.ApplyResources(Me.DatenbankImportierenToolStripMenuItem, "DatenbankImportierenToolStripMenuItem")
         Me.DatenbankImportierenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankImportierenToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.DatenbankImportierenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DatenbankImportierenToolStripMenuItem.Name = "DatenbankImportierenToolStripMenuItem"
+        resources.ApplyResources(Me.DatenbankImportierenToolStripMenuItem, "DatenbankImportierenToolStripMenuItem")
         '
         'DatenbankLöschenToolStripMenuItem
         '
-        resources.ApplyResources(Me.DatenbankLöschenToolStripMenuItem, "DatenbankLöschenToolStripMenuItem")
         Me.DatenbankLöschenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DatenbankLöschenToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.DatenbankLöschenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DatenbankLöschenToolStripMenuItem.Name = "DatenbankLöschenToolStripMenuItem"
+        resources.ApplyResources(Me.DatenbankLöschenToolStripMenuItem, "DatenbankLöschenToolStripMenuItem")
         '
         'SystemidentifikationToolStripMenuItem
         '
-        resources.ApplyResources(Me.SystemidentifikationToolStripMenuItem, "SystemidentifikationToolStripMenuItem")
         Me.SystemidentifikationToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.SystemidentifikationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.SystemidentifikationToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.SystemidentifikationToolStripMenuItem.Name = "SystemidentifikationToolStripMenuItem"
+        resources.ApplyResources(Me.SystemidentifikationToolStripMenuItem, "SystemidentifikationToolStripMenuItem")
         '
         'PasswortgeneratorToolStripMenuItem
         '
-        resources.ApplyResources(Me.PasswortgeneratorToolStripMenuItem, "PasswortgeneratorToolStripMenuItem")
         Me.PasswortgeneratorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.PasswortgeneratorToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PasswortgeneratorToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.PasswortgeneratorToolStripMenuItem.Name = "PasswortgeneratorToolStripMenuItem"
+        resources.ApplyResources(Me.PasswortgeneratorToolStripMenuItem, "PasswortgeneratorToolStripMenuItem")
         '
         'DateiSicherLöschenToolStripMenuItem
         '
-        resources.ApplyResources(Me.DateiSicherLöschenToolStripMenuItem, "DateiSicherLöschenToolStripMenuItem")
         Me.DateiSicherLöschenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.DateiSicherLöschenToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DateiSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.DateiSicherLöschenToolStripMenuItem.Name = "DateiSicherLöschenToolStripMenuItem"
+        resources.ApplyResources(Me.DateiSicherLöschenToolStripMenuItem, "DateiSicherLöschenToolStripMenuItem")
         '
         'InfoToolStripMenuItem
         '
-        resources.ApplyResources(Me.InfoToolStripMenuItem, "InfoToolStripMenuItem")
         Me.InfoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.InfoToolStripMenuItem, "InfoToolStripMenuItem")
         Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
         '
         'UpdateToolStripMenuItem
         '
-        resources.ApplyResources(Me.UpdateToolStripMenuItem, "UpdateToolStripMenuItem")
         Me.UpdateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.UpdateToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.UpdateToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
+        resources.ApplyResources(Me.UpdateToolStripMenuItem, "UpdateToolStripMenuItem")
         Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
         '
         'FeedbackToolStripMenuItem
         '
-        resources.ApplyResources(Me.FeedbackToolStripMenuItem, "FeedbackToolStripMenuItem")
         Me.FeedbackToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.FeedbackToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.FeedbackToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
+        resources.ApplyResources(Me.FeedbackToolStripMenuItem, "FeedbackToolStripMenuItem")
         Me.FeedbackToolStripMenuItem.Name = "FeedbackToolStripMenuItem"
         '
         'AboutToolStripMenuItem
         '
-        resources.ApplyResources(Me.AboutToolStripMenuItem, "AboutToolStripMenuItem")
         Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.AboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.AboutToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
+        resources.ApplyResources(Me.AboutToolStripMenuItem, "AboutToolStripMenuItem")
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         '
         'systemtray
         '
-        resources.ApplyResources(Me.systemtray, "systemtray")
         Me.systemtray.ContextMenuStrip = Me.systemtray_menu
+        resources.ApplyResources(Me.systemtray, "systemtray")
         '
         'systemtray_menu
         '
-        resources.ApplyResources(Me.systemtray_menu, "systemtray_menu")
         Me.systemtray_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.systemtray_menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.about_bt_systemtray, Me.feedback_bt_systemtray, Me.update_bt_systemtray, Me.tools_bt_systemtray, Me.open_bt_systemtray, Me.exit_bt_systemtray})
         Me.systemtray_menu.Name = "ContextMenuStrip1"
+        resources.ApplyResources(Me.systemtray_menu, "systemtray_menu")
         '
         'about_bt_systemtray
         '
-        resources.ApplyResources(Me.about_bt_systemtray, "about_bt_systemtray")
         Me.about_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.about_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Information16
+        resources.ApplyResources(Me.about_bt_systemtray, "about_bt_systemtray")
         Me.about_bt_systemtray.Name = "about_bt_systemtray"
         '
         'feedback_bt_systemtray
         '
-        resources.ApplyResources(Me.feedback_bt_systemtray, "feedback_bt_systemtray")
         Me.feedback_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.feedback_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.feedback16
+        resources.ApplyResources(Me.feedback_bt_systemtray, "feedback_bt_systemtray")
         Me.feedback_bt_systemtray.Name = "feedback_bt_systemtray"
         '
         'update_bt_systemtray
         '
-        resources.ApplyResources(Me.update_bt_systemtray, "update_bt_systemtray")
         Me.update_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.update_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.updateflat
+        resources.ApplyResources(Me.update_bt_systemtray, "update_bt_systemtray")
         Me.update_bt_systemtray.Name = "update_bt_systemtray"
         '
         'tools_bt_systemtray
         '
-        resources.ApplyResources(Me.tools_bt_systemtray, "tools_bt_systemtray")
         Me.tools_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt__bt_systemtray, Me.file_decrypt_bt_systemtray, Me.text_encrypt_bt_systemtray, Me.hash_bt_systemtray, Me.rsa_bt_systemtray, Me.mail_bt_systemtray, Me.pw_manager_bt_systemtray, Me.systemidentification_bt_systemtray, Me.pwg_bt_systemtray, Me.file_delete_bt_systemtray})
         Me.tools_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.tools_bt_systemtray, "tools_bt_systemtray")
         Me.tools_bt_systemtray.Name = "tools_bt_systemtray"
         '
         'file_encrypt__bt_systemtray
         '
-        resources.ApplyResources(Me.file_encrypt__bt_systemtray, "file_encrypt__bt_systemtray")
         Me.file_encrypt__bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_encrypt__bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_encrypt__bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.file_encrypt__bt_systemtray.Name = "file_encrypt__bt_systemtray"
+        resources.ApplyResources(Me.file_encrypt__bt_systemtray, "file_encrypt__bt_systemtray")
         '
         'file_decrypt_bt_systemtray
         '
-        resources.ApplyResources(Me.file_decrypt_bt_systemtray, "file_decrypt_bt_systemtray")
         Me.file_decrypt_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_decrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_decrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.file_decrypt_bt_systemtray.Name = "file_decrypt_bt_systemtray"
+        resources.ApplyResources(Me.file_decrypt_bt_systemtray, "file_decrypt_bt_systemtray")
         '
         'text_encrypt_bt_systemtray
         '
-        resources.ApplyResources(Me.text_encrypt_bt_systemtray, "text_encrypt_bt_systemtray")
         Me.text_encrypt_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.text_encrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.text_encrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.text_encrypt_bt_systemtray.Name = "text_encrypt_bt_systemtray"
+        resources.ApplyResources(Me.text_encrypt_bt_systemtray, "text_encrypt_bt_systemtray")
         '
         'hash_bt_systemtray
         '
-        resources.ApplyResources(Me.hash_bt_systemtray, "hash_bt_systemtray")
         Me.hash_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_systemtray, Me.md5_bf_bt_systemtray, Me.MD5DateiCheksumToolStripMenuItem})
         Me.hash_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_systemtray.Name = "hash_bt_systemtray"
+        resources.ApplyResources(Me.hash_bt_systemtray, "hash_bt_systemtray")
         '
         'md5_converter_bt_systemtray
         '
-        resources.ApplyResources(Me.md5_converter_bt_systemtray, "md5_converter_bt_systemtray")
         Me.md5_converter_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_converter_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_converter_bt_systemtray.Name = "md5_converter_bt_systemtray"
+        resources.ApplyResources(Me.md5_converter_bt_systemtray, "md5_converter_bt_systemtray")
         '
         'md5_bf_bt_systemtray
         '
-        resources.ApplyResources(Me.md5_bf_bt_systemtray, "md5_bf_bt_systemtray")
         Me.md5_bf_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.md5_bf_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_bf_bt_systemtray.Name = "md5_bf_bt_systemtray"
+        resources.ApplyResources(Me.md5_bf_bt_systemtray, "md5_bf_bt_systemtray")
         '
         'MD5DateiCheksumToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5DateiCheksumToolStripMenuItem, "MD5DateiCheksumToolStripMenuItem")
         Me.MD5DateiCheksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.MD5DateiCheksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.MD5DateiCheksumToolStripMenuItem.Name = "MD5DateiCheksumToolStripMenuItem"
+        resources.ApplyResources(Me.MD5DateiCheksumToolStripMenuItem, "MD5DateiCheksumToolStripMenuItem")
         '
         'rsa_bt_systemtray
         '
-        resources.ApplyResources(Me.rsa_bt_systemtray, "rsa_bt_systemtray")
         Me.rsa_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.rsa_encrypt_bt_systemtray, Me.rsa_decrypt_bt_systemtray, Me.rsa_create_keys_bt_systemtray})
         Me.rsa_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_bt_systemtray.Name = "rsa_bt_systemtray"
+        resources.ApplyResources(Me.rsa_bt_systemtray, "rsa_bt_systemtray")
         '
         'rsa_encrypt_bt_systemtray
         '
-        resources.ApplyResources(Me.rsa_encrypt_bt_systemtray, "rsa_encrypt_bt_systemtray")
         Me.rsa_encrypt_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_encrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_encrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.rsa_encrypt_bt_systemtray.Name = "rsa_encrypt_bt_systemtray"
+        resources.ApplyResources(Me.rsa_encrypt_bt_systemtray, "rsa_encrypt_bt_systemtray")
         '
         'rsa_decrypt_bt_systemtray
         '
-        resources.ApplyResources(Me.rsa_decrypt_bt_systemtray, "rsa_decrypt_bt_systemtray")
         Me.rsa_decrypt_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_decrypt_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_decrypt_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.rsa_decrypt_bt_systemtray.Name = "rsa_decrypt_bt_systemtray"
+        resources.ApplyResources(Me.rsa_decrypt_bt_systemtray, "rsa_decrypt_bt_systemtray")
         '
         'rsa_create_keys_bt_systemtray
         '
-        resources.ApplyResources(Me.rsa_create_keys_bt_systemtray, "rsa_create_keys_bt_systemtray")
         Me.rsa_create_keys_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.rsa_create_keys_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.rsa_create_keys_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
         Me.rsa_create_keys_bt_systemtray.Name = "rsa_create_keys_bt_systemtray"
+        resources.ApplyResources(Me.rsa_create_keys_bt_systemtray, "rsa_create_keys_bt_systemtray")
         '
         'mail_bt_systemtray
         '
-        resources.ApplyResources(Me.mail_bt_systemtray, "mail_bt_systemtray")
         Me.mail_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.mail_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.send_mail_bt_systemtray})
         Me.mail_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mail_bt_systemtray.Name = "mail_bt_systemtray"
+        resources.ApplyResources(Me.mail_bt_systemtray, "mail_bt_systemtray")
         '
         'send_mail_bt_systemtray
         '
-        resources.ApplyResources(Me.send_mail_bt_systemtray, "send_mail_bt_systemtray")
         Me.send_mail_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.send_mail_bt_systemtray.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.send_mail_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.mail
         Me.send_mail_bt_systemtray.Name = "send_mail_bt_systemtray"
+        resources.ApplyResources(Me.send_mail_bt_systemtray, "send_mail_bt_systemtray")
         '
         'pw_manager_bt_systemtray
         '
-        resources.ApplyResources(Me.pw_manager_bt_systemtray, "pw_manager_bt_systemtray")
         Me.pw_manager_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pw_manager_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.export_db_bt_systemtray, Me.import_db_bt_systemtray, Me.delete_db_bt_systemtray})
         Me.pw_manager_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pw_manager_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.pwmanager
         Me.pw_manager_bt_systemtray.Name = "pw_manager_bt_systemtray"
+        resources.ApplyResources(Me.pw_manager_bt_systemtray, "pw_manager_bt_systemtray")
         '
         'export_db_bt_systemtray
         '
-        resources.ApplyResources(Me.export_db_bt_systemtray, "export_db_bt_systemtray")
         Me.export_db_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.export_db_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.export_db_bt_systemtray.Name = "export_db_bt_systemtray"
+        resources.ApplyResources(Me.export_db_bt_systemtray, "export_db_bt_systemtray")
         '
         'import_db_bt_systemtray
         '
-        resources.ApplyResources(Me.import_db_bt_systemtray, "import_db_bt_systemtray")
         Me.import_db_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.import_db_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.import_db_bt_systemtray.Name = "import_db_bt_systemtray"
+        resources.ApplyResources(Me.import_db_bt_systemtray, "import_db_bt_systemtray")
         '
         'delete_db_bt_systemtray
         '
-        resources.ApplyResources(Me.delete_db_bt_systemtray, "delete_db_bt_systemtray")
         Me.delete_db_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.delete_db_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.delete_db_bt_systemtray.Name = "delete_db_bt_systemtray"
+        resources.ApplyResources(Me.delete_db_bt_systemtray, "delete_db_bt_systemtray")
         '
         'systemidentification_bt_systemtray
         '
-        resources.ApplyResources(Me.systemidentification_bt_systemtray, "systemidentification_bt_systemtray")
         Me.systemidentification_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.systemidentification_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.systemidentification_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.systemidentification_bt_systemtray.Name = "systemidentification_bt_systemtray"
+        resources.ApplyResources(Me.systemidentification_bt_systemtray, "systemidentification_bt_systemtray")
         '
         'pwg_bt_systemtray
         '
-        resources.ApplyResources(Me.pwg_bt_systemtray, "pwg_bt_systemtray")
         Me.pwg_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pwg_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.pwg_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.pwg_bt_systemtray.Name = "pwg_bt_systemtray"
+        resources.ApplyResources(Me.pwg_bt_systemtray, "pwg_bt_systemtray")
         '
         'file_delete_bt_systemtray
         '
-        resources.ApplyResources(Me.file_delete_bt_systemtray, "file_delete_bt_systemtray")
         Me.file_delete_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.file_delete_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.file_delete_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.file_delete_bt_systemtray.Name = "file_delete_bt_systemtray"
+        resources.ApplyResources(Me.file_delete_bt_systemtray, "file_delete_bt_systemtray")
         '
         'open_bt_systemtray
         '
-        resources.ApplyResources(Me.open_bt_systemtray, "open_bt_systemtray")
         Me.open_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.open_bt_systemtray, "open_bt_systemtray")
         Me.open_bt_systemtray.Name = "open_bt_systemtray"
         '
         'exit_bt_systemtray
         '
-        resources.ApplyResources(Me.exit_bt_systemtray, "exit_bt_systemtray")
         Me.exit_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.exit_bt_systemtray.Image = Global.Project_WinCrypt.My.Resources.Resources.Close16
+        resources.ApplyResources(Me.exit_bt_systemtray, "exit_bt_systemtray")
         Me.exit_bt_systemtray.Name = "exit_bt_systemtray"
         '
         'DateiVerschlüsselnToolStripMenuItem1
         '
-        resources.ApplyResources(Me.DateiVerschlüsselnToolStripMenuItem1, "DateiVerschlüsselnToolStripMenuItem1")
         Me.DateiVerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.DateiVerschlüsselnToolStripMenuItem1.Name = "DateiVerschlüsselnToolStripMenuItem1"
+        resources.ApplyResources(Me.DateiVerschlüsselnToolStripMenuItem1, "DateiVerschlüsselnToolStripMenuItem1")
         '
         'DateiEntschlüsselnToolStripMenuItem1
         '
-        resources.ApplyResources(Me.DateiEntschlüsselnToolStripMenuItem1, "DateiEntschlüsselnToolStripMenuItem1")
         Me.DateiEntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.DateiEntschlüsselnToolStripMenuItem1.Name = "DateiEntschlüsselnToolStripMenuItem1"
+        resources.ApplyResources(Me.DateiEntschlüsselnToolStripMenuItem1, "DateiEntschlüsselnToolStripMenuItem1")
         '
         'ToolStripSeparator5
         '
-        resources.ApplyResources(Me.ToolStripSeparator5, "ToolStripSeparator5")
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        resources.ApplyResources(Me.ToolStripSeparator5, "ToolStripSeparator5")
         '
         'TextVerUndEntschlüsselnToolStripMenuItem
         '
-        resources.ApplyResources(Me.TextVerUndEntschlüsselnToolStripMenuItem, "TextVerUndEntschlüsselnToolStripMenuItem")
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
         Me.TextVerUndEntschlüsselnToolStripMenuItem.Name = "TextVerUndEntschlüsselnToolStripMenuItem"
+        resources.ApplyResources(Me.TextVerUndEntschlüsselnToolStripMenuItem, "TextVerUndEntschlüsselnToolStripMenuItem")
         '
         'MD5ToolStripMenuItem1
         '
-        resources.ApplyResources(Me.MD5ToolStripMenuItem1, "MD5ToolStripMenuItem1")
         Me.MD5ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD5KonverterToolStripMenuItem1, Me.MD5BruteforceToolStripMenuItem})
         Me.MD5ToolStripMenuItem1.Name = "MD5ToolStripMenuItem1"
+        resources.ApplyResources(Me.MD5ToolStripMenuItem1, "MD5ToolStripMenuItem1")
         '
         'MD5KonverterToolStripMenuItem1
         '
-        resources.ApplyResources(Me.MD5KonverterToolStripMenuItem1, "MD5KonverterToolStripMenuItem1")
         Me.MD5KonverterToolStripMenuItem1.Name = "MD5KonverterToolStripMenuItem1"
+        resources.ApplyResources(Me.MD5KonverterToolStripMenuItem1, "MD5KonverterToolStripMenuItem1")
         '
         'MD5BruteforceToolStripMenuItem
         '
-        resources.ApplyResources(Me.MD5BruteforceToolStripMenuItem, "MD5BruteforceToolStripMenuItem")
         Me.MD5BruteforceToolStripMenuItem.Name = "MD5BruteforceToolStripMenuItem"
+        resources.ApplyResources(Me.MD5BruteforceToolStripMenuItem, "MD5BruteforceToolStripMenuItem")
         '
         'RSAToolStripMenuItem1
         '
-        resources.ApplyResources(Me.RSAToolStripMenuItem1, "RSAToolStripMenuItem1")
         Me.RSAToolStripMenuItem1.Name = "RSAToolStripMenuItem1"
+        resources.ApplyResources(Me.RSAToolStripMenuItem1, "RSAToolStripMenuItem1")
         '
         'VerschlüsselnToolStripMenuItem1
         '
-        resources.ApplyResources(Me.VerschlüsselnToolStripMenuItem1, "VerschlüsselnToolStripMenuItem1")
         Me.VerschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
         Me.VerschlüsselnToolStripMenuItem1.Name = "VerschlüsselnToolStripMenuItem1"
+        resources.ApplyResources(Me.VerschlüsselnToolStripMenuItem1, "VerschlüsselnToolStripMenuItem1")
         '
         'EntschlüsselnToolStripMenuItem1
         '
-        resources.ApplyResources(Me.EntschlüsselnToolStripMenuItem1, "EntschlüsselnToolStripMenuItem1")
         Me.EntschlüsselnToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
         Me.EntschlüsselnToolStripMenuItem1.Name = "EntschlüsselnToolStripMenuItem1"
+        resources.ApplyResources(Me.EntschlüsselnToolStripMenuItem1, "EntschlüsselnToolStripMenuItem1")
         '
         'SchlüsselErstellenToolStripMenuItem
         '
-        resources.ApplyResources(Me.SchlüsselErstellenToolStripMenuItem, "SchlüsselErstellenToolStripMenuItem")
         Me.SchlüsselErstellenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
         Me.SchlüsselErstellenToolStripMenuItem.Name = "SchlüsselErstellenToolStripMenuItem"
+        resources.ApplyResources(Me.SchlüsselErstellenToolStripMenuItem, "SchlüsselErstellenToolStripMenuItem")
         '
         'ToolStripSeparator10
         '
-        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
         '
         'EMailToolStripMenuItem1
         '
-        resources.ApplyResources(Me.EMailToolStripMenuItem1, "EMailToolStripMenuItem1")
         Me.EMailToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EMailSendenToolStripMenuItem1})
         Me.EMailToolStripMenuItem1.Name = "EMailToolStripMenuItem1"
+        resources.ApplyResources(Me.EMailToolStripMenuItem1, "EMailToolStripMenuItem1")
         '
         'EMailSendenToolStripMenuItem1
         '
-        resources.ApplyResources(Me.EMailSendenToolStripMenuItem1, "EMailSendenToolStripMenuItem1")
         Me.EMailSendenToolStripMenuItem1.Name = "EMailSendenToolStripMenuItem1"
+        resources.ApplyResources(Me.EMailSendenToolStripMenuItem1, "EMailSendenToolStripMenuItem1")
         '
         'ToolStripSeparator12
         '
-        resources.ApplyResources(Me.ToolStripSeparator12, "ToolStripSeparator12")
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        resources.ApplyResources(Me.ToolStripSeparator12, "ToolStripSeparator12")
         '
         'PasswortmanagerToolStripMenuItem1
         '
-        resources.ApplyResources(Me.PasswortmanagerToolStripMenuItem1, "PasswortmanagerToolStripMenuItem1")
         Me.PasswortmanagerToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatenbankExportierenToolStripMenuItem1, Me.DatenbankImportierenToolStripMenuItem1, Me.DatenbankLöschenToolStripMenuItem1})
         Me.PasswortmanagerToolStripMenuItem1.Name = "PasswortmanagerToolStripMenuItem1"
+        resources.ApplyResources(Me.PasswortmanagerToolStripMenuItem1, "PasswortmanagerToolStripMenuItem1")
         '
         'DatenbankExportierenToolStripMenuItem1
         '
-        resources.ApplyResources(Me.DatenbankExportierenToolStripMenuItem1, "DatenbankExportierenToolStripMenuItem1")
         Me.DatenbankExportierenToolStripMenuItem1.Name = "DatenbankExportierenToolStripMenuItem1"
+        resources.ApplyResources(Me.DatenbankExportierenToolStripMenuItem1, "DatenbankExportierenToolStripMenuItem1")
         '
         'DatenbankImportierenToolStripMenuItem1
         '
-        resources.ApplyResources(Me.DatenbankImportierenToolStripMenuItem1, "DatenbankImportierenToolStripMenuItem1")
         Me.DatenbankImportierenToolStripMenuItem1.Name = "DatenbankImportierenToolStripMenuItem1"
+        resources.ApplyResources(Me.DatenbankImportierenToolStripMenuItem1, "DatenbankImportierenToolStripMenuItem1")
         '
         'DatenbankLöschenToolStripMenuItem1
         '
-        resources.ApplyResources(Me.DatenbankLöschenToolStripMenuItem1, "DatenbankLöschenToolStripMenuItem1")
         Me.DatenbankLöschenToolStripMenuItem1.Name = "DatenbankLöschenToolStripMenuItem1"
+        resources.ApplyResources(Me.DatenbankLöschenToolStripMenuItem1, "DatenbankLöschenToolStripMenuItem1")
         '
         'ToolStripSeparator6
         '
-        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        resources.ApplyResources(Me.ToolStripSeparator6, "ToolStripSeparator6")
         '
         'SystemidentifikationToolStripMenuItem1
         '
-        resources.ApplyResources(Me.SystemidentifikationToolStripMenuItem1, "SystemidentifikationToolStripMenuItem1")
         Me.SystemidentifikationToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.Identity
         Me.SystemidentifikationToolStripMenuItem1.Name = "SystemidentifikationToolStripMenuItem1"
+        resources.ApplyResources(Me.SystemidentifikationToolStripMenuItem1, "SystemidentifikationToolStripMenuItem1")
         '
         'ToolStripSeparator7
         '
-        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        resources.ApplyResources(Me.ToolStripSeparator7, "ToolStripSeparator7")
         '
         'PasswortGeneratorToolStripMenuItem1
         '
-        resources.ApplyResources(Me.PasswortGeneratorToolStripMenuItem1, "PasswortGeneratorToolStripMenuItem1")
         Me.PasswortGeneratorToolStripMenuItem1.Image = Global.Project_WinCrypt.My.Resources.Resources.Password16
         Me.PasswortGeneratorToolStripMenuItem1.Name = "PasswortGeneratorToolStripMenuItem1"
+        resources.ApplyResources(Me.PasswortGeneratorToolStripMenuItem1, "PasswortGeneratorToolStripMenuItem1")
         '
         'ToolStripSeparator8
         '
-        resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         '
         'DateienSicherLöschenToolStripMenuItem
         '
-        resources.ApplyResources(Me.DateienSicherLöschenToolStripMenuItem, "DateienSicherLöschenToolStripMenuItem")
         Me.DateienSicherLöschenToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Delete16
         Me.DateienSicherLöschenToolStripMenuItem.Name = "DateienSicherLöschenToolStripMenuItem"
+        resources.ApplyResources(Me.DateienSicherLöschenToolStripMenuItem, "DateienSicherLöschenToolStripMenuItem")
         '
         'import_db_dialog
         '
@@ -982,7 +978,6 @@ Partial Class Startwindow
         '
         'mount_gb
         '
-        resources.ApplyResources(Me.mount_gb, "mount_gb")
         Me.mount_gb.BackColor = System.Drawing.Color.Transparent
         Me.mount_gb.Controls.Add(Me.cleanlb2)
         Me.mount_gb.Controls.Add(Me.drive_lb)
@@ -995,6 +990,7 @@ Partial Class Startwindow
         Me.mount_gb.Controls.Add(Me.dismount)
         Me.mount_gb.Controls.Add(Me.mount)
         Me.mount_gb.Controls.Add(Me.opencryptfile)
+        resources.ApplyResources(Me.mount_gb, "mount_gb")
         Me.mount_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.mount_gb.Name = "mount_gb"
         Me.mount_gb.TabStop = False
@@ -1025,8 +1021,8 @@ Partial Class Startwindow
         '
         'decrypt_list_status
         '
-        resources.ApplyResources(Me.decrypt_list_status, "decrypt_list_status")
         Me.decrypt_list_status.AllowDrop = True
+        resources.ApplyResources(Me.decrypt_list_status, "decrypt_list_status")
         Me.decrypt_list_status.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.decrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.decrypt_list_status.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
@@ -1085,7 +1081,6 @@ Partial Class Startwindow
         '
         'encrypt_gb
         '
-        resources.ApplyResources(Me.encrypt_gb, "encrypt_gb")
         Me.encrypt_gb.BackColor = System.Drawing.Color.Transparent
         Me.encrypt_gb.Controls.Add(Me.cleanlb1)
         Me.encrypt_gb.Controls.Add(Me.encrypt_list_status)
@@ -1097,6 +1092,7 @@ Partial Class Startwindow
         Me.encrypt_gb.Controls.Add(Me.keycrypt)
         Me.encrypt_gb.Controls.Add(Me.pathtxt)
         Me.encrypt_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        resources.ApplyResources(Me.encrypt_gb, "encrypt_gb")
         Me.encrypt_gb.Name = "encrypt_gb"
         Me.encrypt_gb.TabStop = False
         '
@@ -1111,8 +1107,8 @@ Partial Class Startwindow
         '
         'encrypt_list_status
         '
-        resources.ApplyResources(Me.encrypt_list_status, "encrypt_list_status")
         Me.encrypt_list_status.AllowDrop = True
+        resources.ApplyResources(Me.encrypt_list_status, "encrypt_list_status")
         Me.encrypt_list_status.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.encrypt_list_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.encrypt_list_status.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
@@ -1171,9 +1167,9 @@ Partial Class Startwindow
         '
         'wincrypt_icon
         '
-        resources.ApplyResources(Me.wincrypt_icon, "wincrypt_icon")
         Me.wincrypt_icon.BackColor = System.Drawing.Color.Transparent
         Me.wincrypt_icon.Image = Global.Project_WinCrypt.My.Resources.Resources.wc_icon16
+        resources.ApplyResources(Me.wincrypt_icon, "wincrypt_icon")
         Me.wincrypt_icon.Name = "wincrypt_icon"
         Me.wincrypt_icon.TabStop = False
         '
@@ -1197,9 +1193,9 @@ Partial Class Startwindow
         '
         'form_head
         '
-        resources.ApplyResources(Me.form_head, "form_head")
         Me.form_head.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.form_head.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.exit_bt, Me.minimize_bt})
+        resources.ApplyResources(Me.form_head, "form_head")
         Me.form_head.Name = "form_head"
         '
         'exit_bt
@@ -1235,10 +1231,6 @@ Partial Class Startwindow
         '
         Me.export_db_dialog.FileName = "export.db"
         resources.ApplyResources(Me.export_db_dialog, "export_db_dialog")
-        '
-        'open_encrypt_dialog
-        '
-        resources.ApplyResources(Me.open_encrypt_dialog, "open_encrypt_dialog")
         '
         'Startwindow
         '

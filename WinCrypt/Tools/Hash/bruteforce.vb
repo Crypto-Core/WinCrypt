@@ -5,7 +5,6 @@ Imports System.IO
 Imports Project_WinCrypt.classes
 
 Namespace tools.hash
-
     Public Class Bruteforce
         Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" (hProcess As IntPtr,
                                                                              dwMinimumWorkingSetSize As Int32,

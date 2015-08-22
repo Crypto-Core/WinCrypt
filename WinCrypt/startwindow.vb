@@ -24,6 +24,7 @@ Public Class Startwindow
     Private _finishcrypt As Integer = 0
     Private _finunmount As Integer = 0
     Public vCommand As Boolean = False
+    Private admin_restart As Boolean = False
     ReadOnly _
         _ini As _
             New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
@@ -523,6 +524,8 @@ Public Class Startwindow
         mount.Enabled = True
     End Sub
 
+    
+
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = Formclose
         If e.Cancel = True Then
@@ -589,35 +592,6 @@ Public Class Startwindow
 
         Dim loadColor As New designcolor
         loadColor.color()
-        Try
-            If _ini.worthreading("Info", "Update") = Nothing Then
-                Dim extractUpdate As New FileStream(My.Application.Info.DirectoryPath & "\WinCryptUpdate.exe", FileMode.Create)
-                extractUpdate.Write(My.Resources.WinCryptUpdate, 0, CInt(My.Resources.WinCryptUpdate.Length))
-                extractUpdate.Close()
-                loadColor.color()
-                _ini.WertSchreiben("Info", "Update", 1)
-            Else
-
-            End If
-        Catch ex As Exception
-            If MessageBox.Show("WinCrypt kann die Datei WinCryptUpdate.exe nicht ändern. Bitte starten Sie WinCrypt als Administrator." & vbNewLine & "Möchten Sie WinCrypt als Administrator starten?", "Benutzerrechte", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
-                Dim procStartInfo As New ProcessStartInfo
-                Dim procExecuting As New Process
-
-                With procStartInfo
-                    .UseShellExecute = True
-                    .FileName = My.Application.Info.DirectoryPath & "\Project WinCrypt.exe"
-                    .WindowStyle = ProcessWindowStyle.Normal
-                    .Verb = "runas" 'add this to prompt for elevation
-                End With
-
-                procExecuting = Process.Start(procStartInfo)
-                Application.Exit()
-            Else
-
-            End If
-
-        End Try
 
         Text = "WinCrypt " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         wincrypttitle.Text = Text
@@ -746,6 +720,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub startwindow_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+
         Try
             If My.Application.CommandLineArgs.Count > 0 Then
                 Dim vArray As Array
@@ -1484,9 +1459,5 @@ Public Class Startwindow
 
     Private Sub MD5DateiChecksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
         MD5FileHash_frm.Show()
-    End Sub
-
-    Private Sub form_head_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles form_head.ItemClicked
-
     End Sub
 End Class

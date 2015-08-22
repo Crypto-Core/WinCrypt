@@ -11,7 +11,12 @@ Namespace classes
             Dim Tmp As String = Nothing
 
             Dim FN As New FileStream(sFile, FileMode.Open, FileAccess.Read, FileShare.Read, 8192)
-            MD5.ComputeHash(FN)
+            Try
+                MD5.ComputeHash(FN)
+            Catch ex As Exception
+                MessageBox.Show(ErrorToString, "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
             FN.Close()
 
             Hash = MD5.Hash
