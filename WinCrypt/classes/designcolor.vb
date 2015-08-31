@@ -283,6 +283,14 @@ Public Class designcolor
         Startwindow.mail_bt_menu.ForeColor = textcolor
         Startwindow.mail_bt_menu.BackColor = bgcolor
 
+        '//EncryptionToolStripMenuItem
+        Startwindow.EncryptionToolStripMenuItem.ForeColor = textcolor
+        Startwindow.EncryptionToolStripMenuItem.BackColor = bgcolor
+
+        '//FileEncryptionToolStripMenuItem
+        Startwindow.FileEncryptionToolStripMenuItem.ForeColor = textcolor
+        Startwindow.FileEncryptionToolStripMenuItem.BackColor = bgcolor
+
         '//send_mail_bt_menu
         Startwindow.send_mail_bt_menu.ForeColor = textcolor
         Startwindow.send_mail_bt_menu.BackColor = bgcolor
@@ -347,8 +355,7 @@ Public Class designcolor
         Startwindow.create_container_encrypt.BackColor = buttoncolor
         Startwindow.create_container_encrypt.ForeColor = textcolor
 
-        Startwindow.MD5DateiCheksumToolStripMenuItem.ForeColor = textcolor
-        Startwindow.MD5DateiCheksumToolStripMenuItem.BackColor = bgcolor
+        
 
         Startwindow.MD5DateiChecksumToolStripMenuItem.ForeColor = textcolor
         Startwindow.MD5DateiChecksumToolStripMenuItem.BackColor = bgcolor

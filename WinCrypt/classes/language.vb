@@ -66,6 +66,8 @@ Namespace classes
                 tools.rsa.rsa_encrypt.encryption_bt.Text = "encrypt"
                 tools.rsa.rsa_encrypt.wincrypttitle.Text = "RSA Encrypt"
                 tools.rsa.rsa_encrypt.Text = "RSA Encrypt"
+                Startwindow.rsa_encrypt_bt_menu.Text = "encrypt"
+
 
                 'rsa_decrypt.vb
                 tools.rsa.rsa_decrypt.open_privkey_bt.Text = "open"
@@ -74,6 +76,7 @@ Namespace classes
                 tools.rsa.rsa_decrypt.decrypt_bt.Text = "decrypt"
                 tools.rsa.rsa_decrypt.wincrypttitle.Text = "RSA Decrypt"
                 tools.rsa.rsa_decrypt.Text = "RSA Decrypt"
+                Startwindow.rsa_decrypt_bt_menu.Text = "decrypt"
 
                 'rsa_create_keys.vb
                 tools.rsa.rsa_create_keys.save_privkey_bt.Text = "save as"
@@ -82,6 +85,7 @@ Namespace classes
                 tools.rsa.rsa_create_keys.save_bt.Text = "save"
                 tools.rsa.rsa_create_keys.wincrypttitle.Text = "RSA create key's"
                 tools.rsa.rsa_create_keys.Text = "RSA create key's"
+                Startwindow.rsa_create_keys_bt_menu.Text = "create key's"
 
                 'systemidentification
                 Systemidentification.off_rb.Text = "off"
@@ -130,6 +134,7 @@ Namespace classes
                 tools.text_encryption.Textencrypt.encrypt_bt.Text = "encrypt"
                 tools.text_encryption.Textencrypt.wincrypttitle.Text = "Text en- and decrypt"
                 tools.text_encryption.Textencrypt.Text = "Text en- and decrypt"
+                Startwindow.text_encrypt_bt_menu.Text = "text de- and encrypt"
 
                 'DateiEntschlüsseln.vb
                 tools.data_encryption.Filedecrypt.wincrypttitle.Text = "file decrypt"
@@ -140,6 +145,7 @@ Namespace classes
                 tools.data_encryption.Filedecrypt.openfile.Text = "open"
                 tools.data_encryption.Filedecrypt.savefile.Text = "safe as"
                 tools.data_encryption.Filedecrypt.decrypt.Text = "decrypt"
+                Startwindow.file_decrypt_bt_menu.Text = "file decrypt"
 
                 'DateiVerschlüsseln.vb
                 tools.data_encryption.Fileencrypt.wincrypttitle.Text = "file encrypt"
@@ -151,16 +157,20 @@ Namespace classes
                 tools.data_encryption.Fileencrypt.savefilebt.Text = "safe as"
                 tools.data_encryption.Fileencrypt.encryptbt.Text = "encrypt"
                 tools.data_encryption.Fileencrypt.generatebt.Text = "generate"
+                Startwindow.file_encrypt_bt_menu.Text = "file encrypt"
+                Startwindow.FileEncryptionToolStripMenuItem.Text = "file encryption"
 
                 'main.vb
                 tools.hash.converter.wincrypttitle.Text = "Converter"
                 tools.hash.converter.Text = "Converter"
                 tools.hash.converter.convert_bt.Text = "Convert"
+                Startwindow.md5_converter_bt_menu.Text = "converter"
 
                 'bruteforce.vb
                 tools.hash.Bruteforce.passwordlist_lb.Text = "passwordlist:"
                 tools.hash.Bruteforce.openWordlist.Text = "open"
                 tools.hash.Bruteforce.showProgress.Text = "show progress"
+                Startwindow.md5_bf_bt_menu.Text = "brute-force"
 
                 'sendmail.vb
                 tools.mail.Sendmail.wincrypttitle.Text = "send e-mail"
@@ -246,8 +256,37 @@ Namespace classes
                 MD5FileHash_frm.copy_bt.Text = "copy"
                 MD5FileHash_frm.generate_bt.Text = "generate"
 
-                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "MD5 file checksum"
-                Startwindow.MD5DateiCheksumToolStripMenuItem.Text = "MD5 file checksum"
+                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "file checksum"
+                Startwindow.export_db_bt_menu.Text = "export database"
+                Startwindow.import_db_bt_menu.Text = "import database"
+                Startwindow.delete_db_menu.Text = "delete database"
+                Startwindow.send_mail_bt_menu.Text = "send e-mail"
+
+
+                Startwindow.exit_bt_systemtray.Text = "exit"
+                Startwindow.open_bt_systemtray.Text = "open"
+                Startwindow.tools_bt_systemtray.Text = "tools"
+                Startwindow.update_bt_systemtray.Text = "update"
+                Startwindow.feedback_bt_systemtray.Text = "feedback"
+                Startwindow.about_bt_systemtray.Text = "about"
+                Startwindow.file_encrypt__bt_systemtray.Text = "file encrypt"
+                Startwindow.file_decrypt_bt_systemtray.Text = "file decrypt"
+                Startwindow.text_encrypt_bt_systemtray.Text = "text de- and encrypt"
+                Startwindow.converter_bt_systemtray.Text = "converter"
+                Startwindow.bf_bt_systemtray.Text = "brute-force"
+                Startwindow.file_checksum_systray.Text = "file checksum"
+                Startwindow.rsa_encrypt_bt_systemtray.Text = "encrypt"
+                Startwindow.rsa_decrypt_bt_systemtray.Text = "decrypt"
+                Startwindow.rsa_create_keys_bt_systemtray.Text = "create key's"
+                Startwindow.mail_bt_systemtray.Text = "e-mail"
+                Startwindow.send_mail_bt_systemtray.Text = "send e-mail"
+                Startwindow.pw_manager_bt_systemtray.Text = "passwordmanager"
+                Startwindow.export_db_bt_systemtray.Text = "export database"
+                Startwindow.import_db_bt_systemtray.Text = "import database"
+                Startwindow.delete_db_bt_systemtray.Text = "delete database"
+                Startwindow.systemidentification_bt_systemtray.Text = "systemidentification"
+                Startwindow.pwg_bt_systemtray.Text = "passwordgenerator"
+                Startwindow.file_delete_bt_systemtray.Text = "safe file delete"
             End If
 
 
@@ -259,6 +298,7 @@ Namespace classes
                 tools.rsa.rsa_encrypt.encryption_bt.Text = "Verschlüsseln"
                 tools.rsa.rsa_encrypt.wincrypttitle.Text = "RSA Verschlüsselung"
                 tools.rsa.rsa_encrypt.Text = "RSA Verschlüsselung"
+                Startwindow.rsa_encrypt_bt_menu.Text = "Entschlüsseln"
 
                 'rsa_decrypt.vb
                 tools.rsa.rsa_decrypt.open_privkey_bt.Text = "Öffnen"
@@ -339,6 +379,8 @@ Namespace classes
                 tools.text_encryption.Textencrypt.encrypt_bt.Text = "Verschlüsseln"
                 tools.text_encryption.Textencrypt.wincrypttitle.Text = "Text ver- und entschlüsseln"
                 tools.text_encryption.Textencrypt.Text = "Text ver- und entschlüsseln"
+                Startwindow.text_encrypt_bt_menu.Text = "Text ver- und entschlüsseln"
+
 
                 'DateiEntschlüsseln.vb
                 tools.data_encryption.Filedecrypt.wincrypttitle.Text = "Datei entschlüsseln"
@@ -360,6 +402,7 @@ Namespace classes
                 tools.data_encryption.Fileencrypt.savefilebt.Text = "Speichern unter..."
                 tools.data_encryption.Fileencrypt.encryptbt.Text = "Verschlüsseln"
                 tools.data_encryption.Fileencrypt.generatebt.Text = "Generieren"
+                Startwindow.FileEncryptionToolStripMenuItem.Text = "Dateiverschlüsselung"
 
                 'Einstellung.vb
                 WcSetting.wincrypttitle.Text = "Einstellung"
@@ -386,11 +429,13 @@ Namespace classes
                 tools.hash.converter.wincrypttitle.Text = "Konverter"
                 tools.hash.converter.Text = "Konverter"
                 tools.hash.converter.convert_bt.Text = "Konvertieren"
+                Startwindow.md5_converter_bt_menu.Text = "Konvertieren"
 
                 'md5_bruteforce.vb
                 tools.hash.Bruteforce.passwordlist_lb.Text = "Passwortliste:"
                 tools.hash.Bruteforce.openWordlist.Text = "Öffnen"
                 tools.hash.Bruteforce.showProgress.Text = "Zeige Fortschritt an"
+                Startwindow.md5_bf_bt_menu.Text = "Brute-force"
 
                 'sendmail.vb
                 tools.mail.Sendmail.wincrypttitle.Text = "E-Mail senden"
@@ -476,8 +521,36 @@ Namespace classes
                 MD5FileHash_frm.generate_bt.Text = "Generieren"
 
                 Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "MD5 Datei checksum"
-                Startwindow.MD5DateiCheksumToolStripMenuItem.Text = "MD5 Datei checksum"
+                Startwindow.file_checksum_systray.Text = "MD5 Datei checksum"
+                Startwindow.export_db_bt_menu.Text = "Datenbank exportieren"
+                Startwindow.import_db_bt_menu.Text = "Datenbank importieren"
+                Startwindow.delete_db_menu.Text = "Datenbank löschen"
+                Startwindow.send_mail_bt_menu.Text = "E-Mail senden"
 
+                Startwindow.exit_bt_systemtray.Text = "Beenden"
+                Startwindow.open_bt_systemtray.Text = "Öffnen"
+                Startwindow.tools_bt_systemtray.Text = "Tools"
+                Startwindow.update_bt_systemtray.Text = "Update"
+                Startwindow.feedback_bt_systemtray.Text = "Feedback"
+                Startwindow.about_bt_systemtray.Text = "About"
+                Startwindow.file_encrypt__bt_systemtray.Text = "Datei verschlüsseln"
+                Startwindow.file_decrypt_bt_systemtray.Text = "Datei entschlüsseln"
+                Startwindow.text_encrypt_bt_systemtray.Text = "Text ver- und entschlüsseln"
+                Startwindow.converter_bt_systemtray.Text = "Konverter"
+                Startwindow.bf_bt_systemtray.Text = "Brute-force"
+                Startwindow.file_checksum_systray.Text = "Datei checksum"
+                Startwindow.rsa_encrypt_bt_systemtray.Text = "Verschlüsseln"
+                Startwindow.rsa_decrypt_bt_systemtray.Text = "Entschlüsseln"
+                Startwindow.rsa_create_keys_bt_systemtray.Text = "Schlüssel erstellen"
+                Startwindow.mail_bt_systemtray.Text = "E-Mail"
+                Startwindow.send_mail_bt_systemtray.Text = "E-Mail senden"
+                Startwindow.pw_manager_bt_systemtray.Text = "Passwortmanager"
+                Startwindow.export_db_bt_systemtray.Text = "Datenbank exportieren"
+                Startwindow.import_db_bt_systemtray.Text = "Datenbank importieren"
+                Startwindow.delete_db_bt_systemtray.Text = "Datenbank löschen"
+                Startwindow.systemidentification_bt_systemtray.Text = "Systemidentifikation"
+                Startwindow.pwg_bt_systemtray.Text = "Passwortgenerator"
+                Startwindow.file_delete_bt_systemtray.Text = "Dateien sicher löschen"
             End If
         End Sub
     End Class

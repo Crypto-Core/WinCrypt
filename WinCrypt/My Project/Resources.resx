@@ -130,8 +130,8 @@
   <data name="Identity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Identity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddNew16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Add-New-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\maxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,6 +174,9 @@
   </data>
   <data name="MailSend16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\MailSend16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Command-Refresh-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Command-Refresh-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wcp1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -6436,9 +6439,6 @@
   <data name="pwmanager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\pwmanager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WinCryptUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\WinCryptUpdate.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Data-Erase-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Data-Erase-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6451,8 +6451,11 @@
   <data name="Key16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Key-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddNew16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\Add-New-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WinCryptUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\WinCryptUpdate.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Document-Check-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Document-Check-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vista_DeviceDisconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista_DeviceDisconnect.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6468,6 +6471,9 @@
   </data>
   <data name="unlock16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\unlock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lock16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Lock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -6501,5 +6507,8 @@
   </data>
   <data name="wc-icon16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\wc-icon16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Search-Shield-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\Search-Shield-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

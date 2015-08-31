@@ -121,14 +121,8 @@
   <data name="file_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
   </data>
-  <data name="file_encrypt_bt_menu.Text" xml:space="preserve">
-    <value>Datei Verschlüsseln</value>
-  </data>
   <data name="file_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
-  </data>
-  <data name="file_decrypt_bt_menu.Text" xml:space="preserve">
-    <value>Datei Entschlüsseln</value>
   </data>
   <data name="text_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -6555,5 +6549,26 @@
   </data>
   <data name="file_bt_menu.Text" xml:space="preserve">
     <value>Datei</value>
+  </data>
+  <data name="EncryptionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Verschlüsselung</value>
+  </data>
+  <data name="FileEncryptionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dateiverschlüsselung</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Text" xml:space="preserve">
+    <value>Datei Entschlüsseln</value>
+  </data>
+  <data name="file_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>Datei Verschlüsseln</value>
+  </data>
+  <data name="rsa_create_keys_bt_menu.Text" xml:space="preserve">
+    <value>Schlüssel erstellen</value>
+  </data>
+  <data name="rsa_decrypt_bt_menu.Text" xml:space="preserve">
+    <value>Entschlüsselung</value>
+  </data>
+  <data name="rsa_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>Verschlüsselung</value>
   </data>
 </root>

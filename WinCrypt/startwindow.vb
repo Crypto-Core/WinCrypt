@@ -977,36 +977,16 @@ Public Class Startwindow
         WcSetting.Show()
     End Sub
 
-    Private Sub fileencrypt_bt_menu(sender As Object, e As EventArgs) Handles file_encrypt_bt_menu.Click
+    Private Sub fileencrypt_bt_menu(sender As Object, e As EventArgs)
         tools.data_encryption.Fileencrypt.Show()
     End Sub
 
-    Private Sub filedecrypt_bt_menu(sender As Object, e As EventArgs) Handles file_decrypt_bt_menu.Click
+    Private Sub filedecrypt_bt_menu(sender As Object, e As EventArgs)
         tools.data_encryption.Filedecrypt.Show()
     End Sub
 
-    Private Sub textencrypt_bt_menu(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click
+    Private Sub textencrypt_bt_menu(sender As Object, e As EventArgs)
         tools.text_encryption.Textencrypt.Show()
-    End Sub
-
-    Private Sub md5_converter_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_converter_bt_menu.Click
-        tools.hash.converter.Show()
-    End Sub
-
-    Private Sub md5_bf_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_menu.Click
-        tools.hash.Bruteforce.Show()
-    End Sub
-
-    Private Sub rsa_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
-        tools.rsa.rsa_encrypt.Show()
-    End Sub
-
-    Private Sub rsa_decrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_decrypt_bt_menu.Click
-        tools.rsa.rsa_decrypt.Show()
-    End Sub
-
-    Private Sub rsa_create_keys_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_create_keys_bt_menu.Click
-        tools.rsa.rsa_create_keys.Show()
     End Sub
 
     Private Sub send_mail_bt_menu_Click(sender As Object, e As EventArgs) Handles send_mail_bt_menu.Click
@@ -1190,11 +1170,11 @@ Public Class Startwindow
     End Sub
 
     Private Sub md5_converter_bt_systemtray_Click(sender As Object, e As EventArgs) _
-        Handles md5_converter_bt_systemtray.Click
+        Handles converter_bt_systemtray.Click
         tools.hash.converter.Show()
     End Sub
 
-    Private Sub md5_bf_bt_systemtray_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_systemtray.Click
+    Private Sub md5_bf_bt_systemtray_Click(sender As Object, e As EventArgs) Handles bf_bt_systemtray.Click
         tools.hash.Bruteforce.Show()
     End Sub
 
@@ -1453,11 +1433,44 @@ Public Class Startwindow
         End If
     End Sub
 
-    Private Sub MD5DateiCheksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiCheksumToolStripMenuItem.Click
+    Private Sub MD5DateiCheksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles file_checksum_systray.Click
         MD5FileHash_frm.Show()
     End Sub
 
-    Private Sub MD5DateiChecksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
+    Private Sub rsa_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
+        tools.rsa.rsa_encrypt.Show()
+    End Sub
+
+    Private Sub rsa_decrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_decrypt_bt_menu.Click
+        tools.rsa.rsa_decrypt.Show()
+    End Sub
+
+    Private Sub rsa_create_keys_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_create_keys_bt_menu.Click
+        tools.rsa.rsa_create_keys.Show()
+    End Sub
+
+    Private Sub md5_converter_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_converter_bt_menu.Click
+        tools.hash.converter.Show()
+    End Sub
+
+    Private Sub md5_bf_bt_menu_Click(sender As Object, e As EventArgs) Handles md5_bf_bt_menu.Click
+        tools.hash.Bruteforce.Show()
+    End Sub
+
+    Private Sub MD5DateiChecksumToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
         MD5FileHash_frm.Show()
+    End Sub
+
+    Private Sub text_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click
+        tools.text_encryption.Textencrypt.Show()
+
+    End Sub
+
+    Private Sub file_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles file_encrypt_bt_menu.Click
+        tools.data_encryption.Fileencrypt.Show()
+    End Sub
+
+    Private Sub file_decrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles file_decrypt_bt_menu.Click
+        tools.data_encryption.Filedecrypt.Show()
     End Sub
 End Class

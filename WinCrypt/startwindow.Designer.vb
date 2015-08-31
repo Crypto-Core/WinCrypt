@@ -32,17 +32,19 @@ Partial Class Startwindow
         Me.setting_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.exit_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tools_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.file_encrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.file_decrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.text_encrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.hash_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.md5_converter_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.md5_bf_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MD5DateiChecksumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_encrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_decrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_create_keys_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.hash_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.md5_converter_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.md5_bf_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MD5DateiChecksumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.text_encrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FileEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.file_encrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.file_decrypt_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.mail_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.send_mail_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
         Me.pw_manager_bt_menu = New System.Windows.Forms.ToolStripMenuItem()
@@ -93,9 +95,9 @@ Partial Class Startwindow
         Me.file_decrypt_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
         Me.text_encrypt_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
         Me.hash_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
-        Me.md5_converter_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
-        Me.md5_bf_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MD5DateiCheksumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.converter_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
+        Me.bf_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
+        Me.file_checksum_systray = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_encrypt_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
         Me.rsa_decrypt_bt_systemtray = New System.Windows.Forms.ToolStripMenuItem()
@@ -219,63 +221,19 @@ Partial Class Startwindow
         'tools_bt_menu
         '
         Me.tools_bt_menu.BackColor = System.Drawing.Color.Transparent
-        Me.tools_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt_bt_menu, Me.file_decrypt_bt_menu, Me.text_encrypt_bt_menu, Me.hash_bt_menu, Me.rsa_bt_menu, Me.mail_bt_menu, Me.pw_manager_bt_menu, Me.systemidentification_bt_menu, Me.pw_generator_bt_menu, Me.delete_file_bt_menu})
+        Me.tools_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EncryptionToolStripMenuItem, Me.mail_bt_menu, Me.pw_manager_bt_menu, Me.systemidentification_bt_menu, Me.pw_generator_bt_menu, Me.delete_file_bt_menu})
         Me.tools_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.tools_bt_menu.Name = "tools_bt_menu"
         resources.ApplyResources(Me.tools_bt_menu, "tools_bt_menu")
         '
-        'file_encrypt_bt_menu
+        'EncryptionToolStripMenuItem
         '
-        Me.file_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.file_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.file_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
-        Me.file_encrypt_bt_menu.Name = "file_encrypt_bt_menu"
-        resources.ApplyResources(Me.file_encrypt_bt_menu, "file_encrypt_bt_menu")
-        '
-        'file_decrypt_bt_menu
-        '
-        Me.file_decrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        resources.ApplyResources(Me.file_decrypt_bt_menu, "file_decrypt_bt_menu")
-        Me.file_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.file_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
-        Me.file_decrypt_bt_menu.Name = "file_decrypt_bt_menu"
-        '
-        'text_encrypt_bt_menu
-        '
-        Me.text_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.text_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.text_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
-        Me.text_encrypt_bt_menu.Name = "text_encrypt_bt_menu"
-        resources.ApplyResources(Me.text_encrypt_bt_menu, "text_encrypt_bt_menu")
-        '
-        'hash_bt_menu
-        '
-        Me.hash_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu, Me.MD5DateiChecksumToolStripMenuItem})
-        Me.hash_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.hash_bt_menu.Name = "hash_bt_menu"
-        resources.ApplyResources(Me.hash_bt_menu, "hash_bt_menu")
-        '
-        'md5_converter_bt_menu
-        '
-        Me.md5_converter_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.md5_converter_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.md5_converter_bt_menu.Name = "md5_converter_bt_menu"
-        resources.ApplyResources(Me.md5_converter_bt_menu, "md5_converter_bt_menu")
-        '
-        'md5_bf_bt_menu
-        '
-        Me.md5_bf_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.md5_bf_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.md5_bf_bt_menu.Name = "md5_bf_bt_menu"
-        resources.ApplyResources(Me.md5_bf_bt_menu, "md5_bf_bt_menu")
-        '
-        'MD5DateiChecksumToolStripMenuItem
-        '
-        Me.MD5DateiChecksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.MD5DateiChecksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.MD5DateiChecksumToolStripMenuItem.Name = "MD5DateiChecksumToolStripMenuItem"
-        resources.ApplyResources(Me.MD5DateiChecksumToolStripMenuItem, "MD5DateiChecksumToolStripMenuItem")
+        Me.EncryptionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.EncryptionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.rsa_bt_menu, Me.hash_bt_menu, Me.text_encrypt_bt_menu, Me.FileEncryptionToolStripMenuItem})
+        Me.EncryptionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.EncryptionToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
+        Me.EncryptionToolStripMenuItem.Name = "EncryptionToolStripMenuItem"
+        resources.ApplyResources(Me.EncryptionToolStripMenuItem, "EncryptionToolStripMenuItem")
         '
         'rsa_bt_menu
         '
@@ -308,6 +266,70 @@ Partial Class Startwindow
         Me.rsa_create_keys_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Key16
         Me.rsa_create_keys_bt_menu.Name = "rsa_create_keys_bt_menu"
         resources.ApplyResources(Me.rsa_create_keys_bt_menu, "rsa_create_keys_bt_menu")
+        '
+        'hash_bt_menu
+        '
+        Me.hash_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.hash_bt_menu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_menu, Me.md5_bf_bt_menu, Me.MD5DateiChecksumToolStripMenuItem})
+        Me.hash_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.hash_bt_menu.Name = "hash_bt_menu"
+        resources.ApplyResources(Me.hash_bt_menu, "hash_bt_menu")
+        '
+        'md5_converter_bt_menu
+        '
+        Me.md5_converter_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.md5_converter_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.md5_converter_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Command_Refresh_16
+        Me.md5_converter_bt_menu.Name = "md5_converter_bt_menu"
+        resources.ApplyResources(Me.md5_converter_bt_menu, "md5_converter_bt_menu")
+        '
+        'md5_bf_bt_menu
+        '
+        Me.md5_bf_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.md5_bf_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.md5_bf_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Search_Shield_16
+        Me.md5_bf_bt_menu.Name = "md5_bf_bt_menu"
+        resources.ApplyResources(Me.md5_bf_bt_menu, "md5_bf_bt_menu")
+        '
+        'MD5DateiChecksumToolStripMenuItem
+        '
+        Me.MD5DateiChecksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MD5DateiChecksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.MD5DateiChecksumToolStripMenuItem.Image = Global.Project_WinCrypt.My.Resources.Resources.Document_Check_16
+        Me.MD5DateiChecksumToolStripMenuItem.Name = "MD5DateiChecksumToolStripMenuItem"
+        resources.ApplyResources(Me.MD5DateiChecksumToolStripMenuItem, "MD5DateiChecksumToolStripMenuItem")
+        '
+        'text_encrypt_bt_menu
+        '
+        Me.text_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.text_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.text_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.textencrypt
+        Me.text_encrypt_bt_menu.Name = "text_encrypt_bt_menu"
+        resources.ApplyResources(Me.text_encrypt_bt_menu, "text_encrypt_bt_menu")
+        '
+        'FileEncryptionToolStripMenuItem
+        '
+        Me.FileEncryptionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.FileEncryptionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.file_encrypt_bt_menu, Me.file_decrypt_bt_menu})
+        Me.FileEncryptionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.FileEncryptionToolStripMenuItem.Name = "FileEncryptionToolStripMenuItem"
+        resources.ApplyResources(Me.FileEncryptionToolStripMenuItem, "FileEncryptionToolStripMenuItem")
+        '
+        'file_encrypt_bt_menu
+        '
+        Me.file_encrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.file_encrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.file_encrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.Lock16
+        Me.file_encrypt_bt_menu.Name = "file_encrypt_bt_menu"
+        resources.ApplyResources(Me.file_encrypt_bt_menu, "file_encrypt_bt_menu")
+        '
+        'file_decrypt_bt_menu
+        '
+        Me.file_decrypt_bt_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        resources.ApplyResources(Me.file_decrypt_bt_menu, "file_decrypt_bt_menu")
+        Me.file_decrypt_bt_menu.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.file_decrypt_bt_menu.Image = Global.Project_WinCrypt.My.Resources.Resources.unlock16
+        Me.file_decrypt_bt_menu.Name = "file_decrypt_bt_menu"
         '
         'mail_bt_menu
         '
@@ -637,6 +659,7 @@ Partial Class Startwindow
         Me.systemtray_menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.systemtray_menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.about_bt_systemtray, Me.feedback_bt_systemtray, Me.update_bt_systemtray, Me.tools_bt_systemtray, Me.open_bt_systemtray, Me.exit_bt_systemtray})
         Me.systemtray_menu.Name = "ContextMenuStrip1"
+        Me.systemtray_menu.ShowImageMargin = False
         resources.ApplyResources(Me.systemtray_menu, "systemtray_menu")
         '
         'about_bt_systemtray
@@ -694,31 +717,31 @@ Partial Class Startwindow
         'hash_bt_systemtray
         '
         Me.hash_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.md5_converter_bt_systemtray, Me.md5_bf_bt_systemtray, Me.MD5DateiCheksumToolStripMenuItem})
+        Me.hash_bt_systemtray.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.converter_bt_systemtray, Me.bf_bt_systemtray, Me.file_checksum_systray})
         Me.hash_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.hash_bt_systemtray.Name = "hash_bt_systemtray"
         resources.ApplyResources(Me.hash_bt_systemtray, "hash_bt_systemtray")
         '
-        'md5_converter_bt_systemtray
+        'converter_bt_systemtray
         '
-        Me.md5_converter_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.md5_converter_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.md5_converter_bt_systemtray.Name = "md5_converter_bt_systemtray"
-        resources.ApplyResources(Me.md5_converter_bt_systemtray, "md5_converter_bt_systemtray")
+        Me.converter_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.converter_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.converter_bt_systemtray.Name = "converter_bt_systemtray"
+        resources.ApplyResources(Me.converter_bt_systemtray, "converter_bt_systemtray")
         '
-        'md5_bf_bt_systemtray
+        'bf_bt_systemtray
         '
-        Me.md5_bf_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.md5_bf_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.md5_bf_bt_systemtray.Name = "md5_bf_bt_systemtray"
-        resources.ApplyResources(Me.md5_bf_bt_systemtray, "md5_bf_bt_systemtray")
+        Me.bf_bt_systemtray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.bf_bt_systemtray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.bf_bt_systemtray.Name = "bf_bt_systemtray"
+        resources.ApplyResources(Me.bf_bt_systemtray, "bf_bt_systemtray")
         '
-        'MD5DateiCheksumToolStripMenuItem
+        'file_checksum_systray
         '
-        Me.MD5DateiCheksumToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.MD5DateiCheksumToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.MD5DateiCheksumToolStripMenuItem.Name = "MD5DateiCheksumToolStripMenuItem"
-        resources.ApplyResources(Me.MD5DateiCheksumToolStripMenuItem, "MD5DateiCheksumToolStripMenuItem")
+        Me.file_checksum_systray.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.file_checksum_systray.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.file_checksum_systray.Name = "file_checksum_systray"
+        resources.ApplyResources(Me.file_checksum_systray, "file_checksum_systray")
         '
         'rsa_bt_systemtray
         '
@@ -1360,16 +1383,6 @@ Partial Class Startwindow
     Friend WithEvents setting_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents exit_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tools_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents file_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents file_decrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents text_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents hash_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents md5_converter_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents md5_bf_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents rsa_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents rsa_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents rsa_decrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents rsa_create_keys_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mail_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents send_mail_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents pw_manager_bt_menu As System.Windows.Forms.ToolStripMenuItem
@@ -1387,8 +1400,8 @@ Partial Class Startwindow
     Friend WithEvents file_decrypt_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents text_encrypt_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents hash_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents md5_converter_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents md5_bf_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents converter_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents bf_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents rsa_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents rsa_encrypt_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents rsa_decrypt_bt_systemtray As System.Windows.Forms.ToolStripMenuItem
@@ -1407,7 +1420,19 @@ Partial Class Startwindow
     Friend WithEvents gethotkey As System.Windows.Forms.Timer
     Friend WithEvents export_db_dialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents open_encrypt_dialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents file_checksum_systray As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents rsa_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents rsa_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents rsa_decrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents rsa_create_keys_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents hash_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents md5_converter_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents md5_bf_bt_menu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MD5DateiChecksumToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MD5DateiCheksumToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents text_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FileEncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents file_encrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents file_decrypt_bt_menu As System.Windows.Forms.ToolStripMenuItem
 
 End Class

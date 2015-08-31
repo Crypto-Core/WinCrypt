@@ -537,6 +537,9 @@
     <None Include="resources\loadred.gif" />
     <None Include="resources\loadred1.gif" />
     <None Include="resources\Ballload.gif" />
+    <None Include="resources\Command-Refresh-16.png" />
+    <None Include="resources\Document-Check-16.png" />
+    <None Include="resources\Search-Shield-16.png" />
     <Content Include="wc-icon.ico" />
     <None Include="resources\wc-icon128.png" />
     <None Include="resources\wc-icon16.png" />
