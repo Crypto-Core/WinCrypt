@@ -193,8 +193,8 @@ Public Class Startwindow
                     Try
                         _selectcombo = CStr(drivecb.SelectedItem)
                         Shell(
-                            "subst " & _selectcombo.Replace("\", Nothing) & " " &
-                            My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
+                            "subst " & _selectcombo.Replace("\", Nothing) & " " & ChrW(34) &
+                            My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount" & ChrW(34))
                     Catch ex As Exception
                         If Langname = "English" Then
                             MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -246,8 +246,8 @@ Public Class Startwindow
                     Try
                         _selectcombo = CStr(drivecb.SelectedItem)
                         Shell(
-                            "subst " & _selectcombo.Replace("\", Nothing) & " " &
-                            My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount")
+                            "subst " & _selectcombo.Replace("\", Nothing) & " " & ChrW(34) &
+                            My.Computer.FileSystem.SpecialDirectories.Temp & "\unmount" & ChrW(34))
                     Catch ex As Exception
                         If Langname = "English" Then
                             MessageBox.Show("Error: Drive not found!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error)
