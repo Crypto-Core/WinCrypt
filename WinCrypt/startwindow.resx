@@ -130,6 +130,189 @@
     <value>724, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="setting_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
+  <data name="setting_bt_menu.Text" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="exit_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
+  <data name="exit_bt_menu.Text" xml:space="preserve">
+    <value>exit</value>
+  </data>
+  <data name="file_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 20</value>
+  </data>
+  <data name="file_bt_menu.Text" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="rsa_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="rsa_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>encryption</value>
+  </data>
+  <data name="rsa_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="rsa_decrypt_bt_menu.Text" xml:space="preserve">
+    <value>decryption</value>
+  </data>
+  <data name="rsa_create_keys_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 22</value>
+  </data>
+  <data name="rsa_create_keys_bt_menu.Text" xml:space="preserve">
+    <value>create key's</value>
+  </data>
+  <data name="rsa_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="rsa_bt_menu.Text" xml:space="preserve">
+    <value>RSA</value>
+  </data>
+  <data name="md5_converter_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="md5_converter_bt_menu.Text" xml:space="preserve">
+    <value>converter</value>
+  </data>
+  <data name="md5_bf_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="md5_bf_bt_menu.Text" xml:space="preserve">
+    <value>brute-force</value>
+  </data>
+  <data name="MD5DateiChecksumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="MD5DateiChecksumToolStripMenuItem.Text" xml:space="preserve">
+    <value>file checksum</value>
+  </data>
+  <data name="hash_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="hash_bt_menu.Text" xml:space="preserve">
+    <value>hash</value>
+  </data>
+  <data name="text_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="text_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>text de- and encrypt</value>
+  </data>
+  <data name="file_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="file_encrypt_bt_menu.Text" xml:space="preserve">
+    <value>file encrypt</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 22</value>
+  </data>
+  <data name="file_decrypt_bt_menu.Text" xml:space="preserve">
+    <value>file decrypt</value>
+  </data>
+  <data name="FileEncryptionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="FileEncryptionToolStripMenuItem.Text" xml:space="preserve">
+    <value>file encryption</value>
+  </data>
+  <data name="EncryptionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="EncryptionToolStripMenuItem.Text" xml:space="preserve">
+    <value>encryption</value>
+  </data>
+  <data name="send_mail_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="send_mail_bt_menu.Text" xml:space="preserve">
+    <value>send e-mail</value>
+  </data>
+  <data name="mail_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="mail_bt_menu.Text" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
+  <data name="export_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="export_db_bt_menu.Text" xml:space="preserve">
+    <value>export database</value>
+  </data>
+  <data name="import_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="import_db_bt_menu.Text" xml:space="preserve">
+    <value>import database</value>
+  </data>
+  <data name="delete_db_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="delete_db_menu.Text" xml:space="preserve">
+    <value>delete database</value>
+  </data>
+  <data name="pw_manager_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="pw_manager_bt_menu.Text" xml:space="preserve">
+    <value>passwordmanager</value>
+  </data>
+  <data name="systemidentification_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="systemidentification_bt_menu.Text" xml:space="preserve">
+    <value>systemidentification</value>
+  </data>
+  <data name="pw_generator_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="pw_generator_bt_menu.Text" xml:space="preserve">
+    <value>passwordmanager</value>
+  </data>
+  <data name="delete_file_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="delete_file_bt_menu.Text" xml:space="preserve">
+    <value>delete file safetly</value>
+  </data>
+  <data name="tools_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="tools_bt_menu.Text" xml:space="preserve">
+    <value>tools</value>
+  </data>
+  <data name="update_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="update_bt_menu.Text" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="feedback_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="feedback_bt_menu.Text" xml:space="preserve">
+    <value>feedback</value>
+  </data>
+  <data name="about_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="about_bt_menu.Text" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="info_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 20</value>
+  </data>
+  <data name="info_bt_menu.Text" xml:space="preserve">
+    <value>info</value>
+  </data>
   <data name="MenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 27</value>
   </data>
@@ -155,198 +338,6 @@
   <data name="&gt;&gt;MenuStrip.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="file_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
-  </data>
-  <data name="file_bt_menu.Text" xml:space="preserve">
-    <value>file</value>
-  </data>
-  <data name="setting_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
-  </data>
-  <data name="setting_bt_menu.Text" xml:space="preserve">
-    <value>settings</value>
-  </data>
-  <data name="exit_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
-  </data>
-  <data name="exit_bt_menu.Text" xml:space="preserve">
-    <value>exit</value>
-  </data>
-  <data name="tools_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
-  </data>
-  <data name="tools_bt_menu.Text" xml:space="preserve">
-    <value>tools</value>
-  </data>
-  <data name="EncryptionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="EncryptionToolStripMenuItem.Text" xml:space="preserve">
-    <value>encryption</value>
-  </data>
-  <data name="rsa_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="rsa_bt_menu.Text" xml:space="preserve">
-    <value>RSA</value>
-  </data>
-  <data name="rsa_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="rsa_encrypt_bt_menu.Text" xml:space="preserve">
-    <value>encryption</value>
-  </data>
-  <data name="rsa_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="rsa_decrypt_bt_menu.Text" xml:space="preserve">
-    <value>decryption</value>
-  </data>
-  <data name="rsa_create_keys_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="rsa_create_keys_bt_menu.Text" xml:space="preserve">
-    <value>create key's</value>
-  </data>
-  <data name="hash_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="hash_bt_menu.Text" xml:space="preserve">
-    <value>hash</value>
-  </data>
-  <data name="md5_converter_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="md5_converter_bt_menu.Text" xml:space="preserve">
-    <value>converter</value>
-  </data>
-  <data name="md5_bf_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="md5_bf_bt_menu.Text" xml:space="preserve">
-    <value>brute-force</value>
-  </data>
-  <data name="MD5DateiChecksumToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="MD5DateiChecksumToolStripMenuItem.Text" xml:space="preserve">
-    <value>file checksum</value>
-  </data>
-  <data name="text_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="text_encrypt_bt_menu.Text" xml:space="preserve">
-    <value>text de- and encrypt</value>
-  </data>
-  <data name="FileEncryptionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="FileEncryptionToolStripMenuItem.Text" xml:space="preserve">
-    <value>file encryption</value>
-  </data>
-  <data name="file_encrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="file_encrypt_bt_menu.Text" xml:space="preserve">
-    <value>file encrypt</value>
-  </data>
-  <data name="file_decrypt_bt_menu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="file_decrypt_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="file_decrypt_bt_menu.Text" xml:space="preserve">
-    <value>file decrypt</value>
-  </data>
-  <data name="mail_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="mail_bt_menu.Text" xml:space="preserve">
-    <value>e-mail</value>
-  </data>
-  <data name="send_mail_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="send_mail_bt_menu.Text" xml:space="preserve">
-    <value>send e-mail</value>
-  </data>
-  <data name="pw_manager_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="pw_manager_bt_menu.Text" xml:space="preserve">
-    <value>passwordmanager</value>
-  </data>
-  <data name="export_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="export_db_bt_menu.Text" xml:space="preserve">
-    <value>export database</value>
-  </data>
-  <data name="import_db_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="import_db_bt_menu.Text" xml:space="preserve">
-    <value>import database</value>
-  </data>
-  <data name="delete_db_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="delete_db_menu.Text" xml:space="preserve">
-    <value>delete database</value>
-  </data>
-  <data name="systemidentification_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="systemidentification_bt_menu.Text" xml:space="preserve">
-    <value>systemidentification</value>
-  </data>
-  <data name="pw_generator_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="pw_generator_bt_menu.Text" xml:space="preserve">
-    <value>passwordmanager</value>
-  </data>
-  <data name="delete_file_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="delete_file_bt_menu.Text" xml:space="preserve">
-    <value>delete file safetly</value>
-  </data>
-  <data name="info_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 20</value>
-  </data>
-  <data name="info_bt_menu.Text" xml:space="preserve">
-    <value>info</value>
-  </data>
-  <data name="update_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="update_bt_menu.Text" xml:space="preserve">
-    <value>update</value>
-  </data>
-  <data name="feedback_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="feedback_bt_menu.Text" xml:space="preserve">
-    <value>feedback</value>
-  </data>
-  <data name="about_bt_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="about_bt_menu.Text" xml:space="preserve">
-    <value>about</value>
-  </data>
-  <data name="DateiToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
-    <value />
-  </data>
-  <data name="DateiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
-  </data>
-  <data name="DateiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Datei</value>
-  </data>
   <data name="EinstellungToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>132, 22</value>
   </data>
@@ -359,14 +350,14 @@
   <data name="BeendenToolStripMenuItem.Text" xml:space="preserve">
     <value>Beenden</value>
   </data>
-  <data name="ToolsToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+  <data name="DateiToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
     <value />
   </data>
-  <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 20</value>
+  <data name="DateiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
   </data>
-  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tools</value>
+  <data name="DateiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Datei</value>
   </data>
   <data name="DateiVerschlüsselnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
@@ -386,12 +377,6 @@
   <data name="TextVerschlüsselnToolStripMenuItem.Text" xml:space="preserve">
     <value>Text ver- und entschlüsseln</value>
   </data>
-  <data name="MD5ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
-  </data>
-  <data name="MD5ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Hash</value>
-  </data>
   <data name="MD5KonverterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
   </data>
@@ -404,11 +389,11 @@
   <data name="MD5CrackerToolStripMenuItem.Text" xml:space="preserve">
     <value>Hash Brute-force</value>
   </data>
-  <data name="RSAToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="MD5ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
-  <data name="RSAToolStripMenuItem.Text" xml:space="preserve">
-    <value>RSA</value>
+  <data name="MD5ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Hash</value>
   </data>
   <data name="EntschlüsselnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
@@ -428,11 +413,11 @@
   <data name="KeyErstellenToolStripMenuItem.Text" xml:space="preserve">
     <value>Schlüssel erstellen</value>
   </data>
-  <data name="EMailToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="RSAToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
-  <data name="EMailToolStripMenuItem.Text" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="RSAToolStripMenuItem.Text" xml:space="preserve">
+    <value>RSA</value>
   </data>
   <data name="EMailSendenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 22</value>
@@ -440,11 +425,11 @@
   <data name="EMailSendenToolStripMenuItem.Text" xml:space="preserve">
     <value>E-Mail Senden</value>
   </data>
-  <data name="PasswortmanagerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="EMailToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
-  <data name="PasswortmanagerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Passwortmanager</value>
+  <data name="EMailToolStripMenuItem.Text" xml:space="preserve">
+    <value>E-Mail</value>
   </data>
   <data name="DatenbankExportierenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 22</value>
@@ -464,6 +449,12 @@
   <data name="DatenbankLöschenToolStripMenuItem.Text" xml:space="preserve">
     <value>Datenbank löschen</value>
   </data>
+  <data name="PasswortmanagerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 22</value>
+  </data>
+  <data name="PasswortmanagerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Passwortmanager</value>
+  </data>
   <data name="SystemidentifikationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
@@ -481,6 +472,15 @@
   </data>
   <data name="DateiSicherLöschenToolStripMenuItem.Text" xml:space="preserve">
     <value>Dateien sicher löschen</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 20</value>
+  </data>
+  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tools</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="InfoToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -532,7 +532,7 @@
     <value>51, 51, 55</value>
   </data>
   <data name="about_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="about_bt_systemtray.Text" xml:space="preserve">
     <value>About</value>
@@ -541,7 +541,7 @@
     <value>51, 51, 55</value>
   </data>
   <data name="feedback_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="feedback_bt_systemtray.Text" xml:space="preserve">
     <value>Feedback</value>
@@ -550,7 +550,7 @@
     <value>51, 51, 55</value>
   </data>
   <data name="update_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="update_bt_systemtray.Text" xml:space="preserve">
     <value>Update</value>
@@ -574,13 +574,13 @@
     <value>Text ver- und entschlüsseln</value>
   </data>
   <data name="converter_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="converter_bt_systemtray.Text" xml:space="preserve">
     <value>Konverter</value>
   </data>
   <data name="bf_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="bf_bt_systemtray.Text" xml:space="preserve">
     <value>Brute-force</value>
@@ -597,17 +597,59 @@
   <data name="hash_bt_systemtray.Text" xml:space="preserve">
     <value>Hash</value>
   </data>
+  <data name="rsa_encrypt_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="rsa_encrypt_bt_systemtray.Text" xml:space="preserve">
+    <value>Entschlüsseln</value>
+  </data>
+  <data name="rsa_decrypt_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="rsa_decrypt_bt_systemtray.Text" xml:space="preserve">
+    <value>Verschlüsseln</value>
+  </data>
+  <data name="rsa_create_keys_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="rsa_create_keys_bt_systemtray.Text" xml:space="preserve">
+    <value>Schlüssel erstellen</value>
+  </data>
   <data name="rsa_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
   <data name="rsa_bt_systemtray.Text" xml:space="preserve">
     <value>RSA</value>
   </data>
+  <data name="send_mail_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 22</value>
+  </data>
+  <data name="send_mail_bt_systemtray.Text" xml:space="preserve">
+    <value>E-Mail senden</value>
+  </data>
   <data name="mail_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
   <data name="mail_bt_systemtray.Text" xml:space="preserve">
     <value>E-Mail</value>
+  </data>
+  <data name="export_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="export_db_bt_systemtray.Text" xml:space="preserve">
+    <value>Datenbank exportieren</value>
+  </data>
+  <data name="import_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="import_db_bt_systemtray.Text" xml:space="preserve">
+    <value>Datenbank importieren</value>
+  </data>
+  <data name="delete_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="delete_db_bt_systemtray.Text" xml:space="preserve">
+    <value>Datenbank löschen</value>
   </data>
   <data name="pw_manager_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
@@ -637,7 +679,7 @@
     <value>51, 51, 55</value>
   </data>
   <data name="tools_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="tools_bt_systemtray.Text" xml:space="preserve">
     <value>Tools</value>
@@ -646,7 +688,7 @@
     <value>51, 51, 55</value>
   </data>
   <data name="open_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="open_bt_systemtray.Text" xml:space="preserve">
     <value>Öffnen</value>
@@ -655,13 +697,13 @@
     <value>51, 51, 55</value>
   </data>
   <data name="exit_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="exit_bt_systemtray.Text" xml:space="preserve">
     <value>Beenden</value>
   </data>
   <data name="systemtray_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 158</value>
+    <value>100, 136</value>
   </data>
   <data name="&gt;&gt;systemtray_menu.Name" xml:space="preserve">
     <value>systemtray_menu</value>
@@ -696,48 +738,6 @@
   <data name="systemtray.Text" xml:space="preserve">
     <value>WinCrypt</value>
   </data>
-  <data name="rsa_encrypt_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="rsa_encrypt_bt_systemtray.Text" xml:space="preserve">
-    <value>Entschlüsseln</value>
-  </data>
-  <data name="rsa_decrypt_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="rsa_decrypt_bt_systemtray.Text" xml:space="preserve">
-    <value>Verschlüsseln</value>
-  </data>
-  <data name="rsa_create_keys_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="rsa_create_keys_bt_systemtray.Text" xml:space="preserve">
-    <value>Schlüssel erstellen</value>
-  </data>
-  <data name="send_mail_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
-  </data>
-  <data name="send_mail_bt_systemtray.Text" xml:space="preserve">
-    <value>E-Mail senden</value>
-  </data>
-  <data name="export_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="export_db_bt_systemtray.Text" xml:space="preserve">
-    <value>Datenbank exportieren</value>
-  </data>
-  <data name="import_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="import_db_bt_systemtray.Text" xml:space="preserve">
-    <value>Datenbank importieren</value>
-  </data>
-  <data name="delete_db_bt_systemtray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="delete_db_bt_systemtray.Text" xml:space="preserve">
-    <value>Datenbank löschen</value>
-  </data>
   <data name="DateiVerschlüsselnToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
@@ -759,12 +759,6 @@
   <data name="TextVerUndEntschlüsselnToolStripMenuItem.Text" xml:space="preserve">
     <value>Text ver- und entschlüsseln</value>
   </data>
-  <data name="MD5ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
-  </data>
-  <data name="MD5ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>MD5</value>
-  </data>
   <data name="MD5KonverterToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 22</value>
   </data>
@@ -776,6 +770,12 @@
   </data>
   <data name="MD5BruteforceToolStripMenuItem.Text" xml:space="preserve">
     <value>MD5 Brute-force</value>
+  </data>
+  <data name="MD5ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 22</value>
+  </data>
+  <data name="MD5ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>MD5</value>
   </data>
   <data name="RSAToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
@@ -804,26 +804,20 @@
   <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 6</value>
   </data>
-  <data name="EMailToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
-  </data>
-  <data name="EMailToolStripMenuItem1.Text" xml:space="preserve">
-    <value>E-Mail</value>
-  </data>
   <data name="EMailSendenToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 22</value>
   </data>
   <data name="EMailSendenToolStripMenuItem1.Text" xml:space="preserve">
     <value>E-Mail Senden</value>
   </data>
-  <data name="ToolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 6</value>
-  </data>
-  <data name="PasswortmanagerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="EMailToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>217, 22</value>
   </data>
-  <data name="PasswortmanagerToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Passwortmanager</value>
+  <data name="EMailToolStripMenuItem1.Text" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="ToolStripSeparator12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 6</value>
   </data>
   <data name="DatenbankExportierenToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 22</value>
@@ -842,6 +836,12 @@
   </data>
   <data name="DatenbankLöschenToolStripMenuItem1.Text" xml:space="preserve">
     <value>Datenbank löschen</value>
+  </data>
+  <data name="PasswortmanagerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 22</value>
+  </data>
+  <data name="PasswortmanagerToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Passwortmanager</value>
   </data>
   <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 6</value>
@@ -875,165 +875,6 @@
   </metadata>
   <data name="import_db_dialog.Filter" xml:space="preserve">
     <value>DB-Datei|*.db</value>
-  </data>
-  <data name="&gt;&gt;cleanlb2.Name" xml:space="preserve">
-    <value>cleanlb2</value>
-  </data>
-  <data name="&gt;&gt;cleanlb2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cleanlb2.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;cleanlb2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;drive_lb.Name" xml:space="preserve">
-    <value>drive_lb</value>
-  </data>
-  <data name="&gt;&gt;drive_lb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;drive_lb.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;drive_lb.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;key_lb.Name" xml:space="preserve">
-    <value>key_lb</value>
-  </data>
-  <data name="&gt;&gt;key_lb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;key_lb.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;key_lb.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;file_lb.Name" xml:space="preserve">
-    <value>file_lb</value>
-  </data>
-  <data name="&gt;&gt;file_lb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;file_lb.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;file_lb.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;decrypt_list_status.Name" xml:space="preserve">
-    <value>decrypt_list_status</value>
-  </data>
-  <data name="&gt;&gt;decrypt_list_status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;decrypt_list_status.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;decrypt_list_status.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;drivecb.Name" xml:space="preserve">
-    <value>drivecb</value>
-  </data>
-  <data name="&gt;&gt;drivecb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;drivecb.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;drivecb.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;keyencrypt.Name" xml:space="preserve">
-    <value>keyencrypt</value>
-  </data>
-  <data name="&gt;&gt;keyencrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keyencrypt.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;keyencrypt.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;decrypt_filepath.Name" xml:space="preserve">
-    <value>decrypt_filepath</value>
-  </data>
-  <data name="&gt;&gt;decrypt_filepath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;decrypt_filepath.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;decrypt_filepath.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;dismount.Name" xml:space="preserve">
-    <value>dismount</value>
-  </data>
-  <data name="&gt;&gt;dismount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dismount.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;dismount.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;mount.Name" xml:space="preserve">
-    <value>mount</value>
-  </data>
-  <data name="&gt;&gt;mount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mount.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;mount.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;opencryptfile.Name" xml:space="preserve">
-    <value>opencryptfile</value>
-  </data>
-  <data name="&gt;&gt;opencryptfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;opencryptfile.Parent" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;opencryptfile.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="mount_gb.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="mount_gb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 309</value>
-  </data>
-  <data name="mount_gb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 288</value>
-  </data>
-  <data name="mount_gb.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="mount_gb.Text" xml:space="preserve">
-    <value>mount cryptfile</value>
-  </data>
-  <data name="&gt;&gt;mount_gb.Name" xml:space="preserve">
-    <value>mount_gb</value>
-  </data>
-  <data name="&gt;&gt;mount_gb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mount_gb.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mount_gb.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="cleanlb2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1431,137 +1272,32 @@
   <data name="&gt;&gt;opencryptfile.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;cleanlb1.Name" xml:space="preserve">
-    <value>cleanlb1</value>
+  <data name="mount_gb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
   </data>
-  <data name="&gt;&gt;cleanlb1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="mount_gb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 309</value>
   </data>
-  <data name="&gt;&gt;cleanlb1.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
+  <data name="mount_gb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>573, 288</value>
   </data>
-  <data name="&gt;&gt;cleanlb1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="mount_gb.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;encrypt_list_status.Name" xml:space="preserve">
-    <value>encrypt_list_status</value>
+  <data name="mount_gb.Text" xml:space="preserve">
+    <value>mount cryptfile</value>
   </data>
-  <data name="&gt;&gt;encrypt_list_status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mount_gb.Name" xml:space="preserve">
+    <value>mount_gb</value>
   </data>
-  <data name="&gt;&gt;encrypt_list_status.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;encrypt_list_status.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;key_lb1.Name" xml:space="preserve">
-    <value>key_lb1</value>
-  </data>
-  <data name="&gt;&gt;key_lb1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;key_lb1.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;key_lb1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;create_container_encrypt.Name" xml:space="preserve">
-    <value>create_container_encrypt</value>
-  </data>
-  <data name="&gt;&gt;create_container_encrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;create_container_encrypt.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;create_container_encrypt.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;path_encrypt.Name" xml:space="preserve">
-    <value>path_encrypt</value>
-  </data>
-  <data name="&gt;&gt;path_encrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;path_encrypt.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;path_encrypt.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;generate_key_encrypt.Name" xml:space="preserve">
-    <value>generate_key_encrypt</value>
-  </data>
-  <data name="&gt;&gt;generate_key_encrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;generate_key_encrypt.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;generate_key_encrypt.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;crypt_file_pathbutton.Name" xml:space="preserve">
-    <value>crypt_file_pathbutton</value>
-  </data>
-  <data name="&gt;&gt;crypt_file_pathbutton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;crypt_file_pathbutton.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;crypt_file_pathbutton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;keycrypt.Name" xml:space="preserve">
-    <value>keycrypt</value>
-  </data>
-  <data name="&gt;&gt;keycrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;keycrypt.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;keycrypt.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pathtxt.Name" xml:space="preserve">
-    <value>pathtxt</value>
-  </data>
-  <data name="&gt;&gt;pathtxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pathtxt.Parent" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;pathtxt.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="encrypt_gb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 55</value>
-  </data>
-  <data name="encrypt_gb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>573, 248</value>
-  </data>
-  <data name="encrypt_gb.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="encrypt_gb.Text" xml:space="preserve">
-    <value>encrypt folder / drive</value>
-  </data>
-  <data name="&gt;&gt;encrypt_gb.Name" xml:space="preserve">
-    <value>encrypt_gb</value>
-  </data>
-  <data name="&gt;&gt;encrypt_gb.Type" xml:space="preserve">
+  <data name="&gt;&gt;mount_gb.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;encrypt_gb.Parent" xml:space="preserve">
+  <data name="&gt;&gt;mount_gb.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;encrypt_gb.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;mount_gb.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="cleanlb1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1815,6 +1551,30 @@
   <data name="&gt;&gt;pathtxt.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="encrypt_gb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 55</value>
+  </data>
+  <data name="encrypt_gb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>573, 248</value>
+  </data>
+  <data name="encrypt_gb.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="encrypt_gb.Text" xml:space="preserve">
+    <value>encrypt folder / drive</value>
+  </data>
+  <data name="&gt;&gt;encrypt_gb.Name" xml:space="preserve">
+    <value>encrypt_gb</value>
+  </data>
+  <data name="&gt;&gt;encrypt_gb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;encrypt_gb.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;encrypt_gb.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="wincrypt_icon.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 6</value>
   </data>
@@ -1893,6 +1653,27 @@
   <metadata name="form_head.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>563, 39</value>
   </metadata>
+  <data name="exit_bt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lucida Sans Unicode, 9pt, style=Bold</value>
+  </data>
+  <data name="exit_bt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 23</value>
+  </data>
+  <data name="exit_bt.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="minimize_bt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt, style=Bold</value>
+  </data>
+  <data name="minimize_bt.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="minimize_bt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 23</value>
+  </data>
+  <data name="minimize_bt.Text" xml:space="preserve">
+    <value>─</value>
+  </data>
   <data name="form_head.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -1919,27 +1700,6 @@
   </data>
   <data name="&gt;&gt;form_head.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="exit_bt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lucida Sans Unicode, 9pt, style=Bold</value>
-  </data>
-  <data name="exit_bt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 23</value>
-  </data>
-  <data name="exit_bt.Text" xml:space="preserve">
-    <value>X</value>
-  </data>
-  <data name="minimize_bt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt, style=Bold</value>
-  </data>
-  <data name="minimize_bt.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="minimize_bt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 23</value>
-  </data>
-  <data name="minimize_bt.Text" xml:space="preserve">
-    <value>─</value>
   </data>
   <data name="XToolStripMenuItem1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lucida Sans Unicode, 9pt, style=Bold</value>
@@ -8198,6 +7958,9 @@
         AAD/AAAA/wAAAJutFwCllxoAmLMaSJKyCY2TtQ6DmLcbMZi3GACWthQAgAcAAAADAAAAAwAAAAMAAIAH
         AACABwAAgAcAAIAHAADABwAAwAMAAMABAAD/AQAA/wEAAP+BAAD/gQAA/+cAAA==
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

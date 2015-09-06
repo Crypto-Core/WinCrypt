@@ -54,6 +54,27 @@ Namespace tools.data_encryption
         End Sub
 
         Private Sub passwordtxt_TextChanged(sender As Object, e As EventArgs) Handles passwordtxt.TextChanged
+            Dim passstrength As New Passstrength
+            If passstrength.PasswordStrength(passwordtxt.Text, passwordtxt.Text.Length) = -0 Then
+                Dim color As New designcolor
+                passwordtxt.BackColor = color.inputbackgroundcolor
+            End If
+            If passstrength.PasswordStrength(passwordtxt.Text, passwordtxt.Text.Length) = 1 Then
+                Dim color As New designcolor
+                passwordtxt.BackColor = Drawing.Color.Red
+            End If
+            If passstrength.PasswordStrength(passwordtxt.Text, passwordtxt.Text.Length) = 2 Then
+                Dim color As New designcolor
+                passwordtxt.BackColor = Drawing.Color.Yellow
+            End If
+            If passstrength.PasswordStrength(passwordtxt.Text, passwordtxt.Text.Length) = 3 Then
+                Dim color As New designcolor
+                passwordtxt.BackColor = Drawing.Color.GreenYellow
+            End If
+            If passstrength.PasswordStrength(passwordtxt.Text, passwordtxt.Text.Length) = 4 Then
+                Dim color As New designcolor
+                passwordtxt.BackColor = Drawing.Color.Lime
+            End If
             If Startwindow.Iniread = "yes" Then
                 encryptbt.Enabled = True
             Else

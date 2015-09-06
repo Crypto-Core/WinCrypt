@@ -25,6 +25,7 @@ Public Class Startwindow
     Private _finunmount As Integer = 0
     Public vCommand As Boolean = False
     Private admin_restart As Boolean = False
+    Dim krypt_passstrength As New Passstrength
     ReadOnly _
         _ini As _
             New IniDatei(String.Format("{0}\WinCrypt\config.ini", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
@@ -481,6 +482,23 @@ Public Class Startwindow
     End Sub
 
     Private Sub keycrypt_TextChanged(sender As Object, e As EventArgs) Handles keycrypt.TextChanged
+
+        If krypt_passstrength.PasswordStrength(keycrypt.Text, keycrypt.Text.Length) = -0 Then
+            Dim color As New designcolor
+            keycrypt.BackColor = color.inputbackgroundcolor
+        End If
+        If krypt_passstrength.PasswordStrength(keycrypt.Text, keycrypt.Text.Length) = 1 Then
+            keycrypt.BackColor = Color.Red
+        End If
+        If krypt_passstrength.PasswordStrength(keycrypt.Text, keycrypt.Text.Length) = 2 Then
+            keycrypt.BackColor = Color.Yellow
+        End If
+        If krypt_passstrength.PasswordStrength(keycrypt.Text, keycrypt.Text.Length) = 3 Then
+            keycrypt.BackColor = Color.GreenYellow
+        End If
+        If krypt_passstrength.PasswordStrength(keycrypt.Text, keycrypt.Text.Length) = 4 Then
+            keycrypt.BackColor = Color.Lime
+        End If
         If keycrypt.Text.Length < 6 Then
             create_container_encrypt.Enabled = False
         Else

@@ -186,7 +186,6 @@ Partial Class WcSetting
         resources.ApplyResources(Me.key_txt, "key_txt")
         Me.key_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.key_txt.Name = "key_txt"
-        Me.key_txt.UseSystemPasswordChar = True
         '
         'key_cb
         '

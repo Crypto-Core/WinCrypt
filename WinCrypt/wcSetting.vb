@@ -454,4 +454,29 @@ Public Class WcSetting
         End Select
 
     End Sub
+
+    Private Sub key_txt_TextChanged(sender As Object, e As EventArgs) Handles key_txt.TextChanged
+        Dim passstrength As New Passstrength
+        If passstrength.PasswordStrength(key_txt.Text, key_txt.Text.Length) = -0 Then
+            Dim color As New designcolor
+            key_txt.BackColor = color.inputbackgroundcolor
+        End If
+        If passstrength.PasswordStrength(key_txt.Text, key_txt.Text.Length) = 1 Then
+            Dim color As New designcolor
+            key_txt.BackColor = Drawing.Color.Red
+        End If
+        If passstrength.PasswordStrength(key_txt.Text, key_txt.Text.Length) = 2 Then
+            Dim color As New designcolor
+            key_txt.BackColor = Drawing.Color.Yellow
+        End If
+        If passstrength.PasswordStrength(key_txt.Text, key_txt.Text.Length) = 3 Then
+            Dim color As New designcolor
+            key_txt.BackColor = Drawing.Color.GreenYellow
+        End If
+        If passstrength.PasswordStrength(key_txt.Text, key_txt.Text.Length) = 4 Then
+            Dim color As New designcolor
+            key_txt.BackColor = Drawing.Color.Lime
+        End If
+
+    End Sub
 End Class

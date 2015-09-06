@@ -105,6 +105,27 @@ Namespace tools.text_encryption
         End Sub
 
         Private Sub password_txt_TextChanged(sender As Object, e As EventArgs) Handles password_txt.TextChanged
+            Dim passstrength As New Passstrength
+            If passstrength.PasswordStrength(password_txt.Text, password_txt.Text.Length) = -0 Then
+                Dim color As New designcolor
+                password_txt.BackColor = color.inputbackgroundcolor
+            End If
+            If passstrength.PasswordStrength(password_txt.Text, password_txt.Text.Length) = 1 Then
+                Dim color As New designcolor
+                password_txt.BackColor = Drawing.Color.Red
+            End If
+            If passstrength.PasswordStrength(password_txt.Text, password_txt.Text.Length) = 2 Then
+                Dim color As New designcolor
+                password_txt.BackColor = Drawing.Color.Yellow
+            End If
+            If passstrength.PasswordStrength(password_txt.Text, password_txt.Text.Length) = 3 Then
+                Dim color As New designcolor
+                password_txt.BackColor = Drawing.Color.GreenYellow
+            End If
+            If passstrength.PasswordStrength(password_txt.Text, password_txt.Text.Length) = 4 Then
+                Dim color As New designcolor
+                password_txt.BackColor = Drawing.Color.Lime
+            End If
             If password_txt.Text.Length < 6 Then
                 encrypt_bt.Enabled = False
                 decrypt_bt.Enabled = False
