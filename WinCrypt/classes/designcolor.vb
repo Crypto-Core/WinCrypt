@@ -1751,30 +1751,31 @@ Public Class designcolor
     End Sub
 
     Private Sub md5filehash()
-        MD5FileHash_frm.form_head.BackColor = formheadcolor
-        MD5FileHash_frm.wincrypttitle.BackColor = formheadcolor
-        MD5FileHash_frm.wincrypt_icon.BackColor = formheadcolor
-        MD5FileHash_frm.minimize_bt.BackColor = formheadcolor
-        MD5FileHash_frm.exit_bt.BackColor = formheadcolor
-        MD5FileHash_frm.exit_bt.ForeColor = textcolor
-        MD5FileHash_frm.minimize_bt.ForeColor = textcolor
-        MD5FileHash_frm.wincrypttitle.ForeColor = textcolor
-        MD5FileHash_frm.file_lb.ForeColor = textcolor
-        MD5FileHash_frm.md5_lb.ForeColor = textcolor
-        MD5FileHash_frm.open_bt.ForeColor = textcolor
-        MD5FileHash_frm.copy_bt.ForeColor = textcolor
-        MD5FileHash_frm.generate_bt.ForeColor = textcolor
-        MD5FileHash_frm.ForeColor = textcolor
-        MD5FileHash_frm.md5_lb.ForeColor = textcolor
-        MD5FileHash_frm.BackColor = bgcolor
-        MD5FileHash_frm.file_lb.BackColor = bgcolor
-        MD5FileHash_frm.file_txt.ForeColor = inputtextcolor
-        MD5FileHash_frm.file_txt.BackColor = inputbackgroundcolor
-        MD5FileHash_frm.md5_hash_txt.ForeColor = inputtextcolor
-        MD5FileHash_frm.md5_hash_txt.BackColor = inputbackgroundcolor
-        MD5FileHash_frm.copy_bt.BackColor = buttoncolor
-        MD5FileHash_frm.open_bt.BackColor = buttoncolor
-
-        MD5FileHash_frm.generate_bt.BackColor = buttoncolor
+        FileHash_frm.form_head.BackColor = formheadcolor
+        FileHash_frm.wincrypttitle.BackColor = formheadcolor
+        FileHash_frm.wincrypt_icon.BackColor = formheadcolor
+        FileHash_frm.minimize_bt.BackColor = formheadcolor
+        FileHash_frm.exit_bt.BackColor = formheadcolor
+        FileHash_frm.exit_bt.ForeColor = textcolor
+        FileHash_frm.minimize_bt.ForeColor = textcolor
+        FileHash_frm.wincrypttitle.ForeColor = textcolor
+        FileHash_frm.file_lb.ForeColor = textcolor
+        FileHash_frm.md5_lb.ForeColor = textcolor
+        FileHash_frm.open_bt.ForeColor = textcolor
+        FileHash_frm.copy_bt.ForeColor = textcolor
+        FileHash_frm.generate_bt.ForeColor = textcolor
+        FileHash_frm.ForeColor = textcolor
+        FileHash_frm.md5_lb.ForeColor = textcolor
+        FileHash_frm.BackColor = bgcolor
+        FileHash_frm.file_lb.BackColor = bgcolor
+        FileHash_frm.file_txt.ForeColor = inputtextcolor
+        FileHash_frm.file_txt.BackColor = inputbackgroundcolor
+        FileHash_frm.md5_hash_txt.ForeColor = inputtextcolor
+        FileHash_frm.md5_hash_txt.BackColor = inputbackgroundcolor
+        FileHash_frm.copy_bt.BackColor = buttoncolor
+        FileHash_frm.open_bt.BackColor = buttoncolor
+        FileHash_frm.select_Hash_combo.ForeColor = inputtextcolor
+        FileHash_frm.select_Hash_combo.BackColor = inputbackgroundcolor
+        FileHash_frm.generate_bt.BackColor = buttoncolor
     End Sub
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MD5FileHash_frm
+Partial Class FileHash_frm
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -22,7 +22,7 @@ Partial Class MD5FileHash_frm
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MD5FileHash_frm))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FileHash_frm))
         Me.form_head = New System.Windows.Forms.MenuStrip()
         Me.exit_bt = New System.Windows.Forms.ToolStripMenuItem()
         Me.minimize_bt = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,6 +36,7 @@ Partial Class MD5FileHash_frm
         Me.md5_lb = New System.Windows.Forms.Label()
         Me.copy_bt = New System.Windows.Forms.Button()
         Me.openfile_dialog = New System.Windows.Forms.OpenFileDialog()
+        Me.select_Hash_combo = New System.Windows.Forms.ComboBox()
         Me.form_head.SuspendLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -75,9 +76,9 @@ Partial Class MD5FileHash_frm
         Me.wincrypttitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.wincrypttitle.Location = New System.Drawing.Point(34, 6)
         Me.wincrypttitle.Name = "wincrypttitle"
-        Me.wincrypttitle.Size = New System.Drawing.Size(130, 17)
+        Me.wincrypttitle.Size = New System.Drawing.Size(98, 17)
         Me.wincrypttitle.TabIndex = 21
-        Me.wincrypttitle.Text = "MD5 Datei checksum"
+        Me.wincrypttitle.Text = "Datei checksum"
         '
         'wincrypt_icon
         '
@@ -158,9 +159,9 @@ Partial Class MD5FileHash_frm
         Me.md5_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.md5_lb.Location = New System.Drawing.Point(6, 82)
         Me.md5_lb.Name = "md5_lb"
-        Me.md5_lb.Size = New System.Drawing.Size(34, 13)
+        Me.md5_lb.Size = New System.Drawing.Size(36, 13)
         Me.md5_lb.TabIndex = 28
-        Me.md5_lb.Text = "MD5:"
+        Me.md5_lb.Text = "Hash:"
         '
         'copy_bt
         '
@@ -176,12 +177,26 @@ Partial Class MD5FileHash_frm
         Me.copy_bt.Text = "Kopieren"
         Me.copy_bt.UseVisualStyleBackColor = False
         '
-        'MD5FileHash_frm
+        'select_Hash_combo
+        '
+        Me.select_Hash_combo.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.select_Hash_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.select_Hash_combo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.select_Hash_combo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.select_Hash_combo.FormattingEnabled = True
+        Me.select_Hash_combo.Items.AddRange(New Object() {"MD5", "SHA1", "SHA256", "SHA384", "SHA512", "RIPEMD160"})
+        Me.select_Hash_combo.Location = New System.Drawing.Point(336, 106)
+        Me.select_Hash_combo.Name = "select_Hash_combo"
+        Me.select_Hash_combo.Size = New System.Drawing.Size(88, 21)
+        Me.select_Hash_combo.TabIndex = 30
+        '
+        'FileHash_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(517, 143)
+        Me.Controls.Add(Me.select_Hash_combo)
         Me.Controls.Add(Me.copy_bt)
         Me.Controls.Add(Me.md5_lb)
         Me.Controls.Add(Me.md5_hash_txt)
@@ -194,9 +209,9 @@ Partial Class MD5FileHash_frm
         Me.Controls.Add(Me.form_head)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "MD5FileHash_frm"
+        Me.Name = "FileHash_frm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "MD5FileHash"
+        Me.Text = "Datei checksum"
         Me.form_head.ResumeLayout(False)
         Me.form_head.PerformLayout()
         CType(Me.wincrypt_icon, System.ComponentModel.ISupportInitialize).EndInit()
@@ -217,4 +232,5 @@ Partial Class MD5FileHash_frm
     Friend WithEvents md5_lb As System.Windows.Forms.Label
     Friend WithEvents copy_bt As System.Windows.Forms.Button
     Friend WithEvents openfile_dialog As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents select_Hash_combo As System.Windows.Forms.ComboBox
 End Class

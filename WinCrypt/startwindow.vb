@@ -1452,7 +1452,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub MD5DateiCheksumToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles file_checksum_systray.Click
-        MD5FileHash_frm.Show()
+        FileHash_frm.Show()
     End Sub
 
     Private Sub rsa_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles rsa_encrypt_bt_menu.Click
@@ -1476,7 +1476,7 @@ Public Class Startwindow
     End Sub
 
     Private Sub MD5DateiChecksumToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles MD5DateiChecksumToolStripMenuItem.Click
-        MD5FileHash_frm.Show()
+        FileHash_frm.Show()
     End Sub
 
     Private Sub text_encrypt_bt_menu_Click(sender As Object, e As EventArgs) Handles text_encrypt_bt_menu.Click

@@ -209,10 +209,10 @@
     <Compile Include="tools\data encryption\fileencrypt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tools\hash\MD5FileHash_frm.Designer.vb">
-      <DependentUpon>MD5FileHash_frm.vb</DependentUpon>
+    <Compile Include="tools\hash\FileHash_frm.Designer.vb">
+      <DependentUpon>FileHash_frm.vb</DependentUpon>
     </Compile>
-    <Compile Include="tools\hash\MD5FileHash_frm.vb">
+    <Compile Include="tools\hash\FileHash_frm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tools\safedelete\del_report.Designer.vb">
@@ -361,8 +361,8 @@
     <EmbeddedResource Include="tools\data encryption\fileencrypt.resx">
       <DependentUpon>fileencrypt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tools\hash\MD5FileHash_frm.resx">
-      <DependentUpon>MD5FileHash_frm.vb</DependentUpon>
+    <EmbeddedResource Include="tools\hash\FileHash_frm.resx">
+      <DependentUpon>FileHash_frm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tools\safedelete\del_report.resx">
       <DependentUpon>del_report.vb</DependentUpon>

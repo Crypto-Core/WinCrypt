@@ -4,7 +4,6 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Namespace classes
-
     Public Class rHash
         Public Enum HASH
             MD5

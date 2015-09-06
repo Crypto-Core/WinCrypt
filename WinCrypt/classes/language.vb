@@ -249,12 +249,12 @@ Namespace classes
 
 
                 'MD5fileHash.vb
-                MD5FileHash_frm.wincrypttitle.Text = "MD5 file checksum"
-                MD5FileHash_frm.file_lb.Text = "file:"
-                MD5FileHash_frm.md5_lb.Text = "md5:"
-                MD5FileHash_frm.open_bt.Text = "open"
-                MD5FileHash_frm.copy_bt.Text = "copy"
-                MD5FileHash_frm.generate_bt.Text = "generate"
+                FileHash_frm.wincrypttitle.Text = "file checksum"
+                FileHash_frm.file_lb.Text = "file:"
+                FileHash_frm.md5_lb.Text = "Hash:"
+                FileHash_frm.open_bt.Text = "open"
+                FileHash_frm.copy_bt.Text = "copy"
+                FileHash_frm.generate_bt.Text = "generate"
 
                 Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "file checksum"
                 Startwindow.export_db_bt_menu.Text = "export database"
@@ -513,15 +513,15 @@ Namespace classes
                 feedback.send_bt.Text = "Senden"
 
                 'MD5fileHash.vb
-                MD5FileHash_frm.wincrypttitle.Text = "MD5 Datei checksum"
-                MD5FileHash_frm.file_lb.Text = "Datei:"
-                MD5FileHash_frm.md5_lb.Text = "MD5:"
-                MD5FileHash_frm.open_bt.Text = "Öffnen"
-                MD5FileHash_frm.copy_bt.Text = "Kopieren"
-                MD5FileHash_frm.generate_bt.Text = "Generieren"
+                FileHash_frm.wincrypttitle.Text = "Datei checksum"
+                FileHash_frm.file_lb.Text = "Datei:"
+                FileHash_frm.md5_lb.Text = "Hash:"
+                FileHash_frm.open_bt.Text = "Öffnen"
+                FileHash_frm.copy_bt.Text = "Kopieren"
+                FileHash_frm.generate_bt.Text = "Generieren"
 
-                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "MD5 Datei checksum"
-                Startwindow.file_checksum_systray.Text = "MD5 Datei checksum"
+                Startwindow.MD5DateiChecksumToolStripMenuItem.Text = "Datei checksum"
+                Startwindow.file_checksum_systray.Text = "Datei checksum"
                 Startwindow.export_db_bt_menu.Text = "Datenbank exportieren"
                 Startwindow.import_db_bt_menu.Text = "Datenbank importieren"
                 Startwindow.delete_db_menu.Text = "Datenbank löschen"
