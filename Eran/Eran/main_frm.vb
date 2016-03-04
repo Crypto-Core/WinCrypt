@@ -515,7 +515,7 @@ Public Class main_frm
         End If
     End Sub
 
-    Private Sub ContextMenuStrip1_Closing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripDropDownClosingEventArgs) Handles user_conextmenu.Closing
+    Private Sub user_conextmenu_Closing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripDropDownClosingEventArgs) Handles user_conextmenu.Closing
         userlist_viewer.ContextMenuStrip = Nothing
     End Sub
 
@@ -528,10 +528,6 @@ Public Class main_frm
 
     Private Sub SendToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendToolStripMenuItem.Click
         Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
-    End Sub
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        userlist_viewer.Items.Clear()
-        load_userlist()
     End Sub
 
     Private Sub AddUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddUserToolStripMenuItem.Click
@@ -604,14 +600,6 @@ Public Class main_frm
 
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'Panel1.Enabled = False
-    End Sub
-
-    Private Sub ToolStripMenuItem1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        main_panel.Enabled = False
-    End Sub
-
     Private Sub OnlineToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnlineToolStripMenuItem1.Click
         set_State(2)
     End Sub
@@ -675,11 +663,6 @@ Public Class main_frm
 
         End If
     End Sub
-
-    Private Sub userlist_viewer_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles userlist_viewer.SelectedIndexChanged
-
-    End Sub
-
     Private Sub StartChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartChatToolStripMenuItem.Click
         If userlist_viewer.SelectedIndices.Count > 0 Then
             Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
