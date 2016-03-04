@@ -24,46 +24,46 @@ Partial Class nChat_frm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(nChat_frm))
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.message_box = New System.Windows.Forms.TextBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.alert_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.lock_bt = New System.Windows.Forms.ToolStripButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
         Me.check_profil_img = New System.Windows.Forms.Timer(Me.components)
         Me.check_onlinestate = New System.Windows.Forms.Timer(Me.components)
         Me.addusr_bt = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.profil_img = New System.Windows.Forms.PictureBox()
+        Me.partner_img = New System.Windows.Forms.PictureBox()
         Me.send_file_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip.SuspendLayout()
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.partner_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Contextmenu.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TextBox1
+        'message_box
         '
-        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.message_box.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.TextBox1.Location = New System.Drawing.Point(92, 323)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(494, 56)
-        Me.TextBox1.TabIndex = 0
+        Me.message_box.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.message_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.message_box.Enabled = False
+        Me.message_box.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.message_box.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.message_box.Location = New System.Drawing.Point(92, 323)
+        Me.message_box.Multiline = True
+        Me.message_box.Name = "message_box"
+        Me.message_box.Size = New System.Drawing.Size(494, 56)
+        Me.message_box.TabIndex = 0
         '
         'ToolStrip1
         '
@@ -118,15 +118,15 @@ Partial Class nChat_frm
         Me.lock_bt.Size = New System.Drawing.Size(23, 22)
         Me.lock_bt.Text = "Encryption"
         '
-        'MenuStrip1
+        'MenuStrip
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.OptionsToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(598, 24)
-        Me.MenuStrip1.TabIndex = 3
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem, Me.OptionsToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(598, 24)
+        Me.MenuStrip.TabIndex = 3
+        Me.MenuStrip.Text = "MenuStrip1"
         '
         'UserToolStripMenuItem
         '
@@ -173,28 +173,28 @@ Partial Class nChat_frm
         Me.addusr_bt.UseVisualStyleBackColor = False
         Me.addusr_bt.Visible = False
         '
-        'PictureBox2
+        'profil_img
         '
-        Me.PictureBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox2.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox2.Image = Global.Eran.My.Resources.Resources.offlineR
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 305)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(74, 74)
-        Me.PictureBox2.TabIndex = 6
-        Me.PictureBox2.TabStop = False
+        Me.profil_img.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.profil_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
+        Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
+        Me.profil_img.Location = New System.Drawing.Point(12, 305)
+        Me.profil_img.Name = "profil_img"
+        Me.profil_img.Size = New System.Drawing.Size(74, 74)
+        Me.profil_img.TabIndex = 6
+        Me.profil_img.TabStop = False
         '
-        'PictureBox1
+        'partner_img
         '
-        Me.PictureBox1.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Image = Global.Eran.My.Resources.Resources.offlineR
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 27)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(74, 74)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
+        Me.partner_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
+        Me.partner_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.partner_img.Image = Global.Eran.My.Resources.Resources.offlineR
+        Me.partner_img.Location = New System.Drawing.Point(12, 27)
+        Me.partner_img.Name = "partner_img"
+        Me.partner_img.Size = New System.Drawing.Size(74, 74)
+        Me.partner_img.TabIndex = 5
+        Me.partner_img.TabStop = False
         '
         'send_file_dialog
         '
@@ -219,40 +219,40 @@ Partial Class nChat_frm
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(598, 392)
         Me.Controls.Add(Me.addusr_bt)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.profil_img)
+        Me.Controls.Add(Me.partner_img)
+        Me.Controls.Add(Me.message_box)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.MenuStrip)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.White
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "nChat_frm"
         Me.Text = "nChat_frm"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.partner_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Contextmenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents message_box As System.Windows.Forms.TextBox
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents alert_bt As System.Windows.Forms.ToolStripButton
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents UserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents lock_bt As System.Windows.Forms.ToolStripButton
     Friend WithEvents encrypt_state As System.Windows.Forms.Timer
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents partner_img As System.Windows.Forms.PictureBox
+    Friend WithEvents profil_img As System.Windows.Forms.PictureBox
     Friend WithEvents check_profil_img As System.Windows.Forms.Timer
     Friend WithEvents check_onlinestate As System.Windows.Forms.Timer
     Friend WithEvents addusr_bt As System.Windows.Forms.Button

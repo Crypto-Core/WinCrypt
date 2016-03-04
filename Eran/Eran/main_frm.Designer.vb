@@ -43,12 +43,13 @@ Partial Class main_frm
         Me.eran_adr_lb = New System.Windows.Forms.Label()
         Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton()
+        Me.status_strip = New System.Windows.Forms.ToolStripSplitButton()
         Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BusyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.user_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StartChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyEranAdressToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteFromListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.open_file_diag = New System.Windows.Forms.OpenFileDialog()
@@ -60,7 +61,6 @@ Partial Class main_frm
         Me.OfflineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
@@ -240,7 +240,7 @@ Partial Class main_frm
         Me.StatusStrip.AutoSize = False
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.StatusStrip.Dock = System.Windows.Forms.DockStyle.None
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButton1})
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.status_strip})
         Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.StatusStrip.Location = New System.Drawing.Point(138, 46)
         Me.StatusStrip.Name = "StatusStrip"
@@ -250,36 +250,36 @@ Partial Class main_frm
         Me.StatusStrip.TabIndex = 2
         Me.StatusStrip.Text = "StatusStrip"
         '
-        'ToolStripSplitButton1
+        'status_strip
         '
-        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineToolStripMenuItem, Me.BusyToolStripMenuItem, Me.OnlineToolStripMenuItem})
-        Me.ToolStripSplitButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ToolStripSplitButton1.Image = Global.Eran.My.Resources.Resources.offline16
-        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
-        Me.ToolStripSplitButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(75, 20)
-        Me.ToolStripSplitButton1.Text = "Offline"
+        Me.status_strip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineToolStripMenuItem, Me.BusyToolStripMenuItem, Me.OnlineToolStripMenuItem})
+        Me.status_strip.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.status_strip.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.status_strip.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.status_strip.Name = "status_strip"
+        Me.status_strip.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.status_strip.Size = New System.Drawing.Size(75, 20)
+        Me.status_strip.Text = "Offline"
         '
         'OfflineToolStripMenuItem
         '
         Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
         Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OfflineToolStripMenuItem.Text = "Offline"
         '
         'BusyToolStripMenuItem
         '
         Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
         Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
-        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BusyToolStripMenuItem.Text = "Busy"
         '
         'OnlineToolStripMenuItem
         '
         Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
         Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OnlineToolStripMenuItem.Text = "Online"
         '
         'user_conextmenu
@@ -293,6 +293,12 @@ Partial Class main_frm
         Me.StartChatToolStripMenuItem.Name = "StartChatToolStripMenuItem"
         Me.StartChatToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.StartChatToolStripMenuItem.Text = "Start Chat"
+        '
+        'EditUserToolStripMenuItem
+        '
+        Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
+        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.EditUserToolStripMenuItem.Text = "Edit user"
         '
         'CopyEranAdressToolStripMenuItem
         '
@@ -363,11 +369,8 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'EditUserToolStripMenuItem
+        'SaveFileDialog1
         '
-        Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
-        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
-        Me.EditUserToolStripMenuItem.Text = "Edit user"
         '
         'main_frm
         '
@@ -417,7 +420,7 @@ Partial Class main_frm
     Friend WithEvents eran_adr_lb As System.Windows.Forms.Label
     Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
-    Friend WithEvents ToolStripSplitButton1 As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents status_strip As System.Windows.Forms.ToolStripSplitButton
     Friend WithEvents OfflineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BusyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OnlineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

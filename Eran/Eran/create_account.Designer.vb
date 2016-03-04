@@ -23,6 +23,7 @@ Partial Class create_account
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.create_account_panel = New System.Windows.Forms.Panel()
+        Me.logo_img = New System.Windows.Forms.PictureBox()
         Me.create_bt = New System.Windows.Forms.Button()
         Me.create_eran_acc_gb = New System.Windows.Forms.GroupBox()
         Me.auth_key_lb = New System.Windows.Forms.Label()
@@ -34,16 +35,15 @@ Partial Class create_account
         Me.usr_txt = New System.Windows.Forms.TextBox()
         Me.pwd_lb = New System.Windows.Forms.Label()
         Me.usr_lb = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.create_account_panel.SuspendLayout()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.create_eran_acc_gb.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'create_account_panel
         '
         Me.create_account_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.create_account_panel.Controls.Add(Me.PictureBox1)
+        Me.create_account_panel.Controls.Add(Me.logo_img)
         Me.create_account_panel.Controls.Add(Me.create_bt)
         Me.create_account_panel.Controls.Add(Me.create_eran_acc_gb)
         Me.create_account_panel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -51,6 +51,17 @@ Partial Class create_account
         Me.create_account_panel.Name = "create_account_panel"
         Me.create_account_panel.Size = New System.Drawing.Size(313, 419)
         Me.create_account_panel.TabIndex = 0
+        '
+        'logo_img
+        '
+        Me.logo_img.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.logo_img.Image = Global.Eran.My.Resources.Resources.eran_icon80
+        Me.logo_img.Location = New System.Drawing.Point(116, 12)
+        Me.logo_img.Name = "logo_img"
+        Me.logo_img.Size = New System.Drawing.Size(80, 80)
+        Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.logo_img.TabIndex = 2
+        Me.logo_img.TabStop = False
         '
         'create_bt
         '
@@ -175,17 +186,6 @@ Partial Class create_account
         Me.usr_lb.TabIndex = 0
         Me.usr_lb.Text = "Username:"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox1.Image = Global.Eran.My.Resources.Resources.eran_icon80
-        Me.PictureBox1.Location = New System.Drawing.Point(116, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(80, 80)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
-        '
         'create_account
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -197,9 +197,9 @@ Partial Class create_account
         Me.Text = "create_account"
         Me.create_account_panel.ResumeLayout(False)
         Me.create_account_panel.PerformLayout()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.create_eran_acc_gb.ResumeLayout(False)
         Me.create_eran_acc_gb.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -215,5 +215,5 @@ Partial Class create_account
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents auth_key_lb As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents logo_img As System.Windows.Forms.PictureBox
 End Class

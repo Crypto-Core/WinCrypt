@@ -10,13 +10,13 @@ Public Class nChat_frm
         Me.Hide()
     End Sub
 
-    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyDown
         Dim rtb = Me.Controls.Find("richtextbox", True)
 
         If e.KeyData = Keys.Enter Then
             If encrypted = True Then
 
-                Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(TextBox1.Text)
+                Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
                 Dim target As Byte()
                 aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                 Dim to_bs64 As String = Convert.ToBase64String(target)
@@ -24,15 +24,15 @@ Public Class nChat_frm
 
                 If rtb(0).Text.Length < 2 Then
                     'rtb(0).Text = TextBox1.Text & vbNewLine
-                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & TextBox1.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
                 Else
                     'rtb(0).Text = 
-                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & TextBox1.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
                 End If
 
             Else
 
-                Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(TextBox1.Text)
+                Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
                 Dim to_bs64_str As String = Convert.ToBase64String(read_bytes)
                 main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64_str & ";")
 
@@ -47,20 +47,20 @@ Public Class nChat_frm
         rtb.SelectionColor = col
         rtb.[Select]()
         rtb.Select(rtb.TextLength, 1)
-        TextBox1.Focus()
+        message_box.Focus()
     End Sub
     Private Sub encrypt_state_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_state.Tick
         If connected_usr.isConnect_Encrypt(Name) = True Then
             lock_bt.Image = My.Resources.lock16
-            TextBox1.Enabled = True
+            message_box.Enabled = True
             encrypted = True
             get_key()
-            TextBox1.BackColor = Color.FromArgb(30, 30, 30)
+            message_box.BackColor = Color.FromArgb(30, 30, 30)
             encrypt_state.Interval = 2000
         Else
             lock_bt.Image = My.Resources.unlock16
-            TextBox1.Enabled = False
-            TextBox1.BackColor = Color.FromArgb(106, 106, 106)
+            message_box.Enabled = False
+            message_box.BackColor = Color.FromArgb(106, 106, 106)
             encrypted = False
             key = ""
         End If
@@ -127,8 +127,8 @@ Public Class nChat_frm
         Dim rtb = Me.Controls.Find("richtextbox", True)
         rtb_ = rtb(0)
         rtb_.ContextMenuStrip = Contextmenu
-        PictureBox2.BackgroundImage = main_frm.profil_img.BackgroundImage
-        ActiveControl = TextBox1
+        profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
+        ActiveControl = message_box
     End Sub
     Private Sub check_profil_img_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles check_profil_img.Tick
         If main_frm.profilimage_.Length > 0 Then
@@ -138,7 +138,7 @@ Public Class nChat_frm
                 Dim to_byte As Byte() = Convert.FromBase64String(parameter.read_parameter("/get_profil_img ", main_frm.profilimage_))
                 Dim new_stream As New MemoryStream(to_byte)
                 Dim i As Image = Image.FromStream(new_stream)
-                PictureBox1.BackgroundImage = i
+                partner_img.BackgroundImage = i
                 main_frm.profilimage_ = ""
                 check_profil_img.Enabled = True
             End If
@@ -150,39 +150,39 @@ Public Class nChat_frm
             If main_frm.userlist_viewer.Items(check).SubItems(1).Text = Name Then
                 Select Case main_frm.userlist_viewer.Items(check).ImageIndex
                     Case 0
-                        PictureBox1.Image = My.Resources.offlineR
+                        partner_img.Image = My.Resources.offlineR
                     Case 1
-                        PictureBox1.Image = My.Resources.busyR
+                        partner_img.Image = My.Resources.busyR
                     Case 2
-                        PictureBox1.Image = My.Resources.onlineR
+                        partner_img.Image = My.Resources.onlineR
                 End Select
             End If
         Next
         Select Case main_frm.online_state
             Case 0
-                PictureBox2.Image = My.Resources.offlineR
+                profil_img.Image = My.Resources.offlineR
             Case 1
-                PictureBox2.Image = My.Resources.busyR
+                profil_img.Image = My.Resources.busyR
             Case 2
-                PictureBox2.Image = My.Resources.onlineR
+                profil_img.Image = My.Resources.onlineR
         End Select
     End Sub
 
     Private Sub rtb__GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles rtb_.GotFocus
-        TextBox1.Focus()
+        message_box.Focus()
     End Sub
 
-    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
+    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyUp
         If e.Shift = True Then
             If e.KeyCode = Keys.Enter Then
 
             End If
         Else
             If e.KeyCode = Keys.Enter Then
-                TextBox1.Clear()
+                message_box.Clear()
             End If
         End If
-        
+
     End Sub
 
     Private Sub alert_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alert_bt.Click
@@ -206,7 +206,7 @@ Public Class nChat_frm
     End Sub
 
     Private Sub main_img_BackgroundImageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_img.BackgroundImageChanged
-        PictureBox2.BackgroundImage = main_frm.profil_img.BackgroundImage
+        profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
     End Sub
 
     Private Sub nChat_frm_Deactivate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate

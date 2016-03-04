@@ -23,35 +23,35 @@ Partial Class StartWindow
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StartWindow))
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.secure_desktop_img = New System.Windows.Forms.PictureBox()
+        Me.msg1 = New System.Windows.Forms.Label()
         Me.secureDesktop_bt = New System.Windows.Forms.Button()
         Me.startNormal_bt = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.msg2 = New System.Windows.Forms.Label()
+        CType(Me.secure_desktop_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PictureBox1
+        'secure_desktop_img
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.PictureBox1.Image = Global.Eran.My.Resources.Resources.SecureDesktop
-        Me.PictureBox1.Location = New System.Drawing.Point(131, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(256, 222)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        Me.secure_desktop_img.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.secure_desktop_img.Image = Global.Eran.My.Resources.Resources.SecureDesktop
+        Me.secure_desktop_img.Location = New System.Drawing.Point(131, 12)
+        Me.secure_desktop_img.Name = "secure_desktop_img"
+        Me.secure_desktop_img.Size = New System.Drawing.Size(256, 222)
+        Me.secure_desktop_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.secure_desktop_img.TabIndex = 1
+        Me.secure_desktop_img.TabStop = False
         '
-        'Label1
+        'msg1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(118, 237)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(283, 20)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Want to Eran start in Secure Desktop?"
+        Me.msg1.AutoSize = True
+        Me.msg1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.msg1.ForeColor = System.Drawing.Color.White
+        Me.msg1.Location = New System.Drawing.Point(118, 237)
+        Me.msg1.Name = "msg1"
+        Me.msg1.Size = New System.Drawing.Size(283, 20)
+        Me.msg1.TabIndex = 2
+        Me.msg1.Text = "Want to Eran start in Secure Desktop?"
         '
         'secureDesktop_bt
         '
@@ -81,16 +81,16 @@ Partial Class StartWindow
         Me.startNormal_bt.Text = "Start normal"
         Me.startNormal_bt.UseVisualStyleBackColor = False
         '
-        'Label2
+        'msg2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(21, 265)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(477, 32)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Th" & _
+        Me.msg2.AutoSize = True
+        Me.msg2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.msg2.ForeColor = System.Drawing.Color.White
+        Me.msg2.Location = New System.Drawing.Point(21, 265)
+        Me.msg2.Name = "msg2"
+        Me.msg2.Size = New System.Drawing.Size(477, 32)
+        Me.msg2.TabIndex = 5
+        Me.msg2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Th" & _
             "is protection is especially against trojans and spyware."
         '
         'StartWindow
@@ -99,25 +99,25 @@ Partial Class StartWindow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(518, 411)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.msg2)
         Me.Controls.Add(Me.startNormal_bt)
         Me.Controls.Add(Me.secureDesktop_bt)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.msg1)
+        Me.Controls.Add(Me.secure_desktop_img)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "StartWindow"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Eran Start Window"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.secure_desktop_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents secure_desktop_img As System.Windows.Forms.PictureBox
+    Friend WithEvents msg1 As System.Windows.Forms.Label
     Friend WithEvents secureDesktop_bt As System.Windows.Forms.Button
     Friend WithEvents startNormal_bt As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents msg2 As System.Windows.Forms.Label
 End Class

@@ -545,8 +545,8 @@ Public Class main_frm
     Friend Function set_State(ByVal state As Integer)
         Select Case state
             Case 0
-                ToolStripSplitButton1.Text = "Offline"
-                ToolStripSplitButton1.Image = My.Resources.offline16
+                status_strip.Text = "Offline"
+                status_strip.Image = My.Resources.offline16
                 online_state = 0
                 NotifyIcon.Text = "Eran - Offline"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
@@ -555,8 +555,8 @@ Public Class main_frm
                 Next
                 connected_usr.broke_all_sessions()
             Case 1
-                ToolStripSplitButton1.Text = "Busy"
-                ToolStripSplitButton1.Image = My.Resources.busy16
+                status_strip.Text = "Busy"
+                status_strip.Image = My.Resources.busy16
                 online_state = 1
                 NotifyIcon.Text = "Eran - Busy"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
@@ -564,8 +564,8 @@ Public Class main_frm
                     Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 1;")
                 Next
             Case 2
-                ToolStripSplitButton1.Text = "Online"
-                ToolStripSplitButton1.Image = My.Resources.online16
+                status_strip.Text = "Online"
+                status_strip.Image = My.Resources.online16
                 online_state = 2
                 NotifyIcon.Text = "Eran - Online"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
