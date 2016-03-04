@@ -160,6 +160,21 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die [config]
+        '''startmodus=0
+        '''own_access_node=1
+        '''own_access_node_port=8000
+        '''acces_node_save=0
+        '''access_node_host=localhost
+        '''acces_node_port=8000 ähnelt.
+        '''</summary>
+        Friend ReadOnly Property config() As String
+            Get
+                Return ResourceManager.GetString("config", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property eran_icon80() As System.Drawing.Bitmap

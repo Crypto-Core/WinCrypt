@@ -17,6 +17,9 @@ Public Class login
         username = ini.GetKeyValue("account", "username")
         usr_txt.Text = username
         eran_adress = ini.GetKeyValue("account", "adress")
+        host_txt.Text = config.access_node_host
+        port_txt.Text = config.acces_node_port
+
     End Sub
 
     Private Sub join_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles join_bt.Click
@@ -50,5 +53,9 @@ Public Class login
             e.SuppressKeyPress = True
             join_bt.PerformClick()
         End If
+    End Sub
+
+    Private Sub login_panel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles login_panel.Paint
+
     End Sub
 End Class

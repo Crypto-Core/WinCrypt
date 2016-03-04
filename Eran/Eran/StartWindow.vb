@@ -32,6 +32,7 @@ Public Class StartWindow
     End Sub
 
     Private Sub StartWindow_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        config.load()
         If File.Exists(config_path) = True Then
             ini.Load(config_path)
 
