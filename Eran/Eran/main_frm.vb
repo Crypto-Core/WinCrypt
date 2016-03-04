@@ -399,7 +399,7 @@ Public Class main_frm
         End If
     End Sub
     
-
+    Dim cache_rtb As New RichTextBox
     Private Function new_chat(ByVal eran_adress As String, ByVal username As String, Optional ByVal get_msg As String = "")
 
         Dim bool As Boolean = False
@@ -429,7 +429,9 @@ Public Class main_frm
 
                 If get_msg = "" Then
                 Else
-                    AddText(chat_rtb(window), "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                    AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                    chat_rtb(window).AppendText(cache_rtb.Text)
+                    cache_rtb.Clear()
                 End If
             End If
             
@@ -467,7 +469,9 @@ Public Class main_frm
             Else
                 If get_msg.Length > 0 Then
                     'chat_rtb(index).AppendText(get_msg)
-                    AddText(chat_rtb(index), "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                    AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                    chat_rtb(index).AppendText(cache_rtb.Text)
+                    cache_rtb.Clear()
                 End If
                 chat_frm(index).Show()
                 If SecureDesktop.isOnSecureDesktop = True Then

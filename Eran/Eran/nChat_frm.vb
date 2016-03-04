@@ -10,7 +10,7 @@ Public Class nChat_frm
         Me.Hide()
     End Sub
 
-    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyDown
+    Private Sub message_box_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyDown
         Dim rtb = Me.Controls.Find("richtextbox", True)
 
         If e.KeyData = Keys.Enter Then
