@@ -29,8 +29,7 @@ Partial Class main_frm
         Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SendToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GetImgToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
@@ -62,6 +61,7 @@ Partial Class main_frm
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -104,23 +104,17 @@ Partial Class main_frm
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToolStripMenuItem, Me.GetImgToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem})
         Me.ToolsToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
-        'SendToolStripMenuItem
+        'SettingsToolStripMenuItem
         '
-        Me.SendToolStripMenuItem.Name = "SendToolStripMenuItem"
-        Me.SendToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.SendToolStripMenuItem.Text = "Send Ping"
-        '
-        'GetImgToolStripMenuItem
-        '
-        Me.GetImgToolStripMenuItem.Name = "GetImgToolStripMenuItem"
-        Me.GetImgToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.GetImgToolStripMenuItem.Text = "Get Img"
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'HelpToolStripMenuItem
         '
@@ -265,21 +259,21 @@ Partial Class main_frm
         '
         Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
         Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.OfflineToolStripMenuItem.Text = "Offline"
         '
         'BusyToolStripMenuItem
         '
         Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
         Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
-        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.BusyToolStripMenuItem.Text = "Busy"
         '
         'OnlineToolStripMenuItem
         '
         Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
         Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.OnlineToolStripMenuItem.Text = "Online"
         '
         'user_conextmenu
@@ -372,6 +366,12 @@ Partial Class main_frm
         'SaveFileDialog1
         '
         '
+        'SendPingToConnectedAccesNodeToolStripMenuItem
+        '
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
+        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -408,9 +408,7 @@ Partial Class main_frm
     Friend WithEvents CopyEranAdressToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteFromListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StartChatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SendToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GetImgToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents open_file_diag As System.Windows.Forms.OpenFileDialog
     Friend WithEvents userlist_viewer As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
@@ -435,5 +433,7 @@ Partial Class main_frm
     Friend WithEvents profil_img As System.Windows.Forms.PictureBox
     Friend WithEvents EditUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SendPingToConnectedAccesNodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

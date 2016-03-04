@@ -96,7 +96,7 @@ Partial Class login
         Me.server_gb.Size = New System.Drawing.Size(289, 61)
         Me.server_gb.TabIndex = 1
         Me.server_gb.TabStop = False
-        Me.server_gb.Text = "Server"
+        Me.server_gb.Text = "Acces Node"
         '
         'port_txt
         '

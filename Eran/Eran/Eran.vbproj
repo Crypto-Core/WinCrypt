@@ -140,6 +140,12 @@
     </Compile>
     <Compile Include="OnlineState.vb" />
     <Compile Include="SecureDesktop.vb" />
+    <Compile Include="settings.Designer.vb">
+      <DependentUpon>settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StartWindow.Designer.vb">
       <DependentUpon>StartWindow.vb</DependentUpon>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="nChat_frm.resx">
       <DependentUpon>nChat_frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartWindow.resx">
       <DependentUpon>StartWindow.vb</DependentUpon>

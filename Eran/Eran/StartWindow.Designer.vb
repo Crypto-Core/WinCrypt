@@ -28,6 +28,7 @@ Partial Class StartWindow
         Me.secureDesktop_bt = New System.Windows.Forms.Button()
         Me.startNormal_bt = New System.Windows.Forms.Button()
         Me.msg2 = New System.Windows.Forms.Label()
+        Me.save_selection_cb = New System.Windows.Forms.CheckBox()
         CType(Me.secure_desktop_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,7 +61,7 @@ Partial Class StartWindow
         Me.secureDesktop_bt.FlatAppearance.BorderSize = 0
         Me.secureDesktop_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.secureDesktop_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.secureDesktop_bt.Location = New System.Drawing.Point(262, 376)
+        Me.secureDesktop_bt.Location = New System.Drawing.Point(266, 376)
         Me.secureDesktop_bt.Name = "secureDesktop_bt"
         Me.secureDesktop_bt.Size = New System.Drawing.Size(150, 23)
         Me.secureDesktop_bt.TabIndex = 3
@@ -74,7 +75,7 @@ Partial Class StartWindow
         Me.startNormal_bt.FlatAppearance.BorderSize = 0
         Me.startNormal_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.startNormal_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.startNormal_bt.Location = New System.Drawing.Point(106, 376)
+        Me.startNormal_bt.Location = New System.Drawing.Point(110, 376)
         Me.startNormal_bt.Name = "startNormal_bt"
         Me.startNormal_bt.Size = New System.Drawing.Size(150, 23)
         Me.startNormal_bt.TabIndex = 4
@@ -93,12 +94,24 @@ Partial Class StartWindow
         Me.msg2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Th" & _
             "is protection is especially against trojans and spyware."
         '
+        'save_selection_cb
+        '
+        Me.save_selection_cb.AutoSize = True
+        Me.save_selection_cb.ForeColor = System.Drawing.Color.White
+        Me.save_selection_cb.Location = New System.Drawing.Point(12, 382)
+        Me.save_selection_cb.Name = "save_selection_cb"
+        Me.save_selection_cb.Size = New System.Drawing.Size(96, 17)
+        Me.save_selection_cb.TabIndex = 6
+        Me.save_selection_cb.Text = "Save selection"
+        Me.save_selection_cb.UseVisualStyleBackColor = True
+        '
         'StartWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(518, 411)
+        Me.Controls.Add(Me.save_selection_cb)
         Me.Controls.Add(Me.msg2)
         Me.Controls.Add(Me.startNormal_bt)
         Me.Controls.Add(Me.secureDesktop_bt)
@@ -120,4 +133,5 @@ Partial Class StartWindow
     Friend WithEvents secureDesktop_bt As System.Windows.Forms.Button
     Friend WithEvents startNormal_bt As System.Windows.Forms.Button
     Friend WithEvents msg2 As System.Windows.Forms.Label
+    Friend WithEvents save_selection_cb As System.Windows.Forms.CheckBox
 End Class

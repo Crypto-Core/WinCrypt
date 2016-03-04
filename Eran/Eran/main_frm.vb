@@ -524,14 +524,15 @@ Public Class main_frm
     End Sub
 
     Private Sub main_frm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-        
-        'e.Cancel = True
-        'Me.WindowState = FormWindowState.Minimized
-        'Me.Hide()
-    End Sub
+        If SecureDesktop.isOnSecureDesktop = False Then
+            e.Cancel = True
+            Me.WindowState = FormWindowState.Minimized
+            Me.Hide()
+        Else
 
-    Private Sub SendToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendToolStripMenuItem.Click
-        Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
+        End If
+        
+        'Me.Hide()
     End Sub
 
     Private Sub AddUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddUserToolStripMenuItem.Click
@@ -638,11 +639,6 @@ Public Class main_frm
             open_file_diag.ShowDialog()
         End If
     End Sub
-
-    Private Sub GetImgToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetImgToolStripMenuItem.Click
-        MsgBox(SecureDesktop.isOnSecureDesktop)
-    End Sub
-
     Private Sub DeleteFromListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteFromListToolStripMenuItem.Click
         If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Dim selected_count As Integer = userlist_viewer.SelectedIndices.Item(0).ToString
@@ -686,5 +682,13 @@ Public Class main_frm
         File.WriteAllBytes(SaveFileDialog1.FileName, enc_file_byt_target)
         enc_file_byt_target = Nothing
         GC_.FlushMemory()
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingsToolStripMenuItem.Click
+        settings.ShowDialog()
+    End Sub
+
+    Private Sub SendPingToConnectedAccesNodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendPingToConnectedAccesNodeToolStripMenuItem.Click
+        Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
     End Sub
 End Class

@@ -6,6 +6,7 @@ Public Class login
     Friend Shared eran_adress As String
     Friend username As String
     Friend Shared pwd As String
+
     Private Sub login_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles login_panel.HandleCreated
         ini.Load(main_frm.account_path)
         Dim img_bs64 As String = ini.GetKeyValue("account", "image")
