@@ -1,0 +1,436 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class main_frm
+    Inherits System.Windows.Forms.Form
+
+    'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Wird vom Windows Form-Designer benötigt.
+    Private components As System.ComponentModel.IContainer
+
+    'Hinweis: Die folgende Prozedur ist für den Windows Form-Designer erforderlich.
+    'Das Bearbeiten ist mit dem Windows Form-Designer möglich.  
+    'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_frm))
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.UsersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SendToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetImgToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.main_panel = New System.Windows.Forms.Panel()
+        Me.userlist_viewer = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.head_panel = New System.Windows.Forms.Panel()
+        Me.profil_img = New System.Windows.Forms.PictureBox()
+        Me.status_lb = New System.Windows.Forms.Label()
+        Me.eran_adr_lb = New System.Windows.Forms.Label()
+        Me.eran_adr_txt = New System.Windows.Forms.TextBox()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripSplitButton1 = New System.Windows.Forms.ToolStripSplitButton()
+        Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.user_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.StartChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyEranAdressToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteFromListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.open_file_diag = New System.Windows.Forms.OpenFileDialog()
+        Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.notify_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.StateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnlineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OfflineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.MenuStrip.SuspendLayout()
+        Me.main_panel.SuspendLayout()
+        Me.head_panel.SuspendLayout()
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.StatusStrip.SuspendLayout()
+        Me.user_conextmenu.SuspendLayout()
+        Me.notify_conextmenu.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'MenuStrip
+        '
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsersToolStripMenuItem, Me.AccountToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(355, 24)
+        Me.MenuStrip.TabIndex = 0
+        Me.MenuStrip.Text = "MenuStrip1"
+        '
+        'UsersToolStripMenuItem
+        '
+        Me.UsersToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddUserToolStripMenuItem})
+        Me.UsersToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.UsersToolStripMenuItem.Name = "UsersToolStripMenuItem"
+        Me.UsersToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.UsersToolStripMenuItem.Text = "Users"
+        '
+        'AddUserToolStripMenuItem
+        '
+        Me.AddUserToolStripMenuItem.Name = "AddUserToolStripMenuItem"
+        Me.AddUserToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.AddUserToolStripMenuItem.Text = "Add User"
+        '
+        'AccountToolStripMenuItem
+        '
+        Me.AccountToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem"
+        Me.AccountToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
+        Me.AccountToolStripMenuItem.Text = "Account"
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToolStripMenuItem, Me.GetImgToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
+        '
+        'SendToolStripMenuItem
+        '
+        Me.SendToolStripMenuItem.Name = "SendToolStripMenuItem"
+        Me.SendToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SendToolStripMenuItem.Text = "Send Ping"
+        '
+        'GetImgToolStripMenuItem
+        '
+        Me.GetImgToolStripMenuItem.Name = "GetImgToolStripMenuItem"
+        Me.GetImgToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.GetImgToolStripMenuItem.Text = "Get Img"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "offline16.png")
+        Me.ImageList1.Images.SetKeyName(1, "busy16.png")
+        Me.ImageList1.Images.SetKeyName(2, "online16.png")
+        '
+        'main_panel
+        '
+        Me.main_panel.Controls.Add(Me.userlist_viewer)
+        Me.main_panel.Controls.Add(Me.head_panel)
+        Me.main_panel.Controls.Add(Me.MenuStrip)
+        Me.main_panel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.main_panel.Location = New System.Drawing.Point(0, 0)
+        Me.main_panel.Name = "main_panel"
+        Me.main_panel.Size = New System.Drawing.Size(355, 463)
+        Me.main_panel.TabIndex = 4
+        '
+        'userlist_viewer
+        '
+        Me.userlist_viewer.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.userlist_viewer.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.userlist_viewer.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
+        Me.userlist_viewer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.userlist_viewer.ForeColor = System.Drawing.SystemColors.Window
+        Me.userlist_viewer.Location = New System.Drawing.Point(0, 106)
+        Me.userlist_viewer.MultiSelect = False
+        Me.userlist_viewer.Name = "userlist_viewer"
+        Me.userlist_viewer.Size = New System.Drawing.Size(355, 357)
+        Me.userlist_viewer.SmallImageList = Me.ImageList1
+        Me.userlist_viewer.TabIndex = 3
+        Me.userlist_viewer.UseCompatibleStateImageBehavior = False
+        Me.userlist_viewer.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "User"
+        Me.ColumnHeader1.Width = 115
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Eran adress"
+        Me.ColumnHeader2.Width = 241
+        '
+        'head_panel
+        '
+        Me.head_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.head_panel.Controls.Add(Me.profil_img)
+        Me.head_panel.Controls.Add(Me.status_lb)
+        Me.head_panel.Controls.Add(Me.eran_adr_lb)
+        Me.head_panel.Controls.Add(Me.eran_adr_txt)
+        Me.head_panel.Controls.Add(Me.StatusStrip)
+        Me.head_panel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.head_panel.Location = New System.Drawing.Point(0, 24)
+        Me.head_panel.Name = "head_panel"
+        Me.head_panel.Size = New System.Drawing.Size(355, 82)
+        Me.head_panel.TabIndex = 1
+        '
+        'profil_img
+        '
+        Me.profil_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
+        Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.profil_img.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
+        Me.profil_img.Location = New System.Drawing.Point(7, 3)
+        Me.profil_img.Name = "profil_img"
+        Me.profil_img.Size = New System.Drawing.Size(74, 74)
+        Me.profil_img.TabIndex = 6
+        Me.profil_img.TabStop = False
+        '
+        'status_lb
+        '
+        Me.status_lb.AutoSize = True
+        Me.status_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.status_lb.Location = New System.Drawing.Point(95, 51)
+        Me.status_lb.Name = "status_lb"
+        Me.status_lb.Size = New System.Drawing.Size(40, 13)
+        Me.status_lb.TabIndex = 5
+        Me.status_lb.Text = "Status:"
+        '
+        'eran_adr_lb
+        '
+        Me.eran_adr_lb.AutoSize = True
+        Me.eran_adr_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.eran_adr_lb.Location = New System.Drawing.Point(95, 11)
+        Me.eran_adr_lb.Name = "eran_adr_lb"
+        Me.eran_adr_lb.Size = New System.Drawing.Size(66, 13)
+        Me.eran_adr_lb.TabIndex = 4
+        Me.eran_adr_lb.Text = "Eran adress:"
+        '
+        'eran_adr_txt
+        '
+        Me.eran_adr_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.eran_adr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.eran_adr_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.eran_adr_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eran_adr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.eran_adr_txt.Location = New System.Drawing.Point(98, 27)
+        Me.eran_adr_txt.Name = "eran_adr_txt"
+        Me.eran_adr_txt.ReadOnly = True
+        Me.eran_adr_txt.Size = New System.Drawing.Size(245, 21)
+        Me.eran_adr_txt.TabIndex = 3
+        Me.eran_adr_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'StatusStrip
+        '
+        Me.StatusStrip.AutoSize = False
+        Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.StatusStrip.Dock = System.Windows.Forms.DockStyle.None
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButton1})
+        Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
+        Me.StatusStrip.Location = New System.Drawing.Point(138, 46)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode
+        Me.StatusStrip.Size = New System.Drawing.Size(80, 22)
+        Me.StatusStrip.SizingGrip = False
+        Me.StatusStrip.TabIndex = 2
+        Me.StatusStrip.Text = "StatusStrip"
+        '
+        'ToolStripSplitButton1
+        '
+        Me.ToolStripSplitButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineToolStripMenuItem, Me.BusyToolStripMenuItem, Me.OnlineToolStripMenuItem})
+        Me.ToolStripSplitButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ToolStripSplitButton1.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.ToolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripSplitButton1.Name = "ToolStripSplitButton1"
+        Me.ToolStripSplitButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripSplitButton1.Size = New System.Drawing.Size(75, 20)
+        Me.ToolStripSplitButton1.Text = "Offline"
+        '
+        'OfflineToolStripMenuItem
+        '
+        Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem.Text = "Offline"
+        '
+        'BusyToolStripMenuItem
+        '
+        Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
+        Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem.Text = "Busy"
+        '
+        'OnlineToolStripMenuItem
+        '
+        Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
+        Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem.Text = "Online"
+        '
+        'user_conextmenu
+        '
+        Me.user_conextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartChatToolStripMenuItem, Me.EditUserToolStripMenuItem, Me.CopyEranAdressToolStripMenuItem, Me.DeleteFromListToolStripMenuItem})
+        Me.user_conextmenu.Name = "ContextMenuStrip1"
+        Me.user_conextmenu.Size = New System.Drawing.Size(165, 92)
+        '
+        'StartChatToolStripMenuItem
+        '
+        Me.StartChatToolStripMenuItem.Name = "StartChatToolStripMenuItem"
+        Me.StartChatToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.StartChatToolStripMenuItem.Text = "Start Chat"
+        '
+        'CopyEranAdressToolStripMenuItem
+        '
+        Me.CopyEranAdressToolStripMenuItem.Name = "CopyEranAdressToolStripMenuItem"
+        Me.CopyEranAdressToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.CopyEranAdressToolStripMenuItem.Text = "Copy Eran adress"
+        '
+        'DeleteFromListToolStripMenuItem
+        '
+        Me.DeleteFromListToolStripMenuItem.Name = "DeleteFromListToolStripMenuItem"
+        Me.DeleteFromListToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.DeleteFromListToolStripMenuItem.Text = "Delete from list"
+        '
+        'open_file_diag
+        '
+        Me.open_file_diag.Filter = "PNG|*.png|BMP|*.bmp|JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif"
+        '
+        'NotifyIcon
+        '
+        Me.NotifyIcon.ContextMenuStrip = Me.notify_conextmenu
+        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon.Text = "Eran"
+        Me.NotifyIcon.Visible = True
+        '
+        'notify_conextmenu
+        '
+        Me.notify_conextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StateToolStripMenuItem, Me.OpenToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.notify_conextmenu.Name = "notify_conextmenu"
+        Me.notify_conextmenu.Size = New System.Drawing.Size(104, 70)
+        '
+        'StateToolStripMenuItem
+        '
+        Me.StateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnlineToolStripMenuItem1, Me.BusyToolStripMenuItem1, Me.OfflineToolStripMenuItem1})
+        Me.StateToolStripMenuItem.Name = "StateToolStripMenuItem"
+        Me.StateToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.StateToolStripMenuItem.Text = "State"
+        '
+        'OnlineToolStripMenuItem1
+        '
+        Me.OnlineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.online16
+        Me.OnlineToolStripMenuItem1.Name = "OnlineToolStripMenuItem1"
+        Me.OnlineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem1.Text = "Online"
+        '
+        'BusyToolStripMenuItem1
+        '
+        Me.BusyToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.busy16
+        Me.BusyToolStripMenuItem1.Name = "BusyToolStripMenuItem1"
+        Me.BusyToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem1.Text = "Busy"
+        '
+        'OfflineToolStripMenuItem1
+        '
+        Me.OfflineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.OfflineToolStripMenuItem1.Name = "OfflineToolStripMenuItem1"
+        Me.OfflineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem1.Text = "Offline"
+        '
+        'OpenToolStripMenuItem
+        '
+        Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenToolStripMenuItem.Text = "Open"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'EditUserToolStripMenuItem
+        '
+        Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
+        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.EditUserToolStripMenuItem.Text = "Edit user"
+        '
+        'main_frm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(355, 463)
+        Me.Controls.Add(Me.main_panel)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip
+        Me.Name = "main_frm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Eran"
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
+        Me.main_panel.ResumeLayout(False)
+        Me.main_panel.PerformLayout()
+        Me.head_panel.ResumeLayout(False)
+        Me.head_panel.PerformLayout()
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.StatusStrip.ResumeLayout(False)
+        Me.StatusStrip.PerformLayout()
+        Me.user_conextmenu.ResumeLayout(False)
+        Me.notify_conextmenu.ResumeLayout(False)
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents UsersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents main_panel As System.Windows.Forms.Panel
+    Friend WithEvents user_conextmenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CopyEranAdressToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteFromListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents StartChatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SendToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GetImgToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents open_file_diag As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents userlist_viewer As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents head_panel As System.Windows.Forms.Panel
+    Friend WithEvents status_lb As System.Windows.Forms.Label
+    Friend WithEvents eran_adr_lb As System.Windows.Forms.Label
+    Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
+    Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
+    Friend WithEvents ToolStripSplitButton1 As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents OfflineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BusyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OnlineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NotifyIcon As System.Windows.Forms.NotifyIcon
+    Friend WithEvents notify_conextmenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents StateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OnlineToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BusyToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OfflineToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents profil_img As System.Windows.Forms.PictureBox
+    Friend WithEvents EditUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+
+End Class
