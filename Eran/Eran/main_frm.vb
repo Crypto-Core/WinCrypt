@@ -309,7 +309,6 @@ Public Class main_frm
 
             ini.LoadFromMemory(ini_mem)
 
-            'ini.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
             For Each s As IniFile.IniSection In ini.Sections
                 For Each k As IniFile.IniSection.IniKey In s.Keys
                     With main_frm.userlist_viewer.Items.Add(s.Name, 0)
@@ -421,10 +420,13 @@ Public Class main_frm
         If bool = True Then
 
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
+                chat_frm(window).Text = username
                 chat_frm(window).Show()
+
                 chat_frm(window).BringToFront()
                 vibrate_frm(chat_frm(window), 3)
             Else
+                chat_frm(window).Text = username
                 chat_frm(window).Show()
 
                 If get_msg = "" Then
@@ -468,7 +470,6 @@ Public Class main_frm
                 vibrate_frm(chat_frm(index), 3)
             Else
                 If get_msg.Length > 0 Then
-                    'chat_rtb(index).AppendText(get_msg)
                     AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
                     chat_rtb(index).AppendText(cache_rtb.Text)
                     cache_rtb.Clear()
@@ -482,7 +483,6 @@ Public Class main_frm
             index += 1
 
         End If
-        ' new_chat(userlist_viewer.Items(select_count).SubItems(1).Text, userlist_viewer.Items(select_count).Text)
     End Function
     Friend Shared Function vibrate_frm(ByVal frm As Form, ByVal repeat As Integer)
         For index As Integer = 0 To repeat

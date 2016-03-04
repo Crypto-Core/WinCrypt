@@ -159,7 +159,6 @@ Partial Class nChat_frm
         '
         'addusr_bt
         '
-        Me.addusr_bt.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.addusr_bt.BackColor = System.Drawing.Color.Transparent
         Me.addusr_bt.BackgroundImage = Global.Eran.My.Resources.Resources.adduser30
         Me.addusr_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
