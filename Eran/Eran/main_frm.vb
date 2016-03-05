@@ -548,6 +548,7 @@ Public Class main_frm
             Case 0
                 status_strip.Text = "Offline"
                 status_strip.Image = My.Resources.offline16
+                profil_img.Image = My.Resources.offlineR
                 online_state = 0
                 NotifyIcon.Text = "Eran - Offline"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
@@ -558,6 +559,7 @@ Public Class main_frm
             Case 1
                 status_strip.Text = "Busy"
                 status_strip.Image = My.Resources.busy16
+                profil_img.Image = My.Resources.busyR
                 online_state = 1
                 NotifyIcon.Text = "Eran - Busy"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
@@ -567,6 +569,7 @@ Public Class main_frm
             Case 2
                 status_strip.Text = "Online"
                 status_strip.Image = My.Resources.online16
+                profil_img.Image = My.Resources.onlineR
                 online_state = 2
                 NotifyIcon.Text = "Eran - Online"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
@@ -641,9 +644,8 @@ Public Class main_frm
     End Sub
     Private Sub DeleteFromListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteFromListToolStripMenuItem.Click
         If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            Dim selected_count As Integer = userlist_viewer.SelectedIndices.Item(0).ToString
-            Dim usr_name As String = userlist_viewer.Items(selected_count).Text
-            Dim adress As String = userlist_viewer.Items(selected_count).SubItems(1).Text
+
+            Dim usr_name As String = userlist_viewer.SelectedItems(0).Text
             Dim ini As New IniFile
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
             Dim dec_trg_byte As Byte()
@@ -652,7 +654,7 @@ Public Class main_frm
             Dim mem_ As New MemoryStream(dec_trg_byte)
             ini.LoadFromMemory(mem_)
             ini.RemoveSection(usr_name)
-            userlist_viewer.Items(selected_count).Remove()
+            userlist_viewer.SelectedItems(0).Remove()
             Dim save_ini_byt As Byte()
             save_ini_byt = ini.SavetoByte
             Dim targed_enc_byt As Byte()
@@ -673,8 +675,8 @@ Public Class main_frm
     End Sub
 
     Private Sub CopyEranAdressToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyEranAdressToolStripMenuItem.Click
-        Dim selected_count As Integer = userlist_viewer.SelectedIndices.Item(0)
-        My.Computer.Clipboard.SetText(userlist_viewer.SelectedItems(selected_count).SubItems(1).Text)
+        Dim eran As String = userlist_viewer.SelectedItems(0).SubItems(1).Text.ToString
+        My.Computer.Clipboard.SetText(eran)
         MessageBox.Show("Eran adress copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
