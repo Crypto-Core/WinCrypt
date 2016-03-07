@@ -87,8 +87,8 @@
     <Compile Include="classes\GC.vb" />
     <Compile Include="classes\rHash.vb" />
     <Compile Include="classes\WindowsAPI.vb" />
-    <Compile Include="config.vb" />
-    <Compile Include="connected_usr.vb" />
+    <Compile Include="classes\config.vb" />
+    <Compile Include="classes\connected_usr.vb" />
     <Compile Include="connect_frame.Designer.vb">
       <DependentUpon>connect_frame.vb</DependentUpon>
     </Compile>
@@ -114,7 +114,8 @@
       <DependentUpon>main_frm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IniFile.vb" />
+    <Compile Include="classes\IniFile.vb" />
+    <Compile Include="server.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -139,8 +140,8 @@
     <Compile Include="nChat_frm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OnlineState.vb" />
-    <Compile Include="SecureDesktop.vb" />
+    <Compile Include="classes\OnlineState.vb" />
+    <Compile Include="classes\SecureDesktop.vb" />
     <Compile Include="settings.Designer.vb">
       <DependentUpon>settings.vb</DependentUpon>
     </Compile>
