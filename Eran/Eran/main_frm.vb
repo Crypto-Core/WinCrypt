@@ -529,7 +529,7 @@ Public Class main_frm
             Me.WindowState = FormWindowState.Minimized
             Me.Hide()
         Else
-
+            e.Cancel = True
         End If
         
         'Me.Hide()
