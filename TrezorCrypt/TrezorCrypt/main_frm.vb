@@ -138,4 +138,17 @@ Public Class main_frm
 
         End If
     End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+        NotifyIcon1.Visible = False
+        If enterpwd.isDecrypt = True Then
+
+        Else
+            Application.Exit()
+        End If
+    End Sub
+
+    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
+
+    End Sub
 End Class

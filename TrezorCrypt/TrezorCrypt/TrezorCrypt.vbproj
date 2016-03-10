@@ -127,6 +127,7 @@
     <Compile Include="rndPass.vb" />
     <Compile Include="safedelete_function.vb" />
     <Compile Include="SecureDesktop.vb" />
+    <Compile Include="Worker.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CryptMain.resx">

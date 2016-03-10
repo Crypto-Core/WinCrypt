@@ -13,9 +13,8 @@ Public Class SafedeleteFunction
         Try
             For i = 0 To repeat
                 Dim idx As Integer = r.Next(0, abc.Length)
-                Dim filesize As New FileStream(filepath, FileMode.Open)
+                Dim filesize As New FileInfo(filepath)
                 Dim fsize = CInt(Int(filesize.Length))
-                filesize.Close()
                 Dim fstream As New StreamWriter(filepath)
                 sb.Append(abc.Substring(idx, 1))
                 For o = 0 To CInt(fsize)

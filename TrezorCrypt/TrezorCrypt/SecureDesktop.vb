@@ -99,7 +99,7 @@ Module SecureDesktop
             CryptMain.serial_lb.Text = enterpwd.serial
             CryptMain.device_lb.Text = enterpwd.Letter
             CryptMain.product_lb.Text = enterpwd.USBName
-
+            CryptMain.Text = "TrezorCrypt - " & enterpwd.USBName
             CryptMain.ShowDialog()
         End If
 
