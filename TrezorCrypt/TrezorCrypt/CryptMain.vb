@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Threading
 Public Class CryptMain
     Dim serial As String
     Dim letter As String
@@ -10,35 +11,7 @@ Public Class CryptMain
     Dim clipher As String
     Dim aes As New AESEncrypt
     Private Sub CryptMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        For Each tt In DriveInfo.GetDrives
-            If tt.Name = device_lb.Text Then
-                size_lb.Text = main_frm.ToFuzzyByteString(tt.TotalSize)
-            End If
-        Next
-        ini.Load(device_lb.Text & "device.ini")
-        serial = ini.GetKeyValue("Device", "Serial")
-        letter = device_lb.Text
-        USBName = ini.GetKeyValue("Device", "Name")
-        SyncPath = ini.GetKeyValue("Device", "SyncPath")
-        algo = ini.GetKeyValue("Device", "Algorithm")
-        blocksize = ini.GetKeyValue("Device", "Blocksize")
-        clipher = enterpwd.clipher
-        enterpwd.clipher = ""
-
-        If Directory.Exists(SyncPath) = True Then
-
-        Else
-            Directory.CreateDirectory(SyncPath)
-        End If
-
-        For Each decryptFiles In Directory.GetFiles(letter & "crypt", "*.*", SearchOption.AllDirectories)
-            Dim filename As String = decryptFiles.Replace(letter & "crypt\", "")
-            Dim decryptname As String = DecryptString(filename)
-            Directory.CreateDirectory(decryptname.Substring(0, decryptname.LastIndexOf("\")))
-            My.Computer.FileSystem.WriteAllBytes(decryptname, DecryptFile(File.ReadAllBytes(decryptFiles)), False)
-            ListBox1.Items.Add("Decrypt: " & decryptname)
-        Next
-        FileSystemWatcher1.Path = SyncPath
+        
     End Sub
 
     Private Sub isEmbedUSB_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles isEmbedUSB.Tick
@@ -53,7 +26,6 @@ Public Class CryptMain
                 Dim SafeDelete As New SafedeleteFunction
                 For Each DeleteFiles In Directory.GetFiles(SyncPath, "*.*", SearchOption.AllDirectories)
                     SafeDelete.SafeEraser(DeleteFiles, 3, True)
-                    ListBox1.Items.Add("Delete: " & DeleteFiles)
                 Next
                 Directory.Delete(SyncPath, True)
             Catch ex As Exception
@@ -192,4 +164,36 @@ Public Class CryptMain
         End Select
         Return encrypt_byte
     End Function
+
+    Private Sub CryptMain_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
+        For Each tt In DriveInfo.GetDrives
+            If tt.Name = device_lb.Text Then
+                size_lb.Text = main_frm.ToFuzzyByteString(tt.TotalSize)
+            End If
+        Next
+        ini.Load(device_lb.Text & "device.ini")
+        serial = ini.GetKeyValue("Device", "Serial")
+        letter = device_lb.Text
+        USBName = ini.GetKeyValue("Device", "Name")
+        SyncPath = ini.GetKeyValue("Device", "SyncPath")
+        algo = ini.GetKeyValue("Device", "Algorithm")
+        blocksize = ini.GetKeyValue("Device", "Blocksize")
+        clipher = enterpwd.clipher
+        enterpwd.clipher = ""
+
+        If Directory.Exists(SyncPath) = True Then
+
+        Else
+            Directory.CreateDirectory(SyncPath)
+        End If
+
+        For Each decryptFiles In Directory.GetFiles(letter & "crypt", "*.*", SearchOption.AllDirectories)
+            Dim filename As String = decryptFiles.Replace(letter & "crypt\", "")
+            Dim decryptname As String = DecryptString(filename)
+            Directory.CreateDirectory(decryptname.Substring(0, decryptname.LastIndexOf("\")))
+            My.Computer.FileSystem.WriteAllBytes(decryptname, DecryptFile(File.ReadAllBytes(decryptFiles)), False)
+            ListBox1.Items.Add("Decrypt: " & decryptname)
+        Next
+        FileSystemWatcher1.Path = SyncPath
+    End Sub
 End Class
