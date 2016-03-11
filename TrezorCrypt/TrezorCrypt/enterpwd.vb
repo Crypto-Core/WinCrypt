@@ -73,4 +73,11 @@
     Private Sub enterpwd_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
         password_txt.Focus()
     End Sub
+
+    Private Sub password_txt_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles password_txt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            sync_bt.PerformClick()
+        End If
+    End Sub
 End Class

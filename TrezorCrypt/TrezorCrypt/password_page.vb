@@ -35,6 +35,12 @@ Public Class password_page
         localini.SetKeyValue("Device", "Serial", serial_lb.Text)
         localini.Save(My.Application.Info.DirectoryPath & "\devices.ini")
 
+
+        Dim configINI As New IniFile
+        configINI.AddSection("Config")
+        configINI.SetKeyValue("Config", "EraseRepeat", 3)
+        configINI.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
+        configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
         Dim createIcon As New FileStream(device_lb.Text & "trezor.ico", FileMode.Create)
         createIcon.Write(My.Resources.drivelock, 0, My.Resources.drivelock.Length)
         createIcon.Close()

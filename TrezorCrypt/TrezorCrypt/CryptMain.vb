@@ -14,6 +14,14 @@ Public Class CryptMain
     Friend clipher As String
     Friend aes As New AESEncrypt
     Friend Shared trd As Thread
+    Friend isExit As Boolean = False
+    Private Sub CryptMain_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If isExit = False Then
+            e.Cancel = True
+            Me.Hide()
+        End If
+        
+    End Sub
     Private Sub CryptMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         For Each tt In DriveInfo.GetDrives
             If tt.Name = device_lb.Text Then
@@ -36,11 +44,11 @@ Public Class CryptMain
         wrk.Blocksize = blocksize
         wrk.Algorithm = algo
         wrk.Clipher = clipher
-
         trd = New Thread(AddressOf wrk.Start)
         trd.IsBackground = True
+        MenuStrip.Enabled = False
         trd.Start()
-        
+        prg.Enabled = True
         fsw.Path = SyncPath
     End Sub
     Friend Shared isDisconnected As Boolean = False
@@ -55,13 +63,27 @@ Public Class CryptMain
                 isEmbedUSB.Enabled = False
                 trd.Abort()
                 fsw.EnableRaisingEvents = False
-                Dim SafeDelete As New SafedeleteFunction
-                For Each DeleteFiles In Directory.GetFiles(SyncPath, "*.*", SearchOption.AllDirectories)
-                    SafeDelete.SafeEraser(DeleteFiles, 3, True)
-                    state_lst.Items.Add("Erase: " & ShortPath(DeleteFiles))
-                    state_lst.TopIndex = state_lst.Items.Count - 1
-                Next
-                Directory.Delete(SyncPath, True)
+                If Worker.error_feedback = True Then
+                    If MessageBox.Show("It could not encrypt all files in the synchronization folder. The synchronization folder will therefore not be deleted." & vbNewLine & "Wanna check out the errors?", "Encryption Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+                        Application.Exit()
+                    Else
+
+                    End If
+                Else
+
+                    Dim SafeDelete As New SafedeleteFunction
+                    Dim loadINI As New IniFile
+                    loadINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                    Dim eraserepeat As Integer = loadINI.GetKeyValue("Config", "EraseRepeat")
+                    For Each DeleteFiles In Directory.GetFiles(SyncPath, "*.*", SearchOption.AllDirectories)
+                        SafeDelete.SafeEraser(DeleteFiles, eraserepeat, True)
+                        state_lst.Items.Add("Erase: " & ShortPath(DeleteFiles))
+                        state_lst.TopIndex = state_lst.Items.Count - 1
+                    Next
+                    isExit = True
+                    Directory.Delete(SyncPath, True)
+                End If
+
             Catch ex As Exception
                 main_frm.NotifyIcon.Visible = False
                 Application.Restart()
@@ -72,13 +94,23 @@ Public Class CryptMain
     End Sub
 
     Private Sub fsw_Changed(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Changed
-        state_lst.Items.Add("Changed: " & ShortPath(e.FullPath))
-        state_lst.TopIndex = state_lst.Items.Count - 1
+        If Worker.isDecrypted_files = True Then
+            state_lst.Items.Add("Changed: " & ShortPath(e.FullPath))
+            state_lst.TopIndex = state_lst.Items.Count - 1
+        Else
+            state_lst.Items.Add("Decrypted: " & ShortPath(e.FullPath))
+            state_lst.TopIndex = state_lst.Items.Count - 1
+        End If
     End Sub
 
     Private Sub fsw_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Created
-        state_lst.Items.Add("Encrypt: " & ShortPath(e.FullPath))
-        state_lst.TopIndex = state_lst.Items.Count - 1
+        If Worker.isDecrypted_files = True Then
+            state_lst.Items.Add("Encrypt: " & ShortPath(e.FullPath))
+            state_lst.TopIndex = state_lst.Items.Count - 1
+        Else
+
+        End If
+
     End Sub
 
     Private Sub fsw_Deleted(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Deleted
@@ -97,4 +129,72 @@ Public Class CryptMain
         Dim b As String = str.Substring(str.LastIndexOf("\"), str.Length - str.LastIndexOf("\"))
         Return a & "..." & b
     End Function
+    Private Sub prg_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles prg.Tick
+        If Worker.max_files > 0 Then
+            statebar.Maximum = Worker.max_files
+            statebar.Value = Worker.value_files
+            If statebar.Value = statebar.Maximum Then
+                prg.Enabled = False
+                MenuStrip.Enabled = True
+                Worker.max_files = 0
+                Worker.value_files = 0
+                statebar.MarqueeAnimationSpeed = 40
+                statebar.Style = ProgressBarStyle.Marquee
+                If main_frm.OpenSyncPathafterDecryption = 1 Then
+                    Process.Start("explorer.exe", SyncPath)
+                    Me.WindowState = FormWindowState.Minimized
+                    Me.Hide()
+                Else
+
+                End If
+
+            End If
+        End If
+
+    End Sub
+
+    Private Sub LockoutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LockoutToolStripMenuItem.Click
+        isExit = True
+        Try
+            lock_img.Image = My.Resources._1457579322_lock
+            isDisconnected = True
+            isEmbedUSB.Enabled = False
+            trd.Abort()
+            fsw.EnableRaisingEvents = False
+            If Worker.error_feedback = True Then
+                If MessageBox.Show("It could not encrypt all files in the synchronization folder. The synchronization folder will therefore not be deleted." & vbNewLine & "Wanna check out the errors?", "Encryption Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+                    Dim read_err As String
+                    For Each errors In Worker.error_lst
+                        read_err = +errors & vbNewLine & vbNewLine
+                    Next
+                    My.Computer.FileSystem.WriteAllText(My.Computer.FileSystem.SpecialDirectories.Desktop & "\TrezorCrypt error log.log", read_err, False)
+                Else
+
+                End If
+            Else
+
+                Dim SafeDelete As New SafedeleteFunction
+                For Each DeleteFiles In Directory.GetFiles(SyncPath, "*.*", SearchOption.AllDirectories)
+                    SafeDelete.SafeEraser(DeleteFiles, 3, True)
+                    state_lst.Items.Add("Erase: " & ShortPath(DeleteFiles))
+                    state_lst.TopIndex = state_lst.Items.Count - 1
+                Next
+                Directory.Delete(SyncPath, True)
+            End If
+
+        Catch ex As Exception
+            main_frm.NotifyIcon.Visible = False
+            Application.Exit()
+        End Try
+        main_frm.NotifyIcon.Visible = False
+        Application.Exit()
+    End Sub
+
+    Private Sub SettingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingToolStripMenuItem.Click
+        setting.ShowDialog()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        about.ShowDialog()
+    End Sub
 End Class

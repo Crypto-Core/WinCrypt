@@ -4,6 +4,9 @@ Imports TrezorCrypt.IniFile
 
 Public Class main_frm
     Friend loadCountDevices As Integer
+    Friend Shared EraseRepeat As Integer = 3
+    Friend Shared OpenSyncPathafterDecryption As Integer = 0
+    Friend Shared configINI As New IniFile
     Private Sub main_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_panel.HandleCreated
         ' devices_view wird bereinigt
         devices_view.Items.Clear()
@@ -84,6 +87,20 @@ Public Class main_frm
     End Sub
     Friend loadini As New IniFile
     Private Sub main_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") = False Then
+            configINI.AddSection("Config")
+            configINI.SetKeyValue("Config", "EraseRepeat", 3)
+            configINI.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
+            configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+            configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+            EraseRepeat = configINI.GetKeyValue("Config", "EraseRepeat")
+            OpenSyncPathafterDecryption = configINI.GetKeyValue("Config", "OpenSyncPathafterDecryption")
+        Else
+            configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+            EraseRepeat = configINI.GetKeyValue("Config", "EraseRepeat")
+            OpenSyncPathafterDecryption = configINI.GetKeyValue("Config", "OpenSyncPathafterDecryption")
+        End If
         'Es wird überprüft ob der Nutzer seinen USB bereits entschlüsselt hat
         If enterpwd.isDecrypt = True Then
             'Wenn ja dann soll das main_frm angezeigt werden
@@ -158,7 +175,9 @@ Public Class main_frm
     'Wenn der Nutzer doppelklickt auf das NotifyIcon
     Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
         If enterpwd.isDecrypt = True Then
+            CryptMain.WindowState = FormWindowState.Normal
             CryptMain.Show()
+            CryptMain.BringToFront()
         Else : End If
     End Sub
     'Wenn er den Exit Button klickt

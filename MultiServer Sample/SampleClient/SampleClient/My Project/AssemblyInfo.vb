@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("TrezorCrypt")> 
+<Assembly: AssemblyTitle("SampleClient")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("WinCrypt")> 
-<Assembly: AssemblyProduct("TrezorCrypt")> 
-<Assembly: AssemblyCopyright("Copyright ©  2016")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SampleClient")> 
+<Assembly: AssemblyCopyright("Copyright ©  2009")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-<Assembly: Guid("3348191b-294c-4293-a8b2-6756b25cf887")> 
+<Assembly: Guid("5f3b9a03-bdd9-405a-a292-ed901e099d52")> 
 
 ' Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.0.5.0")> 
-<Assembly: AssemblyFileVersion("0.0.5.0")> 
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 

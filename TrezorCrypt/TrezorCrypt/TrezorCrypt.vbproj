@@ -79,6 +79,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.Designer.vb">
+      <DependentUpon>about.vb</DependentUpon>
+    </Compile>
+    <Compile Include="about.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="CryptMain.Designer.vb">
       <DependentUpon>CryptMain.vb</DependentUpon>
@@ -128,8 +134,17 @@
     <Compile Include="classes\safedelete_function.vb" />
     <Compile Include="classes\SecureDesktop.vb" />
     <Compile Include="classes\Worker.vb" />
+    <Compile Include="setting.Designer.vb">
+      <DependentUpon>setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CryptMain.resx">
       <DependentUpon>CryptMain.vb</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="password_page.resx">
       <DependentUpon>password_page.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setting.resx">
+      <DependentUpon>setting.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

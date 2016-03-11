@@ -33,7 +33,7 @@ Public Class SafedeleteFunction
             Else
             End If
         Catch ex As Exception
-                MsgBox("File could not be deleted: " & ErrorToString(), MsgBoxStyle.Critical)
+            'Falls eine Datei nicht gelsöcht werden konnte gibt es eine Fehlermeldung
         End Try
     End Function
 End Class

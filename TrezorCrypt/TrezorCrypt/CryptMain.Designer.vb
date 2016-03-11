@@ -27,9 +27,10 @@ Partial Class CryptMain
         Me.isEmbedUSB = New System.Windows.Forms.Timer(Me.components)
         Me.fsw = New System.IO.FileSystemWatcher()
         Me.main_panel = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.statebar = New System.Windows.Forms.ProgressBar()
         Me.state_lst = New System.Windows.Forms.ListBox()
         Me.unlock_device_gb = New System.Windows.Forms.GroupBox()
-        Me.lock_img = New System.Windows.Forms.PictureBox()
         Me.state_lb = New System.Windows.Forms.Label()
         Me.serial_lb = New System.Windows.Forms.Label()
         Me.productname_lb = New System.Windows.Forms.Label()
@@ -40,10 +41,22 @@ Partial Class CryptMain
         Me.device_lb = New System.Windows.Forms.Label()
         Me.seriallb = New System.Windows.Forms.Label()
         Me.product_label = New System.Windows.Forms.Label()
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.DeviceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnlockToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EncryptionSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LockoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.prg = New System.Windows.Forms.Timer(Me.components)
+        Me.lock_img = New System.Windows.Forms.PictureBox()
         Me.logo_img = New System.Windows.Forms.PictureBox()
         CType(Me.fsw, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.main_panel.SuspendLayout()
         Me.unlock_device_gb.SuspendLayout()
+        Me.MenuStrip.SuspendLayout()
         CType(Me.lock_img, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -61,15 +74,34 @@ Partial Class CryptMain
         '
         'main_panel
         '
+        Me.main_panel.Controls.Add(Me.Label1)
+        Me.main_panel.Controls.Add(Me.statebar)
         Me.main_panel.Controls.Add(Me.state_lst)
         Me.main_panel.Controls.Add(Me.unlock_device_gb)
         Me.main_panel.Controls.Add(Me.product_label)
         Me.main_panel.Controls.Add(Me.logo_img)
+        Me.main_panel.Controls.Add(Me.MenuStrip)
         Me.main_panel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.main_panel.Location = New System.Drawing.Point(0, 0)
         Me.main_panel.Name = "main_panel"
-        Me.main_panel.Size = New System.Drawing.Size(465, 366)
+        Me.main_panel.Size = New System.Drawing.Size(465, 386)
         Me.main_panel.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(119, 149)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "BETA"
+        '
+        'statebar
+        '
+        Me.statebar.Location = New System.Drawing.Point(3, 350)
+        Me.statebar.Name = "statebar"
+        Me.statebar.Size = New System.Drawing.Size(459, 16)
+        Me.statebar.TabIndex = 7
         '
         'state_lst
         '
@@ -77,7 +109,7 @@ Partial Class CryptMain
         Me.state_lst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.state_lst.ForeColor = System.Drawing.Color.White
         Me.state_lst.FormattingEnabled = True
-        Me.state_lst.Location = New System.Drawing.Point(3, 140)
+        Me.state_lst.Location = New System.Drawing.Point(3, 165)
         Me.state_lst.Name = "state_lst"
         Me.state_lst.Size = New System.Drawing.Size(459, 184)
         Me.state_lst.TabIndex = 6
@@ -95,21 +127,12 @@ Partial Class CryptMain
         Me.unlock_device_gb.Controls.Add(Me.device_lb)
         Me.unlock_device_gb.Controls.Add(Me.seriallb)
         Me.unlock_device_gb.ForeColor = System.Drawing.Color.White
-        Me.unlock_device_gb.Location = New System.Drawing.Point(118, 12)
+        Me.unlock_device_gb.Location = New System.Drawing.Point(118, 37)
         Me.unlock_device_gb.Name = "unlock_device_gb"
         Me.unlock_device_gb.Size = New System.Drawing.Size(335, 100)
         Me.unlock_device_gb.TabIndex = 5
         Me.unlock_device_gb.TabStop = False
         Me.unlock_device_gb.Text = "Unlock Device"
-        '
-        'lock_img
-        '
-        Me.lock_img.Image = Global.TrezorCrypt.My.Resources.Resources._1457579322_lock
-        Me.lock_img.Location = New System.Drawing.Point(306, 74)
-        Me.lock_img.Name = "lock_img"
-        Me.lock_img.Size = New System.Drawing.Size(16, 16)
-        Me.lock_img.TabIndex = 17
-        Me.lock_img.TabStop = False
         '
         'state_lb
         '
@@ -196,16 +219,108 @@ Partial Class CryptMain
         '
         Me.product_label.AutoSize = True
         Me.product_label.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.product_label.Location = New System.Drawing.Point(2, 115)
+        Me.product_label.Location = New System.Drawing.Point(2, 140)
         Me.product_label.Name = "product_label"
         Me.product_label.Size = New System.Drawing.Size(120, 22)
         Me.product_label.TabIndex = 4
         Me.product_label.Text = "TrezorCrypt"
         '
+        'MenuStrip
+        '
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MenuStrip.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeviceToolStripMenuItem, Me.OptionsToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(465, 24)
+        Me.MenuStrip.TabIndex = 9
+        Me.MenuStrip.Text = "MenuStrip"
+        '
+        'DeviceToolStripMenuItem
+        '
+        Me.DeviceToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LockToolStripMenuItem, Me.UnlockToolStripMenuItem, Me.EncryptionSettingToolStripMenuItem, Me.LockoutToolStripMenuItem})
+        Me.DeviceToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DeviceToolStripMenuItem.Name = "DeviceToolStripMenuItem"
+        Me.DeviceToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.DeviceToolStripMenuItem.Text = "Device"
+        '
+        'LockToolStripMenuItem
+        '
+        Me.LockToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.LockToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.LockToolStripMenuItem.Name = "LockToolStripMenuItem"
+        Me.LockToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
+        Me.LockToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.LockToolStripMenuItem.Text = "Lock"
+        '
+        'UnlockToolStripMenuItem
+        '
+        Me.UnlockToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.UnlockToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.UnlockToolStripMenuItem.Name = "UnlockToolStripMenuItem"
+        Me.UnlockToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
+        Me.UnlockToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.UnlockToolStripMenuItem.Text = "Unlock"
+        '
+        'EncryptionSettingToolStripMenuItem
+        '
+        Me.EncryptionSettingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.EncryptionSettingToolStripMenuItem.Enabled = False
+        Me.EncryptionSettingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.EncryptionSettingToolStripMenuItem.Name = "EncryptionSettingToolStripMenuItem"
+        Me.EncryptionSettingToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.EncryptionSettingToolStripMenuItem.Text = "Encryption Setting"
+        '
+        'LockoutToolStripMenuItem
+        '
+        Me.LockoutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.LockoutToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.LockoutToolStripMenuItem.Name = "LockoutToolStripMenuItem"
+        Me.LockoutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.LockoutToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.LockoutToolStripMenuItem.Text = "Lockout"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'SettingToolStripMenuItem
+        '
+        Me.SettingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingToolStripMenuItem.Text = "Setting"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'prg
+        '
+        Me.prg.Interval = 1
+        '
+        'lock_img
+        '
+        Me.lock_img.Image = Global.TrezorCrypt.My.Resources.Resources._1457579322_lock
+        Me.lock_img.Location = New System.Drawing.Point(306, 74)
+        Me.lock_img.Name = "lock_img"
+        Me.lock_img.Size = New System.Drawing.Size(16, 16)
+        Me.lock_img.TabIndex = 17
+        Me.lock_img.TabStop = False
+        '
         'logo_img
         '
         Me.logo_img.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
-        Me.logo_img.Location = New System.Drawing.Point(12, 12)
+        Me.logo_img.Location = New System.Drawing.Point(12, 37)
         Me.logo_img.Name = "logo_img"
         Me.logo_img.Size = New System.Drawing.Size(100, 100)
         Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -217,12 +332,13 @@ Partial Class CryptMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(465, 366)
+        Me.ClientSize = New System.Drawing.Size(465, 386)
         Me.Controls.Add(Me.main_panel)
         Me.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip
         Me.MaximizeBox = False
         Me.Name = "CryptMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -232,6 +348,8 @@ Partial Class CryptMain
         Me.main_panel.PerformLayout()
         Me.unlock_device_gb.ResumeLayout(False)
         Me.unlock_device_gb.PerformLayout()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
         CType(Me.lock_img, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -254,4 +372,16 @@ Partial Class CryptMain
     Friend WithEvents lock_img As System.Windows.Forms.PictureBox
     Friend WithEvents state_lst As System.Windows.Forms.ListBox
     Friend WithEvents isEmbedUSB As System.Windows.Forms.Timer
+    Friend WithEvents statebar As System.Windows.Forms.ProgressBar
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents DeviceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UnlockToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EncryptionSettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LockoutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents prg As System.Windows.Forms.Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
