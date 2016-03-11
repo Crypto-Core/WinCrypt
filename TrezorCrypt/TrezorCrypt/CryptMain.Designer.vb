@@ -25,28 +25,27 @@ Partial Class CryptMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CryptMain))
         Me.isEmbedUSB = New System.Windows.Forms.Timer(Me.components)
-        Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.fsw = New System.IO.FileSystemWatcher()
+        Me.main_panel = New System.Windows.Forms.Panel()
+        Me.state_lst = New System.Windows.Forms.ListBox()
+        Me.unlock_device_gb = New System.Windows.Forms.GroupBox()
+        Me.lock_img = New System.Windows.Forms.PictureBox()
+        Me.state_lb = New System.Windows.Forms.Label()
         Me.serial_lb = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.productname_lb = New System.Windows.Forms.Label()
         Me.size_lb = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.devicelb = New System.Windows.Forms.Label()
         Me.product_lb = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.sizelb = New System.Windows.Forms.Label()
         Me.device_lb = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.seriallb = New System.Windows.Forms.Label()
+        Me.product_label = New System.Windows.Forms.Label()
+        Me.logo_img = New System.Windows.Forms.PictureBox()
+        CType(Me.fsw, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.main_panel.SuspendLayout()
+        Me.unlock_device_gb.SuspendLayout()
+        CType(Me.lock_img, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'isEmbedUSB
@@ -54,73 +53,72 @@ Partial Class CryptMain
         Me.isEmbedUSB.Enabled = True
         Me.isEmbedUSB.Interval = 1000
         '
-        'FileSystemWatcher1
+        'fsw
         '
-        Me.FileSystemWatcher1.EnableRaisingEvents = True
-        Me.FileSystemWatcher1.IncludeSubdirectories = True
-        Me.FileSystemWatcher1.SynchronizingObject = Me
+        Me.fsw.EnableRaisingEvents = True
+        Me.fsw.IncludeSubdirectories = True
+        Me.fsw.SynchronizingObject = Me
         '
-        'Panel1
+        'main_panel
         '
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.ListBox1)
-        Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(465, 366)
-        Me.Panel1.TabIndex = 1
+        Me.main_panel.Controls.Add(Me.state_lst)
+        Me.main_panel.Controls.Add(Me.unlock_device_gb)
+        Me.main_panel.Controls.Add(Me.product_label)
+        Me.main_panel.Controls.Add(Me.logo_img)
+        Me.main_panel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.main_panel.Location = New System.Drawing.Point(0, 0)
+        Me.main_panel.Name = "main_panel"
+        Me.main_panel.Size = New System.Drawing.Size(465, 366)
+        Me.main_panel.TabIndex = 1
         '
-        'ListBox1
+        'state_lst
         '
-        Me.ListBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.ListBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListBox1.ForeColor = System.Drawing.Color.White
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(3, 140)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(459, 184)
-        Me.ListBox1.TabIndex = 6
+        Me.state_lst.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.state_lst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.state_lst.ForeColor = System.Drawing.Color.White
+        Me.state_lst.FormattingEnabled = True
+        Me.state_lst.Location = New System.Drawing.Point(3, 140)
+        Me.state_lst.Name = "state_lst"
+        Me.state_lst.Size = New System.Drawing.Size(459, 184)
+        Me.state_lst.TabIndex = 6
         '
-        'GroupBox1
+        'unlock_device_gb
         '
-        Me.GroupBox1.Controls.Add(Me.PictureBox2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.serial_lb)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.size_lb)
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.product_lb)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.device_lb)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(118, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(335, 100)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Unlock Device"
+        Me.unlock_device_gb.Controls.Add(Me.lock_img)
+        Me.unlock_device_gb.Controls.Add(Me.state_lb)
+        Me.unlock_device_gb.Controls.Add(Me.serial_lb)
+        Me.unlock_device_gb.Controls.Add(Me.productname_lb)
+        Me.unlock_device_gb.Controls.Add(Me.size_lb)
+        Me.unlock_device_gb.Controls.Add(Me.devicelb)
+        Me.unlock_device_gb.Controls.Add(Me.product_lb)
+        Me.unlock_device_gb.Controls.Add(Me.sizelb)
+        Me.unlock_device_gb.Controls.Add(Me.device_lb)
+        Me.unlock_device_gb.Controls.Add(Me.seriallb)
+        Me.unlock_device_gb.ForeColor = System.Drawing.Color.White
+        Me.unlock_device_gb.Location = New System.Drawing.Point(118, 12)
+        Me.unlock_device_gb.Name = "unlock_device_gb"
+        Me.unlock_device_gb.Size = New System.Drawing.Size(335, 100)
+        Me.unlock_device_gb.TabIndex = 5
+        Me.unlock_device_gb.TabStop = False
+        Me.unlock_device_gb.Text = "Unlock Device"
         '
-        'PictureBox2
+        'lock_img
         '
-        Me.PictureBox2.Image = Global.TrezorCrypt.My.Resources.Resources._1457579322_lock
-        Me.PictureBox2.Location = New System.Drawing.Point(306, 74)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(16, 16)
-        Me.PictureBox2.TabIndex = 17
-        Me.PictureBox2.TabStop = False
+        Me.lock_img.Image = Global.TrezorCrypt.My.Resources.Resources._1457579322_lock
+        Me.lock_img.Location = New System.Drawing.Point(306, 74)
+        Me.lock_img.Name = "lock_img"
+        Me.lock_img.Size = New System.Drawing.Size(16, 16)
+        Me.lock_img.TabIndex = 17
+        Me.lock_img.TabStop = False
         '
-        'Label1
+        'state_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(258, 76)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 13)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Status:"
+        Me.state_lb.AutoSize = True
+        Me.state_lb.Location = New System.Drawing.Point(258, 76)
+        Me.state_lb.Name = "state_lb"
+        Me.state_lb.Size = New System.Drawing.Size(49, 13)
+        Me.state_lb.TabIndex = 16
+        Me.state_lb.Text = "Status:"
         '
         'serial_lb
         '
@@ -131,14 +129,14 @@ Partial Class CryptMain
         Me.serial_lb.TabIndex = 15
         Me.serial_lb.Text = "-"
         '
-        'Label5
+        'productname_lb
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 25)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Productname:"
+        Me.productname_lb.AutoSize = True
+        Me.productname_lb.Location = New System.Drawing.Point(6, 25)
+        Me.productname_lb.Name = "productname_lb"
+        Me.productname_lb.Size = New System.Drawing.Size(79, 13)
+        Me.productname_lb.TabIndex = 9
+        Me.productname_lb.Text = "Productname:"
         '
         'size_lb
         '
@@ -149,14 +147,14 @@ Partial Class CryptMain
         Me.size_lb.TabIndex = 14
         Me.size_lb.Text = "-"
         '
-        'Label4
+        'devicelb
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 42)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 13)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Device:"
+        Me.devicelb.AutoSize = True
+        Me.devicelb.Location = New System.Drawing.Point(36, 42)
+        Me.devicelb.Name = "devicelb"
+        Me.devicelb.Size = New System.Drawing.Size(49, 13)
+        Me.devicelb.TabIndex = 8
+        Me.devicelb.Text = "Device:"
         '
         'product_lb
         '
@@ -167,14 +165,14 @@ Partial Class CryptMain
         Me.product_lb.TabIndex = 13
         Me.product_lb.Text = "-"
         '
-        'Label6
+        'sizelb
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(48, 76)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(37, 13)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Size:"
+        Me.sizelb.AutoSize = True
+        Me.sizelb.Location = New System.Drawing.Point(48, 76)
+        Me.sizelb.Name = "sizelb"
+        Me.sizelb.Size = New System.Drawing.Size(37, 13)
+        Me.sizelb.TabIndex = 10
+        Me.sizelb.Text = "Size:"
         '
         'device_lb
         '
@@ -185,46 +183,34 @@ Partial Class CryptMain
         Me.device_lb.TabIndex = 12
         Me.device_lb.Text = "-"
         '
-        'Label7
+        'seriallb
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(36, 59)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Serial:"
+        Me.seriallb.AutoSize = True
+        Me.seriallb.Location = New System.Drawing.Point(36, 59)
+        Me.seriallb.Name = "seriallb"
+        Me.seriallb.Size = New System.Drawing.Size(49, 13)
+        Me.seriallb.TabIndex = 11
+        Me.seriallb.Text = "Serial:"
         '
-        'Label2
+        'product_label
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(2, 115)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 22)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "TrezorCrypt"
+        Me.product_label.AutoSize = True
+        Me.product_label.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.product_label.Location = New System.Drawing.Point(2, 115)
+        Me.product_label.Name = "product_label"
+        Me.product_label.Size = New System.Drawing.Size(120, 22)
+        Me.product_label.TabIndex = 4
+        Me.product_label.Text = "TrezorCrypt"
         '
-        'PictureBox1
+        'logo_img
         '
-        Me.PictureBox1.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(387, 330)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Next"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.logo_img.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
+        Me.logo_img.Location = New System.Drawing.Point(12, 12)
+        Me.logo_img.Name = "logo_img"
+        Me.logo_img.Size = New System.Drawing.Size(100, 100)
+        Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.logo_img.TabIndex = 1
+        Me.logo_img.TabStop = False
         '
         'CryptMain
         '
@@ -232,7 +218,7 @@ Partial Class CryptMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(465, 366)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.main_panel)
         Me.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -241,32 +227,31 @@ Partial Class CryptMain
         Me.Name = "CryptMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TrezorCrypt"
-        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.fsw, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.main_panel.ResumeLayout(False)
+        Me.main_panel.PerformLayout()
+        Me.unlock_device_gb.ResumeLayout(False)
+        Me.unlock_device_gb.PerformLayout()
+        CType(Me.lock_img, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents FileSystemWatcher1 As System.IO.FileSystemWatcher
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents fsw As System.IO.FileSystemWatcher
+    Friend WithEvents main_panel As System.Windows.Forms.Panel
+    Friend WithEvents product_label As System.Windows.Forms.Label
+    Friend WithEvents logo_img As System.Windows.Forms.PictureBox
+    Friend WithEvents unlock_device_gb As System.Windows.Forms.GroupBox
     Friend WithEvents serial_lb As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents productname_lb As System.Windows.Forms.Label
     Friend WithEvents size_lb As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents devicelb As System.Windows.Forms.Label
     Friend WithEvents product_lb As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents sizelb As System.Windows.Forms.Label
     Friend WithEvents device_lb As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents seriallb As System.Windows.Forms.Label
+    Friend WithEvents state_lb As System.Windows.Forms.Label
+    Friend WithEvents lock_img As System.Windows.Forms.PictureBox
+    Friend WithEvents state_lst As System.Windows.Forms.ListBox
     Friend WithEvents isEmbedUSB As System.Windows.Forms.Timer
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -117,36 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="img_lst.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="ImageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="img_lst.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABa
-        BAAAAk1TRnQBSQFMAwEBAAFYAQABWAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        BAAAAk1TRnQBSQFMAwEBAAFgAQABYAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
         ARADAAEBAQABIAYAARD/ABcAAzIBUQNVAbADUgGjA1MBpQNTAaUDUwGlA1MBpQNTAaUDUwGlA1MBpQNT
-        AaUDUgGjA1UBsAM7AWPIAANGAX8DjAH/A1UB/AOAAf8DhgH/A3AB/wOCAf8DiAH/AYwBjQGMAf8BsAGu
-        AbAB/wGyAbgBsgH/AUkBgQFJAfwBtQG5AbUB/wNQAZrIAANFAXwDowH/A4gB+QOiAf0DggH8A4AB/AOD
-        AfwDhgH8A4oB/AOUAfwDqAH9AYkBjAGJAfkDqwH/A04BmMgAAz8BbQPIAf8DvAH8A9sB/wPcAf8D3AH/
-        A9wB/wPcAf8D2gH/A9UB/wPTAf8BuQG4AbkB/AO9Af8DSgGJyAADMwFSA9YB/wO7Af0D1QH/A9QB/wPW
-        Af8D2wH/A90B/wPaAf8D1gH/A9IB/wGyAbMBsgH8A88B/wNAAW7IAAMmATgD0AH/A70B/gPNAf8DzgH/
-        A9MB/wPYAf8D2wH/A9QB/wPNAf8DzAH/A7gB/QPIAf8DMwFTyAADGAEiA6YB+wPOAf8DyQH/A8sB/wPG
-        Af8DzAH/A9IB/wPIAf8DyAH/A8gB/wO0Af4DxQH/AycBOsgAAwwBEANzAewDyAH/A6wB/gPKAf8DxgH/
-        A7oB/wO6Af8DwgH/A8oB/wPJAf8DxAH/A6AB/AMaASXIAAMBAQIDXgHZA8kB/wOrAf4DtQH/A8EB/wPF
-        Af8DxQH/A8UB/wPCAf8DwQH/A70B/wNuAe4DDgETxwABAQQAA1kEwgH/A7cB/QPAAf8DtQH/A7MB/wOz
-        Af8DtgH/A7wB/wOnAf4DuwH/A2EB3AMEAQXEAAMBAQIEAANSAakDuQH/A6sB/APGAf8DxgH/A8QB/wPE
-        Af8DxQH/A8cB/wO0Af0DtQH/A1kBxwcAAQHAAAMCAQMEAANKAY0DsAH/A5UB+wOkAf4DogH+A6MB/gOj
-        Af4DowH+A6MB/gOVAfsDrwH/A1QBrgQAAwEBAsAAAwIBAwQAA0ABcQOvAf8DggH8A6UB/wOkAf8DpAH/
-        A6QB/wOlAf8DpgH/A4YB/AOmAf8DTAGTBAADAgEDwAADAQECBAADMAFMA2sB7gNlAeADZAHjA2QB4gNk
-        AeIDZAHiA2QB4gNkAeIDYQHfA2oB8AM+AWoEAAMCAQPIAAMCAQMDCgEOAwoBDQMKAQ0DCgENAwoBDQMK
+        AaUDUgGjA1UBsAM7AWPIAANGAX8DjAH/A1MB/AOAAf8DhgH/A28B/wOCAf8DiAH/AYwBjQGMAf8BsAGu
+        AbAB/wGyAbgBsgH/AUcBfgFHAfwBtQG5AbUB/wNQAZrIAANFAXwDowH/A4cB+QOiAf0DfwH8A34B/AOA
+        AfwDgwH8A4cB/AORAfwDqAH9AYgBiwGIAfkDqwH/A04BmMgAAz8BbQPIAf8DugH8A9sB/wPcAf8D3AH/
+        A9wB/wPcAf8D2gH/A9UB/wPTAf8BtwG2AbcB/AO9Af8DSgGJyAADMwFSA9YB/wO6Af0D1QH/A9QB/wPW
+        Af8D2wH/A90B/wPaAf8D1gH/A9IB/wGwAbEBsAH8A88B/wNAAW7IAAMmATgD0AH/A7sB/gPNAf8DzgH/
+        A9MB/wPYAf8D2wH/A9QB/wPNAf8DzAH/A7cB/QPIAf8DMwFTyAADGAEiA6IB+wPOAf8DyQH/A8sB/wPG
+        Af8DzAH/A9IB/wPIAf8DyAH/A8gB/wOyAf4DxQH/AycBOsgAAwwBEANwAewDyAH/A6oB/gPKAf8DxgH/
+        A7oB/wO6Af8DwgH/A8oB/wPJAf8DxAH/A50B/AMaASXIAAMBAQIDXgHZA8kB/wOpAf4DtQH/A8EB/wPF
+        Af8DxQH/A8UB/wPCAf8DwQH/A70B/wNsAe4DDgETxwABAQQAA1kEwgH/A7YB/QPAAf8DtQH/A7MB/wOz
+        Af8DtgH/A7wB/wOlAf4DuwH/A2EB3AMEAQXEAAMBAQIEAANSAakDuQH/A6kB/APGAf8DxgH/A8QB/wPE
+        Af8DxQH/A8cB/wOzAf0DtQH/A1kBxwcAAQHAAAMCAQMEAANKAY0DsAH/A5QB+wOiAf4DoAH+A6EB/gOh
+        Af4DoQH+A6EB/gOUAfsDrwH/A1QBrgQAAwEBAsAAAwIBAwQAA0ABcQOvAf8DfwH8A6UB/wOkAf8DpAH/
+        A6QB/wOlAf8DpgH/A4MB/AOmAf8DTAGTBAADAgEDwAADAQECBAADMAFMA2kB7gNkAeADYgHjA2MB4gNj
+        AeIDYwHiA2MB4gNjAeIDYAHfA2kB8AM+AWoEAAMCAQPIAAMCAQMDCgEOAwoBDQMKAQ0DCgENAwoBDQMK
         AQ0DCgENAwoBDQMJAQwDCgENAwMBBMgAAUIBTQE+BwABPgMAASgDAAFAAwABEAMAAQEBAAEBBQABgBcA
         A/8BAAL/BgABgAEBBgABgAEBBgABgAEBBgABgAEBBgABgAEBBgABgAEBBgABgAEBBgABgAEBBgABgAEB
         BgABQAEBBgABQAECBgABQAECBgABQAECBgABQAECBgABwAEDBgAL
 </value>
   </data>
-  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="folder_diag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
   </metadata>
   <metadata name="synDriveTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -155,14 +155,14 @@
   <metadata name="checkList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>427, 17</value>
   </metadata>
-  <metadata name="NotifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>528, 17</value>
   </metadata>
-  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="notifiy_context.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>643, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="NotifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="NotifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAcAAAAAAAEAIAAoIAQAdgAAAICAAAABACAAKAgBAJ4gBABAQAAAAQAgAChCAADGKAUAMDAAAAEA
         IACoJQAA7moFACAgAAABACAAqBAAAJaQBQAYGAAAAQAgAIgJAAA+oQUAEBAAAAEAIABoBAAAxqoFACgA

@@ -4,18 +4,27 @@ Imports TrezorCrypt.IniFile
 
 Public Class main_frm
     Dim loadCountDevices As Integer
-    Private Sub Panel1_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Panel1.HandleCreated
-        ListView1.Items.Clear()
+    Private Sub main_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_panel.HandleCreated
+        ' devices_view wird bereinigt
+        devices_view.Items.Clear()
+
+        'Die Anzahl der Geräte wird deklariert
         loadCountDevices = devices.GetDevicesName.Count
+
+        'Die USB Geräte werden in der devices_view aufgelistet
         For index As Integer = 0 To devices.GetDevicesName.Count - 1
-            With ListView1.Items.Add(devices.DriveLetter.Item(index), 0)
+            With devices_view.Items.Add(devices.DriveLetter.Item(index), 0)
                 .SubItems.Add(devices.GetDevicesName.Item(index))
                 .SubItems.Add(ToFuzzyByteString(devices.DriveSize.Item(index)))
                 .SubItems.Add(devices.GetDevicesSerial.Item(index))
             End With
         Next
-        TextBox1.Text = My.Computer.FileSystem.SpecialDirectories.Desktop & "\TrezorSync"
+
+        'Dem Synchronastionspfad wird der Desktop vordefiniert (Wenn gewünscht)
+        sync_path_txt.Text = My.Computer.FileSystem.SpecialDirectories.Desktop & "\TrezorSync"
     End Sub
+
+    ' Die Bytegröße wird abgekürzt
     Public Shared Function ToFuzzyByteString(ByVal bytes As Long) As String
         Dim s As Double = bytes
         Dim format As String() = New String() {"{0} bytes", "{0} KB", "{0} MB", "{0} GB", "{0} TB", "{0} PB", _
@@ -29,22 +38,25 @@ Public Class main_frm
         End While
         Return String.Format(format(i), s)
     End Function
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        FolderBrowserDialog1.ShowDialog()
 
-        If FolderBrowserDialog1.SelectedPath = "" Then
-            TextBox1.Text = My.Computer.FileSystem.SpecialDirectories.Desktop & "\TrezorSync"
+    'Der Nutzer Bestimmt seinen eigenen Synchronisationspfad
+    Private Sub open_folderdiag_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles open_folderdiag.Click
+        folder_diag.ShowDialog()
+
+        If folder_diag.SelectedPath = "" Then
+            sync_path_txt.Text = My.Computer.FileSystem.SpecialDirectories.Desktop & "\TrezorSync"
         Else
-            TextBox1.Text = FolderBrowserDialog1.SelectedPath
+            sync_path_txt.Text = folder_diag.SelectedPath
         End If
     End Sub
 
+    'Die Geräte werden automatisch neugeladen, jede 0,5 sek.
     Private Sub synDriveTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles synDriveTimer.Tick
         If loadCountDevices <> devices.GetDevicesName.Count Then
             loadCountDevices = devices.GetDevicesName.Count
-            ListView1.Items.Clear()
+            devices_view.Items.Clear()
             For index As Integer = 0 To devices.GetDevicesName.Count - 1
-                With ListView1.Items.Add(devices.DriveLetter.Item(index), 0)
+                With devices_view.Items.Add(devices.DriveLetter.Item(index), 0)
                     .SubItems.Add(devices.GetDevicesName.Item(index))
                     .SubItems.Add(ToFuzzyByteString(devices.DriveSize.Item(index)))
                     .SubItems.Add(devices.GetDevicesSerial.Item(index))
@@ -52,70 +64,83 @@ Public Class main_frm
             Next
         End If
     End Sub
+
+    'Es wird die Zahl des Ausgewählten Gerätes deklariert
     Public Shared selectedDevice As Integer
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If ListView1.SelectedIndices.Count > 0 Then
+
+    'Die Seite enterpwd.main_panel wird geladen und die eigene main_panel versteckt
+    Private Sub next_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles next_bt.Click
+        If devices_view.SelectedIndices.Count > 0 Then
             On Error Resume Next
-            selectedDevice = ListView1.SelectedIndices.Item(0).ToString
-            Panel1.Hide()
-            Controls.Add(password_page.Panel1)
-            password_page.Panel1.Show()
+            selectedDevice = devices_view.SelectedIndices.Item(0).ToString
+            main_panel.Hide()
+            Controls.Add(password_page.main_panel)
+            password_page.main_panel.Show()
             password_page.device_lb.Text = devices.DriveLetter.Item(main_frm.selectedDevice)
             password_page.product_lb.Text = devices.GetDevicesName.Item(main_frm.selectedDevice)
             password_page.size_lb.Text = main_frm.ToFuzzyByteString(devices.DriveSize.Item(main_frm.selectedDevice))
             password_page.serial_lb.Text = devices.GetDevicesSerial.Item(main_frm.selectedDevice)
         End If
     End Sub
-    Dim loadini As New IniFile
+    Friend loadini As New IniFile
     Private Sub main_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Es wird überprüft ob der Nutzer seinen USB bereits entschlüsselt hat
         If enterpwd.isDecrypt = True Then
-
+            'Wenn ja dann soll das main_frm angezeigt werden
             Visible = True
             ShowInTaskbar = True
             WindowState = FormWindowState.Normal
             Show()
         Else
-
+            'Es wird überprüft ob die Datei device.ini existiert
             If File.Exists(My.Application.Info.DirectoryPath & "\devices.ini") = True Then
+                'Wenn ja, dann soll der Inhalt geladen werden
                 loadini.Load(My.Application.Info.DirectoryPath & "\devices.ini")
-
+                'Die main_frm wird versteckt
                 Me.Visible = False
                 ShowInTaskbar = False
                 WindowState = FormWindowState.Minimized
-
-
+                'Der Timer zum automatischen neuladen der Geräte wird ausgeschaltet
                 synDriveTimer.Enabled = False
+                'Jetzt wird das USB Gerät gesucht, bzw. es wird gelauscht bis es angeschlossen wird
                 checkList.Enabled = True
-                NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
-                NotifyIcon1.BalloonTipTitle = "TrezorCrypt"
-                NotifyIcon1.BalloonTipText = "Listen for registried USB Device"
-                NotifyIcon1.ShowBalloonTip(2000)
+
+                'Zeige dem Ntuzer die Information an das jetzt nach dem USB Gerät gelauscht wird
+                NotifyIcon.BalloonTipIcon = ToolTipIcon.Info
+                NotifyIcon.BalloonTipTitle = "TrezorCrypt"
+                NotifyIcon.BalloonTipText = "Listen for registried USB Device"
+                NotifyIcon.ShowBalloonTip(2000)
             End If
         End If
-        
+
     End Sub
 
     Private Sub checkList_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkList.Tick
-
-
+        'Es wird eine Schleife in der INI durchgeführt um die Registrierten Geräte mit den Bereits
+        'angeschlossenen Geräten zu vergleichen
         For Each s As IniSection In loadini.Sections
             For Each k As IniSection.IniKey In s.Keys
                 If k.Value <> String.Empty Then
+                    'Wenn das Gerät in der INI angeschlossen ist...
                     If devices.isDriveEmbed(k.Value) = True Then
+                        'Und der Nutzer dieses noch NICHT entschlüsselt hat
                         If enterpwd.isDecrypt = True Then
 
                         Else
                             checkList.Enabled = False
                             For index As Integer = 0 To devices.GetDevicesName.Count - 1
+                                'Hier wird nochmal die Seriennummer vom USB Gerät und der INI Verglichen
                                 If devices.GetDevicesSerial.Item(index) = k.Value Then
+                                    '<--------------------------------------------------------
+                                    'Jetzt wird das Fenster enterpwd angezeit im SecureDesktop
                                     enterpwd.Letter = devices.DriveLetter.Item(index)
                                     enterpwd.USBName = devices.GetDevicesName(index)
                                 End If
                             Next
-                            'enterpwd.ShowDialog()
                             secure()
+                            '----------------------------------------------------------------->
                         End If
-                       
+
 
                     Else
 
@@ -126,29 +151,25 @@ Public Class main_frm
             Next
         Next
     End Sub
-
     Sub secure()
+        'Die Klasse SecureDesktop wird secure() angewiesen.
         SecureDesktop.StartSecureWindow(enterpwd)
     End Sub
-
-    Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+    'Wenn der Nutzer doppelklickt auf das NotifyIcon
+    Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
         If enterpwd.isDecrypt = True Then
             CryptMain.Show()
         Else
 
         End If
     End Sub
-
+    'Wenn er den Exit Button klickt
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
-        NotifyIcon1.Visible = False
+        NotifyIcon.Visible = False
         If enterpwd.isDecrypt = True Then
 
         Else
             Application.Exit()
         End If
-    End Sub
-
-    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-
     End Sub
 End Class

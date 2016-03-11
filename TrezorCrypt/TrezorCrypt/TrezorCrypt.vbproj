@@ -79,22 +79,22 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AESEncrypt.vb" />
+    <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="CryptMain.Designer.vb">
       <DependentUpon>CryptMain.vb</DependentUpon>
     </Compile>
     <Compile Include="CryptMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="devices.vb" />
+    <Compile Include="classes\devices.vb" />
     <Compile Include="enterpwd.Designer.vb">
       <DependentUpon>enterpwd.vb</DependentUpon>
     </Compile>
     <Compile Include="enterpwd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GC.vb" />
-    <Compile Include="IniFile.vb" />
+    <Compile Include="classes\GC.vb" />
+    <Compile Include="classes\IniFile.vb" />
     <Compile Include="main_frm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -123,11 +123,11 @@
     <Compile Include="password_page.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="rHash.vb" />
-    <Compile Include="rndPass.vb" />
-    <Compile Include="safedelete_function.vb" />
-    <Compile Include="SecureDesktop.vb" />
-    <Compile Include="Worker.vb" />
+    <Compile Include="classes\rHash.vb" />
+    <Compile Include="classes\rndPass.vb" />
+    <Compile Include="classes\safedelete_function.vb" />
+    <Compile Include="classes\SecureDesktop.vb" />
+    <Compile Include="classes\Worker.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CryptMain.resx">

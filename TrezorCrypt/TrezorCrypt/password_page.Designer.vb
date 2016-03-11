@@ -22,233 +22,66 @@ Partial Class password_page
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.device_lb = New System.Windows.Forms.Label()
-        Me.product_lb = New System.Windows.Forms.Label()
-        Me.size_lb = New System.Windows.Forms.Label()
+        Me.main_panel = New System.Windows.Forms.Panel()
+        Me.selected_gb = New System.Windows.Forms.GroupBox()
         Me.serial_lb = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Panel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.size_lb = New System.Windows.Forms.Label()
+        Me.product_lb = New System.Windows.Forms.Label()
+        Me.device_lb = New System.Windows.Forms.Label()
+        Me.seriallb = New System.Windows.Forms.Label()
+        Me.sizelb = New System.Windows.Forms.Label()
+        Me.productname_lb = New System.Windows.Forms.Label()
+        Me.devicelb = New System.Windows.Forms.Label()
+        Me.encryption_gb = New System.Windows.Forms.GroupBox()
+        Me.min_chars_lb = New System.Windows.Forms.Label()
+        Me.blocksize_cb = New System.Windows.Forms.ComboBox()
+        Me.blocksize_lb = New System.Windows.Forms.Label()
+        Me.algo_cb = New System.Windows.Forms.ComboBox()
+        Me.algo_lb = New System.Windows.Forms.Label()
+        Me.password_txt = New System.Windows.Forms.TextBox()
+        Me.password_lb = New System.Windows.Forms.Label()
+        Me.back_bt = New System.Windows.Forms.Button()
+        Me.logo_img = New System.Windows.Forms.PictureBox()
+        Me.encrypt_device_bt = New System.Windows.Forms.Button()
+        Me.main_panel.SuspendLayout()
+        Me.selected_gb.SuspendLayout()
+        Me.encryption_gb.SuspendLayout()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'main_panel
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.GroupBox2)
-        Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel1.ForeColor = System.Drawing.Color.White
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(475, 376)
-        Me.Panel1.TabIndex = 1
+        Me.main_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.main_panel.Controls.Add(Me.selected_gb)
+        Me.main_panel.Controls.Add(Me.encryption_gb)
+        Me.main_panel.Controls.Add(Me.back_bt)
+        Me.main_panel.Controls.Add(Me.logo_img)
+        Me.main_panel.Controls.Add(Me.encrypt_device_bt)
+        Me.main_panel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.main_panel.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.main_panel.ForeColor = System.Drawing.Color.White
+        Me.main_panel.Location = New System.Drawing.Point(0, 0)
+        Me.main_panel.Name = "main_panel"
+        Me.main_panel.Size = New System.Drawing.Size(475, 376)
+        Me.main_panel.TabIndex = 1
         '
-        'GroupBox1
+        'selected_gb
         '
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 225)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(448, 98)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Encryption"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.ForeColor = System.Drawing.Color.White
-        Me.ComboBox2.Items.AddRange(New Object() {"1024", "2048", "4096"})
-        Me.ComboBox2.Location = New System.Drawing.Point(361, 71)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(79, 21)
-        Me.ComboBox2.TabIndex = 8
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(288, 74)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Blocksize:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.ForeColor = System.Drawing.Color.White
-        Me.ComboBox1.Items.AddRange(New Object() {"DES", "RC4", "RIJNDAEL", "TDES"})
-        Me.ComboBox1.Location = New System.Drawing.Point(193, 71)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(79, 21)
-        Me.ComboBox1.TabIndex = 6
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(120, 74)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Algorithm:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.ForeColor = System.Drawing.Color.White
-        Me.TextBox1.Location = New System.Drawing.Point(80, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(360, 20)
-        Me.TextBox1.TabIndex = 4
-        Me.TextBox1.UseSystemPasswordChar = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 13)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Password:"
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(15, 341)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Back"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.Button1.Enabled = False
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(351, 341)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Encrypt Device"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.serial_lb)
-        Me.GroupBox2.Controls.Add(Me.size_lb)
-        Me.GroupBox2.Controls.Add(Me.product_lb)
-        Me.GroupBox2.Controls.Add(Me.device_lb)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(15, 118)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(448, 101)
-        Me.GroupBox2.TabIndex = 6
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Selected Device"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(39, 42)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Device:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 25)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 13)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Productname:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(51, 76)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(37, 13)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "Size:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(39, 59)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Serial:"
-        '
-        'device_lb
-        '
-        Me.device_lb.AutoSize = True
-        Me.device_lb.Location = New System.Drawing.Point(84, 42)
-        Me.device_lb.Name = "device_lb"
-        Me.device_lb.Size = New System.Drawing.Size(13, 13)
-        Me.device_lb.TabIndex = 4
-        Me.device_lb.Text = "-"
-        '
-        'product_lb
-        '
-        Me.product_lb.AutoSize = True
-        Me.product_lb.Location = New System.Drawing.Point(84, 25)
-        Me.product_lb.Name = "product_lb"
-        Me.product_lb.Size = New System.Drawing.Size(13, 13)
-        Me.product_lb.TabIndex = 5
-        Me.product_lb.Text = "-"
-        '
-        'size_lb
-        '
-        Me.size_lb.AutoSize = True
-        Me.size_lb.Location = New System.Drawing.Point(84, 76)
-        Me.size_lb.Name = "size_lb"
-        Me.size_lb.Size = New System.Drawing.Size(13, 13)
-        Me.size_lb.TabIndex = 6
-        Me.size_lb.Text = "-"
+        Me.selected_gb.Controls.Add(Me.serial_lb)
+        Me.selected_gb.Controls.Add(Me.size_lb)
+        Me.selected_gb.Controls.Add(Me.product_lb)
+        Me.selected_gb.Controls.Add(Me.device_lb)
+        Me.selected_gb.Controls.Add(Me.seriallb)
+        Me.selected_gb.Controls.Add(Me.sizelb)
+        Me.selected_gb.Controls.Add(Me.productname_lb)
+        Me.selected_gb.Controls.Add(Me.devicelb)
+        Me.selected_gb.ForeColor = System.Drawing.Color.White
+        Me.selected_gb.Location = New System.Drawing.Point(15, 118)
+        Me.selected_gb.Name = "selected_gb"
+        Me.selected_gb.Size = New System.Drawing.Size(448, 101)
+        Me.selected_gb.TabIndex = 6
+        Me.selected_gb.TabStop = False
+        Me.selected_gb.Text = "Selected Device"
         '
         'serial_lb
         '
@@ -259,63 +92,230 @@ Partial Class password_page
         Me.serial_lb.TabIndex = 7
         Me.serial_lb.Text = "-"
         '
-        'PictureBox1
+        'size_lb
         '
-        Me.PictureBox1.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
-        Me.PictureBox1.Location = New System.Drawing.Point(187, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
+        Me.size_lb.AutoSize = True
+        Me.size_lb.Location = New System.Drawing.Point(84, 76)
+        Me.size_lb.Name = "size_lb"
+        Me.size_lb.Size = New System.Drawing.Size(13, 13)
+        Me.size_lb.TabIndex = 6
+        Me.size_lb.Text = "-"
         '
-        'Label8
+        'product_lb
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(77, 42)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(79, 13)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "min. 8 chars"
+        Me.product_lb.AutoSize = True
+        Me.product_lb.Location = New System.Drawing.Point(84, 25)
+        Me.product_lb.Name = "product_lb"
+        Me.product_lb.Size = New System.Drawing.Size(13, 13)
+        Me.product_lb.TabIndex = 5
+        Me.product_lb.Text = "-"
+        '
+        'device_lb
+        '
+        Me.device_lb.AutoSize = True
+        Me.device_lb.Location = New System.Drawing.Point(84, 42)
+        Me.device_lb.Name = "device_lb"
+        Me.device_lb.Size = New System.Drawing.Size(13, 13)
+        Me.device_lb.TabIndex = 4
+        Me.device_lb.Text = "-"
+        '
+        'seriallb
+        '
+        Me.seriallb.AutoSize = True
+        Me.seriallb.Location = New System.Drawing.Point(39, 59)
+        Me.seriallb.Name = "seriallb"
+        Me.seriallb.Size = New System.Drawing.Size(49, 13)
+        Me.seriallb.TabIndex = 3
+        Me.seriallb.Text = "Serial:"
+        '
+        'sizelb
+        '
+        Me.sizelb.AutoSize = True
+        Me.sizelb.Location = New System.Drawing.Point(51, 76)
+        Me.sizelb.Name = "sizelb"
+        Me.sizelb.Size = New System.Drawing.Size(37, 13)
+        Me.sizelb.TabIndex = 2
+        Me.sizelb.Text = "Size:"
+        '
+        'productname_lb
+        '
+        Me.productname_lb.AutoSize = True
+        Me.productname_lb.Location = New System.Drawing.Point(9, 25)
+        Me.productname_lb.Name = "productname_lb"
+        Me.productname_lb.Size = New System.Drawing.Size(79, 13)
+        Me.productname_lb.TabIndex = 1
+        Me.productname_lb.Text = "Productname:"
+        '
+        'devicelb
+        '
+        Me.devicelb.AutoSize = True
+        Me.devicelb.Location = New System.Drawing.Point(39, 42)
+        Me.devicelb.Name = "devicelb"
+        Me.devicelb.Size = New System.Drawing.Size(49, 13)
+        Me.devicelb.TabIndex = 0
+        Me.devicelb.Text = "Device:"
+        '
+        'encryption_gb
+        '
+        Me.encryption_gb.Controls.Add(Me.min_chars_lb)
+        Me.encryption_gb.Controls.Add(Me.blocksize_cb)
+        Me.encryption_gb.Controls.Add(Me.blocksize_lb)
+        Me.encryption_gb.Controls.Add(Me.algo_cb)
+        Me.encryption_gb.Controls.Add(Me.algo_lb)
+        Me.encryption_gb.Controls.Add(Me.password_txt)
+        Me.encryption_gb.Controls.Add(Me.password_lb)
+        Me.encryption_gb.ForeColor = System.Drawing.Color.White
+        Me.encryption_gb.Location = New System.Drawing.Point(15, 225)
+        Me.encryption_gb.Name = "encryption_gb"
+        Me.encryption_gb.Size = New System.Drawing.Size(448, 98)
+        Me.encryption_gb.TabIndex = 5
+        Me.encryption_gb.TabStop = False
+        Me.encryption_gb.Text = "Encryption"
+        '
+        'min_chars_lb
+        '
+        Me.min_chars_lb.AutoSize = True
+        Me.min_chars_lb.Location = New System.Drawing.Point(77, 42)
+        Me.min_chars_lb.Name = "min_chars_lb"
+        Me.min_chars_lb.Size = New System.Drawing.Size(79, 13)
+        Me.min_chars_lb.TabIndex = 9
+        Me.min_chars_lb.Text = "min. 8 chars"
+        '
+        'blocksize_cb
+        '
+        Me.blocksize_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.blocksize_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.blocksize_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.blocksize_cb.ForeColor = System.Drawing.Color.White
+        Me.blocksize_cb.Items.AddRange(New Object() {"1024", "2048", "4096"})
+        Me.blocksize_cb.Location = New System.Drawing.Point(361, 71)
+        Me.blocksize_cb.Name = "blocksize_cb"
+        Me.blocksize_cb.Size = New System.Drawing.Size(79, 21)
+        Me.blocksize_cb.TabIndex = 8
+        '
+        'blocksize_lb
+        '
+        Me.blocksize_lb.AutoSize = True
+        Me.blocksize_lb.Location = New System.Drawing.Point(288, 74)
+        Me.blocksize_lb.Name = "blocksize_lb"
+        Me.blocksize_lb.Size = New System.Drawing.Size(67, 13)
+        Me.blocksize_lb.TabIndex = 7
+        Me.blocksize_lb.Text = "Blocksize:"
+        '
+        'algo_cb
+        '
+        Me.algo_cb.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.algo_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.algo_cb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.algo_cb.ForeColor = System.Drawing.Color.White
+        Me.algo_cb.Items.AddRange(New Object() {"DES", "RC4", "RIJNDAEL", "TDES"})
+        Me.algo_cb.Location = New System.Drawing.Point(193, 71)
+        Me.algo_cb.Name = "algo_cb"
+        Me.algo_cb.Size = New System.Drawing.Size(79, 21)
+        Me.algo_cb.TabIndex = 6
+        '
+        'algo_lb
+        '
+        Me.algo_lb.AutoSize = True
+        Me.algo_lb.Location = New System.Drawing.Point(120, 74)
+        Me.algo_lb.Name = "algo_lb"
+        Me.algo_lb.Size = New System.Drawing.Size(67, 13)
+        Me.algo_lb.TabIndex = 5
+        Me.algo_lb.Text = "Algorithm:"
+        '
+        'password_txt
+        '
+        Me.password_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.password_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.password_txt.ForeColor = System.Drawing.Color.White
+        Me.password_txt.Location = New System.Drawing.Point(80, 19)
+        Me.password_txt.Name = "password_txt"
+        Me.password_txt.Size = New System.Drawing.Size(360, 20)
+        Me.password_txt.TabIndex = 4
+        Me.password_txt.UseSystemPasswordChar = True
+        '
+        'password_lb
+        '
+        Me.password_lb.AutoSize = True
+        Me.password_lb.Location = New System.Drawing.Point(13, 22)
+        Me.password_lb.Name = "password_lb"
+        Me.password_lb.Size = New System.Drawing.Size(61, 13)
+        Me.password_lb.TabIndex = 3
+        Me.password_lb.Text = "Password:"
+        '
+        'back_bt
+        '
+        Me.back_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.back_bt.FlatAppearance.BorderSize = 0
+        Me.back_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.back_bt.Location = New System.Drawing.Point(15, 341)
+        Me.back_bt.Name = "back_bt"
+        Me.back_bt.Size = New System.Drawing.Size(75, 23)
+        Me.back_bt.TabIndex = 2
+        Me.back_bt.Text = "Back"
+        Me.back_bt.UseVisualStyleBackColor = False
+        '
+        'logo_img
+        '
+        Me.logo_img.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
+        Me.logo_img.Location = New System.Drawing.Point(187, 12)
+        Me.logo_img.Name = "logo_img"
+        Me.logo_img.Size = New System.Drawing.Size(100, 100)
+        Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.logo_img.TabIndex = 1
+        Me.logo_img.TabStop = False
+        '
+        'encrypt_device_bt
+        '
+        Me.encrypt_device_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.encrypt_device_bt.Enabled = False
+        Me.encrypt_device_bt.FlatAppearance.BorderSize = 0
+        Me.encrypt_device_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.encrypt_device_bt.Location = New System.Drawing.Point(351, 341)
+        Me.encrypt_device_bt.Name = "encrypt_device_bt"
+        Me.encrypt_device_bt.Size = New System.Drawing.Size(112, 23)
+        Me.encrypt_device_bt.TabIndex = 0
+        Me.encrypt_device_bt.Text = "Encrypt Device"
+        Me.encrypt_device_bt.UseVisualStyleBackColor = False
         '
         'password_page
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(475, 376)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.main_panel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "password_page"
         Me.Text = "password_page"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.main_panel.ResumeLayout(False)
+        Me.main_panel.PerformLayout()
+        Me.selected_gb.ResumeLayout(False)
+        Me.selected_gb.PerformLayout()
+        Me.encryption_gb.ResumeLayout(False)
+        Me.encryption_gb.PerformLayout()
+        CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents main_panel As System.Windows.Forms.Panel
+    Friend WithEvents logo_img As System.Windows.Forms.PictureBox
+    Friend WithEvents encrypt_device_bt As System.Windows.Forms.Button
+    Friend WithEvents encryption_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents blocksize_cb As System.Windows.Forms.ComboBox
+    Friend WithEvents blocksize_lb As System.Windows.Forms.Label
+    Friend WithEvents algo_cb As System.Windows.Forms.ComboBox
+    Friend WithEvents algo_lb As System.Windows.Forms.Label
+    Friend WithEvents password_txt As System.Windows.Forms.TextBox
+    Friend WithEvents password_lb As System.Windows.Forms.Label
+    Friend WithEvents back_bt As System.Windows.Forms.Button
+    Friend WithEvents selected_gb As System.Windows.Forms.GroupBox
     Friend WithEvents serial_lb As System.Windows.Forms.Label
     Friend WithEvents size_lb As System.Windows.Forms.Label
     Friend WithEvents product_lb As System.Windows.Forms.Label
     Friend WithEvents device_lb As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents seriallb As System.Windows.Forms.Label
+    Friend WithEvents sizelb As System.Windows.Forms.Label
+    Friend WithEvents productname_lb As System.Windows.Forms.Label
+    Friend WithEvents devicelb As System.Windows.Forms.Label
+    Friend WithEvents min_chars_lb As System.Windows.Forms.Label
 End Class

@@ -29,7 +29,7 @@
         End If
     End Sub
     Private Sub enterpwd_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label2.Text = USBName
+        device_name_lb.Text = USBName
         Dim ini As New IniFile
         ini.Load(Letter & "device.ini")
         Password = ini.GetKeyValue("Device", "Password")
@@ -41,24 +41,24 @@
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If Password = rHash.HashString(TextBox1.Text, rHash.HASH.SHA512) Then
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sync_bt.Click
+        If Password = rHash.HashString(password_txt.Text, rHash.HASH.SHA512) Then
             isDecrypt = True
             SynState.Enabled = False
-            clipher = TextBox1.Text
+            clipher = password_txt.Text
             Me.Close()
-            
+
 
         Else
             MessageBox.Show("Wrong Password!", "Password", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
-        If TextBox1.TextLength > 7 Then
-            Button1.Enabled = True
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles password_txt.TextChanged
+        If password_txt.TextLength > 7 Then
+            sync_bt.Enabled = True
         Else
-            Button1.Enabled = False
+            sync_bt.Enabled = False
         End If
     End Sub
 
@@ -71,6 +71,6 @@
     End Sub
 
     Private Sub enterpwd_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
-        TextBox1.Focus()
+        password_txt.Focus()
     End Sub
 End Class

@@ -82,7 +82,7 @@ Module SecureDesktop
                                   enterpwd.ShowDialog()
                                   enterpwd.TopMost = True
                                   enterpwd.BringToFront()
-                                  enterpwd.TextBox1.Focus()
+                                  enterpwd.password_txt.Focus()
                               End Function).Wait()
 
         ' waits for the task to finish
