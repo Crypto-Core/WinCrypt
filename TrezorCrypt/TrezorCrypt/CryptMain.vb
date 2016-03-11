@@ -71,22 +71,22 @@ Public Class CryptMain
         End If
     End Sub
 
-    Private Sub FileSystemWatcher1_Changed(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Changed
+    Private Sub fsw_Changed(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Changed
         state_lst.Items.Add("Changed: " & ShortPath(e.FullPath))
         state_lst.TopIndex = state_lst.Items.Count - 1
     End Sub
 
-    Private Sub FileSystemWatcher1_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Created
+    Private Sub fsw_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Created
         state_lst.Items.Add("Encrypt: " & ShortPath(e.FullPath))
         state_lst.TopIndex = state_lst.Items.Count - 1
     End Sub
 
-    Private Sub FileSystemWatcher1_Deleted(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Deleted
+    Private Sub fsw_Deleted(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles fsw.Deleted
         state_lst.Items.Add("Deleted: " & ShortPath(e.FullPath))
         state_lst.TopIndex = state_lst.Items.Count - 1
     End Sub
 
-    Private Sub FileSystemWatcher1_Renamed(ByVal sender As Object, ByVal e As System.IO.RenamedEventArgs) Handles fsw.Renamed
+    Private Sub fsw_Renamed(ByVal sender As Object, ByVal e As System.IO.RenamedEventArgs) Handles fsw.Renamed
         state_lst.Items.Add("Renamed: " & ShortPath(e.FullPath))
         state_lst.TopIndex = state_lst.Items.Count - 1
     End Sub

@@ -1,20 +1,17 @@
 ﻿Imports System.IO
 
 Public Class password_page
-
-    Private Sub Panel1_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_panel.HandleCreated
+    'Wenn der Handle von main_panel erstellt wurde
+    Private Sub main_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_panel.HandleCreated
+        'dann wird das zweite Item aus der Algorithmusliste ausgewählt
         algo_cb.SelectedIndex = 2
+        'und das zweite Item aus der Blocksizeliste ausgewählts
         blocksize_cb.SelectedIndex = 2
-
     End Sub
 
-    Private Sub Panel1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles main_panel.Paint
 
-    End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_bt.Click
+    Private Sub back_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles back_bt.Click
         Me.main_panel.Hide()
-
         main_frm.main_panel.Show()
         device_lb.Text = ""
         product_lb.Text = ""
@@ -22,7 +19,7 @@ Public Class password_page
         serial_lb.Text = ""
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_device_bt.Click
+    Private Sub encrypt_device_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_device_bt.Click
         Dim ini As New IniFile
         ini.AddSection("Device")
         ini.SetKeyValue("Device", "Name", product_lb.Text)
@@ -47,7 +44,7 @@ Public Class password_page
         Application.Restart()
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles password_txt.TextChanged
+    Private Sub password_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles password_txt.TextChanged
         If password_txt.TextLength > 7 Then
             encrypt_device_bt.Enabled = True
         Else

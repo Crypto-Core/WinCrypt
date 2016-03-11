@@ -3,7 +3,7 @@ Imports TrezorCrypt.IniFile.IniSection
 Imports TrezorCrypt.IniFile
 
 Public Class main_frm
-    Dim loadCountDevices As Integer
+    Friend loadCountDevices As Integer
     Private Sub main_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_panel.HandleCreated
         ' devices_view wird bereinigt
         devices_view.Items.Clear()
@@ -159,16 +159,12 @@ Public Class main_frm
     Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
         If enterpwd.isDecrypt = True Then
             CryptMain.Show()
-        Else
-
-        End If
+        Else : End If
     End Sub
     'Wenn er den Exit Button klickt
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
         NotifyIcon.Visible = False
-        If enterpwd.isDecrypt = True Then
-
-        Else
+        If enterpwd.isDecrypt = True Then : Else
             Application.Exit()
         End If
     End Sub
