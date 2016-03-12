@@ -30,17 +30,15 @@ Public Class password_page
         ini.SetKeyValue("Device", "Blocksize", blocksize_cb.Text)
         ini.Save(device_lb.Text & "device.ini")
 
-        Dim localini As New IniFile
-        localini.AddSection("Device")
-        localini.SetKeyValue("Device", "Serial", serial_lb.Text)
-        localini.Save(My.Application.Info.DirectoryPath & "\devices.ini")
-
-
+        File.Create(device_lb.Text & rHash.HashString(serial_lb.Text, rHash.HASH.MD5)).Close()
+        Dim info As System.IO.FileInfo = My.Computer.FileSystem.GetFileInfo(device_lb.Text & rHash.HashString(serial_lb.Text, rHash.HASH.MD5))
+        info.Attributes = info.Attributes Or IO.FileAttributes.Hidden
         Dim configINI As New IniFile
         configINI.AddSection("Config")
         configINI.SetKeyValue("Config", "EraseRepeat", 3)
         configINI.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
-        configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+        configINI.SetKeyValue("Config", "Listenmode", 1)
+        configINI.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
         Dim createIcon As New FileStream(device_lb.Text & "trezor.ico", FileMode.Create)
         createIcon.Write(My.Resources.drivelock, 0, My.Resources.drivelock.Length)
         createIcon.Close()
@@ -56,5 +54,13 @@ Public Class password_page
         Else
             encrypt_device_bt.Enabled = False
         End If
+    End Sub
+
+    Private Sub SettingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingToolStripMenuItem.Click
+        setting.ShowDialog()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        about.ShowDialog()
     End Sub
 End Class

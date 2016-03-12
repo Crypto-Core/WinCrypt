@@ -1,8 +1,4 @@
 ﻿Public Class setting
-
-    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
-        Autostart(CheckBox1.Checked)
-    End Sub
     Public Function Autostart(ByVal AutostartEnable As Boolean)
         Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Run", True)
         If AutostartEnable = True Then
@@ -17,38 +13,50 @@
     Private Sub setting_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Microsoft\Windows\CurrentVersion\Run", True)
         If key.GetValue("TrezorCrypt", "") = "" Then
-            CheckBox1.Checked = False
+            autostart_cb.Checked = False
         Else
-            CheckBox1.Checked = True
+            autostart_cb.Checked = True
         End If
 
         Dim loadini As New IniFile
-        loadini.Load(My.Application.Info.DirectoryPath & "\config.ini")
+        loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
         If loadini.GetKeyValue("Config", "OpenSyncPathafterDecryption") = 1 Then
-            CheckBox2.Checked = True
+            opensync_cb.Checked = True
         Else
-            CheckBox2.Checked = False
+            opensync_cb.Checked = False
         End If
-
-        NumericUpDown1.Value = loadini.GetKeyValue("Config", "EraseRepeat")
+        If loadini.GetKeyValue("Config", "Listenmode") = 0 Then
+            listenmode_cb.Checked = False
+        Else
+            listenmode_cb.Checked = True
+        End If
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.CheckedChanged
+    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim loadini As New IniFile
-        loadini.Load(My.Application.Info.DirectoryPath & "\config.ini")
+        loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
 
-        If CheckBox2.Checked = True Then
+        If opensync_cb.Checked = True Then
             loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 1)
         Else
             loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
         End If
-        loadini.Save(My.Application.Info.DirectoryPath & "\config.ini")
+        loadini.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
     End Sub
 
-    Private Sub NumericUpDown1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NumericUpDown1.ValueChanged
+    Private Sub CheckBox1_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autostart_cb.CheckedChanged
+        Autostart(autostart_cb.Checked)
+    End Sub
+
+    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles listenmode_cb.CheckedChanged
         Dim loadini As New IniFile
-        loadini.Load(My.Application.Info.DirectoryPath & "\config.ini")
-        loadini.SetKeyValue("Config", "EraseRepeat", NumericUpDown1.Value)
-        loadini.Save(My.Application.Info.DirectoryPath & "\config.ini")
+        loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
+
+        If listenmode_cb.Checked = True Then
+            loadini.SetKeyValue("Config", "Listenmode", 1)
+        Else
+            loadini.SetKeyValue("Config", "Listenmode", 0)
+        End If
+        loadini.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
     End Sub
 End Class

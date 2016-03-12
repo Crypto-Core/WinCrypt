@@ -88,17 +88,17 @@ Public Class main_frm
     Friend loadini As New IniFile
     Private Sub main_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") = False Then
+        If File.Exists(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini") = False Then
+            MsgBox("")
             configINI.AddSection("Config")
-            configINI.SetKeyValue("Config", "EraseRepeat", 3)
             configINI.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
-            configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
-            configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+            configINI.SetKeyValue("Config", "Listenmode", 0)
+            configINI.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
+            configINI.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
             EraseRepeat = configINI.GetKeyValue("Config", "EraseRepeat")
             OpenSyncPathafterDecryption = configINI.GetKeyValue("Config", "OpenSyncPathafterDecryption")
         Else
-            configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
-            EraseRepeat = configINI.GetKeyValue("Config", "EraseRepeat")
+            configINI.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
             OpenSyncPathafterDecryption = configINI.GetKeyValue("Config", "OpenSyncPathafterDecryption")
         End If
         'Es wird überprüft ob der Nutzer seinen USB bereits entschlüsselt hat
@@ -109,10 +109,11 @@ Public Class main_frm
             WindowState = FormWindowState.Normal
             Show()
         Else
+            loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
             'Es wird überprüft ob die Datei device.ini existiert
-            If File.Exists(My.Application.Info.DirectoryPath & "\devices.ini") = True Then
+            If loadini.GetKeyValue("Config", "Listenmode") = 1 Then
                 'Wenn ja, dann soll der Inhalt geladen werden
-                loadini.Load(My.Application.Info.DirectoryPath & "\devices.ini")
+                'loadini.Load(My.Application.Info.DirectoryPath & "\devices.ini")
                 'Die main_frm wird versteckt
                 Me.Visible = False
                 ShowInTaskbar = False
@@ -127,45 +128,28 @@ Public Class main_frm
                 NotifyIcon.BalloonTipTitle = "TrezorCrypt"
                 NotifyIcon.BalloonTipText = "Listen for registried USB Device"
                 NotifyIcon.ShowBalloonTip(2000)
+            Else
+
             End If
         End If
 
     End Sub
 
     Private Sub checkList_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkList.Tick
-        'Es wird eine Schleife in der INI durchgeführt um die Registrierten Geräte mit den Bereits
-        'angeschlossenen Geräten zu vergleichen
-        For Each s As IniSection In loadini.Sections
-            For Each k As IniSection.IniKey In s.Keys
-                If k.Value <> String.Empty Then
-                    'Wenn das Gerät in der INI angeschlossen ist...
-                    If devices.isDriveEmbed(k.Value) = True Then
-                        'Und der Nutzer dieses noch NICHT entschlüsselt hat
-                        If enterpwd.isDecrypt = True Then
+        For Each driveIndex In DriveInfo.GetDrives
+            If driveIndex.DriveType = DriveType.Removable Then
+                Dim index As Integer = 0
+                For Each getDrives In devices.GetDevicesSerial
 
-                        Else
-                            checkList.Enabled = False
-                            For index As Integer = 0 To devices.GetDevicesName.Count - 1
-                                'Hier wird nochmal die Seriennummer vom USB Gerät und der INI Verglichen
-                                If devices.GetDevicesSerial.Item(index) = k.Value Then
-                                    '<--------------------------------------------------------
-                                    'Jetzt wird das Fenster enterpwd angezeit im SecureDesktop
-                                    enterpwd.Letter = devices.DriveLetter.Item(index)
-                                    enterpwd.USBName = devices.GetDevicesName(index)
-                                End If
-                            Next
-                            secure()
-                            '----------------------------------------------------------------->
-                        End If
-
-
-                    Else
-
+                    If File.Exists(driveIndex.Name & "\" & rHash.HashString(getDrives, rHash.HASH.MD5)) = True Then
+                        checkList.Enabled = False
+                        enterpwd.Letter = driveIndex.Name
+                        enterpwd.USBName = devices.GetDevicesName(index)
+                        index += 1
+                        secure()
                     End If
-                Else
-
-                End If
-            Next
+                Next
+            End If
         Next
     End Sub
     Sub secure()
@@ -186,5 +170,17 @@ Public Class main_frm
         If enterpwd.isDecrypt = True Then : Else
             Application.Exit()
         End If
+    End Sub
+
+    Private Sub SettingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingToolStripMenuItem.Click
+        setting.ShowDialog()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        about.ShowDialog()
+    End Sub
+
+    Private Sub SettingToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingToolStripMenuItem1.Click
+        setting.ShowDialog()
     End Sub
 End Class

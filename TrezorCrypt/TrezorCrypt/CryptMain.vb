@@ -72,9 +72,6 @@ Public Class CryptMain
                 Else
 
                     Dim SafeDelete As New SafedeleteFunction
-                    Dim loadINI As New IniFile
-                    loadINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
-                    Dim eraserepeat As Integer = loadINI.GetKeyValue("Config", "EraseRepeat")
                     For Each DeleteFiles In Directory.GetFiles(SyncPath, "*.*", SearchOption.AllDirectories)
                         SafedeleteFunction.SafeErase(DeleteFiles)
                         state_lst.Items.Add("Erase: " & ShortPath(DeleteFiles))

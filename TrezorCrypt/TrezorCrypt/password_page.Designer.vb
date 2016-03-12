@@ -43,15 +43,21 @@ Partial Class password_page
         Me.back_bt = New System.Windows.Forms.Button()
         Me.logo_img = New System.Windows.Forms.PictureBox()
         Me.encrypt_device_bt = New System.Windows.Forms.Button()
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.main_panel.SuspendLayout()
         Me.selected_gb.SuspendLayout()
         Me.encryption_gb.SuspendLayout()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'main_panel
         '
         Me.main_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.main_panel.Controls.Add(Me.MenuStrip)
         Me.main_panel.Controls.Add(Me.selected_gb)
         Me.main_panel.Controls.Add(Me.encryption_gb)
         Me.main_panel.Controls.Add(Me.back_bt)
@@ -258,7 +264,7 @@ Partial Class password_page
         'logo_img
         '
         Me.logo_img.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
-        Me.logo_img.Location = New System.Drawing.Point(187, 12)
+        Me.logo_img.Location = New System.Drawing.Point(187, 19)
         Me.logo_img.Name = "logo_img"
         Me.logo_img.Size = New System.Drawing.Size(100, 100)
         Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -278,6 +284,41 @@ Partial Class password_page
         Me.encrypt_device_bt.Text = "Encrypt Device"
         Me.encrypt_device_bt.UseVisualStyleBackColor = False
         '
+        'MenuStrip
+        '
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MenuStrip.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(475, 24)
+        Me.MenuStrip.TabIndex = 11
+        Me.MenuStrip.Text = "MenuStrip"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'SettingToolStripMenuItem
+        '
+        Me.SettingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingToolStripMenuItem.Text = "Setting"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'password_page
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -294,6 +335,8 @@ Partial Class password_page
         Me.encryption_gb.ResumeLayout(False)
         Me.encryption_gb.PerformLayout()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -318,4 +361,8 @@ Partial Class password_page
     Friend WithEvents productname_lb As System.Windows.Forms.Label
     Friend WithEvents devicelb As System.Windows.Forms.Label
     Friend WithEvents min_chars_lb As System.Windows.Forms.Label
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

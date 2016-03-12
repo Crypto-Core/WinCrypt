@@ -25,6 +25,10 @@ Partial Class main_frm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main_frm))
         Me.main_panel = New System.Windows.Forms.Panel()
+        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.open_folderdiag = New System.Windows.Forms.Button()
         Me.sync_path_txt = New System.Windows.Forms.TextBox()
         Me.sync_path_lb = New System.Windows.Forms.Label()
@@ -43,15 +47,18 @@ Partial Class main_frm
         Me.checkList = New System.Windows.Forms.Timer(Me.components)
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.notifiy_context = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SettingToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.main_panel.SuspendLayout()
+        Me.MenuStrip.SuspendLayout()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.notifiy_context.SuspendLayout()
         Me.SuspendLayout()
         '
         'main_panel
         '
+        Me.main_panel.Controls.Add(Me.MenuStrip)
         Me.main_panel.Controls.Add(Me.open_folderdiag)
         Me.main_panel.Controls.Add(Me.sync_path_txt)
         Me.main_panel.Controls.Add(Me.sync_path_lb)
@@ -65,6 +72,41 @@ Partial Class main_frm
         Me.main_panel.Name = "main_panel"
         Me.main_panel.Size = New System.Drawing.Size(475, 376)
         Me.main_panel.TabIndex = 0
+        '
+        'MenuStrip
+        '
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.MenuStrip.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip.Name = "MenuStrip"
+        Me.MenuStrip.Size = New System.Drawing.Size(475, 24)
+        Me.MenuStrip.TabIndex = 10
+        Me.MenuStrip.Text = "MenuStrip"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.OptionsToolStripMenuItem.Text = "Options"
+        '
+        'SettingToolStripMenuItem
+        '
+        Me.SettingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SettingToolStripMenuItem.Text = "Setting"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'open_folderdiag
         '
@@ -103,7 +145,7 @@ Partial Class main_frm
         '
         Me.product_label.AutoSize = True
         Me.product_label.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.product_label.Location = New System.Drawing.Point(177, 115)
+        Me.product_label.Location = New System.Drawing.Point(177, 122)
         Me.product_label.Name = "product_label"
         Me.product_label.Size = New System.Drawing.Size(120, 22)
         Me.product_label.TabIndex = 4
@@ -165,7 +207,7 @@ Partial Class main_frm
         'logo_img
         '
         Me.logo_img.Image = Global.TrezorCrypt.My.Resources.Resources.trezorcrypt100
-        Me.logo_img.Location = New System.Drawing.Point(187, 12)
+        Me.logo_img.Location = New System.Drawing.Point(187, 19)
         Me.logo_img.Name = "logo_img"
         Me.logo_img.Size = New System.Drawing.Size(100, 100)
         Me.logo_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -201,20 +243,26 @@ Partial Class main_frm
         '
         'notifiy_context
         '
-        Me.notifiy_context.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.notifiy_context.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingToolStripMenuItem1, Me.OpenToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.notifiy_context.Name = "ContextMenuStrip1"
-        Me.notifiy_context.Size = New System.Drawing.Size(104, 48)
+        Me.notifiy_context.Size = New System.Drawing.Size(153, 92)
+        '
+        'SettingToolStripMenuItem1
+        '
+        Me.SettingToolStripMenuItem1.Name = "SettingToolStripMenuItem1"
+        Me.SettingToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.SettingToolStripMenuItem1.Text = "Setting"
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'main_frm
@@ -234,6 +282,8 @@ Partial Class main_frm
         Me.Text = "TrezorCrypt"
         Me.main_panel.ResumeLayout(False)
         Me.main_panel.PerformLayout()
+        Me.MenuStrip.ResumeLayout(False)
+        Me.MenuStrip.PerformLayout()
         CType(Me.logo_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.notifiy_context.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -260,5 +310,10 @@ Partial Class main_frm
     Friend WithEvents notifiy_context As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
+    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

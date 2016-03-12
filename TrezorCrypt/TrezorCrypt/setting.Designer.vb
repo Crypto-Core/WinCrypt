@@ -23,109 +23,110 @@ Partial Class setting
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(setting))
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
+        Me.trezorcrypt_gb = New System.Windows.Forms.GroupBox()
+        Me.autostart_gb = New System.Windows.Forms.GroupBox()
+        Me.autostart_cb = New System.Windows.Forms.CheckBox()
+        Me.decryption_gb = New System.Windows.Forms.GroupBox()
+        Me.opensync_cb = New System.Windows.Forms.CheckBox()
+        Me.listenmode_cb = New System.Windows.Forms.CheckBox()
+        Me.trezorcrypt_gb.SuspendLayout()
+        Me.autostart_gb.SuspendLayout()
+        Me.decryption_gb.SuspendLayout()
         Me.SuspendLayout()
         '
-        'CheckBox1
+        'trezorcrypt_gb
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(62, 18)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(134, 17)
-        Me.CheckBox1.TabIndex = 0
-        Me.CheckBox1.Text = "Start with Windows"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.trezorcrypt_gb.Controls.Add(Me.autostart_gb)
+        Me.trezorcrypt_gb.Controls.Add(Me.decryption_gb)
+        Me.trezorcrypt_gb.Controls.Add(Me.listenmode_cb)
+        Me.trezorcrypt_gb.ForeColor = System.Drawing.Color.White
+        Me.trezorcrypt_gb.Location = New System.Drawing.Point(12, 12)
+        Me.trezorcrypt_gb.Name = "trezorcrypt_gb"
+        Me.trezorcrypt_gb.Size = New System.Drawing.Size(274, 235)
+        Me.trezorcrypt_gb.TabIndex = 3
+        Me.trezorcrypt_gb.TabStop = False
+        Me.trezorcrypt_gb.Text = "TrezorCrypt"
         '
-        'GroupBox1
+        'autostart_gb
         '
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.NumericUpDown1)
-        Me.GroupBox1.Controls.Add(Me.CheckBox2)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 71)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(259, 100)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Decryption"
+        Me.autostart_gb.Controls.Add(Me.autostart_cb)
+        Me.autostart_gb.ForeColor = System.Drawing.Color.White
+        Me.autostart_gb.Location = New System.Drawing.Point(6, 42)
+        Me.autostart_gb.Name = "autostart_gb"
+        Me.autostart_gb.Size = New System.Drawing.Size(262, 53)
+        Me.autostart_gb.TabIndex = 4
+        Me.autostart_gb.TabStop = False
+        Me.autostart_gb.Text = "Autostart"
         '
-        'Label1
+        'autostart_cb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(54, 58)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Erase repeat"
+        Me.autostart_cb.AutoSize = True
+        Me.autostart_cb.Location = New System.Drawing.Point(64, 18)
+        Me.autostart_cb.Name = "autostart_cb"
+        Me.autostart_cb.Size = New System.Drawing.Size(134, 17)
+        Me.autostart_cb.TabIndex = 0
+        Me.autostart_cb.Text = "Start with Windows"
+        Me.autostart_cb.UseVisualStyleBackColor = True
         '
-        'NumericUpDown1
+        'decryption_gb
         '
-        Me.NumericUpDown1.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-        Me.NumericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.NumericUpDown1.ForeColor = System.Drawing.Color.White
-        Me.NumericUpDown1.Location = New System.Drawing.Point(6, 55)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(42, 20)
-        Me.NumericUpDown1.TabIndex = 1
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.decryption_gb.Controls.Add(Me.opensync_cb)
+        Me.decryption_gb.ForeColor = System.Drawing.Color.White
+        Me.decryption_gb.Location = New System.Drawing.Point(6, 101)
+        Me.decryption_gb.Name = "decryption_gb"
+        Me.decryption_gb.Size = New System.Drawing.Size(262, 44)
+        Me.decryption_gb.TabIndex = 3
+        Me.decryption_gb.TabStop = False
+        Me.decryption_gb.Text = "Decryption"
         '
-        'CheckBox2
+        'opensync_cb
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 20)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(248, 17)
-        Me.CheckBox2.TabIndex = 0
-        Me.CheckBox2.Text = "Open SyncPath folder after decryption"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.opensync_cb.AutoSize = True
+        Me.opensync_cb.Location = New System.Drawing.Point(7, 14)
+        Me.opensync_cb.Name = "opensync_cb"
+        Me.opensync_cb.Size = New System.Drawing.Size(248, 17)
+        Me.opensync_cb.TabIndex = 0
+        Me.opensync_cb.Text = "Open SyncPath folder after decryption"
+        Me.opensync_cb.UseVisualStyleBackColor = True
         '
-        'GroupBox2
+        'listenmode_cb
         '
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(259, 53)
-        Me.GroupBox2.TabIndex = 2
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Autostart"
+        Me.listenmode_cb.AutoSize = True
+        Me.listenmode_cb.Location = New System.Drawing.Point(13, 19)
+        Me.listenmode_cb.Name = "listenmode_cb"
+        Me.listenmode_cb.Size = New System.Drawing.Size(86, 17)
+        Me.listenmode_cb.TabIndex = 0
+        Me.listenmode_cb.Text = "Listenmode"
+        Me.listenmode_cb.UseVisualStyleBackColor = True
         '
         'setting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(283, 185)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(298, 259)
+        Me.Controls.Add(Me.trezorcrypt_gb)
         Me.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "setting"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TrezorCrypt - Settings"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.trezorcrypt_gb.ResumeLayout(False)
+        Me.trezorcrypt_gb.PerformLayout()
+        Me.autostart_gb.ResumeLayout(False)
+        Me.autostart_gb.PerformLayout()
+        Me.decryption_gb.ResumeLayout(False)
+        Me.decryption_gb.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
+    Friend WithEvents trezorcrypt_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents listenmode_cb As System.Windows.Forms.CheckBox
+    Friend WithEvents autostart_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents autostart_cb As System.Windows.Forms.CheckBox
+    Friend WithEvents decryption_gb As System.Windows.Forms.GroupBox
+    Friend WithEvents opensync_cb As System.Windows.Forms.CheckBox
 End Class
