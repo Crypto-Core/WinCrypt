@@ -5,7 +5,7 @@
         ini.Load(config_path)
         On Error Resume Next
         own_access_node_port = ini.GetKeyValue("config", "own_access_node_port")
-        acces_node_port = ini.GetKeyValue("config", "acces_node_port")
+        acces_node_port = ini.GetKeyValue("config", "access_node_port")
         Select Case ini.GetKeyValue("config", "own_access_node")
             Case 0
                 own_access_node = True

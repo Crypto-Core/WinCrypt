@@ -49,12 +49,16 @@ Public Class Worker
         Dim decrypt_bt As Byte()
         Select Case Algorithm
             Case 0
+                aes.BitLen = 64
                 aes.Decode(decode, decrypt_bt, Clipher, AESEncrypt.ALGO.DES, Blocksize)
             Case 1
+                aes.BitLen = 128
                 aes.Decode(decode, decrypt_bt, Clipher, AESEncrypt.ALGO.RC2, Blocksize)
             Case 2
+                aes.BitLen = 256
                 aes.Decode(decode, decrypt_bt, Clipher, AESEncrypt.ALGO.RIJNDAEL, Blocksize)
             Case 3
+                aes.BitLen = 192
                 aes.Decode(decode, decrypt_bt, Clipher, AESEncrypt.ALGO.TDES, Blocksize)
         End Select
         Return System.Text.UTF8Encoding.UTF8.GetChars(decrypt_bt)
@@ -66,12 +70,16 @@ Public Class Worker
             Dim encrypt_byte As Byte()
             Select Case Algorithm
                 Case 0
+                    aes.BitLen = 64
                     aes.Encode(read_byte, encrypt_byte, Clipher, AESEncrypt.ALGO.DES, Blocksize)
                 Case 1
+                    aes.BitLen = 128
                     aes.Encode(read_byte, encrypt_byte, Clipher, AESEncrypt.ALGO.RC2, Blocksize)
                 Case 2
+                    aes.BitLen = 256
                     aes.Encode(read_byte, encrypt_byte, Clipher, AESEncrypt.ALGO.RIJNDAEL, Blocksize)
                 Case 3
+                    aes.BitLen = 192
                     aes.Encode(read_byte, encrypt_byte, Clipher, AESEncrypt.ALGO.TDES, Blocksize)
             End Select
 
@@ -87,12 +95,16 @@ Public Class Worker
         Dim decrypt_byte As Byte()
         Select Case Algorithm
             Case 0
+                aes.BitLen = 64
                 aes.Decode(inputByte, decrypt_byte, Clipher, AESEncrypt.ALGO.DES, Blocksize)
             Case 1
+                aes.BitLen = 128
                 aes.Decode(inputByte, decrypt_byte, Clipher, AESEncrypt.ALGO.RC2, Blocksize)
             Case 2
+                aes.BitLen = 256
                 aes.Decode(inputByte, decrypt_byte, Clipher, AESEncrypt.ALGO.RIJNDAEL, Blocksize)
             Case 3
+                aes.BitLen = 192
                 aes.Decode(inputByte, decrypt_byte, Clipher, AESEncrypt.ALGO.TDES, Blocksize)
         End Select
         Return decrypt_byte
@@ -103,12 +115,16 @@ Public Class Worker
             Dim encrypt_byte As Byte()
             Select Case Algorithm
                 Case 0
+                    aes.BitLen = 64
                     aes.Encode(inputByte, encrypt_byte, Clipher, AESEncrypt.ALGO.DES, Blocksize)
                 Case 1
+                    aes.BitLen = 128
                     aes.Encode(inputByte, encrypt_byte, Clipher, AESEncrypt.ALGO.RC2, Blocksize)
                 Case 2
+                    aes.BitLen = 256
                     aes.Encode(inputByte, encrypt_byte, Clipher, AESEncrypt.ALGO.RIJNDAEL, Blocksize)
                 Case 3
+                    aes.BitLen = 192
                     aes.Encode(inputByte, encrypt_byte, Clipher, AESEncrypt.ALGO.TDES, Blocksize)
             End Select
             Return encrypt_byte

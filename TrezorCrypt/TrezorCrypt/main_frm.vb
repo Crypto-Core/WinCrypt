@@ -147,6 +147,7 @@ Public Class main_frm
                         enterpwd.USBName = devices.GetDevicesName(index)
                         index += 1
                         SecureDesktop.StartSecureWindow(enterpwd)
+
                     End If
                 Next
             End If
