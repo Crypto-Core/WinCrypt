@@ -13,22 +13,19 @@
         main_frm.checkList.Enabled = True
     End Sub
     Private Sub enterpwd_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-
-
         If isDecrypt = False Then
             If isUSBout = False Then
                 e.Cancel = True
             Else
                 e.Cancel = False
             End If
-
-
-
         Else
-
+            e.Cancel = False
         End If
+
     End Sub
     Private Sub enterpwd_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
         device_name_lb.Text = USBName
         Dim ini As New IniFile
         ini.Load(Letter & "device.ini")
@@ -47,8 +44,6 @@
             SynState.Enabled = False
             clipher = password_txt.Text
             Me.Close()
-
-
         Else
             MessageBox.Show("Wrong Password!", "Password", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -79,5 +74,9 @@
             e.SuppressKeyPress = True
             sync_bt.PerformClick()
         End If
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        MsgBox(isUSBout)
     End Sub
 End Class

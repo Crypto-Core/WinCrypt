@@ -66,23 +66,22 @@ Module SecureDesktop
         Task.Factory.StartNew(Function()
                                   SetThreadDesktop(hNewDesktop)
 
-                                  AddHandler enterpwd.FormClosed, Function(sender, e)
+                                  AddHandler frm.FormClosed, Function(sender, e)
 
-                                                                      SwitchDesktop(hOldDesktop)
-                                                                      CloseDesktop(hNewDesktop)
+                                                                 SwitchDesktop(hOldDesktop)
+                                                                 CloseDesktop(hNewDesktop)
 
-                                                                  End Function
+                                                             End Function
 
-                                  AddHandler enterpwd.FormClosing, Function(sender, e)
+                                  AddHandler frm.FormClosing, Function(sender, e)
 
 
 
-                                                                   End Function
+                                                              End Function
 
-                                  enterpwd.ShowDialog()
-                                  enterpwd.TopMost = True
-                                  enterpwd.BringToFront()
-                                  enterpwd.password_txt.Focus()
+                                  frm.ShowDialog()
+                                  frm.TopMost = True
+                                  frm.BringToFront()
                               End Function).Wait()
 
         ' waits for the task to finish

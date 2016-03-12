@@ -146,7 +146,7 @@ Public Class main_frm
                         enterpwd.Letter = driveIndex.Name
                         enterpwd.USBName = devices.GetDevicesName(index)
                         index += 1
-                        secure()
+                        SecureDesktop.StartSecureWindow(enterpwd)
                     End If
                 Next
             End If
@@ -154,7 +154,7 @@ Public Class main_frm
     End Sub
     Sub secure()
         'Die Klasse SecureDesktop wird secure() angewiesen.
-        SecureDesktop.StartSecureWindow(enterpwd)
+
     End Sub
     'Wenn der Nutzer doppelklickt auf das NotifyIcon
     Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
