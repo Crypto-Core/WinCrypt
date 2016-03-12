@@ -6,34 +6,39 @@ Imports System.Threading
 Public Class SafedeleteFunction
     Public Property DelThread As Thread
 
-    Public Function SafeEraser(ByVal filepath As String, ByVal repeat As Integer, ByVal delete As Boolean)
-        Dim r As New Random
-        Dim sb As New StringBuilder
-        Dim abc = "abcdefghijklmnopqrstuvwxyz"
-        Try
-            For i = 0 To repeat
-                Dim idx As Integer = r.Next(0, abc.Length)
-                Dim filesize As New FileInfo(filepath)
-                Dim fsize = CInt(Int(filesize.Length))
-                Dim fstream As New StreamWriter(filepath)
-                sb.Append(abc.Substring(idx, 1))
-                For o = 0 To CInt(fsize)
-                    fstream.Write(sb.ToString)
-                Next
-                sb.Clear()
-                fstream.Close()
-            Next
-        Catch ex As Exception
+    Friend Shared Function SafeErase(ByVal file_path As String)
+        For index_ As Integer = 0 To 2
+            Dim FStream As New FileStream(file_path, FileMode.Open)
+            Dim size As Long = FStream.Length
+            Dim ByteArray(size - 1) As Byte
+            Dim rnd As New Random
+            Select Case index_
+                Case 0
+                    For index As Integer = 0 To size - 1
+                        ByteArray(index) = 0
+                    Next
+                Case 1
+                    For index As Integer = 0 To size - 1
+                        ByteArray(index) = 1
+                    Next
+                Case 2
+                    Dim bytA As Byte = 0
+                    Dim bytB As Byte = 1
 
-        End Try
+                    For index As Integer = 0 To size - 1
+                        Select Case rnd.Next(0, 2)
+                            Case 0
+                                ByteArray(index) = bytA
+                            Case 1
+                                ByteArray(index) = bytB
+                        End Select
+                    Next
 
-        Try
-            If delete = True Then
-                File.Delete(filepath)
-            Else
-            End If
-        Catch ex As Exception
-            'Falls eine Datei nicht gelsöcht werden konnte gibt es eine Fehlermeldung
-        End Try
+            End Select
+            FStream.Write(ByteArray, 0, size)
+            FStream.Flush()
+            FStream.Close()
+        Next
+        File.Delete(file_path)
     End Function
 End Class
