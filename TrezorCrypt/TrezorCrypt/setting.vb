@@ -32,23 +32,11 @@
         End If
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim loadini As New IniFile
-        loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
-
-        If opensync_cb.Checked = True Then
-            loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 1)
-        Else
-            loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
-        End If
-        loadini.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
-    End Sub
-
-    Private Sub CheckBox1_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autostart_cb.CheckedChanged
+    Private Sub autostart_cb_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles autostart_cb.CheckedChanged
         Autostart(autostart_cb.Checked)
     End Sub
 
-    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles listenmode_cb.CheckedChanged
+    Private Sub listenmode_cb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles listenmode_cb.CheckedChanged
         Dim loadini As New IniFile
         loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
 
@@ -56,6 +44,18 @@
             loadini.SetKeyValue("Config", "Listenmode", 1)
         Else
             loadini.SetKeyValue("Config", "Listenmode", 0)
+        End If
+        loadini.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
+    End Sub
+
+    Private Sub opensync_cb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles opensync_cb.CheckedChanged
+        Dim loadini As New IniFile
+        loadini.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
+
+        If opensync_cb.Checked = True Then
+            loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 1)
+        Else
+            loadini.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
         End If
         loadini.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
     End Sub

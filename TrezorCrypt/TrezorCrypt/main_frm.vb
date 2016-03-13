@@ -89,13 +89,11 @@ Public Class main_frm
     Private Sub main_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         If File.Exists(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini") = False Then
-            MsgBox("")
             configINI.AddSection("Config")
             configINI.SetKeyValue("Config", "OpenSyncPathafterDecryption", 0)
             configINI.SetKeyValue("Config", "Listenmode", 0)
             configINI.Save(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
             configINI.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
-            EraseRepeat = configINI.GetKeyValue("Config", "EraseRepeat")
             OpenSyncPathafterDecryption = configINI.GetKeyValue("Config", "OpenSyncPathafterDecryption")
         Else
             configINI.Load(My.Computer.FileSystem.SpecialDirectories.AllUsersApplicationData & "\config.ini")
