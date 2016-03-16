@@ -30,6 +30,7 @@ Partial Class main_frm
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
@@ -61,7 +62,7 @@ Partial Class main_frm
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.forward_msg_timer = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -113,8 +114,14 @@ Partial Class main_frm
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'SendPingToConnectedAccesNodeToolStripMenuItem
+        '
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
         '
         'HelpToolStripMenuItem
         '
@@ -366,11 +373,9 @@ Partial Class main_frm
         'SaveFileDialog1
         '
         '
-        'SendPingToConnectedAccesNodeToolStripMenuItem
+        'forward_msg_timer
         '
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
+        Me.forward_msg_timer.Interval = 1
         '
         'main_frm
         '
@@ -435,5 +440,6 @@ Partial Class main_frm
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SendPingToConnectedAccesNodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents forward_msg_timer As System.Windows.Forms.Timer
 
 End Class

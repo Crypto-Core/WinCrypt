@@ -26,6 +26,7 @@ Public Class main_frm
     Private chat_rtb(10000) As RichTextBox
     Private index As Integer = 0
     Private enc_file_byt_target As Byte()
+    Private trd As Threading.Thread
     Private Sub AddItem(ByVal s As Byte())
         '
         'Überprüfen ob die Verbindung verschlüsselt ist
@@ -63,14 +64,15 @@ Public Class main_frm
                     Next
                 End If
             End If
+            Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
 
+            
             'Überprüfen ob die Nachricht für mich ist ---------------------------------------->
             If to_ = eran_adress Then
-
                 'Inhalt abarbeiten
                 Dim ping As String = parameter.read_parameter("/ping ", decrypted_to_str) ' Deklariere den Parameter Ping
                 Dim state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
-                Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
+                'Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
                 Dim get_publickey As String = parameter.read_parameter("/get_publickey ", decrypted_to_str) 'Deklariere den Parameter get_PublicKey
                 Dim publickey_ As String = parameter.read_parameter("/publickey ", decrypted_to_str)
                 Dim handshake As String = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
@@ -103,7 +105,7 @@ Public Class main_frm
 
                 End If
 
-                
+
 
 
 
@@ -185,10 +187,6 @@ Public Class main_frm
                     End If
                 End If
 
-
-
-
-
                 'Sende meinen OnlineStatus
                 If get_state = "True" Then
                     Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; " & "/state " & online_state & ";")
@@ -230,8 +228,6 @@ Public Class main_frm
                             connected_usr.remove_encrypt_session(adress_)
                     End Select
                 End If
-
-
             End If
             GC_.FlushMemory()
         Else
@@ -356,6 +352,16 @@ Public Class main_frm
         If SecureDesktop.isOnSecureDesktop = True Then
             profil_img.Cursor = Cursors.Default
         End If
+        trd = New Threading.Thread(AddressOf server.Main)
+        trd.IsBackground = True
+        trd.Start()
+
+        AddHandler server.forward_lst.TextChanged, AddressOf Server_forward
+        forward_msg_timer.Enabled = True
+    End Sub
+
+    Sub Server_forward()
+        Send_to_Server(server.forward_lst.Text)
     End Sub
     Private Function Connect(ByVal host As String, ByVal port As Integer, ByVal eran_adress As String)
         Dim createRSA_Keys = RSA.Create_RSA_Key
@@ -378,6 +384,8 @@ Public Class main_frm
                 t.Start()
                 main_panel.Show()
                 connect_frame.Panel1.Hide()
+                server.myHost = host
+                
             Else
                 MessageBox.Show("Verbindung zum Server nicht möglich!2")
                 Application.Exit()
@@ -692,5 +700,9 @@ Public Class main_frm
 
     Private Sub SendPingToConnectedAccesNodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendPingToConnectedAccesNodeToolStripMenuItem.Click
         Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
+    End Sub
+
+    Private Sub forward_msg_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles forward_msg_timer.Tick
+
     End Sub
 End Class

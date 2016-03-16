@@ -10,7 +10,8 @@ Module server
     Private PrivateKey As String
     Private PublicKey As String
     Private aes_ As New AESEncrypt
-    Private myHost As String = "192.168.0.1"
+    Friend myHost As String = "192.168.0.1"
+    Friend forward_lst As New TextBox
     Private Structure Connection
         Dim stream As NetworkStream
         Dim streamw As StreamWriter
@@ -94,7 +95,6 @@ Module server
                 aes_.Decode(decode_BS64, decrypt_tmp, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                 dec_byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(decrypt_tmp)
                 'Console.WriteLine(tmp)
-
                 ' Verarbeite die Parameter
                 Dim adress As String = parameter.read_parameter("/adress ", dec_byte_to_str)
                 Dim ping As String = parameter.read_parameter("/ping ", dec_byte_to_str)
@@ -104,7 +104,11 @@ Module server
                 Dim get_nickname As String = parameter.read_parameter("/get_nickname ", dec_byte_to_str)
                 Dim img_file As String = parameter.read_parameter("/img_file ", dec_byte_to_str)
                 Dim reconnect_to As String = parameter.read_parameter("/reconnect_to ", dec_byte_to_str)
-                If adress = con.eran_adress Then
+                Dim forwarding As String = parameter.read_parameter("/forwarding ", dec_byte_to_str)
+                
+
+                'Es wird überprüft ob der Absender in der eignen Liste ist
+                    'Es wird überorüft ob der Empfänger der Server ist
                     If to_ = "server" Then
                         If ping = "ping" Then
                             Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/to " & con.eran_adress & "; " & "/ping pong;")
@@ -113,10 +117,12 @@ Module server
                             con.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
                             con.streamw.Flush()
                         End If
+
                     Else
                         For Each c As Connection In list
                             Try
                                 If to_ = c.eran_adress Then
+
                                     Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(dec_byte_to_str)
                                     Dim encrypt_source As Byte()
                                     aes_.Encode(get_bytes, encrypt_source, c.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
@@ -124,14 +130,21 @@ Module server
                                     c.streamw.Flush()
                                     Exit For
                                 Else
+                                    'Wenn der Empfänger nicht in der eigenen Benutzerliste ist soll es
+                                    'weitergeleitet werden.
+                                If adress = main_frm.eran_adress Then
+                                Else
+                                    If main_frm.host = "localhost" Then
+                                    Else
+                                        forward_lst.Text = dec_byte_to_str
+                                    End If
+                                End If
                                 End If
                             Catch
                             End Try
                         Next
                     End If
-                Else
-
-                End If
+                
                 GC_.FlushMemory()
             Catch
 
@@ -152,5 +165,21 @@ Module server
                 Exit Do
             End Try
         Loop
+
+
     End Sub
+    Friend Function send_to_clients(ByVal message As String)
+        For Each c As Connection In list
+            Try
+                Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message)
+                Dim encrypt_source As Byte()
+                aes_.Encode(get_bytes, encrypt_source, c.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                c.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
+                c.streamw.Flush()
+                GC_.FlushMemory()
+                Exit For
+            Catch
+            End Try
+        Next
+    End Function
 End Module
