@@ -82,6 +82,7 @@
     <Compile Include="about.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="classes\AES.vb" />
     <Compile Include="classes\MD5fileHash.vb" />
     <Compile Include="classes\Passstrength.vb" />
@@ -89,12 +90,14 @@
     <Compile Include="classes\rHash.vb" />
     <Compile Include="classes\rndPass.vb" />
     <Compile Include="classes\RSA.vb" />
+    <Compile Include="classes\Container.vb" />
     <Compile Include="converter.Designer.vb">
       <DependentUpon>converter.vb</DependentUpon>
     </Compile>
     <Compile Include="converter.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="classes\IniFile.vb" />
     <Compile Include="main_frm.vb">
       <SubType>Form</SubType>
     </Compile>

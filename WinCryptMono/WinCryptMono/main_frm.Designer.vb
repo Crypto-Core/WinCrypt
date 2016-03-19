@@ -36,7 +36,6 @@ Partial Class main_frm
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -63,7 +62,8 @@ Partial Class main_frm
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.enc_folder = New System.Windows.Forms.FolderBrowserDialog()
-        Me.dec_folder = New System.Windows.Forms.FolderBrowserDialog()
+        Me.crypt_filedialog = New System.Windows.Forms.SaveFileDialog()
+        Me.decrypt_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -85,7 +85,7 @@ Partial Class main_frm
         Me.GroupBox1.Size = New System.Drawing.Size(463, 229)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "directory encryption"
+        Me.GroupBox1.Text = "create container"
         '
         'ListBox1
         '
@@ -178,7 +178,6 @@ Partial Class main_frm
         Me.GroupBox2.Controls.Add(Me.ListBox2)
         Me.GroupBox2.Controls.Add(Me.Button4)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.Button5)
         Me.GroupBox2.Controls.Add(Me.TextBox4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Button6)
@@ -189,7 +188,7 @@ Partial Class main_frm
         Me.GroupBox2.Size = New System.Drawing.Size(463, 229)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "directory decryption"
+        Me.GroupBox2.Text = "decrypt container"
         '
         'ListBox2
         '
@@ -220,21 +219,9 @@ Partial Class main_frm
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(6, 23)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(31, 13)
+        Me.Label4.Size = New System.Drawing.Size(23, 13)
         Me.Label4.TabIndex = 7
-        Me.Label4.Text = "path:"
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(301, 75)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 13
-        Me.Button5.Text = "generate"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.Label4.Text = "file:"
         '
         'TextBox4
         '
@@ -274,7 +261,7 @@ Partial Class main_frm
         Me.TextBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.TextBox3.Location = New System.Drawing.Point(9, 78)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(286, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(367, 20)
         Me.TextBox3.TabIndex = 10
         '
         'DateiToolStripMenuItem
@@ -455,6 +442,14 @@ Partial Class main_frm
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'crypt_filedialog
+        '
+        Me.crypt_filedialog.Filter = "crypt|*.crypt"
+        '
+        'decrypt_dialog
+        '
+        Me.decrypt_dialog.Filter = "crypt|*.crypt"
+        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -494,7 +489,6 @@ Partial Class main_frm
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button6 As System.Windows.Forms.Button
@@ -521,6 +515,7 @@ Partial Class main_frm
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ConverterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents enc_folder As System.Windows.Forms.FolderBrowserDialog
-    Friend WithEvents dec_folder As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents crypt_filedialog As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents decrypt_dialog As System.Windows.Forms.OpenFileDialog
 
 End Class
