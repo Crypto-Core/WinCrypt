@@ -35,7 +35,6 @@ Partial Class login
         Me.usr_txt = New System.Windows.Forms.TextBox()
         Me.pwd_lb = New System.Windows.Forms.Label()
         Me.usr_lb = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.login_panel.SuspendLayout()
         CType(Me.profile_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.server_gb.SuspendLayout()
@@ -47,7 +46,6 @@ Partial Class login
         Me.login_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.login_panel.BackgroundImage = Global.Eran.My.Resources.Resources.trans5
         Me.login_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.login_panel.Controls.Add(Me.Button1)
         Me.login_panel.Controls.Add(Me.profile_img)
         Me.login_panel.Controls.Add(Me.join_bt)
         Me.login_panel.Controls.Add(Me.server_gb)
@@ -120,7 +118,7 @@ Partial Class login
         Me.host_txt.Name = "host_txt"
         Me.host_txt.Size = New System.Drawing.Size(133, 20)
         Me.host_txt.TabIndex = 2
-        Me.host_txt.Text = "localhost"
+        Me.host_txt.Text = "195.30.108.195"
         '
         'port_lb
         '
@@ -196,20 +194,6 @@ Partial Class login
         Me.usr_lb.TabIndex = 0
         Me.usr_lb.Text = "Username:"
         '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(12, 384)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(106, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Start Acces Node"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
         'login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -241,5 +225,4 @@ Partial Class login
     Friend WithEvents pwd_lb As System.Windows.Forms.Label
     Friend WithEvents usr_lb As System.Windows.Forms.Label
     Friend WithEvents profile_img As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

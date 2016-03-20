@@ -15,7 +15,7 @@
 
         access_node_host = ini.GetKeyValue("config", "access_node_host")
         startmodus = ini.GetKeyValue("config", "startmodus")
-        Select Case ini.GetKeyValue("config", "acces_node_save")
+        Select Case ini.GetKeyValue("config", "access_node_save")
             Case 0
                 acces_node_save = True
             Case 1

@@ -59,7 +59,7 @@ Public Class login
 
     End Sub
     Dim trd As Threading.Thread
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         trd = New Threading.Thread(AddressOf server.Main)
         trd.IsBackground = True
         trd.Start()

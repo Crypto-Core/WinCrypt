@@ -352,9 +352,11 @@ Public Class main_frm
         If SecureDesktop.isOnSecureDesktop = True Then
             profil_img.Cursor = Cursors.Default
         End If
-        trd = New Threading.Thread(AddressOf server.Main)
-        trd.IsBackground = True
-        trd.Start()
+
+        'Start Localserver
+        'trd = New Threading.Thread(AddressOf server.Main)
+        'trd.IsBackground = True
+        'trd.Start()
 
         AddHandler server.forward_lst.TextChanged, AddressOf Server_forward
         forward_msg_timer.Enabled = True
@@ -658,7 +660,7 @@ Public Class main_frm
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
             Dim dec_trg_byte As Byte()
 
-            aes_.Encode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+            aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim mem_ As New MemoryStream(dec_trg_byte)
             ini.LoadFromMemory(mem_)
             ini.RemoveSection(usr_name)
@@ -666,7 +668,7 @@ Public Class main_frm
             Dim save_ini_byt As Byte()
             save_ini_byt = ini.SavetoByte
             Dim targed_enc_byt As Byte()
-
+            MsgBox(ini.SavetoByte.Length)
             aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             File.WriteAllBytes(users_lst_path, targed_enc_byt)
         Else
@@ -704,5 +706,10 @@ Public Class main_frm
 
     Private Sub forward_msg_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles forward_msg_timer.Tick
 
+    End Sub
+
+    Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
+        NotifyIcon.Visible = False
+        Process.GetCurrentProcess.Kill()
     End Sub
 End Class
