@@ -27,6 +27,12 @@ Public Class main_frm
     Private index As Integer = 0
     Private enc_file_byt_target As Byte()
     Private trd As Threading.Thread
+
+    ''' <summary>
+    ''' Es wird eine Nachricht empfangen und verarbeitet.
+    ''' </summary>
+    ''' <param name="s">Die enthaltende Nachricht.</param>
+    ''' <remarks></remarks>
     Private Sub AddItem(ByVal s As Byte())
         '
         'Überprüfen ob die Verbindung verschlüsselt ist
@@ -269,6 +275,14 @@ Public Class main_frm
             GC_.FlushMemory()
         End If
     End Sub
+
+
+    ''' <summary>
+    ''' Überprüft ob ei Benutzer in der Freundeslist ist.
+    ''' </summary>
+    ''' <param name="eran_adress">Die Eran Adresse die überprüft werden soll.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Friend Function is_in_usrlst(ByVal eran_adress As String) As String
         For Each Item As ListViewItem In userlist_viewer.Items
             If eran_adress = Item.SubItems(1).Text Then
@@ -278,10 +292,19 @@ Public Class main_frm
         Next
         Return ""
     End Function
+
+    ''' <summary>
+    ''' Es wird ein Alert Sound abgespielt.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Shared Sub alert()
         My.Computer.Audio.Play(My.Resources.alert, AudioPlayMode.Background)
     End Sub
-
+    ''' <summary>
+    ''' Der Client lauscht ob eingehende Nachricht vom Server kommen.
+    ''' Meldet wenn die Verbindung abgebrochen wurde zum Server.
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub Listen()
         While client.Connected
             Try
@@ -295,6 +318,13 @@ Public Class main_frm
             End Try
         End While
     End Sub
+
+    ''' <summary>
+    ''' Nachricht wird an den Server gesendet
+    ''' </summary>
+    ''' <param name="str">Nachricht die an den Server gesendet werden soll.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Friend Shared Function Send_to_Server(ByVal str As String)
         If isEncrypted_Server = True Then
             Dim get_msg_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(Str)
@@ -308,7 +338,11 @@ Public Class main_frm
             streamw.Flush()
         End If
     End Function
-
+    ''' <summary>
+    ''' Benutzerliste wird geladen
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Friend Shared Function load_userlist()
         If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
             Dim ini As New IniFile
@@ -338,6 +372,11 @@ Public Class main_frm
 
         End If
     End Function
+    ''' <summary>
+    ''' Benutzerliste wird neu geladen
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function refresh_usrlist()
         For check_State As Integer = 0 To userlist_viewer.Items.Count - 1
             Send_to_Server("/adress " & eran_adress & "; /to " & userlist_viewer.Items(check_State).SubItems(1).Text & "; /get_state True;")
@@ -375,14 +414,16 @@ Public Class main_frm
         'trd = New Threading.Thread(AddressOf server.Main)
         'trd.IsBackground = True
         'trd.Start()
-
-        AddHandler server.forward_lst.TextChanged, AddressOf Server_forward
-        forward_msg_timer.Enabled = True
     End Sub
 
-    Sub Server_forward()
-        Send_to_Server(server.forward_lst.Text)
-    End Sub
+    ''' <summary>
+    ''' Verbindung zum Server wurde hergestellt.
+    ''' </summary>
+    ''' <param name="host">Den Hostname vom Server</param>
+    ''' <param name="port">Port vom Server</param>
+    ''' <param name="eran_adress">Die Eran Adresse mit dem der Client sich beim Server registriert.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Private Function Connect(ByVal host As String, ByVal port As Integer, ByVal eran_adress As String)
         Dim createRSA_Keys = RSA.Create_RSA_Key
         PublicKey = createRSA_Keys.OpenKey
@@ -405,7 +446,8 @@ Public Class main_frm
                 main_panel.Show()
                 connect_frame.Panel1.Hide()
                 server.myHost = host
-                
+                Send_to_Server("available")
+                available_timer.Enabled = True
             Else
                 MessageBox.Show("Verbindung zum Server nicht möglich!2")
                 Application.Exit()
@@ -418,6 +460,10 @@ Public Class main_frm
             login.login_panel.Show()
         End Try
     End Function
+    ''' <summary>
+    ''' Wenn eine Verbindung aufgebaut wird, wird ein Handshake mit dem Server vereinbart über RSA.
+    ''' </summary>
+    ''' <remarks></remarks>
     Private Sub conn()
         Dim createRSA_Keys = RSA.Create_RSA_Key
         PublicKey = createRSA_Keys.OpenKey
@@ -441,7 +487,6 @@ Public Class main_frm
                 connect_frame.Panel1.Hide()
                 TextBox1.Text = username
                 server.myHost = host
-
             Else
                 MessageBox.Show("Verbindung zum Server nicht möglich!2")
                 Application.Exit()
@@ -475,9 +520,17 @@ Public Class main_frm
     End Sub
     
     Dim cache_rtb As New RichTextBox
-    Private Function new_chat(ByVal eran_adress As String, ByVal username As String, Optional ByVal get_msg As String = "")
 
-        
+
+    ''' <summary>
+    ''' Erstellt ein neues Chatfenster oder wenn bereits erstellt wird es geöffnet.
+    ''' </summary>
+    ''' <param name="eran_adress">Die Eran Adresse vom Absender.</param>
+    ''' <param name="username">Der Benutzername vom Absender (wenn vorhanden)</param>
+    ''' <param name="get_msg">Die neue Nachricht.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function new_chat(ByVal eran_adress As String, ByVal username As String, Optional ByVal get_msg As String = "")
         Dim bool As Boolean = False
         Dim window As Integer = 0
         For tt As Integer = 0 To index
@@ -577,6 +630,14 @@ Public Class main_frm
 
         End Try
     End Function
+
+    ''' <summary>
+    ''' Es wird ein Vibrate ausgeführt für ein bestimmtes Fenster.
+    ''' </summary>
+    ''' <param name="frm">Wähle die Form</param>
+    ''' <param name="repeat">Wie oft das Fenster vibrieren soll.</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Friend Shared Function vibrate_frm(ByVal frm As Form, ByVal repeat As Integer)
         For index As Integer = 0 To repeat
             frm.Location = New Point(frm.Location.X - 10, frm.Location.Y)
@@ -588,6 +649,14 @@ Public Class main_frm
             frm.Location = New Point(frm.Location.X, frm.Location.Y + 10)
         Next
     End Function
+
+    ''' <summary>
+    ''' Ein Text wird Farblich in die RichTextbox eingefügt.
+    ''' </summary>
+    ''' <param name="rtb">Wähle die RichTextbox aus.</param>
+    ''' <param name="txt">Welcher Text soll hinzugefügt werden?</param>
+    ''' <param name="col">Wähle die Farbe aus die der Text haben soll.</param>
+    ''' <remarks></remarks>
     Private Sub AddText(ByVal rtb As RichTextBox, ByVal txt As String, ByVal col As Color)
         Dim pos As Integer = rtb.TextLength
         rtb.AppendText(txt)
@@ -635,7 +704,12 @@ Public Class main_frm
     Private Sub OfflineToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OfflineToolStripMenuItem.Click
         set_State(0)
     End Sub
-
+    ''' <summary>
+    ''' Sendet an alle Nutzer in der Freundesliste den gestzten Online Status
+    ''' </summary>
+    ''' <param name="state"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Friend Function set_State(ByVal state As Integer)
         Select Case state
             Case 0
@@ -679,7 +753,12 @@ Public Class main_frm
     Private Sub OnlineToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnlineToolStripMenuItem.Click
         set_State(2)
     End Sub
-
+    ''' <summary>
+    ''' Wenn der Client ein Profilbild gewählt hat wird dieses gesetzt.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub open_file_diag_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles open_file_diag.FileOk
         Dim new_bmp As Bitmap = Bitmap.FromFile(open_file_diag.FileName)
         Dim resize As Bitmap = New Bitmap(new_bmp, New Size(64, 64))
@@ -727,7 +806,12 @@ Public Class main_frm
         Me.Show()
         Me.WindowState = FormWindowState.Normal
     End Sub
-
+    ''' <summary>
+    ''' Öffnet das Dialog um ein neues Profilbild festzulegen.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
         If SecureDesktop.isOnSecureDesktop = True Then
 
@@ -735,6 +819,12 @@ Public Class main_frm
             open_file_diag.ShowDialog()
         End If
     End Sub
+    ''' <summary>
+    ''' Einen Benutzer von der Liste löschen.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub DeleteFromListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteFromListToolStripMenuItem.Click
         If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
 
@@ -782,7 +872,12 @@ Public Class main_frm
     Private Sub SettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingsToolStripMenuItem.Click
         settings.ShowDialog()
     End Sub
-
+    ''' <summary>
+    ''' Sendet eine Ping anfrage zum Server
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub SendPingToConnectedAccesNodeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendPingToConnectedAccesNodeToolStripMenuItem.Click
         Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
     End Sub
@@ -819,5 +914,14 @@ Public Class main_frm
 
     Private Sub EditUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditUserToolStripMenuItem.Click
         userlist_viewer.LabelEdit = True
+    End Sub
+    ''' <summary>
+    ''' Sendet an den Server das der Client noch Aktiv ist damit die Verbindung nicht in den Sleep modus geht.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
+    Private Sub available_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles available_timer.Tick
+        Send_to_Server("available")
     End Sub
 End Class

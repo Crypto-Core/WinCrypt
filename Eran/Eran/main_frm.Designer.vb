@@ -41,10 +41,10 @@ Partial Class main_frm
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.head_panel = New System.Windows.Forms.Panel()
+        Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.status_lb = New System.Windows.Forms.Label()
-        Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.status_strip = New System.Windows.Forms.ToolStripSplitButton()
         Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,7 +65,7 @@ Partial Class main_frm
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.forward_msg_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -213,6 +213,22 @@ Partial Class main_frm
         Me.head_panel.Size = New System.Drawing.Size(355, 98)
         Me.head_panel.TabIndex = 1
         '
+        'eran_adr_txt
+        '
+        Me.eran_adr_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.eran_adr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.eran_adr_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.eran_adr_txt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.eran_adr_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.eran_adr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.eran_adr_txt.Location = New System.Drawing.Point(92, 52)
+        Me.eran_adr_txt.Name = "eran_adr_txt"
+        Me.eran_adr_txt.ReadOnly = True
+        Me.eran_adr_txt.Size = New System.Drawing.Size(245, 14)
+        Me.eran_adr_txt.TabIndex = 3
+        Me.eran_adr_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'TextBox1
         '
         Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -247,22 +263,6 @@ Partial Class main_frm
         Me.status_lb.Size = New System.Drawing.Size(40, 13)
         Me.status_lb.TabIndex = 5
         Me.status_lb.Text = "Status:"
-        '
-        'eran_adr_txt
-        '
-        Me.eran_adr_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.eran_adr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.eran_adr_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.eran_adr_txt.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.eran_adr_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.eran_adr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.eran_adr_txt.Location = New System.Drawing.Point(92, 52)
-        Me.eran_adr_txt.Name = "eran_adr_txt"
-        Me.eran_adr_txt.ReadOnly = True
-        Me.eran_adr_txt.Size = New System.Drawing.Size(245, 14)
-        Me.eran_adr_txt.TabIndex = 3
-        Me.eran_adr_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'StatusStrip
         '
@@ -401,9 +401,9 @@ Partial Class main_frm
         'SaveFileDialog1
         '
         '
-        'forward_msg_timer
+        'available_timer
         '
-        Me.forward_msg_timer.Interval = 1
+        Me.available_timer.Interval = 60000
         '
         'main_frm
         '
@@ -466,11 +466,11 @@ Partial Class main_frm
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SendPingToConnectedAccesNodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents forward_msg_timer As System.Windows.Forms.Timer
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
+    Friend WithEvents available_timer As System.Windows.Forms.Timer
 
 End Class
