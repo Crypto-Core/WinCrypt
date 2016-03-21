@@ -33,6 +33,7 @@ Partial Class main_frm
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
@@ -40,9 +41,9 @@ Partial Class main_frm
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.head_panel = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.status_lb = New System.Windows.Forms.Label()
-        Me.eran_adr_lb = New System.Windows.Forms.Label()
         Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.status_strip = New System.Windows.Forms.ToolStripSplitButton()
@@ -65,7 +66,6 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.forward_msg_timer = New System.Windows.Forms.Timer(Me.components)
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -96,7 +96,7 @@ Partial Class main_frm
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'UsersToolStripMenuItem
@@ -131,14 +131,20 @@ Partial Class main_frm
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'SendPingToConnectedAccesNodeToolStripMenuItem
         '
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
+        '
+        'TestToolStripMenuItem
+        '
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.TestToolStripMenuItem.Text = "Test"
         '
         'HelpToolStripMenuItem
         '
@@ -173,10 +179,11 @@ Partial Class main_frm
         Me.userlist_viewer.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
         Me.userlist_viewer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.userlist_viewer.ForeColor = System.Drawing.SystemColors.Window
-        Me.userlist_viewer.Location = New System.Drawing.Point(0, 106)
+        Me.userlist_viewer.LabelEdit = True
+        Me.userlist_viewer.Location = New System.Drawing.Point(0, 122)
         Me.userlist_viewer.MultiSelect = False
         Me.userlist_viewer.Name = "userlist_viewer"
-        Me.userlist_viewer.Size = New System.Drawing.Size(355, 357)
+        Me.userlist_viewer.Size = New System.Drawing.Size(355, 341)
         Me.userlist_viewer.SmallImageList = Me.ImageList1
         Me.userlist_viewer.TabIndex = 3
         Me.userlist_viewer.UseCompatibleStateImageBehavior = False
@@ -195,16 +202,29 @@ Partial Class main_frm
         'head_panel
         '
         Me.head_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.head_panel.Controls.Add(Me.eran_adr_txt)
+        Me.head_panel.Controls.Add(Me.TextBox1)
         Me.head_panel.Controls.Add(Me.profil_img)
         Me.head_panel.Controls.Add(Me.status_lb)
-        Me.head_panel.Controls.Add(Me.eran_adr_lb)
-        Me.head_panel.Controls.Add(Me.eran_adr_txt)
         Me.head_panel.Controls.Add(Me.StatusStrip)
         Me.head_panel.Dock = System.Windows.Forms.DockStyle.Top
         Me.head_panel.Location = New System.Drawing.Point(0, 24)
         Me.head_panel.Name = "head_panel"
-        Me.head_panel.Size = New System.Drawing.Size(355, 82)
+        Me.head_panel.Size = New System.Drawing.Size(355, 98)
         Me.head_panel.TabIndex = 1
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.TextBox1.Location = New System.Drawing.Point(98, 20)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(245, 22)
+        Me.TextBox1.TabIndex = 7
         '
         'profil_img
         '
@@ -212,7 +232,7 @@ Partial Class main_frm
         Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.profil_img.Cursor = System.Windows.Forms.Cursors.Hand
         Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
-        Me.profil_img.Location = New System.Drawing.Point(7, 3)
+        Me.profil_img.Location = New System.Drawing.Point(12, 13)
         Me.profil_img.Name = "profil_img"
         Me.profil_img.Size = New System.Drawing.Size(74, 74)
         Me.profil_img.TabIndex = 6
@@ -222,34 +242,25 @@ Partial Class main_frm
         '
         Me.status_lb.AutoSize = True
         Me.status_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.status_lb.Location = New System.Drawing.Point(95, 51)
+        Me.status_lb.Location = New System.Drawing.Point(95, 70)
         Me.status_lb.Name = "status_lb"
         Me.status_lb.Size = New System.Drawing.Size(40, 13)
         Me.status_lb.TabIndex = 5
         Me.status_lb.Text = "Status:"
         '
-        'eran_adr_lb
-        '
-        Me.eran_adr_lb.AutoSize = True
-        Me.eran_adr_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.eran_adr_lb.Location = New System.Drawing.Point(95, 11)
-        Me.eran_adr_lb.Name = "eran_adr_lb"
-        Me.eran_adr_lb.Size = New System.Drawing.Size(66, 13)
-        Me.eran_adr_lb.TabIndex = 4
-        Me.eran_adr_lb.Text = "Eran adress:"
-        '
         'eran_adr_txt
         '
         Me.eran_adr_txt.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.eran_adr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.eran_adr_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.eran_adr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.eran_adr_txt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.eran_adr_txt.Cursor = System.Windows.Forms.Cursors.Hand
         Me.eran_adr_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.eran_adr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.eran_adr_txt.Location = New System.Drawing.Point(98, 27)
+        Me.eran_adr_txt.Location = New System.Drawing.Point(92, 52)
         Me.eran_adr_txt.Name = "eran_adr_txt"
         Me.eran_adr_txt.ReadOnly = True
-        Me.eran_adr_txt.Size = New System.Drawing.Size(245, 21)
+        Me.eran_adr_txt.Size = New System.Drawing.Size(245, 14)
         Me.eran_adr_txt.TabIndex = 3
         Me.eran_adr_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -260,7 +271,7 @@ Partial Class main_frm
         Me.StatusStrip.Dock = System.Windows.Forms.DockStyle.None
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.status_strip})
         Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.StatusStrip.Location = New System.Drawing.Point(138, 46)
+        Me.StatusStrip.Location = New System.Drawing.Point(138, 65)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode
         Me.StatusStrip.Size = New System.Drawing.Size(80, 22)
@@ -332,7 +343,7 @@ Partial Class main_frm
         '
         'open_file_diag
         '
-        Me.open_file_diag.Filter = "PNG|*.png|BMP|*.bmp|JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif"
+        Me.open_file_diag.Filter = "All|*.*|PNG|*.png|BMP|*.bmp|JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif"
         '
         'NotifyIcon
         '
@@ -394,12 +405,6 @@ Partial Class main_frm
         '
         Me.forward_msg_timer.Interval = 1
         '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.TestToolStripMenuItem.Text = "Test"
-        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -443,8 +448,6 @@ Partial Class main_frm
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents head_panel As System.Windows.Forms.Panel
     Friend WithEvents status_lb As System.Windows.Forms.Label
-    Friend WithEvents eran_adr_lb As System.Windows.Forms.Label
-    Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
     Friend WithEvents status_strip As System.Windows.Forms.ToolStripSplitButton
     Friend WithEvents OfflineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -467,5 +470,7 @@ Partial Class main_frm
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
 
 End Class

@@ -49,31 +49,43 @@ Public Class nChat_frm
         rtb.Select(rtb.TextLength, 1)
         message_box.Focus()
     End Sub
+    Dim enc As Integer = 0
     Private Sub encrypt_state_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_state.Tick
         If connected_usr.isConnect_Encrypt(Name) = True Then
             lock_bt.Image = My.Resources.lock16
             message_box.Enabled = True
             encrypted = True
+
+            sendfile_bt.Enabled = True
             get_key()
             message_box.BackColor = Color.FromArgb(30, 30, 30)
             encrypt_state.Interval = 2000
+            If enc = 0 Then
+                alert_bt.Enabled = True
+                AddText(rtb_, "[Chat encrypted!]" & vbNewLine, Color.Lime)
+            End If
+            enc = 1
         Else
             lock_bt.Image = My.Resources.unlock16
             message_box.Enabled = False
             message_box.BackColor = Color.FromArgb(106, 106, 106)
+            alert_bt.Enabled = False
+            sendfile_bt.Enabled = False
             encrypted = False
+            If key = "" Then : Else
+                AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
+            End If
             key = ""
+            enc = 0
         End If
     End Sub
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
-        If encrypted = True Then
-            MessageBox.Show("SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            If MessageBox.Show("It's not Encrypted!" & vbNewLine & "You will be send a new Handshake?", "Not Encrypted", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
-            Else
 
-            End If
+        If encrypted = True Then
+            MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 4096bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Lime)
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         End If
     End Sub
     Sub get_key()
@@ -186,6 +198,8 @@ Public Class nChat_frm
     End Sub
 
     Private Sub alert_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alert_bt.Click
+        alert_bt.Enabled = False
+        alertCountdown.Enabled = True
         If encrypted = True Then
             Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/alert 1;")
             Dim target As Byte()
@@ -214,9 +228,13 @@ Public Class nChat_frm
     End Sub
 
     Private Sub addusr_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles addusr_bt.Click
-        add_user.username_txt.Text = Me.Text
-        add_user.eran_adress_txt.Text = Name
-        add_user.ShowDialog()
+        If encrypted = True Then
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
+        Else
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
+        End If
+        addusr_bt.Visible = False
+        
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
@@ -257,5 +275,66 @@ Public Class nChat_frm
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click
         rtb_.Clear()
+    End Sub
+    Private Sub nChat_frm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.TextChanged
+        If Name = "nChat_frm" Then : Else
+            If Text = Name Then : Else
+
+                If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") Then
+                    Dim ini As New IniFile
+                    Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+                    Dim dec_trg_byte As Byte()
+
+                    aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                    Dim mem_ As New MemoryStream(dec_trg_byte)
+                    ini.LoadFromMemory(mem_)
+                    ini.SetKeyValue(Text, "adress", Name)
+                    Dim save_ini_byt As Byte()
+                    save_ini_byt = ini.SavetoByte
+                    Dim targed_enc_byt As Byte()
+                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                    File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
+
+                Else
+                    Dim ini As New IniFile
+                    ini.SetKeyValue(Text, "adress", Name)
+                    Dim save_ini_byt As Byte()
+                    save_ini_byt = ini.SavetoByte
+                    Dim targed_enc_byt As Byte()
+                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                    File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
+
+                End If
+            End If
+            
+
+        End If
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_state True;")
+    End Sub
+
+    Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetUsernameToolStripMenuItem.Click
+        If encrypted = True Then
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
+        Else
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
+        End If
+
+    End Sub
+    Dim alertindex As Integer = 5
+    Private Sub alertCountdown_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alertCountdown.Tick
+        alertindex -= 1
+        If alertindex = 0 Then
+            alert_bt.Enabled = True
+            alertCountdown.Enabled = False
+            alertindex = 5
+        End If
+    End Sub
+
+    Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
+        If SecureDesktop.isOnSecureDesktop = True Then
+
+        Else
+            main_frm.open_file_diag.ShowDialog()
+        End If
     End Sub
 End Class

@@ -29,6 +29,7 @@ Partial Class StartWindow
         Me.startNormal_bt = New System.Windows.Forms.Button()
         Me.msg2 = New System.Windows.Forms.Label()
         Me.save_selection_cb = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.secure_desktop_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +62,7 @@ Partial Class StartWindow
         Me.secureDesktop_bt.FlatAppearance.BorderSize = 0
         Me.secureDesktop_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.secureDesktop_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.secureDesktop_bt.Location = New System.Drawing.Point(266, 376)
+        Me.secureDesktop_bt.Location = New System.Drawing.Point(318, 363)
         Me.secureDesktop_bt.Name = "secureDesktop_bt"
         Me.secureDesktop_bt.Size = New System.Drawing.Size(150, 23)
         Me.secureDesktop_bt.TabIndex = 3
@@ -75,7 +76,7 @@ Partial Class StartWindow
         Me.startNormal_bt.FlatAppearance.BorderSize = 0
         Me.startNormal_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.startNormal_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.startNormal_bt.Location = New System.Drawing.Point(110, 376)
+        Me.startNormal_bt.Location = New System.Drawing.Point(114, 363)
         Me.startNormal_bt.Name = "startNormal_bt"
         Me.startNormal_bt.Size = New System.Drawing.Size(150, 23)
         Me.startNormal_bt.TabIndex = 4
@@ -98,12 +99,22 @@ Partial Class StartWindow
         '
         Me.save_selection_cb.AutoSize = True
         Me.save_selection_cb.ForeColor = System.Drawing.Color.White
-        Me.save_selection_cb.Location = New System.Drawing.Point(12, 382)
+        Me.save_selection_cb.Location = New System.Drawing.Point(12, 367)
         Me.save_selection_cb.Name = "save_selection_cb"
         Me.save_selection_cb.Size = New System.Drawing.Size(96, 17)
         Me.save_selection_cb.TabIndex = 6
         Me.save_selection_cb.Text = "Save selection"
         Me.save_selection_cb.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.ForeColor = System.Drawing.Color.Red
+        Me.Label1.Location = New System.Drawing.Point(297, 389)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(193, 13)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "[WARNING: IT'S A BETA FUNCTION!]"
         '
         'StartWindow
         '
@@ -111,6 +122,7 @@ Partial Class StartWindow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(518, 411)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.save_selection_cb)
         Me.Controls.Add(Me.msg2)
         Me.Controls.Add(Me.startNormal_bt)
@@ -134,4 +146,5 @@ Partial Class StartWindow
     Friend WithEvents startNormal_bt As System.Windows.Forms.Button
     Friend WithEvents msg2 As System.Windows.Forms.Label
     Friend WithEvents save_selection_cb As System.Windows.Forms.CheckBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

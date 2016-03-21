@@ -43,6 +43,8 @@ Partial Class nChat_frm
         Me.send_file_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.alertCountdown = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,6 +132,7 @@ Partial Class nChat_frm
         '
         'UserToolStripMenuItem
         '
+        Me.UserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GetUsernameToolStripMenuItem})
         Me.UserToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
@@ -177,6 +180,7 @@ Partial Class nChat_frm
         Me.profil_img.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.profil_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
         Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.profil_img.Cursor = System.Windows.Forms.Cursors.Hand
         Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
         Me.profil_img.Location = New System.Drawing.Point(12, 305)
         Me.profil_img.Name = "profil_img"
@@ -209,6 +213,16 @@ Partial Class nChat_frm
         Me.ClearChatToolStripMenuItem.Name = "ClearChatToolStripMenuItem"
         Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ClearChatToolStripMenuItem.Text = "Clear Chat"
+        '
+        'GetUsernameToolStripMenuItem
+        '
+        Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
+        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GetUsernameToolStripMenuItem.Text = "Get username"
+        '
+        'alertCountdown
+        '
+        Me.alertCountdown.Interval = 1000
         '
         'nChat_frm
         '
@@ -259,4 +273,6 @@ Partial Class nChat_frm
     Friend WithEvents send_file_dialog As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Contextmenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ClearChatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GetUsernameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents alertCountdown As System.Windows.Forms.Timer
 End Class

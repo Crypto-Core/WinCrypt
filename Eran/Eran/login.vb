@@ -4,7 +4,7 @@ Public Class login
     Dim ini As New IniFile
     Friend Shared profile_img_memstream As MemoryStream
     Friend Shared eran_adress As String
-    Friend username As String
+    Friend Shared username As String
     Friend Shared pwd As String
 
     Private Sub login_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles login_panel.HandleCreated

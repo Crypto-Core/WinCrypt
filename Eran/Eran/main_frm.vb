@@ -83,6 +83,25 @@ Public Class main_frm
                 Dim profilimage As String = parameter.read_parameter("/profil_image ", decrypted_to_str)
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
+                Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
+               
+                If username = "" Then : Else
+                    Try
+                        For Each tt In chat_frm
+                            If tt.Name = adress_ Then
+                                tt.Text = username
+                                userlist_viewer.Items.Clear()
+                                load_userlist()
+                            
+                            End If
+                        Next
+                    Catch ex As Exception : End Try
+
+                End If
+
+                If get_username = "" Then : Else
+                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & TextBox1.Text & ";")
+                End If
 
                 If ping = "pong" Then
                     MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
@@ -260,7 +279,6 @@ Public Class main_frm
         Return ""
     End Function
     Public Shared Sub alert()
-
         My.Computer.Audio.Play(My.Resources.alert, AudioPlayMode.Background)
     End Sub
 
@@ -400,11 +418,59 @@ Public Class main_frm
             login.login_panel.Show()
         End Try
     End Function
+    Private Sub conn()
+        Dim createRSA_Keys = RSA.Create_RSA_Key
+        PublicKey = createRSA_Keys.OpenKey
+        PrivateKey = createRSA_Keys.PrivatKey
+        Try
+            client.Connect(host, port) ' hier die ip des servers eintragen. 
+            ' da dieser beim testen wohl lokal läuft, hier die loopback-ip 127.0.0.1.
+            If client.Connected Then
+                stream = client.GetStream
+                streamw = New StreamWriter(stream)
+                streamr = New StreamReader(stream)
 
+                'Den PublicKey in Base64
+                Dim bs64_publickey As String = Base64.Str_To_Base64Str(PublicKey)
+
+                'Kodiere den Base64 String
+                streamw.WriteLine(Base64.Str_To_Base64Str("/adress " & eran_adress & "; " & "/publickey " & bs64_publickey & ";")) ' das ist optional.
+                streamw.Flush()
+                t.Start()
+                main_panel.Show()
+                connect_frame.Panel1.Hide()
+                TextBox1.Text = username
+                server.myHost = host
+
+            Else
+                MessageBox.Show("Verbindung zum Server nicht möglich!2")
+                Application.Exit()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Access node offline!", "Connection fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            eran_adr_txt.Text = "error"
+            connect_frame.Panel1.Hide()
+            main_panel.Hide()
+            login.login_panel.Show()
+        End Try
+    End Sub
+
+    Private Sub eran_adr_txt_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.Click
+        My.Computer.Clipboard.SetText(eran_adr_txt.Text)
+        MessageBox.Show("Eran address copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.None)
+    End Sub
+
+    Private Sub eran_adr_txt_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.GotFocus
+        userlist_viewer.Focus()
+    End Sub
     Private Sub eran_adr_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles eran_adr_txt.TextChanged
         If eran_adr_txt.Text = "error" Then
         Else
-            Connect(host, port, eran_adress)
+            Control.CheckForIllegalCrossThreadCalls = False
+            Dim trd As New System.Threading.Thread(AddressOf conn)
+            trd.IsBackground = True
+            trd.Start()
+            'Connect(host, port, eran_adress)
         End If
     End Sub
     
@@ -556,7 +622,7 @@ Public Class main_frm
             Me.WindowState = FormWindowState.Minimized
             Me.Hide()
         Else
-            e.Cancel = True
+            e.Cancel = False
         End If
         
         'Me.Hide()
@@ -674,6 +740,7 @@ Public Class main_frm
 
             Dim usr_name As String = userlist_viewer.SelectedItems(0).Text
             Dim ini As New IniFile
+
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
             Dim dec_trg_byte As Byte()
 
@@ -685,7 +752,6 @@ Public Class main_frm
             Dim save_ini_byt As Byte()
             save_ini_byt = ini.SavetoByte
             Dim targed_enc_byt As Byte()
-            MsgBox(ini.SavetoByte.Length)
             aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             File.WriteAllBytes(users_lst_path, targed_enc_byt)
         Else
@@ -722,11 +788,36 @@ Public Class main_frm
     End Sub
 
     Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
-        NotifyIcon.Visible = False
-        Process.GetCurrentProcess.Kill()
+        If SecureDesktop.isOnSecureDesktop = False Then
+            NotifyIcon.Visible = False
+            Process.GetCurrentProcess.Kill()
+        Else
+            Me.WindowState = FormWindowState.Minimized
+            Me.Hide()
+        End If
+        
     End Sub
 
-    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
-        
+    Private Sub TextBox1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.GotFocus
+        TextBox1.BackColor = Color.FromArgb(30, 30, 30)
+    End Sub
+
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            userlist_viewer.Focus()
+            
+        End If
+    End Sub
+
+    Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
+        TextBox1.BackColor = Color.FromArgb(45, 45, 45)
+        If TextBox1.Text = "" Then
+            TextBox1.Text = login.username
+        End If
+    End Sub
+
+    Private Sub EditUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditUserToolStripMenuItem.Click
+        userlist_viewer.LabelEdit = True
     End Sub
 End Class
