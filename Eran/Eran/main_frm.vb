@@ -411,6 +411,7 @@ Public Class main_frm
     Dim cache_rtb As New RichTextBox
     Private Function new_chat(ByVal eran_adress As String, ByVal username As String, Optional ByVal get_msg As String = "")
 
+        
         Dim bool As Boolean = False
         Dim window As Integer = 0
         For tt As Integer = 0 To index
@@ -493,6 +494,22 @@ Public Class main_frm
             index += 1
 
         End If
+        Try
+            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
+            If cache_rtb.Text.Length > 24 Then
+                NotifyIcon.BalloonTipText = cache_rtb.Text.Substring(0, 25)
+            Else
+                NotifyIcon.BalloonTipText = cache_rtb.Text
+            End If
+            NotifyIcon.BalloonTipTitle = username
+            If get_msg = "" Then
+            Else
+                NotifyIcon.ShowBalloonTip(1000)
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Function
     Friend Shared Function vibrate_frm(ByVal frm As Form, ByVal repeat As Integer)
         For index As Integer = 0 To repeat
@@ -704,12 +721,12 @@ Public Class main_frm
         Send_to_Server("/adress " & eran_adress & "; /to server; /ping ping;")
     End Sub
 
-    Private Sub forward_msg_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles forward_msg_timer.Tick
-
-    End Sub
-
     Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
         NotifyIcon.Visible = False
         Process.GetCurrentProcess.Kill()
+    End Sub
+
+    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
+        
     End Sub
 End Class

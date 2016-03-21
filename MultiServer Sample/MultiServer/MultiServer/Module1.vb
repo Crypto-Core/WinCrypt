@@ -11,6 +11,7 @@ Module Module1
     Private PublicKey As String
     Private aes_ As New AESEncrypt
     Private myHost As String = "192.168.0.1"
+    Private userOnline As Integer = 0
     Private Structure Connection
         Dim stream As NetworkStream
         Dim streamw As StreamWriter
@@ -20,66 +21,79 @@ Module Module1
         Dim Key As String
     End Structure
     Friend Function isConnected(ByVal eran_adress As String) As Boolean
-        For Each check In list
-            If eran_adress = check.eran_adress Then
-                Return True
-                End
-            End If
-        Next
-        Return False
+        Try
+            For Each check In list
+                If eran_adress = check.eran_adress Then
+                    Return True
+                    End
+                End If
+            Next
+            Return False
+        Catch ex As Exception
+            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/ErrorLog.txt", ex.ToString & vbNewLine, True)
+        End Try
+        
     End Function
     Sub Main()
-        Dim rsa_keys = RSA.Create_RSA_Key
-        Console.WriteLine("Server started")
-        server = New TcpListener(ipendpoint)
-        server.Start()
+        Try
+            Dim rsa_keys = RSA.Create_RSA_Key
+            Console.WriteLine("Server started")
+            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
+            server = New TcpListener(ipendpoint)
+            server.Start()
 
-        While True
-            client = server.AcceptTcpClient
-            'Console.WriteLine("Accepted Client" & vbNewLine)
-            Dim c As New Connection
-            
-            c.stream = client.GetStream
-            c.streamr = New StreamReader(c.stream)
-            c.streamw = New StreamWriter(c.stream)
-            Dim client_msg As String = Base64.FromBase64Str_to_Str(c.streamr.ReadLine) ' Empfange die Nachricht und Dekodiere den Base64 String
-            If isConnected(parameter.read_parameter("/adress ", client_msg)) = True Then
+            While True
+                client = server.AcceptTcpClient
+                'Console.WriteLine("Accepted Client" & vbNewLine)
+                Dim c As New Connection
 
-            Else
-                ' Console.WriteLine("Get Message: " & client_msg & vbNewLine)
+                c.stream = client.GetStream
+                c.streamr = New StreamReader(c.stream)
+                c.streamw = New StreamWriter(c.stream)
+                Dim client_msg As String = Base64.FromBase64Str_to_Str(c.streamr.ReadLine) ' Empfange die Nachricht und Dekodiere den Base64 String
+                If isConnected(parameter.read_parameter("/adress ", client_msg)) = True Then
 
-                'Empfange Eran Adresse
-                c.eran_adress = parameter.read_parameter("/adress ", client_msg) ' falls das mit dem nick nicht gewünscht, auch diese zeile entfernen.
-                'Console.WriteLine("Filtert Adress: " & c.eran_adress & vbNewLine)
+                Else
+                    ' Console.WriteLine("Get Message: " & client_msg & vbNewLine)
+
+                    'Empfange Eran Adresse
+                    c.eran_adress = parameter.read_parameter("/adress ", client_msg) ' falls das mit dem nick nicht gewünscht, auch diese zeile entfernen.
+                    'Console.WriteLine("Filtert Adress: " & c.eran_adress & vbNewLine)
 
 
-                'Empfange RSA PublicKey
-                Dim filter_PublicKey As String = parameter.read_parameter("/publickey ", client_msg)
-                c.rsa_public_key = Base64.FromBase64Str_to_Str(filter_PublicKey) ' Der PublicKey wird entgegengenommen
-                'Console.WriteLine("Filtert RSA Public Key: " & filter_PublicKey & vbNewLine)
+                    'Empfange RSA PublicKey
+                    Dim filter_PublicKey As String = parameter.read_parameter("/publickey ", client_msg)
+                    c.rsa_public_key = Base64.FromBase64Str_to_Str(filter_PublicKey) ' Der PublicKey wird entgegengenommen
+                    'Console.WriteLine("Filtert RSA Public Key: " & filter_PublicKey & vbNewLine)
 
-                'Schicke verschlüsselte RSA Nachricht zurück.
-                Dim rndKey As String = rndPass.Random(32)
-                c.Key = rndKey
-                'Console.WriteLine("Create Key......" & vbNewLine)
-                'Console.WriteLine("Key: " & rndKey & vbNewLine)
+                    'Schicke verschlüsselte RSA Nachricht zurück.
+                    Dim rndKey As String = rndPass.Random(32)
+                    c.Key = rndKey
+                    'Console.WriteLine("Create Key......" & vbNewLine)
+                    'Console.WriteLine("Key: " & rndKey & vbNewLine)
 
-                Dim encrypted_key As String = RSA.RSA_encrypt(rndKey, c.rsa_public_key)
-                'Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
+                    Dim encrypted_key As String = RSA.RSA_encrypt(rndKey, c.rsa_public_key)
+                    'Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
 
-                Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; ")
-                c.streamw.WriteLine(handshake)
+                    Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; ")
+                    c.streamw.WriteLine(handshake)
 
-                'Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
-                c.streamw.Flush()
-                list.Add(c)
-                'Console.WriteLine(c.eran_adress & " has joined.")
-                Dim t As New Threading.Thread(AddressOf ListenToConnection)
-                t.Start(c)
-            End If
+                    'Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
+                    c.streamw.Flush()
+                    list.Add(c)
+                    userOnline += 1
+                    My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
+                    'Console.WriteLine(c.eran_adress & " has joined.")
+                    Dim t As New Threading.Thread(AddressOf ListenToConnection)
+                    t.Start(c)
+                End If
 
-            
-        End While
+
+            End While
+        Catch ex As Exception
+            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/ErrorLog.txt", ex.ToString & vbNewLine, True)
+        End Try
+        
     End Sub
 
     Private Sub ListenToConnection(ByVal con As Connection)
@@ -148,6 +162,8 @@ Module Module1
                     End Try
                 Next
                 list.Remove(con)
+                userOnline -= 1
+                My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
                 'Console.WriteLine(con.eran_adress & " has exit.")
                 Exit Do
             End Try
