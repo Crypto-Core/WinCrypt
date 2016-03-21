@@ -50,6 +50,13 @@ Public Class nChat_frm
         message_box.Focus()
     End Sub
     Dim enc As Integer = 0
+
+    ''' <summary>
+    ''' Es wird der Status der Verschlüsselung überprüft und ob diese noch verhanden ist.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub encrypt_state_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_state.Tick
         If connected_usr.isConnect_Encrypt(Name) = True Then
             lock_bt.Image = My.Resources.lock16
@@ -84,7 +91,7 @@ Public Class nChat_frm
         If encrypted = True Then
             MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 4096bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Lime)
+            AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         End If
     End Sub
@@ -336,5 +343,15 @@ Public Class nChat_frm
         Else
             main_frm.open_file_diag.ShowDialog()
         End If
+    End Sub
+
+    Private Sub RenewEncryptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenewEncryptionToolStripMenuItem.Click
+
+        AddText(rtb_, "[Renew encryption]" & vbNewLine, Color.Yellow)
+        connected_usr.remove_encrypt_session(Name)
+        AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
+        AddText(rtb_, "[Handshake successful]" & vbNewLine, Color.Lime)
+
     End Sub
 End Class

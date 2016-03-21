@@ -33,6 +33,7 @@ Partial Class nChat_frm
         Me.lock_bt = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
         Me.check_profil_img = New System.Windows.Forms.Timer(Me.components)
@@ -43,8 +44,8 @@ Partial Class nChat_frm
         Me.send_file_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.alertCountdown = New System.Windows.Forms.Timer(Me.components)
+        Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,8 +140,15 @@ Partial Class nChat_frm
         Me.UserToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
         Me.UserToolStripMenuItem.Text = "User"
         '
+        'GetUsernameToolStripMenuItem
+        '
+        Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
+        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.GetUsernameToolStripMenuItem.Text = "Get username"
+        '
         'OptionsToolStripMenuItem
         '
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenewEncryptionToolStripMenuItem})
         Me.OptionsToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
@@ -214,15 +222,15 @@ Partial Class nChat_frm
         Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ClearChatToolStripMenuItem.Text = "Clear Chat"
         '
-        'GetUsernameToolStripMenuItem
-        '
-        Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
-        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.GetUsernameToolStripMenuItem.Text = "Get username"
-        '
         'alertCountdown
         '
         Me.alertCountdown.Interval = 1000
+        '
+        'RenewEncryptionToolStripMenuItem
+        '
+        Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
+        Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.RenewEncryptionToolStripMenuItem.Text = "Renew encryption"
         '
         'nChat_frm
         '
@@ -275,4 +283,5 @@ Partial Class nChat_frm
     Friend WithEvents ClearChatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GetUsernameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents alertCountdown As System.Windows.Forms.Timer
+    Friend WithEvents RenewEncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
