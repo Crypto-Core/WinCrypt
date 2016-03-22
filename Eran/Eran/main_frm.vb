@@ -546,21 +546,6 @@ Public Class main_frm
                 End If : End If
             index += 1
         End If
-        Try
-            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
-            If cache_rtb.Text.Length > 24 Then
-                NotifyIcon.BalloonTipText = cache_rtb.Text.Substring(0, 25)
-            Else
-                NotifyIcon.BalloonTipText = cache_rtb.Text
-            End If
-            NotifyIcon.BalloonTipTitle = username
-            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
-            If get_msg = "" Then
-            Else
-                NotifyIcon.ShowBalloonTip(1000)
-            End If : Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
     End Function
 
     ''' <summary>

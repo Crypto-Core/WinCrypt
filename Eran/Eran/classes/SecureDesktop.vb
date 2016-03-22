@@ -71,14 +71,14 @@ Module SecureDesktop
 
                                                                   End Function
 
-                                  AddHandler main_frm.FormClosing, Function(sender, e)
+                                  AddHandler main_frm.FormClosing, Function(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs)
 
                                                                        If MessageBox.Show("Do you want Eran really close?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                                                                            SwitchDesktop(hOldDesktop)
                                                                            CloseDesktop(hNewDesktop)
                                                                            Process.GetCurrentProcess.Kill()
                                                                        Else
-
+                                                                           e.Cancel = True
                                                                        End If
 
                                                                    End Function
