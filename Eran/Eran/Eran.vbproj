@@ -211,6 +211,7 @@
   <ItemGroup>
     <Content Include="eran_icon.ico" />
     <Content Include="parameter shortcuts.txt" />
+    <None Include="Resources\useronlinesound.wav" />
     <None Include="Resources\SecureDesktop.png" />
     <None Include="Resources\eran_logo.png" />
     <None Include="Resources\1456843663_bell.png" />

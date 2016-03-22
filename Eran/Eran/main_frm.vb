@@ -27,7 +27,7 @@ Public Class main_frm
     Private index As Integer = 0
     Private enc_file_byt_target As Byte()
     Private trd As Threading.Thread
-
+    Private OnlineBallon As Boolean = False
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
     ''' </summary>
@@ -47,11 +47,12 @@ Public Class main_frm
             'Eingehende Nachricht von Byte in Chars.
             Dim decrypted_to_str As String = System.Text.UTF8Encoding.UTF8.GetChars(target)
 
-            'Deklariere Parameter für wen die Nachricht ist (Empfänger).
+            'Deklariere Parameter für wenn die Nachricht ist (Empfänger).
             Dim to_ As String = parameter.read_parameter("/to ", decrypted_to_str)
             Dim all As String = parameter.read_parameter("/all ", decrypted_to_str)
 
-            If all.Length > 0 Then
+            If all.Length > 0 Then 'Überprüfe wie Lang der Parameter all ist.
+                ' Deklariere den Status eines Nutzers
                 Dim send_state As String = parameter.read_parameter("/state ", decrypted_to_str)
                 If send_state.Length > 0 Then
                     For remove As Integer = 0 To connected_usr.usr_lst.Count - 1
@@ -59,9 +60,7 @@ Public Class main_frm
                             If all = connected_usr.usr_lst.Item(remove).Eran_adress Then
                                 connected_usr.usr_lst.RemoveRange(remove, remove + 1)
                             End If
-                        Catch ex As Exception
-
-                        End Try
+                        Catch ex As Exception : End Try
                     Next
                     For set_usr_state As Integer = 0 To userlist_viewer.Items.Count - 1
                         If userlist_viewer.Items(set_usr_state).SubItems(1).Text = all Then
@@ -72,13 +71,11 @@ Public Class main_frm
             End If
             Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
 
-            
             'Überprüfen ob die Nachricht für mich ist ---------------------------------------->
             If to_ = eran_adress Then
                 'Inhalt abarbeiten
                 Dim ping As String = parameter.read_parameter("/ping ", decrypted_to_str) ' Deklariere den Parameter Ping
                 Dim state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
-                'Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
                 Dim get_publickey As String = parameter.read_parameter("/get_publickey ", decrypted_to_str) 'Deklariere den Parameter get_PublicKey
                 Dim publickey_ As String = parameter.read_parameter("/publickey ", decrypted_to_str)
                 Dim handshake As String = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
@@ -90,7 +87,6 @@ Public Class main_frm
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
                 Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
-               
                 If username = "" Then : Else
                     Try
                         For Each tt In chat_frm
@@ -101,18 +97,13 @@ Public Class main_frm
                             
                             End If
                         Next
-                    Catch ex As Exception : End Try
-
-                End If
-
+                    Catch ex As Exception : End Try : End If
                 If get_username = "" Then : Else
                     Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & TextBox1.Text & ";")
                 End If
-
                 If ping = "pong" Then
                     MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
                 End If
-
 
                 'Sende Profilbild
                 If get_profilimage.Length = "1" Then
@@ -122,17 +113,10 @@ Public Class main_frm
                     Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /profil_image " & img_str & ";")
                 End If
 
-
                 'Empfange Profilbild
                 If profilimage.Length > 0 Then
-
                     profilimage_ = "/to " & adress_ & "; /get_profil_img " & profilimage & ";"
-
                 End If
-
-
-
-
 
                 'Emfange neue Nachricht
                 If msg.Length > 0 Then
@@ -152,16 +136,9 @@ Public Class main_frm
                             new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
                         Else
                             new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                        End If
-
-
-                    Else
+                        End If : Else
                         new_chat(adress_, adress_, msg)
-                    End If
-
-
-                End If
-
+                    End If : End If
 
                 'Empfange Verschlüsselte Datei
                 Dim file_ As String = parameter.read_parameter("/file ", decrypted_to_str)
@@ -188,44 +165,36 @@ Public Class main_frm
                             If file_.Length > 0 Then
                                 Dim enc_dec_b64_file As Byte() = Convert.FromBase64String(file_) 'Decode Base64
                                 Dim enc_dec_b64_filename As Byte() = Convert.FromBase64String(filename) 'Decode Base64
-
-
                                 Dim enc_filename_byt_target As Byte()
-
-
                                 aes_.Decode(enc_dec_b64_file, enc_file_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                 aes_.Decode(enc_dec_b64_filename, enc_filename_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                 enc_dec_b64_file = Nothing
                                 enc_dec_b64_filename = Nothing
-
-
                                 SaveFileDialog1.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
                                 SaveFileDialog1.ShowDialog()
-
-
-
                             End If
                         Else
                             GC_.FlushMemory()
-                        End If
-
-                    End If
-                End If
+                        End If : End If : End If
 
                 'Sende meinen OnlineStatus
                 If get_state = "True" Then
                     Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; " & "/state " & online_state & ";")
                 End If
 
-
                 'Empfange einen OnlineStatus und überprüfe ihn mit meiner Liste
                 If send_state.Length > 0 Then
                     For set_usr_state As Integer = 0 To userlist_viewer.Items.Count - 1
                         If userlist_viewer.Items(set_usr_state).SubItems(1).Text = adress_ Then
+                            If OnlineBallon = True Then
+                                Select Case send_state
+                                    Case 2
+                                        Dim trdOnlineSound As New Threading.Thread(AddressOf userOnlineSound)
+                                        trdOnlineSound.IsBackground = True
+                                        trdOnlineSound.Start()
+                                End Select : End If
                             userlist_viewer.Items(set_usr_state).ImageIndex = Int(send_state)
-                        End If
-                    Next
-                End If
+                        End If : Next : End If
 
                 'Empfange einen Handshake
                 If online_state = 0 Then
@@ -251,9 +220,7 @@ Public Class main_frm
                             connected_usr.usr_lst.Add(enc_usr)
                         Case 3
                             connected_usr.remove_encrypt_session(adress_)
-                    End Select
-                End If
-            End If
+                    End Select : End If : End If
             GC_.FlushMemory()
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
@@ -276,7 +243,6 @@ Public Class main_frm
         End If
     End Sub
 
-
     ''' <summary>
     ''' Überprüft ob ei Benutzer in der Freundeslist ist.
     ''' </summary>
@@ -288,8 +254,7 @@ Public Class main_frm
             If eran_adress = Item.SubItems(1).Text Then
                 Return Item.Text
                 End
-            End If
-        Next
+            End If : Next
         Return ""
     End Function
 
@@ -309,14 +274,11 @@ Public Class main_frm
         While client.Connected
             Try
                 Invoke(New DAddItem(AddressOf AddItem), Base64.FromBase64Str_to_decodeBytes(streamr.ReadLine))
-            Catch ex As Exception
-                
+            Catch ex As Exception         
                 MessageBox.Show("Connection to Server Lost." & vbNewLine & "Eran has to be restarted!", "Connection Lost!", MessageBoxButtons.OK, MessageBoxIcon.Stop)
                 Process.GetCurrentProcess.Kill()
                 Exit While
-
-            End Try
-        End While
+            End Try : End While
     End Sub
 
     ''' <summary>
@@ -346,31 +308,19 @@ Public Class main_frm
     Friend Shared Function load_userlist()
         If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
             Dim ini As New IniFile
-
             Dim read_ini_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
-
             Dim target_enc As Byte()
-
             aes_.Decode(read_ini_bytes, target_enc, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-
             Dim ini_mem As New MemoryStream(target_enc)
-
             ini.LoadFromMemory(ini_mem)
-
             For Each s As IniFile.IniSection In ini.Sections
                 For Each k As IniFile.IniSection.IniKey In s.Keys
                     With main_frm.userlist_viewer.Items.Add(s.Name, 0)
                         .SubItems.Add(k.Value)
-                    End With
-                Next
-            Next
-
+                    End With : Next : Next
             For check_State As Integer = 0 To main_frm.userlist_viewer.Items.Count - 1
                 Send_to_Server("/adress " & eran_adress & "; /to " & main_frm.userlist_viewer.Items(check_State).SubItems(1).Text & "; /get_state True;")
-            Next
-        Else
-
-        End If
+            Next : Else : End If
     End Function
     ''' <summary>
     ''' Benutzerliste wird neu geladen
@@ -499,7 +449,9 @@ Public Class main_frm
             login.login_panel.Show()
         End Try
     End Sub
-
+    Private Sub userOnlineSound()
+        My.Computer.Audio.Play(My.Resources.useronlinesound, AudioPlayMode.Background)
+    End Sub
     Private Sub eran_adr_txt_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.Click
         My.Computer.Clipboard.SetText(eran_adr_txt.Text)
         MessageBox.Show("Eran address copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.None)
@@ -515,12 +467,11 @@ Public Class main_frm
             Dim trd As New System.Threading.Thread(AddressOf conn)
             trd.IsBackground = True
             trd.Start()
+            OnlineBallon_tmr.Enabled = True
             'Connect(host, port, eran_adress)
         End If
     End Sub
-    
     Dim cache_rtb As New RichTextBox
-
 
     ''' <summary>
     ''' Erstellt ein neues Chatfenster oder wenn bereits erstellt wird es geöffnet.
@@ -542,33 +493,22 @@ Public Class main_frm
                 Else
                     bool = False
                 End If
-            Catch ex As Exception
-
-            End Try
-        Next
-        
+            Catch ex As Exception : End Try : Next
         If bool = True Then
-
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 chat_frm(window).Text = username
                 chat_frm(window).Show()
-
                 chat_frm(window).BringToFront()
                 vibrate_frm(chat_frm(window), 3)
             Else
                 chat_frm(window).Text = username
                 chat_frm(window).Show()
-
                 If get_msg = "" Then
                 Else
                     AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
                     chat_rtb(window).AppendText(cache_rtb.Text)
                     cache_rtb.Clear()
-                End If
-            End If
-            
-
-        Else
+                End If : End If : Else
             chat_frm(index) = New nChat_frm
             chat_frm(index).Name = eran_adress
             chat_frm(index).Text = username
@@ -586,9 +526,6 @@ Public Class main_frm
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             chat_rtb(index).Show()
             chat_frm(index).Controls.Add(chat_rtb(index))
-            
-
-
             chat_frm(index).StartPosition = FormStartPosition.WindowsDefaultLocation
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 chat_frm(index).Show()
@@ -596,7 +533,6 @@ Public Class main_frm
                 If SecureDesktop.isOnSecureDesktop = True Then
                     chat_frm(index).TopMost = True
                 End If
-                chat_frm(index).BringToFront()
                 vibrate_frm(chat_frm(index), 3)
             Else
                 If get_msg.Length > 0 Then
@@ -607,11 +543,8 @@ Public Class main_frm
                 chat_frm(index).Show()
                 If SecureDesktop.isOnSecureDesktop = True Then
                     chat_frm(index).TopMost = True
-                End If
-            End If
-
+                End If : End If
             index += 1
-
         End If
         Try
             NotifyIcon.BalloonTipIcon = ToolTipIcon.None
@@ -621,13 +554,12 @@ Public Class main_frm
                 NotifyIcon.BalloonTipText = cache_rtb.Text
             End If
             NotifyIcon.BalloonTipTitle = username
+            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
             If get_msg = "" Then
             Else
                 NotifyIcon.ShowBalloonTip(1000)
-            End If
-
-        Catch ex As Exception
-
+            End If : Catch ex As Exception
+            MsgBox(ex.ToString)
         End Try
     End Function
 
@@ -639,6 +571,7 @@ Public Class main_frm
     ''' <returns></returns>
     ''' <remarks></remarks>
     Friend Shared Function vibrate_frm(ByVal frm As Form, ByVal repeat As Integer)
+        frm.TopMost = True
         For index As Integer = 0 To repeat
             frm.Location = New Point(frm.Location.X - 10, frm.Location.Y)
             System.Threading.Thread.Sleep(30)
@@ -648,6 +581,7 @@ Public Class main_frm
             System.Threading.Thread.Sleep(30)
             frm.Location = New Point(frm.Location.X, frm.Location.Y + 10)
         Next
+        frm.TopMost = False
     End Function
 
     ''' <summary>
@@ -674,7 +608,6 @@ Public Class main_frm
             new_chat(select_adress, select_username)
         End If
     End Sub
-
     Private Sub userlist_viewer_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles userlist_viewer.MouseClick
         If e.Button = Windows.Forms.MouseButtons.Right Then
             userlist_viewer.ContextMenuStrip = user_conextmenu
@@ -693,7 +626,6 @@ Public Class main_frm
         Else
             e.Cancel = False
         End If
-        
         'Me.Hide()
     End Sub
 
@@ -772,12 +704,9 @@ Public Class main_frm
         ini.SetKeyValue("account", "image", to_bs64)
         ini.Save(account_path)
         Dim img_str As String = to_bs64
-
         For Each send_img In connected_usr.usr_lst
             Send_to_Server("/adress " & eran_adress & "; /to " & send_img.Eran_adress & "; /profil_image " & img_str & ";")
         Next
-
-
     End Sub
 
     Private Sub OnlineToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnlineToolStripMenuItem1.Click
@@ -813,9 +742,7 @@ Public Class main_frm
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
-        If SecureDesktop.isOnSecureDesktop = True Then
-
-        Else
+        If SecureDesktop.isOnSecureDesktop = True Then : Else
             open_file_diag.ShowDialog()
         End If
     End Sub
@@ -827,13 +754,10 @@ Public Class main_frm
     ''' <remarks></remarks>
     Private Sub DeleteFromListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteFromListToolStripMenuItem.Click
         If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-
             Dim usr_name As String = userlist_viewer.SelectedItems(0).Text
             Dim ini As New IniFile
-
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
             Dim dec_trg_byte As Byte()
-
             aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim mem_ As New MemoryStream(dec_trg_byte)
             ini.LoadFromMemory(mem_)
@@ -844,9 +768,7 @@ Public Class main_frm
             Dim targed_enc_byt As Byte()
             aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             File.WriteAllBytes(users_lst_path, targed_enc_byt)
-        Else
-
-        End If
+        Else : End If
     End Sub
     Private Sub StartChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartChatToolStripMenuItem.Click
         If userlist_viewer.SelectedIndices.Count > 0 Then
@@ -890,7 +812,6 @@ Public Class main_frm
             Me.WindowState = FormWindowState.Minimized
             Me.Hide()
         End If
-        
     End Sub
 
     Private Sub TextBox1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.GotFocus
@@ -900,8 +821,7 @@ Public Class main_frm
     Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
-            userlist_viewer.Focus()
-            
+            userlist_viewer.Focus()  
         End If
     End Sub
 
@@ -923,5 +843,25 @@ Public Class main_frm
     ''' <remarks></remarks>
     Private Sub available_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles available_timer.Tick
         Send_to_Server("available")
+    End Sub
+
+    Private Sub OnlineBallon_tmr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnlineBallon_tmr.Tick
+        OnlineBallon = True
+        OnlineBallon_tmr.Enabled = False
+    End Sub
+
+    Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
+        Me.Text = OnlineBallon
+    End Sub
+
+    Private Sub status_strip_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles status_strip.ButtonClick
+        Select Case online_state
+            Case 0
+                set_State(1)
+            Case 1
+                set_State(2)
+            Case 2
+                set_State(1)
+        End Select
     End Sub
 End Class

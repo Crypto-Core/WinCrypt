@@ -11,13 +11,11 @@ Public Class settings
             Case 2
                 secure_desktop_rb.Checked = True
         End Select
-
         allow_access_node_cb.Checked = config.own_access_node
         listen_port_txt.Text = config.own_access_node_port
         save_cb.Checked = config.acces_node_save
         scan_host_txt.Text = config.access_node_host
         scan_port_txt.Text = config.acces_node_port
-
     End Sub
 
     Private Sub startwindow_rb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startwindow_rb.CheckedChanged
@@ -44,9 +42,7 @@ Public Class settings
             Case 0
                 ini.SetKeyValue("config", "acces_node_port", scan_port_txt.Text)
             Case 1
-
         End Select
-
         ini.Save(StartWindow.config_path)
     End Sub
 
@@ -66,8 +62,7 @@ Public Class settings
 
     Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles save_cb.CheckedChanged
         If save_cb.Checked = True Then
-            ini.SetKeyValue("config", "acces_node_save", 0)
-            
+            ini.SetKeyValue("config", "acces_node_save", 0)  
         Else
             ini.SetKeyValue("config", "acces_node_save", 1)
             ini.SetKeyValue("config", "access_node_host", "")
@@ -84,7 +79,6 @@ Public Class settings
             Case 0
                 ini.SetKeyValue("config", "access_node_host", scan_host_txt.Text)
             Case 1
-
         End Select
         ini.Save(StartWindow.config_path)
     End Sub
@@ -94,10 +88,6 @@ Public Class settings
             ini.Load(StartWindow.config_path)
             ini.SetKeyValue("config", "own_access_node_port", listen_port_txt.Text)
             ini.Save(StartWindow.config_path)
-
-        Else
-
-        End If
-        
+        Else : End If
     End Sub
 End Class

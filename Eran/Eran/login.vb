@@ -19,32 +19,24 @@ Public Class login
         eran_adress = ini.GetKeyValue("account", "adress")
         host_txt.Text = config.access_node_host
         port_txt.Text = config.acces_node_port
-
     End Sub
 
     Private Sub join_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles join_bt.Click
-        
-
         Dim combine As String = rHash.HashString(rHash.HashString(ini.GetKeyValue("account", "username") + pwd_txt.Text + ini.GetKeyValue("account", "authkey"), rHash.HASH.SHA512), rHash.HASH.MD5)
         main_frm.host = host_txt.Text
         main_frm.port = port_txt.Text
         If combine = ini.GetKeyValue("account", "adress") Then
-
-
             login_panel.Hide()
-            'main_frm.main_panel.Show()
             main_frm.Controls.Add(connect_frame.Panel1)
             connect_frame.Panel1.Show()
             connect_frame.Panel1.BringToFront()
             connect_frame.Timer1.Enabled = True
-
             main_frm.eran_adress = eran_adress
             main_frm.username = username
             main_frm.Text = "Eran - " & username
             pwd = pwd_txt.Text
         Else
             MessageBox.Show(combine & vbNewLine & "Wrong logindata!", "Join failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
         End If
     End Sub
 
@@ -53,10 +45,6 @@ Public Class login
             e.SuppressKeyPress = True
             join_bt.PerformClick()
         End If
-    End Sub
-
-    Private Sub login_panel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles login_panel.Paint
-
     End Sub
     Dim trd As Threading.Thread
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

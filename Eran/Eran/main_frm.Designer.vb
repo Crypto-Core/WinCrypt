@@ -35,6 +35,7 @@ Partial Class main_frm
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
         Me.userlist_viewer = New System.Windows.Forms.ListView()
@@ -66,6 +67,7 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -148,10 +150,17 @@ Partial Class main_frm
         '
         'HelpToolStripMenuItem
         '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1})
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'TestToolStripMenuItem1
+        '
+        Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(95, 22)
+        Me.TestToolStripMenuItem1.Text = "Test"
         '
         'ImageList1
         '
@@ -294,21 +303,21 @@ Partial Class main_frm
         '
         Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
         Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OfflineToolStripMenuItem.Text = "Offline"
         '
         'BusyToolStripMenuItem
         '
         Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
         Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
-        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BusyToolStripMenuItem.Text = "Busy"
         '
         'OnlineToolStripMenuItem
         '
         Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
         Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OnlineToolStripMenuItem.Text = "Online"
         '
         'user_conextmenu
@@ -405,6 +414,10 @@ Partial Class main_frm
         '
         Me.available_timer.Interval = 60000
         '
+        'OnlineBallon_tmr
+        '
+        Me.OnlineBallon_tmr.Interval = 5000
+        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -472,5 +485,7 @@ Partial Class main_frm
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
     Friend WithEvents available_timer As System.Windows.Forms.Timer
+    Friend WithEvents OnlineBallon_tmr As System.Windows.Forms.Timer
+    Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

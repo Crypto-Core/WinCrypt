@@ -11,33 +11,26 @@ Public Class nChat_frm
     End Sub
 
     Private Sub message_box_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyDown
-        Dim rtb = Me.Controls.Find("richtextbox", True)
-
-        If e.KeyData = Keys.Enter Then
-            If encrypted = True Then
-
-                Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
-                Dim target As Byte()
-                aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                Dim to_bs64 As String = Convert.ToBase64String(target)
-                main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
-
-                If rtb(0).Text.Length < 2 Then
-                    'rtb(0).Text = TextBox1.Text & vbNewLine
-                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+        If message_box.TextLength = 0 Then : Else
+            Dim rtb = Me.Controls.Find("richtextbox", True)
+            If e.KeyData = Keys.Enter Then
+                If encrypted = True Then
+                    Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
+                    Dim target As Byte()
+                    aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                    Dim to_bs64 As String = Convert.ToBase64String(target)
+                    main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
+                    If rtb(0).Text.Length < 2 Then
+                        AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                    Else
+                        AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                    End If
                 Else
-                    'rtb(0).Text = 
-                    AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                    Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
+                    Dim to_bs64_str As String = Convert.ToBase64String(read_bytes)
+                    main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64_str & ";")
                 End If
-
-            Else
-
-                Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
-                Dim to_bs64_str As String = Convert.ToBase64String(read_bytes)
-                main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64_str & ";")
-
             End If
-
         End If
     End Sub
     Private Sub AddText(ByVal rtb As RichTextBox, ByVal txt As String, ByVal col As Color)
@@ -50,7 +43,6 @@ Public Class nChat_frm
         message_box.Focus()
     End Sub
     Dim enc As Integer = 0
-
     ''' <summary>
     ''' Es wird der Status der Verschlüsselung überprüft und ob diese noch verhanden ist.
     ''' </summary>
@@ -62,7 +54,6 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.lock16
             message_box.Enabled = True
             encrypted = True
-
             sendfile_bt.Enabled = True
             get_key()
             message_box.BackColor = Color.FromArgb(30, 30, 30)
@@ -87,7 +78,6 @@ Public Class nChat_frm
         End If
     End Sub
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
-
         If encrypted = True Then
             MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 4096bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
@@ -118,7 +108,6 @@ Public Class nChat_frm
             Dim ini As New IniFile
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
             Dim dec_trg_byte As Byte()
-
             aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim mem_ As New MemoryStream(dec_trg_byte)
             ini.LoadFromMemory(mem_)
@@ -127,18 +116,12 @@ Public Class nChat_frm
                     If Me.Name = k.Value Then
                         Return True
                         End
-                    Else
-
-                    End If
-                Next
-            Next
-        Else
-        End If
+                    Else : End If
+                Next : Next : Else : End If
         Return False
     End Function
     Private WithEvents rtb_ As RichTextBox
     Public WithEvents main_img As PictureBox = main_frm.profil_img
-
     Private Sub nChat_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If SecureDesktop.isOnSecureDesktop = True Then
             sendfile_bt.Enabled = False
@@ -148,6 +131,10 @@ Public Class nChat_frm
         rtb_.ContextMenuStrip = Contextmenu
         profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
         ActiveControl = message_box
+        AddHandler rtb_.TextChanged, AddressOf scrolldown
+    End Sub
+    Sub scrolldown()
+        rtb_.ScrollToCaret()
     End Sub
     Private Sub check_profil_img_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles check_profil_img.Tick
         If main_frm.profilimage_.Length > 0 Then
@@ -191,17 +178,14 @@ Public Class nChat_frm
         message_box.Focus()
     End Sub
 
-    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyUp
+    Private Sub message_box_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyUp
         If e.Shift = True Then
             If e.KeyCode = Keys.Enter Then
-
             End If
         Else
             If e.KeyCode = Keys.Enter Then
                 message_box.Clear()
-            End If
-        End If
-
+            End If : End If
     End Sub
 
     Private Sub alert_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alert_bt.Click
@@ -214,7 +198,6 @@ Public Class nChat_frm
             Dim to_bs64 As String = Convert.ToBase64String(target)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
         Else
-
             Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/alert 1;")
             Dim to_bs64_str As String = Convert.ToBase64String(read_bytes)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64_str & ";")
@@ -223,7 +206,6 @@ Public Class nChat_frm
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_profil_img 1;")
-
     End Sub
 
     Private Sub main_img_BackgroundImageChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles main_img.BackgroundImageChanged
@@ -241,7 +223,6 @@ Public Class nChat_frm
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
         End If
         addusr_bt.Visible = False
-        
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
@@ -254,10 +235,8 @@ Public Class nChat_frm
         If info.Length < 2097153 Then
             Dim filename As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(info.Name)
             Dim target_name As Byte()
-
             aes_.Encode(filename, target_name, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim filename_b64_enc As String = Convert.ToBase64String(target_name)
-
 
             'Encrypt file
             Dim read_byt As Byte() = File.ReadAllBytes(send_file_dialog.FileName)
@@ -276,8 +255,6 @@ Public Class nChat_frm
         Else
             MessageBox.Show("File is too large.", "Send file", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-        
-
     End Sub
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click
@@ -286,12 +263,10 @@ Public Class nChat_frm
     Private Sub nChat_frm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.TextChanged
         If Name = "nChat_frm" Then : Else
             If Text = Name Then : Else
-
                 If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") Then
                     Dim ini As New IniFile
                     Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
                     Dim dec_trg_byte As Byte()
-
                     aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                     Dim mem_ As New MemoryStream(dec_trg_byte)
                     ini.LoadFromMemory(mem_)
@@ -301,7 +276,6 @@ Public Class nChat_frm
                     Dim targed_enc_byt As Byte()
                     aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                     File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
-
                 Else
                     Dim ini As New IniFile
                     ini.SetKeyValue(Text, "adress", Name)
@@ -310,22 +284,11 @@ Public Class nChat_frm
                     Dim targed_enc_byt As Byte()
                     aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                     File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
-
-                End If
-            End If
-            
-
-        End If
-        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_state True;")
+                End If : End If : End If
     End Sub
 
     Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetUsernameToolStripMenuItem.Click
-        If encrypted = True Then
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
-        Else
-            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
-        End If
-
     End Sub
     Dim alertindex As Integer = 5
     Private Sub alertCountdown_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alertCountdown.Tick
@@ -339,19 +302,16 @@ Public Class nChat_frm
 
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
         If SecureDesktop.isOnSecureDesktop = True Then
-
         Else
             main_frm.open_file_diag.ShowDialog()
         End If
     End Sub
 
     Private Sub RenewEncryptionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenewEncryptionToolStripMenuItem.Click
-
         AddText(rtb_, "[Renew encryption]" & vbNewLine, Color.Yellow)
         connected_usr.remove_encrypt_session(Name)
         AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         AddText(rtb_, "[Handshake successful]" & vbNewLine, Color.Lime)
-
     End Sub
 End Class

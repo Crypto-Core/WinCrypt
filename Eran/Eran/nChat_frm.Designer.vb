@@ -35,6 +35,7 @@ Partial Class nChat_frm
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
         Me.check_profil_img = New System.Windows.Forms.Timer(Me.components)
         Me.check_onlinestate = New System.Windows.Forms.Timer(Me.components)
@@ -45,7 +46,6 @@ Partial Class nChat_frm
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.alertCountdown = New System.Windows.Forms.Timer(Me.components)
-        Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,6 +154,12 @@ Partial Class nChat_frm
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.OptionsToolStripMenuItem.Text = "Options"
         '
+        'RenewEncryptionToolStripMenuItem
+        '
+        Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
+        Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.RenewEncryptionToolStripMenuItem.Text = "Renew encryption"
+        '
         'encrypt_state
         '
         Me.encrypt_state.Enabled = True
@@ -225,12 +231,6 @@ Partial Class nChat_frm
         'alertCountdown
         '
         Me.alertCountdown.Interval = 1000
-        '
-        'RenewEncryptionToolStripMenuItem
-        '
-        Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
-        Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.RenewEncryptionToolStripMenuItem.Text = "Renew encryption"
         '
         'nChat_frm
         '
