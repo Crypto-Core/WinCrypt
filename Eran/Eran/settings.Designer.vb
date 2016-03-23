@@ -225,7 +225,7 @@ Partial Class settings
         Me.GroupBox4.ForeColor = System.Drawing.Color.White
         Me.GroupBox4.Location = New System.Drawing.Point(218, 118)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(274, 100)
+        Me.GroupBox4.Size = New System.Drawing.Size(274, 51)
         Me.GroupBox4.TabIndex = 12
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Encryption"
@@ -233,7 +233,7 @@ Partial Class settings
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 23)
+        Me.Label4.Location = New System.Drawing.Point(75, 23)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 13)
         Me.Label4.TabIndex = 0
@@ -243,7 +243,7 @@ Partial Class settings
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"5", "10", "15", "20"})
-        Me.ComboBox1.Location = New System.Drawing.Point(95, 20)
+        Me.ComboBox1.Location = New System.Drawing.Point(164, 20)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(36, 21)
         Me.ComboBox1.TabIndex = 1
