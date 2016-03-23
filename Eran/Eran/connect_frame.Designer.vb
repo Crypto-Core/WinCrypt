@@ -25,7 +25,7 @@ Partial Class connect_frame
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.wait_tm = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,9 +51,9 @@ Partial Class connect_frame
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Connect...."
         '
-        'Timer1
+        'wait_tm
         '
-        Me.Timer1.Interval = 200
+        Me.wait_tm.Interval = 200
         '
         'connect_frame
         '
@@ -70,5 +70,5 @@ Partial Class connect_frame
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents wait_tm As System.Windows.Forms.Timer
 End Class

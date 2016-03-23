@@ -33,7 +33,7 @@ Public Class login
             main_frm.Controls.Add(connect_frame.Panel1)
             connect_frame.Panel1.Show()
             connect_frame.Panel1.BringToFront()
-            connect_frame.Timer1.Enabled = True
+            connect_frame.wait_tm.Enabled = True
             main_frm.eran_adress = eran_adress
             main_frm.username = username
             main_frm.Text = "Eran - " & username

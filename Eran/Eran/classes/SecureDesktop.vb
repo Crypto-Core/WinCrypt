@@ -1,7 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Threading.Tasks
 Imports Microsoft.Win32
-
 Module SecureDesktop
     Public isOnSecureDesktop As Boolean = False
     <DllImport("user32.dll")> _
@@ -39,40 +38,22 @@ Module SecureDesktop
         DESKTOP_ENUMERATE = &H40
         DESKTOP_WRITEOBJECTS = &H80
         DESKTOP_SWITCHDESKTOP = &H100
-
         GENERIC_ALL = (DESKTOP_READOBJECTS Or DESKTOP_CREATEWINDOW Or DESKTOP_CREATEMENU Or DESKTOP_HOOKCONTROL Or DESKTOP_JOURNALRECORD Or DESKTOP_JOURNALPLAYBACK Or DESKTOP_ENUMERATE Or DESKTOP_WRITEOBJECTS Or DESKTOP_SWITCHDESKTOP)
     End Enum
     Friend desktopname As String = rndPass.RandomDesktopName(8)
     Friend Function StartSecureWindow(ByVal frm As Form)
-        ' old desktop's handle, obtained by getting the current desktop assigned for this thread
         Dim hOldDesktop As IntPtr = GetThreadDesktop(GetCurrentThreadId())
-
-        ' new desktop's handle, assigned automatically by CreateDesktop
         Dim hNewDesktop As IntPtr = CreateDesktop(desktopname, IntPtr.Zero, IntPtr.Zero, 0, CUInt(DESKTOP_ACCESS.GENERIC_ALL), IntPtr.Zero)
-
-
-        ' switching to the new desktop
         SwitchDesktop(hNewDesktop)
-
-
-        ' Random login form: used for testing / not required
         Dim passwd As String = ""
-
-        ' running on a different thread, this way SetThreadDesktop won't fail
-        ' assigning the new desktop to this thread - so the Form will be shown in the new desktop)
-
-
-
         Task.Factory.StartNew(Function()
                                   SetThreadDesktop(hNewDesktop)
-
                                   AddHandler main_frm.FormClosed, Function(sender, e)
 
 
                                                                   End Function
 
                                   AddHandler main_frm.FormClosing, Function(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs)
-
                                                                        If MessageBox.Show("Do you want Eran really close?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                                                                            SwitchDesktop(hOldDesktop)
                                                                            CloseDesktop(hNewDesktop)
@@ -80,24 +61,13 @@ Module SecureDesktop
                                                                        Else
                                                                            e.Cancel = True
                                                                        End If
-
                                                                    End Function
                                   backgroundSecure.Show()
                                   main_frm.ShowDialog()
                                   main_frm.TopMost = True
                                   main_frm.BringToFront()
                               End Function).Wait()
-
-        ' waits for the task to finish
-        ' end of login form
-
-        ' if got here, the form is closed => switch back to the old desktop
         SwitchDesktop(hOldDesktop)
-
-        ' disposing the secure desktop since it's no longer needed
         CloseDesktop(hNewDesktop)
-
     End Function
-
 End Module
-

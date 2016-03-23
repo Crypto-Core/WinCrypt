@@ -19,7 +19,6 @@ Public Class create_account
         End If
     End Sub
     Private Sub create_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles create_bt.Click
-
         ini.AddSection("account")
         ini.SetKeyValue("account", "username", usr_txt.Text)
         ini.SetKeyValue("account", "password", rHash.HashString(pwd_txt.Text, rHash.HASH.SHA512))
@@ -31,18 +30,12 @@ Public Class create_account
         ini.Save(main_frm.account_path)
         create_account_panel.Hide()
         main_frm.Controls.Add(login.login_panel)
-
         Dim myAccount As String = "[" & usr_txt.Text & "]" & vbNewLine & "adress=" & eran_txt.Text
-
         Dim null_byte As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(myAccount)
-
         Dim target_byte As Byte()
         Dim aes As New AESEncrypt
-
         aes.Encode(null_byte, target_byte, pwd_txt.Text, AESEncrypt.ALGO.RIJNDAEL, 4096)
         File.WriteAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini", target_byte)
-
-
         login.login_panel.Show()
     End Sub
 
