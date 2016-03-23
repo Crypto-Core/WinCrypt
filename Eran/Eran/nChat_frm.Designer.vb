@@ -114,13 +114,11 @@ Partial Class nChat_frm
         '
         'lock_bt
         '
-        Me.lock_bt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.lock_bt.Image = Global.Eran.My.Resources.Resources.unlock16
         Me.lock_bt.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.lock_bt.Name = "lock_bt"
         Me.lock_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.lock_bt.Size = New System.Drawing.Size(23, 22)
-        Me.lock_bt.Text = "Encryption"
         '
         'MenuStrip
         '

@@ -31,10 +31,13 @@ Partial Class main_frm
         Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisconnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConnectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowPublicKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ShowServerKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,10 +73,6 @@ Partial Class main_frm
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
-        Me.ConnectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowServerKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowPublicKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -135,9 +134,33 @@ Partial Class main_frm
         Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DisconnectToolStripMenuItem.Text = "Disconnect"
         '
+        'ConnectionToolStripMenuItem
+        '
+        Me.ConnectionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowPublicKeyToolStripMenuItem, Me.ToolStripSeparator1, Me.ShowServerKeyToolStripMenuItem})
+        Me.ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
+        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConnectionToolStripMenuItem.Text = "Connection"
+        '
+        'ShowPublicKeyToolStripMenuItem
+        '
+        Me.ShowPublicKeyToolStripMenuItem.Name = "ShowPublicKeyToolStripMenuItem"
+        Me.ShowPublicKeyToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ShowPublicKeyToolStripMenuItem.Text = "Show PublicKey"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(157, 6)
+        '
+        'ShowServerKeyToolStripMenuItem
+        '
+        Me.ShowServerKeyToolStripMenuItem.Name = "ShowServerKeyToolStripMenuItem"
+        Me.ShowServerKeyToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ShowServerKeyToolStripMenuItem.Text = "Show Server Key"
+        '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem, Me.TestToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem})
         Me.ToolsToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
@@ -154,12 +177,6 @@ Partial Class main_frm
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
-        '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.TestToolStripMenuItem.Text = "Test"
         '
         'HelpToolStripMenuItem
         '
@@ -437,30 +454,6 @@ Partial Class main_frm
         '
         Me.OnlineBallon_tmr.Interval = 5000
         '
-        'ConnectionToolStripMenuItem
-        '
-        Me.ConnectionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowPublicKeyToolStripMenuItem, Me.ToolStripSeparator1, Me.ShowServerKeyToolStripMenuItem})
-        Me.ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
-        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ConnectionToolStripMenuItem.Text = "Connection"
-        '
-        'ShowServerKeyToolStripMenuItem
-        '
-        Me.ShowServerKeyToolStripMenuItem.Name = "ShowServerKeyToolStripMenuItem"
-        Me.ShowServerKeyToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.ShowServerKeyToolStripMenuItem.Text = "Show Server Key"
-        '
-        'ShowPublicKeyToolStripMenuItem
-        '
-        Me.ShowPublicKeyToolStripMenuItem.Name = "ShowPublicKeyToolStripMenuItem"
-        Me.ShowPublicKeyToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.ShowPublicKeyToolStripMenuItem.Text = "Show PublicKey"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(157, 6)
-        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -524,7 +517,6 @@ Partial Class main_frm
     Friend WithEvents SendPingToConnectedAccesNodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
     Friend WithEvents available_timer As System.Windows.Forms.Timer

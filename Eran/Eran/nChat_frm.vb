@@ -53,6 +53,8 @@ Public Class nChat_frm
     Private Sub encrypt_state_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_state.Tick
         If connected_usr.isConnect_Encrypt(Name) = True Then
             lock_bt.Image = My.Resources.lock16
+            lock_bt.Text = "Encrypted"
+            lock_bt.Enabled = True
             message_box.Enabled = True
             encrypted = True
             sendfile_bt.Enabled = True
@@ -74,10 +76,13 @@ Public Class nChat_frm
             message_box.BackColor = Color.FromArgb(106, 106, 106)
             alert_bt.Enabled = False
             sendfile_bt.Enabled = False
-
-            encrypt_state.Enabled = False
-            reEncrypt.Enabled = True
-            
+            encrypted = False
+            If key = "" Then : Else
+                AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
+            End If
+            key = ""
+            lock_bt.Enabled = True
+            lock_bt.Text = "New Encrypt session"
         End If
     End Sub
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
@@ -87,6 +92,7 @@ Public Class nChat_frm
         Else
             AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
+            encrypt_state.Enabled = True
         End If
     End Sub
     Sub get_key()
@@ -316,21 +322,5 @@ Public Class nChat_frm
         AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         AddText(rtb_, "[Handshake successful]" & vbNewLine, Color.Lime)
-    End Sub
-
-    Private Sub reEncrypt_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles reEncrypt.Tick
-        If Timeout = 0 Then
-
-            encrypted = False
-            If key = "" Then : Else
-                AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
-            End If
-            reEncrypt.Enabled = False
-        Else
-            encrypt_state.Enabled = True
-        End If
-        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
-        Timeout -= 1
-
     End Sub
 End Class

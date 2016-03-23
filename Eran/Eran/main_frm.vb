@@ -852,10 +852,10 @@ Public Class main_frm
     End Sub
 
     Private Sub ShowPublicKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowPublicKeyToolStripMenuItem.Click
-        MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Public Key", MessageBoxButtons.OK, MessageBoxIcon.None)
+        MessageBox.Show("Public Key: " & vbNewLine & PublicKey, "Public Key", MessageBoxButtons.OK, MessageBoxIcon.None)
     End Sub
 
-    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
-        Disconnect()
+    Private Sub ShowServerKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowServerKeyToolStripMenuItem.Click
+        MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Server Key", MessageBoxButtons.OK, MessageBoxIcon.None)
     End Sub
 End Class
