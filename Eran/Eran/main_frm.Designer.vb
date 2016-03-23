@@ -68,6 +68,7 @@ Partial Class main_frm
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
+        Me.ConnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -150,7 +151,7 @@ Partial Class main_frm
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1, Me.ConnectToolStripMenuItem})
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
@@ -159,7 +160,7 @@ Partial Class main_frm
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(95, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.TestToolStripMenuItem1.Text = "Test"
         '
         'ImageList1
@@ -303,21 +304,21 @@ Partial Class main_frm
         '
         Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
         Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.OfflineToolStripMenuItem.Text = "Offline"
         '
         'BusyToolStripMenuItem
         '
         Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
         Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
-        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.BusyToolStripMenuItem.Text = "Busy"
         '
         'OnlineToolStripMenuItem
         '
         Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
         Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
         Me.OnlineToolStripMenuItem.Text = "Online"
         '
         'user_conextmenu
@@ -418,6 +419,12 @@ Partial Class main_frm
         '
         Me.OnlineBallon_tmr.Interval = 5000
         '
+        'ConnectToolStripMenuItem
+        '
+        Me.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem"
+        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConnectToolStripMenuItem.Text = "Connect"
+        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -487,5 +494,6 @@ Partial Class main_frm
     Friend WithEvents available_timer As System.Windows.Forms.Timer
     Friend WithEvents OnlineBallon_tmr As System.Windows.Forms.Timer
     Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ConnectToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

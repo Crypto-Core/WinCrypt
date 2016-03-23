@@ -5,8 +5,8 @@ Public Class main_frm
     Private stream As NetworkStream
     Friend Shared streamw As StreamWriter
     Private streamr As StreamReader
-    Private client As New TcpClient
-    Private t As New Threading.Thread(AddressOf Listen)
+    Private client As TcpClient
+    Private t As Threading.Thread
     Private Delegate Sub DAddItem(ByVal s As Byte())
     Friend Shared eran_adress As String
     Friend Shared username As String
@@ -22,11 +22,12 @@ Public Class main_frm
     Friend Shared account_path As String = My.Application.Info.DirectoryPath & "\account.ini"
     Friend Shared users_lst_path As String = My.Application.Info.DirectoryPath & "\userlist.ini"
     Friend Shared profilimage_ As String = ""
-    Private chat_frm(10000) As Form
-    Private chat_rtb(10000) As RichTextBox
+    Friend chat_frm(10000) As Form
+    Friend chat_rtb(10000) As RichTextBox
     Private index As Integer = 0
     Private enc_file_byt_target As Byte()
-    Private trd As Threading.Thread
+    Dim trd_con As System.Threading.Thread
+    Dim handshake As String
     Private OnlineBallon As Boolean = False
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
@@ -78,7 +79,7 @@ Public Class main_frm
                 Dim state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
                 Dim get_publickey As String = parameter.read_parameter("/get_publickey ", decrypted_to_str) 'Deklariere den Parameter get_PublicKey
                 Dim publickey_ As String = parameter.read_parameter("/publickey ", decrypted_to_str)
-                Dim handshake As String = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
+                handshake = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
                 Dim msg As String = parameter.read_parameter("/msg ", decrypted_to_str) 'Deklariere den Parameter Message
                 Dim username As String = parameter.read_parameter("/username ", decrypted_to_str) 'Deklariere den Parameter Username
                 Dim send_state As String = parameter.read_parameter("/state ", decrypted_to_str) 'Send state status
@@ -276,7 +277,7 @@ Public Class main_frm
                 Invoke(New DAddItem(AddressOf AddItem), Base64.FromBase64Str_to_decodeBytes(streamr.ReadLine))
             Catch ex As Exception         
                 MessageBox.Show("Connection to Server Lost." & vbNewLine & "Eran has to be restarted!", "Connection Lost!", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-                Process.GetCurrentProcess.Kill()
+                'Process.GetCurrentProcess.Kill()
                 Exit While
             End Try : End While
     End Sub
@@ -366,50 +367,7 @@ Public Class main_frm
         'trd.Start()
     End Sub
 
-    ''' <summary>
-    ''' Verbindung zum Server wurde hergestellt.
-    ''' </summary>
-    ''' <param name="host">Den Hostname vom Server</param>
-    ''' <param name="port">Port vom Server</param>
-    ''' <param name="eran_adress">Die Eran Adresse mit dem der Client sich beim Server registriert.</param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Private Function Connect(ByVal host As String, ByVal port As Integer, ByVal eran_adress As String)
-        Dim createRSA_Keys = RSA.Create_RSA_Key
-        PublicKey = createRSA_Keys.OpenKey
-        PrivateKey = createRSA_Keys.PrivatKey
-        Try
-            client.Connect(host, port) ' hier die ip des servers eintragen. 
-            ' da dieser beim testen wohl lokal läuft, hier die loopback-ip 127.0.0.1.
-            If client.Connected Then
-                stream = client.GetStream
-                streamw = New StreamWriter(stream)
-                streamr = New StreamReader(stream)
-
-                'Den PublicKey in Base64
-                Dim bs64_publickey As String = Base64.Str_To_Base64Str(PublicKey)
-
-                'Kodiere den Base64 String
-                streamw.WriteLine(Base64.Str_To_Base64Str("/adress " & eran_adress & "; " & "/publickey " & bs64_publickey & ";")) ' das ist optional.
-                streamw.Flush()
-                t.Start()
-                main_panel.Show()
-                connect_frame.Panel1.Hide()
-                server.myHost = host
-                Send_to_Server("available")
-                available_timer.Enabled = True
-            Else
-                MessageBox.Show("Verbindung zum Server nicht möglich!2")
-                Application.Exit()
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Access node offline!", "Connection fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            eran_adr_txt.Text = "error"
-            connect_frame.Panel1.Hide()
-            main_panel.Hide()
-            login.login_panel.Show()
-        End Try
-    End Function
+   
     ''' <summary>
     ''' Wenn eine Verbindung aufgebaut wird, wird ein Handshake mit dem Server vereinbart über RSA.
     ''' </summary>
@@ -419,6 +377,7 @@ Public Class main_frm
         PublicKey = createRSA_Keys.OpenKey
         PrivateKey = createRSA_Keys.PrivatKey
         Try
+            client = New TcpClient
             client.Connect(host, port) ' hier die ip des servers eintragen. 
             ' da dieser beim testen wohl lokal läuft, hier die loopback-ip 127.0.0.1.
             If client.Connected Then
@@ -432,6 +391,7 @@ Public Class main_frm
                 'Kodiere den Base64 String
                 streamw.WriteLine(Base64.Str_To_Base64Str("/adress " & eran_adress & "; " & "/publickey " & bs64_publickey & ";")) ' das ist optional.
                 streamw.Flush()
+                t = New Threading.Thread(AddressOf Listen)
                 t.Start()
                 main_panel.Show()
                 connect_frame.Panel1.Hide()
@@ -442,7 +402,8 @@ Public Class main_frm
                 Application.Exit()
             End If
         Catch ex As Exception
-            MessageBox.Show("Access node offline!", "Connection fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MsgBox(ex.ToString)
+            'MessageBox.Show("Access node offline!", "Connection fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             eran_adr_txt.Text = "error"
             connect_frame.Panel1.Hide()
             main_panel.Hide()
@@ -460,13 +421,14 @@ Public Class main_frm
     Private Sub eran_adr_txt_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.GotFocus
         userlist_viewer.Focus()
     End Sub
+
     Private Sub eran_adr_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles eran_adr_txt.TextChanged
         If eran_adr_txt.Text = "error" Then
         Else
             Control.CheckForIllegalCrossThreadCalls = False
-            Dim trd As New System.Threading.Thread(AddressOf conn)
-            trd.IsBackground = True
-            trd.Start()
+            trd_con = New System.Threading.Thread(AddressOf conn)
+            trd_con.IsBackground = True
+            trd_con.Start()
             OnlineBallon_tmr.Enabled = True
             'Connect(host, port, eran_adress)
         End If
@@ -834,11 +796,6 @@ Public Class main_frm
         OnlineBallon = True
         OnlineBallon_tmr.Enabled = False
     End Sub
-
-    Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
-        Me.Text = OnlineBallon
-    End Sub
-
     Private Sub status_strip_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles status_strip.ButtonClick
         Select Case online_state
             Case 0
@@ -848,5 +805,24 @@ Public Class main_frm
             Case 2
                 set_State(1)
         End Select
+    End Sub
+    Sub Connect()
+        userlist_viewer.Items.Clear()
+        Control.CheckForIllegalCrossThreadCalls = False
+        trd_con = New System.Threading.Thread(AddressOf conn)
+        trd_con.IsBackground = True
+        trd_con.Start()
+        OnlineBallon_tmr.Enabled = True
+    End Sub
+    Sub Disconnect()
+        isEncrypted_Server = False
+        handshake = 0
+        trd_con.Abort()
+        client.Close()
+        stream.Close()
+        streamr.Close()
+        streamw.Close()
+        t.Abort()
+        OnlineBallon = False
     End Sub
 End Class
