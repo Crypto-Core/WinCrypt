@@ -4,6 +4,7 @@ Public Class nChat_frm
     Dim encrypted As Boolean = False
     Dim key As String
     Dim aes_ As New AESEncrypt
+    Dim Timeout As Integer = 3
     Private Sub nChat_frm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         On Error Resume Next
         e.Cancel = True
@@ -63,21 +64,24 @@ Public Class nChat_frm
                 AddText(rtb_, "[Chat encrypted!]" & vbNewLine, Color.Lime)
             End If
             enc = 1
+            If reEncrypt.Enabled = True Then
+                reEncrypt.Enabled = False
+                Timeout = 3
+            End If
         Else
             lock_bt.Image = My.Resources.unlock16
             message_box.Enabled = False
             message_box.BackColor = Color.FromArgb(106, 106, 106)
             alert_bt.Enabled = False
             sendfile_bt.Enabled = False
-            encrypted = False
-            If key = "" Then : Else
-                AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
-            End If
-            key = ""
-            enc = 0
+
+            encrypt_state.Enabled = False
+            reEncrypt.Enabled = True
+            
         End If
     End Sub
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
+        encrypt_state.Enabled = True
         If encrypted = True Then
             MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 4096bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
@@ -91,17 +95,6 @@ Public Class nChat_frm
                 key = tt.Key
             End If
         Next
-    End Sub
-    Private Sub nChat_frm_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
-        If connected_usr.isConnect_Encrypt(Name) = False Then
-            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
-        End If
-        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_profil_img 1;")
-        If is_in_usrlst(Name) = True Then
-            addusr_bt.Visible = False
-        Else
-            addusr_bt.Visible = True
-        End If
     End Sub
     Friend Function is_in_usrlst(ByVal eran_adress As String) As Boolean
         If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
@@ -132,6 +125,16 @@ Public Class nChat_frm
         profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
         ActiveControl = message_box
         AddHandler rtb_.TextChanged, AddressOf scrolldown
+
+        If connected_usr.isConnect_Encrypt(Name) = False Then
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
+        End If
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_profil_img 1;")
+        If is_in_usrlst(Name) = True Then
+            addusr_bt.Visible = False
+        Else
+            addusr_bt.Visible = True
+        End If
     End Sub
     Sub scrolldown()
         rtb_.ScrollToCaret()
@@ -313,5 +316,21 @@ Public Class nChat_frm
         AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         AddText(rtb_, "[Handshake successful]" & vbNewLine, Color.Lime)
+    End Sub
+
+    Private Sub reEncrypt_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles reEncrypt.Tick
+        If Timeout = 0 Then
+
+            encrypted = False
+            If key = "" Then : Else
+                AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
+            End If
+            reEncrypt.Enabled = False
+        Else
+            encrypt_state.Enabled = True
+        End If
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
+        Timeout -= 1
+
     End Sub
 End Class

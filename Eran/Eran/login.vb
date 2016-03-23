@@ -26,7 +26,10 @@ Public Class login
         main_frm.host = host_txt.Text
         main_frm.port = port_txt.Text
         If combine = ini.GetKeyValue("account", "adress") Then
-            login_panel.Hide()
+            main_frm.isEncrypted_Server = False
+            main_frm.DisconnectFromUser = False
+            main_frm.handshake = 0
+            'login_panel.Hide()
             main_frm.Controls.Add(connect_frame.Panel1)
             connect_frame.Panel1.Show()
             connect_frame.Panel1.BringToFront()

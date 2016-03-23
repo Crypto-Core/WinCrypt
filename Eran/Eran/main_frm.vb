@@ -26,9 +26,10 @@ Public Class main_frm
     Friend chat_rtb(10000) As RichTextBox
     Private index As Integer = 0
     Private enc_file_byt_target As Byte()
-    Dim trd_con As System.Threading.Thread
-    Dim handshake As String
+    Friend trd_con As System.Threading.Thread
+    Friend Shared handshake As String
     Private OnlineBallon As Boolean = False
+    Friend Shared DisconnectFromUser As Boolean = False
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
     ''' </summary>
@@ -171,8 +172,8 @@ Public Class main_frm
                                 aes_.Decode(enc_dec_b64_filename, enc_filename_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                 enc_dec_b64_file = Nothing
                                 enc_dec_b64_filename = Nothing
-                                SaveFileDialog1.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
-                                SaveFileDialog1.ShowDialog()
+                                SaveFileDialog.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
+                                SaveFileDialog.ShowDialog()
                             End If
                         Else
                             GC_.FlushMemory()
@@ -236,6 +237,7 @@ Public Class main_frm
                     tempHost = temp_Host
                     Server_key = RSA_decrypt(decrypt, PrivateKey)
                     isEncrypted_Server = True
+                    userlist_viewer.Items.Clear()
                     load_userlist()
                     set_State(2)
                 End If
@@ -275,9 +277,15 @@ Public Class main_frm
         While client.Connected
             Try
                 Invoke(New DAddItem(AddressOf AddItem), Base64.FromBase64Str_to_decodeBytes(streamr.ReadLine))
-            Catch ex As Exception         
-                MessageBox.Show("Connection to Server Lost." & vbNewLine & "Eran has to be restarted!", "Connection Lost!", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-                'Process.GetCurrentProcess.Kill()
+            Catch ex As Exception
+                If DisconnectFromUser = True Then
+                    eran_adr_txt.Text = "error"
+                    main_panel.Hide()
+                    login.login_panel.Show()
+                Else
+                    Connect()
+                End If
+
                 Exit While
             End Try : End While
     End Sub
@@ -367,7 +375,7 @@ Public Class main_frm
         'trd.Start()
     End Sub
 
-   
+
     ''' <summary>
     ''' Wenn eine Verbindung aufgebaut wird, wird ein Handshake mit dem Server vereinbart über RSA.
     ''' </summary>
@@ -402,11 +410,20 @@ Public Class main_frm
                 Application.Exit()
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
-            'MessageBox.Show("Access node offline!", "Connection fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            If index = 0 Then : Else
+                For closeIndex As Integer = 0 To index - 1
+                    chat_frm(closeIndex).Close()
+                    chat_frm(closeIndex).Dispose()
+                    chat_frm(closeIndex) = Nothing
+                Next
+                index = 0
+            End If
+            
             eran_adr_txt.Text = "error"
-            connect_frame.Panel1.Hide()
             main_panel.Hide()
+            login.login_panel.Show()
+
+            MsgBox(ex.Message)
             login.login_panel.Show()
         End Try
     End Sub
@@ -464,13 +481,15 @@ Public Class main_frm
                 vibrate_frm(chat_frm(window), 3)
             Else
                 chat_frm(window).Text = username
-                chat_frm(window).Show()
+
                 If get_msg = "" Then
                 Else
                     AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
                     chat_rtb(window).AppendText(cache_rtb.Text)
                     cache_rtb.Clear()
-                End If : End If : Else
+                End If
+                chat_frm(window).Show()
+            End If : Else
             chat_frm(index) = New nChat_frm
             chat_frm(index).Name = eran_adress
             chat_frm(index).Text = username
@@ -486,9 +505,10 @@ Public Class main_frm
             chat_rtb(index).Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            chat_rtb(index).Show()
+
             chat_frm(index).Controls.Add(chat_rtb(index))
             chat_frm(index).StartPosition = FormStartPosition.WindowsDefaultLocation
+            chat_rtb(index).Show()
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 chat_frm(index).Show()
                 chat_frm(index).TopMost = True
@@ -732,8 +752,8 @@ Public Class main_frm
         MessageBox.Show("Eran adress copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub SaveFileDialog1_FileOk(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles SaveFileDialog1.FileOk
-        File.WriteAllBytes(SaveFileDialog1.FileName, enc_file_byt_target)
+    Private Sub SaveFileDialog1_FileOk(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles SaveFileDialog.FileOk
+        File.WriteAllBytes(SaveFileDialog.FileName, enc_file_byt_target)
         enc_file_byt_target = Nothing
         GC_.FlushMemory()
     End Sub
@@ -807,7 +827,7 @@ Public Class main_frm
         End Select
     End Sub
     Sub Connect()
-        userlist_viewer.Items.Clear()
+        'userlist_viewer.Items.Clear()
         Control.CheckForIllegalCrossThreadCalls = False
         trd_con = New System.Threading.Thread(AddressOf conn)
         trd_con.IsBackground = True
@@ -824,5 +844,18 @@ Public Class main_frm
         streamw.Close()
         t.Abort()
         OnlineBallon = False
+    End Sub
+    Private Sub DisconnectToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DisconnectToolStripMenuItem.Click
+        userlist_viewer.Items.Clear()
+        DisconnectFromUser = True
+        Disconnect()
+    End Sub
+
+    Private Sub ShowPublicKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowPublicKeyToolStripMenuItem.Click
+        MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Public Key", MessageBoxButtons.OK, MessageBoxIcon.None)
+    End Sub
+
+    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
+        Disconnect()
     End Sub
 End Class

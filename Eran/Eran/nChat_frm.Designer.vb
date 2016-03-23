@@ -46,6 +46,7 @@ Partial Class nChat_frm
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.alertCountdown = New System.Windows.Forms.Timer(Me.components)
+        Me.reEncrypt = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,6 +233,10 @@ Partial Class nChat_frm
         '
         Me.alertCountdown.Interval = 1000
         '
+        'reEncrypt
+        '
+        Me.reEncrypt.Interval = 2000
+        '
         'nChat_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -284,4 +289,5 @@ Partial Class nChat_frm
     Friend WithEvents GetUsernameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents alertCountdown As System.Windows.Forms.Timer
     Friend WithEvents RenewEncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents reEncrypt As System.Windows.Forms.Timer
 End Class
