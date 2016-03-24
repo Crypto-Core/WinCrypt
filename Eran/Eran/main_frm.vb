@@ -89,19 +89,66 @@ Public Class main_frm
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
                 Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
-                If username = "" Then : Else
-                    Try
-                        For Each tt In chat_frm
-                            If tt.Name = adress_ Then
-                                tt.Text = username
-                                userlist_viewer.Items.Clear()
-                                load_userlist()
-                            
+                If username = "" Then
+                Else
+
+                    If is_in_usrlst(adress_) = "" Then
+                        Dim ini As New IniFile
+                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+                        Dim dec_trg_byte As Byte()
+                        aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        Dim mem_ As New MemoryStream(dec_trg_byte)
+                        ini.LoadFromMemory(mem_)
+                        ini.SetKeyValue(username, "adress", adress_)
+                        Dim save_ini_byt As Byte()
+                        save_ini_byt = ini.SavetoByte
+                        Dim targed_enc_byt As Byte()
+                        aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                        If index = 0 Then : Else
+                            For setFRM As Integer = 0 To index - 1
+                                If chat_frm(setFRM).Name = adress_ Then
+                                    chat_frm(setFRM).Text = username
+                                End If
+                            Next
+                        End If
+                        With userlist_viewer.Items.Add(username, 0)
+                            .SubItems.Add(adress_)
+                        End With
+                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
+                    Else
+                        For Each changeUSR As ListViewItem In userlist_viewer.Items
+                            If changeUSR.SubItems(1).Text = adress_ Then
+                                Dim ini As New IniFile
+                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+                                Dim dec_trg_byte As Byte()
+                                aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                Dim mem_ As New MemoryStream(dec_trg_byte)
+                                ini.LoadFromMemory(mem_)
+                                ini.RemoveSection(changeUSR.Text)
+                                ini.SetKeyValue(username, "adress", adress_)
+                                Dim save_ini_byt As Byte()
+                                save_ini_byt = ini.SavetoByte
+                                Dim targed_enc_byt As Byte()
+                                aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                                changeUSR.Text = username
                             End If
                         Next
-                    Catch ex As Exception : End Try : End If
+                        If index = 0 Then : Else
+                            For setFRM As Integer = 0 To index - 1
+                                If chat_frm(setFRM).Name = adress_ Then
+                                    chat_frm(setFRM).Text = username
+                                End If
+                            Next
+                        End If
+                        
+                        
+
+                    End If
+                End If
                 If get_username = "" Then : Else
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & TextBox1.Text & ";")
+                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & alias_txt.Text & ";")
                 End If
                 If ping = "pong" Then
                     MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
@@ -402,8 +449,16 @@ Public Class main_frm
                 t = New Threading.Thread(AddressOf Listen)
                 t.Start()
                 main_panel.Show()
+
                 connect_frame.Panel1.Hide()
-                TextBox1.Text = username
+                Dim ini As New IniFile
+                ini.Load(account_path)
+                If ini.GetKeyValue("account", "alias") = "" Then
+                    alias_txt.Text = username
+                Else
+                    alias_txt.Text = ini.GetKeyValue("account", "alias")
+                End If
+
                 server.myHost = host
             Else
                 MessageBox.Show("Verbindung zum Server nicht möglich!2")
@@ -418,7 +473,7 @@ Public Class main_frm
                 Next
                 index = 0
             End If
-            
+
             eran_adr_txt.Text = "error"
             main_panel.Hide()
             login.login_panel.Show()
@@ -619,7 +674,7 @@ Public Class main_frm
                 NotifyIcon.Text = "Eran - Offline"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
                     Dim adress As String = userlist_viewer.Items(send_to_usr).SubItems(1).Text
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 0;")
+                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 0; /username " & alias_txt.Text & ";")
                 Next
                 connected_usr.broke_all_sessions()
             Case 1
@@ -630,7 +685,7 @@ Public Class main_frm
                 NotifyIcon.Text = "Eran - Busy"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
                     Dim adress As String = userlist_viewer.Items(send_to_usr).SubItems(1).Text
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 1;")
+                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 1; /username " & alias_txt.Text & ";")
                 Next
             Case 2
                 status_strip.Text = "Online"
@@ -640,7 +695,7 @@ Public Class main_frm
                 NotifyIcon.Text = "Eran - Online"
                 For send_to_usr As Integer = 0 To userlist_viewer.Items.Count - 1
                     Dim adress As String = userlist_viewer.Items(send_to_usr).SubItems(1).Text
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 2;")
+                    Send_to_Server("/adress " & eran_adress & "; /to " & adress & "; /state 2; /username " & alias_txt.Text & ";")
                 Next
         End Select
     End Function
@@ -781,21 +836,28 @@ Public Class main_frm
         End If
     End Sub
 
-    Private Sub TextBox1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.GotFocus
-        TextBox1.BackColor = Color.FromArgb(30, 30, 30)
+    Private Sub TextBox1_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles alias_txt.GotFocus
+        alias_txt.BackColor = Color.FromArgb(30, 30, 30)
     End Sub
 
-    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
+    Private Sub TextBox1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles alias_txt.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
-            userlist_viewer.Focus()  
+            userlist_viewer.Focus()
+            For Each tt As ListViewItem In userlist_viewer.Items
+                main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & tt.SubItems(1).Text & "; /username " & alias_txt.Text & ";")
+            Next
+            Dim ini As New IniFile
+            ini.Load(account_path)
+            ini.SetKeyValue("account", "alias", alias_txt.Text)
+            ini.Save(account_path)
         End If
     End Sub
 
-    Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
-        TextBox1.BackColor = Color.FromArgb(45, 45, 45)
-        If TextBox1.Text = "" Then
-            TextBox1.Text = login.username
+    Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles alias_txt.LostFocus
+        alias_txt.BackColor = Color.FromArgb(45, 45, 45)
+        If alias_txt.Text = "" Then
+            alias_txt.Text = login.username
         End If
     End Sub
 

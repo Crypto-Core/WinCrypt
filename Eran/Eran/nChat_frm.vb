@@ -270,34 +270,11 @@ Public Class nChat_frm
         rtb_.Clear()
     End Sub
     Private Sub nChat_frm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.TextChanged
-        If Name = "nChat_frm" Then : Else
-            If Text = Name Then : Else
-                If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") Then
-                    Dim ini As New IniFile
-                    Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
-                    Dim dec_trg_byte As Byte()
-                    aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                    Dim mem_ As New MemoryStream(dec_trg_byte)
-                    ini.LoadFromMemory(mem_)
-                    ini.SetKeyValue(Text, "adress", Name)
-                    Dim save_ini_byt As Byte()
-                    save_ini_byt = ini.SavetoByte
-                    Dim targed_enc_byt As Byte()
-                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                    File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
-                Else
-                    Dim ini As New IniFile
-                    ini.SetKeyValue(Text, "adress", Name)
-                    Dim save_ini_byt As Byte()
-                    save_ini_byt = ini.SavetoByte
-                    Dim targed_enc_byt As Byte()
-                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                    File.WriteAllBytes(main_frm.users_lst_path, targed_enc_byt)
-                End If : End If : End If
+
     End Sub
 
     Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetUsernameToolStripMenuItem.Click
-            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /username " & main_frm.alias_txt.Text & ";")
     End Sub
     Dim alertindex As Integer = 5
     Private Sub alertCountdown_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alertCountdown.Tick
