@@ -24,7 +24,7 @@ Public Class create_account
         ini.SetKeyValue("account", "password", rHash.HashString(pwd_txt.Text, rHash.HASH.SHA512))
         ini.SetKeyValue("account", "authkey", authkey)
         ini.SetKeyValue("account", "adress", to_md5)
-        Dim readbyte As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\profilimage.png")
+        Dim readbyte As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "profilimage.png")
         Dim img_bs64 As String = Convert.ToBase64String(readbyte)
         ini.SetKeyValue("account", "image", img_bs64)
         ini.Save(main_frm.account_path)
@@ -35,7 +35,7 @@ Public Class create_account
         Dim target_byte As Byte()
         Dim aes As New AESEncrypt
         aes.Encode(null_byte, target_byte, pwd_txt.Text, AESEncrypt.ALGO.RIJNDAEL, 4096)
-        File.WriteAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini", target_byte)
+        File.WriteAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini", target_byte)
         login.login_panel.Show()
     End Sub
 

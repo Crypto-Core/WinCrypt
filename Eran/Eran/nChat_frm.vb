@@ -104,9 +104,9 @@ Public Class nChat_frm
         Next
     End Sub
     Friend Function is_in_usrlst(ByVal eran_adress As String) As Boolean
-        If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
+        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") = True Then
             Dim ini As New IniFile
-            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
             Dim dec_trg_byte As Byte()
             aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim mem_ As New MemoryStream(dec_trg_byte)

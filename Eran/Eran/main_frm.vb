@@ -19,8 +19,8 @@ Public Class main_frm
     Friend Shared aes_ As New AESEncrypt
     Friend Shared tempHost As String
     Friend Shared online_state As Integer = 0
-    Friend Shared account_path As String = My.Application.Info.DirectoryPath & "\account.ini"
-    Friend Shared users_lst_path As String = My.Application.Info.DirectoryPath & "\userlist.ini"
+    Friend Shared account_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "account.ini"
+    Friend Shared users_lst_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini"
     Friend Shared profilimage_ As String = ""
     Friend chat_frm(10000) As Form
     Friend chat_rtb(10000) As RichTextBox
@@ -94,7 +94,7 @@ Public Class main_frm
 
                     If is_in_usrlst(adress_) = "" Then
                         Dim ini As New IniFile
-                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                         Dim dec_trg_byte As Byte()
                         aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                         Dim mem_ As New MemoryStream(dec_trg_byte)
@@ -120,7 +120,7 @@ Public Class main_frm
                         For Each changeUSR As ListViewItem In userlist_viewer.Items
                             If changeUSR.SubItems(1).Text = adress_ Then
                                 Dim ini As New IniFile
-                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                                 Dim dec_trg_byte As Byte()
                                 aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                 Dim mem_ As New MemoryStream(dec_trg_byte)
@@ -362,9 +362,9 @@ Public Class main_frm
     ''' <returns></returns>
     ''' <remarks></remarks>
     Friend Shared Function load_userlist()
-        If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
+        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") = True Then
             Dim ini As New IniFile
-            Dim read_ini_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+            Dim read_ini_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
             Dim target_enc As Byte()
             aes_.Decode(read_ini_bytes, target_enc, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim ini_mem As New MemoryStream(target_enc)
@@ -645,6 +645,10 @@ Public Class main_frm
             e.Cancel = True
             Me.WindowState = FormWindowState.Minimized
             Me.Hide()
+            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
+            NotifyIcon.BalloonTipTitle = Text
+            NotifyIcon.BalloonTipText = "Eran is minimized on Taskbar"
+            NotifyIcon.ShowBalloonTip(1000)
         Else
             e.Cancel = False
         End If
@@ -753,6 +757,11 @@ Public Class main_frm
         Me.WindowState = FormWindowState.Normal
     End Sub
 
+    Private Sub NotifyIcon_BalloonTipClicked(ByVal sender As Object, ByVal e As System.EventArgs) Handles NotifyIcon.BalloonTipClicked
+        Me.Show()
+        Me.WindowState = FormWindowState.Normal
+    End Sub
+
     Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
         Me.Show()
         Me.WindowState = FormWindowState.Normal
@@ -778,7 +787,7 @@ Public Class main_frm
         If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Dim usr_name As String = userlist_viewer.SelectedItems(0).Text
             Dim ini As New IniFile
-            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
             Dim dec_trg_byte As Byte()
             aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim mem_ As New MemoryStream(dec_trg_byte)

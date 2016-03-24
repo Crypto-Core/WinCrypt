@@ -1,6 +1,6 @@
 ﻿Module config
     Dim ini As New IniFile
-    Friend config_path As String = My.Application.Info.DirectoryPath & "\config.ini"
+    Friend config_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
     Public Function load()
         ini.Load(config_path)
         On Error Resume Next

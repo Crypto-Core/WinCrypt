@@ -7,8 +7,8 @@ Public Class add_user
     Private Sub add_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles add_bt.Click
         If eran_adress_txt.TextLength = 32 Then
             main_frm.userlist_viewer.Items.Clear()
-            If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") = True Then
-                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini")
+            If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") = True Then
+                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                 Dim dec_trg_byte As Byte()
                 aes.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
                 Dim mem_ As New MemoryStream(dec_trg_byte)
@@ -22,7 +22,7 @@ Public Class add_user
                 End If
                 Dim save_trg_enc As Byte()
                 aes.Encode(ini.SavetoByte(), save_trg_enc, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                File.WriteAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini", save_trg_enc)
+                File.WriteAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini", save_trg_enc)
                 main_frm.load_userlist()
                 Me.Close()
             Else
@@ -37,7 +37,7 @@ Public Class add_user
                 ini_save_byte = ini.SavetoByte()
                 Dim save_trg_enc As Byte()
                 aes.Encode(ini_save_byte, save_trg_enc, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                File.WriteAllBytes(My.Application.Info.DirectoryPath & "\userlist.ini", save_trg_enc)
+                File.WriteAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini", save_trg_enc)
                 main_frm.load_userlist()
                 Close()
             End If

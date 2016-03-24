@@ -2,7 +2,8 @@
 Imports System.IO
 Public Class StartWindow
     Private ini As New IniFile
-    Friend Shared config_path As String = My.Application.Info.DirectoryPath & "\config.ini"
+
+    Friend Shared config_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
     Private Sub join_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles secureDesktop_bt.Click
         If save_selection_cb.Checked = True Then
             ini.Load(config_path)
@@ -22,9 +23,5 @@ Public Class StartWindow
         SecureDesktop.isOnSecureDesktop = False
         Me.Hide()
         main_frm.ShowDialog()
-    End Sub
-
-    Private Sub StartWindow_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        
     End Sub
 End Class

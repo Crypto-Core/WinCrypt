@@ -91,6 +91,7 @@
     <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="classes\Base64.vb" />
     <Compile Include="classes\GC.vb" />
+    <Compile Include="classes\OS.vb" />
     <Compile Include="classes\rHash.vb" />
     <Compile Include="classes\WindowsAPI.vb" />
     <Compile Include="classes\config.vb" />

@@ -34,6 +34,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
+            
             config.load()
             If File.Exists(config_path) = True Then
                 ini.Load(config_path)
