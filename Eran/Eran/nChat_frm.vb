@@ -55,6 +55,7 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.lock16
             lock_bt.Text = "Encrypted"
             lock_bt.Enabled = True
+            alert_bt.Enabled = True
             message_box.Enabled = True
             encrypted = True
             sendfile_bt.Enabled = True

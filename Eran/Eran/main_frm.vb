@@ -920,4 +920,8 @@ Public Class main_frm
     Private Sub ShowServerKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowServerKeyToolStripMenuItem.Click
         MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Server Key", MessageBoxButtons.OK, MessageBoxIcon.None)
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        about.ShowDialog()
+    End Sub
 End Class

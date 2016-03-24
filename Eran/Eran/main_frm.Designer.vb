@@ -39,6 +39,7 @@ Partial Class main_frm
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
         Me.userlist_viewer = New System.Windows.Forms.ListView()
@@ -47,13 +48,8 @@ Partial Class main_frm
         Me.head_panel = New System.Windows.Forms.Panel()
         Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.alias_txt = New System.Windows.Forms.TextBox()
-        Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.status_lb = New System.Windows.Forms.Label()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.status_strip = New System.Windows.Forms.ToolStripSplitButton()
-        Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BusyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.user_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StartChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,27 +59,31 @@ Partial Class main_frm
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.notify_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OnlineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BusyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OfflineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.profil_img = New System.Windows.Forms.PictureBox()
+        Me.status_strip = New System.Windows.Forms.ToolStripSplitButton()
+        Me.OfflineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OnlineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BusyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OfflineToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
-        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip.SuspendLayout()
         Me.user_conextmenu.SuspendLayout()
         Me.notify_conextmenu.SuspendLayout()
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip
         '
-        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.UsersToolStripMenuItem, Me.AccountToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
@@ -130,14 +130,14 @@ Partial Class main_frm
         'DisconnectToolStripMenuItem
         '
         Me.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem"
-        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.DisconnectToolStripMenuItem.Text = "Disconnect"
         '
         'ConnectionToolStripMenuItem
         '
         Me.ConnectionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowPublicKeyToolStripMenuItem, Me.ToolStripSeparator1, Me.ShowServerKeyToolStripMenuItem})
         Me.ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
-        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.ConnectionToolStripMenuItem.Text = "Connection"
         '
         'ShowPublicKeyToolStripMenuItem
@@ -168,13 +168,13 @@ Partial Class main_frm
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'SendPingToConnectedAccesNodeToolStripMenuItem
         '
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
         '
         'HelpToolStripMenuItem
@@ -184,6 +184,12 @@ Partial Class main_frm
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'ImageList
         '
@@ -275,18 +281,6 @@ Partial Class main_frm
         Me.alias_txt.Size = New System.Drawing.Size(245, 22)
         Me.alias_txt.TabIndex = 7
         '
-        'profil_img
-        '
-        Me.profil_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
-        Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.profil_img.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
-        Me.profil_img.Location = New System.Drawing.Point(12, 13)
-        Me.profil_img.Name = "profil_img"
-        Me.profil_img.Size = New System.Drawing.Size(74, 74)
-        Me.profil_img.TabIndex = 6
-        Me.profil_img.TabStop = False
-        '
         'status_lb
         '
         Me.status_lb.AutoSize = True
@@ -311,38 +305,6 @@ Partial Class main_frm
         Me.StatusStrip.SizingGrip = False
         Me.StatusStrip.TabIndex = 2
         Me.StatusStrip.Text = "StatusStrip"
-        '
-        'status_strip
-        '
-        Me.status_strip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineToolStripMenuItem, Me.BusyToolStripMenuItem, Me.OnlineToolStripMenuItem})
-        Me.status_strip.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.status_strip.Image = Global.Eran.My.Resources.Resources.offline16
-        Me.status_strip.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.status_strip.Name = "status_strip"
-        Me.status_strip.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.status_strip.Size = New System.Drawing.Size(75, 20)
-        Me.status_strip.Text = "Offline"
-        '
-        'OfflineToolStripMenuItem
-        '
-        Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
-        Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
-        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
-        Me.OfflineToolStripMenuItem.Text = "Offline"
-        '
-        'BusyToolStripMenuItem
-        '
-        Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
-        Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
-        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
-        Me.BusyToolStripMenuItem.Text = "Busy"
-        '
-        'OnlineToolStripMenuItem
-        '
-        Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
-        Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
-        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
-        Me.OnlineToolStripMenuItem.Text = "Online"
         '
         'user_conextmenu
         '
@@ -398,27 +360,6 @@ Partial Class main_frm
         Me.StateToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.StateToolStripMenuItem.Text = "State"
         '
-        'OnlineToolStripMenuItem1
-        '
-        Me.OnlineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.online16
-        Me.OnlineToolStripMenuItem1.Name = "OnlineToolStripMenuItem1"
-        Me.OnlineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
-        Me.OnlineToolStripMenuItem1.Text = "Online"
-        '
-        'BusyToolStripMenuItem1
-        '
-        Me.BusyToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.busy16
-        Me.BusyToolStripMenuItem1.Name = "BusyToolStripMenuItem1"
-        Me.BusyToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
-        Me.BusyToolStripMenuItem1.Text = "Busy"
-        '
-        'OfflineToolStripMenuItem1
-        '
-        Me.OfflineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.offline16
-        Me.OfflineToolStripMenuItem1.Name = "OfflineToolStripMenuItem1"
-        Me.OfflineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
-        Me.OfflineToolStripMenuItem1.Text = "Offline"
-        '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
@@ -442,11 +383,70 @@ Partial Class main_frm
         '
         Me.OnlineBallon_tmr.Interval = 5000
         '
-        'AboutToolStripMenuItem
+        'profil_img
         '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
+        Me.profil_img.BackgroundImage = Global.Eran.My.Resources.Resources.profilimage
+        Me.profil_img.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.profil_img.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.profil_img.Image = Global.Eran.My.Resources.Resources.offlineR
+        Me.profil_img.Location = New System.Drawing.Point(12, 13)
+        Me.profil_img.Name = "profil_img"
+        Me.profil_img.Size = New System.Drawing.Size(74, 74)
+        Me.profil_img.TabIndex = 6
+        Me.profil_img.TabStop = False
+        '
+        'status_strip
+        '
+        Me.status_strip.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineToolStripMenuItem, Me.BusyToolStripMenuItem, Me.OnlineToolStripMenuItem})
+        Me.status_strip.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.status_strip.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.status_strip.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.status_strip.Name = "status_strip"
+        Me.status_strip.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.status_strip.Size = New System.Drawing.Size(75, 20)
+        Me.status_strip.Text = "Offline"
+        '
+        'OfflineToolStripMenuItem
+        '
+        Me.OfflineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.OfflineToolStripMenuItem.Name = "OfflineToolStripMenuItem"
+        Me.OfflineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem.Text = "Offline"
+        '
+        'BusyToolStripMenuItem
+        '
+        Me.BusyToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.busy16
+        Me.BusyToolStripMenuItem.Name = "BusyToolStripMenuItem"
+        Me.BusyToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem.Text = "Busy"
+        '
+        'OnlineToolStripMenuItem
+        '
+        Me.OnlineToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.online16
+        Me.OnlineToolStripMenuItem.Name = "OnlineToolStripMenuItem"
+        Me.OnlineToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem.Text = "Online"
+        '
+        'OnlineToolStripMenuItem1
+        '
+        Me.OnlineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.online16
+        Me.OnlineToolStripMenuItem1.Name = "OnlineToolStripMenuItem1"
+        Me.OnlineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.OnlineToolStripMenuItem1.Text = "Online"
+        '
+        'BusyToolStripMenuItem1
+        '
+        Me.BusyToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.busy16
+        Me.BusyToolStripMenuItem1.Name = "BusyToolStripMenuItem1"
+        Me.BusyToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.BusyToolStripMenuItem1.Text = "Busy"
+        '
+        'OfflineToolStripMenuItem1
+        '
+        Me.OfflineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.offline16
+        Me.OfflineToolStripMenuItem1.Name = "OfflineToolStripMenuItem1"
+        Me.OfflineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
+        Me.OfflineToolStripMenuItem1.Text = "Offline"
         '
         'main_frm
         '
@@ -465,11 +465,11 @@ Partial Class main_frm
         Me.main_panel.PerformLayout()
         Me.head_panel.ResumeLayout(False)
         Me.head_panel.PerformLayout()
-        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
         Me.user_conextmenu.ResumeLayout(False)
         Me.notify_conextmenu.ResumeLayout(False)
+        CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -117,142 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>124, 17</value>
-  </metadata>
-  <metadata name="ImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>342, 17</value>
-  </metadata>
-  <data name="ImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAc
-        EQAAAk1TRnQBSQFMAgEBAwEAAegBAAHoAQABEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABEAMAAQEBAAEgBgABECIAAx4BKwNMAZADWgHYA00B+gNSAfQDXAHUA0wBkAMfASwgAAMeASsCSwFM
-        AZADWgHYAikBTQH6A1IB9ANcAdQCSwFMAZADHwEsIAADHgErAUsBTAFLAZADWgHYASkBTQEpAfoDUgH0
-        A1wB1AFLAUwBSwGQAx8BLFgAAwQBBgNOAZQDQAH9AwoB/wMKAf8DCgH/AwoB/wMKAf8DCgH/A0AB/QNO
-        AZgDBwEJEAADBAEGA04BlANAAf0CAAEJAf8CAAEJAf8CAAEJAf8CAAEJAf8CAAEJAf8CAAEJAf8DQAH9
-        A04BmAMHAQkQAAMEAQYDTgGUA0AB/QEAAQkBAAH/AQABCQEAAf8BAAEJAQAB/wEAAQkBAAH/AQABCQEA
-        Af8BAAEJAQAB/wNAAf0DTgGYAwcBCUwAAwQBBgNWAbsBDwIOAf8BDwIOAf8BDgIPAf8BDgEPAQ4B/wIP
-        AQ4B/wMPAf8BDgIPAf8CDwEOAf8BDwIOAf8BDwIOAf8DVwG9AwQBBggAAwQBBgNWAbsCAAERAf8CAAEQ
-        Af8CAAERAf8CAAERAf8CAAERAf8CAAERAf8CAAERAf8CAAERAf8CAAEQAf8CAAERAf8DVwG9AwQBBggA
-        AwQBBgNWAbsBAAERAQAB/wEAAREBAAH/AQABEQEAAf8BAAERAQAB/wEAARABAAH/AQABEQEAAf8BAAER
-        AQAB/wEAAREBAAH/AQABEAEAAf8BAAERAQAB/wNXAb0DBAEGSAADTgGVAxUB/wEVAhQB/wEVAhQB/wMV
-        Af8DFQH/ARQBFQEUAf8CFQEUAf8DFQH/ARQBFQEUAf8DFAH/ARQBFQEUAf8BFAEVARQB/wNOAZUIAAJN
-        AU4BlQIAARsB/wIAARsB/wIAARsB/wIAARsB/wIAARwB/wIAARwB/wIAARwB/wIAARwB/wIAARwB/wIA
-        ARsB/wIAARwB/wIAARsB/wJNAU4BlQgAAU0BTgFNAZUBAAEcAQAB/wEAARwBAAH/AQABGwEAAf8BAAEb
-        AQAB/wEAARsBAAH/AQABGwEAAf8BAAEcAQAB/wEAARsBAAH/AQABGwEAAf8BAAEbAQAB/wEAARsBAAH/
-        AQABGwEAAf8BTQFOAU0BlUQAAx8BLAMrAfwBHAEbARwB/wIcARsB/wMcAf8BGwEcARsB/wMcAf8BGwIc
-        Af8DGwH/AxwB/wMcAf8BGwEcARsB/wEbARwBGwH/AxwB/wMrAfwDHwEsAx8BLAMrAfwCAAEoAf8CAAEo
-        Af8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEoAf8CAAEo
-        Af8DKwH8Ax8BLAMfASwDKwH8AQABJwEAAf8BAAEnAQAB/wEAAScBAAH/AQABKAEAAf8BAAEoAQAB/wEA
-        ASgBAAH/AQABKAEAAf8BAAEoAQAB/wEAASgBAAH/AQABJwEAAf8BAAEoAQAB/wEAASgBAAH/AysB/AMf
-        ASxAAANMAY8DJAH/ASMCJAH/ASMBJAEjAf8BJAEjASQB/wMkAf8BIwIkAf8DJAH/AyQB/wEjAiQB/wEk
-        ASMBJAH/ASQBIwEkAf8BIwIkAf8BIwEkASMB/wMkAf8DTAGQAksBTAGPAgABNgH/AgABNgH/AgABNgH/
-        AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/AgABNgH/
-        AgABNgH/AksBTAGQAUsBTAFLAY8BAAE2AQAB/wEAATYBAAH/AQABNgEAAf8BAAE2AQAB/wEAATYBAAH/
-        AQABNgEAAf8BAAE2AQAB/wEAATYBAAH/AQABNgEAAf8BAAE2AQAB/wEAATYBAAH/AQABNgEAAf8BAAE2
-        AQAB/wEAATYBAAH/AUsBTAFLAZBAAANdAdcBLQIsAf8BLAEtASwB/wMtAf8DLAH/ASwCLQH/AS0CLAH/
-        Ay0B/wEtAiwB/wIsAS0B/wIsAS0B/wEtASwBLQH/Ai0BLAH/ASwCLQH/Ay0B/wNgAdQCWQFdAdcCAAGK
-        Af8CAAGKAf8CAAGKAf8CAAGKAf8CAAGLAf8CAAGKAf8CAAGLAf8CAAGKAf8CAAGKAf8CAAGKAf8CAAGK
-        Af8CAAGKAf8CAAGLAf8CAAGKAf8CXAFgAdQBWQFdAVkB1wEAAYoBAAH/AQABiwEAAf8BAAGKAQAB/wEA
-        AYoBAAH/AQABigEAAf8BAAGKAQAB/wEAAYoBAAH/AQABigEAAf8BAAGLAQAB/wEAAYoBAAH/AQABigEA
-        Af8BAAGKAQAB/wEAAYsBAAH/AQABigEAAf8BXAFgAVwB1EAAA2oB+QM1Af8CNQE2Af8DNQH/AzUB/wE1
-        ATYBNQH/AjUBNgH/AzYB/wI1ATYB/wI1ATYB/wE1ATYBNQH/ATYBNQE2Af8DNQH/ATUCNgH/ATUBNgE1
-        Af8DXwHzAkEBagH5AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/
-        AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/AgABmgH/AkwBXwHzAUEBagFBAfkBAAGaAQAB/wEA
-        AZoBAAH/AQABmgEAAf8BAAGaAQAB/wEAAZoBAAH/AQABmgEAAf8BAAGaAQAB/wEAAZoBAAH/AQABmgEA
-        Af8BAAGaAQAB/wEAAZoBAAH/AQABmgEAAf8BAAGaAQAB/wEAAZoBAAH/AUwBXwFMAfNAAANqAfkChAGD
-        Af8BhAKDAf8BgwKEAf8DgwH/AoQBgwH/AYQBgwGEAf8BgwKEAf8ChAGDAf8BhAGDAYQB/wGEAoMB/wKE
-        AYMB/wGDAoQB/wODAf8CgwGEAf8DagH5AkEBagH5AgABqgH/AgABqQH/AgABqgH/AgABqQH/AgABqgH/
-        AgABqQH/AgABqgH/AgABqgH/AgABqgH/AgABqQH/AgABqgH/AgABqgH/AgABqQH/AgABqQH/AkEBagH5
-        AUEBagFBAfkBAAGqAQAB/wEAAaoBAAH/AQABqgEAAf8BAAGqAQAB/wEAAakBAAH/AQABqgEAAf8BAAGq
-        AQAB/wEAAaoBAAH/AQABqQEAAf8BAAGpAQAB/wEAAakBAAH/AQABqgEAAf8BAAGqAQAB/wEAAakBAAH/
-        AUEBagFBAflAAANdAdcDjAH/A4wB/wKNAYwB/wKNAYwB/wOMAf8DjAH/Ao0BjAH/A4wB/wOMAf8DjAH/
-        AYwBjQGMAf8BjQKMAf8BjAGNAYwB/wKNAYwB/wNdAdcCWQFdAdcCAAG5Af8CAAG5Af8CAAG5Af8CAAG5
-        Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5Af8CAAG5
-        Af8CWQFdAdcBWQFdAVkB1wEAAbkBAAH/AQABuQEAAf8BAAG5AQAB/wEAAbkBAAH/AQABuQEAAf8BAAG5
-        AQAB/wEAAbkBAAH/AQABuQEAAf8BAAG5AQAB/wEAAbkBAAH/AQABuQEAAf8BAAG5AQAB/wEAAbkBAAH/
-        AQABuQEAAf8BWQFdAVkB10AAA0wBjwOVAf8DlAH/ApQBlQH/A5QB/wGVAZQBlQH/A5QB/wGUAZUBlAH/
-        A5QB/wGUAZUBlAH/AZUClAH/A5QB/wOUAf8BlQGUAZUB/wOUAf8DTAGPAksBTAGPAgABxwH/AgABxwH/
-        AgABxwH/AgABxwH/AgABxwH/AgABxwH/AgAByAH/AgABxwH/AgABxwH/AgABxwH/AgABxwH/AgABxwH/
-        AgABxwH/AgABxwH/AksBTAGPAUsBTAFLAY8BAAHHAQAB/wEAAccBAAH/AQABxwEAAf8BAAHIAQAB/wEA
-        AccBAAH/AQABxwEAAf8BAAHHAQAB/wEAAccBAAH/AQABxwEAAf8BAAHIAQAB/wEAAccBAAH/AQABxwEA
-        Af8BAAHHAQAB/wEAAcgBAAH/AUsBTAFLAY9AAAMeASsDOQH8AZsCnAH/AZsCnAH/A5wB/wGcApsB/wGb
-        AZwBmwH/AZwBmwGcAf8BmwGcAZsB/wKcAZsB/wGcApsB/wKbAZwB/wGcAZsBnAH/A5wB/wE5AjgB/AMe
-        ASsDHgMrAVoB/AIAAdQB/wIAAdQB/wIAAdQB/wIAAdQB/wIAAdQB/wIAAdQB/wIAAdQB/wIAAdQB/wIA
-        AdMB/wIAAdMB/wIAAdQB/wIAAdQB/wIrAVkB/AMeASsDHgIrAVkBKwH8AQAB1AEAAf8BAAHTAQAB/wEA
-        AdQBAAH/AQAB1AEAAf8BAAHTAQAB/wEAAdQBAAH/AQAB1AEAAf8BAAHUAQAB/wEAAdQBAAH/AQAB1AEA
-        Af8BAAHUAQAB/wEAAdQBAAH/ASsBWgErAfwDHgErRAADTgGVA6EB/wGhAqIB/wGiAqEB/wOiAf8CogGh
-        Af8CoQGiAf8CoQGiAf8BogGhAaIB/wKiAaEB/wOiAf8DogH/AqIBoQH/A04BlAgAAk0BTgGVAgAB3gH/
-        AgAB3wH/AgAB3gH/AgAB3wH/AgAB3gH/AgAB3gH/AgAB3gH/AgAB3gH/AgAB3gH/AgAB3wH/AgAB3gH/
-        AgAB3wH/A04BlAgAAU0BTgFNAZUBAAHeAQAB/wEAAd4BAAH/AQAB3gEAAf8BAAHeAQAB/wEAAd4BAAH/
-        AQAB3wEAAf8BAAHeAQAB/wEAAd4BAAH/AQAB3gEAAf8BAAHfAQAB/wEAAd4BAAH/AQAB3gEAAf8DTgGU
-        SAADBAEGA1gBuwOmAf8DpgH/A6YB/wOmAf8DpgH/A6YB/wOmAf8DpgH/A6YB/wOmAf8DWgG9AwQBBggA
-        AwQBBgJWAVgBuwIAAeYB/wIAAeYB/wIAAeYB/wIAAeYB/wIAAeYB/wIAAeYB/wIAAeYB/wIAAeYB/wIA
-        AeYB/wIAAeYB/wJXAVoBvQMEAQYIAAMEAQYBVgFYAVYBuwEAAeYBAAH/AQAB5gEAAf8BAAHmAQAB/wEA
-        AeYBAAH/AQAB5gEAAf8BAAHmAQAB/wEAAeYBAAH/AQAB5gEAAf8BAAHmAQAB/wEAAeYBAAH/AVcBWgFX
-        Ab0DBAEGTAADBAEGA04BlAOmAf0DpgH/A6YB/wOmAf8DpgH/A6YB/wOmAf8DpgH9A04BmAMHAQkQAAME
-        AQYDTgGUAkABqAH9AgAB5gH/AgAB5gH/AgAB5gH/AgAB5gH/AgAB5gH/AgAB5gH/AkABqAH9A04BmAMH
-        AQkQAAMEAQYDTgGUAUABqAFAAf0BAAHmAQAB/wEAAeYBAAH/AQAB5gEAAf8BAAHmAQAB/wEAAeYBAAH/
-        AQAB5gEAAf8BQAGoAUAB/QNOAZgDBwEJWAADHQEqA0sBjgNdAdcDXAH4A1wB+ANgAdYDSwGOAx0BKiAA
-        Ax0BKgNLAY4CWQFdAdcCPgFcAfgCPgFcAfgCWwFgAdYDSwGOAx0BKiAAAx0BKgNLAY4BWQFdAVkB1wE+
-        AVwBPgH4AT4BXAE+AfgBWwFgAVsB1gNLAY4DHQEqUAABQgFNAT4HAAE+AwABKAMAAUADAAEQAwABAQEA
-        AQEFAAGAFwAD/wEAAfABDwHwAQ8B8AEPAgABwAEDAcABAwHAAQMCAAGAAQEBgAEBAYABAQIAAYABAQGA
-        AQEBgAEBQgABgAEBAYABAQGAAQECAAGAAQEBgAEBAYABAQIAAcABAwHAAQMBwAEDAgAB8AEPAfABDwHw
-        AQ8CAAs=
-</value>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version. 
+
+ Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License. 
+
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe &lt;http://www.gnu.org/licenses/&gt;. 
+
+Onlineansicht der Lizenz: https://wincrypt.org/lizenz/</value>
   </data>
-  <metadata name="StatusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>232, 17</value>
-  </metadata>
-  <metadata name="user_conextmenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>452, 17</value>
-  </metadata>
-  <metadata name="open_file_diag.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>599, 17</value>
-  </metadata>
-  <metadata name="NotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 56</value>
-  </metadata>
-  <metadata name="notify_conextmenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="NotifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACbvBt6m7wbmJu8G3sAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACLiYZ/oLRN8E1NTS6SryGnqKWh2Y+MincAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAG9ubDKjoJ3TlJKP/3aFOP+EnCrVc4M1/1NTU/+Uko//pKGd03Ry
-        cSwAAAAAAAAAAAAAAACbvBt7m7wbl4egKKecmZb/a2po/01NTf9NTU3/TU1N/8fDvv9NTU3/TU1N/2xr
-        af+bmJX/h58opZu8G5ibvBt7m7wbmgAAAACAlSzjTU1N/01NTf9NTU3/TU1N/01NTf/Hw77/TU1N/01N
-        Tf9NTU3/TU1N/4GXLOQAAAAAm7wblJu8G3qKpCbBc4M1/01NTf9NTU3/TU1N/01NTf9NTU3/x8O+/01N
-        Tf9NTU3/TU1N/01NTf9ygjX/i6Ulvpu8G3tNTU1ATU1N/01NTf+LiYb/iIaE/1pZWf9NTU3/TU1N/8fD
-        vv9NTU3/XFtb/4qIhv+PjYr/TU1N/01NTf9NTU1FTU1Nj8fDvv9NTU3/TU1N/1lZWf+IhoT/kqFS/4mi
-        J8SEnCqwkI2L/4qIhv9bW1r/TU1N/01NTf/Hw77/TU1Nkk1NTY/Hw77/TU1N/01NTf9NTU3/TU1N/3yQ
-        L/9NTU1RjagktE1NTf9NTU3/TU1N/01NTf9NTU3/x8O+/01NTZJNTU0/x8O+/01NTf9NTU3/XFtb/4qI
-        hv+Vo1X/e48v/7LAb/+Ni4j/ioiG/1taWv9NTU3/TU1N/8fDvv9NTU0+m7wbe4qkJsBzgzT/kI2L/4qI
-        hv9bW1r/TU1N/01NTf/Hw77/TU1N/1taWv+KiIX/jYuI/3KCNf+KpCbCm7wbe5u8G5oAAAAAg5oq1U1N
-        Tf9NTU3/TU1N/01NTf9NTU3/x8O+/01NTf9NTU3/a2po/5yZlv+FnCnVAAAAAJu8G5SbvBt6m7wbl46p
-        JJaZlpPNiIaE/1lZWf9NTU3/TU1N/8fDvv9XVlb/mZeT/5mXk/9cXFugjqkjk5u8G5ebvBt7AAAAAAAA
-        AAAAAAAAAAAAAGhnZnCHhYP/kqFS/3uPL/9zgzX/nJmW/2tqaP9NTU1dAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAATU1NDYqjJsRNTU0QlrUenU1NTW5NTU0JAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACbvBt6m7wbl5u8G3sAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA/H8AAPgfAADgBwAAAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAPAP
-        AAD4HwAA/H8AAA==
-</value>
-  </data>
-  <metadata name="SaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>6, 24</value>
-  </metadata>
-  <metadata name="available_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>280, 56</value>
-  </metadata>
-  <metadata name="OnlineBallon_tmr.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>729, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAcAAAAAAAEAIAAoIAQAdgAAAICAAAABACAAKAgBAJ4gBABAQAAAAQAgAChCAADGKAUAMDAAAAEA
