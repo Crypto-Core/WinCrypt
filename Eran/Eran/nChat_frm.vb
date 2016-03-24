@@ -88,7 +88,7 @@ Public Class nChat_frm
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
         encrypt_state.Enabled = True
         If encrypted = True Then
-            MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 4096bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 256bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")

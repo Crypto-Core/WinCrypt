@@ -39,8 +39,6 @@ Partial Class main_frm
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConnectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
         Me.userlist_viewer = New System.Windows.Forms.ListView()
@@ -73,6 +71,7 @@ Partial Class main_frm
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -131,14 +130,14 @@ Partial Class main_frm
         'DisconnectToolStripMenuItem
         '
         Me.DisconnectToolStripMenuItem.Name = "DisconnectToolStripMenuItem"
-        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.DisconnectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DisconnectToolStripMenuItem.Text = "Disconnect"
         '
         'ConnectionToolStripMenuItem
         '
         Me.ConnectionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowPublicKeyToolStripMenuItem, Me.ToolStripSeparator1, Me.ShowServerKeyToolStripMenuItem})
         Me.ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
-        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.ConnectionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConnectionToolStripMenuItem.Text = "Connection"
         '
         'ShowPublicKeyToolStripMenuItem
@@ -169,34 +168,22 @@ Partial Class main_frm
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'SendPingToConnectedAccesNodeToolStripMenuItem
         '
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Name = "SendPingToConnectedAccesNodeToolStripMenuItem"
-        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1, Me.ConnectToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'TestToolStripMenuItem1
-        '
-        Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(119, 22)
-        Me.TestToolStripMenuItem1.Text = "Test"
-        '
-        'ConnectToolStripMenuItem
-        '
-        Me.ConnectToolStripMenuItem.Name = "ConnectToolStripMenuItem"
-        Me.ConnectToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
-        Me.ConnectToolStripMenuItem.Text = "Connect"
         '
         'ImageList
         '
@@ -283,6 +270,7 @@ Partial Class main_frm
         Me.alias_txt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.alias_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.alias_txt.Location = New System.Drawing.Point(98, 20)
+        Me.alias_txt.MaxLength = 20
         Me.alias_txt.Name = "alias_txt"
         Me.alias_txt.Size = New System.Drawing.Size(245, 22)
         Me.alias_txt.TabIndex = 7
@@ -454,6 +442,12 @@ Partial Class main_frm
         '
         Me.OnlineBallon_tmr.Interval = 5000
         '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'main_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -521,12 +515,11 @@ Partial Class main_frm
     Friend WithEvents eran_adr_txt As System.Windows.Forms.TextBox
     Friend WithEvents available_timer As System.Windows.Forms.Timer
     Friend WithEvents OnlineBallon_tmr As System.Windows.Forms.Timer
-    Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ConnectToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DisconnectToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConnectionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ShowPublicKeyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ShowServerKeyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

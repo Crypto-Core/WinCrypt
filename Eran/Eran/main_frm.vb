@@ -375,7 +375,7 @@ Public Class main_frm
                         .SubItems.Add(k.Value)
                     End With : Next : Next
             For check_State As Integer = 0 To main_frm.userlist_viewer.Items.Count - 1
-                Send_to_Server("/adress " & eran_adress & "; /to " & main_frm.userlist_viewer.Items(check_State).SubItems(1).Text & "; /get_state True;")
+                Send_to_Server("/adress " & eran_adress & "; /to " & main_frm.userlist_viewer.Items(check_State).SubItems(1).Text & "; /get_state True; /get_username 1;")
             Next : Else : End If
     End Function
     ''' <summary>
