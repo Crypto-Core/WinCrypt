@@ -26,9 +26,13 @@ Partial Class nChat_frm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(nChat_frm))
         Me.message_box = New System.Windows.Forms.TextBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.alert_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.lock_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.recAudio = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,10 +50,6 @@ Partial Class nChat_frm
         Me.addusr_bt = New System.Windows.Forms.Button()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.partner_img = New System.Windows.Forms.PictureBox()
-        Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
-        Me.alert_bt = New System.Windows.Forms.ToolStripButton()
-        Me.lock_bt = New System.Windows.Forms.ToolStripButton()
-        Me.recAudio = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.Contextmenu.SuspendLayout()
@@ -89,20 +89,52 @@ Partial Class nChat_frm
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'sendfile_bt
+        '
+        Me.sendfile_bt.Image = Global.Eran.My.Resources.Resources.add
+        Me.sendfile_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.sendfile_bt.Name = "sendfile_bt"
+        Me.sendfile_bt.Size = New System.Drawing.Size(135, 22)
+        Me.sendfile_bt.Text = "Send file (max. 2mb)"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'alert_bt
+        '
+        Me.alert_bt.ForeColor = System.Drawing.Color.White
+        Me.alert_bt.Image = Global.Eran.My.Resources.Resources._1456843663_bell
+        Me.alert_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.alert_bt.Name = "alert_bt"
+        Me.alert_bt.Size = New System.Drawing.Size(55, 22)
+        Me.alert_bt.Text = "Alert!"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'lock_bt
+        '
+        Me.lock_bt.Image = Global.Eran.My.Resources.Resources.unlock16
+        Me.lock_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.lock_bt.Name = "lock_bt"
+        Me.lock_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lock_bt.Size = New System.Drawing.Size(23, 22)
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'recAudio
+        '
+        Me.recAudio.Image = Global.Eran.My.Resources.Resources.rec1
+        Me.recAudio.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.recAudio.Name = "recAudio"
+        Me.recAudio.Size = New System.Drawing.Size(23, 22)
         '
         'MenuStrip
         '
@@ -126,7 +158,7 @@ Partial Class nChat_frm
         'GetUsernameToolStripMenuItem
         '
         Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
-        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GetUsernameToolStripMenuItem.Text = "Get username"
         '
         'OptionsToolStripMenuItem
@@ -140,7 +172,8 @@ Partial Class nChat_frm
         'RenewEncryptionToolStripMenuItem
         '
         Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
-        Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.RenewEncryptionToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.RenewEncryptionToolStripMenuItem.Text = "Renew encryption"
         '
         'encrypt_state
@@ -222,38 +255,6 @@ Partial Class nChat_frm
         Me.partner_img.Size = New System.Drawing.Size(74, 74)
         Me.partner_img.TabIndex = 5
         Me.partner_img.TabStop = False
-        '
-        'sendfile_bt
-        '
-        Me.sendfile_bt.Image = Global.Eran.My.Resources.Resources.add
-        Me.sendfile_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.sendfile_bt.Name = "sendfile_bt"
-        Me.sendfile_bt.Size = New System.Drawing.Size(135, 22)
-        Me.sendfile_bt.Text = "Send file (max. 2mb)"
-        '
-        'alert_bt
-        '
-        Me.alert_bt.ForeColor = System.Drawing.Color.White
-        Me.alert_bt.Image = Global.Eran.My.Resources.Resources._1456843663_bell
-        Me.alert_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.alert_bt.Name = "alert_bt"
-        Me.alert_bt.Size = New System.Drawing.Size(55, 22)
-        Me.alert_bt.Text = "Alert!"
-        '
-        'lock_bt
-        '
-        Me.lock_bt.Image = Global.Eran.My.Resources.Resources.unlock16
-        Me.lock_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.lock_bt.Name = "lock_bt"
-        Me.lock_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lock_bt.Size = New System.Drawing.Size(23, 22)
-        '
-        'recAudio
-        '
-        Me.recAudio.Image = Global.Eran.My.Resources.Resources.rec1
-        Me.recAudio.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.recAudio.Name = "recAudio"
-        Me.recAudio.Size = New System.Drawing.Size(23, 22)
         '
         'nChat_frm
         '

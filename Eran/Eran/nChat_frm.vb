@@ -5,6 +5,17 @@ Public Class nChat_frm
     Dim key As String
     Dim aes_ As New AESEncrypt
     Dim Timeout As Integer = 3
+
+
+    Private audioBT(100000) As Button
+    Dim cacheDate(100000) As String
+    Dim audioTime(100000) As Double
+    Dim timeLabel(100000) As Label
+    Dim PlayTimer(100000) As Timer
+    Dim PlayPGB(100000) As ProgressBar
+    Dim window As Integer = 0
+    Dim audioIndex As Integer = 0
+    Dim audioByte As New List(Of Byte())
     Private Sub nChat_frm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         On Error Resume Next
         e.Cancel = True
@@ -325,14 +336,97 @@ Public Class nChat_frm
         record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
         Dim readRecByte As Byte() = My.Computer.FileSystem.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
 
-        Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/inAudio " & Convert.ToBase64String(readRecByte) & ";")
+        Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}) & Convert.ToBase64String(readRecByte) & ";")
         Dim target As Byte()
         aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
         Dim to_bs64 As String = Convert.ToBase64String(target)
+        audioTime(audioIndex) = Wave.GetDuration(readRecByte)
+        audioByte.Add(readRecByte)
+        cacheDate(audioIndex) = "(me)(" & DateTime.Now.ToString("hh:mm:ss") & ") Audio: "
+        AddText(rtb_, cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(104, 197, 240))
+
+        Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(readRecByte))
+
+        Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
+
+
+        audioBT(audioIndex) = New Button
+        audioBT(audioIndex).Name = "index" & audioIndex
+        audioBT(audioIndex).FlatStyle = FlatStyle.Flat
+        audioBT(audioIndex).FlatAppearance.BorderSize = 1
+
+        PlayPGB(audioIndex) = New ProgressBar
+        PlayPGB(audioIndex).Name = "pgr" & audioIndex
+        PlayPGB(audioIndex).Maximum = Playseconds
+        PlayPGB(audioIndex).Size = New Size(120, 10)
+        PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
+        PlayPGB(audioIndex).SendToBack()
+
+
+        Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
+        timeLabel(audioIndex) = New Label
+        timeLabel(audioIndex).Font = New Font("Arial", 8)
+        timeLabel(audioIndex).AutoSize = True
+        timeLabel(audioIndex).Text = str
+        timeLabel(audioIndex).BackColor = Color.Transparent
+        timeLabel(audioIndex).BringToFront()
+
+        PlayTimer(audioIndex) = New Timer
+        PlayTimer(audioIndex).Tag = "index" & audioIndex
+        PlayTimer(audioIndex).Interval = 1000
+        AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
+
+
+        audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
+        audioBT(audioIndex).Size = New Size(150, 31)
+        timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
+        audioBT(audioIndex).Cursor = Cursors.Default
+        audioBT(audioIndex).Image = My.Resources.play
+        audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
+        audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
+
+        audioBT(audioIndex).Location = New Point(rtb_.GetPositionFromCharIndex(rtb_.Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, rtb_.GetPositionFromCharIndex(rtb_.Text.IndexOf(cacheDate(audioIndex))).Y)
+        audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
+        audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
+
+        rtb_.Controls.Add(audioBT(audioIndex))
+        audioBT(audioIndex).Show()
+        AddHandler rtb_.VScroll, AddressOf audioscroll
+        AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
+
+
+        audioIndex += 1
+
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
     End Sub
 
-    Private Sub recAudio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles recAudio.Click
+
+    Sub PlayTick(ByVal sender As Object, ByVal e As EventArgs)
+
+        Dim tmr = DirectCast(sender, Timer)
+        Dim tmr_index As Integer = tmr.Tag.Replace("index", "")
+        If PlayPGB(tmr_index).Value = PlayPGB(tmr_index).Maximum Then
+            tmr.Enabled = False
+        Else
+            PlayPGB(tmr_index).Value += 1
+        End If
+    End Sub
+    Public Sub audioPlay(ByVal sender As Object, ByVal e As EventArgs)
+        Dim btn = DirectCast(sender, Button)
+        Dim btn_index As Integer = btn.Name.Replace("index", "")
+        My.Computer.Audio.Play(audioByte.Item(btn_index), AudioPlayMode.Background)
+        btn.FlatAppearance.BorderColor = Color.LimeGreen
+        Dim span As TimeSpan = TimeSpan.FromMilliseconds(audioTime(btn_index))
+        PlayPGB(btn_index).Value = 0
+        Dim seconds As Decimal = Math.Round(CDec(span.Milliseconds / 1000) + span.Seconds + span.Minutes * 60 + span.Hours * 3600)
+        PlayTimer(btn_index).Enabled = True
+    End Sub
+
+
+    Sub audioscroll()
+        For tt As Integer = 0 To audioIndex - 1
+            audioBT(tt).Location = New Point(rtb_.GetPositionFromCharIndex(rtb_.Text.LastIndexOf(cacheDate(tt)) + cacheDate(tt).Length).X, rtb_.GetPositionFromCharIndex(rtb_.Text.IndexOf(cacheDate(tt))).Y)
+        Next
 
     End Sub
 End Class

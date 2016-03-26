@@ -511,6 +511,8 @@ Public Class main_frm
     Dim cacheDate(100000) As String
     Dim audioTime(100000) As Double
     Dim timeLabel(100000) As Label
+    Dim PlayTimer(100000) As Timer
+    Dim PlayPGB(100000) As ProgressBar
     Dim window As Integer = 0
     Dim audioIndex As Integer = 0
     Dim audioByte As New List(Of Byte())
@@ -543,14 +545,29 @@ Public Class main_frm
                 chat_frm(window).Show()
                 vibrate_frm(chat_frm(window), 3)
             Else
-                If parameter.read_parameter("/inAudio ", get_msg).Length > 0 Then
-                    Dim Audio As Byte() = Convert.FromBase64String(parameter.read_parameter("/inAudio ", get_msg))
+                If parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg).Length > 0 Then
+                    Dim Audio As Byte() = Convert.FromBase64String(parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg))
                     audioTime(audioIndex) = Wave.GetDuration(Audio)
                     audioByte.Add(Audio)
                     cacheDate(audioIndex) = "[" & DateTime.Now.ToString("hh:mm:ss") & "] Audio: "
                     AddText(chat_rtb(window), cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(255, 255, 255))
 
                     Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(Audio))
+
+                    Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
+
+
+                    audioBT(audioIndex) = New Button
+                    audioBT(audioIndex).Name = "index" & audioIndex
+                    audioBT(audioIndex).FlatStyle = FlatStyle.Flat
+                    audioBT(audioIndex).FlatAppearance.BorderSize = 1
+
+                    PlayPGB(audioIndex) = New ProgressBar
+                    PlayPGB(audioIndex).Name = "pgr" & audioIndex
+                    PlayPGB(audioIndex).Maximum = Playseconds
+                    PlayPGB(audioIndex).Size = New Size(120, 10)
+                    PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
+                    PlayPGB(audioIndex).SendToBack()
 
 
                     Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
@@ -559,29 +576,25 @@ Public Class main_frm
                     timeLabel(audioIndex).AutoSize = True
                     timeLabel(audioIndex).Text = str
                     timeLabel(audioIndex).BackColor = Color.Transparent
-                    audioBT(audioIndex) = New Button
-                    audioBT(audioIndex).Name = "index" & audioIndex
-                    audioBT(audioIndex).FlatStyle = FlatStyle.Flat
-                    audioBT(audioIndex).FlatAppearance.BorderSize = 2
+                    timeLabel(audioIndex).BringToFront()
+
+                    PlayTimer(audioIndex) = New Timer
+                    PlayTimer(audioIndex).Tag = "index" & audioIndex
+                    PlayTimer(audioIndex).Interval = 1000
+                    AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
 
 
                     audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
-
-
                     audioBT(audioIndex).Size = New Size(150, 31)
-                    timeLabel(audioIndex).Location = New Point(0, audioBT(audioIndex).Size.Height - 15)
+                    timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
                     audioBT(audioIndex).Cursor = Cursors.Default
-                    audioBT(audioIndex).BackgroundImage = My.Resources.play
-                    audioBT(audioIndex).BackgroundImageLayout = ImageLayout.Center
-                    audioBT(audioIndex).BackColor = Color.Gray
+                    audioBT(audioIndex).Image = My.Resources.play
+                    audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
+                    audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
+
                     audioBT(audioIndex).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(audioIndex))).Y)
                     audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
-
-                    
-                    
-                    ' timeLabel(audioIndex).Location = New Point(5, 20)
-
-
+                    audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
 
                     chat_rtb(window).Controls.Add(audioBT(audioIndex))
                     audioBT(audioIndex).Show()
@@ -601,7 +614,7 @@ Public Class main_frm
                     End If
                     chat_frm(window).Show()
                 End If
-                
+
             End If : Else
             chat_frm(index) = New nChat_frm
             chat_frm(index).Name = eran_adress
@@ -633,23 +646,106 @@ Public Class main_frm
                 vibrate_frm(chat_frm(index), 3)
             Else
 
-                If get_msg.Length > 0 Then
-                    AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
-                    chat_rtb(index).AppendText(cache_rtb.Text)
-                    cache_rtb.Clear()
+
+
+                If parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg).Length > 0 Then
+                    Dim Audio As Byte() = Convert.FromBase64String(parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg))
+                    audioTime(audioIndex) = Wave.GetDuration(Audio)
+                    audioByte.Add(Audio)
+                    cacheDate(audioIndex) = "[" & DateTime.Now.ToString("hh:mm:ss") & "] Audio: "
+                    AddText(chat_rtb(window), cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(255, 255, 255))
+
+                    Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(Audio))
+
+                    Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
+
+
+                    audioBT(audioIndex) = New Button
+                    audioBT(audioIndex).Name = "index" & audioIndex
+                    audioBT(audioIndex).FlatStyle = FlatStyle.Flat
+                    audioBT(audioIndex).FlatAppearance.BorderSize = 1
+
+                    PlayPGB(audioIndex) = New ProgressBar
+                    PlayPGB(audioIndex).Name = "pgr" & audioIndex
+                    PlayPGB(audioIndex).Maximum = Playseconds
+                    PlayPGB(audioIndex).Size = New Size(120, 10)
+                    PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
+                    PlayPGB(audioIndex).SendToBack()
+
+
+                    Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
+                    timeLabel(audioIndex) = New Label
+                    timeLabel(audioIndex).Font = New Font("Arial", 8)
+                    timeLabel(audioIndex).AutoSize = True
+                    timeLabel(audioIndex).Text = str
+                    timeLabel(audioIndex).BackColor = Color.Transparent
+                    timeLabel(audioIndex).BringToFront()
+
+                    PlayTimer(audioIndex) = New Timer
+                    PlayTimer(audioIndex).Tag = "index" & audioIndex
+                    PlayTimer(audioIndex).Interval = 1000
+                    AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
+
+
+                    audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
+                    audioBT(audioIndex).Size = New Size(150, 31)
+                    timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
+                    audioBT(audioIndex).Cursor = Cursors.Default
+                    audioBT(audioIndex).Image = My.Resources.play
+                    audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
+                    audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
+
+                    audioBT(audioIndex).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(audioIndex))).Y)
+                    audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
+                    audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
+
+                    chat_rtb(window).Controls.Add(audioBT(audioIndex))
+                    audioBT(audioIndex).Show()
+                    AddHandler chat_rtb(window).VScroll, AddressOf audioscroll
+                    AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
+
+
+                    audioIndex += 1
+                    chat_frm(index).Show()
+                Else
+                    If get_msg.Length > 0 Then
+                        AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                        chat_rtb(index).AppendText(cache_rtb.Text)
+                        cache_rtb.Clear()
+                    End If
+                    chat_frm(index).Show()
+                    If SecureDesktop.isOnSecureDesktop = True Then
+                        chat_frm(index).TopMost = True
+                    End If
                 End If
-                chat_frm(index).Show()
-                If SecureDesktop.isOnSecureDesktop = True Then
-                    chat_frm(index).TopMost = True
-                End If : End If
+
+            End If
             index += 1
         End If
     End Function
+    Sub PlayTick(ByVal sender As Object, ByVal e As EventArgs)
+
+        Dim tmr = DirectCast(sender, Timer)
+        Dim tmr_index As Integer = tmr.Tag.Replace("index", "")
+        If PlayPGB(tmr_index).Value = PlayPGB(tmr_index).Maximum Then
+            tmr.Enabled = False
+        Else
+            PlayPGB(tmr_index).Value += 1
+        End If
+
+
+
+    End Sub
+
     Public Sub audioPlay(ByVal sender As Object, ByVal e As EventArgs)
         Dim btn = DirectCast(sender, Button)
-        My.Computer.Audio.Play(audioByte.Item(btn.Name.Replace("index", "")), AudioPlayMode.Background)
+        Dim btn_index As Integer = btn.Name.Replace("index", "")
+        My.Computer.Audio.Play(audioByte.Item(btn_index), AudioPlayMode.Background)
         btn.FlatAppearance.BorderColor = Color.LimeGreen
-
+        Dim span As TimeSpan = TimeSpan.FromMilliseconds(audioTime(btn_index))
+        PlayPGB(btn_index).Value = 0
+        Dim seconds As Decimal = Math.Round(CDec(span.Milliseconds / 1000) + span.Seconds + span.Minutes * 60 + span.Hours * 3600)
+        PlayTimer(btn_index).Enabled = True
     End Sub
 
      
