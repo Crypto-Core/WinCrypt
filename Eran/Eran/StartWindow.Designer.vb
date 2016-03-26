@@ -47,11 +47,11 @@ Partial Class StartWindow
         'msg1
         '
         Me.msg1.AutoSize = True
-        Me.msg1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.msg1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.msg1.ForeColor = System.Drawing.Color.White
-        Me.msg1.Location = New System.Drawing.Point(118, 237)
+        Me.msg1.Location = New System.Drawing.Point(158, 237)
         Me.msg1.Name = "msg1"
-        Me.msg1.Size = New System.Drawing.Size(283, 20)
+        Me.msg1.Size = New System.Drawing.Size(202, 13)
         Me.msg1.TabIndex = 2
         Me.msg1.Text = "Want to Eran start in Secure Desktop?"
         '
@@ -61,6 +61,7 @@ Partial Class StartWindow
         Me.secureDesktop_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.secureDesktop_bt.FlatAppearance.BorderSize = 0
         Me.secureDesktop_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.secureDesktop_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.secureDesktop_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.secureDesktop_bt.Location = New System.Drawing.Point(318, 363)
         Me.secureDesktop_bt.Name = "secureDesktop_bt"
@@ -75,6 +76,7 @@ Partial Class StartWindow
         Me.startNormal_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.startNormal_bt.FlatAppearance.BorderSize = 0
         Me.startNormal_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.startNormal_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.startNormal_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.startNormal_bt.Location = New System.Drawing.Point(114, 363)
         Me.startNormal_bt.Name = "startNormal_bt"
@@ -86,11 +88,11 @@ Partial Class StartWindow
         'msg2
         '
         Me.msg2.AutoSize = True
-        Me.msg2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.msg2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.msg2.ForeColor = System.Drawing.Color.White
-        Me.msg2.Location = New System.Drawing.Point(21, 265)
+        Me.msg2.Location = New System.Drawing.Point(27, 265)
         Me.msg2.Name = "msg2"
-        Me.msg2.Size = New System.Drawing.Size(477, 32)
+        Me.msg2.Size = New System.Drawing.Size(464, 34)
         Me.msg2.TabIndex = 5
         Me.msg2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Th" & _
             "is protection is especially against trojans and spyware."
@@ -98,10 +100,11 @@ Partial Class StartWindow
         'save_selection_cb
         '
         Me.save_selection_cb.AutoSize = True
+        Me.save_selection_cb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.save_selection_cb.ForeColor = System.Drawing.Color.White
         Me.save_selection_cb.Location = New System.Drawing.Point(12, 367)
         Me.save_selection_cb.Name = "save_selection_cb"
-        Me.save_selection_cb.Size = New System.Drawing.Size(96, 17)
+        Me.save_selection_cb.Size = New System.Drawing.Size(98, 17)
         Me.save_selection_cb.TabIndex = 6
         Me.save_selection_cb.Text = "Save selection"
         Me.save_selection_cb.UseVisualStyleBackColor = True
@@ -109,10 +112,11 @@ Partial Class StartWindow
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
         Me.Label1.Location = New System.Drawing.Point(297, 389)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(193, 13)
+        Me.Label1.Size = New System.Drawing.Size(185, 13)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "[WARNING: IT'S A BETA FUNCTION!]"
         '

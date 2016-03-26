@@ -74,6 +74,7 @@ Partial Class login
         Me.join_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.join_bt.FlatAppearance.BorderSize = 0
         Me.join_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.join_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.join_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.join_bt.Location = New System.Drawing.Point(119, 338)
         Me.join_bt.Name = "join_bt"
@@ -90,6 +91,7 @@ Partial Class login
         Me.server_gb.Controls.Add(Me.host_txt)
         Me.server_gb.Controls.Add(Me.port_lb)
         Me.server_gb.Controls.Add(Me.host_lb)
+        Me.server_gb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.server_gb.ForeColor = System.Drawing.Color.White
         Me.server_gb.Location = New System.Drawing.Point(12, 110)
         Me.server_gb.Name = "server_gb"
@@ -105,7 +107,7 @@ Partial Class login
         Me.port_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.port_txt.Location = New System.Drawing.Point(218, 22)
         Me.port_txt.Name = "port_txt"
-        Me.port_txt.Size = New System.Drawing.Size(65, 20)
+        Me.port_txt.Size = New System.Drawing.Size(65, 22)
         Me.port_txt.TabIndex = 3
         Me.port_txt.Text = "8000"
         '
@@ -116,16 +118,16 @@ Partial Class login
         Me.host_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.host_txt.Location = New System.Drawing.Point(44, 22)
         Me.host_txt.Name = "host_txt"
-        Me.host_txt.Size = New System.Drawing.Size(133, 20)
+        Me.host_txt.Size = New System.Drawing.Size(133, 22)
         Me.host_txt.TabIndex = 2
-        Me.host_txt.Text = "195.30.108.195"
+        Me.host_txt.Text = "localhost"
         '
         'port_lb
         '
         Me.port_lb.AutoSize = True
         Me.port_lb.Location = New System.Drawing.Point(183, 25)
         Me.port_lb.Name = "port_lb"
-        Me.port_lb.Size = New System.Drawing.Size(29, 13)
+        Me.port_lb.Size = New System.Drawing.Size(31, 13)
         Me.port_lb.TabIndex = 1
         Me.port_lb.Text = "Port:"
         '
@@ -134,7 +136,7 @@ Partial Class login
         Me.host_lb.AutoSize = True
         Me.host_lb.Location = New System.Drawing.Point(6, 25)
         Me.host_lb.Name = "host_lb"
-        Me.host_lb.Size = New System.Drawing.Size(32, 13)
+        Me.host_lb.Size = New System.Drawing.Size(34, 13)
         Me.host_lb.TabIndex = 0
         Me.host_lb.Text = "Host:"
         '
@@ -146,6 +148,7 @@ Partial Class login
         Me.login_gb.Controls.Add(Me.usr_txt)
         Me.login_gb.Controls.Add(Me.pwd_lb)
         Me.login_gb.Controls.Add(Me.usr_lb)
+        Me.login_gb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.login_gb.ForeColor = System.Drawing.Color.White
         Me.login_gb.Location = New System.Drawing.Point(12, 177)
         Me.login_gb.Name = "login_gb"
@@ -161,7 +164,7 @@ Partial Class login
         Me.pwd_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.pwd_txt.Location = New System.Drawing.Point(73, 45)
         Me.pwd_txt.Name = "pwd_txt"
-        Me.pwd_txt.Size = New System.Drawing.Size(210, 20)
+        Me.pwd_txt.Size = New System.Drawing.Size(210, 22)
         Me.pwd_txt.TabIndex = 4
         Me.pwd_txt.UseSystemPasswordChar = True
         '
@@ -173,7 +176,7 @@ Partial Class login
         Me.usr_txt.Location = New System.Drawing.Point(73, 19)
         Me.usr_txt.Name = "usr_txt"
         Me.usr_txt.ReadOnly = True
-        Me.usr_txt.Size = New System.Drawing.Size(210, 20)
+        Me.usr_txt.Size = New System.Drawing.Size(210, 22)
         Me.usr_txt.TabIndex = 5
         '
         'pwd_lb
@@ -181,7 +184,7 @@ Partial Class login
         Me.pwd_lb.AutoSize = True
         Me.pwd_lb.Location = New System.Drawing.Point(9, 48)
         Me.pwd_lb.Name = "pwd_lb"
-        Me.pwd_lb.Size = New System.Drawing.Size(56, 13)
+        Me.pwd_lb.Size = New System.Drawing.Size(59, 13)
         Me.pwd_lb.TabIndex = 1
         Me.pwd_lb.Text = "Password:"
         '
@@ -190,7 +193,7 @@ Partial Class login
         Me.usr_lb.AutoSize = True
         Me.usr_lb.Location = New System.Drawing.Point(9, 22)
         Me.usr_lb.Name = "usr_lb"
-        Me.usr_lb.Size = New System.Drawing.Size(58, 13)
+        Me.usr_lb.Size = New System.Drawing.Size(61, 13)
         Me.usr_lb.TabIndex = 0
         Me.usr_lb.Text = "Username:"
         '

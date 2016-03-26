@@ -92,7 +92,9 @@
     <Compile Include="classes\Base64.vb" />
     <Compile Include="classes\GC.vb" />
     <Compile Include="classes\OS.vb" />
+    <Compile Include="classes\record.vb" />
     <Compile Include="classes\rHash.vb" />
+    <Compile Include="classes\Wave.vb" />
     <Compile Include="classes\WindowsAPI.vb" />
     <Compile Include="classes\config.vb" />
     <Compile Include="classes\connected_usr.vb" />
@@ -221,6 +223,18 @@
   <ItemGroup>
     <Content Include="eran_icon.ico" />
     <Content Include="parameter shortcuts.txt" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\rec_now.png" />
+    <None Include="Resources\rec1.png" />
+    <None Include="Resources\rec_gray.png" />
+    <None Include="Resources\rec.png" />
+    <None Include="Resources\Dialog-Box-About-16.png" />
+    <None Include="Resources\Server-01-16.png" />
+    <None Include="Resources\Settings-01-16.png" />
+    <None Include="Resources\Key-16.png" />
+    <None Include="Resources\Network Disconnected-16.png" />
+    <None Include="Resources\Add-New-16.png" />
+    <None Include="Resources\Close-16.png" />
     <None Include="Resources\useronlinesound.wav" />
     <None Include="Resources\SecureDesktop.png" />
     <None Include="Resources\eran_logo.png" />

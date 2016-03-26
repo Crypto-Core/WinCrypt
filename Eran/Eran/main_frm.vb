@@ -89,6 +89,7 @@ Public Class main_frm
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
                 Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
+
                 If username = "" Then
                 Else
 
@@ -142,8 +143,8 @@ Public Class main_frm
                                 End If
                             Next
                         End If
-                        
-                        
+
+
 
                     End If
                 End If
@@ -506,7 +507,13 @@ Public Class main_frm
         End If
     End Sub
     Dim cache_rtb As New RichTextBox
-
+    Private audioBT(100000) As Button
+    Dim cacheDate(100000) As String
+    Dim audioTime(100000) As Double
+    Dim timeLabel(100000) As Label
+    Dim window As Integer = 0
+    Dim audioIndex As Integer = 0
+    Dim audioByte As New List(Of Byte())
     ''' <summary>
     ''' Erstellt ein neues Chatfenster oder wenn bereits erstellt wird es geöffnet.
     ''' </summary>
@@ -517,7 +524,7 @@ Public Class main_frm
     ''' <remarks></remarks>
     Private Function new_chat(ByVal eran_adress As String, ByVal username As String, Optional ByVal get_msg As String = "")
         Dim bool As Boolean = False
-        Dim window As Integer = 0
+
         For tt As Integer = 0 To index
             Try
                 If chat_frm(tt).Name = eran_adress Then
@@ -531,19 +538,70 @@ Public Class main_frm
         If bool = True Then
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 chat_frm(window).Text = username
-                chat_frm(window).Show()
+
                 chat_frm(window).BringToFront()
+                chat_frm(window).Show()
                 vibrate_frm(chat_frm(window), 3)
             Else
-                chat_frm(window).Text = username
+                If parameter.read_parameter("/inAudio ", get_msg).Length > 0 Then
+                    Dim Audio As Byte() = Convert.FromBase64String(parameter.read_parameter("/inAudio ", get_msg))
+                    audioTime(audioIndex) = Wave.GetDuration(Audio)
+                    audioByte.Add(Audio)
+                    cacheDate(audioIndex) = "[" & DateTime.Now.ToString("hh:mm:ss") & "] Audio: "
+                    AddText(chat_rtb(window), cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(255, 255, 255))
 
-                If get_msg = "" Then
+                    Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(Audio))
+
+
+                    Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
+                    timeLabel(audioIndex) = New Label
+                    timeLabel(audioIndex).Font = New Font("Arial", 8)
+                    timeLabel(audioIndex).AutoSize = True
+                    timeLabel(audioIndex).Text = str
+                    timeLabel(audioIndex).BackColor = Color.Transparent
+                    audioBT(audioIndex) = New Button
+                    audioBT(audioIndex).Name = "index" & audioIndex
+                    audioBT(audioIndex).FlatStyle = FlatStyle.Flat
+                    audioBT(audioIndex).FlatAppearance.BorderSize = 2
+
+
+                    audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
+
+
+                    audioBT(audioIndex).Size = New Size(150, 31)
+                    timeLabel(audioIndex).Location = New Point(0, audioBT(audioIndex).Size.Height - 15)
+                    audioBT(audioIndex).Cursor = Cursors.Default
+                    audioBT(audioIndex).BackgroundImage = My.Resources.play
+                    audioBT(audioIndex).BackgroundImageLayout = ImageLayout.Center
+                    audioBT(audioIndex).BackColor = Color.Gray
+                    audioBT(audioIndex).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(audioIndex))).Y)
+                    audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
+
+                    
+                    
+                    ' timeLabel(audioIndex).Location = New Point(5, 20)
+
+
+
+                    chat_rtb(window).Controls.Add(audioBT(audioIndex))
+                    audioBT(audioIndex).Show()
+                    AddHandler chat_rtb(window).VScroll, AddressOf audioscroll
+                    AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
+
+
+                    audioIndex += 1
                 Else
-                    AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
-                    chat_rtb(window).AppendText(cache_rtb.Text)
-                    cache_rtb.Clear()
+                    chat_frm(window).Text = username
+
+                    If get_msg = "" Then
+                    Else
+                        AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
+                        chat_rtb(window).AppendText(cache_rtb.Text)
+                        cache_rtb.Clear()
+                    End If
+                    chat_frm(window).Show()
                 End If
-                chat_frm(window).Show()
+                
             End If : Else
             chat_frm(index) = New nChat_frm
             chat_frm(index).Name = eran_adress
@@ -554,6 +612,7 @@ Public Class main_frm
             chat_rtb(index).BackColor = Color.FromArgb(30, 30, 30)
             chat_rtb(index).ForeColor = Color.White
             chat_rtb(index).ReadOnly = True
+
             chat_rtb(index).Font = New Font("Arial", 10, FontStyle.Regular)
             chat_rtb(index).Location = New Point(92, 27)
             chat_rtb(index).Size = New Size(494, 270)
@@ -563,15 +622,17 @@ Public Class main_frm
 
             chat_frm(index).Controls.Add(chat_rtb(index))
             chat_frm(index).StartPosition = FormStartPosition.WindowsDefaultLocation
-            chat_rtb(index).Show()
+
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 chat_frm(index).Show()
                 chat_frm(index).TopMost = True
                 If SecureDesktop.isOnSecureDesktop = True Then
                     chat_frm(index).TopMost = True
                 End If
+                chat_rtb(index).Show()
                 vibrate_frm(chat_frm(index), 3)
             Else
+
                 If get_msg.Length > 0 Then
                     AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
                     chat_rtb(index).AppendText(cache_rtb.Text)
@@ -584,6 +645,20 @@ Public Class main_frm
             index += 1
         End If
     End Function
+    Public Sub audioPlay(ByVal sender As Object, ByVal e As EventArgs)
+        Dim btn = DirectCast(sender, Button)
+        My.Computer.Audio.Play(audioByte.Item(btn.Name.Replace("index", "")), AudioPlayMode.Background)
+        btn.FlatAppearance.BorderColor = Color.LimeGreen
+
+    End Sub
+
+     
+    Sub audioscroll()
+        For tt As Integer = 0 To audioIndex - 1
+            audioBT(tt).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(tt)) + cacheDate(tt).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(tt))).Y)
+        Next
+
+    End Sub
 
     ''' <summary>
     ''' Es wird ein Vibrate ausgeführt für ein bestimmtes Fenster.

@@ -131,9 +131,9 @@ Partial Class create_account
         Me.eran_adr_lb.AutoSize = True
         Me.eran_adr_lb.Location = New System.Drawing.Point(3, 124)
         Me.eran_adr_lb.Name = "eran_adr_lb"
-        Me.eran_adr_lb.Size = New System.Drawing.Size(64, 13)
+        Me.eran_adr_lb.Size = New System.Drawing.Size(72, 13)
         Me.eran_adr_lb.TabIndex = 5
-        Me.eran_adr_lb.Text = "Eran Adress"
+        Me.eran_adr_lb.Text = "Eran address:"
         '
         'eran_txt
         '

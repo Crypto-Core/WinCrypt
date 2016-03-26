@@ -55,7 +55,7 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.lock16
             lock_bt.Text = "Encrypted"
             lock_bt.Enabled = True
-            alert_bt.Enabled = True
+
             message_box.Enabled = True
             encrypted = True
             sendfile_bt.Enabled = True
@@ -75,7 +75,6 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.unlock16
             message_box.Enabled = False
             message_box.BackColor = Color.FromArgb(106, 106, 106)
-            alert_bt.Enabled = False
             sendfile_bt.Enabled = False
             encrypted = False
             If key = "" Then : Else
@@ -269,6 +268,7 @@ Public Class nChat_frm
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click
         rtb_.Clear()
+        rtb_.Controls.Clear()
     End Sub
     Private Sub nChat_frm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.TextChanged
 
@@ -277,13 +277,13 @@ Public Class nChat_frm
     Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetUsernameToolStripMenuItem.Click
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /username " & main_frm.alias_txt.Text & ";")
     End Sub
-    Dim alertindex As Integer = 5
+    Dim alertindex As Integer = 30
     Private Sub alertCountdown_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alertCountdown.Tick
         alertindex -= 1
         If alertindex = 0 Then
             alert_bt.Enabled = True
             alertCountdown.Enabled = False
-            alertindex = 5
+            alertindex = 30
         End If
     End Sub
 
@@ -300,5 +300,39 @@ Public Class nChat_frm
         AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         AddText(rtb_, "[Handshake successful]" & vbNewLine, Color.Lime)
+    End Sub
+
+    Dim recTime As Integer = 0
+    Private Sub recTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles recTimer.Tick
+        recTime += 1
+        recAudio.Text = recTime & " sec."
+    End Sub
+
+    Private Sub recAudio_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles recAudio.MouseDown
+        recAudio.Image = My.Resources.rec_now
+
+        recTimer.Enabled = True
+        recAudio.Text = recTime & " sec."
+        record.start_record()
+    End Sub
+
+    Private Sub recAudio_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles recAudio.MouseUp
+        recAudio.Image = My.Resources.rec1
+
+        recTimer.Enabled = False
+        recTime = 0
+        recAudio.Text = Nothing
+        record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
+        Dim readRecByte As Byte() = My.Computer.FileSystem.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
+
+        Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/inAudio " & Convert.ToBase64String(readRecByte) & ";")
+        Dim target As Byte()
+        aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+        Dim to_bs64 As String = Convert.ToBase64String(target)
+        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
+    End Sub
+
+    Private Sub recAudio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles recAudio.Click
+
     End Sub
 End Class

@@ -25,8 +25,6 @@ Partial Class add_user
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(add_user))
         Me.add_bt = New System.Windows.Forms.Button()
         Me.eran_adress_lb = New System.Windows.Forms.Label()
-        Me.username_lb = New System.Windows.Forms.Label()
-        Me.username_txt = New System.Windows.Forms.TextBox()
         Me.eran_adress_txt = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
@@ -35,7 +33,7 @@ Partial Class add_user
         Me.add_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.add_bt.FlatAppearance.BorderSize = 0
         Me.add_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.add_bt.Location = New System.Drawing.Point(315, 75)
+        Me.add_bt.Location = New System.Drawing.Point(277, 39)
         Me.add_bt.Name = "add_bt"
         Me.add_bt.Size = New System.Drawing.Size(75, 23)
         Me.add_bt.TabIndex = 0
@@ -45,37 +43,18 @@ Partial Class add_user
         'eran_adress_lb
         '
         Me.eran_adress_lb.AutoSize = True
-        Me.eran_adress_lb.Location = New System.Drawing.Point(12, 52)
+        Me.eran_adress_lb.Location = New System.Drawing.Point(10, 15)
         Me.eran_adress_lb.Name = "eran_adress_lb"
-        Me.eran_adress_lb.Size = New System.Drawing.Size(66, 13)
+        Me.eran_adress_lb.Size = New System.Drawing.Size(72, 13)
         Me.eran_adress_lb.TabIndex = 1
-        Me.eran_adress_lb.Text = "Eran adress:"
-        '
-        'username_lb
-        '
-        Me.username_lb.AutoSize = True
-        Me.username_lb.Location = New System.Drawing.Point(12, 26)
-        Me.username_lb.Name = "username_lb"
-        Me.username_lb.Size = New System.Drawing.Size(104, 13)
-        Me.username_lb.TabIndex = 2
-        Me.username_lb.Text = "Username (optional):"
-        '
-        'username_txt
-        '
-        Me.username_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.username_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.username_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.username_txt.Location = New System.Drawing.Point(122, 23)
-        Me.username_txt.Name = "username_txt"
-        Me.username_txt.Size = New System.Drawing.Size(268, 20)
-        Me.username_txt.TabIndex = 3
+        Me.eran_adress_lb.Text = "Eran address:"
         '
         'eran_adress_txt
         '
         Me.eran_adress_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.eran_adress_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.eran_adress_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.eran_adress_txt.Location = New System.Drawing.Point(122, 49)
+        Me.eran_adress_txt.Location = New System.Drawing.Point(84, 13)
         Me.eran_adress_txt.Name = "eran_adress_txt"
         Me.eran_adress_txt.Size = New System.Drawing.Size(268, 20)
         Me.eran_adress_txt.TabIndex = 4
@@ -85,10 +64,8 @@ Partial Class add_user
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(402, 109)
+        Me.ClientSize = New System.Drawing.Size(364, 68)
         Me.Controls.Add(Me.eran_adress_txt)
-        Me.Controls.Add(Me.username_txt)
-        Me.Controls.Add(Me.username_lb)
         Me.Controls.Add(Me.eran_adress_lb)
         Me.Controls.Add(Me.add_bt)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
@@ -104,7 +81,5 @@ Partial Class add_user
     End Sub
     Friend WithEvents add_bt As System.Windows.Forms.Button
     Friend WithEvents eran_adress_lb As System.Windows.Forms.Label
-    Friend WithEvents username_lb As System.Windows.Forms.Label
-    Friend WithEvents username_txt As System.Windows.Forms.TextBox
     Friend WithEvents eran_adress_txt As System.Windows.Forms.TextBox
 End Class

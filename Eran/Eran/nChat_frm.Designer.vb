@@ -26,11 +26,9 @@ Partial Class nChat_frm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(nChat_frm))
         Me.message_box = New System.Windows.Forms.TextBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.alert_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.lock_bt = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -39,19 +37,24 @@ Partial Class nChat_frm
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
         Me.check_profil_img = New System.Windows.Forms.Timer(Me.components)
         Me.check_onlinestate = New System.Windows.Forms.Timer(Me.components)
-        Me.addusr_bt = New System.Windows.Forms.Button()
-        Me.profil_img = New System.Windows.Forms.PictureBox()
-        Me.partner_img = New System.Windows.Forms.PictureBox()
         Me.send_file_dialog = New System.Windows.Forms.OpenFileDialog()
         Me.Contextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClearChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.alertCountdown = New System.Windows.Forms.Timer(Me.components)
         Me.reEncrypt = New System.Windows.Forms.Timer(Me.components)
+        Me.recTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.addusr_bt = New System.Windows.Forms.Button()
+        Me.profil_img = New System.Windows.Forms.PictureBox()
+        Me.partner_img = New System.Windows.Forms.PictureBox()
+        Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
+        Me.alert_bt = New System.Windows.Forms.ToolStripButton()
+        Me.lock_bt = New System.Windows.Forms.ToolStripButton()
+        Me.recAudio = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
+        Me.Contextmenu.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.partner_img, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Contextmenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'message_box
@@ -64,6 +67,7 @@ Partial Class nChat_frm
         Me.message_box.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.message_box.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.message_box.Location = New System.Drawing.Point(92, 323)
+        Me.message_box.MaxLength = 1000000
         Me.message_box.Multiline = True
         Me.message_box.Name = "message_box"
         Me.message_box.Size = New System.Drawing.Size(494, 56)
@@ -77,7 +81,7 @@ Partial Class nChat_frm
         Me.ToolStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sendfile_bt, Me.ToolStripSeparator1, Me.alert_bt, Me.ToolStripSeparator2, Me.lock_bt})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sendfile_bt, Me.ToolStripSeparator1, Me.alert_bt, Me.ToolStripSeparator2, Me.lock_bt, Me.ToolStripSeparator3, Me.recAudio})
         Me.ToolStrip1.Location = New System.Drawing.Point(92, 300)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -85,40 +89,20 @@ Partial Class nChat_frm
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'sendfile_bt
-        '
-        Me.sendfile_bt.Image = Global.Eran.My.Resources.Resources.add
-        Me.sendfile_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.sendfile_bt.Name = "sendfile_bt"
-        Me.sendfile_bt.Size = New System.Drawing.Size(135, 22)
-        Me.sendfile_bt.Text = "Send file (max. 2mb)"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'alert_bt
-        '
-        Me.alert_bt.ForeColor = System.Drawing.Color.White
-        Me.alert_bt.Image = Global.Eran.My.Resources.Resources._1456843663_bell
-        Me.alert_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.alert_bt.Name = "alert_bt"
-        Me.alert_bt.Size = New System.Drawing.Size(55, 22)
-        Me.alert_bt.Text = "Alert!"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'lock_bt
+        'ToolStripSeparator3
         '
-        Me.lock_bt.Image = Global.Eran.My.Resources.Resources.unlock16
-        Me.lock_bt.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.lock_bt.Name = "lock_bt"
-        Me.lock_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lock_bt.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
         '
         'MenuStrip
         '
@@ -173,6 +157,33 @@ Partial Class nChat_frm
         '
         Me.check_onlinestate.Enabled = True
         '
+        'send_file_dialog
+        '
+        '
+        'Contextmenu
+        '
+        Me.Contextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearChatToolStripMenuItem})
+        Me.Contextmenu.Name = "Contextmenu"
+        Me.Contextmenu.Size = New System.Drawing.Size(130, 26)
+        '
+        'ClearChatToolStripMenuItem
+        '
+        Me.ClearChatToolStripMenuItem.Name = "ClearChatToolStripMenuItem"
+        Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ClearChatToolStripMenuItem.Text = "Clear Chat"
+        '
+        'alertCountdown
+        '
+        Me.alertCountdown.Interval = 1000
+        '
+        'reEncrypt
+        '
+        Me.reEncrypt.Interval = 2000
+        '
+        'recTimer
+        '
+        Me.recTimer.Interval = 1000
+        '
         'addusr_bt
         '
         Me.addusr_bt.BackColor = System.Drawing.Color.Transparent
@@ -212,28 +223,37 @@ Partial Class nChat_frm
         Me.partner_img.TabIndex = 5
         Me.partner_img.TabStop = False
         '
-        'send_file_dialog
+        'sendfile_bt
         '
+        Me.sendfile_bt.Image = Global.Eran.My.Resources.Resources.add
+        Me.sendfile_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.sendfile_bt.Name = "sendfile_bt"
+        Me.sendfile_bt.Size = New System.Drawing.Size(135, 22)
+        Me.sendfile_bt.Text = "Send file (max. 2mb)"
         '
-        'Contextmenu
+        'alert_bt
         '
-        Me.Contextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearChatToolStripMenuItem})
-        Me.Contextmenu.Name = "Contextmenu"
-        Me.Contextmenu.Size = New System.Drawing.Size(130, 26)
+        Me.alert_bt.ForeColor = System.Drawing.Color.White
+        Me.alert_bt.Image = Global.Eran.My.Resources.Resources._1456843663_bell
+        Me.alert_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.alert_bt.Name = "alert_bt"
+        Me.alert_bt.Size = New System.Drawing.Size(55, 22)
+        Me.alert_bt.Text = "Alert!"
         '
-        'ClearChatToolStripMenuItem
+        'lock_bt
         '
-        Me.ClearChatToolStripMenuItem.Name = "ClearChatToolStripMenuItem"
-        Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.ClearChatToolStripMenuItem.Text = "Clear Chat"
+        Me.lock_bt.Image = Global.Eran.My.Resources.Resources.unlock16
+        Me.lock_bt.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.lock_bt.Name = "lock_bt"
+        Me.lock_bt.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lock_bt.Size = New System.Drawing.Size(23, 22)
         '
-        'alertCountdown
+        'recAudio
         '
-        Me.alertCountdown.Interval = 1000
-        '
-        'reEncrypt
-        '
-        Me.reEncrypt.Interval = 2000
+        Me.recAudio.Image = Global.Eran.My.Resources.Resources.rec1
+        Me.recAudio.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.recAudio.Name = "recAudio"
+        Me.recAudio.Size = New System.Drawing.Size(23, 22)
         '
         'nChat_frm
         '
@@ -258,9 +278,9 @@ Partial Class nChat_frm
         Me.ToolStrip1.PerformLayout()
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
+        Me.Contextmenu.ResumeLayout(False)
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.partner_img, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Contextmenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -288,4 +308,7 @@ Partial Class nChat_frm
     Friend WithEvents alertCountdown As System.Windows.Forms.Timer
     Friend WithEvents RenewEncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents reEncrypt As System.Windows.Forms.Timer
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents recAudio As System.Windows.Forms.ToolStripButton
+    Friend WithEvents recTimer As System.Windows.Forms.Timer
 End Class
