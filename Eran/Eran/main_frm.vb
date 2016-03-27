@@ -29,9 +29,11 @@ Public Class main_frm
     Friend trd_con As System.Threading.Thread
     Friend Shared handshake As String
     Private OnlineBallon As Boolean = False
-    Dim mem As New MemoryStream
+    Private mem As New MemoryStream
     Friend Shared DisconnectFromUser As Boolean = False
-    Dim packet As New DataStream.Stream
+    Private packet As New DataStream.Stream
+    Friend Shared transKey As String
+    Friend Shared transFile As String
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
     ''' </summary>
@@ -74,7 +76,6 @@ Public Class main_frm
                 End If
             End If
             Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
-
             'Überprüfen ob die Nachricht für mich ist ---------------------------------------->
             If to_ = eran_adress Then
                 'Inhalt abarbeiten
@@ -91,13 +92,27 @@ Public Class main_frm
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
                 Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
-
-                Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
+                Dim acceptTransfer As String = parameter.read_parameter("/accept_trans ", decrypted_to_str)
+                Dim packethash As String = parameter.read_parameter("/hash ", decrypted_to_str)
                 Dim packetcount As String = parameter.read_parameter("/packetcount ", decrypted_to_str)
                 Dim currentPacket As String = parameter.read_parameter("/currentPacket ", decrypted_to_str)
                 Dim PacketBytes As Byte() = Convert.FromBase64String(parameter.read_parameter("/packetbytes ", decrypted_to_str))
+                Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
+                Select Case acceptTransfer
+                    Case 0
+                        For Each getName In chat_frm
+                            If adress_ = getName.Name Then
 
-                If packetname.Length > 0 Then
+                                If MessageBox.Show("Accept incomming File from " & getName.Text & "?", "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
+                                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /accept_trans 1;")
+                                End If
+                                Exit For
+                            End If
+                        Next
+                    Case 1
+                        DataTransfer.Send(transFile, adress_, transKey)
+                End Select
+                If packethash.Length > 0 Then
                     Dim key_ As String = ""
                     If key_.Length > 0 Then : Else
                         For Each src_usr In connected_usr.usr_lst 'Search User and get key
@@ -106,22 +121,35 @@ Public Class main_frm
                             End If
                         Next
                     End If
-                    
                     If connected_usr.isConnect_Encrypt(adress_) = True Then
-
-                        If DataStream.IsInPacketList(packetname) = True Then
+                        If DataStream.IsInPacketList(packethash) = True Then
                             For Each AddData In DataStream.PacketList
-                                If AddData.Name = packetname Then
+                                If AddData.Name = packethash Then
                                     If currentPacket = AddData.Packets Then
                                         AddData.CurrentPacket = currentPacket
+                                        FileTransfer.pgb.Value = currentPacket
+                                        FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                                        FileTransfer.hash_lb.Text = "Hash: " & packethash
+                                        FileTransfer.packname_lb.Text = "Packetname: " & packetname
                                         Dim decryptByte As Byte()
                                         aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                         AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
-                                        My.Computer.FileSystem.WriteAllBytes(My.Computer.FileSystem.SpecialDirectories.Desktop & "\1.png", AddData.Memory.ToArray, False)
-                                        DataStream.PacketList.Remove(AddData)
+                                        Dim svDiag As New SaveFileDialog
+                                        svDiag.FileName = packetname
+                                        FileTransfer.Close()
+
+                                        If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                            My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
+                                        End If
+                                        DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
+                                        GC_.FlushMemory()
                                         Exit For
                                     Else
                                         AddData.CurrentPacket = currentPacket
+                                        FileTransfer.pgb.Value = currentPacket
+                                        FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                                        FileTransfer.hash_lb.Text = "Hash: " & packethash
+                                        FileTransfer.packname_lb.Text = "Packetname: " & packetname
                                         Dim decryptByte As Byte()
                                         aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                         AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
@@ -130,85 +158,70 @@ Public Class main_frm
                             Next
                         Else
                             Dim newPack As New DataStream.Stream
-                            newPack.Name = packetname
+                            newPack.Name = packethash
                             newPack.Memory = New MemoryStream
                             Dim decryptByte As Byte()
                             aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                             newPack.Memory.Write(decryptByte, newPack.Memory.Length, decryptByte.Length)
                             newPack.CurrentPacket = currentPacket
                             newPack.Packets = packetcount
+                            FileTransfer.pgb.Maximum = packetcount
+                            FileTransfer.pgb.Value = currentPacket
+                            FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                            FileTransfer.hash_lb.Text = "Hash: " & packethash
+                            FileTransfer.packname_lb.Text = "Packetname: " & packetname
+                            FileTransfer.Show()
                             If newPack.Packets = newPack.CurrentPacket Then
                                 My.Computer.FileSystem.WriteAllBytes(My.Computer.FileSystem.SpecialDirectories.Desktop & "\1.png", newPack.Memory.ToArray, False)
                             End If
                             DataStream.PacketList.Add(newPack)
-
-                        End If
+                        End If : Else : End If : End If
+                If username = "" Then : Else
+                    If is_in_usrlst(adress_) = "" Then
+                        Dim ini As New IniFile
+                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                        Dim dec_trg_byte As Byte()
+                        aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        Dim mem_ As New MemoryStream(dec_trg_byte)
+                        ini.LoadFromMemory(mem_)
+                        ini.SetKeyValue(username, "adress", adress_)
+                        Dim save_ini_byt As Byte()
+                        save_ini_byt = ini.SavetoByte
+                        Dim targed_enc_byt As Byte()
+                        aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                        If index = 0 Then : Else
+                            For setFRM As Integer = 0 To index - 1
+                                If chat_frm(setFRM).Name = adress_ Then
+                                    chat_frm(setFRM).Text = username
+                                End If : Next : End If
+                        With userlist_viewer.Items.Add(username, 0)
+                            .SubItems.Add(adress_)
+                        End With
+                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
                     Else
-
-                    End If
-
-
-                End If
-
-
-                    If username = "" Then
-                    Else
-
-                        If is_in_usrlst(adress_) = "" Then
-                            Dim ini As New IniFile
-                            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                            Dim dec_trg_byte As Byte()
-                            aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                            Dim mem_ As New MemoryStream(dec_trg_byte)
-                            ini.LoadFromMemory(mem_)
-                            ini.SetKeyValue(username, "adress", adress_)
-                            Dim save_ini_byt As Byte()
-                            save_ini_byt = ini.SavetoByte
-                            Dim targed_enc_byt As Byte()
-                            aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                            File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                            If index = 0 Then : Else
-                                For setFRM As Integer = 0 To index - 1
-                                    If chat_frm(setFRM).Name = adress_ Then
-                                        chat_frm(setFRM).Text = username
-                                    End If
-                                Next
-                            End If
-                            With userlist_viewer.Items.Add(username, 0)
-                                .SubItems.Add(adress_)
-                            End With
-                            Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
-                        Else
-                            For Each changeUSR As ListViewItem In userlist_viewer.Items
-                                If changeUSR.SubItems(1).Text = adress_ Then
-                                    Dim ini As New IniFile
-                                    Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                                    Dim dec_trg_byte As Byte()
-                                    aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                    Dim mem_ As New MemoryStream(dec_trg_byte)
-                                    ini.LoadFromMemory(mem_)
-                                    ini.RemoveSection(changeUSR.Text)
-                                    ini.SetKeyValue(username, "adress", adress_)
-                                    Dim save_ini_byt As Byte()
-                                    save_ini_byt = ini.SavetoByte
-                                    Dim targed_enc_byt As Byte()
-                                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                    File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                                    changeUSR.Text = username
-                                End If
-                            Next
-                            If index = 0 Then : Else
-                                For setFRM As Integer = 0 To index - 1
-                                    If chat_frm(setFRM).Name = adress_ Then
-                                        chat_frm(setFRM).Text = username
-                                    End If
-                                Next
-                            End If
-
-
-
-                        End If
-                    End If
+                        For Each changeUSR As ListViewItem In userlist_viewer.Items
+                            If changeUSR.SubItems(1).Text = adress_ Then
+                                Dim ini As New IniFile
+                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                                Dim dec_trg_byte As Byte()
+                                aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                Dim mem_ As New MemoryStream(dec_trg_byte)
+                                ini.LoadFromMemory(mem_)
+                                ini.RemoveSection(changeUSR.Text)
+                                ini.SetKeyValue(username, "adress", adress_)
+                                Dim save_ini_byt As Byte()
+                                save_ini_byt = ini.SavetoByte
+                                Dim targed_enc_byt As Byte()
+                                aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                                changeUSR.Text = username
+                            End If : Next
+                        If index = 0 Then : Else
+                            For setFRM As Integer = 0 To index - 1
+                                If chat_frm(setFRM).Name = adress_ Then
+                                    chat_frm(setFRM).Text = username
+                                End If : Next : End If : End If : End If
                     If get_username = "" Then : Else
                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & alias_txt.Text & ";")
                     End If
@@ -237,56 +250,18 @@ Public Class main_frm
                             For Each tt In connected_usr.usr_lst
                                 If tt.Eran_adress = adress_ Then
                                     key = tt.Key
-                                End If
-                            Next
-                            Dim to_char As Byte() = Convert.FromBase64String(msg)
-                            Dim target_msg As Byte()
-                            aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                            Dim check_in_lst As String = is_in_usrlst(adress_)
-                            If check_in_lst.Length > 0 Then
-                                new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                            Else
-                                new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                            End If : Else
-                            new_chat(adress_, adress_, msg)
-                        End If : End If
-
-                    'Empfange Verschlüsselte Datei
-                    Dim file_ As String = parameter.read_parameter("/file ", decrypted_to_str)
-                    Dim filename As String = parameter.read_parameter("/Fname ", decrypted_to_str)
-                    If file_.Length > 0 Then
-                        If connected_usr.isConnect_Encrypt(adress_) = True Then
-                            Dim key_ As String
-                            Dim name_ As String = ""
-                            For Each tt As ListViewItem In userlist_viewer.Items ' Search Username
-                                If tt.SubItems(1).Text = adress_ Then
-                                    name_ = tt.Text
-                                End If
-                            Next
-                            For Each src_usr In connected_usr.usr_lst 'Search User and get key
-                                If src_usr.Eran_adress = adress_ Then
-                                    key_ = src_usr.Key
-                                End If
-                            Next
-                            If name_.Length = 0 Then
-                                name_ = adress_
-                            End If
-
-                            If MessageBox.Show("A file comes from " & name_ & " , do you want to accept the file?", "Incoming file", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                                If file_.Length > 0 Then
-                                    Dim enc_dec_b64_file As Byte() = Convert.FromBase64String(file_) 'Decode Base64
-                                    Dim enc_dec_b64_filename As Byte() = Convert.FromBase64String(filename) 'Decode Base64
-                                    Dim enc_filename_byt_target As Byte()
-                                    aes_.Decode(enc_dec_b64_file, enc_file_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                    aes_.Decode(enc_dec_b64_filename, enc_filename_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                    enc_dec_b64_file = Nothing
-                                    enc_dec_b64_filename = Nothing
-                                    SaveFileDialog.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
-                                    SaveFileDialog.ShowDialog()
-                                End If
-                            Else
-                                GC_.FlushMemory()
-                            End If : End If : End If
+                            End If : Next
+                        Dim to_char As Byte() = Convert.FromBase64String(msg)
+                        Dim target_msg As Byte()
+                        aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        Dim check_in_lst As String = is_in_usrlst(adress_)
+                        If check_in_lst.Length > 0 Then
+                            new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                        Else
+                            new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                        End If : Else
+                        new_chat(adress_, adress_, msg)
+                    End If : End If
 
                     'Sende meinen OnlineStatus
                     If get_state = "True" Then
@@ -335,7 +310,6 @@ Public Class main_frm
             GC_.FlushMemory()
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
-
             'Überprüfen ob die Nachricht für mich
             If parameter.read_parameter("/to ", byte_to_str) = eran_adress Then
                 'Wenn es einen Handshake vom Server gibt
@@ -349,8 +323,7 @@ Public Class main_frm
                     userlist_viewer.Items.Clear()
                     load_userlist()
                     set_State(2)
-                End If
-            End If
+                End If : End If
             GC_.FlushMemory()
         End If
     End Sub
@@ -466,8 +439,6 @@ Public Class main_frm
     Private Sub main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Controls.Add(create_account.create_account_panel)
         main_panel.Hide()
-
-
         If File.Exists(account_path) = True Then
             create_account.create_account_panel.Hide()
             Me.Controls.Add(login.login_panel)
@@ -537,11 +508,9 @@ Public Class main_frm
                 Next
                 index = 0
             End If
-
             eran_adr_txt.Text = "error"
             main_panel.Hide()
             login.login_panel.Show()
-
             MsgBox(ex.Message)
             login.login_panel.Show()
         End Try
@@ -614,25 +583,18 @@ Public Class main_frm
                     audioByte.Add(Audio)
                     cacheDate(audioIndex) = "[" & DateTime.Now.ToString("hh:mm:ss") & "] Audio: "
                     AddText(chat_rtb(window), cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(255, 255, 255))
-
                     Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(Audio))
-
                     Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
-
-
                     audioBT(audioIndex) = New Button
                     audioBT(audioIndex).Name = "index" & audioIndex
                     audioBT(audioIndex).FlatStyle = FlatStyle.Flat
                     audioBT(audioIndex).FlatAppearance.BorderSize = 1
-
                     PlayPGB(audioIndex) = New ProgressBar
                     PlayPGB(audioIndex).Name = "pgr" & audioIndex
                     PlayPGB(audioIndex).Maximum = Playseconds
                     PlayPGB(audioIndex).Size = New Size(120, 10)
                     PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
                     PlayPGB(audioIndex).SendToBack()
-
-
                     Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
                     timeLabel(audioIndex) = New Label
                     timeLabel(audioIndex).Font = New Font("Arial", 8)
@@ -640,13 +602,10 @@ Public Class main_frm
                     timeLabel(audioIndex).Text = str
                     timeLabel(audioIndex).BackColor = Color.Transparent
                     timeLabel(audioIndex).BringToFront()
-
                     PlayTimer(audioIndex) = New Timer
                     PlayTimer(audioIndex).Tag = "index" & audioIndex
                     PlayTimer(audioIndex).Interval = 1000
                     AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
-
-
                     audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
                     audioBT(audioIndex).Size = New Size(150, 31)
                     timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
@@ -654,21 +613,16 @@ Public Class main_frm
                     audioBT(audioIndex).Image = My.Resources.play
                     audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
                     audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
-
                     audioBT(audioIndex).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(audioIndex))).Y)
                     audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
                     audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
-
                     chat_rtb(window).Controls.Add(audioBT(audioIndex))
                     audioBT(audioIndex).Show()
                     AddHandler chat_rtb(window).VScroll, AddressOf audioscroll
                     AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
-
-
                     audioIndex += 1
                 Else
                     chat_frm(window).Text = username
-
                     If get_msg = "" Then
                     Else
                         AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
@@ -677,7 +631,6 @@ Public Class main_frm
                     End If
                     chat_frm(window).Show()
                 End If
-
             End If : Else
             chat_frm(index) = New nChat_frm
             chat_frm(index).Name = eran_adress
@@ -688,19 +641,16 @@ Public Class main_frm
             chat_rtb(index).BackColor = Color.FromArgb(30, 30, 30)
             chat_rtb(index).ForeColor = Color.White
             chat_rtb(index).ReadOnly = True
-
             chat_rtb(index).Font = New Font("Arial", 10, FontStyle.Regular)
             chat_rtb(index).Location = New Point(92, 27)
             chat_rtb(index).Size = New Size(494, 270)
             chat_rtb(index).Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-
             chat_frm(index).Controls.Add(chat_rtb(index))
             chat_frm(index).StartPosition = FormStartPosition.WindowsDefaultLocation
 
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
-                chat_frm(index).Show()
                 chat_frm(index).TopMost = True
                 If SecureDesktop.isOnSecureDesktop = True Then
                     chat_frm(index).TopMost = True
@@ -717,25 +667,18 @@ Public Class main_frm
                     audioByte.Add(Audio)
                     cacheDate(audioIndex) = "[" & DateTime.Now.ToString("hh:mm:ss") & "] Audio: "
                     AddText(chat_rtb(window), cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(255, 255, 255))
-
                     Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(Audio))
-
                     Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
-
-
                     audioBT(audioIndex) = New Button
                     audioBT(audioIndex).Name = "index" & audioIndex
                     audioBT(audioIndex).FlatStyle = FlatStyle.Flat
                     audioBT(audioIndex).FlatAppearance.BorderSize = 1
-
                     PlayPGB(audioIndex) = New ProgressBar
                     PlayPGB(audioIndex).Name = "pgr" & audioIndex
                     PlayPGB(audioIndex).Maximum = Playseconds
                     PlayPGB(audioIndex).Size = New Size(120, 10)
                     PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
                     PlayPGB(audioIndex).SendToBack()
-
-
                     Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
                     timeLabel(audioIndex) = New Label
                     timeLabel(audioIndex).Font = New Font("Arial", 8)
@@ -743,13 +686,10 @@ Public Class main_frm
                     timeLabel(audioIndex).Text = str
                     timeLabel(audioIndex).BackColor = Color.Transparent
                     timeLabel(audioIndex).BringToFront()
-
                     PlayTimer(audioIndex) = New Timer
                     PlayTimer(audioIndex).Tag = "index" & audioIndex
                     PlayTimer(audioIndex).Interval = 1000
                     AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
-
-
                     audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
                     audioBT(audioIndex).Size = New Size(150, 31)
                     timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
@@ -757,17 +697,13 @@ Public Class main_frm
                     audioBT(audioIndex).Image = My.Resources.play
                     audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
                     audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
-
                     audioBT(audioIndex).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(audioIndex))).Y)
                     audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
                     audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
-
                     chat_rtb(window).Controls.Add(audioBT(audioIndex))
                     audioBT(audioIndex).Show()
                     AddHandler chat_rtb(window).VScroll, AddressOf audioscroll
                     AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
-
-
                     audioIndex += 1
                     chat_frm(index).Show()
                 Else

@@ -246,16 +246,11 @@ Public Class nChat_frm
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
-        If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
 
-            Dim readByte As Byte() = My.Computer.FileSystem.ReadAllBytes(send_file_dialog.FileName)
-            DataStream.Data = readByte
-            DataStream.Key = key
-            DataStream.SplitSize = 65536
-            DataStream.ToEran = Name
-            Dim trd As New Threading.Thread(AddressOf DataStream.SendToClient)
-            trd.IsBackground = True
-            trd.Start()
+        If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /accept_trans 0;")
+            main_frm.transKey = key
+            main_frm.transFile = send_file_dialog.FileName
         End If
     End Sub
 
