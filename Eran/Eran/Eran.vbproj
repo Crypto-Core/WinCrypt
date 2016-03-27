@@ -90,6 +90,7 @@
     <Compile Include="classes\AES.vb" />
     <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="classes\Base64.vb" />
+    <Compile Include="classes\DataStream.vb" />
     <Compile Include="classes\GC.vb" />
     <Compile Include="classes\OS.vb" />
     <Compile Include="classes\record.vb" />

@@ -94,8 +94,8 @@ Partial Class nChat_frm
         Me.sendfile_bt.Image = Global.Eran.My.Resources.Resources.add
         Me.sendfile_bt.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.sendfile_bt.Name = "sendfile_bt"
-        Me.sendfile_bt.Size = New System.Drawing.Size(135, 22)
-        Me.sendfile_bt.Text = "Send file (max. 2mb)"
+        Me.sendfile_bt.Size = New System.Drawing.Size(72, 22)
+        Me.sendfile_bt.Text = "Send file"
         '
         'ToolStripSeparator1
         '
@@ -158,7 +158,7 @@ Partial Class nChat_frm
         'GetUsernameToolStripMenuItem
         '
         Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
-        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.GetUsernameToolStripMenuItem.Text = "Get username"
         '
         'OptionsToolStripMenuItem

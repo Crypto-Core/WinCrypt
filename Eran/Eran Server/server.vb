@@ -44,7 +44,7 @@ Module server
 
             While True
                 client = server.AcceptTcpClient
-                'Console.WriteLine("Accepted Client" & vbNewLine)
+                Console.WriteLine("Accepted Client" & vbNewLine)
                 Dim c As New Connection
 
                 c.stream = client.GetStream
@@ -54,36 +54,36 @@ Module server
                 If isConnected(parameter.read_parameter("/adress ", client_msg)) = True Then
 
                 Else
-                    ' Console.WriteLine("Get Message: " & client_msg & vbNewLine)
+                    Console.WriteLine("Get Message: " & client_msg & vbNewLine)
 
                     'Empfange Eran Adresse
                     c.eran_adress = parameter.read_parameter("/adress ", client_msg) ' falls das mit dem nick nicht gewünscht, auch diese zeile entfernen.
-                    'Console.WriteLine("Filtert Adress: " & c.eran_adress & vbNewLine)
+                    Console.WriteLine("Filtert Adress: " & c.eran_adress & vbNewLine)
 
 
                     'Empfange RSA PublicKey
                     Dim filter_PublicKey As String = parameter.read_parameter("/publickey ", client_msg)
                     c.rsa_public_key = Base64.FromBase64Str_to_Str(filter_PublicKey) ' Der PublicKey wird entgegengenommen
-                    'Console.WriteLine("Filtert RSA Public Key: " & filter_PublicKey & vbNewLine)
+                    Console.WriteLine("Filtert RSA Public Key: " & filter_PublicKey & vbNewLine)
 
                     'Schicke verschlüsselte RSA Nachricht zurück.
                     Dim rndKey As String = rndPass.Random(32)
                     c.Key = rndKey
-                    'Console.WriteLine("Create Key......" & vbNewLine)
-                    'Console.WriteLine("Key: " & rndKey & vbNewLine)
+                    Console.WriteLine("Create Key......" & vbNewLine)
+                    Console.WriteLine("Key: " & rndKey & vbNewLine)
 
                     Dim encrypted_key As String = RSA.RSA_encrypt(rndKey, c.rsa_public_key)
-                    'Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
+                    Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
 
                     Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; ")
                     c.streamw.WriteLine(handshake)
 
-                    'Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
+                    Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
                     c.streamw.Flush()
                     list.Add(c)
                     userOnline += 1
                     My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
-                    'Console.WriteLine(c.eran_adress & " has joined.")
+                    Console.WriteLine(c.eran_adress & " has joined.")
                     Dim t As New Threading.Thread(AddressOf ListenToConnection)
                     t.Start(c)
                 End If
@@ -107,7 +107,7 @@ Module server
                 decode_BS64 = Convert.FromBase64String(tmp)
                 aes_.Decode(decode_BS64, decrypt_tmp, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                 dec_byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(decrypt_tmp)
-                'Console.WriteLine(tmp)
+                'Console.WriteLine(dec_byte_to_str)
 
                 ' Verarbeite die Parameter
                 Dim adress As String = parameter.read_parameter("/adress ", dec_byte_to_str)
@@ -164,7 +164,7 @@ Module server
                 list.Remove(con)
                 userOnline -= 1
                 My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
-                'Console.WriteLine(con.eran_adress & " has exit.")
+                Console.WriteLine(con.eran_adress & " has exit.")
                 Exit Do
             End Try
         Loop

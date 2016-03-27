@@ -6,7 +6,7 @@
                 If get_command.Substring(index, 1) = ";" Then
                     Dim filter As String = get_command.Substring(get_command.LastIndexOf(parameter), index - get_command.LastIndexOf(parameter)).Replace(parameter, Nothing)
                     Return filter
-                    Exit Do
+                    Exit Function
                 Else
                     index += 1
                 End If

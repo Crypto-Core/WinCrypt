@@ -29,7 +29,9 @@ Public Class main_frm
     Friend trd_con As System.Threading.Thread
     Friend Shared handshake As String
     Private OnlineBallon As Boolean = False
+    Dim mem As New MemoryStream
     Friend Shared DisconnectFromUser As Boolean = False
+    Dim packet As New DataStream.Stream
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
     ''' </summary>
@@ -90,187 +92,246 @@ Public Class main_frm
                 Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
                 Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
 
-                If username = "" Then
-                Else
+                Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
+                Dim packetcount As String = parameter.read_parameter("/packetcount ", decrypted_to_str)
+                Dim currentPacket As String = parameter.read_parameter("/currentPacket ", decrypted_to_str)
+                Dim PacketBytes As Byte() = Convert.FromBase64String(parameter.read_parameter("/packetbytes ", decrypted_to_str))
 
-                    If is_in_usrlst(adress_) = "" Then
-                        Dim ini As New IniFile
-                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                        Dim dec_trg_byte As Byte()
-                        aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        Dim mem_ As New MemoryStream(dec_trg_byte)
-                        ini.LoadFromMemory(mem_)
-                        ini.SetKeyValue(username, "adress", adress_)
-                        Dim save_ini_byt As Byte()
-                        save_ini_byt = ini.SavetoByte
-                        Dim targed_enc_byt As Byte()
-                        aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                        If index = 0 Then : Else
-                            For setFRM As Integer = 0 To index - 1
-                                If chat_frm(setFRM).Name = adress_ Then
-                                    chat_frm(setFRM).Text = username
-                                End If
-                            Next
-                        End If
-                        With userlist_viewer.Items.Add(username, 0)
-                            .SubItems.Add(adress_)
-                        End With
-                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
-                    Else
-                        For Each changeUSR As ListViewItem In userlist_viewer.Items
-                            If changeUSR.SubItems(1).Text = adress_ Then
-                                Dim ini As New IniFile
-                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                                Dim dec_trg_byte As Byte()
-                                aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                Dim mem_ As New MemoryStream(dec_trg_byte)
-                                ini.LoadFromMemory(mem_)
-                                ini.RemoveSection(changeUSR.Text)
-                                ini.SetKeyValue(username, "adress", adress_)
-                                Dim save_ini_byt As Byte()
-                                save_ini_byt = ini.SavetoByte
-                                Dim targed_enc_byt As Byte()
-                                aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                                changeUSR.Text = username
-                            End If
-                        Next
-                        If index = 0 Then : Else
-                            For setFRM As Integer = 0 To index - 1
-                                If chat_frm(setFRM).Name = adress_ Then
-                                    chat_frm(setFRM).Text = username
-                                End If
-                            Next
-                        End If
-
-
-
-                    End If
-                End If
-                If get_username = "" Then : Else
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & alias_txt.Text & ";")
-                End If
-                If ping = "pong" Then
-                    MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
-                End If
-
-                'Sende Profilbild
-                If get_profilimage.Length = "1" Then
-                    Dim ini As New IniFile
-                    ini.Load(account_path)
-                    Dim img_str As String = ini.GetKeyValue("account", "image")
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /profil_image " & img_str & ";")
-                End If
-
-                'Empfange Profilbild
-                If profilimage.Length > 0 Then
-                    profilimage_ = "/to " & adress_ & "; /get_profil_img " & profilimage & ";"
-                End If
-
-                'Emfange neue Nachricht
-                If msg.Length > 0 Then
-                    alert()
-                    If connected_usr.isConnect_Encrypt(adress_) = True Then
-                        Dim key As String
-                        For Each tt In connected_usr.usr_lst
-                            If tt.Eran_adress = adress_ Then
-                                key = tt.Key
-                            End If
-                        Next
-                        Dim to_char As Byte() = Convert.FromBase64String(msg)
-                        Dim target_msg As Byte()
-                        aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        Dim check_in_lst As String = is_in_usrlst(adress_)
-                        If check_in_lst.Length > 0 Then
-                            new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                        Else
-                            new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                        End If : Else
-                        new_chat(adress_, adress_, msg)
-                    End If : End If
-
-                'Empfange Verschlüsselte Datei
-                Dim file_ As String = parameter.read_parameter("/file ", decrypted_to_str)
-                Dim filename As String = parameter.read_parameter("/Fname ", decrypted_to_str)
-                If file_.Length > 0 Then
-                    If connected_usr.isConnect_Encrypt(adress_) = True Then
-                        Dim key_ As String
-                        Dim name_ As String = ""
-                        For Each tt As ListViewItem In userlist_viewer.Items ' Search Username
-                            If tt.SubItems(1).Text = adress_ Then
-                                name_ = tt.Text
-                            End If
-                        Next
+                If packetname.Length > 0 Then
+                    Dim key_ As String = ""
+                    If key_.Length > 0 Then : Else
                         For Each src_usr In connected_usr.usr_lst 'Search User and get key
                             If src_usr.Eran_adress = adress_ Then
                                 key_ = src_usr.Key
                             End If
                         Next
-                        If name_.Length = 0 Then
-                            name_ = adress_
-                        End If
+                    End If
+                    
+                    If connected_usr.isConnect_Encrypt(adress_) = True Then
 
-                        If MessageBox.Show("A file comes from " & name_ & " , do you want to accept the file?", "Incoming file", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                            If file_.Length > 0 Then
-                                Dim enc_dec_b64_file As Byte() = Convert.FromBase64String(file_) 'Decode Base64
-                                Dim enc_dec_b64_filename As Byte() = Convert.FromBase64String(filename) 'Decode Base64
-                                Dim enc_filename_byt_target As Byte()
-                                aes_.Decode(enc_dec_b64_file, enc_file_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                aes_.Decode(enc_dec_b64_filename, enc_filename_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                enc_dec_b64_file = Nothing
-                                enc_dec_b64_filename = Nothing
-                                SaveFileDialog.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
-                                SaveFileDialog.ShowDialog()
-                            End If
+                        If DataStream.IsInPacketList(packetname) = True Then
+                            For Each AddData In DataStream.PacketList
+                                If AddData.Name = packetname Then
+                                    If currentPacket = AddData.Packets Then
+                                        AddData.CurrentPacket = currentPacket
+                                        Dim decryptByte As Byte()
+                                        aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                        AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
+                                        My.Computer.FileSystem.WriteAllBytes(My.Computer.FileSystem.SpecialDirectories.Desktop & "\1.png", AddData.Memory.ToArray, False)
+                                        DataStream.PacketList.Remove(AddData)
+                                        Exit For
+                                    Else
+                                        AddData.CurrentPacket = currentPacket
+                                        Dim decryptByte As Byte()
+                                        aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                        AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
+                                    End If
+                                End If
+                            Next
                         Else
-                            GC_.FlushMemory()
-                        End If : End If : End If
+                            Dim newPack As New DataStream.Stream
+                            newPack.Name = packetname
+                            newPack.Memory = New MemoryStream
+                            Dim decryptByte As Byte()
+                            aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            newPack.Memory.Write(decryptByte, newPack.Memory.Length, decryptByte.Length)
+                            newPack.CurrentPacket = currentPacket
+                            newPack.Packets = packetcount
+                            If newPack.Packets = newPack.CurrentPacket Then
+                                My.Computer.FileSystem.WriteAllBytes(My.Computer.FileSystem.SpecialDirectories.Desktop & "\1.png", newPack.Memory.ToArray, False)
+                            End If
+                            DataStream.PacketList.Add(newPack)
 
-                'Sende meinen OnlineStatus
-                If get_state = "True" Then
-                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; " & "/state " & online_state & ";")
+                        End If
+                    Else
+
+                    End If
+
+
                 End If
 
-                'Empfange einen OnlineStatus und überprüfe ihn mit meiner Liste
-                If send_state.Length > 0 Then
-                    For set_usr_state As Integer = 0 To userlist_viewer.Items.Count - 1
-                        If userlist_viewer.Items(set_usr_state).SubItems(1).Text = adress_ Then
-                            If OnlineBallon = True Then
-                                Select Case send_state
-                                    Case 2
-                                        Dim trdOnlineSound As New Threading.Thread(AddressOf userOnlineSound)
-                                        trdOnlineSound.IsBackground = True
-                                        trdOnlineSound.Start()
-                                End Select : End If
-                            userlist_viewer.Items(set_usr_state).ImageIndex = Int(send_state)
-                        End If : Next : End If
 
-                'Empfange einen Handshake
-                If online_state = 0 Then
-                Else
-                    Select Case handshake
-                        Case 0
-                            Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & ";  /publickey " & PublicKey & "; " & "/handshake 1;")
-                        Case 1
-                            'Empfange die Verschlüsselte RSA nachricht
-                            'adresse / key
-                            Dim rndKey As String = rndPass.Random(32)
-                            Dim encrypt_now As String = RSA_encrypt(rndKey, publickey_, 2048)
-                            Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /encrypted_key " & encrypt_now & "; /handshake 2;")
-                            Dim enc_usr As New connected_usr.Encrypted_User
-                            enc_usr.Eran_adress = adress_
-                            enc_usr.Key = rndKey
-                            connected_usr.usr_lst.Add(enc_usr)
-                        Case 2
-                            Dim decrypt_key As String = RSA_decrypt(encrypted_key, PrivateKey, 2048)
-                            Dim enc_usr As New connected_usr.Encrypted_User
-                            enc_usr.Eran_adress = adress_
-                            enc_usr.Key = decrypt_key
-                            connected_usr.usr_lst.Add(enc_usr)
-                        Case 3
-                            connected_usr.remove_encrypt_session(adress_)
-                    End Select : End If : End If
+                    If username = "" Then
+                    Else
+
+                        If is_in_usrlst(adress_) = "" Then
+                            Dim ini As New IniFile
+                            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                            Dim dec_trg_byte As Byte()
+                            aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            Dim mem_ As New MemoryStream(dec_trg_byte)
+                            ini.LoadFromMemory(mem_)
+                            ini.SetKeyValue(username, "adress", adress_)
+                            Dim save_ini_byt As Byte()
+                            save_ini_byt = ini.SavetoByte
+                            Dim targed_enc_byt As Byte()
+                            aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                            If index = 0 Then : Else
+                                For setFRM As Integer = 0 To index - 1
+                                    If chat_frm(setFRM).Name = adress_ Then
+                                        chat_frm(setFRM).Text = username
+                                    End If
+                                Next
+                            End If
+                            With userlist_viewer.Items.Add(username, 0)
+                                .SubItems.Add(adress_)
+                            End With
+                            Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
+                        Else
+                            For Each changeUSR As ListViewItem In userlist_viewer.Items
+                                If changeUSR.SubItems(1).Text = adress_ Then
+                                    Dim ini As New IniFile
+                                    Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                                    Dim dec_trg_byte As Byte()
+                                    aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                    Dim mem_ As New MemoryStream(dec_trg_byte)
+                                    ini.LoadFromMemory(mem_)
+                                    ini.RemoveSection(changeUSR.Text)
+                                    ini.SetKeyValue(username, "adress", adress_)
+                                    Dim save_ini_byt As Byte()
+                                    save_ini_byt = ini.SavetoByte
+                                    Dim targed_enc_byt As Byte()
+                                    aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                    File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                                    changeUSR.Text = username
+                                End If
+                            Next
+                            If index = 0 Then : Else
+                                For setFRM As Integer = 0 To index - 1
+                                    If chat_frm(setFRM).Name = adress_ Then
+                                        chat_frm(setFRM).Text = username
+                                    End If
+                                Next
+                            End If
+
+
+
+                        End If
+                    End If
+                    If get_username = "" Then : Else
+                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & alias_txt.Text & ";")
+                    End If
+                    If ping = "pong" Then
+                        MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
+                    End If
+
+                    'Sende Profilbild
+                    If get_profilimage.Length = "1" Then
+                        Dim ini As New IniFile
+                        ini.Load(account_path)
+                        Dim img_str As String = ini.GetKeyValue("account", "image")
+                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /profil_image " & img_str & ";")
+                    End If
+
+                    'Empfange Profilbild
+                    If profilimage.Length > 0 Then
+                        profilimage_ = "/to " & adress_ & "; /get_profil_img " & profilimage & ";"
+                    End If
+
+                    'Emfange neue Nachricht
+                    If msg.Length > 0 Then
+                        alert()
+                        If connected_usr.isConnect_Encrypt(adress_) = True Then
+                            Dim key As String
+                            For Each tt In connected_usr.usr_lst
+                                If tt.Eran_adress = adress_ Then
+                                    key = tt.Key
+                                End If
+                            Next
+                            Dim to_char As Byte() = Convert.FromBase64String(msg)
+                            Dim target_msg As Byte()
+                            aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            Dim check_in_lst As String = is_in_usrlst(adress_)
+                            If check_in_lst.Length > 0 Then
+                                new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                            Else
+                                new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                            End If : Else
+                            new_chat(adress_, adress_, msg)
+                        End If : End If
+
+                    'Empfange Verschlüsselte Datei
+                    Dim file_ As String = parameter.read_parameter("/file ", decrypted_to_str)
+                    Dim filename As String = parameter.read_parameter("/Fname ", decrypted_to_str)
+                    If file_.Length > 0 Then
+                        If connected_usr.isConnect_Encrypt(adress_) = True Then
+                            Dim key_ As String
+                            Dim name_ As String = ""
+                            For Each tt As ListViewItem In userlist_viewer.Items ' Search Username
+                                If tt.SubItems(1).Text = adress_ Then
+                                    name_ = tt.Text
+                                End If
+                            Next
+                            For Each src_usr In connected_usr.usr_lst 'Search User and get key
+                                If src_usr.Eran_adress = adress_ Then
+                                    key_ = src_usr.Key
+                                End If
+                            Next
+                            If name_.Length = 0 Then
+                                name_ = adress_
+                            End If
+
+                            If MessageBox.Show("A file comes from " & name_ & " , do you want to accept the file?", "Incoming file", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                                If file_.Length > 0 Then
+                                    Dim enc_dec_b64_file As Byte() = Convert.FromBase64String(file_) 'Decode Base64
+                                    Dim enc_dec_b64_filename As Byte() = Convert.FromBase64String(filename) 'Decode Base64
+                                    Dim enc_filename_byt_target As Byte()
+                                    aes_.Decode(enc_dec_b64_file, enc_file_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                    aes_.Decode(enc_dec_b64_filename, enc_filename_byt_target, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                    enc_dec_b64_file = Nothing
+                                    enc_dec_b64_filename = Nothing
+                                    SaveFileDialog.FileName = System.Text.UTF8Encoding.UTF8.GetChars(enc_filename_byt_target)
+                                    SaveFileDialog.ShowDialog()
+                                End If
+                            Else
+                                GC_.FlushMemory()
+                            End If : End If : End If
+
+                    'Sende meinen OnlineStatus
+                    If get_state = "True" Then
+                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; " & "/state " & online_state & ";")
+                    End If
+
+                    'Empfange einen OnlineStatus und überprüfe ihn mit meiner Liste
+                    If send_state.Length > 0 Then
+                        For set_usr_state As Integer = 0 To userlist_viewer.Items.Count - 1
+                            If userlist_viewer.Items(set_usr_state).SubItems(1).Text = adress_ Then
+                                If OnlineBallon = True Then
+                                    Select Case send_state
+                                        Case 2
+                                            Dim trdOnlineSound As New Threading.Thread(AddressOf userOnlineSound)
+                                            trdOnlineSound.IsBackground = True
+                                            trdOnlineSound.Start()
+                                    End Select : End If
+                                userlist_viewer.Items(set_usr_state).ImageIndex = Int(send_state)
+                            End If : Next : End If
+
+                    'Empfange einen Handshake
+                    If online_state = 0 Then
+                    Else
+                        Select Case handshake
+                            Case 0
+                                Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & ";  /publickey " & PublicKey & "; " & "/handshake 1;")
+                            Case 1
+                                'Empfange die Verschlüsselte RSA nachricht
+                                'adresse / key
+                                Dim rndKey As String = rndPass.Random(32)
+                                Dim encrypt_now As String = RSA_encrypt(rndKey, publickey_, 2048)
+                                Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /encrypted_key " & encrypt_now & "; /handshake 2;")
+                                Dim enc_usr As New connected_usr.Encrypted_User
+                                enc_usr.Eran_adress = adress_
+                                enc_usr.Key = rndKey
+                                connected_usr.usr_lst.Add(enc_usr)
+                            Case 2
+                                Dim decrypt_key As String = RSA_decrypt(encrypted_key, PrivateKey, 2048)
+                                Dim enc_usr As New connected_usr.Encrypted_User
+                                enc_usr.Eran_adress = adress_
+                                enc_usr.Key = decrypt_key
+                                connected_usr.usr_lst.Add(enc_usr)
+                            Case 3
+                                connected_usr.remove_encrypt_session(adress_)
+                        End Select : End If : End If
             GC_.FlushMemory()
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
@@ -405,6 +466,8 @@ Public Class main_frm
     Private Sub main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Controls.Add(create_account.create_account_panel)
         main_panel.Hide()
+
+
         If File.Exists(account_path) = True Then
             create_account.create_account_panel.Hide()
             Me.Controls.Add(login.login_panel)
@@ -1103,5 +1166,12 @@ Public Class main_frm
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
         about.ShowDialog()
+    End Sub
+
+
+    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
+        For Each tt In DataStream.PacketList
+            MsgBox(tt.Name)
+        Next
     End Sub
 End Class

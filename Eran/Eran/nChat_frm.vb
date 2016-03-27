@@ -246,35 +246,23 @@ Public Class nChat_frm
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
-        send_file_dialog.ShowDialog()
+        If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+            Dim readByte As Byte() = My.Computer.FileSystem.ReadAllBytes(send_file_dialog.FileName)
+            DataStream.Data = readByte
+            DataStream.Key = key
+            DataStream.SplitSize = 65536
+            DataStream.ToEran = Name
+            Dim trd As New Threading.Thread(AddressOf DataStream.SendToClient)
+            trd.IsBackground = True
+            trd.Start()
+        End If
     End Sub
 
     Private Sub send_file_dialog_FileOk(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles send_file_dialog.FileOk
         'Encrypt filename
-        Dim info As FileInfo = New FileInfo(send_file_dialog.FileName)
-        If info.Length < 2097153 Then
-            Dim filename As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(info.Name)
-            Dim target_name As Byte()
-            aes_.Encode(filename, target_name, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-            Dim filename_b64_enc As String = Convert.ToBase64String(target_name)
 
-            'Encrypt file
-            Dim read_byt As Byte() = File.ReadAllBytes(send_file_dialog.FileName)
-            Dim target_enc As Byte()
-            aes_.Encode(read_byt, target_enc, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-            Dim to_b64 As String = Convert.ToBase64String(target_enc)
-
-            'Encrypt Message
-            Dim msg_file As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("Sendet a file: " & info.Name)
-            Dim target_msgfile As Byte()
-            aes_.Encode(msg_file, target_msgfile, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-            Dim msgfile_b64 As String = Convert.ToBase64String(target_msgfile)
-            'Encrypt---> Send file {fromfilename}
-            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /file " & to_b64 & "; /Fname " & filename_b64_enc & "; /msg " & msgfile_b64 & ";")
-            GC_.FlushMemory()
-        Else
-            MessageBox.Show("File is too large.", "Send file", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+        
     End Sub
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click

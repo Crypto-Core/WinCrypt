@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{DD1DBF43-4886-4EB6-8035-B9EA4382B34A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Eran_Server.Module1</StartupObject>
+    <StartupObject>Eran_Server.server</StartupObject>
     <RootNamespace>Eran_Server</RootNamespace>
     <AssemblyName>Eran Server</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -85,7 +85,6 @@
     <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="classes\Base64.vb" />
     <Compile Include="classes\GC.vb" />
-    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -104,6 +103,7 @@
     <Compile Include="classes\parameter.vb" />
     <Compile Include="classes\rndPass.vb" />
     <Compile Include="classes\RSA.vb" />
+    <Compile Include="server.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
