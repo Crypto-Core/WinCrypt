@@ -2,7 +2,7 @@
 Imports System.IO
 Imports System.Net
 
-Module Module1
+Module server
     Private server As TcpListener
     Private client As New TcpClient
     Private ipendpoint As IPEndPoint = New IPEndPoint(IPAddress.Any, 8000)
@@ -32,7 +32,7 @@ Module Module1
         Catch ex As Exception
             My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/ErrorLog.txt", ex.ToString & vbNewLine, True)
         End Try
-        
+
     End Function
     Sub Main()
         Try
@@ -93,7 +93,7 @@ Module Module1
         Catch ex As Exception
             My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/ErrorLog.txt", ex.ToString & vbNewLine, True)
         End Try
-        
+
     End Sub
 
     Private Sub ListenToConnection(ByVal con As Connection)
