@@ -152,6 +152,16 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property blockprofil() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("blockprofil", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property busy16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("busy16", resourceCulture)
@@ -176,6 +186,23 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("Close-16", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die [config]
+        '''own_access_node_port=8000
+        '''acces_node_port=8000
+        '''access_node_port=8000
+        '''own_access_node=1
+        '''access_node_save=0
+        '''startmodus=1
+        '''access_node_host=eran.wincrypt.org
+        '''acces_node_save=0 ähnelt.
+        '''</summary>
+        Friend ReadOnly Property confg() As String
+            Get
+                Return ResourceManager.GetString("confg", resourceCulture)
             End Get
         End Property
         

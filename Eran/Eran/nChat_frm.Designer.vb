@@ -35,7 +35,7 @@ Partial Class nChat_frm
         Me.recAudio = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GetUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
@@ -50,6 +50,7 @@ Partial Class nChat_frm
         Me.addusr_bt = New System.Windows.Forms.Button()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.partner_img = New System.Windows.Forms.PictureBox()
+        Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.Contextmenu.SuspendLayout()
@@ -148,18 +149,20 @@ Partial Class nChat_frm
         '
         'UserToolStripMenuItem
         '
-        Me.UserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GetUsernameToolStripMenuItem})
+        Me.UserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InfoToolStripMenuItem, Me.BlockingToolStripMenuItem})
         Me.UserToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
         Me.UserToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
         Me.UserToolStripMenuItem.Text = "User"
         '
-        'GetUsernameToolStripMenuItem
+        'InfoToolStripMenuItem
         '
-        Me.GetUsernameToolStripMenuItem.Name = "GetUsernameToolStripMenuItem"
-        Me.GetUsernameToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
-        Me.GetUsernameToolStripMenuItem.Text = "Get username"
+        Me.InfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.InfoToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
+        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.InfoToolStripMenuItem.Text = "Info"
         '
         'OptionsToolStripMenuItem
         '
@@ -171,6 +174,8 @@ Partial Class nChat_frm
         '
         'RenewEncryptionToolStripMenuItem
         '
+        Me.RenewEncryptionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.RenewEncryptionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
         Me.RenewEncryptionToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
         Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
@@ -256,6 +261,16 @@ Partial Class nChat_frm
         Me.partner_img.TabIndex = 5
         Me.partner_img.TabStop = False
         '
+        'BlockingToolStripMenuItem
+        '
+        Me.BlockingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.BlockingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.BlockingToolStripMenuItem.Name = "BlockingToolStripMenuItem"
+        Me.BlockingToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+                    Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
+        Me.BlockingToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.BlockingToolStripMenuItem.Text = "Blocking"
+        '
         'nChat_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -305,11 +320,12 @@ Partial Class nChat_frm
     Friend WithEvents send_file_dialog As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Contextmenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ClearChatToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GetUsernameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents alertCountdown As System.Windows.Forms.Timer
     Friend WithEvents RenewEncryptionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents reEncrypt As System.Windows.Forms.Timer
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents recAudio As System.Windows.Forms.ToolStripButton
     Friend WithEvents recTimer As System.Windows.Forms.Timer
+    Friend WithEvents InfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

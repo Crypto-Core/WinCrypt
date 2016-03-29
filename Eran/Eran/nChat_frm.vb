@@ -172,6 +172,11 @@ Public Class nChat_frm
     End Sub
 
     Private Sub check_onlinestate_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles check_onlinestate.Tick
+        If main_frm.blocklist.Exists(Function(x) x = Name) = True Then
+            BlockingToolStripMenuItem.Text = "Unblock"
+        Else
+            BlockingToolStripMenuItem.Text = "Blocking"
+        End If
         For check As Integer = 0 To main_frm.userlist_viewer.Items.Count - 1
             If main_frm.userlist_viewer.Items(check).SubItems(1).Text = Name Then
                 Select Case main_frm.userlist_viewer.Items(check).ImageIndex
@@ -181,6 +186,9 @@ Public Class nChat_frm
                         partner_img.Image = My.Resources.busyR
                     Case 2
                         partner_img.Image = My.Resources.onlineR
+                    Case 3
+                        partner_img.BackgroundImage = My.Resources.blockprofil
+                        partner_img.Image = My.Resources.busyR
                 End Select
             End If
         Next
@@ -268,7 +276,7 @@ Public Class nChat_frm
 
     End Sub
 
-    Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GetUsernameToolStripMenuItem.Click
+    Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /username " & main_frm.alias_txt.Text & ";")
     End Sub
     Dim alertindex As Integer = 30
@@ -411,5 +419,9 @@ Public Class nChat_frm
             audioBT(tt).Location = New Point(rtb_.GetPositionFromCharIndex(rtb_.Text.LastIndexOf(cacheDate(tt)) + cacheDate(tt).Length).X, rtb_.GetPositionFromCharIndex(rtb_.Text.IndexOf(cacheDate(tt))).Y)
         Next
 
+    End Sub
+
+    Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
+        connected_usr.blockuser(Name)
     End Sub
 End Class

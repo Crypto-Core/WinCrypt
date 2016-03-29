@@ -24,8 +24,11 @@ Public Class create_account
         ini.SetKeyValue("account", "password", rHash.HashString(pwd_txt.Text, rHash.HASH.SHA512))
         ini.SetKeyValue("account", "authkey", authkey)
         ini.SetKeyValue("account", "adress", to_md5)
-        Dim readbyte As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "profilimage.png")
-        Dim img_bs64 As String = Convert.ToBase64String(readbyte)
+        Dim mem As New MemoryStream
+        My.Resources.profilimage.Save(mem, System.Drawing.Imaging.ImageFormat.Png)
+
+        Dim img_bs64 As String = Convert.ToBase64String(mem.ToArray)
+        mem.Close()
         ini.SetKeyValue("account", "image", img_bs64)
         ini.Save(main_frm.account_path)
         create_account_panel.Hide()

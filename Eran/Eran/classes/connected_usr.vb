@@ -1,4 +1,6 @@
-﻿Public Class connected_usr
+﻿Imports System.IO
+
+Public Class connected_usr
     Friend Shared usr_lst As New List(Of Encrypted_User)
     Friend Structure Encrypted_User
         Dim Eran_adress As String
@@ -27,6 +29,25 @@
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & check.Eran_adress & "; /handshake 3;")
         Next
         connected_usr.usr_lst.RemoveRange(0, connected_usr.usr_lst.Count)
-
+    End Function
+    Friend Shared Function blockuser(ByVal eran_adress)
+        If main_frm.blocklist.Exists(Function(x) x = eran_adress) = False Then
+            main_frm.blocklist.Add(eran_adress)
+            File.WriteAllLines(My.Application.Info.DirectoryPath & OS.OS_slash & "blocklist", main_frm.blocklist)
+            For Each block As ListViewItem In main_frm.userlist_viewer.Items
+                If block.SubItems(1).Text = eran_adress Then
+                    block.ImageIndex = 3
+                End If
+            Next
+        Else
+            main_frm.blocklist.Remove(eran_adress)
+            File.WriteAllLines(My.Application.Info.DirectoryPath & OS.OS_slash & "blocklist", main_frm.blocklist)
+            For Each block As ListViewItem In main_frm.userlist_viewer.Items
+                If block.SubItems(1).Text = eran_adress Then
+                    block.ImageIndex = 0
+                End If
+            Next
+            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & eran_adress & "; /get_state True; /get_profil_img 1;")
+        End If
     End Function
 End Class

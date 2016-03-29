@@ -1,7 +1,14 @@
-﻿Module config
+﻿Imports System.IO
+
+Module config
     Dim ini As New IniFile
-    Friend config_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
+    Friend config_path As String
     Public Function load()
+        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini") = False Then
+            My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg, False)
+        End If
+        config_path = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
+
         ini.Load(config_path)
         On Error Resume Next
         own_access_node_port = ini.GetKeyValue("config", "own_access_node_port")

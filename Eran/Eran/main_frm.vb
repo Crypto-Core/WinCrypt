@@ -14,6 +14,7 @@ Public Class main_frm
     Friend Shared port As Integer
     Friend Shared PublicKey As String
     Friend Shared PrivateKey As String
+    Friend Shared blocklist As New List(Of String)
     Friend Shared isEncrypted_Server As Boolean = False
     Friend Shared Server_key As String
     Friend Shared aes_ As New AESEncrypt
@@ -77,107 +78,123 @@ Public Class main_frm
             End If
             Dim adress_ As String = parameter.read_parameter("/adress ", decrypted_to_str) 'Deklariere den Parameter Absender
             'Überprüfen ob die Nachricht für mich ist ---------------------------------------->
-            If to_ = eran_adress Then
-                'Inhalt abarbeiten
-                Dim ping As String = parameter.read_parameter("/ping ", decrypted_to_str) ' Deklariere den Parameter Ping
-                Dim state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
-                Dim get_publickey As String = parameter.read_parameter("/get_publickey ", decrypted_to_str) 'Deklariere den Parameter get_PublicKey
-                Dim publickey_ As String = parameter.read_parameter("/publickey ", decrypted_to_str)
-                handshake = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
-                Dim msg As String = parameter.read_parameter("/msg ", decrypted_to_str) 'Deklariere den Parameter Message
-                Dim username As String = parameter.read_parameter("/username ", decrypted_to_str) 'Deklariere den Parameter Username
-                Dim send_state As String = parameter.read_parameter("/state ", decrypted_to_str) 'Send state status
-                Dim get_state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
-                Dim profilimage As String = parameter.read_parameter("/profil_image ", decrypted_to_str)
-                Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
-                Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
-                Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
-                Dim acceptTransfer As String = parameter.read_parameter("/accept_trans ", decrypted_to_str)
-                Dim packethash As String = parameter.read_parameter("/hash ", decrypted_to_str)
-                Dim packetcount As String = parameter.read_parameter("/packetcount ", decrypted_to_str)
-                Dim currentPacket As String = parameter.read_parameter("/currentPacket ", decrypted_to_str)
-                Dim PacketBytes As Byte() = Convert.FromBase64String(parameter.read_parameter("/packetbytes ", decrypted_to_str))
-                Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
-                Select Case acceptTransfer
-                    Case 0
-                        For Each getName In chat_frm
-                            If adress_ = getName.Name Then
+            If blocklist.Exists(Function(x) x = adress_) = False Then
 
-                                If MessageBox.Show("Accept incomming File from " & getName.Text & "?", "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
-                                    Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /accept_trans 1;")
-                                End If
-                                Exit For
-                            End If
-                        Next
-                    Case 1
-                        DataTransfer.Send(transFile, adress_, transKey)
-                End Select
-                If packethash.Length > 0 Then
-                    Dim key_ As String = ""
-                    If key_.Length > 0 Then : Else
-                        For Each src_usr In connected_usr.usr_lst 'Search User and get key
-                            If src_usr.Eran_adress = adress_ Then
-                                key_ = src_usr.Key
-                            End If
-                        Next
-                    End If
-                    If connected_usr.isConnect_Encrypt(adress_) = True Then
-                        If DataStream.IsInPacketList(packethash) = True Then
-                            For Each AddData In DataStream.PacketList
-                                If AddData.Name = packethash Then
-                                    If currentPacket = AddData.Packets Then
-                                        AddData.CurrentPacket = currentPacket
-                                        FileTransfer.pgb.Value = currentPacket
-                                        FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
-                                        FileTransfer.hash_lb.Text = "Hash: " & packethash
-                                        FileTransfer.packname_lb.Text = "Packetname: " & packetname
-                                        Dim decryptByte As Byte()
-                                        aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                        AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
-                                        Dim svDiag As New SaveFileDialog
-                                        svDiag.FileName = packetname
-                                        FileTransfer.Close()
+                If to_ = eran_adress Then
+                    'Inhalt abarbeiten
+                    Dim ping As String = parameter.read_parameter("/ping ", decrypted_to_str) ' Deklariere den Parameter Ping
+                    Dim state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
+                    Dim get_publickey As String = parameter.read_parameter("/get_publickey ", decrypted_to_str) 'Deklariere den Parameter get_PublicKey
+                    Dim publickey_ As String = parameter.read_parameter("/publickey ", decrypted_to_str)
+                    handshake = parameter.read_parameter("/handshake ", decrypted_to_str) 'Deklariere den Parameter PublicKey
+                    Dim msg As String = parameter.read_parameter("/msg ", decrypted_to_str) 'Deklariere den Parameter Message
+                    Dim username As String = parameter.read_parameter("/username ", decrypted_to_str) 'Deklariere den Parameter Username
+                    Dim send_state As String = parameter.read_parameter("/state ", decrypted_to_str) 'Send state status
+                    Dim get_state As String = parameter.read_parameter("/get_state ", decrypted_to_str)
+                    Dim profilimage As String = parameter.read_parameter("/profil_image ", decrypted_to_str)
+                    Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", decrypted_to_str)
+                    Dim get_profilimage As String = parameter.read_parameter("/get_profil_img ", decrypted_to_str)
+                    Dim get_username As String = parameter.read_parameter("/get_username ", decrypted_to_str)
+                    Dim acceptTransfer As String = parameter.read_parameter("/accept_trans ", decrypted_to_str)
+                    Dim packethash As String = parameter.read_parameter("/hash ", decrypted_to_str)
+                    Dim packetcount As String = parameter.read_parameter("/packetcount ", decrypted_to_str)
+                    Dim currentPacket As String = parameter.read_parameter("/currentPacket ", decrypted_to_str)
+                    Dim PacketBytes As Byte() = Convert.FromBase64String(parameter.read_parameter("/packetbytes ", decrypted_to_str))
+                    Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
+                    Select Case acceptTransfer
+                        Case 0
+                            For Each getName In chat_frm
+                                If adress_ = getName.Name Then
 
-                                        If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
-                                            My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
-                                        End If
-                                        DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
-                                        GC_.FlushMemory()
-                                        Exit For
-                                    Else
-                                        AddData.CurrentPacket = currentPacket
-                                        FileTransfer.pgb.Value = currentPacket
-                                        FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
-                                        FileTransfer.hash_lb.Text = "Hash: " & packethash
-                                        FileTransfer.packname_lb.Text = "Packetname: " & packetname
-                                        Dim decryptByte As Byte()
-                                        aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                        AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
+                                    If MessageBox.Show("Accept incomming File from " & getName.Text & "?", "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
+                                        Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /accept_trans 1;")
                                     End If
+                                    Exit For
                                 End If
                             Next
-                        Else
-                            Dim newPack As New DataStream.Stream
-                            newPack.Name = packethash
-                            newPack.Memory = New MemoryStream
-                            Dim decryptByte As Byte()
-                            aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                            newPack.Memory.Write(decryptByte, newPack.Memory.Length, decryptByte.Length)
-                            newPack.CurrentPacket = currentPacket
-                            newPack.Packets = packetcount
-                            FileTransfer.pgb.Maximum = packetcount
-                            FileTransfer.pgb.Value = currentPacket
-                            FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
-                            FileTransfer.hash_lb.Text = "Hash: " & packethash
-                            FileTransfer.packname_lb.Text = "Packetname: " & packetname
-                            FileTransfer.Show()
-                            If newPack.Packets = newPack.CurrentPacket Then
-                                My.Computer.FileSystem.WriteAllBytes(My.Computer.FileSystem.SpecialDirectories.Desktop & "\1.png", newPack.Memory.ToArray, False)
-                            End If
-                            DataStream.PacketList.Add(newPack)
-                        End If : Else : End If : End If
-                If username = "" Then : Else
-                    If is_in_usrlst(adress_) = "" Then
+                        Case 1
+                            DataTransfer.Send(transFile, adress_, transKey)
+                    End Select
+                    If packethash.Length > 0 Then
+                        Dim key_ As String = ""
+                        If key_.Length > 0 Then : Else
+                            For Each src_usr In connected_usr.usr_lst 'Search User and get key
+                                If src_usr.Eran_adress = adress_ Then
+                                    key_ = src_usr.Key
+                                End If
+                            Next
+                        End If
+
+
+                        If connected_usr.isConnect_Encrypt(adress_) = True Then
+                            If DataStream.IsInPacketList(packethash) = True Then
+                                For Each AddData In DataStream.PacketList
+                                    If AddData.Name = packethash Then
+                                        If currentPacket = AddData.Packets Then
+                                            AddData.CurrentPacket = currentPacket
+                                            FileTransfer.pgb.Value = currentPacket
+                                            FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                                            FileTransfer.hash_lb.Text = "Hash: " & packethash
+                                            FileTransfer.packname_lb.Text = "Packetname: " & packetname
+
+                                            Dim decryptByte As Byte()
+                                            aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                            AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
+                                            Dim svDiag As New SaveFileDialog
+                                            svDiag.FileName = packetname
+                                            If packethash = rHash.HashByte(AddData.Memory.ToArray, rHash.HASH.MD5) Then
+                                                FileTransfer.Close()
+                                                If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                                    My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
+                                                End If
+                                                DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
+                                                GC_.FlushMemory()
+                                                Exit For : Else
+                                                FileTransfer.ok_bt.Visible = True
+                                                FileTransfer.brocken_lb.Visible = True
+                                                DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
+                                                GC_.FlushMemory()
+                                                Exit For : End If : Else
+                                            AddData.CurrentPacket = currentPacket
+                                            FileTransfer.pgb.Value = currentPacket
+                                            FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                                            FileTransfer.hash_lb.Text = "Hash: " & packethash
+                                            FileTransfer.packname_lb.Text = "Packetname: " & packetname
+                                            Dim decryptByte As Byte()
+                                            aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                            AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
+                                        End If : End If : Next : Else
+                                Dim newPack As New DataStream.Stream
+                                newPack.Name = packethash
+                                newPack.Memory = New MemoryStream
+                                Dim decryptByte As Byte()
+                                aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                newPack.Memory.Write(decryptByte, newPack.Memory.Length, decryptByte.Length)
+                                newPack.CurrentPacket = currentPacket
+                                newPack.Packets = packetcount
+
+                                FileTransfer.pgb.Maximum = packetcount
+                                FileTransfer.pgb.Value = currentPacket
+                                FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
+                                FileTransfer.hash_lb.Text = "Hash: " & packethash
+                                FileTransfer.packname_lb.Text = "Packetname: " & packetname
+
+                                Dim trd As New Threading.Thread(AddressOf FileTransfer.ShowDialog)
+                                trd.Start()
+
+                                DataStream.PacketList.Add(newPack)
+                                If newPack.Packets = newPack.CurrentPacket Then
+
+                                    Dim svDiag As New SaveFileDialog
+                                    svDiag.FileName = packetname
+                                    FileTransfer.Close()
+                                    If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                        My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray, False)
+                                    End If
+                                    DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
+                                End If : End If : Else : End If : End If
+
+                    If username = "" Then : Else
                         Dim ini As New IniFile
                         Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                         Dim dec_trg_byte As Byte()
@@ -199,34 +216,20 @@ Public Class main_frm
                             .SubItems.Add(adress_)
                         End With
                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
-                    Else
-                        For Each changeUSR As ListViewItem In userlist_viewer.Items
-                            If changeUSR.SubItems(1).Text = adress_ Then
-                                Dim ini As New IniFile
-                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                                Dim dec_trg_byte As Byte()
-                                aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                Dim mem_ As New MemoryStream(dec_trg_byte)
-                                ini.LoadFromMemory(mem_)
-                                ini.RemoveSection(changeUSR.Text)
-                                ini.SetKeyValue(username, "adress", adress_)
-                                Dim save_ini_byt As Byte()
-                                save_ini_byt = ini.SavetoByte
-                                Dim targed_enc_byt As Byte()
-                                aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                                changeUSR.Text = username
-                            End If : Next
-                        If index = 0 Then : Else
-                            For setFRM As Integer = 0 To index - 1
-                                If chat_frm(setFRM).Name = adress_ Then
-                                    chat_frm(setFRM).Text = username
-                                End If : Next : End If : End If : End If
+                    End If
+
                     If get_username = "" Then : Else
                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /username " & alias_txt.Text & ";")
                     End If
-                    If ping = "pong" Then
-                        MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
+
+                    'Nachricht vom Server
+                    If adress_ = "server" Then
+                        If ping = "ping" Then
+                            Send_to_Server("/adress " & eran_adress & "; /to server; /ping pong;")
+                        End If
+                        If ping = "pong" Then
+                            MsgBox("Pong from Server", MsgBoxStyle.Information, "Server")
+                        End If
                     End If
 
                     'Sende Profilbild
@@ -250,18 +253,18 @@ Public Class main_frm
                             For Each tt In connected_usr.usr_lst
                                 If tt.Eran_adress = adress_ Then
                                     key = tt.Key
-                            End If : Next
-                        Dim to_char As Byte() = Convert.FromBase64String(msg)
-                        Dim target_msg As Byte()
-                        aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        Dim check_in_lst As String = is_in_usrlst(adress_)
-                        If check_in_lst.Length > 0 Then
-                            new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                        Else
-                            new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
-                        End If : Else
-                        new_chat(adress_, adress_, msg)
-                    End If : End If
+                                End If : Next
+                            Dim to_char As Byte() = Convert.FromBase64String(msg)
+                            Dim target_msg As Byte()
+                            aes_.Decode(to_char, target_msg, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            Dim check_in_lst As String = is_in_usrlst(adress_)
+                            If check_in_lst.Length > 0 Then
+                                new_chat(adress_, check_in_lst, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                            Else
+                                new_chat(adress_, adress_, System.Text.UTF8Encoding.UTF8.GetChars(target_msg) & vbNewLine)
+                            End If : Else
+                            new_chat(adress_, adress_, msg)
+                        End If : End If
 
                     'Sende meinen OnlineStatus
                     If get_state = "True" Then
@@ -307,7 +310,9 @@ Public Class main_frm
                             Case 3
                                 connected_usr.remove_encrypt_session(adress_)
                         End Select : End If : End If
-            GC_.FlushMemory()
+            End If
+            
+
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
             'Überprüfen ob die Nachricht für mich
@@ -356,6 +361,7 @@ Public Class main_frm
     ''' </summary>
     ''' <remarks></remarks>
     Private Sub Listen()
+
         While client.Connected
             Try
                 Invoke(New DAddItem(AddressOf AddItem), Base64.FromBase64Str_to_decodeBytes(streamr.ReadLine))
@@ -406,9 +412,16 @@ Public Class main_frm
             ini.LoadFromMemory(ini_mem)
             For Each s As IniFile.IniSection In ini.Sections
                 For Each k As IniFile.IniSection.IniKey In s.Keys
-                    With main_frm.userlist_viewer.Items.Add(s.Name, 0)
-                        .SubItems.Add(k.Value)
-                    End With : Next : Next
+                    If blocklist.Exists(Function(x) x = k.Value) = True Then
+                        With main_frm.userlist_viewer.Items.Add(s.Name, 3)
+                            .SubItems.Add(k.Value)
+                        End With
+                    Else
+                        With main_frm.userlist_viewer.Items.Add(s.Name, 0)
+                            .SubItems.Add(k.Value)
+                        End With
+                    End If
+                    Next : Next
             For check_State As Integer = 0 To main_frm.userlist_viewer.Items.Count - 1
                 Send_to_Server("/adress " & eran_adress & "; /to " & main_frm.userlist_viewer.Items(check_State).SubItems(1).Text & "; /get_state True; /get_username 1;")
             Next : Else : End If
@@ -471,8 +484,11 @@ Public Class main_frm
             client.Connect(host, port) ' hier die ip des servers eintragen. 
             ' da dieser beim testen wohl lokal läuft, hier die loopback-ip 127.0.0.1.
             If client.Connected Then
+
+
                 stream = client.GetStream
                 streamw = New StreamWriter(stream)
+
                 streamr = New StreamReader(stream)
 
                 'Den PublicKey in Base64
@@ -575,6 +591,7 @@ Public Class main_frm
 
                 chat_frm(window).BringToFront()
                 chat_frm(window).Show()
+                chat_frm(window).TopMost = True
                 vibrate_frm(chat_frm(window), 3)
             Else
                 If parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg).Length > 0 Then
@@ -706,6 +723,7 @@ Public Class main_frm
                     AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
                     audioIndex += 1
                     chat_frm(index).Show()
+                    chat_frm(index).TopMost = True
                 Else
                     If get_msg.Length > 0 Then
                         AddText(cache_rtb, "[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & get_msg, Color.FromArgb(255, 255, 255))
@@ -792,6 +810,10 @@ Public Class main_frm
         rtb.Select(rtb.TextLength, 1)
     End Sub
 
+    Private Sub userlist_viewer_AfterLabelEdit(ByVal sender As Object, ByVal e As System.Windows.Forms.LabelEditEventArgs) Handles userlist_viewer.AfterLabelEdit
+
+    End Sub
+
     Private Sub userlist_viewer_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles userlist_viewer.DoubleClick
         If userlist_viewer.SelectedIndices.Count > 0 Then
             Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
@@ -799,6 +821,10 @@ Public Class main_frm
             Dim select_username As String = userlist_viewer.Items(selectedCount).Text
             new_chat(select_adress, select_username)
         End If
+    End Sub
+
+    Private Sub userlist_viewer_ItemChecked(ByVal sender As Object, ByVal e As System.Windows.Forms.ItemCheckedEventArgs) Handles userlist_viewer.ItemChecked
+
     End Sub
     Private Sub userlist_viewer_MouseClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles userlist_viewer.MouseClick
         If e.Button = Windows.Forms.MouseButtons.Right Then
@@ -1008,6 +1034,9 @@ Public Class main_frm
     Private Sub ExitToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem1.Click
         If SecureDesktop.isOnSecureDesktop = False Then
             NotifyIcon.Visible = False
+            connected_usr.broke_all_sessions()
+            DisconnectFromUser = True
+            Disconnect()
             Process.GetCurrentProcess.Kill()
         Else
             Me.WindowState = FormWindowState.Minimized
@@ -1040,7 +1069,7 @@ Public Class main_frm
         End If
     End Sub
 
-    Private Sub EditUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditUserToolStripMenuItem.Click
+    Private Sub EditUserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         userlist_viewer.LabelEdit = True
     End Sub
     ''' <summary>
@@ -1104,10 +1133,32 @@ Public Class main_frm
         about.ShowDialog()
     End Sub
 
+    Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
+        Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
+        Dim select_adress As String = userlist_viewer.Items(selectedCount).SubItems(1).Text
+        connected_usr.blockuser(select_adress)
+        
+    End Sub
+    Private Sub user_conextmenu_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles user_conextmenu.Opening
+        Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
+        Dim select_adress As String = userlist_viewer.Items(selectedCount).SubItems(1).Text
+        If blocklist.Exists(Function(x) x = select_adress) = True Then
+            BlockingToolStripMenuItem.Text = "Unblock"
+        Else
+            BlockingToolStripMenuItem.Text = "Blocking"
+        End If
+    End Sub
+
+    Private Sub userlist_viewer_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles userlist_viewer.SelectedIndexChanged
+
+    End Sub
 
     Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
-        For Each tt In DataStream.PacketList
-            MsgBox(tt.Name)
-        Next
+        If userlist_viewer.SelectedIndices.Count > 0 Then
+            Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
+            userlist_viewer.Items(selectedCount).BeginEdit()
+
+        End If
+        
     End Sub
 End Class

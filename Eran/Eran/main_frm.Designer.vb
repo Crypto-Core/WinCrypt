@@ -39,7 +39,6 @@ Partial Class main_frm
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SendFileStreamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
         Me.userlist_viewer = New System.Windows.Forms.ListView()
@@ -57,9 +56,9 @@ Partial Class main_frm
         Me.OnlineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.user_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.StartChatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyEranAdressToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteFromListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.open_file_diag = New System.Windows.Forms.OpenFileDialog()
         Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.notify_conextmenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -205,7 +204,7 @@ Partial Class main_frm
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.SendFileStreamToolStripMenuItem, Me.TestToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
@@ -217,14 +216,8 @@ Partial Class main_frm
         Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.AboutToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.Dialog_Box_About_16
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'SendFileStreamToolStripMenuItem
-        '
-        Me.SendFileStreamToolStripMenuItem.Name = "SendFileStreamToolStripMenuItem"
-        Me.SendFileStreamToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
-        Me.SendFileStreamToolStripMenuItem.Text = "Send FileStream"
         '
         'ImageList
         '
@@ -233,6 +226,7 @@ Partial Class main_frm
         Me.ImageList.Images.SetKeyName(0, "offline16.png")
         Me.ImageList.Images.SetKeyName(1, "busy16.png")
         Me.ImageList.Images.SetKeyName(2, "online16.png")
+        Me.ImageList.Images.SetKeyName(3, "block.png")
         '
         'main_panel
         '
@@ -397,33 +391,41 @@ Partial Class main_frm
         '
         'user_conextmenu
         '
-        Me.user_conextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartChatToolStripMenuItem, Me.EditUserToolStripMenuItem, Me.CopyEranAdressToolStripMenuItem, Me.DeleteFromListToolStripMenuItem})
+        Me.user_conextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartChatToolStripMenuItem, Me.CopyEranAdressToolStripMenuItem, Me.DeleteFromListToolStripMenuItem, Me.BlockingToolStripMenuItem, Me.TestToolStripMenuItem})
         Me.user_conextmenu.Name = "ContextMenuStrip1"
-        Me.user_conextmenu.Size = New System.Drawing.Size(165, 92)
+        Me.user_conextmenu.Size = New System.Drawing.Size(165, 136)
         '
         'StartChatToolStripMenuItem
         '
+        Me.StartChatToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.StartChatToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.StartChatToolStripMenuItem.Name = "StartChatToolStripMenuItem"
         Me.StartChatToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.StartChatToolStripMenuItem.Text = "Start Chat"
         '
-        'EditUserToolStripMenuItem
-        '
-        Me.EditUserToolStripMenuItem.Name = "EditUserToolStripMenuItem"
-        Me.EditUserToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
-        Me.EditUserToolStripMenuItem.Text = "Edit user"
-        '
         'CopyEranAdressToolStripMenuItem
         '
+        Me.CopyEranAdressToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.CopyEranAdressToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.CopyEranAdressToolStripMenuItem.Name = "CopyEranAdressToolStripMenuItem"
         Me.CopyEranAdressToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.CopyEranAdressToolStripMenuItem.Text = "Copy Eran adress"
         '
         'DeleteFromListToolStripMenuItem
         '
+        Me.DeleteFromListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.DeleteFromListToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.DeleteFromListToolStripMenuItem.Name = "DeleteFromListToolStripMenuItem"
         Me.DeleteFromListToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.DeleteFromListToolStripMenuItem.Text = "Delete from list"
+        '
+        'BlockingToolStripMenuItem
+        '
+        Me.BlockingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.BlockingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.BlockingToolStripMenuItem.Name = "BlockingToolStripMenuItem"
+        Me.BlockingToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.BlockingToolStripMenuItem.Text = "Blocking"
         '
         'open_file_diag
         '
@@ -496,7 +498,7 @@ Partial Class main_frm
         'TestToolStripMenuItem
         '
         Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.TestToolStripMenuItem.Text = "Test"
         '
         'main_frm
@@ -556,7 +558,6 @@ Partial Class main_frm
     Friend WithEvents BusyToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OfflineToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents profil_img As System.Windows.Forms.PictureBox
-    Friend WithEvents EditUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SaveFileDialog As System.Windows.Forms.SaveFileDialog
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SendPingToConnectedAccesNodeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -572,7 +573,7 @@ Partial Class main_frm
     Friend WithEvents ShowServerKeyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents SendFileStreamToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -13,6 +13,8 @@
         Dim decode As String = System.Text.UTF8Encoding.UTF8.GetChars(read_bytes)
         Return decode
     End Function
+    Public Delegate Sub test(ByVal tt As String)
+
     Public Shared Function FromBase64Str_to_decodeBytes(ByVal base64_str As String) As Byte()
         Dim decode As Byte() = Convert.FromBase64String(base64_str)
         Return decode

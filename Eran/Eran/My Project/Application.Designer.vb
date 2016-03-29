@@ -12,7 +12,7 @@ Option Strict On
 Option Explicit On
 
 Imports System.IO
-
+Imports Microsoft.Win32
 
 Namespace My
 
@@ -34,7 +34,14 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            
+            Registry.CurrentUser.CreateSubKey("Eran")
+            If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist") = True Then
+                Global.Eran.main_frm.blocklist.AddRange(File.ReadAllLines(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist"))
+            Else
+                File.Create(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist")
+            End If
+
+
             config.load()
             If File.Exists(config_path) = True Then
                 ini.Load(config_path)
