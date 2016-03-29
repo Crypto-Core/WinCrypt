@@ -195,26 +195,87 @@ Public Class main_frm
                                 End If : End If : Else : End If : End If
 
                     If username = "" Then : Else
-                        Dim ini As New IniFile
-                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
-                        Dim dec_trg_byte As Byte()
-                        aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        Dim mem_ As New MemoryStream(dec_trg_byte)
-                        ini.LoadFromMemory(mem_)
-                        ini.SetKeyValue(username, "adress", adress_)
-                        Dim save_ini_byt As Byte()
-                        save_ini_byt = ini.SavetoByte
-                        Dim targed_enc_byt As Byte()
-                        aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                        File.WriteAllBytes(users_lst_path, targed_enc_byt)
-                        If index = 0 Then : Else
-                            For setFRM As Integer = 0 To index - 1
-                                If chat_frm(setFRM).Name = adress_ Then
-                                    chat_frm(setFRM).Text = username
-                                End If : Next : End If
-                        With userlist_viewer.Items.Add(username, 0)
-                            .SubItems.Add(adress_)
-                        End With
+                        If is_in_usrlst(adress_) = "" Then
+                            Dim ini As New IniFile
+                            Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                            Dim dec_trg_byte As Byte()
+                            aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            Dim mem_ As New MemoryStream(dec_trg_byte)
+                            ini.LoadFromMemory(mem_)
+                            ini.SetKeyValue(username, "adress", adress_)
+                            Dim save_ini_byt As Byte()
+                            save_ini_byt = ini.SavetoByte
+                            Dim targed_enc_byt As Byte()
+                            aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                            If index = 0 Then : Else
+                                For setFRM As Integer = 0 To index - 1
+                                    If chat_frm(setFRM).Name = adress_ Then
+                                        chat_frm(setFRM).Text = username
+                                    End If : Next : End If
+                            With userlist_viewer.Items.Add(username, 0)
+                                .SubItems.Add(adress_)
+                            End With
+                            Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
+                        Else
+
+                            If is_in_usrlst(adress_) = "" Then
+                                Dim ini As New IniFile
+                                Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                                Dim dec_trg_byte As Byte()
+                                aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                Dim mem_ As New MemoryStream(dec_trg_byte)
+                                ini.LoadFromMemory(mem_)
+                                ini.SetKeyValue(username, "adress", adress_)
+                                Dim save_ini_byt As Byte()
+                                save_ini_byt = ini.SavetoByte
+                                Dim targed_enc_byt As Byte()
+                                aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                                If index = 0 Then : Else
+                                    For setFRM As Integer = 0 To index - 1
+                                        If chat_frm(setFRM).Name = adress_ Then
+                                            chat_frm(setFRM).Text = username
+                                        End If
+                                    Next
+                                End If
+                                With userlist_viewer.Items.Add(username, 0)
+                                    .SubItems.Add(adress_)
+                                End With
+                                Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
+                            Else
+                                For Each changeUSR As ListViewItem In userlist_viewer.Items
+                                    If changeUSR.SubItems(1).Text = adress_ Then
+                                        Dim ini As New IniFile
+                                        Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
+                                        Dim dec_trg_byte As Byte()
+                                        aes_.Decode(read_enc_bytes, dec_trg_byte, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                        Dim mem_ As New MemoryStream(dec_trg_byte)
+                                        ini.LoadFromMemory(mem_)
+                                        ini.RemoveSection(changeUSR.Text)
+                                        ini.SetKeyValue(username, "adress", adress_)
+                                        Dim save_ini_byt As Byte()
+                                        save_ini_byt = ini.SavetoByte
+                                        Dim targed_enc_byt As Byte()
+                                        aes_.Encode(save_ini_byt, targed_enc_byt, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                        File.WriteAllBytes(users_lst_path, targed_enc_byt)
+                                        changeUSR.Text = username
+                                    End If
+                                Next
+                                If index = 0 Then : Else
+                                    For setFRM As Integer = 0 To index - 1
+                                        If chat_frm(setFRM).Name = adress_ Then
+                                            chat_frm(setFRM).Text = username
+                                        End If
+                                    Next
+                                End If
+
+
+
+                            End If
+                        End If
+
+
                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /get_state True;")
                     End If
 
@@ -310,26 +371,26 @@ Public Class main_frm
                             Case 3
                                 connected_usr.remove_encrypt_session(adress_)
                         End Select : End If : End If
-            End If
-            
+        End If
+
 
         Else
-            Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
-            'Überprüfen ob die Nachricht für mich
-            If parameter.read_parameter("/to ", byte_to_str) = eran_adress Then
-                'Wenn es einen Handshake vom Server gibt
-                If parameter.read_parameter("/server_encrypted_key ", byte_to_str).Length > 0 Then
-                    ' Dim encrypt_decodeBase64 = Base64.FromBase64Str_to_Str(parameter.read_parameter("/server_encrypted_key ", s))
-                    Dim decrypt As String = parameter.read_parameter("/server_encrypted_key ", byte_to_str)
-                    Dim temp_Host As String = parameter.read_parameter("/reconnect_to ", byte_to_str)
-                    tempHost = temp_Host
-                    Server_key = RSA_decrypt(decrypt, PrivateKey)
-                    isEncrypted_Server = True
-                    userlist_viewer.Items.Clear()
-                    load_userlist()
-                    set_State(2)
-                End If : End If
-            GC_.FlushMemory()
+        Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
+        'Überprüfen ob die Nachricht für mich
+        If parameter.read_parameter("/to ", byte_to_str) = eran_adress Then
+            'Wenn es einen Handshake vom Server gibt
+            If parameter.read_parameter("/server_encrypted_key ", byte_to_str).Length > 0 Then
+                ' Dim encrypt_decodeBase64 = Base64.FromBase64Str_to_Str(parameter.read_parameter("/server_encrypted_key ", s))
+                Dim decrypt As String = parameter.read_parameter("/server_encrypted_key ", byte_to_str)
+                Dim temp_Host As String = parameter.read_parameter("/reconnect_to ", byte_to_str)
+                tempHost = temp_Host
+                Server_key = RSA_decrypt(decrypt, PrivateKey)
+                isEncrypted_Server = True
+                userlist_viewer.Items.Clear()
+                load_userlist()
+                set_State(2)
+            End If : End If
+        GC_.FlushMemory()
         End If
     End Sub
 
