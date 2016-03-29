@@ -36,6 +36,7 @@ Partial Class nChat_frm
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
@@ -50,7 +51,7 @@ Partial Class nChat_frm
         Me.addusr_bt = New System.Windows.Forms.Button()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.partner_img = New System.Windows.Forms.PictureBox()
-        Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearChatToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.Contextmenu.SuspendLayout()
@@ -164,9 +165,19 @@ Partial Class nChat_frm
         Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.InfoToolStripMenuItem.Text = "Info"
         '
+        'BlockingToolStripMenuItem
+        '
+        Me.BlockingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.BlockingToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.BlockingToolStripMenuItem.Name = "BlockingToolStripMenuItem"
+        Me.BlockingToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+                    Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
+        Me.BlockingToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.BlockingToolStripMenuItem.Text = "Blocking"
+        '
         'OptionsToolStripMenuItem
         '
-        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenewEncryptionToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RenewEncryptionToolStripMenuItem, Me.ClearChatToolStripMenuItem1})
         Me.OptionsToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
@@ -200,14 +211,18 @@ Partial Class nChat_frm
         '
         'Contextmenu
         '
+        Me.Contextmenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.Contextmenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearChatToolStripMenuItem})
         Me.Contextmenu.Name = "Contextmenu"
-        Me.Contextmenu.Size = New System.Drawing.Size(130, 26)
+        Me.Contextmenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.Contextmenu.ShowImageMargin = False
+        Me.Contextmenu.Size = New System.Drawing.Size(105, 26)
         '
         'ClearChatToolStripMenuItem
         '
+        Me.ClearChatToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ClearChatToolStripMenuItem.Name = "ClearChatToolStripMenuItem"
-        Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ClearChatToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
         Me.ClearChatToolStripMenuItem.Text = "Clear Chat"
         '
         'alertCountdown
@@ -261,15 +276,15 @@ Partial Class nChat_frm
         Me.partner_img.TabIndex = 5
         Me.partner_img.TabStop = False
         '
-        'BlockingToolStripMenuItem
+        'ClearChatToolStripMenuItem1
         '
-        Me.BlockingToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.BlockingToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.BlockingToolStripMenuItem.Name = "BlockingToolStripMenuItem"
-        Me.BlockingToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
-                    Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.BlockingToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-        Me.BlockingToolStripMenuItem.Text = "Blocking"
+        Me.ClearChatToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ClearChatToolStripMenuItem1.ForeColor = System.Drawing.Color.White
+        Me.ClearChatToolStripMenuItem1.Name = "ClearChatToolStripMenuItem1"
+        Me.ClearChatToolStripMenuItem1.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+                    Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.ClearChatToolStripMenuItem1.Size = New System.Drawing.Size(211, 22)
+        Me.ClearChatToolStripMenuItem1.Text = "Clear chat"
         '
         'nChat_frm
         '
@@ -328,4 +343,5 @@ Partial Class nChat_frm
     Friend WithEvents recTimer As System.Windows.Forms.Timer
     Friend WithEvents InfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ClearChatToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 End Class

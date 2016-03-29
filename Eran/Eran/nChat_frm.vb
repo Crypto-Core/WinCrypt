@@ -424,4 +424,9 @@ Public Class nChat_frm
     Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
         connected_usr.blockuser(Name)
     End Sub
+
+    Private Sub ClearChatToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem1.Click
+        rtb_.Clear()
+        rtb_.Controls.Clear()
+    End Sub
 End Class

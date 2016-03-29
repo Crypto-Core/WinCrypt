@@ -141,7 +141,12 @@ Public Class main_frm
                                             aes_.Decode(PacketBytes, decryptByte, key_, AESEncrypt.ALGO.RIJNDAEL, 4096)
                                             AddData.Memory.Write(decryptByte, 0, decryptByte.Length)
                                             Dim svDiag As New SaveFileDialog
-                                            svDiag.FileName = packetname
+                                            Try
+                                                svDiag.FileName = packetname.Replace(packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf(".")), "")
+                                                svDiag.Filter = packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf(".")) & "|*" & packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf("."))
+                                            Catch ex As Exception
+                                                svDiag.FileName = packetname
+                                            End Try
                                             If packethash = rHash.HashByte(AddData.Memory.ToArray, rHash.HASH.MD5) Then
                                                 FileTransfer.Close()
                                                 If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
@@ -184,9 +189,14 @@ Public Class main_frm
 
                                 DataStream.PacketList.Add(newPack)
                                 If newPack.Packets = newPack.CurrentPacket Then
-
                                     Dim svDiag As New SaveFileDialog
-                                    svDiag.FileName = packetname
+                                    Try
+                                        svDiag.FileName = packetname.Replace(packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf(".")), "")
+                                        svDiag.Filter = packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf(".")) & "|*" & packetname.Substring(packetname.LastIndexOf("."), packetname.Length - packetname.LastIndexOf("."))
+                                    Catch ex As Exception
+                                        svDiag.FileName = packetname
+                                    End Try
+                                    System.Threading.Thread.Sleep(100)
                                     FileTransfer.Close()
                                     If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
                                         My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray, False)
@@ -1195,10 +1205,11 @@ Public Class main_frm
     End Sub
 
     Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
+
         Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
         Dim select_adress As String = userlist_viewer.Items(selectedCount).SubItems(1).Text
         connected_usr.blockuser(select_adress)
-        
+
     End Sub
     Private Sub user_conextmenu_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles user_conextmenu.Opening
         Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
@@ -1210,16 +1221,8 @@ Public Class main_frm
         End If
     End Sub
 
-    Private Sub userlist_viewer_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles userlist_viewer.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem.Click
-        If userlist_viewer.SelectedIndices.Count > 0 Then
-            Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
-            userlist_viewer.Items(selectedCount).BeginEdit()
-
-        End If
-        
+    Private Sub ReloadListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReloadListToolStripMenuItem.Click
+        userlist_viewer.Items.Clear()
+        load_userlist()
     End Sub
 End Class

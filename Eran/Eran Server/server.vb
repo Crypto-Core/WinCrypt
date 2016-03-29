@@ -190,7 +190,7 @@ Module server
                 'Console.WriteLine("Check available: " & tt.eran_adress)
             Next
             IsUserOnline.Enabled = False
-            System.Threading.Thread.Sleep(10000)
+            System.Threading.Thread.Sleep(20000)
             For Each tt As Connection In list
                 If isOnline(tt.eran_adress) = False Then
                     list.Remove(tt)
@@ -199,7 +199,6 @@ Module server
                     aes_.Encode(get_bytes, encrypt_source, tt.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                     tt.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
                     tt.streamw.Flush()
-
                     Exit For
                 Else
 
