@@ -9,7 +9,7 @@ Public Class create_account
         auth_key_lb.Text = "Auth. key: " & authkey
         If usr_txt.TextLength > 5 Then
             If pwd_txt.TextLength > 7 Then
-                SHA512 = rHash.HashString(usr_txt.Text + pwd_txt.Text + authkey, rHash.HASH.SHA512)
+                SHA512 = rHash.HashString(usr_txt.Text & pwd_txt.Text & authkey, rHash.HASH.SHA512)
                 to_md5 = rHash.HashString(SHA512, rHash.HASH.MD5)
                 eran_txt.Text = to_md5
                 create_bt.Enabled = True

@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿
+Imports System.IO
 Imports System.IO.Stream
 Public Class login
     Dim ini As New IniFile
@@ -18,17 +19,17 @@ Public Class login
         usr_txt.Text = username
         eran_adress = ini.GetKeyValue("account", "adress")
         host_txt.Text = config.access_node_host
-        port_txt.Text = config.acces_node_port
+        port_txt.Text = CStr(config.acces_node_port)
     End Sub
 
     Private Sub join_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles join_bt.Click
-        Dim combine As String = rHash.HashString(rHash.HashString(ini.GetKeyValue("account", "username") + pwd_txt.Text + ini.GetKeyValue("account", "authkey"), rHash.HASH.SHA512), rHash.HASH.MD5)
+        Dim combine As String = rHash.HashString(rHash.HashString(ini.GetKeyValue("account", "username") & pwd_txt.Text & ini.GetKeyValue("account", "authkey"), rHash.HASH.SHA512), rHash.HASH.MD5)
         main_frm.host = host_txt.Text
-        main_frm.port = port_txt.Text
+        main_frm.port = CInt(port_txt.Text)
         If combine = ini.GetKeyValue("account", "adress") Then
             main_frm.isEncrypted_Server = False
             main_frm.DisconnectFromUser = False
-            main_frm.handshake = 0
+            main_frm.handshake = CStr(0)
             'login_panel.Hide()
             main_frm.Controls.Add(connect_frame.Panel1)
             connect_frame.Panel1.Show()

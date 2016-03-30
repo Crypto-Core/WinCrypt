@@ -1,4 +1,5 @@
-﻿Imports System.Text
+﻿
+Imports System.Text
 
 Public Class rndPass
     Public Shared Function Random(ByVal length As Integer) As String

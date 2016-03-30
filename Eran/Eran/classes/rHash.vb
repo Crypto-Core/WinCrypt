@@ -1,4 +1,3 @@
-Option Strict On
 
 Imports System.Security.Cryptography
 Imports System.Text

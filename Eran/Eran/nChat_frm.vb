@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿
+Imports System.IO
 
 Public Class nChat_frm
     Dim encrypted As Boolean = False
@@ -26,16 +27,16 @@ Public Class nChat_frm
         If message_box.TextLength = 0 Then : Else
             Dim rtb = Me.Controls.Find("richtextbox", True)
             If e.KeyData = Keys.Enter Then
-                If encrypted = True Then
+                If encrypted Then
                     Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
                     Dim target As Byte()
                     aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                     Dim to_bs64 As String = Convert.ToBase64String(target)
                     main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
                     If rtb(0).Text.Length < 2 Then
-                        AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                        AddText(CType(rtb(0), RichTextBox), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
                     Else
-                        AddText(rtb(0), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
+                        AddText(CType(rtb(0), RichTextBox), "(me)[" & DateTime.Now.ToString("hh:mm:ss") & "]: " & message_box.Text & vbNewLine, Color.FromArgb(104, 197, 240))
                     End If
                 Else
                     Dim read_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(message_box.Text)
@@ -62,14 +63,19 @@ Public Class nChat_frm
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub encrypt_state_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles encrypt_state.Tick
-        If connected_usr.isConnect_Encrypt(Name) = True Then
+        If connected_usr.isConnect_Encrypt(Name) Then
             lock_bt.Image = My.Resources.lock16
             lock_bt.Text = "Encrypted"
             lock_bt.Enabled = True
 
             message_box.Enabled = True
             encrypted = True
-            sendfile_bt.Enabled = True
+            If main_frm.sendFileState = True Then
+                sendfile_bt.Enabled = False
+            Else
+                sendfile_bt.Enabled = True
+            End If
+
             get_key()
             message_box.BackColor = Color.FromArgb(30, 30, 30)
             encrypt_state.Interval = 2000
@@ -78,7 +84,7 @@ Public Class nChat_frm
                 AddText(rtb_, "[Chat encrypted!]" & vbNewLine, Color.Lime)
             End If
             enc = 1
-            If reEncrypt.Enabled = True Then
+            If reEncrypt.Enabled Then
                 reEncrypt.Enabled = False
                 Timeout = 3
             End If
@@ -86,7 +92,12 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.unlock16
             message_box.Enabled = False
             message_box.BackColor = Color.FromArgb(106, 106, 106)
-            sendfile_bt.Enabled = False
+            If main_frm.sendFileState = True Then
+                sendfile_bt.Enabled = False
+            Else
+                sendfile_bt.Enabled = False
+            End If
+
             encrypted = False
             If key = "" Then : Else
                 AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
@@ -98,7 +109,7 @@ Public Class nChat_frm
     End Sub
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
         encrypt_state.Enabled = True
-        If encrypted = True Then
+        If encrypted Then
             MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 256bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
@@ -114,7 +125,7 @@ Public Class nChat_frm
         Next
     End Sub
     Friend Function is_in_usrlst(ByVal eran_adress As String) As Boolean
-        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") = True Then
+        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") Then
             Dim ini As New IniFile
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
             Dim dec_trg_byte As Byte()
@@ -133,11 +144,13 @@ Public Class nChat_frm
     Private WithEvents rtb_ As RichTextBox
     Public WithEvents main_img As PictureBox = main_frm.profil_img
     Private Sub nChat_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If SecureDesktop.isOnSecureDesktop = True Then
+        If SecureDesktop.isOnSecureDesktop Then
             sendfile_bt.Enabled = False
         End If
         Dim rtb = Me.Controls.Find("richtextbox", True)
-        rtb_ = rtb(0)
+        rtb_ = CType(rtb(0), RichTextBox)
+        
+
         rtb_.ContextMenuStrip = Contextmenu
         profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
         ActiveControl = message_box
@@ -147,7 +160,7 @@ Public Class nChat_frm
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         End If
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_profil_img 1;")
-        If is_in_usrlst(Name) = True Then
+        If is_in_usrlst(Name) Then
             addusr_bt.Visible = False
         Else
             addusr_bt.Visible = True
@@ -172,7 +185,7 @@ Public Class nChat_frm
     End Sub
 
     Private Sub check_onlinestate_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles check_onlinestate.Tick
-        If main_frm.blocklist.Exists(Function(x) x = Name) = True Then
+        If main_frm.blocklist.Exists(Function(x) x = Name) Then
             BlockingToolStripMenuItem.Text = "Unblock"
         Else
             BlockingToolStripMenuItem.Text = "Blocking"
@@ -207,7 +220,7 @@ Public Class nChat_frm
     End Sub
 
     Private Sub message_box_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles message_box.KeyUp
-        If e.Shift = True Then
+        If e.Shift Then
             If e.KeyCode = Keys.Enter Then
             End If
         Else
@@ -219,7 +232,7 @@ Public Class nChat_frm
     Private Sub alert_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alert_bt.Click
         alert_bt.Enabled = False
         alertCountdown.Enabled = True
-        If encrypted = True Then
+        If encrypted Then
             Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/alert 1;")
             Dim target As Byte()
             aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
@@ -245,7 +258,7 @@ Public Class nChat_frm
     End Sub
 
     Private Sub addusr_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles addusr_bt.Click
-        If encrypted = True Then
+        If encrypted Then
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
         Else
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /get_username 1;")
@@ -254,18 +267,11 @@ Public Class nChat_frm
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
-
         If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /accept_trans 0;")
             main_frm.transKey = key
             main_frm.transFile = send_file_dialog.FileName
         End If
-    End Sub
-
-    Private Sub send_file_dialog_FileOk(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles send_file_dialog.FileOk
-        'Encrypt filename
-
-        
     End Sub
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click
@@ -290,7 +296,7 @@ Public Class nChat_frm
     End Sub
 
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
-        If SecureDesktop.isOnSecureDesktop = True Then
+        If SecureDesktop.isOnSecureDesktop Then
         Else
             main_frm.open_file_diag.ShowDialog()
         End If
@@ -325,7 +331,7 @@ Public Class nChat_frm
         recTime = 0
         recAudio.Text = Nothing
         record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
-        Dim readRecByte As Byte() = My.Computer.FileSystem.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
+        Dim readRecByte As Byte() = File.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
 
         Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}) & Convert.ToBase64String(readRecByte) & ";")
         Dim target As Byte()
@@ -348,9 +354,9 @@ Public Class nChat_frm
 
         PlayPGB(audioIndex) = New ProgressBar
         PlayPGB(audioIndex).Name = "pgr" & audioIndex
-        PlayPGB(audioIndex).Maximum = Playseconds
+        PlayPGB(audioIndex).Maximum = CInt(Playseconds)
         PlayPGB(audioIndex).Size = New Size(120, 10)
-        PlayPGB(audioIndex).Location = New Point(27, (audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2)
+        PlayPGB(audioIndex).Location = New Point(27, CInt((audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2))
         PlayPGB(audioIndex).SendToBack()
 
 
@@ -370,7 +376,7 @@ Public Class nChat_frm
 
         audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
         audioBT(audioIndex).Size = New Size(150, 31)
-        timeLabel(audioIndex).Location = New Point(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2, audioBT(audioIndex).Size.Height - 15)
+        timeLabel(audioIndex).Location = New Point(CInt(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2), audioBT(audioIndex).Size.Height - 15)
         audioBT(audioIndex).Cursor = Cursors.Default
         audioBT(audioIndex).Image = My.Resources.play
         audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
@@ -404,7 +410,7 @@ Public Class nChat_frm
     End Sub
     Public Sub audioPlay(ByVal sender As Object, ByVal e As EventArgs)
         Dim btn = DirectCast(sender, Button)
-        Dim btn_index As Integer = btn.Name.Replace("index", "")
+        Dim btn_index As Integer = CInt(btn.Name.Replace("index", ""))
         My.Computer.Audio.Play(audioByte.Item(btn_index), AudioPlayMode.Background)
         btn.FlatAppearance.BorderColor = Color.LimeGreen
         Dim span As TimeSpan = TimeSpan.FromMilliseconds(audioTime(btn_index))

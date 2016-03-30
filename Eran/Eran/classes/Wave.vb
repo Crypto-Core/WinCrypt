@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿
+Imports System.IO
 
 Public Class Wave
     Public Shared Function GetDuration(ByVal Fbyte As Byte()) As Double

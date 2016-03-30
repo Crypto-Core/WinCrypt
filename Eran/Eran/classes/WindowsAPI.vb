@@ -1,4 +1,5 @@
-﻿Public Class WindowsApi
+﻿
+Public Class WindowsApi
     Private Declare Function FlashWindowEx Lib "User32" (ByRef fwInfo As FLASHWINFO) As Boolean
 
     ' As defined by: http://msdn.microsoft.com/en-us/library/ms679347(v=vs.85).aspx

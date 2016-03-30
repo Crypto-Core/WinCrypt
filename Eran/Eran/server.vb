@@ -44,9 +44,7 @@ Module server
             c.streamr = New StreamReader(c.stream)
             c.streamw = New StreamWriter(c.stream)
             Dim client_msg As String = Base64.FromBase64Str_to_Str(c.streamr.ReadLine) ' Empfange die Nachricht und Dekodiere den Base64 String
-            If isConnected(parameter.read_parameter("/adress ", client_msg)) = True Then
-
-            Else
+            If isConnected(parameter.read_parameter("/adress ", client_msg)) Then : Else
                 Console.WriteLine("Get Message: " & client_msg & vbNewLine)
 
                 'Empfange Eran Adresse

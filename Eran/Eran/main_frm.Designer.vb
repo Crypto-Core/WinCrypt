@@ -74,6 +74,7 @@ Partial Class main_frm
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
         Me.head_panel.SuspendLayout()
@@ -86,7 +87,7 @@ Partial Class main_frm
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.UsersToolStripMenuItem, Me.AccountToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.UsersToolStripMenuItem, Me.AccountToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem, Me.TestToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(355, 24)
@@ -469,7 +470,7 @@ Partial Class main_frm
         Me.StateToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OnlineToolStripMenuItem1, Me.BusyToolStripMenuItem1, Me.OfflineToolStripMenuItem1})
         Me.StateToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.StateToolStripMenuItem.Name = "StateToolStripMenuItem"
-        Me.StateToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.StateToolStripMenuItem.Size = New System.Drawing.Size(78, 22)
         Me.StateToolStripMenuItem.Text = "State"
         '
         'OnlineToolStripMenuItem1
@@ -478,7 +479,7 @@ Partial Class main_frm
         Me.OnlineToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.OnlineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.online16
         Me.OnlineToolStripMenuItem1.Name = "OnlineToolStripMenuItem1"
-        Me.OnlineToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.OnlineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
         Me.OnlineToolStripMenuItem1.Text = "Online"
         '
         'BusyToolStripMenuItem1
@@ -487,7 +488,7 @@ Partial Class main_frm
         Me.BusyToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.BusyToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.busy16
         Me.BusyToolStripMenuItem1.Name = "BusyToolStripMenuItem1"
-        Me.BusyToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BusyToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
         Me.BusyToolStripMenuItem1.Text = "Busy"
         '
         'OfflineToolStripMenuItem1
@@ -496,21 +497,21 @@ Partial Class main_frm
         Me.OfflineToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.OfflineToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.offline16
         Me.OfflineToolStripMenuItem1.Name = "OfflineToolStripMenuItem1"
-        Me.OfflineToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.OfflineToolStripMenuItem1.Size = New System.Drawing.Size(110, 22)
         Me.OfflineToolStripMenuItem1.Text = "Offline"
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(78, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(78, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SaveFileDialog
@@ -518,11 +519,17 @@ Partial Class main_frm
         '
         'available_timer
         '
-        Me.available_timer.Interval = 60000
+        Me.available_timer.Interval = 30000
         '
         'OnlineBallon_tmr
         '
         Me.OnlineBallon_tmr.Interval = 5000
+        '
+        'TestToolStripMenuItem
+        '
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
+        Me.TestToolStripMenuItem.Text = "Test"
         '
         'main_frm
         '
@@ -599,5 +606,6 @@ Partial Class main_frm
     Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ReloadListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

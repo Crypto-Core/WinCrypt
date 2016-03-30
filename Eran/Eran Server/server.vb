@@ -44,9 +44,9 @@ Module server
             server = New TcpListener(ipendpoint)
             server.Start()
             While True
-                If IsUserOnline.Enabled = False Then
-                    IsUserOnline.Enabled = True
-                Else : End If
+                'If IsUserOnline.Enabled = False Then
+                'IsUserOnline.Enabled = True
+                'Else : End If
 
                 client = server.AcceptTcpClient
                 'Console.WriteLine("Accepted Client" & vbNewLine)

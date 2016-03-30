@@ -1,12 +1,11 @@
 ﻿Imports System.IO
-
 Public Class connected_usr
     Friend Shared usr_lst As New List(Of Encrypted_User)
     Friend Structure Encrypted_User
         Dim Eran_adress As String
         Dim Key As String
     End Structure
-    Friend Shared Function remove_encrypt_session(ByVal eran_adress As String)
+    Friend Shared Function remove_encrypt_session(ByVal eran_adress As String) As Object
         On Error Resume Next
         For Each check In connected_usr.usr_lst
             If eran_adress = check.Eran_adress Then
@@ -24,13 +23,13 @@ Public Class connected_usr
         Return False
     End Function
 
-    Friend Shared Function broke_all_sessions()
+    Friend Shared Function broke_all_sessions() As Object
         For Each check In connected_usr.usr_lst
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & check.Eran_adress & "; /handshake 3;")
         Next
         connected_usr.usr_lst.RemoveRange(0, connected_usr.usr_lst.Count)
     End Function
-    Friend Shared Function blockuser(ByVal eran_adress)
+    Friend Shared Function blockuser(ByVal eran_adress As String) As Object
         If main_frm.blocklist.Exists(Function(x) x = eran_adress) = False Then
             main_frm.blocklist.Add(eran_adress)
             File.WriteAllLines(My.Application.Info.DirectoryPath & OS.OS_slash & "blocklist", main_frm.blocklist)

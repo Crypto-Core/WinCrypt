@@ -1,4 +1,5 @@
-﻿Public Class parameter
+﻿
+Public Class parameter
     Public Shared Function read_parameter(ByVal parameter As String, ByVal get_command As String) As String
         Dim index As Integer = get_command.IndexOf(parameter)
         Do

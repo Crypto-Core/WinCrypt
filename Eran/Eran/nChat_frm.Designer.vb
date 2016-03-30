@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class nChat_frm
+Partial Public Class nChat_frm
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -25,7 +25,7 @@ Partial Class nChat_frm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(nChat_frm))
         Me.message_box = New System.Windows.Forms.TextBox()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.sendfile_bt = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.alert_bt = New System.Windows.Forms.ToolStripButton()
@@ -39,6 +39,7 @@ Partial Class nChat_frm
         Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearChatToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.encrypt_state = New System.Windows.Forms.Timer(Me.components)
         Me.check_profil_img = New System.Windows.Forms.Timer(Me.components)
         Me.check_onlinestate = New System.Windows.Forms.Timer(Me.components)
@@ -51,8 +52,7 @@ Partial Class nChat_frm
         Me.addusr_bt = New System.Windows.Forms.Button()
         Me.profil_img = New System.Windows.Forms.PictureBox()
         Me.partner_img = New System.Windows.Forms.PictureBox()
-        Me.ClearChatToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStrip1.SuspendLayout()
+        Me.ToolStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.Contextmenu.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,21 +75,21 @@ Partial Class nChat_frm
         Me.message_box.Size = New System.Drawing.Size(494, 56)
         Me.message_box.TabIndex = 0
         '
-        'ToolStrip1
+        'ToolStrip
         '
-        Me.ToolStrip1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.ToolStrip.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ToolStrip1.AutoSize = False
-        Me.ToolStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.None
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sendfile_bt, Me.ToolStripSeparator1, Me.alert_bt, Me.ToolStripSeparator2, Me.lock_bt, Me.ToolStripSeparator3, Me.recAudio})
-        Me.ToolStrip1.Location = New System.Drawing.Point(92, 300)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(494, 25)
-        Me.ToolStrip1.TabIndex = 1
-        Me.ToolStrip1.Text = "ToolStrip1"
+        Me.ToolStrip.AutoSize = False
+        Me.ToolStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.ToolStrip.Dock = System.Windows.Forms.DockStyle.None
+        Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.sendfile_bt, Me.ToolStripSeparator1, Me.alert_bt, Me.ToolStripSeparator2, Me.lock_bt, Me.ToolStripSeparator3, Me.recAudio})
+        Me.ToolStrip.Location = New System.Drawing.Point(92, 300)
+        Me.ToolStrip.Name = "ToolStrip"
+        Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ToolStrip.Size = New System.Drawing.Size(494, 25)
+        Me.ToolStrip.TabIndex = 1
+        Me.ToolStrip.Text = "ToolStrip1"
         '
         'sendfile_bt
         '
@@ -192,6 +192,16 @@ Partial Class nChat_frm
         Me.RenewEncryptionToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.RenewEncryptionToolStripMenuItem.Text = "Renew encryption"
         '
+        'ClearChatToolStripMenuItem1
+        '
+        Me.ClearChatToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ClearChatToolStripMenuItem1.ForeColor = System.Drawing.Color.White
+        Me.ClearChatToolStripMenuItem1.Name = "ClearChatToolStripMenuItem1"
+        Me.ClearChatToolStripMenuItem1.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
+                    Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.ClearChatToolStripMenuItem1.Size = New System.Drawing.Size(211, 22)
+        Me.ClearChatToolStripMenuItem1.Text = "Clear chat"
+        '
         'encrypt_state
         '
         Me.encrypt_state.Enabled = True
@@ -205,9 +215,6 @@ Partial Class nChat_frm
         'check_onlinestate
         '
         Me.check_onlinestate.Enabled = True
-        '
-        'send_file_dialog
-        '
         '
         'Contextmenu
         '
@@ -276,16 +283,6 @@ Partial Class nChat_frm
         Me.partner_img.TabIndex = 5
         Me.partner_img.TabStop = False
         '
-        'ClearChatToolStripMenuItem1
-        '
-        Me.ClearChatToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.ClearChatToolStripMenuItem1.ForeColor = System.Drawing.Color.White
-        Me.ClearChatToolStripMenuItem1.Name = "ClearChatToolStripMenuItem1"
-        Me.ClearChatToolStripMenuItem1.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
-                    Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.ClearChatToolStripMenuItem1.Size = New System.Drawing.Size(211, 22)
-        Me.ClearChatToolStripMenuItem1.Text = "Clear chat"
-        '
         'nChat_frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -297,7 +294,7 @@ Partial Class nChat_frm
         Me.Controls.Add(Me.profil_img)
         Me.Controls.Add(Me.partner_img)
         Me.Controls.Add(Me.message_box)
-        Me.Controls.Add(Me.ToolStrip1)
+        Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.White
@@ -305,8 +302,8 @@ Partial Class nChat_frm
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "nChat_frm"
         Me.Text = "nChat_frm"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
+        Me.ToolStrip.ResumeLayout(False)
+        Me.ToolStrip.PerformLayout()
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.Contextmenu.ResumeLayout(False)
@@ -317,7 +314,7 @@ Partial Class nChat_frm
 
     End Sub
     Friend WithEvents message_box As System.Windows.Forms.TextBox
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents alert_bt As System.Windows.Forms.ToolStripButton
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip

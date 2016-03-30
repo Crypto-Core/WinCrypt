@@ -11,61 +11,28 @@
 Option Strict On
 Option Explicit On
 
-Imports System.IO
-Imports Microsoft.Win32
 
 Namespace My
-
+    
     'HINWEIS: Diese Datei wird automatisch generiert. Ändern Sie sie nicht direkt. Zum Ändern
     ' oder bei in dieser Datei auftretenden Buildfehlern wechseln Sie zum Projekt-Designer.
     ' (Wechseln Sie dazu zu den Projekteigenschaften, oder doppelklicken Sie auf den Knoten "Mein Projekt" im
     ' Projektmappen-Explorer). Nehmen Sie auf der Registerkarte "Anwendung" entsprechende Änderungen vor.
     '
     Partial Friend Class MyApplication
-        Private ini As New IniFile
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Public Sub New()
             MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
-            Me.IsSingleInstance = False
-            Me.EnableVisualStyles = True
-            Me.SaveMySettingsOnExit = True
-            Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.IsSingleInstance = false
+            Me.EnableVisualStyles = true
+            Me.SaveMySettingsOnExit = true
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
         End Sub
-
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Registry.CurrentUser.CreateSubKey("Eran")
-            If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist") = True Then
-                Global.Eran.main_frm.blocklist.AddRange(File.ReadAllLines(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist"))
-            Else
-                File.Create(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "blocklist")
-            End If
-
-
-            config.load()
-            If File.Exists(config_path) = True Then
-                ini.Load(config_path)
-                Dim startmodus As String = ini.GetKeyValue("config", "startmodus")
-                Select Case startmodus
-                    Case CStr(0)
-                        Me.MainForm = Global.Eran.StartWindow
-                    Case CStr(1)
-                        SecureDesktop.isOnSecureDesktop = False
-                        Me.MainForm = Global.Eran.main_frm
-                    Case CStr(2)
-                        SecureDesktop.isOnSecureDesktop = True
-                        SecureDesktop.StartSecureWindow(main_frm)
-                End Select
-            Else
-                My.Computer.FileSystem.WriteAllText(config_path, "[config]" & vbNewLine & "startmodus=0", False)
-                ini.Load(config_path)
-                Dim startmodus As String = ini.GetKeyValue("config", "startmodus")
-                Select Case startmodus
-                    Case CStr(0)
-                    Case CStr(1)
-                    Case CStr(2)
-                End Select
-            End If
+            Me.MainForm = Global.Eran.StartWindow
         End Sub
     End Class
 End Namespace
