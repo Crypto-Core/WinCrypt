@@ -35,6 +35,8 @@ Public Class main_frm
     Private packet As New DataStream.Stream
     Friend Shared transKey As String
     Friend Shared transFile As String
+    Friend isMainActive As Boolean = False
+    Friend msgIndex As Integer = 0
     Friend Shared sendFileState As Boolean = False
     ''' <summary>
     ''' Es wird eine Nachricht empfangen und verarbeitet.
@@ -311,7 +313,25 @@ Public Class main_frm
 
                     'Emfange neue Nachricht
                     If msg.Length > 0 Then
-                        alert()
+                        If config.play_audio_msg Then
+                            alert()
+                        End If
+                        If WindowState = FormWindowState.Minimized Then
+                            msgIndex += 1
+                            Dim NewBitmap As New System.Drawing.Bitmap(My.Resources.eran_icon16png)
+
+                            'Neue Grafik erstellen anhand der Bitmap
+                            Dim Graphic As System.Drawing.Graphics = System.Drawing.Graphics.FromImage(NewBitmap)
+
+                            'String auf Bild zeichnen
+                            Graphic.DrawImage(My.Resources.new_msg_point, New Point(1, 2))
+
+
+                            Graphic.DrawString(msgIndex, New Font("Arial", 7, FontStyle.Bold), Brushes.White, New Point(0, 3))
+
+                            Dim p As Icon = Icon.FromHandle(NewBitmap.GetHicon)
+                            NotifyIcon.Icon = p
+                        End If
                         If connected_usr.isConnect_Encrypt(adress_) Then
                             Dim key As String
                             For Each tt In connected_usr.usr_lst
@@ -506,12 +526,16 @@ Public Class main_frm
             BringToFront()
             TopMost = True
         End If
+        isMainActive = True
+        NotifyIcon.Icon = My.Resources.eran_icon16
+        msgIndex = 0
     End Sub
 
     Private Sub main_frm_Deactivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Deactivate
         If SecureDesktop.isOnSecureDesktop Then
             backgroundSecure.SendToBack()
         End If
+        isMainActive = False
     End Sub
     Private Sub main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Controls.Add(create_account.create_account_panel)
@@ -597,7 +621,9 @@ Public Class main_frm
         End Try
     End Sub
     Private Sub userOnlineSound()
-        My.Computer.Audio.Play(My.Resources.useronlinesound, AudioPlayMode.Background)
+        If config.play_usr_online Then
+            My.Computer.Audio.Play(My.Resources.useronlinesound, AudioPlayMode.Background)
+        End If
     End Sub
     Private Sub eran_adr_txt_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.Click
         My.Computer.Clipboard.SetText(eran_adr_txt.Text)
@@ -645,17 +671,20 @@ Public Class main_frm
                 If chat_frm(tt).Name = eran_adress Then
                     bool = True
                     window = tt
+
                     Exit For
                 Else
                     bool = False
                 End If
             Catch ex As Exception : End Try : Next
+
         If bool Then
             If parameter.read_parameter("/alert ", get_msg) = "1" Then
                 With chat_frm(window)
                     .Text = username
                     .BringToFront()
                     .Show()
+                    .WindowState = FormWindowState.Normal
                     .TopMost = True
                 End With
                 vibrate_frm(chat_frm(window), 3)
@@ -712,7 +741,13 @@ Public Class main_frm
                         chat_rtb(window).AppendText(cache_rtb.Text)
                         cache_rtb.Clear()
                     End If
-                    chat_frm(window).Show()
+                    If WindowState = FormWindowState.Normal Then
+                        chat_frm(window).Show()
+                        chat_frm(window).WindowState = FormWindowState.Normal
+                    Else
+                        chat_frm(window).Show()
+                    End If
+                    
                 End If
             End If : Else
             chat_frm(index) = New nChat_frm
@@ -726,6 +761,7 @@ Public Class main_frm
                     .BackColor = Color.FromArgb(30, 30, 30)
                     .ForeColor = Color.White
                     .ReadOnly = True
+                    .Tag = 0
                     .Font = New Font("Arial", 10, FontStyle.Regular)
                     .Location = New Point(92, 27)
                     .Size = New Size(494, 270)
@@ -745,9 +781,6 @@ Public Class main_frm
                 chat_rtb(index).Show()
                 vibrate_frm(chat_frm(index), 3)
             Else
-
-
-
                 If parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg).Length > 0 Then
                     Dim Audio As Byte() = Convert.FromBase64String(parameter.read_parameter("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}), get_msg))
                     audioTime(audioIndex) = Wave.GetDuration(Audio)
@@ -906,11 +939,12 @@ Public Class main_frm
         If SecureDesktop.isOnSecureDesktop = False Then
             e.Cancel = True
             Me.WindowState = FormWindowState.Minimized
-            Me.Hide()
-            NotifyIcon.BalloonTipIcon = ToolTipIcon.None
-            NotifyIcon.BalloonTipTitle = Text
-            NotifyIcon.BalloonTipText = "Eran is minimized on Taskbar"
-            NotifyIcon.ShowBalloonTip(1000)
+            NotifyIcon.ShowBalloonTip(1000, Text, "Eran is minimized on Taskbar", ToolTipIcon.None)
+            AddHandler NotifyIcon.BalloonTipClicked, Function()
+                                                         Me.WindowState = FormWindowState.Normal
+                                                         Me.ShowInTaskbar = True
+                                                         Me.ShowIcon = True
+                                                     End Function
         Else
             e.Cancel = False
         End If
@@ -1018,15 +1052,10 @@ Public Class main_frm
         Me.Show()
         Me.WindowState = FormWindowState.Normal
     End Sub
-
-    Private Sub NotifyIcon_BalloonTipClicked(ByVal sender As Object, ByVal e As System.EventArgs) Handles NotifyIcon.BalloonTipClicked
-        Me.Show()
-        Me.WindowState = FormWindowState.Normal
-    End Sub
-
     Private Sub NotifyIcon_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
-        Me.Show()
         Me.WindowState = FormWindowState.Normal
+        Me.ShowIcon = True
+        Me.ShowInTaskbar = True
     End Sub
     ''' <summary>
     ''' Öffnet das Dialog um ein neues Profilbild festzulegen.
@@ -1221,4 +1250,8 @@ Public Class main_frm
         load_userlist()
     End Sub
 
+    Private Sub main_frm_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        Me.ShowInTaskbar = False
+        Me.ShowIcon = False
+    End Sub
 End Class

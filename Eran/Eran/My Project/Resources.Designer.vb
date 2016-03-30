@@ -198,7 +198,10 @@ Namespace My.Resources
         '''access_node_save=0
         '''startmodus=1
         '''access_node_host=eran.wincrypt.org
-        '''acces_node_save=0 ähnelt.
+        '''acces_node_save=0
+        '''play_audio_msg=True
+        '''play_usr_online=True
+        '''show_msg_balloon=False ähnelt.
         '''</summary>
         Friend ReadOnly Property confg() As String
             Get
@@ -212,6 +215,36 @@ Namespace My.Resources
         Friend ReadOnly Property Dialog_Box_About_16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Dialog-Box-About-16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        '''</summary>
+        Friend ReadOnly Property eran_icon() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eran_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        '''</summary>
+        Friend ReadOnly Property eran_icon16() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eran_icon16", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property eran_icon16png() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("eran_icon16png", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -292,6 +325,16 @@ Namespace My.Resources
         Friend ReadOnly Property Network_Disconnected_16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Network Disconnected-16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property new_msg_point() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("new_msg_point", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

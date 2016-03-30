@@ -17,6 +17,8 @@ Public Class settings
         save_cb.Checked = config.acces_node_save
         scan_host_txt.Text = config.access_node_host
         scan_port_txt.Text = CStr(config.acces_node_port)
+        play_msg_sound.Checked = config.play_audio_msg
+        play_usr_online.Checked = config.play_usr_online
     End Sub
 
     Private Sub startwindow_rb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startwindow_rb.CheckedChanged
@@ -62,6 +64,7 @@ Public Class settings
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles save_cb.CheckedChanged
+        ini.Load(StartWindow.config_path)
         If save_cb.Checked Then
             ini.SetKeyValue("config", "acces_node_save", CStr(0))
         Else
@@ -90,5 +93,31 @@ Public Class settings
             ini.SetKeyValue("config", "own_access_node_port", listen_port_txt.Text)
             ini.Save(StartWindow.config_path)
         Else : End If
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles play_msg_sound.CheckedChanged
+        ini.Load(StartWindow.config_path)
+        If play_msg_sound.Checked Then
+            ini.SetKeyValue("config", "play_audio_msg", "True")
+            config.play_audio_msg = True
+        Else
+            ini.SetKeyValue("config", "play_audio_msg", "False")
+            config.play_audio_msg = False
+        End If
+        ini.Save(StartWindow.config_path)
+
+
+    End Sub
+
+    Private Sub play_usr_online_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles play_usr_online.CheckedChanged
+        ini.Load(StartWindow.config_path)
+        If play_usr_online.Checked Then
+            ini.SetKeyValue("config", "play_usr_online", "True")
+            config.play_usr_online = True
+        Else
+            ini.SetKeyValue("config", "play_usr_online", "False")
+            config.play_usr_online = False
+        End If
+        ini.Save(StartWindow.config_path)
     End Sub
 End Class

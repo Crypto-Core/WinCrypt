@@ -14,6 +14,15 @@ Module config
         ini.Load(config_path)
         On Error Resume Next
         own_access_node_port = CInt(ini.GetKeyValue("config", "own_access_node_port"))
+        If ini.GetKeyValue("config", "play_audio_msg") = "" Then
+        Else
+            play_audio_msg = ini.GetKeyValue("config", "play_audio_msg")
+        End If
+        If ini.GetKeyValue("config", "play_usr_online") = "" Then
+        Else
+            play_usr_online = ini.GetKeyValue("config", "play_usr_online")
+        End If
+        
         acces_node_port = CInt(ini.GetKeyValue("config", "access_node_port"))
         Select Case ini.GetKeyValue("config", "own_access_node")
             Case CStr(0)
@@ -38,4 +47,6 @@ Module config
     Public access_node_host As String
     Public startmodus As Integer
     Public acces_node_save As Boolean
+    Public play_audio_msg As Boolean = True
+    Public play_usr_online As Boolean = True
 End Module

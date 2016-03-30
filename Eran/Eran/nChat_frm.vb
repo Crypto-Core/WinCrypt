@@ -17,9 +17,11 @@ Public Class nChat_frm
     Dim window As Integer = 0
     Dim audioIndex As Integer = 0
     Dim audioByte As New List(Of Byte())
+
     Private Sub nChat_frm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         On Error Resume Next
         e.Cancel = True
+        Me.WindowState = FormWindowState.Minimized
         Me.Hide()
     End Sub
 
@@ -47,6 +49,7 @@ Public Class nChat_frm
         End If
     End Sub
     Private Sub AddText(ByVal rtb As RichTextBox, ByVal txt As String, ByVal col As Color)
+        On Error Resume Next
         Dim pos As Integer = rtb.TextLength
         rtb.AppendText(txt)
         rtb.[Select](pos, txt.Length)
@@ -285,7 +288,7 @@ Public Class nChat_frm
     Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /username " & main_frm.alias_txt.Text & ";")
     End Sub
-    Dim alertindex As Integer = 30
+    Dim alertindex As Integer = 10
     Private Sub alertCountdown_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles alertCountdown.Tick
         alertindex -= 1
         If alertindex = 0 Then

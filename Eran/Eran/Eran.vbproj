@@ -256,6 +256,9 @@
   <ItemGroup>
     <Content Include="eran_icon.ico" />
     <Content Include="parameter shortcuts.txt" />
+    <None Include="Resources\new_msg_point.png" />
+    <None Include="Resources\eran_icon16png.png" />
+    <None Include="Resources\eran_icon16.ico" />
     <None Include="Resources\blockprofil.png" />
     <None Include="Resources\confg.txt" />
     <None Include="Resources\play.png" />

@@ -7,3 +7,6 @@ access_node_save=0
 startmodus=1
 access_node_host=eran.wincrypt.org
 acces_node_save=0
+play_audio_msg=True
+play_usr_online=True
+show_msg_balloon=False

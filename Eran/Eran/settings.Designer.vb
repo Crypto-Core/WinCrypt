@@ -38,12 +38,11 @@ Partial Class settings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.save_cb = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.play_usr_online = New System.Windows.Forms.CheckBox()
+        Me.play_msg_sound = New System.Windows.Forms.CheckBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.startmodus_gb.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -207,9 +206,8 @@ Partial Class settings
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.CheckBox3)
-        Me.GroupBox3.Controls.Add(Me.CheckBox2)
-        Me.GroupBox3.Controls.Add(Me.CheckBox1)
+        Me.GroupBox3.Controls.Add(Me.play_usr_online)
+        Me.GroupBox3.Controls.Add(Me.play_msg_sound)
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(218, 12)
         Me.GroupBox3.Name = "GroupBox3"
@@ -217,6 +215,26 @@ Partial Class settings
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Messenger"
+        '
+        'play_usr_online
+        '
+        Me.play_usr_online.AutoSize = True
+        Me.play_usr_online.Location = New System.Drawing.Point(136, 19)
+        Me.play_usr_online.Name = "play_usr_online"
+        Me.play_usr_online.Size = New System.Drawing.Size(129, 17)
+        Me.play_usr_online.TabIndex = 2
+        Me.play_usr_online.Text = "Play useronline sound"
+        Me.play_usr_online.UseVisualStyleBackColor = True
+        '
+        'play_msg_sound
+        '
+        Me.play_msg_sound.AutoSize = True
+        Me.play_msg_sound.Location = New System.Drawing.Point(6, 19)
+        Me.play_msg_sound.Name = "play_msg_sound"
+        Me.play_msg_sound.Size = New System.Drawing.Size(124, 17)
+        Me.play_msg_sound.TabIndex = 0
+        Me.play_msg_sound.Text = "Play Message sound"
+        Me.play_msg_sound.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -230,15 +248,6 @@ Partial Class settings
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Encryption"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(75, 23)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Auto reconnect:"
-        '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
@@ -249,35 +258,14 @@ Partial Class settings
         Me.ComboBox1.TabIndex = 1
         Me.ComboBox1.Text = "10"
         '
-        'CheckBox1
+        'Label4
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 19)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(124, 17)
-        Me.CheckBox1.TabIndex = 0
-        Me.CheckBox1.Text = "Play Message sound"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 44)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(91, 17)
-        Me.CheckBox2.TabIndex = 1
-        Me.CheckBox2.Text = "Show Balloon"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(136, 19)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(129, 17)
-        Me.CheckBox3.TabIndex = 2
-        Me.CheckBox3.Text = "Play useronline sound"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(75, 23)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(83, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Auto reconnect:"
         '
         'settings
         '
@@ -324,9 +312,8 @@ Partial Class settings
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents listen_port_txt As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents play_usr_online As System.Windows.Forms.CheckBox
+    Friend WithEvents play_msg_sound As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
