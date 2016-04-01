@@ -20,6 +20,7 @@ Public Class DataStream
         Dim buffer As Integer = SplitSize
         Dim aes As New AESEncrypt
         main_frm.sendFileState = True
+        SendFile.TopMost = True
         Dim diagtrg As New Threading.Thread(AddressOf SendFile.ShowDialog)
         diagtrg.Start()
         SendFile.pgb.Maximum = CInt(div)

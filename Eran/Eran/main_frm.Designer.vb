@@ -44,6 +44,8 @@ Partial Class main_frm
         Me.userlist_viewer = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.donate_bt = New System.Windows.Forms.Button()
         Me.head_panel = New System.Windows.Forms.Panel()
         Me.eran_adr_txt = New System.Windows.Forms.TextBox()
         Me.alias_txt = New System.Windows.Forms.TextBox()
@@ -76,6 +78,7 @@ Partial Class main_frm
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.head_panel.SuspendLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip.SuspendLayout()
@@ -107,7 +110,7 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.Close_16
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'UsersToolStripMenuItem
@@ -228,10 +231,12 @@ Partial Class main_frm
         Me.ImageList.Images.SetKeyName(1, "busy16.png")
         Me.ImageList.Images.SetKeyName(2, "online16.png")
         Me.ImageList.Images.SetKeyName(3, "block.png")
+        Me.ImageList.Images.SetKeyName(4, "warning.png")
         '
         'main_panel
         '
         Me.main_panel.Controls.Add(Me.userlist_viewer)
+        Me.main_panel.Controls.Add(Me.Panel1)
         Me.main_panel.Controls.Add(Me.head_panel)
         Me.main_panel.Controls.Add(Me.MenuStrip)
         Me.main_panel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -252,7 +257,7 @@ Partial Class main_frm
         Me.userlist_viewer.Location = New System.Drawing.Point(0, 122)
         Me.userlist_viewer.MultiSelect = False
         Me.userlist_viewer.Name = "userlist_viewer"
-        Me.userlist_viewer.Size = New System.Drawing.Size(355, 438)
+        Me.userlist_viewer.Size = New System.Drawing.Size(355, 359)
         Me.userlist_viewer.SmallImageList = Me.ImageList
         Me.userlist_viewer.TabIndex = 3
         Me.userlist_viewer.UseCompatibleStateImageBehavior = False
@@ -267,6 +272,35 @@ Partial Class main_frm
         '
         Me.ColumnHeader2.Text = "Eran address"
         Me.ColumnHeader2.Width = 222
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.donate_bt)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 481)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(355, 79)
+        Me.Panel1.TabIndex = 4
+        '
+        'donate_bt
+        '
+        Me.donate_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.donate_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.donate_bt.FlatAppearance.BorderSize = 0
+        Me.donate_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.donate_bt.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.donate_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.donate_bt.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.donate_bt.ImageIndex = 4
+        Me.donate_bt.ImageList = Me.ImageList
+        Me.donate_bt.Location = New System.Drawing.Point(91, 20)
+        Me.donate_bt.Name = "donate_bt"
+        Me.donate_bt.Size = New System.Drawing.Size(173, 38)
+        Me.donate_bt.TabIndex = 3
+        Me.donate_bt.Text = "DONATE"
+        Me.donate_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.donate_bt.UseVisualStyleBackColor = False
         '
         'head_panel
         '
@@ -539,6 +573,7 @@ Partial Class main_frm
         Me.MenuStrip.PerformLayout()
         Me.main_panel.ResumeLayout(False)
         Me.main_panel.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.head_panel.ResumeLayout(False)
         Me.head_panel.PerformLayout()
         CType(Me.profil_img, System.ComponentModel.ISupportInitialize).EndInit()
@@ -599,5 +634,7 @@ Partial Class main_frm
     Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ReloadListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents donate_bt As System.Windows.Forms.Button
 
 End Class

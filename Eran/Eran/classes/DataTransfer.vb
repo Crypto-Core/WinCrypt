@@ -8,8 +8,10 @@ Public Class DataTransfer
         DataStream.Key = Key
         DataStream.SplitSize = 65536
         DataStream.ToEran = ToEran
+        Control.CheckForIllegalCrossThreadCalls = False
         Dim trd As New Threading.Thread(AddressOf DataStream.SendToClient)
         trd.IsBackground = True
         trd.Start()
+
     End Function
 End Class

@@ -69,7 +69,7 @@ Partial Public Class nChat_frm
         Me.message_box.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.message_box.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.message_box.Location = New System.Drawing.Point(92, 323)
-        Me.message_box.MaxLength = 1000000
+        Me.message_box.MaxLength = 64000
         Me.message_box.Multiline = True
         Me.message_box.Name = "message_box"
         Me.message_box.Size = New System.Drawing.Size(494, 56)

@@ -106,16 +106,19 @@ Public Class main_frm
                         Case CStr(0)
                             For Each getName In chat_frm
                                 If adress_ = getName.Name Then
+
                                     If MessageBox.Show("Accept incomming File from " & getName.Text & "?", "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
-                                        
+
                                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /accept_trans 1;")
                                     End If
                                     Exit For
                                 End If
                             Next
                         Case CStr(1)
-                            DataTransfer.Send(transFile, adress_, transKey)
+                            
 
+                            DataTransfer.Send(transFile, adress_, transKey)
+                            
                     End Select
                     If packethash.Length > 0 Then
                         Dim key_ As String = ""
@@ -150,10 +153,15 @@ Public Class main_frm
                                             If packethash = rHash.HashByte(AddData.Memory.ToArray, rHash.HASH.MD5) Then
                                                 FileTransfer.Close()
                                                 sendFileState = False
-                                                If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
-                                                    File.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray)
-                                                    'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
+                                                If SecureDesktop.isOnSecureDesktop Then
+
+                                                Else
+                                                    If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                                        File.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray)
+                                                        'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
+                                                    End If
                                                 End If
+                                                
                                                 DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
                                                 GC_.FlushMemory()
                                                 Exit For : Else
@@ -185,9 +193,12 @@ Public Class main_frm
                                 FileTransfer.packet_status_lb.Text = "Packet " & currentPacket & " of " & FileTransfer.pgb.Maximum
                                 FileTransfer.hash_lb.Text = "Hash: " & packethash
                                 FileTransfer.packname_lb.Text = "Packetname: " & packetname
-                                
-                                Dim trd As New Threading.Thread(AddressOf FileTransfer.ShowDialog)
-                                trd.Start()
+                                If SecureDesktop.isOnSecureDesktop Then
+                                    FileTransfer.Show()
+                                Else
+                                    Dim trd As New Threading.Thread(AddressOf FileTransfer.ShowDialog)
+                                    trd.Start()
+                                End If
                                 sendFileState = True
                                 DataStream.PacketList.Add(newPack)
                                 If newPack.Packets = newPack.CurrentPacket Then
@@ -201,10 +212,15 @@ Public Class main_frm
                                     System.Threading.Thread.Sleep(100)
                                     FileTransfer.Close()
                                     sendFileState = False
-                                    If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
-                                        File.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray)
-                                        'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray, False)
+                                    If SecureDesktop.isOnSecureDesktop Then
+
+                                    Else
+                                        If svDiag.ShowDialog = Windows.Forms.DialogResult.OK Then
+                                            File.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray)
+                                            'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray, False)
+                                        End If
                                     End If
+                                    
                                     DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
                                 End If : End If : Else : End If : End If
 
@@ -548,9 +564,7 @@ Public Class main_frm
             login.login_panel.Hide()
             create_account.create_account_panel.Show()
         End If
-        If SecureDesktop.isOnSecureDesktop Then
-            profil_img.Cursor = Cursors.Default
-        End If
+        
 
         'Start Localserver
         'trd = New Threading.Thread(AddressOf server.Main)
@@ -946,7 +960,7 @@ Public Class main_frm
                                                          Me.ShowIcon = True
                                                      End Function
         Else
-            e.Cancel = False
+            e.Cancel = True
         End If
         'Me.Hide()
     End Sub
@@ -1064,7 +1078,28 @@ Public Class main_frm
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
-        If SecureDesktop.isOnSecureDesktop Then : Else
+        If SecureDesktop.isOnSecureDesktop Then
+            FileDialog_.ShowDialog()
+            If File.Exists(FileDialog_.FilePath) Then
+                If FileDialog_.FileSelected Then
+                    Dim new_bmp As Bitmap = CType(Bitmap.FromFile(FileDialog_.FilePath), Bitmap)
+                    Dim resize As Bitmap = New Bitmap(new_bmp, New Size(64, 64))
+                    profil_img.BackgroundImage = resize
+                    Dim mem_ As New MemoryStream
+                    resize.Save(mem_, System.Drawing.Imaging.ImageFormat.Png)
+                    Dim to_bs64 As String = Convert.ToBase64String(mem_.ToArray)
+                    mem_.Close()
+                    Dim ini As New IniFile
+                    ini.Load(account_path)
+                    ini.SetKeyValue("account", "image", to_bs64)
+                    ini.Save(account_path)
+                    Dim img_str As String = to_bs64
+                    For Each send_img In connected_usr.usr_lst
+                        Send_to_Server("/adress " & eran_adress & "; /to " & send_img.Eran_adress & "; /profil_image " & img_str & ";")
+                    Next
+                End If
+            End If
+        Else
             open_file_diag.ShowDialog()
         End If
     End Sub
@@ -1253,5 +1288,9 @@ Public Class main_frm
     Private Sub main_frm_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         Me.ShowInTaskbar = False
         Me.ShowIcon = False
+    End Sub
+
+    Private Sub donate_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles donate_bt.Click
+        Panel1.Visible = False
     End Sub
 End Class

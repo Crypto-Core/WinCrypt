@@ -17,7 +17,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -120,6 +120,12 @@
     <Compile Include="create_account.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FileDialog.Designer.vb">
+      <DependentUpon>FileDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FileTransfer.Designer.vb">
       <DependentUpon>FileTransfer.vb</DependentUpon>
     </Compile>
@@ -205,6 +211,9 @@
     <EmbeddedResource Include="create_account.resx">
       <DependentUpon>create_account.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FileDialog.resx">
+      <DependentUpon>FileDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileTransfer.resx">
       <DependentUpon>FileTransfer.vb</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +265,10 @@
   <ItemGroup>
     <Content Include="eran_icon.ico" />
     <Content Include="parameter shortcuts.txt" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\forward.png" />
+    <None Include="Resources\back1.png" />
+    <None Include="Resources\back.png" />
     <None Include="Resources\new_msg_point.png" />
     <None Include="Resources\eran_icon16png.png" />
     <None Include="Resources\eran_icon16.ico" />

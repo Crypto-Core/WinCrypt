@@ -25,4 +25,5 @@ Public Class StartWindow
         Me.Hide()
         main_frm.ShowDialog()
     End Sub
+
 End Class

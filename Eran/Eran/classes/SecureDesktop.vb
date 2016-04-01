@@ -60,7 +60,7 @@ Module SecureDesktop
                                                                            CloseDesktop(hNewDesktop)
                                                                            Process.GetCurrentProcess.Kill()
                                                                        Else
-                                                                           e.Cancel = True
+
                                                                        End If
                                                                    End Function
                                   backgroundSecure.Show()

@@ -172,7 +172,7 @@ Partial Class login
         '
         Me.usr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.usr_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.usr_txt.ForeColor = System.Drawing.Color.Silver
+        Me.usr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.usr_txt.Location = New System.Drawing.Point(73, 19)
         Me.usr_txt.Name = "usr_txt"
         Me.usr_txt.ReadOnly = True

@@ -73,11 +73,16 @@ Public Class nChat_frm
 
             message_box.Enabled = True
             encrypted = True
-            If main_frm.sendFileState = True Then
+            If SecureDesktop.isOnSecureDesktop Then
                 sendfile_bt.Enabled = False
             Else
-                sendfile_bt.Enabled = True
+                If main_frm.sendFileState = True Then
+                    sendfile_bt.Enabled = False
+                Else
+                    sendfile_bt.Enabled = True
+                End If
             End If
+            
 
             get_key()
             message_box.BackColor = Color.FromArgb(30, 30, 30)
@@ -270,11 +275,27 @@ Public Class nChat_frm
     End Sub
 
     Private Sub sendfile_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sendfile_bt.Click
-        If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /accept_trans 0;")
-            main_frm.transKey = key
-            main_frm.transFile = send_file_dialog.FileName
+        If SecureDesktop.isOnSecureDesktop Then
+            FileDialog_.TopMost = True
+            FileDialog_.ShowDialog()
+
+            If FileDialog_.FileSelected Then
+                If File.Exists(FileDialog_.FilePath) Then
+                    main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /accept_trans 0;")
+                    main_frm.transKey = key
+                    main_frm.transFile = FileDialog_.FilePath
+                End If
+            End If
+        Else
+            If send_file_dialog.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /accept_trans 0;")
+                main_frm.transKey = key
+                main_frm.transFile = send_file_dialog.FileName
+            End If
         End If
+
+
+       
     End Sub
 
     Private Sub ClearChatToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem.Click
@@ -300,6 +321,27 @@ Public Class nChat_frm
 
     Private Sub profil_img_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles profil_img.Click
         If SecureDesktop.isOnSecureDesktop Then
+            FileDialog_.TopMost = True
+            FileDialog_.ShowDialog()
+            If File.Exists(FileDialog_.FilePath) Then
+                If FileDialog_.FileSelected Then
+                    Dim new_bmp As Bitmap = CType(Bitmap.FromFile(FileDialog_.FilePath), Bitmap)
+                    Dim resize As Bitmap = New Bitmap(new_bmp, New Size(64, 64))
+                    profil_img.BackgroundImage = resize
+                    Dim mem_ As New MemoryStream
+                    resize.Save(mem_, System.Drawing.Imaging.ImageFormat.Png)
+                    Dim to_bs64 As String = Convert.ToBase64String(mem_.ToArray)
+                    mem_.Close()
+                    Dim ini As New IniFile
+                    ini.Load(main_frm.account_path)
+                    ini.SetKeyValue("account", "image", to_bs64)
+                    ini.Save(main_frm.account_path)
+                    Dim img_str As String = to_bs64
+                    For Each send_img In connected_usr.usr_lst
+                        main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & send_img.Eran_adress & "; /profil_image " & img_str & ";")
+                    Next
+                End If
+            End If
         Else
             main_frm.open_file_diag.ShowDialog()
         End If
@@ -333,8 +375,8 @@ Public Class nChat_frm
         recTimer.Enabled = False
         recTime = 0
         recAudio.Text = Nothing
-        record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
-        Dim readRecByte As Byte() = File.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & "\rec.wav")
+        record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & OS.OS_slash & "rec.wav")
+        Dim readRecByte As Byte() = File.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & OS.OS_slash & "rec.wav")
 
         Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}) & Convert.ToBase64String(readRecByte) & ";")
         Dim target As Byte()

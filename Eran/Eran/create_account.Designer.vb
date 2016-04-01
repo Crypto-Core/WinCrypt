@@ -139,7 +139,7 @@ Partial Class create_account
         '
         Me.eran_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.eran_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.eran_txt.ForeColor = System.Drawing.Color.Silver
+        Me.eran_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
         Me.eran_txt.Location = New System.Drawing.Point(6, 140)
         Me.eran_txt.Name = "eran_txt"
         Me.eran_txt.ReadOnly = True
