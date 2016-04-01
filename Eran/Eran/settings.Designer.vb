@@ -27,27 +27,27 @@ Partial Class settings
         Me.secure_desktop_rb = New System.Windows.Forms.RadioButton()
         Me.start_normal = New System.Windows.Forms.RadioButton()
         Me.startwindow_rb = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.own_access_node_gb = New System.Windows.Forms.GroupBox()
         Me.listen_port_txt = New System.Windows.Forms.TextBox()
         Me.allow_access_node_cb = New System.Windows.Forms.CheckBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.listen_on_port_lb = New System.Windows.Forms.Label()
         Me.scan_port_txt = New System.Windows.Forms.TextBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.scan_gb = New System.Windows.Forms.GroupBox()
+        Me.host_lb = New System.Windows.Forms.Label()
         Me.scan_host_txt = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.port_lb = New System.Windows.Forms.Label()
         Me.save_cb = New System.Windows.Forms.CheckBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.messenger_gb = New System.Windows.Forms.GroupBox()
         Me.play_usr_online = New System.Windows.Forms.CheckBox()
         Me.play_msg_sound = New System.Windows.Forms.CheckBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.encryption_gb = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.auto_rec_lb = New System.Windows.Forms.Label()
         Me.startmodus_gb.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
+        Me.own_access_node_gb.SuspendLayout()
+        Me.scan_gb.SuspendLayout()
+        Me.messenger_gb.SuspendLayout()
+        Me.encryption_gb.SuspendLayout()
         Me.SuspendLayout()
         '
         'startmodus_gb
@@ -96,19 +96,19 @@ Partial Class settings
         Me.startwindow_rb.Text = "Show Startwindow"
         Me.startwindow_rb.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'own_access_node_gb
         '
-        Me.GroupBox1.Controls.Add(Me.listen_port_txt)
-        Me.GroupBox1.Controls.Add(Me.allow_access_node_cb)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Enabled = False
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 222)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 74)
-        Me.GroupBox1.TabIndex = 7
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Own Access Node"
+        Me.own_access_node_gb.Controls.Add(Me.listen_port_txt)
+        Me.own_access_node_gb.Controls.Add(Me.allow_access_node_cb)
+        Me.own_access_node_gb.Controls.Add(Me.listen_on_port_lb)
+        Me.own_access_node_gb.Enabled = False
+        Me.own_access_node_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.own_access_node_gb.Location = New System.Drawing.Point(12, 222)
+        Me.own_access_node_gb.Name = "own_access_node_gb"
+        Me.own_access_node_gb.Size = New System.Drawing.Size(200, 74)
+        Me.own_access_node_gb.TabIndex = 7
+        Me.own_access_node_gb.TabStop = False
+        Me.own_access_node_gb.Text = "Own Access Node"
         '
         'listen_port_txt
         '
@@ -131,14 +131,14 @@ Partial Class settings
         Me.allow_access_node_cb.Text = "Allow Acces Node"
         Me.allow_access_node_cb.UseVisualStyleBackColor = True
         '
-        'Label2
+        'listen_on_port_lb
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Listen on Port:"
+        Me.listen_on_port_lb.AutoSize = True
+        Me.listen_on_port_lb.Location = New System.Drawing.Point(6, 22)
+        Me.listen_on_port_lb.Name = "listen_on_port_lb"
+        Me.listen_on_port_lb.Size = New System.Drawing.Size(75, 13)
+        Me.listen_on_port_lb.TabIndex = 1
+        Me.listen_on_port_lb.Text = "Listen on Port:"
         '
         'scan_port_txt
         '
@@ -151,29 +151,29 @@ Partial Class settings
         Me.scan_port_txt.TabIndex = 8
         Me.scan_port_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'GroupBox2
+        'scan_gb
         '
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.scan_host_txt)
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.save_cb)
-        Me.GroupBox2.Controls.Add(Me.scan_port_txt)
-        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 118)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 98)
-        Me.GroupBox2.TabIndex = 10
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Save Connection Acces Node"
+        Me.scan_gb.Controls.Add(Me.host_lb)
+        Me.scan_gb.Controls.Add(Me.scan_host_txt)
+        Me.scan_gb.Controls.Add(Me.port_lb)
+        Me.scan_gb.Controls.Add(Me.save_cb)
+        Me.scan_gb.Controls.Add(Me.scan_port_txt)
+        Me.scan_gb.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.scan_gb.Location = New System.Drawing.Point(12, 118)
+        Me.scan_gb.Name = "scan_gb"
+        Me.scan_gb.Size = New System.Drawing.Size(200, 98)
+        Me.scan_gb.TabIndex = 10
+        Me.scan_gb.TabStop = False
+        Me.scan_gb.Text = "Save Connection Acces Node"
         '
-        'Label3
+        'host_lb
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 49)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(32, 13)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Host:"
+        Me.host_lb.AutoSize = True
+        Me.host_lb.Location = New System.Drawing.Point(6, 49)
+        Me.host_lb.Name = "host_lb"
+        Me.host_lb.Size = New System.Drawing.Size(32, 13)
+        Me.host_lb.TabIndex = 12
+        Me.host_lb.Text = "Host:"
         '
         'scan_host_txt
         '
@@ -185,14 +185,14 @@ Partial Class settings
         Me.scan_host_txt.Size = New System.Drawing.Size(150, 20)
         Me.scan_host_txt.TabIndex = 11
         '
-        'Label1
+        'port_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 75)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Port:"
+        Me.port_lb.AutoSize = True
+        Me.port_lb.Location = New System.Drawing.Point(6, 75)
+        Me.port_lb.Name = "port_lb"
+        Me.port_lb.Size = New System.Drawing.Size(29, 13)
+        Me.port_lb.TabIndex = 10
+        Me.port_lb.Text = "Port:"
         '
         'save_cb
         '
@@ -204,49 +204,49 @@ Partial Class settings
         Me.save_cb.Text = "Saved"
         Me.save_cb.UseVisualStyleBackColor = True
         '
-        'GroupBox3
+        'messenger_gb
         '
-        Me.GroupBox3.Controls.Add(Me.play_usr_online)
-        Me.GroupBox3.Controls.Add(Me.play_msg_sound)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(218, 12)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(274, 100)
-        Me.GroupBox3.TabIndex = 11
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Messenger"
+        Me.messenger_gb.Controls.Add(Me.play_usr_online)
+        Me.messenger_gb.Controls.Add(Me.play_msg_sound)
+        Me.messenger_gb.ForeColor = System.Drawing.Color.White
+        Me.messenger_gb.Location = New System.Drawing.Point(218, 12)
+        Me.messenger_gb.Name = "messenger_gb"
+        Me.messenger_gb.Size = New System.Drawing.Size(274, 100)
+        Me.messenger_gb.TabIndex = 11
+        Me.messenger_gb.TabStop = False
+        Me.messenger_gb.Text = "Messenger"
         '
         'play_usr_online
         '
-        Me.play_usr_online.AutoSize = True
+        Me.play_usr_online.CheckAlign = System.Drawing.ContentAlignment.TopLeft
         Me.play_usr_online.Location = New System.Drawing.Point(136, 19)
         Me.play_usr_online.Name = "play_usr_online"
-        Me.play_usr_online.Size = New System.Drawing.Size(129, 17)
+        Me.play_usr_online.Size = New System.Drawing.Size(132, 64)
         Me.play_usr_online.TabIndex = 2
-        Me.play_usr_online.Text = "Play useronline sound"
+        Me.play_usr_online.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.play_usr_online.UseVisualStyleBackColor = True
         '
         'play_msg_sound
         '
-        Me.play_msg_sound.AutoSize = True
+        Me.play_msg_sound.CheckAlign = System.Drawing.ContentAlignment.TopLeft
         Me.play_msg_sound.Location = New System.Drawing.Point(6, 19)
         Me.play_msg_sound.Name = "play_msg_sound"
-        Me.play_msg_sound.Size = New System.Drawing.Size(124, 17)
+        Me.play_msg_sound.Size = New System.Drawing.Size(124, 64)
         Me.play_msg_sound.TabIndex = 0
-        Me.play_msg_sound.Text = "Play Message sound"
+        Me.play_msg_sound.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.play_msg_sound.UseVisualStyleBackColor = True
         '
-        'GroupBox4
+        'encryption_gb
         '
-        Me.GroupBox4.Controls.Add(Me.ComboBox1)
-        Me.GroupBox4.Controls.Add(Me.Label4)
-        Me.GroupBox4.ForeColor = System.Drawing.Color.White
-        Me.GroupBox4.Location = New System.Drawing.Point(218, 118)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(274, 51)
-        Me.GroupBox4.TabIndex = 12
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Encryption"
+        Me.encryption_gb.Controls.Add(Me.ComboBox1)
+        Me.encryption_gb.Controls.Add(Me.auto_rec_lb)
+        Me.encryption_gb.ForeColor = System.Drawing.Color.White
+        Me.encryption_gb.Location = New System.Drawing.Point(218, 118)
+        Me.encryption_gb.Name = "encryption_gb"
+        Me.encryption_gb.Size = New System.Drawing.Size(274, 51)
+        Me.encryption_gb.TabIndex = 12
+        Me.encryption_gb.TabStop = False
+        Me.encryption_gb.Text = "Encryption"
         '
         'ComboBox1
         '
@@ -258,14 +258,14 @@ Partial Class settings
         Me.ComboBox1.TabIndex = 1
         Me.ComboBox1.Text = "10"
         '
-        'Label4
+        'auto_rec_lb
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(75, 23)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Auto reconnect:"
+        Me.auto_rec_lb.Location = New System.Drawing.Point(6, 23)
+        Me.auto_rec_lb.Name = "auto_rec_lb"
+        Me.auto_rec_lb.Size = New System.Drawing.Size(152, 13)
+        Me.auto_rec_lb.TabIndex = 0
+        Me.auto_rec_lb.Text = "Auto reconnect:"
+        Me.auto_rec_lb.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'settings
         '
@@ -273,10 +273,10 @@ Partial Class settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(502, 308)
-        Me.Controls.Add(Me.GroupBox4)
-        Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.encryption_gb)
+        Me.Controls.Add(Me.messenger_gb)
+        Me.Controls.Add(Me.scan_gb)
+        Me.Controls.Add(Me.own_access_node_gb)
         Me.Controls.Add(Me.startmodus_gb)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -286,14 +286,12 @@ Partial Class settings
         Me.Text = "Settings"
         Me.startmodus_gb.ResumeLayout(False)
         Me.startmodus_gb.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
+        Me.own_access_node_gb.ResumeLayout(False)
+        Me.own_access_node_gb.PerformLayout()
+        Me.scan_gb.ResumeLayout(False)
+        Me.scan_gb.PerformLayout()
+        Me.messenger_gb.ResumeLayout(False)
+        Me.encryption_gb.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -301,20 +299,20 @@ Partial Class settings
     Friend WithEvents secure_desktop_rb As System.Windows.Forms.RadioButton
     Friend WithEvents start_normal As System.Windows.Forms.RadioButton
     Friend WithEvents startwindow_rb As System.Windows.Forms.RadioButton
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents own_access_node_gb As System.Windows.Forms.GroupBox
     Friend WithEvents allow_access_node_cb As System.Windows.Forms.CheckBox
     Friend WithEvents scan_port_txt As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents listen_on_port_lb As System.Windows.Forms.Label
+    Friend WithEvents scan_gb As System.Windows.Forms.GroupBox
     Friend WithEvents save_cb As System.Windows.Forms.CheckBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents host_lb As System.Windows.Forms.Label
     Friend WithEvents scan_host_txt As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents port_lb As System.Windows.Forms.Label
     Friend WithEvents listen_port_txt As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents messenger_gb As System.Windows.Forms.GroupBox
     Friend WithEvents play_usr_online As System.Windows.Forms.CheckBox
     Friend WithEvents play_msg_sound As System.Windows.Forms.CheckBox
-    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents encryption_gb As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents auto_rec_lb As System.Windows.Forms.Label
 End Class

@@ -25,7 +25,7 @@ Partial Class about
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(about))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.join_bt = New System.Windows.Forms.Button()
+        Me.ok_bt = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,19 +52,19 @@ Partial Class about
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Eran Messenger"
         '
-        'join_bt
+        'ok_bt
         '
-        Me.join_bt.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.join_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.join_bt.FlatAppearance.BorderSize = 0
-        Me.join_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.join_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.join_bt.Location = New System.Drawing.Point(137, 436)
-        Me.join_bt.Name = "join_bt"
-        Me.join_bt.Size = New System.Drawing.Size(75, 23)
-        Me.join_bt.TabIndex = 3
-        Me.join_bt.Text = "OK"
-        Me.join_bt.UseVisualStyleBackColor = False
+        Me.ok_bt.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.ok_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.ok_bt.FlatAppearance.BorderSize = 0
+        Me.ok_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ok_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.ok_bt.Location = New System.Drawing.Point(137, 436)
+        Me.ok_bt.Name = "ok_bt"
+        Me.ok_bt.Size = New System.Drawing.Size(75, 23)
+        Me.ok_bt.TabIndex = 3
+        Me.ok_bt.Text = "OK"
+        Me.ok_bt.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -97,7 +97,7 @@ Partial Class about
         Me.ClientSize = New System.Drawing.Size(348, 471)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.join_bt)
+        Me.Controls.Add(Me.ok_bt)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -113,7 +113,7 @@ Partial Class about
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents join_bt As System.Windows.Forms.Button
+    Friend WithEvents ok_bt As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
 End Class

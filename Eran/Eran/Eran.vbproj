@@ -101,6 +101,7 @@
     <Compile Include="classes\DataStream.vb" />
     <Compile Include="classes\DataTransfer.vb" />
     <Compile Include="classes\GC.vb" />
+    <Compile Include="classes\language.vb" />
     <Compile Include="classes\OS.vb" />
     <Compile Include="classes\record.vb" />
     <Compile Include="classes\rHash.vb" />
@@ -265,6 +266,7 @@
   <ItemGroup>
     <Content Include="eran_icon.ico" />
     <Content Include="parameter shortcuts.txt" />
+    <None Include="Resources\de-DE.txt" />
     <None Include="Resources\warning.png" />
     <None Include="Resources\forward.png" />
     <None Include="Resources\back1.png" />

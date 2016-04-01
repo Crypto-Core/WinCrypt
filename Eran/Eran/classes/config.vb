@@ -9,8 +9,8 @@ Module config
             File.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg)
             'My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg, False)
         End If
-        config_path = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
-
+        config_path = My.Application.Info.DirectoryPath & "\config.ini"
+        My.Computer.Clipboard.SetText(config_path)
         ini.Load(config_path)
         On Error Resume Next
         own_access_node_port = CInt(ini.GetKeyValue("config", "own_access_node_port"))
@@ -22,7 +22,9 @@ Module config
         Else
             play_usr_online = ini.GetKeyValue("config", "play_usr_online")
         End If
-        
+
+        language = ini.GetKeyValue("config", "language")
+
         acces_node_port = CInt(ini.GetKeyValue("config", "access_node_port"))
         Select Case ini.GetKeyValue("config", "own_access_node")
             Case CStr(0)
@@ -49,4 +51,5 @@ Module config
     Public acces_node_save As Boolean
     Public play_audio_msg As Boolean = True
     Public play_usr_online As Boolean = True
+    Public language As String
 End Module

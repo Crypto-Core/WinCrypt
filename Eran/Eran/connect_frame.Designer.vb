@@ -24,7 +24,7 @@ Partial Class connect_frame
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.connect_lb = New System.Windows.Forms.Label()
         Me.wait_tm = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -32,24 +32,24 @@ Partial Class connect_frame
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.connect_lb)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(277, 444)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
+        'connect_lb
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(80, 210)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(116, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Connect...."
+        Me.connect_lb.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.connect_lb.AutoSize = True
+        Me.connect_lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.connect_lb.ForeColor = System.Drawing.Color.White
+        Me.connect_lb.Location = New System.Drawing.Point(80, 210)
+        Me.connect_lb.Name = "connect_lb"
+        Me.connect_lb.Size = New System.Drawing.Size(116, 25)
+        Me.connect_lb.TabIndex = 0
+        Me.connect_lb.Text = "Connect...."
         '
         'wait_tm
         '
@@ -69,6 +69,6 @@ Partial Class connect_frame
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents connect_lb As System.Windows.Forms.Label
     Friend WithEvents wait_tm As System.Windows.Forms.Timer
 End Class

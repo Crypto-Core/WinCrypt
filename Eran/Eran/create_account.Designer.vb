@@ -27,8 +27,8 @@ Partial Class create_account
         Me.create_bt = New System.Windows.Forms.Button()
         Me.create_eran_acc_gb = New System.Windows.Forms.GroupBox()
         Me.auth_key_lb = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.min_chars_pwd_lb = New System.Windows.Forms.Label()
+        Me.min_chars_urs_lb = New System.Windows.Forms.Label()
         Me.eran_adr_lb = New System.Windows.Forms.Label()
         Me.eran_txt = New System.Windows.Forms.TextBox()
         Me.pwd_txt = New System.Windows.Forms.TextBox()
@@ -70,7 +70,7 @@ Partial Class create_account
         Me.create_bt.FlatAppearance.BorderSize = 0
         Me.create_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.create_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.create_bt.Location = New System.Drawing.Point(119, 344)
+        Me.create_bt.Location = New System.Drawing.Point(119, 337)
         Me.create_bt.Name = "create_bt"
         Me.create_bt.Size = New System.Drawing.Size(75, 23)
         Me.create_bt.TabIndex = 0
@@ -81,8 +81,8 @@ Partial Class create_account
         '
         Me.create_eran_acc_gb.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.create_eran_acc_gb.Controls.Add(Me.auth_key_lb)
-        Me.create_eran_acc_gb.Controls.Add(Me.Label5)
-        Me.create_eran_acc_gb.Controls.Add(Me.Label4)
+        Me.create_eran_acc_gb.Controls.Add(Me.min_chars_pwd_lb)
+        Me.create_eran_acc_gb.Controls.Add(Me.min_chars_urs_lb)
         Me.create_eran_acc_gb.Controls.Add(Me.eran_adr_lb)
         Me.create_eran_acc_gb.Controls.Add(Me.eran_txt)
         Me.create_eran_acc_gb.Controls.Add(Me.pwd_txt)
@@ -92,7 +92,7 @@ Partial Class create_account
         Me.create_eran_acc_gb.ForeColor = System.Drawing.Color.White
         Me.create_eran_acc_gb.Location = New System.Drawing.Point(34, 117)
         Me.create_eran_acc_gb.Name = "create_eran_acc_gb"
-        Me.create_eran_acc_gb.Size = New System.Drawing.Size(244, 221)
+        Me.create_eran_acc_gb.Size = New System.Drawing.Size(244, 214)
         Me.create_eran_acc_gb.TabIndex = 1
         Me.create_eran_acc_gb.TabStop = False
         Me.create_eran_acc_gb.Text = "Create Eran Account"
@@ -100,36 +100,36 @@ Partial Class create_account
         'auth_key_lb
         '
         Me.auth_key_lb.AutoSize = True
-        Me.auth_key_lb.Location = New System.Drawing.Point(7, 173)
+        Me.auth_key_lb.Location = New System.Drawing.Point(7, 183)
         Me.auth_key_lb.Name = "auth_key_lb"
         Me.auth_key_lb.Size = New System.Drawing.Size(55, 13)
         Me.auth_key_lb.TabIndex = 8
         Me.auth_key_lb.Text = "Auth. key:"
         '
-        'Label5
+        'min_chars_pwd_lb
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(183, 100)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 12)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "min. 8 chars"
+        Me.min_chars_pwd_lb.AutoSize = True
+        Me.min_chars_pwd_lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.min_chars_pwd_lb.Location = New System.Drawing.Point(10, 119)
+        Me.min_chars_pwd_lb.Name = "min_chars_pwd_lb"
+        Me.min_chars_pwd_lb.Size = New System.Drawing.Size(55, 12)
+        Me.min_chars_pwd_lb.TabIndex = 7
+        Me.min_chars_pwd_lb.Text = "min. 8 chars"
         '
-        'Label4
+        'min_chars_urs_lb
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(183, 50)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 12)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "min. 6 chars"
+        Me.min_chars_urs_lb.AutoSize = True
+        Me.min_chars_urs_lb.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.min_chars_urs_lb.Location = New System.Drawing.Point(10, 60)
+        Me.min_chars_urs_lb.Name = "min_chars_urs_lb"
+        Me.min_chars_urs_lb.Size = New System.Drawing.Size(55, 12)
+        Me.min_chars_urs_lb.TabIndex = 6
+        Me.min_chars_urs_lb.Text = "min. 6 chars"
         '
         'eran_adr_lb
         '
         Me.eran_adr_lb.AutoSize = True
-        Me.eran_adr_lb.Location = New System.Drawing.Point(3, 124)
+        Me.eran_adr_lb.Location = New System.Drawing.Point(3, 139)
         Me.eran_adr_lb.Name = "eran_adr_lb"
         Me.eran_adr_lb.Size = New System.Drawing.Size(72, 13)
         Me.eran_adr_lb.TabIndex = 5
@@ -140,7 +140,7 @@ Partial Class create_account
         Me.eran_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.eran_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.eran_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.eran_txt.Location = New System.Drawing.Point(6, 140)
+        Me.eran_txt.Location = New System.Drawing.Point(6, 155)
         Me.eran_txt.Name = "eran_txt"
         Me.eran_txt.ReadOnly = True
         Me.eran_txt.Size = New System.Drawing.Size(232, 20)
@@ -152,9 +152,9 @@ Partial Class create_account
         Me.pwd_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.pwd_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pwd_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.pwd_txt.Location = New System.Drawing.Point(71, 77)
+        Me.pwd_txt.Location = New System.Drawing.Point(6, 96)
         Me.pwd_txt.Name = "pwd_txt"
-        Me.pwd_txt.Size = New System.Drawing.Size(167, 20)
+        Me.pwd_txt.Size = New System.Drawing.Size(232, 20)
         Me.pwd_txt.TabIndex = 3
         Me.pwd_txt.UseSystemPasswordChar = True
         '
@@ -163,15 +163,15 @@ Partial Class create_account
         Me.usr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.usr_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.usr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.usr_txt.Location = New System.Drawing.Point(71, 27)
+        Me.usr_txt.Location = New System.Drawing.Point(6, 37)
         Me.usr_txt.Name = "usr_txt"
-        Me.usr_txt.Size = New System.Drawing.Size(167, 20)
+        Me.usr_txt.Size = New System.Drawing.Size(232, 20)
         Me.usr_txt.TabIndex = 2
         '
         'pwd_lb
         '
         Me.pwd_lb.AutoSize = True
-        Me.pwd_lb.Location = New System.Drawing.Point(7, 80)
+        Me.pwd_lb.Location = New System.Drawing.Point(3, 80)
         Me.pwd_lb.Name = "pwd_lb"
         Me.pwd_lb.Size = New System.Drawing.Size(56, 13)
         Me.pwd_lb.TabIndex = 1
@@ -180,7 +180,7 @@ Partial Class create_account
         'usr_lb
         '
         Me.usr_lb.AutoSize = True
-        Me.usr_lb.Location = New System.Drawing.Point(7, 30)
+        Me.usr_lb.Location = New System.Drawing.Point(3, 21)
         Me.usr_lb.Name = "usr_lb"
         Me.usr_lb.Size = New System.Drawing.Size(58, 13)
         Me.usr_lb.TabIndex = 0
@@ -212,8 +212,8 @@ Partial Class create_account
     Friend WithEvents usr_txt As System.Windows.Forms.TextBox
     Friend WithEvents pwd_lb As System.Windows.Forms.Label
     Friend WithEvents usr_lb As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents min_chars_pwd_lb As System.Windows.Forms.Label
+    Friend WithEvents min_chars_urs_lb As System.Windows.Forms.Label
     Friend WithEvents auth_key_lb As System.Windows.Forms.Label
     Friend WithEvents logo_img As System.Windows.Forms.PictureBox
 End Class

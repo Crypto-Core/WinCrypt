@@ -24,6 +24,7 @@ Public Class IniFile
         Dim regexcomment As New Regex("^([\s]*#.*)", (RegexOptions.Singleline Or RegexOptions.IgnoreCase))
         Dim regexsection As New Regex("^[\s]*\[[\s]*([^\[\s].*[^\s\]])[\s]*\][\s]*$", (RegexOptions.Singleline Or RegexOptions.IgnoreCase))
         Dim regexkey As New Regex("^\s*([^=]*[^\s=])\s*=(.*)", (RegexOptions.Singleline Or RegexOptions.IgnoreCase))
+
         While Not oReader.EndOfStream
             Dim line As String = oReader.ReadLine()
             If line <> String.Empty Then
@@ -39,8 +40,10 @@ Public Class IniFile
                     m = regexkey.Match(line)
                     Trace.WriteLine(String.Format("Adding Key [{0}]=[{1}]", m.Groups(1).Value, m.Groups(2).Value))
                     tempsection.AddKey(m.Groups(1).Value).Value = m.Groups(2).Value
+
                 ElseIf tempsection IsNot Nothing Then
                     '  Handle Key without value
+
                     Trace.WriteLine(String.Format("Adding Key [{0}]", line))
                     tempsection.AddKey(line)
                 Else
@@ -80,7 +83,7 @@ Public Class IniFile
                 ElseIf regexkey.Match(line).Success AndAlso tempsection IsNot Nothing Then
                     m = regexkey.Match(line)
                     Trace.WriteLine(String.Format("Adding Key [{0}]=[{1}]", m.Groups(1).Value, m.Groups(2).Value))
-                    tempsection.AddKey(m.Groups(1).Value).Value = m.Groups(2).Value
+                    tempsection.AddKey(m.Groups(1).Value).Value = m.Groups(2).Value.Replace("\r\n", vbNewLine)
                 ElseIf tempsection IsNot Nothing Then
                     '  Handle Key without value
                     Trace.WriteLine(String.Format("Adding Key [{0}]", line))

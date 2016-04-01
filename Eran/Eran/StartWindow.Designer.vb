@@ -29,7 +29,7 @@ Partial Class StartWindow
         Me.startNormal_bt = New System.Windows.Forms.Button()
         Me.msg2 = New System.Windows.Forms.Label()
         Me.save_selection_cb = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.beta_warning = New System.Windows.Forms.Label()
         CType(Me.secure_desktop_img, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,14 +46,14 @@ Partial Class StartWindow
         '
         'msg1
         '
-        Me.msg1.AutoSize = True
         Me.msg1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.msg1.ForeColor = System.Drawing.Color.White
-        Me.msg1.Location = New System.Drawing.Point(158, 237)
+        Me.msg1.Location = New System.Drawing.Point(30, 237)
         Me.msg1.Name = "msg1"
-        Me.msg1.Size = New System.Drawing.Size(202, 13)
+        Me.msg1.Size = New System.Drawing.Size(476, 13)
         Me.msg1.TabIndex = 2
         Me.msg1.Text = "Want to Eran start in Secure Desktop?"
+        Me.msg1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'secureDesktop_bt
         '
@@ -87,38 +87,37 @@ Partial Class StartWindow
         '
         'msg2
         '
-        Me.msg2.AutoSize = True
         Me.msg2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.msg2.ForeColor = System.Drawing.Color.White
         Me.msg2.Location = New System.Drawing.Point(27, 265)
         Me.msg2.Name = "msg2"
-        Me.msg2.Size = New System.Drawing.Size(464, 34)
+        Me.msg2.Size = New System.Drawing.Size(464, 95)
         Me.msg2.TabIndex = 5
-        Me.msg2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Th" & _
-            "is protection is especially against trojans and spyware."
+        Me.msg2.Text = "In Secure Desktop Every feature such as screenshots or Keylogger is disabled. Thi" & _
+            "s protection is especially against trojans and spyware."
         '
         'save_selection_cb
         '
         Me.save_selection_cb.AutoSize = True
         Me.save_selection_cb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.save_selection_cb.ForeColor = System.Drawing.Color.White
-        Me.save_selection_cb.Location = New System.Drawing.Point(12, 367)
+        Me.save_selection_cb.Location = New System.Drawing.Point(12, 388)
         Me.save_selection_cb.Name = "save_selection_cb"
         Me.save_selection_cb.Size = New System.Drawing.Size(98, 17)
         Me.save_selection_cb.TabIndex = 6
         Me.save_selection_cb.Text = "Save selection"
         Me.save_selection_cb.UseVisualStyleBackColor = True
         '
-        'Label1
+        'beta_warning
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(297, 389)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(185, 13)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "[WARNING: IT'S A BETA FUNCTION!]"
+        Me.beta_warning.AutoSize = True
+        Me.beta_warning.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.beta_warning.ForeColor = System.Drawing.Color.Red
+        Me.beta_warning.Location = New System.Drawing.Point(297, 389)
+        Me.beta_warning.Name = "beta_warning"
+        Me.beta_warning.Size = New System.Drawing.Size(185, 13)
+        Me.beta_warning.TabIndex = 7
+        Me.beta_warning.Text = "[WARNING: IT'S A BETA FUNCTION!]"
         '
         'StartWindow
         '
@@ -126,7 +125,7 @@ Partial Class StartWindow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(518, 411)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.beta_warning)
         Me.Controls.Add(Me.save_selection_cb)
         Me.Controls.Add(Me.msg2)
         Me.Controls.Add(Me.startNormal_bt)
@@ -150,5 +149,5 @@ Partial Class StartWindow
     Friend WithEvents startNormal_bt As System.Windows.Forms.Button
     Friend WithEvents msg2 As System.Windows.Forms.Label
     Friend WithEvents save_selection_cb As System.Windows.Forms.CheckBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents beta_warning As System.Windows.Forms.Label
 End Class

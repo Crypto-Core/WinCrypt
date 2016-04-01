@@ -25,7 +25,7 @@ Partial Class FileDialog_
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FileDialog_))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.usr_lb = New System.Windows.Forms.Label()
+        Me.filename_lb = New System.Windows.Forms.Label()
         Me.filename_txt = New System.Windows.Forms.TextBox()
         Me.open_bt = New System.Windows.Forms.Button()
         Me.cancel_bt = New System.Windows.Forms.Button()
@@ -33,11 +33,11 @@ Partial Class FileDialog_
         Me.path_txt = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.file_view = New System.Windows.Forms.ListView()
+        Me.name_column = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.type_column = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.size_column = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.creat_time_column = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,7 +50,7 @@ Partial Class FileDialog_
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.usr_lb)
+        Me.Panel1.Controls.Add(Me.filename_lb)
         Me.Panel1.Controls.Add(Me.filename_txt)
         Me.Panel1.Controls.Add(Me.open_bt)
         Me.Panel1.Controls.Add(Me.cancel_bt)
@@ -60,16 +60,16 @@ Partial Class FileDialog_
         Me.Panel1.Size = New System.Drawing.Size(641, 78)
         Me.Panel1.TabIndex = 0
         '
-        'usr_lb
+        'filename_lb
         '
-        Me.usr_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.usr_lb.AutoSize = True
-        Me.usr_lb.ForeColor = System.Drawing.Color.White
-        Me.usr_lb.Location = New System.Drawing.Point(32, 19)
-        Me.usr_lb.Name = "usr_lb"
-        Me.usr_lb.Size = New System.Drawing.Size(52, 13)
-        Me.usr_lb.TabIndex = 7
-        Me.usr_lb.Text = "Filename:"
+        Me.filename_lb.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.filename_lb.AutoSize = True
+        Me.filename_lb.ForeColor = System.Drawing.Color.White
+        Me.filename_lb.Location = New System.Drawing.Point(32, 19)
+        Me.filename_lb.Name = "filename_lb"
+        Me.filename_lb.Size = New System.Drawing.Size(52, 13)
+        Me.filename_lb.TabIndex = 7
+        Me.filename_lb.Text = "Filename:"
         '
         'filename_txt
         '
@@ -162,7 +162,7 @@ Partial Class FileDialog_
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ListView1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.file_view)
         '
         'SplitContainer1.Panel2
         '
@@ -173,48 +173,48 @@ Partial Class FileDialog_
         Me.SplitContainer1.SplitterWidth = 2
         Me.SplitContainer1.TabIndex = 9
         '
-        'ListView1
+        'file_view
         '
-        Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
-        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListView1.ForeColor = System.Drawing.Color.White
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.LargeImageList = Me.ImageList1
-        Me.ListView1.Location = New System.Drawing.Point(0, 0)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(612, 275)
-        Me.ListView1.SmallImageList = Me.ImageList1
-        Me.ListView1.TabIndex = 2
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
+        Me.file_view.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.file_view.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.name_column, Me.type_column, Me.size_column, Me.creat_time_column})
+        Me.file_view.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.file_view.ForeColor = System.Drawing.Color.White
+        Me.file_view.FullRowSelect = True
+        Me.file_view.LargeImageList = Me.ImageList1
+        Me.file_view.Location = New System.Drawing.Point(0, 0)
+        Me.file_view.MultiSelect = False
+        Me.file_view.Name = "file_view"
+        Me.file_view.Size = New System.Drawing.Size(612, 275)
+        Me.file_view.SmallImageList = Me.ImageList1
+        Me.file_view.TabIndex = 2
+        Me.file_view.UseCompatibleStateImageBehavior = False
+        Me.file_view.View = System.Windows.Forms.View.Details
         '
-        'ColumnHeader1
+        'name_column
         '
-        Me.ColumnHeader1.Text = "Name"
-        Me.ColumnHeader1.Width = 325
+        Me.name_column.Text = "Name"
+        Me.name_column.Width = 325
         '
-        'ColumnHeader2
+        'type_column
         '
-        Me.ColumnHeader2.Text = "Type"
-        Me.ColumnHeader2.Width = 69
+        Me.type_column.Text = "Type"
+        Me.type_column.Width = 69
         '
-        'ColumnHeader3
+        'size_column
         '
-        Me.ColumnHeader3.Text = "Size"
-        Me.ColumnHeader3.Width = 108
+        Me.size_column.Text = "Size"
+        Me.size_column.Width = 108
         '
-        'ColumnHeader4
+        'creat_time_column
         '
-        Me.ColumnHeader4.Text = "Creation Time"
-        Me.ColumnHeader4.Width = 132
+        Me.creat_time_column.Text = "Creation Time"
+        Me.creat_time_column.Width = 132
         '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.PictureBox1.Location = New System.Drawing.Point(-89, 19)
+        Me.PictureBox1.Location = New System.Drawing.Point(-88, 19)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(181, 109)
         Me.PictureBox1.TabIndex = 0
@@ -249,15 +249,15 @@ Partial Class FileDialog_
     Friend WithEvents open_bt As System.Windows.Forms.Button
     Friend WithEvents cancel_bt As System.Windows.Forms.Button
     Friend WithEvents filename_txt As System.Windows.Forms.TextBox
-    Friend WithEvents usr_lb As System.Windows.Forms.Label
+    Friend WithEvents filename_lb As System.Windows.Forms.Label
     Friend WithEvents path_txt As System.Windows.Forms.TextBox
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents file_view As System.Windows.Forms.ListView
+    Friend WithEvents name_column As System.Windows.Forms.ColumnHeader
+    Friend WithEvents type_column As System.Windows.Forms.ColumnHeader
+    Friend WithEvents size_column As System.Windows.Forms.ColumnHeader
+    Friend WithEvents creat_time_column As System.Windows.Forms.ColumnHeader
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

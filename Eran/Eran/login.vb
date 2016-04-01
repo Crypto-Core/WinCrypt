@@ -40,7 +40,13 @@ Public Class login
             main_frm.Text = "Eran - " & username
             pwd = pwd_txt.Text
         Else
-            MessageBox.Show(combine & vbNewLine & "Wrong logindata!", "Join failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Dim WrongLoginMSG As String = "{0}" & vbNewLine & "Wrong logindata!"
+            Dim WrongLoginTitle As String = "Join failed!"
+            If language.ini.GetKeyValue("login", "WrongLoginMSG") = Nothing Then : Else
+                WrongLoginMSG = language.ini.GetKeyValue("login", "WrongLoginMSG")
+                WrongLoginTitle = language.ini.GetKeyValue("login", "WrongLoginTitle")
+            End If
+            MessageBox.Show(String.Format(WrongLoginMSG, combine), WrongLoginTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

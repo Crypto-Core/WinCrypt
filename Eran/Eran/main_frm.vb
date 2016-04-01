@@ -106,9 +106,11 @@ Public Class main_frm
                         Case CStr(0)
                             For Each getName In chat_frm
                                 If adress_ = getName.Name Then
-
-                                    If MessageBox.Show("Accept incomming File from " & getName.Text & "?", "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
-
+                                    Dim AcceptIncommingFileMSG As String = "Accept incomming File from {0}?"
+                                    If language.ini.GetKeyValue("main_frm", "AcceptIncommingFileMSG") = Nothing Then : Else
+                                        AcceptIncommingFileMSG = language.ini.GetKeyValue("main_frm", "AcceptIncommingFileMSG")
+                                    End If
+                                    If MessageBox.Show(String.Format(AcceptIncommingFileMSG, getName.Text), "Icomming file", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
                                         Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & "; /accept_trans 1;")
                                     End If
                                     Exit For
@@ -615,7 +617,7 @@ Public Class main_frm
                 server.myHost = host
                 available_timer.Enabled = True
             Else
-                MessageBox.Show("Verbindung zum Server nicht möglich!2")
+                MessageBox.Show("Connection to the server is not possible !")
                 Application.Exit()
             End If
         Catch ex As Exception
@@ -641,7 +643,12 @@ Public Class main_frm
     End Sub
     Private Sub eran_adr_txt_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.Click
         My.Computer.Clipboard.SetText(eran_adr_txt.Text)
-        MessageBox.Show("Eran address copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.None)
+        If language.ini.GetKeyValue("main_frm", "EranAddressCopyMSG") = Nothing Then
+            MessageBox.Show("Eran address copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.None)
+        Else
+            MessageBox.Show(language.ini.GetKeyValue("main_frm", "EranAddressCopyMSG"), language.ini.GetKeyValue("main_frm", "EranAddressCopyTitle"), MessageBoxButtons.OK, MessageBoxIcon.None)
+        End If
+
     End Sub
 
     Private Sub eran_adr_txt_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles eran_adr_txt.GotFocus
@@ -1103,14 +1110,19 @@ Public Class main_frm
             open_file_diag.ShowDialog()
         End If
     End Sub
-    ''' <summary>
-    ''' Einen Benutzer von der Liste löschen.
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
+
     Private Sub DeleteFromListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteFromListToolStripMenuItem.Click
-        If MessageBox.Show("Do you want to delete this contact?", "Delete user", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+
+        Dim DeleteContactMSG As String = "Do you want to delete this contact?"
+        Dim DeleteContactTitle As String = "Delete User"
+        If language.ini.GetKeyValue("main_frm", "DeleteContactMSG") = Nothing Then : Else
+            DeleteContactMSG = language.ini.GetKeyValue("main_frm", "DeleteContactMSG")
+        End If
+        If language.ini.GetKeyValue("main_frm", "DeleteContactTitle") = Nothing Then : Else
+            DeleteContactTitle = language.ini.GetKeyValue("main_frm", "DeleteContactTitle")
+        End If
+
+        If MessageBox.Show(DeleteContactMSG, DeleteContactTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Dim usr_name As String = userlist_viewer.SelectedItems(0).Text
             Dim ini As New IniFile
             Dim read_enc_bytes As Byte() = File.ReadAllBytes(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
@@ -1136,10 +1148,14 @@ Public Class main_frm
         End If
     End Sub
 
-    Private Sub CopyEranAdressToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyEranAdressToolStripMenuItem.Click
+    Private Sub CopyEranAdressToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyEranAddressToolStripMenuItem.Click
         Dim eran As String = userlist_viewer.SelectedItems(0).SubItems(1).Text.ToString
         My.Computer.Clipboard.SetText(eran)
-        MessageBox.Show("Eran adress copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If language.ini.GetKeyValue("main_frm", "EranAddressCopyMSG") = Nothing Then
+            MessageBox.Show("Eran address copied!", "Copy", MessageBoxButtons.OK, MessageBoxIcon.None)
+        Else
+            MessageBox.Show(language.ini.GetKeyValue("main_frm", "EranAddressCopyMSG"), language.ini.GetKeyValue("main_frm", "EranAddressCopyTitle"), MessageBoxButtons.OK, MessageBoxIcon.None)
+        End If
     End Sub
 
     Private Sub SaveFileDialog1_FileOk(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles SaveFileDialog.FileOk
@@ -1252,11 +1268,19 @@ Public Class main_frm
     End Sub
 
     Private Sub ShowPublicKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowPublicKeyToolStripMenuItem.Click
-        MessageBox.Show("Public Key: " & vbNewLine & PublicKey, "Public Key", MessageBoxButtons.OK, MessageBoxIcon.None)
+        Dim PublicKeyMSG As String = "Public Key: {0}"
+        If ini.GetKeyValue("main_frm", "PublicKeyMSG") = Nothing Then : Else
+            PublicKeyMSG = ini.GetKeyValue("main_frm", "PublicKeyMSG")
+        End If
+        MessageBox.Show(String.Format(PublicKeyMSG, PublicKey), ini.GetKeyValue("main_frm", "PublicKeyTitle"), MessageBoxButtons.OK, MessageBoxIcon.None)
     End Sub
 
     Private Sub ShowServerKeyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowServerKeyToolStripMenuItem.Click
-        MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Server Key", MessageBoxButtons.OK, MessageBoxIcon.None)
+        If ini.GetKeyValue("main_frm", "ServerKeyTitle") = Nothing Then
+            MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), "Server Key", MessageBoxButtons.OK, MessageBoxIcon.None)
+        Else
+            MessageBox.Show("Hash: " & rHash.HashString(Server_key, rHash.HASH.MD5), ini.GetKeyValue("main_frm", "ServerKeyTitle"), MessageBoxButtons.OK, MessageBoxIcon.None)
+        End If
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -1264,11 +1288,9 @@ Public Class main_frm
     End Sub
 
     Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
-
         Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)
         Dim select_adress As String = userlist_viewer.Items(selectedCount).SubItems(1).Text
         connected_usr.blockuser(select_adress)
-
     End Sub
     Private Sub user_conextmenu_Opening(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles user_conextmenu.Opening
         Dim selectedCount As Integer = userlist_viewer.SelectedIndices.Item(0)

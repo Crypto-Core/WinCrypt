@@ -98,7 +98,7 @@ Partial Class login
         Me.server_gb.Size = New System.Drawing.Size(289, 61)
         Me.server_gb.TabIndex = 1
         Me.server_gb.TabStop = False
-        Me.server_gb.Text = "Acces Node"
+        Me.server_gb.Text = "Access Node"
         '
         'port_txt
         '
@@ -152,7 +152,7 @@ Partial Class login
         Me.login_gb.ForeColor = System.Drawing.Color.White
         Me.login_gb.Location = New System.Drawing.Point(12, 177)
         Me.login_gb.Name = "login_gb"
-        Me.login_gb.Size = New System.Drawing.Size(289, 84)
+        Me.login_gb.Size = New System.Drawing.Size(289, 116)
         Me.login_gb.TabIndex = 0
         Me.login_gb.TabStop = False
         Me.login_gb.Text = "Login"
@@ -162,9 +162,9 @@ Partial Class login
         Me.pwd_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.pwd_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pwd_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.pwd_txt.Location = New System.Drawing.Point(73, 45)
+        Me.pwd_txt.Location = New System.Drawing.Point(12, 79)
         Me.pwd_txt.Name = "pwd_txt"
-        Me.pwd_txt.Size = New System.Drawing.Size(210, 22)
+        Me.pwd_txt.Size = New System.Drawing.Size(271, 22)
         Me.pwd_txt.TabIndex = 4
         Me.pwd_txt.UseSystemPasswordChar = True
         '
@@ -173,16 +173,16 @@ Partial Class login
         Me.usr_txt.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.usr_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.usr_txt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(122, Byte), Integer), CType(CType(204, Byte), Integer))
-        Me.usr_txt.Location = New System.Drawing.Point(73, 19)
+        Me.usr_txt.Location = New System.Drawing.Point(12, 38)
         Me.usr_txt.Name = "usr_txt"
         Me.usr_txt.ReadOnly = True
-        Me.usr_txt.Size = New System.Drawing.Size(210, 22)
+        Me.usr_txt.Size = New System.Drawing.Size(271, 22)
         Me.usr_txt.TabIndex = 5
         '
         'pwd_lb
         '
         Me.pwd_lb.AutoSize = True
-        Me.pwd_lb.Location = New System.Drawing.Point(9, 48)
+        Me.pwd_lb.Location = New System.Drawing.Point(9, 63)
         Me.pwd_lb.Name = "pwd_lb"
         Me.pwd_lb.Size = New System.Drawing.Size(59, 13)
         Me.pwd_lb.TabIndex = 1

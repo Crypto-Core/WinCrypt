@@ -68,6 +68,8 @@ Namespace My
                     Case CStr(2)
                 End Select
             End If
+            language.load()
         End Sub
+
     End Class
 End Namespace

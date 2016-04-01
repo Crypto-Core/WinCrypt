@@ -118,7 +118,12 @@ Public Class nChat_frm
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
         encrypt_state.Enabled = True
         If encrypted Then
-            MessageBox.Show("Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 256bit" & vbNewLine & "SHA1: " & rHash.HashString(key, rHash.HASH.SHA1), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '"Handshake with: RSA 2048bit\r\nChat Encryption: AES 256bit\r\nSHA1: {0}"
+            Dim msgEncStr As String = "Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 256bit" & vbNewLine & "SHA1: {0}"
+            If language.ini.GetKeyValue("nChat_frm", "EncryptMSG") = Nothing Then : Else
+                msgEncStr = language.ini.GetKeyValue("nChat_frm", "EncryptMSG")
+            End If
+            MessageBox.Show(String.Format(msgEncStr, rHash.HashString(key, rHash.HASH.SHA1)), "Key", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             AddText(rtb_, "[Send Handshake]" & vbNewLine, Color.Yellow)
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
@@ -152,6 +157,16 @@ Public Class nChat_frm
     Private WithEvents rtb_ As RichTextBox
     Public WithEvents main_img As PictureBox = main_frm.profil_img
     Private Sub nChat_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        UserToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "UserToolStripMenuItem")
+        InfoToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "InfoToolStripMenuItem")
+        BlockingToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "BlockingToolStripMenuItem")
+
+        OptionsToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "OptionsToolStripMenuItem")
+        RenewEncryptionToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "RenewEncryptionToolStripMenuItem")
+        ClearChatToolStripMenuItem1.Text = language.ini.GetKeyValue("nChat_frm", "ClearChatToolStripMenuItem1")
+        ClearChatToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "ClearChatToolStripMenuItem")
+        sendfile_bt.Text = language.ini.GetKeyValue("nChat_frm", "sendfile_bt")
+        alert_bt.Text = language.ini.GetKeyValue("nChat_frm", "alert_bt")
         If SecureDesktop.isOnSecureDesktop Then
             sendfile_bt.Enabled = False
         End If
@@ -479,5 +494,9 @@ Public Class nChat_frm
     Private Sub ClearChatToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem1.Click
         rtb_.Clear()
         rtb_.Controls.Clear()
+    End Sub
+
+    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
     End Sub
 End Class
