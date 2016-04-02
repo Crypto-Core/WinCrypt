@@ -117,10 +117,10 @@ Public Class main_frm
                                 End If
                             Next
                         Case CStr(1)
-                            
+
 
                             DataTransfer.Send(transFile, adress_, transKey)
-                            
+
                     End Select
                     If packethash.Length > 0 Then
                         Dim key_ As String = ""
@@ -163,7 +163,7 @@ Public Class main_frm
                                                         'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, AddData.Memory.ToArray, False)
                                                     End If
                                                 End If
-                                                
+
                                                 DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
                                                 GC_.FlushMemory()
                                                 Exit For : Else
@@ -222,7 +222,7 @@ Public Class main_frm
                                             'My.Computer.FileSystem.WriteAllBytes(svDiag.FileName, newPack.Memory.ToArray, False)
                                         End If
                                     End If
-                                    
+
                                     DataStream.PacketList.RemoveRange(0, DataStream.PacketList.Count)
                                 End If : End If : Else : End If : End If
 
@@ -566,7 +566,23 @@ Public Class main_frm
             login.login_panel.Hide()
             create_account.create_account_panel.Show()
         End If
-        
+        For Each tt In Directory.GetFiles(My.Application.Info.DirectoryPath & "\language")
+            Dim i As New FileInfo(tt)
+            Dim newBT As ToolStripItem
+            newBT = New ToolStripMenuItem
+            newBT.Name = i.Name.Replace("-", "")
+            newBT.BackColor = Color.FromArgb(40, 40, 40)
+            newBT.ForeColor = Color.White
+            newBT.Text = i.Name
+            AddHandler newBT.Click, Function()
+                                        ini.Load(config_path)
+                                        ini.SetKeyValue("config", "language", i.Name)
+                                        ini.Save(config_path)
+                                        config.language = i.Name
+                                        language.load()
+                                    End Function
+            LanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {newBT})
+        Next
 
         'Start Localserver
         'trd = New Threading.Thread(AddressOf server.Main)
@@ -768,7 +784,7 @@ Public Class main_frm
                     Else
                         chat_frm(window).Show()
                     End If
-                    
+
                 End If
             End If : Else
             chat_frm(index) = New nChat_frm
@@ -885,7 +901,7 @@ Public Class main_frm
         PlayTimer(btn_index).Enabled = True
     End Sub
 
-     
+
     Sub audioscroll()
         For tt As Integer = 0 To audioIndex - 1
             audioBT(tt).Location = New Point(chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.LastIndexOf(cacheDate(tt)) + cacheDate(tt).Length).X, chat_rtb(window).GetPositionFromCharIndex(chat_rtb(window).Text.IndexOf(cacheDate(tt))).Y)
@@ -1315,4 +1331,6 @@ Public Class main_frm
     Private Sub donate_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles donate_bt.Click
         Panel1.Visible = False
     End Sub
+
 End Class
+

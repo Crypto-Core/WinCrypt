@@ -35,7 +35,6 @@ Partial Public Class nChat_frm
         Me.recAudio = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BlockingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenewEncryptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -150,20 +149,12 @@ Partial Public Class nChat_frm
         '
         'UserToolStripMenuItem
         '
-        Me.UserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InfoToolStripMenuItem, Me.BlockingToolStripMenuItem})
+        Me.UserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BlockingToolStripMenuItem})
         Me.UserToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UserToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
         Me.UserToolStripMenuItem.Size = New System.Drawing.Size(42, 20)
         Me.UserToolStripMenuItem.Text = "User"
-        '
-        'InfoToolStripMenuItem
-        '
-        Me.InfoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.InfoToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem"
-        Me.InfoToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
-        Me.InfoToolStripMenuItem.Text = "Info"
         '
         'BlockingToolStripMenuItem
         '
@@ -185,7 +176,7 @@ Partial Public Class nChat_frm
         '
         'RenewEncryptionToolStripMenuItem
         '
-        Me.RenewEncryptionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.RenewEncryptionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.RenewEncryptionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.RenewEncryptionToolStripMenuItem.Name = "RenewEncryptionToolStripMenuItem"
         Me.RenewEncryptionToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
@@ -338,7 +329,6 @@ Partial Public Class nChat_frm
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents recAudio As System.Windows.Forms.ToolStripButton
     Friend WithEvents recTimer As System.Windows.Forms.Timer
-    Friend WithEvents InfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BlockingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ClearChatToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 End Class

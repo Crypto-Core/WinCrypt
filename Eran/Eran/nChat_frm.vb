@@ -18,6 +18,10 @@ Public Class nChat_frm
     Dim audioIndex As Integer = 0
     Dim audioByte As New List(Of Byte())
 
+    Private Sub nChat_frm_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+        loadLang()
+    End Sub
+
     Private Sub nChat_frm_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         On Error Resume Next
         e.Cancel = True
@@ -156,17 +160,18 @@ Public Class nChat_frm
     End Function
     Private WithEvents rtb_ As RichTextBox
     Public WithEvents main_img As PictureBox = main_frm.profil_img
-    Private Sub nChat_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Sub loadLang()
         UserToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "UserToolStripMenuItem")
-        InfoToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "InfoToolStripMenuItem")
         BlockingToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "BlockingToolStripMenuItem")
-
         OptionsToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "OptionsToolStripMenuItem")
         RenewEncryptionToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "RenewEncryptionToolStripMenuItem")
         ClearChatToolStripMenuItem1.Text = language.ini.GetKeyValue("nChat_frm", "ClearChatToolStripMenuItem1")
         ClearChatToolStripMenuItem.Text = language.ini.GetKeyValue("nChat_frm", "ClearChatToolStripMenuItem")
         sendfile_bt.Text = language.ini.GetKeyValue("nChat_frm", "sendfile_bt")
         alert_bt.Text = language.ini.GetKeyValue("nChat_frm", "alert_bt")
+    End Sub
+    Private Sub nChat_frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        loadLang()
         If SecureDesktop.isOnSecureDesktop Then
             sendfile_bt.Enabled = False
         End If

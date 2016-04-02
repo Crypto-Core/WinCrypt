@@ -37,6 +37,7 @@ Partial Class main_frm
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -180,7 +181,7 @@ Partial Class main_frm
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem, Me.LanguageToolStripMenuItem})
         Me.ToolsToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
@@ -206,6 +207,14 @@ Partial Class main_frm
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.SendPingToConnectedAccesNodeToolStripMenuItem.Text = "Send Ping"
         '
+        'LanguageToolStripMenuItem
+        '
+        Me.LanguageToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.LanguageToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.LanguageToolStripMenuItem.Name = "LanguageToolStripMenuItem"
+        Me.LanguageToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.LanguageToolStripMenuItem.Text = "Language"
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
@@ -220,7 +229,7 @@ Partial Class main_frm
         Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.AboutToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.Dialog_Box_About_16
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'ImageList
@@ -636,5 +645,6 @@ Partial Class main_frm
     Friend WithEvents ReloadListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents donate_bt As System.Windows.Forms.Button
+    Friend WithEvents LanguageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

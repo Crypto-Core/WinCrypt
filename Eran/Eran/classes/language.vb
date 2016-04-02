@@ -6,7 +6,6 @@ Module language
         If config.language = "" Then : Else
 
             If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "language" & OS.OS_slash & config.language) Then
-
                 ini.Load(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "language" & OS.OS_slash & config.language)
                 'main_frm
                 main_frm.FileToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "FileToolStripMenuItem")
@@ -42,7 +41,7 @@ Module language
                 main_frm.OpenToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "OpenToolStripMenuItem")
                 main_frm.ExitToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ExitToolStripMenuItem")
                 main_frm.ShowServerKeyToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ShowServerKeyToolStripMenuItem")
-
+                main_frm.LanguageToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "LanguageToolStripMenuItem")
                 'add_user
                 add_user.Text = ini.GetKeyValue("add_user", "title")
                 add_user.eran_adress_lb.Text = ini.GetKeyValue("add_user", "eran_adress_lb")
