@@ -49,6 +49,8 @@ Module SecureDesktop
         Dim passwd As String = ""
         Task.Factory.StartNew(Function() As Object
                                   SetThreadDesktop(hNewDesktop)
+                                  language.load()
+                                  main_frm.CopyEranAddressToolStripMenuItem.Enabled = False
                                   AddHandler main_frm.FormClosed, Function(sender, e) As Object
 
 

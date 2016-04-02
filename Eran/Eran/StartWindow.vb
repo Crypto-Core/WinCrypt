@@ -12,6 +12,7 @@ Public Class StartWindow
             ini.Save(config_path)
         Else : End If
         SecureDesktop.isOnSecureDesktop = True
+        Control.CheckForIllegalCrossThreadCalls = False
         SecureDesktop.StartSecureWindow(main_frm)
     End Sub
 

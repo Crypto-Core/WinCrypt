@@ -10,7 +10,6 @@ Module config
             'My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg, False)
         End If
         config_path = My.Application.Info.DirectoryPath & "\config.ini"
-        My.Computer.Clipboard.SetText(config_path)
         ini.Load(config_path)
         On Error Resume Next
         own_access_node_port = CInt(ini.GetKeyValue("config", "own_access_node_port"))

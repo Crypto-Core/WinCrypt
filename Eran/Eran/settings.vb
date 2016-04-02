@@ -3,6 +3,7 @@ Imports System.IO
 Public Class settings
     Dim ini As New IniFile
     Private Sub settings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Control.CheckForIllegalCrossThreadCalls = False
         Try
             config.load()
             Select Case config.startmodus
