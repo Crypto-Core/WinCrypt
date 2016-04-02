@@ -6,8 +6,6 @@ Public Class nChat_frm
     Dim key As String
     Dim aes_ As New AESEncrypt
     Dim Timeout As Integer = 3
-
-
     Private audioBT(100000) As Button
     Dim cacheDate(100000) As String
     Dim audioTime(100000) As Double
