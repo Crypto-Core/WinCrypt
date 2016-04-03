@@ -21,6 +21,7 @@ Module server
         Dim eran_adress As String
         Dim rsa_public_key As String
         Dim Key As String
+        Dim Authenticated As Boolean
     End Structure
     Friend Function isConnected(ByVal eran_adress As String) As Boolean
         Try
@@ -80,8 +81,10 @@ Module server
                     Dim encrypted_key As String = RSA.RSA_encrypt(rndKey, c.rsa_public_key)
                     ' Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
 
-                    Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; ")
+                    Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; /getauthKey 0;")
                     c.streamw.WriteLine(handshake)
+
+                    c.Authenticated = False
 
                     'Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
                     c.streamw.Flush()
@@ -112,45 +115,57 @@ Module server
                 decode_BS64 = Convert.FromBase64String(tmp)
                 aes_.Decode(decode_BS64, decrypt_tmp, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                 dec_byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(decrypt_tmp)
-                'Console.WriteLine(dec_byte_to_str)
 
                 ' Verarbeite die Parameter
                 Dim adress As String = parameter.read_parameter("/adress ", dec_byte_to_str)
                 Dim ping As String = parameter.read_parameter("/ping ", dec_byte_to_str)
                 Dim msg As String = parameter.read_parameter("/msg ", dec_byte_to_str)
+                Dim get_authKey As String = parameter.read_parameter("/getauthKey ", dec_byte_to_str)
                 Dim get_publickey As String = parameter.read_parameter("/get_publickey ", dec_byte_to_str)
                 to_ = parameter.read_parameter("/to ", dec_byte_to_str)
                 Dim get_nickname As String = parameter.read_parameter("/get_nickname ", dec_byte_to_str)
                 Dim img_file As String = parameter.read_parameter("/img_file ", dec_byte_to_str)
                 Dim reconnect_to As String = parameter.read_parameter("/reconnect_to ", dec_byte_to_str)
+
                 If adress = con.eran_adress Then
-                    If to_ = "server" Then
-                        If ping = "pong" Then
-                            OnlineList.Add(adress)
-                            'Console.WriteLine(adress & " is available")
+                    If get_authKey.Length > 1 Then
+                        Dim DecodeByte As Byte()
+                        DecodeByte = Convert.FromBase64String(get_authKey)
+                        Dim toSHA12 As String = rHash.HashByte(DecodeByte, rHash.HASH.SHA512)
+                        Dim toMD5 As String = rHash.HashString(toSHA12, rHash.HASH.MD5)
+                        If con.eran_adress = toMD5 Then
+                            con.Authenticated = True
                         End If
-                        If ping = "ping" Then
-                            Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/adress server; /to " & con.eran_adress & "; " & "/ping pong;")
-                            Dim encrypt_source As Byte()
-                            aes_.Encode(get_bytes, encrypt_source, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                            con.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
-                            con.streamw.Flush()
+                    End If
+                    If con.Authenticated Then
+                        If to_ = "server" Then
+                            If ping = "pong" Then
+                                OnlineList.Add(adress)
+                                'Console.WriteLine(adress & " is available")
+                            End If
+                            If ping = "ping" Then
+                                Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/adress server; /to " & con.eran_adress & "; " & "/ping pong;")
+                                Dim encrypt_source As Byte()
+                                aes_.Encode(get_bytes, encrypt_source, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                con.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
+                                con.streamw.Flush()
+                            End If
+                        Else
+                            For Each c As Connection In list
+                                Try
+                                    If to_ = c.eran_adress Then
+                                        Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(dec_byte_to_str)
+                                        Dim encrypt_source As Byte()
+                                        aes_.Encode(get_bytes, encrypt_source, c.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                                        c.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
+                                        c.streamw.Flush()
+                                        Exit For
+                                    Else
+                                    End If
+                                Catch
+                                End Try
+                            Next
                         End If
-                    Else
-                        For Each c As Connection In list
-                            Try
-                                If to_ = c.eran_adress Then
-                                    Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(dec_byte_to_str)
-                                    Dim encrypt_source As Byte()
-                                    aes_.Encode(get_bytes, encrypt_source, c.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
-                                    c.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
-                                    c.streamw.Flush()
-                                    Exit For
-                                Else
-                                End If
-                            Catch
-                            End Try
-                        Next
                     End If
                 Else
 
