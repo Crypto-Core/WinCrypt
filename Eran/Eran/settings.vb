@@ -24,11 +24,9 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub startwindow_rb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles startwindow_rb.CheckedChanged
-
         Try
             ini.Load(StartWindow.config_path)
             ini.SetKeyValue("config", "startmodus", CStr(0))
@@ -50,7 +48,6 @@ Public Class settings
     End Sub
 
     Private Sub secure_desktop_rb_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles secure_desktop_rb.CheckedChanged
-
         Try
             ini.Load(StartWindow.config_path)
             ini.SetKeyValue("config", "startmodus", CStr(2))
@@ -72,7 +69,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles allow_access_node_cb.CheckedChanged
@@ -91,7 +87,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles save_cb.CheckedChanged
@@ -110,7 +105,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub scan_host_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles scan_host_txt.TextChanged
@@ -125,7 +119,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub listen_port_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles listen_port_txt.TextChanged
@@ -138,7 +131,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 
     Private Sub CheckBox1_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles play_msg_sound.CheckedChanged
@@ -155,9 +147,6 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
-
-
     End Sub
 
     Private Sub play_usr_online_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles play_usr_online.CheckedChanged, play_usr_online.CheckedChanged
@@ -174,6 +163,5 @@ Public Class settings
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
     End Sub
 End Class

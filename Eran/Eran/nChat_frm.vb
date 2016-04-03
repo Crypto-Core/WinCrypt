@@ -72,7 +72,6 @@ Public Class nChat_frm
             lock_bt.Image = My.Resources.lock16
             lock_bt.Text = "Encrypted"
             lock_bt.Enabled = True
-
             message_box.Enabled = True
             encrypted = True
             If SecureDesktop.isOnSecureDesktop Then
@@ -84,8 +83,6 @@ Public Class nChat_frm
                     sendfile_bt.Enabled = True
                 End If
             End If
-            
-
             get_key()
             message_box.BackColor = Color.FromArgb(30, 30, 30)
             encrypt_state.Interval = 2000
@@ -107,7 +104,6 @@ Public Class nChat_frm
             Else
                 sendfile_bt.Enabled = False
             End If
-
             encrypted = False
             If key = "" Then : Else
                 AddText(rtb_, "[Encryption brocken!]" & vbNewLine, Color.Red)
@@ -120,7 +116,6 @@ Public Class nChat_frm
     Private Sub lock_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lock_bt.Click
         encrypt_state.Enabled = True
         If encrypted Then
-            '"Handshake with: RSA 2048bit\r\nChat Encryption: AES 256bit\r\nSHA1: {0}"
             Dim msgEncStr As String = "Handshake with: RSA 2048bit" & vbNewLine & "Chat Encryption: AES 256bit" & vbNewLine & "SHA1: {0}"
             If language.ini.GetKeyValue("nChat_frm", "EncryptMSG") = Nothing Then : Else
                 msgEncStr = language.ini.GetKeyValue("nChat_frm", "EncryptMSG")
@@ -175,13 +170,10 @@ Public Class nChat_frm
         End If
         Dim rtb = Me.Controls.Find("richtextbox", True)
         rtb_ = CType(rtb(0), RichTextBox)
-        
-
         rtb_.ContextMenuStrip = Contextmenu
         profil_img.BackgroundImage = main_frm.profil_img.BackgroundImage
         ActiveControl = message_box
         AddHandler rtb_.TextChanged, AddressOf scrolldown
-
         If connected_usr.isConnect_Encrypt(Name) = False Then
             main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /handshake 0;")
         End If
@@ -320,10 +312,6 @@ Public Class nChat_frm
         rtb_.Clear()
         rtb_.Controls.Clear()
     End Sub
-    Private Sub nChat_frm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.TextChanged
-
-    End Sub
-
     Private Sub GetUsernameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /username " & main_frm.alias_txt.Text & ";")
     End Sub
@@ -381,7 +369,6 @@ Public Class nChat_frm
 
     Private Sub recAudio_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles recAudio.MouseDown
         recAudio.Image = My.Resources.rec_now
-
         recTimer.Enabled = True
         recAudio.Text = recTime & " sec."
         record.start_record()
@@ -389,13 +376,11 @@ Public Class nChat_frm
 
     Private Sub recAudio_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles recAudio.MouseUp
         recAudio.Image = My.Resources.rec1
-
         recTimer.Enabled = False
         recTime = 0
         recAudio.Text = Nothing
         record.save_record(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & OS.OS_slash & "rec.wav")
         Dim readRecByte As Byte() = File.ReadAllBytes(My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData & OS.OS_slash & "rec.wav")
-
         Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}) & Convert.ToBase64String(readRecByte) & ";")
         Dim target As Byte()
         aes_.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
@@ -404,25 +389,18 @@ Public Class nChat_frm
         audioByte.Add(readRecByte)
         cacheDate(audioIndex) = "(me)(" & DateTime.Now.ToString("hh:mm:ss") & ") Audio: "
         AddText(rtb_, cacheDate(audioIndex) & vbNewLine & vbNewLine, Color.FromArgb(104, 197, 240))
-
         Dim TSpan As TimeSpan = TimeSpan.FromMilliseconds(Wave.GetDuration(readRecByte))
-
         Dim Playseconds As Decimal = Math.Round(CDec(TSpan.Milliseconds / 1000) + TSpan.Seconds + TSpan.Minutes * 60 + TSpan.Hours * 3600)
-
-
         audioBT(audioIndex) = New Button
         audioBT(audioIndex).Name = "index" & audioIndex
         audioBT(audioIndex).FlatStyle = FlatStyle.Flat
         audioBT(audioIndex).FlatAppearance.BorderSize = 1
-
         PlayPGB(audioIndex) = New ProgressBar
         PlayPGB(audioIndex).Name = "pgr" & audioIndex
         PlayPGB(audioIndex).Maximum = CInt(Playseconds)
         PlayPGB(audioIndex).Size = New Size(120, 10)
         PlayPGB(audioIndex).Location = New Point(27, CInt((audioBT(audioIndex).Size.Height / 2) - PlayPGB(audioIndex).Size.Height / 2))
         PlayPGB(audioIndex).SendToBack()
-
-
         Dim str As String = String.Format("{0:00}:{1:00}:{2:00}", TSpan.Minutes, TSpan.Seconds, TSpan.Milliseconds.ToString.Substring(0, 2))
         timeLabel(audioIndex) = New Label
         timeLabel(audioIndex).Font = New Font("Arial", 8)
@@ -430,13 +408,10 @@ Public Class nChat_frm
         timeLabel(audioIndex).Text = str
         timeLabel(audioIndex).BackColor = Color.Transparent
         timeLabel(audioIndex).BringToFront()
-
         PlayTimer(audioIndex) = New Timer
         PlayTimer(audioIndex).Tag = "index" & audioIndex
         PlayTimer(audioIndex).Interval = 1000
         AddHandler PlayTimer(audioIndex).Tick, AddressOf PlayTick
-
-
         audioBT(audioIndex).FlatAppearance.BorderColor = Color.FromArgb(104, 197, 240)
         audioBT(audioIndex).Size = New Size(150, 31)
         timeLabel(audioIndex).Location = New Point(CInt(audioBT(audioIndex).Size.Width / 2 - timeLabel(audioIndex).Size.Width / 2), audioBT(audioIndex).Size.Height - 15)
@@ -444,25 +419,17 @@ Public Class nChat_frm
         audioBT(audioIndex).Image = My.Resources.play
         audioBT(audioIndex).ImageAlign = ContentAlignment.MiddleLeft
         audioBT(audioIndex).BackColor = Color.FromArgb(144, 158, 180)
-
         audioBT(audioIndex).Location = New Point(rtb_.GetPositionFromCharIndex(rtb_.Text.LastIndexOf(cacheDate(audioIndex)) + cacheDate(audioIndex).Length).X, rtb_.GetPositionFromCharIndex(rtb_.Text.IndexOf(cacheDate(audioIndex))).Y)
         audioBT(audioIndex).Controls.Add(timeLabel(audioIndex))
         audioBT(audioIndex).Controls.Add(PlayPGB(audioIndex))
-
         rtb_.Controls.Add(audioBT(audioIndex))
         audioBT(audioIndex).Show()
         AddHandler rtb_.VScroll, AddressOf audioscroll
         AddHandler audioBT(audioIndex).Click, AddressOf audioPlay
-
-
         audioIndex += 1
-
         main_frm.Send_to_Server("/adress " & main_frm.eran_adress & "; /to " & Name & "; /msg " & to_bs64 & ";")
     End Sub
-
-
     Sub PlayTick(ByVal sender As Object, ByVal e As EventArgs)
-
         Dim tmr = DirectCast(sender, Timer)
         Dim tmr_index As Integer = tmr.Tag.Replace("index", "")
         If PlayPGB(tmr_index).Value = PlayPGB(tmr_index).Maximum Then
@@ -482,12 +449,10 @@ Public Class nChat_frm
         PlayTimer(btn_index).Enabled = True
     End Sub
 
-
     Sub audioscroll()
         For tt As Integer = 0 To audioIndex - 1
             audioBT(tt).Location = New Point(rtb_.GetPositionFromCharIndex(rtb_.Text.LastIndexOf(cacheDate(tt)) + cacheDate(tt).Length).X, rtb_.GetPositionFromCharIndex(rtb_.Text.IndexOf(cacheDate(tt))).Y)
         Next
-
     End Sub
 
     Private Sub BlockingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BlockingToolStripMenuItem.Click
@@ -497,9 +462,5 @@ Public Class nChat_frm
     Private Sub ClearChatToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearChatToolStripMenuItem1.Click
         rtb_.Clear()
         rtb_.Controls.Clear()
-    End Sub
-
-    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
     End Sub
 End Class

@@ -126,7 +126,6 @@ Public Class FileDialog_
                         FileSelected = True
                         Me.Close()
                     End If
-
                 End If
             Catch ex As Exception
             End Try
@@ -150,12 +149,10 @@ Public Class FileDialog_
                     If file_view.Items(selectedIndex).ImageIndex = 2 Then
                         SplitContainer1.SplitterDistance = SplitContainer1.Size.Width - 250
                         PictureBox1.ImageLocation = FilePath
-
                     Else
                         SplitContainer1.SplitterDistance = SplitContainer1.Size.Width - 2
                     End If
                     filename_txt.Text = file_view.Items(selectedIndex).Text
-
                 End If
             End If
         Catch ex As Exception
@@ -177,10 +174,5 @@ Public Class FileDialog_
         Else
             PictureBox1.SizeMode = PictureBoxSizeMode.CenterImage
         End If
-    End Sub
-
-    Private Sub PictureBox1_LocationChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.LocationChanged
-
-        
     End Sub
 End Class

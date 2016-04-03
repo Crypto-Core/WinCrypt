@@ -24,7 +24,6 @@ Module RSA
         Dim outString As String = String.Empty
         Try
             rsaCryptoVer.FromXmlString(openkeyXml)
-
             outString = Convert.ToBase64String(rsaCryptoVer.Encrypt(byteData, True))
             rsaCryptoVer.Dispose()
             Return outString

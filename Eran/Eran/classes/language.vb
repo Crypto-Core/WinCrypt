@@ -4,7 +4,6 @@ Module language
 
     Friend Function load()
         If config.language = "" Then : Else
-
             If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "language" & OS.OS_slash & config.language) Then
                 ini.Load(My.Application.Info.DirectoryPath & OS.OS_slash.ToString & "language" & OS.OS_slash & config.language)
                 'main_frm

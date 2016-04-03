@@ -26,7 +26,6 @@ Public Class create_account
         ini.SetKeyValue("account", "adress", to_md5)
         Dim mem As New MemoryStream
         My.Resources.profilimage.Save(mem, System.Drawing.Imaging.ImageFormat.Png)
-
         Dim img_bs64 As String = Convert.ToBase64String(mem.ToArray)
         mem.Close()
         ini.SetKeyValue("account", "image", img_bs64)

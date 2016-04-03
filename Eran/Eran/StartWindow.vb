@@ -3,7 +3,6 @@ Imports Microsoft.Win32
 Imports System.IO
 Public Class StartWindow
     Private ini As New IniFile
-
     Friend Shared config_path As String = My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini"
     Private Sub join_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles secureDesktop_bt.Click
         If save_selection_cb.Checked Then

@@ -7,7 +7,6 @@ Module config
     Public Function load() As Object
         If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini") = False Then
             File.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg)
-            'My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini", My.Resources.confg, False)
         End If
         config_path = My.Application.Info.DirectoryPath & "\config.ini"
         ini.Load(config_path)
