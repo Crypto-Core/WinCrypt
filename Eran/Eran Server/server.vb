@@ -28,7 +28,7 @@ Module server
             For Each check In list
                 If eran_adress = check.eran_adress Then
                     Return True
-                    End
+                    Exit Function
                 End If
             Next
             Return False
@@ -58,7 +58,7 @@ Module server
                 c.streamw = New StreamWriter(c.stream)
                 Dim client_msg As String = Base64.FromBase64Str_to_Str(c.streamr.ReadLine) ' Empfange die Nachricht und Dekodiere den Base64 String
                 If isConnected(parameter.read_parameter("/adress ", client_msg)) = True Then
-
+                    Console.WriteLine("Is connected!")
                 Else
                     'Console.WriteLine("Get Message: " & client_msg & vbNewLine)
 
@@ -126,8 +126,9 @@ Module server
                 Dim get_nickname As String = parameter.read_parameter("/get_nickname ", dec_byte_to_str)
                 Dim img_file As String = parameter.read_parameter("/img_file ", dec_byte_to_str)
                 Dim reconnect_to As String = parameter.read_parameter("/reconnect_to ", dec_byte_to_str)
-
+                Console.WriteLine(con.Authenticated)
                 If adress = con.eran_adress Then
+
                     If get_authKey.Length > 1 Then
                         Dim DecodeByte As Byte()
                         DecodeByte = Convert.FromBase64String(get_authKey)
@@ -185,10 +186,9 @@ Module server
                     Catch
                     End Try
                 Next
-                list.Remove(con)
+                list.RemoveAt(list.FindIndex(Function(x) x.eran_adress = con.eran_adress))
                 userOnline -= 1
                 My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
-                Console.WriteLine(con.eran_adress & " has exit.")
                 Exit Do
             End Try
         Loop

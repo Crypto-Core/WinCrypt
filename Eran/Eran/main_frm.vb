@@ -47,10 +47,8 @@ Public Class main_frm
         '
         'Überprüfen ob die Verbindung verschlüsselt ist
         If isEncrypted_Server Then
-
             Dim source_encrypt As Byte() = s
             Dim target As Byte()
-
             'Eingehende Nachricht vom Server entschlüsseln
             aes_.Decode(source_encrypt, target, Server_key, AESEncrypt.ALGO.RIJNDAEL, 4096)
 
@@ -102,6 +100,11 @@ Public Class main_frm
                     Dim currentPacket As String = parameter.read_parameter("/currentPacket ", decrypted_to_str)
                     Dim PacketBytes As Byte() = Convert.FromBase64String(parameter.read_parameter("/packetbytes ", decrypted_to_str))
                     Dim packetname As String = parameter.read_parameter("/packetname ", decrypted_to_str)
+                    Dim getauthKey As String = parameter.read_parameter("/getauthKey ", decrypted_to_str)
+
+                    If getauthKey = "0" Then
+                        MsgBox(decrypted_to_str)
+                    End If
                     Select Case acceptTransfer
                         Case CStr(0)
                             For Each getName In chat_frm
@@ -413,6 +416,7 @@ Public Class main_frm
                                 connected_usr.remove_encrypt_session(adress_)
                         End Select : End If : End If
             End If
+            
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
             'Überprüfen ob die Nachricht für mich
@@ -433,6 +437,7 @@ Public Class main_frm
                     End If
                     load_userlist()
                     set_State(2)
+
                 End If
             End If
             GC_.FlushMemory()
@@ -635,7 +640,7 @@ Public Class main_frm
                     alias_txt.Text = ini.GetKeyValue("account", "alias")
                 End If
                 server.myHost = host
-
+                
             Else
                 MessageBox.Show("Connection to the server is not possible !")
                 Application.Exit()

@@ -57,10 +57,4 @@ Public Class login
             join_bt.PerformClick()
         End If
     End Sub
-    Dim trd As Threading.Thread
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        trd = New Threading.Thread(AddressOf server.Main)
-        trd.IsBackground = True
-        trd.Start()
-    End Sub
 End Class
