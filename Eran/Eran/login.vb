@@ -7,7 +7,7 @@ Public Class login
     Friend Shared eran_adress As String
     Friend Shared username As String
     Friend Shared pwd As String
-
+    Friend Shared authKey As String
     Private Sub login_panel_HandleCreated(ByVal sender As Object, ByVal e As System.EventArgs) Handles login_panel.HandleCreated
         ini.Load(main_frm.account_path)
         Dim img_bs64 As String = ini.GetKeyValue("account", "image")
@@ -16,6 +16,7 @@ Public Class login
         profile_img.BackgroundImage = Image.FromStream(profile_img_memstream)
         main_frm.profil_img.BackgroundImage = Image.FromStream(profile_img_memstream)
         username = ini.GetKeyValue("account", "username")
+        authKey = ini.GetKeyValue("account", "authkey")
         usr_txt.Text = username
         eran_adress = ini.GetKeyValue("account", "adress")
         host_txt.Text = config.access_node_host

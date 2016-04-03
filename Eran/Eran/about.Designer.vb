@@ -46,11 +46,11 @@ Partial Class about
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(89, 143)
+        Me.Label1.Location = New System.Drawing.Point(59, 143)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(170, 25)
+        Me.Label1.Size = New System.Drawing.Size(231, 25)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Eran Messenger"
+        Me.Label1.Text = "Eran Messenger BETA"
         '
         'ok_bt
         '
@@ -74,7 +74,7 @@ Partial Class about
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(324, 90)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Productname: Eran" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Version: 0.0.5.0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Organisation: WinCrypt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebSite: https://Win" & _
+        Me.Label2.Text = "Productname: Eran" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Version: 0.1.0.1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Organisation: WinCrypt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WebSite: https://Win" & _
             "Crypt.org" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "---------------------------" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Developer: Harry Machura"
         '
         'RichTextBox1

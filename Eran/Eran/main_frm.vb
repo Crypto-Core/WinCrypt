@@ -413,8 +413,6 @@ Public Class main_frm
                                 connected_usr.remove_encrypt_session(adress_)
                         End Select : End If : End If
             End If
-
-
         Else
             Dim byte_to_str = System.Text.UTF8Encoding.UTF8.GetChars(s)
             'Überprüfen ob die Nachricht für mich
@@ -428,9 +426,15 @@ Public Class main_frm
                     Server_key = RSA_decrypt(decrypt, PrivateKey)
                     isEncrypted_Server = True
                     userlist_viewer.Items.Clear()
+                    If parameter.read_parameter("/getauthKey ", byte_to_str) = "0" Then
+                        Dim getAuthByte As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(username & login.pwd & login.authKey)
+                        Dim toB64 As String = Convert.ToBase64String(getAuthByte)
+                        Send_to_Server("/adress " & eran_adress & "; /getauthKey " & toB64 & ";")
+                    End If
                     load_userlist()
                     set_State(2)
-                End If : End If
+                End If
+            End If
             GC_.FlushMemory()
         End If
     End Sub
@@ -467,6 +471,7 @@ Public Class main_frm
         While client.Connected
             Try
                 Invoke(New DAddItem(AddressOf AddItem), Base64.FromBase64Str_to_decodeBytes(streamr.ReadLine))
+
             Catch ex As Exception
                 If DisconnectFromUser Then
                     eran_adr_txt.Text = "error"
@@ -629,9 +634,8 @@ Public Class main_frm
                 Else
                     alias_txt.Text = ini.GetKeyValue("account", "alias")
                 End If
-
                 server.myHost = host
-                available_timer.Enabled = True
+
             Else
                 MessageBox.Show("Connection to the server is not possible !")
                 Application.Exit()
@@ -1241,7 +1245,9 @@ Public Class main_frm
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub available_timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles available_timer.Tick
-        Send_to_Server("available")
+        If isEncrypted_Server Then
+            Send_to_Server("/adress " & eran_adress & "; /available 1;")
+        End If
     End Sub
 
     Private Sub OnlineBallon_tmr_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OnlineBallon_tmr.Tick
@@ -1332,5 +1338,9 @@ Public Class main_frm
         Panel1.Visible = False
     End Sub
 
+    Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        Send_to_Server("/adress " & eran_adress & "; /available 1;")
+    End Sub
 End Class
 

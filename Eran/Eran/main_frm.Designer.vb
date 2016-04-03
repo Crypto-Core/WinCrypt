@@ -111,7 +111,7 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.Close_16
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'UsersToolStripMenuItem
@@ -229,7 +229,7 @@ Partial Class main_frm
         Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.AboutToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.Dialog_Box_About_16
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'ImageList
@@ -561,7 +561,8 @@ Partial Class main_frm
         '
         'available_timer
         '
-        Me.available_timer.Interval = 30000
+        Me.available_timer.Enabled = True
+        Me.available_timer.Interval = 10000
         '
         'OnlineBallon_tmr
         '
