@@ -47,4 +47,17 @@ Public Class create_account
     Private Sub pwd_txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pwd_txt.TextChanged
         validate()
     End Sub
+
+    Private Sub importAcc_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles importAcc_bt.Click
+        If main_frm.import_acc_sd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            If File.Exists(main_frm.import_acc_sd.FileName) Then
+                importAccount.filepath_txt.Text = main_frm.import_acc_sd.FileName
+                If importAccount.ShowDialog = Windows.Forms.DialogResult.OK Then
+                    create_account_panel.Hide()
+                    main_frm.Controls.Add(login.login_panel)
+                    login.login_panel.Show()
+                End If
+            End If
+        End If
+    End Sub
 End Class

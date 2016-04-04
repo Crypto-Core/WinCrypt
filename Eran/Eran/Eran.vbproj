@@ -133,6 +133,12 @@
     <Compile Include="FileTransfer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="importAccount.Designer.vb">
+      <DependentUpon>importAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="importAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FileTransfer.resx">
       <DependentUpon>FileTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="importAccount.resx">
+      <DependentUpon>importAccount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>

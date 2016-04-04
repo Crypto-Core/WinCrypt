@@ -1290,5 +1290,30 @@ Public Class main_frm
     Private Sub TestToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Send_to_Server("/adress " & eran_adress & "; /available 1;")
     End Sub
+
+    Private Sub ExportAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExportAccountToolStripMenuItem.Click
+        export_acc_sd.FileName = username
+        If export_acc_sd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Dim readAccountByte As Byte() = File.ReadAllBytes(account_path)
+            Dim readUserlst As Byte() = File.ReadAllBytes(users_lst_path)
+            Dim ini As New IniFile
+            ini.AddSection("exportAccount")
+            ini.SetKeyValue("exportAccount", "account", Convert.ToBase64String(readAccountByte))
+            ini.SetKeyValue("exportAccount", "userlist", Convert.ToBase64String(readUserlst))
+            Dim iniByte As Byte() = ini.SavetoByte
+            Dim target As Byte()
+            aes_.Encode(iniByte, target, login.pwd, AESEncrypt.ALGO.RIJNDAEL, 4096)
+            File.WriteAllBytes(export_acc_sd.FileName, target)
+        End If
+    End Sub
+
+    Private Sub ImportAccountToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportAccountToolStripMenuItem.Click
+        If import_acc_sd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            If File.Exists(import_acc_sd.FileName) Then
+                importAccount.filepath_txt.Text = import_acc_sd.FileName
+                importAccount.Show()
+            End If
+        End If
+    End Sub
 End Class
 

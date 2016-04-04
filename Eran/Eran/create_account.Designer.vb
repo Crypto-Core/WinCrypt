@@ -23,6 +23,7 @@ Partial Class create_account
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.create_account_panel = New System.Windows.Forms.Panel()
+        Me.importAcc_bt = New System.Windows.Forms.Button()
         Me.logo_img = New System.Windows.Forms.PictureBox()
         Me.create_bt = New System.Windows.Forms.Button()
         Me.create_eran_acc_gb = New System.Windows.Forms.GroupBox()
@@ -43,6 +44,7 @@ Partial Class create_account
         'create_account_panel
         '
         Me.create_account_panel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.create_account_panel.Controls.Add(Me.importAcc_bt)
         Me.create_account_panel.Controls.Add(Me.logo_img)
         Me.create_account_panel.Controls.Add(Me.create_bt)
         Me.create_account_panel.Controls.Add(Me.create_eran_acc_gb)
@@ -51,6 +53,20 @@ Partial Class create_account
         Me.create_account_panel.Name = "create_account_panel"
         Me.create_account_panel.Size = New System.Drawing.Size(313, 419)
         Me.create_account_panel.TabIndex = 0
+        '
+        'importAcc_bt
+        '
+        Me.importAcc_bt.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.importAcc_bt.BackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.importAcc_bt.FlatAppearance.BorderSize = 0
+        Me.importAcc_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.importAcc_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.importAcc_bt.Location = New System.Drawing.Point(202, 384)
+        Me.importAcc_bt.Name = "importAcc_bt"
+        Me.importAcc_bt.Size = New System.Drawing.Size(99, 23)
+        Me.importAcc_bt.TabIndex = 3
+        Me.importAcc_bt.Text = "Import account"
+        Me.importAcc_bt.UseVisualStyleBackColor = False
         '
         'logo_img
         '
@@ -216,4 +232,5 @@ Partial Class create_account
     Friend WithEvents min_chars_urs_lb As System.Windows.Forms.Label
     Friend WithEvents auth_key_lb As System.Windows.Forms.Label
     Friend WithEvents logo_img As System.Windows.Forms.PictureBox
+    Friend WithEvents importAcc_bt As System.Windows.Forms.Button
 End Class
