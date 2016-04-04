@@ -95,8 +95,8 @@
     <Compile Include="backgroundSecure.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="classes\AES.vb" />
-    <Compile Include="classes\AESEncrypt.vb" />
+    <Compile Include="classes\encryption\AES.vb" />
+    <Compile Include="classes\encryption\AESEncrypt.vb" />
     <Compile Include="classes\Base64.vb" />
     <Compile Include="classes\DataStream.vb" />
     <Compile Include="classes\DataTransfer.vb" />
@@ -109,16 +109,16 @@
     <Compile Include="classes\WindowsAPI.vb" />
     <Compile Include="classes\config.vb" />
     <Compile Include="classes\connected_usr.vb" />
-    <Compile Include="connect_frame.Designer.vb">
+    <Compile Include="main\connect_frame.Designer.vb">
       <DependentUpon>connect_frame.vb</DependentUpon>
     </Compile>
-    <Compile Include="connect_frame.vb">
+    <Compile Include="main\connect_frame.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="create_account.Designer.vb">
+    <Compile Include="main\create_account.Designer.vb">
       <DependentUpon>create_account.vb</DependentUpon>
     </Compile>
-    <Compile Include="create_account.vb">
+    <Compile Include="main\create_account.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FileDialog.Designer.vb">
@@ -127,10 +127,10 @@
     <Compile Include="FileDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FileTransfer.Designer.vb">
+    <Compile Include="transfer_form\FileTransfer.Designer.vb">
       <DependentUpon>FileTransfer.vb</DependentUpon>
     </Compile>
-    <Compile Include="FileTransfer.vb">
+    <Compile Include="transfer_form\FileTransfer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="importAccount.Designer.vb">
@@ -139,24 +139,24 @@
     <Compile Include="importAccount.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.vb">
+    <Compile Include="main\login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
-    <Compile Include="login.vb">
+    <Compile Include="main\login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="main_frm.vb">
+    <Compile Include="main\main_frm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="main_frm.Designer.vb">
+    <Compile Include="main\main_frm.Designer.vb">
       <DependentUpon>main_frm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="classes\IniFile.vb" />
-    <Compile Include="SendFile.Designer.vb">
+    <Compile Include="transfer_form\SendFile.Designer.vb">
       <DependentUpon>SendFile.vb</DependentUpon>
     </Compile>
-    <Compile Include="SendFile.vb">
+    <Compile Include="transfer_form\SendFile.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="server.vb" />
@@ -177,7 +177,7 @@
     </Compile>
     <Compile Include="classes\parameter.vb" />
     <Compile Include="classes\rndPass.vb" />
-    <Compile Include="classes\RSA.vb" />
+    <Compile Include="classes\encryption\RSA.vb" />
     <Compile Include="nChat_frm.Designer.vb">
       <DependentUpon>nChat_frm.vb</DependentUpon>
     </Compile>
@@ -212,25 +212,25 @@
     <EmbeddedResource Include="backgroundSecure.resx">
       <DependentUpon>backgroundSecure.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="connect_frame.resx">
+    <EmbeddedResource Include="main\connect_frame.resx">
       <DependentUpon>connect_frame.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="create_account.resx">
+    <EmbeddedResource Include="main\create_account.resx">
       <DependentUpon>create_account.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FileDialog.resx">
       <DependentUpon>FileDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileTransfer.resx">
+    <EmbeddedResource Include="transfer_form\FileTransfer.resx">
       <DependentUpon>FileTransfer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="importAccount.resx">
       <DependentUpon>importAccount.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
+    <EmbeddedResource Include="main\login.resx">
       <DependentUpon>login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="main_frm.resx">
+    <EmbeddedResource Include="main\main_frm.resx">
       <DependentUpon>main_frm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -243,7 +243,7 @@
     <EmbeddedResource Include="nChat_frm.resx">
       <DependentUpon>nChat_frm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SendFile.resx">
+    <EmbeddedResource Include="transfer_form\SendFile.resx">
       <DependentUpon>SendFile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settings.resx">
