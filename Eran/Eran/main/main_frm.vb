@@ -1315,5 +1315,9 @@ Public Class main_frm
             End If
         End If
     End Sub
+
+    Private Sub CheckUpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckUpdateToolStripMenuItem.Click
+        CheckVersion("https://wincrypt.org/eran/update")
+    End Sub
 End Class
 

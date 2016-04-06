@@ -221,7 +221,8 @@ Namespace My.Resources
         '''acces_node_save=0
         '''play_audio_msg=True
         '''play_usr_online=True
-        '''show_msg_balloon=False ähnelt.
+        '''show_msg_balloon=False
+        '''language=en-EN ähnelt.
         '''</summary>
         Friend ReadOnly Property confg() As String
             Get
@@ -475,6 +476,16 @@ Namespace My.Resources
         Friend ReadOnly Property rec1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("rec1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Reload_16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Reload-16", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

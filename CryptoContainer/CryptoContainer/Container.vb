@@ -61,7 +61,7 @@ Public Class Container
                     Dim decodeFileName As String = System.Text.UTF8Encoding.UTF8.GetChars(Convert.FromBase64String(s.Name))
                     Dim decodeData As Byte() = Convert.FromBase64String(k.Value)
                     If IncludedPath(s.Name) = True Then
-                        Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("/")))
+                        Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("\")))
                     End If
                     File.WriteAllBytes(OutPath & decodeFileName, decodeData)
                 End If

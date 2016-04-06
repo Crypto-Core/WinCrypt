@@ -41,6 +41,10 @@ Module language
                 main_frm.ExitToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ExitToolStripMenuItem")
                 main_frm.ShowServerKeyToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ShowServerKeyToolStripMenuItem")
                 main_frm.LanguageToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "LanguageToolStripMenuItem")
+                main_frm.ExportAccountToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ExportAccountToolStripMenuItem")
+                main_frm.ImportAccountToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "ImportAccountToolStripMenuItem")
+                main_frm.CheckUpdateToolStripMenuItem.Text = ini.GetKeyValue("main_frm", "CheckUpdateToolStripMenuItem")
+
                 'add_user
                 add_user.Text = ini.GetKeyValue("add_user", "title")
                 add_user.eran_adress_lb.Text = ini.GetKeyValue("add_user", "eran_adress_lb")
@@ -119,6 +123,12 @@ Module language
                 StartWindow.startNormal_bt.Text = ini.GetKeyValue("StartWindow", "startNormal_bt")
                 StartWindow.secureDesktop_bt.Text = ini.GetKeyValue("StartWindow", "secureDesktop_bt")
 
+
+                'importAccount
+                importAccount.Text = ini.GetKeyValue("importAccount", "title")
+                importAccount.pwd_lb.Text = ini.GetKeyValue("importAccount", "pwd_lb")
+                importAccount.path_lb.Text = ini.GetKeyValue("importAccount", "path_lb")
+                importAccount.import_bt.Text = ini.GetKeyValue("importAccount", "import_bt")
             End If
         End If
     End Function

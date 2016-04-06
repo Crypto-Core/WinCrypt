@@ -27,7 +27,7 @@ Partial Class importAccount
         Me.pwd_lb = New System.Windows.Forms.Label()
         Me.pwd_txt = New System.Windows.Forms.TextBox()
         Me.filepath_txt = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.path_lb = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'import_bt
@@ -36,9 +36,9 @@ Partial Class importAccount
         Me.import_bt.FlatAppearance.BorderSize = 0
         Me.import_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.import_bt.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.import_bt.Location = New System.Drawing.Point(329, 64)
+        Me.import_bt.Location = New System.Drawing.Point(309, 64)
         Me.import_bt.Name = "import_bt"
-        Me.import_bt.Size = New System.Drawing.Size(75, 23)
+        Me.import_bt.Size = New System.Drawing.Size(95, 23)
         Me.import_bt.TabIndex = 1
         Me.import_bt.Text = "Import"
         Me.import_bt.UseVisualStyleBackColor = False
@@ -76,16 +76,16 @@ Partial Class importAccount
         Me.filepath_txt.Size = New System.Drawing.Size(330, 20)
         Me.filepath_txt.TabIndex = 6
         '
-        'Label1
+        'path_lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(38, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Path:"
+        Me.path_lb.AutoSize = True
+        Me.path_lb.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.path_lb.ForeColor = System.Drawing.Color.White
+        Me.path_lb.Location = New System.Drawing.Point(38, 40)
+        Me.path_lb.Name = "path_lb"
+        Me.path_lb.Size = New System.Drawing.Size(33, 13)
+        Me.path_lb.TabIndex = 7
+        Me.path_lb.Text = "Path:"
         '
         'importAccount
         '
@@ -93,7 +93,7 @@ Partial Class importAccount
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(416, 100)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.path_lb)
         Me.Controls.Add(Me.filepath_txt)
         Me.Controls.Add(Me.pwd_txt)
         Me.Controls.Add(Me.pwd_lb)
@@ -112,5 +112,5 @@ Partial Class importAccount
     Friend WithEvents pwd_lb As System.Windows.Forms.Label
     Friend WithEvents pwd_txt As System.Windows.Forms.TextBox
     Friend WithEvents filepath_txt As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents path_lb As System.Windows.Forms.Label
 End Class

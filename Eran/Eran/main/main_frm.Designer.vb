@@ -34,12 +34,15 @@ Partial Class main_frm
         Me.ConnectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowPublicKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowServerKeyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendPingToConnectedAccesNodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckUpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.main_panel = New System.Windows.Forms.Panel()
         Me.userlist_viewer = New System.Windows.Forms.ListView()
@@ -77,9 +80,7 @@ Partial Class main_frm
         Me.available_timer = New System.Windows.Forms.Timer(Me.components)
         Me.OnlineBallon_tmr = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ExportAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.export_acc_sd = New System.Windows.Forms.SaveFileDialog()
-        Me.ImportAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.import_acc_sd = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip.SuspendLayout()
         Me.main_panel.SuspendLayout()
@@ -115,7 +116,7 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.Close_16
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'UsersToolStripMenuItem
@@ -183,6 +184,22 @@ Partial Class main_frm
         Me.ShowServerKeyToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.ShowServerKeyToolStripMenuItem.Text = "Show Server Key"
         '
+        'ExportAccountToolStripMenuItem
+        '
+        Me.ExportAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ExportAccountToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ExportAccountToolStripMenuItem.Name = "ExportAccountToolStripMenuItem"
+        Me.ExportAccountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ExportAccountToolStripMenuItem.Text = "Export Account"
+        '
+        'ImportAccountToolStripMenuItem
+        '
+        Me.ImportAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ImportAccountToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ImportAccountToolStripMenuItem.Name = "ImportAccountToolStripMenuItem"
+        Me.ImportAccountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ImportAccountToolStripMenuItem.Text = "Import Account"
+        '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.SendPingToConnectedAccesNodeToolStripMenuItem, Me.LanguageToolStripMenuItem})
@@ -221,7 +238,7 @@ Partial Class main_frm
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.CheckUpdateToolStripMenuItem})
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
@@ -233,8 +250,17 @@ Partial Class main_frm
         Me.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.AboutToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.Dialog_Box_About_16
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'CheckUpdateToolStripMenuItem
+        '
+        Me.CheckUpdateToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.CheckUpdateToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.CheckUpdateToolStripMenuItem.Image = Global.Eran.My.Resources.Resources.Reload_16
+        Me.CheckUpdateToolStripMenuItem.Name = "CheckUpdateToolStripMenuItem"
+        Me.CheckUpdateToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.CheckUpdateToolStripMenuItem.Text = "Check Update"
         '
         'ImageList
         '
@@ -572,25 +598,9 @@ Partial Class main_frm
         '
         Me.OnlineBallon_tmr.Interval = 5000
         '
-        'ExportAccountToolStripMenuItem
-        '
-        Me.ExportAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.ExportAccountToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ExportAccountToolStripMenuItem.Name = "ExportAccountToolStripMenuItem"
-        Me.ExportAccountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ExportAccountToolStripMenuItem.Text = "Export Account"
-        '
         'export_acc_sd
         '
         Me.export_acc_sd.Filter = "Eran Account|*.era"
-        '
-        'ImportAccountToolStripMenuItem
-        '
-        Me.ImportAccountToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.ImportAccountToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ImportAccountToolStripMenuItem.Name = "ImportAccountToolStripMenuItem"
-        Me.ImportAccountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ImportAccountToolStripMenuItem.Text = "Import Account"
         '
         'import_acc_sd
         '
@@ -679,5 +689,6 @@ Partial Class main_frm
     Friend WithEvents export_acc_sd As System.Windows.Forms.SaveFileDialog
     Friend WithEvents ImportAccountToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents import_acc_sd As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents CheckUpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
