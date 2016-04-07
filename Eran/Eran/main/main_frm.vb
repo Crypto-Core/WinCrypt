@@ -375,6 +375,7 @@ Public Class main_frm
                     Else
                         Select Case handshake
                             Case CStr(0)
+
                                 Send_to_Server("/adress " & eran_adress & "; /to " & adress_ & ";  /publickey " & PublicKey & "; " & "/handshake 1;")
                             Case CStr(1)
                                 'Empfange die Verschlüsselte RSA nachricht
@@ -603,7 +604,6 @@ Public Class main_frm
                 Else
                     alias_txt.Text = ini.GetKeyValue("account", "alias")
                 End If
-                server.myHost = host
             Else
                 MessageBox.Show("Connection to the server is not possible !")
                 Application.Exit()

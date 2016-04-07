@@ -116,7 +116,7 @@ Partial Class main_frm
         Me.ExitToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.ExitToolStripMenuItem1.Image = Global.Eran.My.Resources.Resources.Close_16
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         '
         'UsersToolStripMenuItem
@@ -321,6 +321,7 @@ Partial Class main_frm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(355, 79)
         Me.Panel1.TabIndex = 4
+        Me.Panel1.Visible = False
         '
         'donate_bt
         '

@@ -82,8 +82,7 @@ Module server
                     ' Console.WriteLine("Encrypt Key with Client Public Key......." & vbNewLine)
 
                     Dim handshake As String = Base64.Str_To_Base64Str("/to " & c.eran_adress & "; " & "/server_encrypted_key " & encrypted_key & "; " & "/reconnect_to " & myHost & "; /getauthKey 0;")
-                    c.streamw.WriteLine(handshake)
-
+                    
                     c.Authenticated = False
 
                     'Console.WriteLine("Send Handshake to Client: " & handshake & vbNewLine)
@@ -126,7 +125,6 @@ Module server
                 Dim get_nickname As String = parameter.read_parameter("/get_nickname ", dec_byte_to_str)
                 Dim img_file As String = parameter.read_parameter("/img_file ", dec_byte_to_str)
                 Dim reconnect_to As String = parameter.read_parameter("/reconnect_to ", dec_byte_to_str)
-                Console.WriteLine(con.Authenticated)
                 If adress = con.eran_adress Then
 
                     If get_authKey.Length > 1 Then
