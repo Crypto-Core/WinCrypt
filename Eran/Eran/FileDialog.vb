@@ -8,7 +8,7 @@ Public Class FileDialog_
         LoadFiles(Path)
     End Sub
 
-    Private Function LoadFiles(ByVal Path_ As String)
+    Private Sub LoadFiles(ByVal Path_ As String)
         Path = Path_
         path_txt.Text = Path_
         History.Add(Path)
@@ -71,7 +71,7 @@ Public Class FileDialog_
             End Select
 
         Next
-    End Function
+    End Sub
     Private Sub open_bt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles open_bt.Click
         If File.Exists(FilePath) Then
             FileSelected = True
