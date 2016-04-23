@@ -19,8 +19,24 @@ Module Update
         End If
     End Function
 
+    Friend Function CheckUpdateOnStart(ByVal https_host As String)
+
+        Dim version As Double = CDbl(downloadString.DownloadString(https_host & "/version"))
+        Dim currentVersion As Double = CDbl(My.Application.Info.Version.ToString.Replace(".", ""))
+        If version > currentVersion Then
+            Dim updateAv As String = language.ini.GetKeyValue("Update", "AvailableMSG")
+            Dim updateAvTitle As String = language.ini.GetKeyValue("Update", "AvailableMSGTitle")
+            If MessageBox.Show(updateAv, updateAvTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                Update(https_host)
+            End If
+        Else
+            Exit Function
+        End If
+
+    End Function
     Friend Function Update(ByVal https_host As String)
         Dim readDownlodFiles As String() = ReadLines(downloadString.DownloadString(https_host & "/fileList"))
+        Control.CheckForIllegalCrossThreadCalls = False
         Dim trd As New Threading.Thread(AddressOf update_frm.ShowDialog)
         trd.Start()
         System.Threading.Thread.Sleep(1000)

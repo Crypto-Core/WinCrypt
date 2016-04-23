@@ -120,7 +120,7 @@ Partial Class login
         Me.host_txt.Name = "host_txt"
         Me.host_txt.Size = New System.Drawing.Size(133, 22)
         Me.host_txt.TabIndex = 2
-        Me.host_txt.Text = "localhost"
+        Me.host_txt.Text = "eran-im.com"
         '
         'port_lb
         '

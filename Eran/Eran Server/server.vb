@@ -129,12 +129,25 @@ Module server
 
                 If adress = con.eran_adress Then
                     If get_authKey.Length > 1 Then
+
                         Dim DecodeByte As Byte()
                         DecodeByte = Convert.FromBase64String(get_authKey)
                         Dim toSHA12 As String = rHash.HashByte(DecodeByte, rHash.HASH.SHA512)
                         Dim toMD5 As String = rHash.HashString(toSHA12, rHash.HASH.MD5)
                         If con.eran_adress = toMD5 Then
                             con.Authenticated = True
+                            Console.WriteLine("Autorize")
+                            Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/adress server; /to " & con.eran_adress & "; " & "/authorized 1;")
+                            Dim encrypt_source As Byte()
+                            aes_.Encode(get_bytes, encrypt_source, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            con.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
+                            con.streamw.Flush()
+                        Else
+                            Dim get_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/adress server; /to " & con.eran_adress & "; " & "/authorized 0;")
+                            Dim encrypt_source As Byte()
+                            aes_.Encode(get_bytes, encrypt_source, con.Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                            con.streamw.WriteLine(Convert.ToBase64String(encrypt_source))
+                            con.streamw.Flush()
                         End If
                     End If
                     If con.Authenticated Then

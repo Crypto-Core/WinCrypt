@@ -542,6 +542,7 @@ Public Class main_frm
         isMainActive = False
     End Sub
     Private Sub main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         Me.Controls.Add(create_account.create_account_panel)
         main_panel.Hide()
         If File.Exists(account_path) Then
@@ -568,7 +569,9 @@ Public Class main_frm
                                         language.load()
                                     End Function
             LanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {newBT})
+
         Next
+
     End Sub
 
 
@@ -1318,6 +1321,11 @@ Public Class main_frm
 
     Private Sub CheckUpdateToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckUpdateToolStripMenuItem.Click
         CheckVersion("https://wincrypt.org/eran/update")
+    End Sub
+
+    Private Sub main_frm_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
+        Control.CheckForIllegalCrossThreadCalls = False
+        CheckUpdateOnStart("https://wincrypt.org/eran/update")
     End Sub
 End Class
 
