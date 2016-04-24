@@ -1327,5 +1327,9 @@ Public Class main_frm
         Control.CheckForIllegalCrossThreadCalls = False
         CheckUpdateOnStart("https://wincrypt.org/eran/update")
     End Sub
+
+    Private Sub userlist_viewer_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles userlist_viewer.SelectedIndexChanged
+
+    End Sub
 End Class
 
