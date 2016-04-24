@@ -129,7 +129,6 @@ Module server
 
                 If adress = con.eran_adress Then
                     If get_authKey.Length > 1 Then
-
                         Dim DecodeByte As Byte()
                         DecodeByte = Convert.FromBase64String(get_authKey)
                         Dim toSHA12 As String = rHash.HashByte(DecodeByte, rHash.HASH.SHA512)
@@ -198,7 +197,8 @@ Module server
                     Catch
                     End Try
                 Next
-                list.Remove(con)
+                list.RemoveAt(list.FindIndex(Function(x) x.eran_adress = con.eran_adress))
+                'list.Remove(con)
                 userOnline -= 1
                 My.Computer.FileSystem.WriteAllText(My.Application.Info.DirectoryPath & "/useronline", userOnline, False)
                 Console.WriteLine(con.eran_adress & " has exit.")
