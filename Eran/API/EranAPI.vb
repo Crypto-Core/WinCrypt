@@ -13,10 +13,15 @@ Public Class EranAPI
     Friend Event ConnectionState(ByVal State As Boolean)
     Friend Event AuthorizedConnection(ByVal State As Boolean)
     Friend Event IncomingMessage(ByVal Message As Byte())
+    Friend Structure Connection
+        Shared OnlineState As Integer = 2
+    End Structure
     Friend Structure Account
         Shared Username As String
+        Shared Aliasname As String
         Shared Password As String
         Shared AuthKey As String
+        Shared Profileimage As Byte() = Convert.FromBase64String(Resources_.ProfilImageB64)
         Shared Function Address() As String
             Return rHash.HashString(rHash.HashString(Username + Password + AuthKey, rHash.HASH.SHA512), rHash.HASH.MD5)
         End Function
@@ -35,6 +40,7 @@ Public Class EranAPI
 
             'Überprüfen ob die Nachricht für mich ist
             If parameter.read_parameter("/to ", DecryptStr) = Account.Address() Then
+
                 'RaiseEvent IncomingMessage(DecryptTarget)
                 'Überprüfen ob die Nachricht vom Server ist
                 If parameter.read_parameter("/adress ", DecryptStr) = "server" Then
@@ -51,6 +57,33 @@ Public Class EranAPI
 
                 End If
                 RaiseEvent IncomingMessage(DecryptTarget)
+                Dim address As String = parameter.read_parameter("/adress ", DecryptStr)
+
+                'Sende eigenen OnlienStatus
+                Dim getState As String = parameter.read_parameter("/get_state ", DecryptStr)
+                If getState.Length > 0 Then
+                    SendToServer("/adress " & Account.Address & "; /to " & address & "; /state " & Connection.OnlineState & ";")
+                End If
+
+
+                'Sende eigenen Aliasnamen
+                Dim get_username As String = parameter.read_parameter("/get_username ", DecryptStr)
+                If get_username.Length > 0 Then
+                    Dim Alias_ As String
+                    If Account.Aliasname.Length < 5 Then
+                        Alias_ = Account.Username
+                    Else
+                        Alias_ = Account.Aliasname
+                    End If
+                    SendToServer("/adress " & Account.Address & "; /to " & address & "; /username " & Alias_ & ";")
+                End If
+
+
+                Dim get_profil_img As String = parameter.read_parameter("/get_profil_img ", DecryptStr)
+                If get_profil_img.Length > 0 Then
+                    Dim img_str As String = Convert.ToBase64String(Account.Profileimage)
+                    SendToServer("/adress " & Account.Address & "; /to " & address & "; /profil_image " & img_str & ";")
+                End If
             End If
         Else
             If parameter.read_parameter("/server_encrypted_key ", System.Text.UTF8Encoding.UTF8.GetChars(decodeB64)).Length > 0 Then
