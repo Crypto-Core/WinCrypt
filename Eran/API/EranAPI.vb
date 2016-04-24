@@ -10,9 +10,20 @@ Public Class EranAPI
     Private EncryptedConnection As Boolean = False
     Friend ServerKey As String = ""
     Dim AES As New AESEncrypt
+    Private handshake As String
     Friend Event ConnectionState(ByVal State As Boolean)
     Friend Event AuthorizedConnection(ByVal State As Boolean)
-    Friend Event IncomingMessage(ByVal Message As Byte())
+    Friend Event IncomingData(ByVal Message As Byte())
+    Friend Event IncomingMessage(ByVal Address As String, ByVal Aliasname As String, ByVal ExchangeKey As String, ByVal Message As String)
+    Shared ChatSessions As New List(Of ChatSessions_)
+    Structure ChatSessions_
+        Dim Address As String
+        Dim Aliasname As String
+        Dim ProfilImage As Image
+        Dim OnlineState As Integer
+        Dim Encrypted As Boolean
+        Dim Key As String
+    End Structure
     Friend Structure Connection
         Shared OnlineState As Integer = 2
     End Structure
@@ -56,7 +67,7 @@ Public Class EranAPI
                     End If
 
                 End If
-                RaiseEvent IncomingMessage(DecryptTarget)
+                RaiseEvent IncomingData(DecryptTarget)
                 Dim address As String = parameter.read_parameter("/adress ", DecryptStr)
 
                 'Sende eigenen OnlienStatus
@@ -65,6 +76,41 @@ Public Class EranAPI
                     SendToServer("/adress " & Account.Address & "; /to " & address & "; /state " & Connection.OnlineState & ";")
                 End If
 
+                'Empfange Benutzernamen
+                Dim username As String = parameter.read_parameter("/username ", DecryptStr)
+                If username.Length > 0 Then
+
+                    'Überprüfen ob bereits eine Session besteht
+                    If ChatSessions.Exists(Function(x) x.Address = address) = True Then
+                        MsgBox(username)
+                        'Suche den Index heraus
+                        Dim index As Integer = ChatSessions.FindIndex(Function(x) x.Address = address)
+                        Dim current = ChatSessions.Item(index)
+                        Dim p As New ChatSessions_
+                        p.Address = current.Address
+                        p.Aliasname = username
+                        p.Encrypted = current.Encrypted
+                        p.Key = current.Key
+                        p.OnlineState = current.OnlineState
+                        p.ProfilImage = current.ProfilImage
+                        ChatSessions.RemoveAt(index)
+                        ChatSessions.Add(p)
+                    End If
+                End If
+
+                'Empfange Nachricht
+                Dim msg As String = parameter.read_parameter("/msg ", DecryptStr)
+                If msg.Length > 0 Then
+                    If ChatSessions.Exists(Function(x) x.Address = address) Then
+                        Dim decryptTargetMSG As Byte()
+                        AES.Decode(Convert.FromBase64String(msg), decryptTargetMSG, ChatSessions.Find(Function(x) x.Address = address).Key, AESEncrypt.ALGO.RIJNDAEL, 4096)
+                        Dim Message As String = System.Text.UTF8Encoding.UTF8.GetChars(decryptTargetMSG)
+                        Dim User = ChatSessions.Find(Function(x) x.Address = address)
+                        RaiseEvent IncomingMessage(address, User.Aliasname, User.Key, System.Text.UTF8Encoding.UTF8.GetChars(decryptTargetMSG))
+                    Else
+
+                    End If
+                End If
 
                 'Sende eigenen Aliasnamen
                 Dim get_username As String = parameter.read_parameter("/get_username ", DecryptStr)
@@ -78,12 +124,51 @@ Public Class EranAPI
                     SendToServer("/adress " & Account.Address & "; /to " & address & "; /username " & Alias_ & ";")
                 End If
 
-
+                'Sende eigenes Profilbild
                 Dim get_profil_img As String = parameter.read_parameter("/get_profil_img ", DecryptStr)
                 If get_profil_img.Length > 0 Then
                     Dim img_str As String = Convert.ToBase64String(Account.Profileimage)
                     SendToServer("/adress " & Account.Address & "; /to " & address & "; /profil_image " & img_str & ";")
                 End If
+
+                Dim publickey_ As String = parameter.read_parameter("/publickey ", DecryptStr)
+                Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", DecryptStr)
+
+                handshake = parameter.read_parameter("/handshake ", DecryptStr)
+                If Connection.OnlineState = 0 Then
+                Else
+                    Select Case handshake
+                        Case CStr(0)
+                            If ChatSessions.Exists(Function(x) x.Address = address) = True Then
+                                Dim index As Integer = ChatSessions.FindIndex(Function(x) x.Address = address)
+                                ChatSessions.RemoveAt(index)
+                            End If
+                            SendToServer("/adress " & Account.Address & "; /to " & address & ";  /publickey " & PublicKey & "; " & "/handshake 1;")
+                            '/get_username 1;
+                            SendToServer("/adress " & Account.Address & "; /to " & address & ";  /get_username 1;")
+                        Case CStr(1)
+                            'Empfange die Verschlüsselte RSA nachricht
+                            'adresse / key
+                            Dim rndKey As String = rndPass.Random(32)
+                            Dim encrypt_now As String = RSA_encrypt(rndKey, publickey_, 2048)
+                            SendToServer("/adress " & Account.Address & "; /to " & address & "; /encrypted_key " & encrypt_now & "; /handshake 2;")
+                            Dim session As New ChatSessions_
+                            session.Address = address
+                            session.Encrypted = True
+                            session.Key = rndKey
+                            ChatSessions.Add(session)
+                        Case CStr(2)
+                            Dim decrypt_key As String = RSA_decrypt(encrypted_key, PrivateKey, 2048)
+                            Dim session As New ChatSessions_
+                            session.Address = address
+                            session.Encrypted = True
+                            session.Key = decrypt_key
+                            ChatSessions.Add(session)
+                        Case CStr(3)
+                            remove_encrypt_session(address)
+                    End Select
+                End If
+
             End If
         Else
             If parameter.read_parameter("/server_encrypted_key ", System.Text.UTF8Encoding.UTF8.GetChars(decodeB64)).Length > 0 Then
@@ -99,11 +184,19 @@ Public Class EranAPI
             End If
         End If
     End Sub
+    Friend Shared Function remove_encrypt_session(ByVal eran_adress As String) As Object
+        On Error Resume Next
+        For Each check In ChatSessions
+            If eran_adress = check.Address Then
+                ChatSessions.Remove(check)
+            End If
+        Next
+    End Function
+
     Private PublicKey As String
     Private PrivateKey As String
     Friend Function Disconnect()
         client.Close()
-
         stream.Close()
         streamr.Close()
         streamw.Close()
