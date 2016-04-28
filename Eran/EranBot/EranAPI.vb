@@ -1,4 +1,5 @@
 ﻿Option Strict On
+Option Explicit On
 Imports System.Net.Sockets
 Imports System.IO
 Imports System.Windows.Forms
@@ -262,7 +263,7 @@ Public Class EranAPI
         streamw.Close()
         t.Abort()
     End Function
-    Friend Function Connect(ByVal Host As String, ByVal Port As String) As Object
+    Friend Function Connect(ByVal Host As String, ByVal Port As Integer) As Object
         Dim RSAKeys = RSA.Create_RSA_Key
         PublicKey = RSAKeys.OpenKey
         PrivateKey = RSAKeys.PrivatKey

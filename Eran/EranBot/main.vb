@@ -1,4 +1,7 @@
-﻿Imports System.IO
+﻿Option Strict On
+Option Explicit On
+
+Imports System.IO
 Imports System.Text
 Imports System.Drawing
 
@@ -84,7 +87,7 @@ Module main
             Console.WriteLine("Select option:")
             Console.WriteLine("[1]  =   Load account from file")
             Console.WriteLine("[2]  =   Create new account")
-            Dim selectIndex As Integer = Console.ReadLine()
+            Dim selectIndex As Integer = CInt(Console.ReadLine())
             Select Case selectIndex
                 Case 1
                     Console.WriteLine("Enter the accountfile path:")
@@ -123,7 +126,7 @@ Module main
 
     End Sub
     Sub trd()
-        API.Connect("eran-im.com", 8000)
+        API.Connect("eran-im.com", CInt(8000))
     End Sub
 
     Sub cmdReturn()
@@ -280,7 +283,7 @@ Module main
                     Dim setWelcomeMessageEnabled As Integer = CInt(parameter.read_parameter("/setWelcomeMessageEnabled", cmd))
                     Dim configINI As New IniFile
                     configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
-                    configINI.SetKeyValue("Bot", "welcomeMessageEnabled", setWelcomeMessageEnabled)
+                    configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
                     configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
                     If setWelcomeMessageEnabled = 0 Then
                         Return "Welcome message is disabled"
@@ -414,7 +417,7 @@ Module main
         Return "Syntax Error!"
     End Function
 
-    Private Function sendState(ByVal state As Integer)
+    Private Function sendState(ByVal state As Integer) As Object
         Dim readUsrList As New IniFile
         readUsrList.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
         For Each s As IniFile.IniSection In readUsrList.Sections
@@ -422,7 +425,7 @@ Module main
                 API.SendToServer("/adress " & API.Account.Address & "; /to " & s.Name & "; /state " & API.Account.OnlineState & "; /username " & API.Account.Aliasname & ";")
             Next : Next
     End Function
-    Private Function sendAllAlias(ByVal alias_ As String)
+    Private Function sendAllAlias(ByVal alias_ As String) As Object
         Dim readUsrList As New IniFile
         readUsrList.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
         For Each s As IniFile.IniSection In readUsrList.Sections
@@ -500,8 +503,8 @@ Module main
                         Dim readRecByte As Byte() = File.ReadAllBytes(command)
                         Dim getbytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes("/" & System.Text.UTF8Encoding.UTF8.GetChars({200, 5, 255, 80, 208, 156}) & Convert.ToBase64String(readRecByte) & ";")
                         Dim target As Byte()
-                        Dim getIndex As String = API.ChatSessions.FindIndex(Function(x) x.Address = Address)
-                        Dim key As String = API.ChatSessions.Item(getIndex).Key
+                        Dim getIndex As String = CStr(API.ChatSessions.FindIndex(Function(x) x.Address = Address))
+                        Dim key As String = API.ChatSessions.Item(CInt(getIndex)).Key
                         aes.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                         Dim to_bs64 As String = Convert.ToBase64String(target)
                         API.SendToServer("/adress " & API.Account.Address & "; /to " & Address & "; /msg " & to_bs64 & ";")
