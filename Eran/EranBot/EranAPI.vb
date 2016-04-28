@@ -44,16 +44,13 @@ Public Class EranAPI
         End Function
     End Structure
 
-
     'Empfange Nachricht
     Private Sub AddItem(ByVal s As String)
         Dim decodeB64 As Byte() = Convert.FromBase64String(s)
         If EncryptedConnection Then
             Dim DecryptTarget As Byte()
-
             AES.Decode(decodeB64, DecryptTarget, ServerKey, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim DecryptStr As String = System.Text.UTF8Encoding.UTF8.GetChars(DecryptTarget)
-
 
             'Überprüfen ob die Nachricht für mich ist
             If parameter.read_parameter("/to ", DecryptStr) = Account.Address() Then
@@ -71,7 +68,6 @@ Public Class EranAPI
                             RaiseEvent AuthorizedConnection(True)
                         End If
                     End If
-
                 End If
                 RaiseEvent IncomingData(DecryptTarget)
                 Dim address As String = parameter.read_parameter("/adress ", DecryptStr)
@@ -96,7 +92,6 @@ Public Class EranAPI
                         p.Key = current.Key
                         p.OnlineState = current.OnlineState
                         Dim to_byte As Byte() = Convert.FromBase64String(profilimage)
-
                         Dim new_stream As New MemoryStream(to_byte)
                         Dim i As Image = Image.FromStream(new_stream)
                         p.ProfilImage = i
@@ -164,9 +159,7 @@ Public Class EranAPI
                         Dim Message As String = System.Text.UTF8Encoding.UTF8.GetChars(decryptTargetMSG)
                         Dim User = ChatSessions.Find(Function(x) x.Address = address)
                         RaiseEvent IncomingMessage(address, User.Aliasname, User.Key, System.Text.UTF8Encoding.UTF8.GetChars(decryptTargetMSG), User.ProfilImage)
-                    Else
-
-                    End If
+                    Else : End If
                 End If
 
                 'Sende eigenen Aliasnamen
@@ -187,10 +180,8 @@ Public Class EranAPI
                     Dim img_str As String = Convert.ToBase64String(Account.Profileimage)
                     SendToServer("/adress " & Account.Address & "; /to " & address & "; /profil_image " & img_str & ";")
                 End If
-
                 Dim publickey_ As String = parameter.read_parameter("/publickey ", DecryptStr)
                 Dim encrypted_key As String = parameter.read_parameter("/encrypted_key ", DecryptStr)
-
                 handshake = parameter.read_parameter("/handshake ", DecryptStr)
                 If Connection.OnlineState = 0 Then
                 Else
@@ -229,7 +220,6 @@ Public Class EranAPI
                             remove_encrypt_session(address)
                     End Select
                 End If
-
             End If
         Else
             If parameter.read_parameter("/server_encrypted_key ", System.Text.UTF8Encoding.UTF8.GetChars(decodeB64)).Length > 0 Then
@@ -276,7 +266,6 @@ Public Class EranAPI
                 streamw = New StreamWriter(stream)
                 streamr = New StreamReader(stream)
                 Dim bs64_publickey As String = Base64.Str_To_Base64Str(PublicKey)
-
                 streamw.WriteLine(Base64.Str_To_Base64Str("/adress " & Account.Address() & "; " & "/publickey " & bs64_publickey & ";")) ' das ist optional.
                 streamw.Flush()
                 t = New Threading.Thread(AddressOf Listen)
@@ -296,7 +285,6 @@ Public Class EranAPI
         While client.Connected
             Try
                 Dim line As String = streamr.ReadLine
-
                 AddItem(line)
             Catch ex As Exception
                 Control.CheckForIllegalCrossThreadCalls = False
@@ -318,7 +306,6 @@ Public Class EranAPI
             streamw.WriteLine(input)
             streamw.Flush()
         End If
-
     End Function
 
     Friend Function SendToClient(ByVal Address As String, ByVal Message As String) As Object
@@ -342,13 +329,8 @@ Public Class EranAPI
                     Exit For
                 End If
                 System.Threading.Thread.Sleep(100)
-            Next
-
-        End If
-
-
+            Next : End If
     End Function
-
 
     Private Sub EranAPI_ConnectionState(ByVal State As Boolean) Handles Me.ConnectionState
         If State = False Then

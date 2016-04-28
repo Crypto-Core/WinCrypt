@@ -33,7 +33,6 @@ Module main
             Console.WriteLine("Username:")
             Dim username As String = Console.ReadLine
 
-
             'Überprüft ob es der richtige Benutzer ist vom Konto
             If username = accountINI.GetKeyValue("account", "username") Then
                 'Wenn ja fordere das Password
@@ -68,7 +67,6 @@ Module main
                     Else
                         Console.WriteLine("WARNING COMMANDLIST NOT EXISTS!")
                     End If
-
                     cmdReturn()
                 Else
                     'Wenn das Passwort falsch ist starte Main erneut!
@@ -122,8 +120,6 @@ Module main
                     Main()
             End Select
         End If
-
-
     End Sub
     Sub trd()
         API.Connect("eran-im.com", CInt(8000))
@@ -135,7 +131,6 @@ Module main
     End Sub
 
     Private Function command(ByVal cmd As String, ByVal loadedINI As IniFile) As String
-
         Select Case True
             Case cmd.Contains("/setAlias")
                 Dim newAlias As String = parameter.read_parameter("/setAlias ", cmd)
@@ -158,9 +153,7 @@ Module main
                     cmdStrBuild.AppendLine("-------------------------------------------")
                     cmdStrBuild.AppendLine("")
                 Next
-
                 Return cmdStrBuild.ToString
-
             Case cmd.Contains("/delCommand")
                 'Löscht ein Kommando
                 If parameter.read_parameter("/delCommand ", cmd).Length > 0 Then
@@ -208,7 +201,6 @@ Module main
                             CommandList.Add(addCMD)
                         End If
                         Return "Command " & commandName & " successfully added!"
-
                     End If
 
                     'Sende Message Datei
@@ -239,9 +231,7 @@ Module main
                         Else
                             Return "File not exists!"
                         End If
-
                     End If
-
 
                     'Sende Message Datei
                     If parameter.read_parameter("/sendAudio ", cmd).Length > 0 Then
@@ -271,7 +261,6 @@ Module main
                         Else
                             Return "Audiofile not exists!"
                         End If
-
                     End If
                 Else
                     Return "Syntax Error!"
@@ -280,17 +269,26 @@ Module main
 
             Case cmd.Contains("/setWelcomeMessageEnabled")
                 If parameter.read_parameter("/setWelcomeMessageEnabled", cmd).Length > 0 Then
-                    Dim setWelcomeMessageEnabled As Integer = CInt(parameter.read_parameter("/setWelcomeMessageEnabled", cmd))
-                    Dim configINI As New IniFile
-                    configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
-                    configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
-                    configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
-                    If setWelcomeMessageEnabled = 0 Then
-                        Return "Welcome message is disabled"
+                    Dim childAgeAsInt As Integer
+                    If Integer.TryParse(parameter.read_parameter("/setWelcomeMessageEnabled", cmd), childAgeAsInt) Then
+                        Dim setWelcomeMessageEnabled As Integer = CInt(parameter.read_parameter("/setWelcomeMessageEnabled", cmd))
+                        Dim configINI As New IniFile
+                        configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                        Select Case setWelcomeMessageEnabled
+                            Case 0
+                                Return "Welcome message is disabled"
+                                configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
+                                configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+                            Case 1
+                                Return "Welcome message is enabled!"
+                                configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
+                                configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+                            Case Else
+                                Return "Enter 0(Disabled) | 1(Enabled)"
+                        End Select 
                     Else
-                        Return "Welcome message is enabled!"
+                        Return "Error: It is not an integer"
                     End If
-
                 End If
             Case cmd.Contains("/setWelcomeMessage")
                 If parameter.read_parameter("/message ", cmd).Length > 0 Then
@@ -313,7 +311,6 @@ Module main
                         Try
                             Dim new_bmp As Bitmap = CType(Bitmap.FromStream(cacheMem), Bitmap)
                             Dim resize As Bitmap = New Bitmap(new_bmp, New Size(64, 64))
-
                             Dim mem_ As New MemoryStream
                             resize.Save(mem_, System.Drawing.Imaging.ImageFormat.Png)
                             Dim to_bs64 As String = Convert.ToBase64String(mem_.ToArray)
@@ -335,14 +332,11 @@ Module main
                     Catch ex As Exception
                         Return "Error: The URL is not valid!"
                     End Try
-
-
                 Else
                     If parameter.read_parameter("/path ", cmd).Length > 0 Then
                         If File.Exists(parameter.read_parameter("/path ", cmd)) Then
                             Dim new_bmp As Bitmap = CType(Bitmap.FromFile(parameter.read_parameter("/path ", cmd)), Bitmap)
                             Dim resize As Bitmap = New Bitmap(new_bmp, New Size(64, 64))
-
                             Dim mem_ As New MemoryStream
                             resize.Save(mem_, System.Drawing.Imaging.ImageFormat.Png)
                             Dim to_bs64 As String = Convert.ToBase64String(mem_.ToArray)
@@ -360,7 +354,6 @@ Module main
                         Else
                             Return "Imagepath does not exist!"
                         End If
-
                     Else
                         Return "Error"
                     End If
@@ -372,35 +365,36 @@ Module main
                 configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
                 Dim readwlcMSG As String = configINI.GetKeyValue("Bot", "welcomeMessage").Replace("\n\", vbNewLine)
                 Return (readwlcMSG)
-
             Case cmd.Contains("/help")
                 Return cmdHelp
-
             Case cmd.Contains("/exit")
                 Environment.Exit(0)
-
             Case cmd.Contains("/setState")
                 If parameter.read_parameter("/setState ", cmd).Length > 0 Then
-                    Dim onlinestate As Integer = CInt(parameter.read_parameter("/setState ", cmd))
-                    Select Case onlinestate
-                        Case 0
-                            API.Account.OnlineState = onlinestate
-                            sendState(onlinestate)
-                            Return "Bot Online State = Offline"
-                        Case 1
-                            API.Account.OnlineState = onlinestate
-                            sendState(onlinestate)
-                            Return "Bot Online State = Busy"
-                        Case 2
-                            API.Account.OnlineState = onlinestate
-                            sendState(onlinestate)
-                            Return "Bot Online State = Online"
-                        Case Else
-                            Return "Status is not available. Enter 0(Offline) | 1(Busy) | 2(Online)"
-                    End Select
+                    Dim childAgeAsInt As Integer
+                    If Integer.TryParse(parameter.read_parameter("/setState ", cmd), childAgeAsInt) Then
+                        Dim onlinestate As Integer = CInt(parameter.read_parameter("/setState ", cmd))
+                        Select Case onlinestate
+                            Case 0
+                                API.Account.OnlineState = onlinestate
+                                sendState(onlinestate)
+                                Return "Bot Online State = Offline"
+                            Case 1
+                                API.Account.OnlineState = onlinestate
+                                sendState(onlinestate)
+                                Return "Bot Online State = Busy"
+                            Case 2
+                                API.Account.OnlineState = onlinestate
+                                sendState(onlinestate)
+                                Return "Bot Online State = Online"
+                            Case Else
+                                Return "Status is not available. Enter 0(Offline) | 1(Busy) | 2(Online)"
+                        End Select
+                    Else
+                        Return "Error: It is not an integer"
+                    End If   
                 End If
             Case cmd.Contains("/getState")
-
                 Select Case API.Account.OnlineState
                     Case 0
                         Return "Bot is Offline(0)"
@@ -409,7 +403,6 @@ Module main
                     Case 2
                         Return "Bot is Online(2)"
                 End Select
-
             Case Else
                 Return "Syntax Error!"
                 command(Console.ReadLine, loadedINI)
@@ -448,14 +441,11 @@ Module main
         End If
     End Sub
 
-
-
     Private Sub API_IncomingMessage(ByVal Address As String, ByVal Aliasname As String, ByVal ExchangeKey As String, ByVal Message As String, ByVal ProfilImage As System.Drawing.Image) Handles API.IncomingMessage
         If Address = loggedRemoteUser Then
             Select Case Message
                 Case "/help"
                     API.SendToClient(Address, cmdHelp & vbNewLine & "---------------" & vbNewLine & "/logout")
-
                 Case "/logout"
                     loggedRemoteUser = ""
                     API.SendToClient(Address, "Bye bye " & Aliasname)
@@ -471,9 +461,7 @@ Module main
                         Case Else
                             API.SendToClient(Address, command(Message, commandINI))
                     End Select
-
             End Select
-
         Else
             If Message.Substring(0, 1) = "/" Then
                 Dim readCommand As String = Message.Substring(1, Message.Length - 1)
@@ -483,7 +471,6 @@ Module main
                     Dim cmdIndex As Integer = CommandList.FindIndex(Function(x) x.CommandName = readCommand)
                     Dim commandType As String = CommandList.Item(cmdIndex).Type
                     Dim command As String = CommandList.Item(cmdIndex).Command
-
 
                     'Wenn es ein sendMessage ist denn sende den Client eine Nachricht
                     If commandType = "sendMessage" Then
@@ -511,7 +498,6 @@ Module main
                     End If
                 Else
                     Select Case readCommand
-
                         Case "help"
                             Dim strBuild As New StringBuilder
                             strBuild.Append(vbNewLine)
@@ -525,7 +511,6 @@ Module main
                             strBuild.AppendLine("/bottime       (Date and Time from Bot device)")
                             strBuild.AppendLine("/bot address   (Eran address from Eran Bot)")
                             strBuild.AppendLine("-----------------------------------")
-
                             API.SendToClient(Address, strBuild.ToString)
                         Case "bottime"
                             API.SendToClient(Address, Now.ToString)
@@ -549,28 +534,18 @@ Module main
                                             Else
                                                 API.SendToClient(Address, "Login fail!")
                                             End If
-
                                         Else
                                             API.SendToClient(Address, "Please enter a password!")
                                         End If
-
                                     Else
                                         API.SendToClient(Address, "Please enter a username!")
                                     End If
-
-
                                 Case Else
                                     API.SendToClient(Address, vbNewLine & "Sorry, command not exists!" & vbNewLine & "Please entry /help for commands")
                             End Select
-
                     End Select
-
-
                 End If
             End If
         End If
-
-
-
     End Sub
 End Module
