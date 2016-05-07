@@ -20,7 +20,7 @@ Module Update
     End Function
 
     Friend Function CheckUpdateOnStart(ByVal https_host As String)
-
+        On Error Resume Next
         Dim version As Double = CDbl(downloadString.DownloadString(https_host & "/version"))
         Dim currentVersion As Double = CDbl(My.Application.Info.Version.ToString.Replace(".", ""))
         If version > currentVersion Then
