@@ -63,7 +63,7 @@ Partial Class about
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(140, 14)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "( Version 0.0.0.1 )"
+        Me.Label2.Text = "( Version 1.4.8.9 )"
         '
         'TextBox1
         '

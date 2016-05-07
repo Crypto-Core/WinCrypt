@@ -85,6 +85,7 @@
     <Compile Include="classes\AESEncrypt.vb" />
     <Compile Include="classes\AES.vb" />
     <Compile Include="classes\MD5fileHash.vb" />
+    <Compile Include="classes\OS.vb" />
     <Compile Include="classes\Passstrength.vb" />
     <Compile Include="classes\RC4.vb" />
     <Compile Include="classes\rHash.vb" />
@@ -98,6 +99,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="classes\IniFile.vb" />
+    <Compile Include="file\settings.Designer.vb">
+      <DependentUpon>settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="file\settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="main_frm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +127,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="tools\file_eraser.Designer.vb">
+      <DependentUpon>file_eraser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tools\file_eraser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tools\passwordgenerator.Designer.vb">
+      <DependentUpon>passwordgenerator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tools\passwordgenerator.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="about.resx">
@@ -136,6 +155,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tools\file_eraser.resx">
+      <DependentUpon>file_eraser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tools\passwordgenerator.resx">
+      <DependentUpon>passwordgenerator.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +184,7 @@
     <None Include="Resources\wc-icon128.png" />
     <Content Include="wc-icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

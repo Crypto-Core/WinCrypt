@@ -7,9 +7,11 @@ Public Class Container
 
     Event IncludeFolderProgress(ByVal max As Integer, ByVal value As Integer)
 
-    Public Function AddFile(ByVal Data As Byte(), ByVal FileName As String)
+    Public Function AddFile(ByVal Data As Byte(), ByVal FileName As String, ByVal headPath As String)
         Dim fileInfo As New IO.FileInfo(FileName)
-        Dim Section As String = Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(fileInfo.Name))
+        Dim short_ As String = fileInfo.FullName.Replace(headPath, "")
+        short_ = short_.Substring(1, short_.Length - 1)
+        Dim Section As String = Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(short_))
         INI.AddSection(Section)
         INI.SetKeyValue(Section, "Data", Convert.ToBase64String(Data))
     End Function
@@ -58,15 +60,34 @@ Public Class Container
 
 
     Public Function Extract(ByVal OutPath As String)
+        On Error Resume Next
         For Each s As IniSection In INI.Sections
             For Each k As IniSection.IniKey In s.Keys
                 If k.Value <> String.Empty Then
                     Dim decodeFileName As String = System.Text.UTF8Encoding.UTF8.GetChars(Convert.FromBase64String(s.Name))
                     Dim decodeData As Byte() = Convert.FromBase64String(k.Value)
-                    If IncludedPath(s.Name) = True Then
-                        Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("/")))
+
+                    If IncludedPath(decodeFileName) = False Then
+                        If decodeFileName.Contains("\") Then
+                            If OS.OS = OS.OSPlatform.Unix Then
+                                Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("\")).Replace("\", "/"))
+                            Else
+                                Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("\")))
+                            End If
+                        Else
+                            If OS.OS = OS.OSPlatform.Win32NT Then
+                                Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("/")).Replace("/", "\"))
+                            Else
+                                Directory.CreateDirectory(OutPath & decodeFileName.Substring(0, decodeFileName.LastIndexOf("/")))
+                            End If
+                        End If
                     End If
-                    File.WriteAllBytes(OutPath & decodeFileName, decodeData)
+                    If OS.OS = OS.OSPlatform.Unix Then
+                        File.WriteAllBytes(OutPath & decodeFileName.Replace("\", "/"), decodeData)
+                    Else
+                        File.WriteAllBytes(OutPath & decodeFileName.Replace("/", "\"), decodeData)
+                    End If
+
                 End If
             Next
         Next
@@ -89,8 +110,9 @@ Public Class Container
         INI.RemoveAllSections()
     End Function
     Private Function IncludedPath(ByVal FileName As String) As Boolean
+        On Error Resume Next
         Dim decode As String = System.Text.UTF8Encoding.UTF8.GetChars(Convert.FromBase64String(FileName))
-        If decode.Split("/").Count - 1 = 0 Then
+        If decode.Split(OS.OS_slash).Count - 1 = 0 Then
             Return False
         Else
             Return True

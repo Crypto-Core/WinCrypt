@@ -15,14 +15,15 @@ Public Class main_frm
         Friend name As String
     End Structure
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        enc_folder.ShowDialog()
-        TextBox1.Text = enc_folder.SelectedPath
-        For Each data_ In Directory.GetFiles(TextBox1.Text, "*.*", SearchOption.AllDirectories)
-            Dim fileinfo As New FileInfo(data_)
-            ListBox1.Items.Add("file added: " & fileinfo.Name)
-            Dim readbyte As Byte() = File.ReadAllBytes(data_)
-            Container_.AddFile(readbyte, data_)
-        Next
+        If enc_folder.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            TextBox1.Text = enc_folder.SelectedPath
+            For Each data_ In Directory.GetFiles(TextBox1.Text, "*.*", SearchOption.AllDirectories)
+                Dim fileinfo As New FileInfo(data_)
+                ListBox1.Items.Add("file added: " & fileinfo.Name)
+                Dim readbyte As Byte() = File.ReadAllBytes(data_)
+                Container_.AddFile(readbyte, data_, enc_folder.SelectedPath)
+            Next
+        End If
     End Sub
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim dirInfo As New DirectoryInfo(TextBox1.Text)
@@ -102,5 +103,21 @@ Public Class main_frm
         Else
             Button4.Enabled = False
         End If
+    End Sub
+
+    Private Sub FileEraserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FileEraserToolStripMenuItem.Click
+        file_eraser.ShowDialog()
+    End Sub
+
+    Private Sub PasswordgeneratorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PasswordgeneratorToolStripMenuItem.Click
+        passwordgenerator.ShowDialog()
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SettingsToolStripMenuItem.Click
+        settings.ShowDialog()
+    End Sub
+
+    Private Sub QuitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuitToolStripMenuItem.Click
+        Application.Exit()
     End Sub
 End Class
