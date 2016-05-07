@@ -8,7 +8,7 @@ Imports System.Drawing
 Module main
     Public WithEvents API As New EranAPI
     Private newtrd As New Threading.Thread(AddressOf trd)
-    Private accountPath As String = My.Application.Info.DirectoryPath & "\" & "account.ini"
+    Private accountPath As String = My.Application.Info.DirectoryPath & OS.OS_slash & "account.ini"
     Private commandINI As New IniFile
     Private CommandList As New List(Of Command_)
     Structure Command_
@@ -53,9 +53,9 @@ Module main
                     API.Account.Username = username
                     API.Account.OnlineState = 2
                     newtrd.Start()
-                    If File.Exists(My.Application.Info.DirectoryPath & "\commands.ini") Then
+                    If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini") Then
                         'lade die comandos
-                        commandINI.Load(My.Application.Info.DirectoryPath & "\commands.ini")
+                        commandINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
                         For Each s As IniFile.IniSection In commandINI.Sections
                             For Each k As IniFile.IniSection.IniKey In s.Keys
                                 Dim addCMD As New Command_
@@ -91,7 +91,7 @@ Module main
                     Console.WriteLine("Enter the accountfile path:")
                     Dim path As String = Console.ReadLine
                     If File.Exists(path) Then
-                        File.Copy(path, My.Application.Info.DirectoryPath & "\account.ini")
+                        File.Copy(path, My.Application.Info.DirectoryPath & OS.OS_slash & "account.ini")
                         Console.Clear()
                         Console.WriteLine("Account succefully added!")
                         Main()
@@ -114,7 +114,7 @@ Module main
                     newAccINI.SetKeyValue("account", "authkey", rndAuthKey)
                     newAccINI.SetKeyValue("account", "adress", combine)
                     newAccINI.SetKeyValue("account", "image", Resources_.ProfilImageB64)
-                    newAccINI.Save(My.Application.Info.DirectoryPath & "\account.ini")
+                    newAccINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "account.ini")
                     Console.WriteLine("Your Eran address: " & combine)
                     Console.WriteLine("Account succefully created!")
                     Main()
@@ -122,7 +122,7 @@ Module main
         End If
     End Sub
     Sub trd()
-        API.Connect("eran-im.com", CInt(8000))
+        API.Connect("127.0.0.1", CInt(8000))
     End Sub
 
     Sub cmdReturn()
@@ -164,7 +164,7 @@ Module main
                         Dim delIndex As Integer = CommandList.FindIndex(Function(x) x.CommandName = delCommandName)
                         CommandList.RemoveAt(delIndex)
                         commandINI.RemoveSection(delCommandName)
-                        commandINI.Save(My.Application.Info.DirectoryPath & "\commands.ini")
+                        commandINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
                         Return "Command " & delCommandName & " deleted!"
                     Else
                         Console.WriteLine("Command not exists!")
@@ -181,7 +181,7 @@ Module main
                     If parameter.read_parameter("/sendMessage ", cmd).Length > 0 Then
                         Dim sendMessage As String = parameter.read_parameter("/sendMessage ", cmd)
                         commandINI.SetKeyValue(commandName, "sendMessage", sendMessage)
-                        commandINI.Save(My.Application.Info.DirectoryPath & "\commands.ini")
+                        commandINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
                         'Überprüfen ob es den Kommando schon gibt
                         If CommandList.Exists(Function(x) x.CommandName = commandName) Then
                             'Wenn ja lösche den alten und setze einen neuen
@@ -208,7 +208,7 @@ Module main
                         Dim sendMessageFile As String = parameter.read_parameter("/sendMessageFile ", cmd)
                         If File.Exists(sendMessageFile) Then
                             commandINI.SetKeyValue(commandName, "sendMessageFile", sendMessageFile)
-                            commandINI.Save(My.Application.Info.DirectoryPath & "\commands.ini")
+                            commandINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
                             'Überprüfen ob es den Kommando schon gibt
                             If CommandList.Exists(Function(x) x.CommandName = commandName) Then
                                 'Wenn ja lösche den alten und setze einen neuen
@@ -233,12 +233,12 @@ Module main
                         End If
                     End If
 
-                    'Sende Message Datei
+                    'Sende Sprachnachricht
                     If parameter.read_parameter("/sendAudio ", cmd).Length > 0 Then
                         Dim sendMessageFile As String = parameter.read_parameter("/sendAudio ", cmd)
                         If File.Exists(sendMessageFile) Then
                             commandINI.SetKeyValue(commandName, "sendAudio", sendMessageFile)
-                            commandINI.Save(My.Application.Info.DirectoryPath & "\commands.ini")
+                            commandINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
                             'Überprüfen ob es den Kommando schon gibt
                             If CommandList.Exists(Function(x) x.CommandName = commandName) Then
                                 'Wenn ja lösche den alten und setze einen neuen
@@ -262,6 +262,32 @@ Module main
                             Return "Audiofile not exists!"
                         End If
                     End If
+
+                    'Kommandotyp sendMessage
+                    If parameter.read_parameter("/sendFile ", cmd).Length > 0 Then
+                        Dim sendMessage As String = parameter.read_parameter("/sendFile ", cmd)
+                        commandINI.SetKeyValue(commandName, "sendFile", sendMessage)
+                        commandINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "commands.ini")
+                        'Überprüfen ob es den Kommando schon gibt
+                        If CommandList.Exists(Function(x) x.CommandName = commandName) Then
+                            'Wenn ja lösche den alten und setze einen neuen
+                            Dim cmdIndex As Integer = CommandList.FindIndex(Function(x) x.CommandName = commandName)
+                            CommandList.RemoveAt(cmdIndex)
+                            Dim addCMD As New Command_
+                            addCMD.Type = "sendFile"
+                            addCMD.CommandName = commandName
+                            addCMD.Command = sendMessage
+                            CommandList.Add(addCMD)
+                        Else
+                            'Wenn es den Kommanndo nicht gibt
+                            Dim addCMD As New Command_
+                            addCMD.Type = "sendFile"
+                            addCMD.CommandName = commandName
+                            addCMD.Command = sendMessage
+                            CommandList.Add(addCMD)
+                        End If
+                        Return "Command " & commandName & " successfully added!"
+                    End If
                 Else
                     Return "Syntax Error!"
                     command(Console.ReadLine, loadedINI)
@@ -273,16 +299,16 @@ Module main
                     If Integer.TryParse(parameter.read_parameter("/setWelcomeMessageEnabled", cmd), childAgeAsInt) Then
                         Dim setWelcomeMessageEnabled As Integer = CInt(parameter.read_parameter("/setWelcomeMessageEnabled", cmd))
                         Dim configINI As New IniFile
-                        configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                        configINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                         Select Case setWelcomeMessageEnabled
                             Case 0
                                 Return "Welcome message is disabled"
                                 configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
-                                configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+                                configINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                             Case 1
                                 Return "Welcome message is enabled!"
                                 configINI.SetKeyValue("Bot", "welcomeMessageEnabled", CStr(setWelcomeMessageEnabled))
-                                configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+                                configINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "onfig.ini")
                             Case Else
                                 Return "Enter 0(Disabled) | 1(Enabled)"
                         End Select 
@@ -294,9 +320,9 @@ Module main
                 If parameter.read_parameter("/message ", cmd).Length > 0 Then
                     Dim message As String = parameter.read_parameter("/message ", cmd)
                     Dim configINI As New IniFile
-                    configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                    configINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                     configINI.SetKeyValue("Bot", "welcomeMessage", message)
-                    configINI.Save(My.Application.Info.DirectoryPath & "\config.ini")
+                    configINI.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                     Return "Welcome message successfully changed!"
                 Else
                     Return vbNewLine & "Please enter a message! |e.g. /setWelcomeMessage /message MyMessage\n\with line break;" & vbNewLine & "parameter {0} is the username from client."
@@ -362,7 +388,7 @@ Module main
 
             Case cmd.Contains("/getWelcomeMessage")
                 Dim configINI As New IniFile
-                configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                configINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                 Dim readwlcMSG As String = configINI.GetKeyValue("Bot", "welcomeMessage").Replace("\n\", vbNewLine)
                 Return (readwlcMSG)
             Case cmd.Contains("/help")
@@ -412,7 +438,7 @@ Module main
 
     Private Function sendState(ByVal state As Integer) As Object
         Dim readUsrList As New IniFile
-        readUsrList.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
+        readUsrList.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
         For Each s As IniFile.IniSection In readUsrList.Sections
             For Each k As IniFile.IniSection.IniKey In s.Keys
                 API.SendToServer("/adress " & API.Account.Address & "; /to " & s.Name & "; /state " & API.Account.OnlineState & "; /username " & API.Account.Aliasname & ";")
@@ -420,7 +446,7 @@ Module main
     End Function
     Private Function sendAllAlias(ByVal alias_ As String) As Object
         Dim readUsrList As New IniFile
-        readUsrList.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
+        readUsrList.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
         For Each s As IniFile.IniSection In readUsrList.Sections
             For Each k As IniFile.IniSection.IniKey In s.Keys
                 API.SendToServer("/adress " & API.Account.Address & "; /to " & s.Name & "; /username " & alias_ & ";")
@@ -451,7 +477,7 @@ Module main
                     API.SendToClient(Address, "Bye bye " & Aliasname)
                 Case "/getWelcomeMessage"
                     Dim configINI As New IniFile
-                    configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                    configINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                     Dim readwlcMSG As String = configINI.GetKeyValue("Bot", "welcomeMessage").Replace("\n\", vbNewLine)
                     API.SendToClient(Address, String.Format(readwlcMSG, Aliasname))
                 Case Else
@@ -495,6 +521,17 @@ Module main
                         aes.Encode(getbytes, target, key, AESEncrypt.ALGO.RIJNDAEL, 4096)
                         Dim to_bs64 As String = Convert.ToBase64String(target)
                         API.SendToServer("/adress " & API.Account.Address & "; /to " & Address & "; /msg " & to_bs64 & ";")
+                    End If
+
+                    If commandType = "sendFile" Then
+                        Dim sessionIndex As Integer = API.ChatSessions.FindIndex(Function(x) x.Address = Address)
+                        Dim sessionKey As String = API.ChatSessions.Item(sessionIndex).Key
+                        Dim DT As New DataTransfer
+                        DT.ToEran = Address
+                        DT.Key = sessionKey
+                        DT.FileName = command
+                        Dim DTTrd As New Threading.Thread(AddressOf DT.Send)
+                        DTTrd.Start()
                     End If
                 Else
                     Select Case readCommand

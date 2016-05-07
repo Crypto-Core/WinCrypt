@@ -1,5 +1,4 @@
-﻿Option Strict On
-Option Explicit On
+﻿
 Imports System.Net.Sockets
 Imports System.IO
 Imports System.Windows.Forms
@@ -122,9 +121,9 @@ Public Class EranAPI
                         Dim p As New ChatSessions_
                         p.Address = current.Address
                         p.Aliasname = username
-                        If File.Exists(My.Application.Info.DirectoryPath & "\config.ini") Then
+                        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini") Then
                             Dim configINI As New IniFile
-                            configINI.Load(My.Application.Info.DirectoryPath & "\config.ini")
+                            configINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "config.ini")
                             If configINI.GetKeyValue("Bot", "welcomeMessageEnabled") = CStr(1) Then
                                 Dim readwlcMSG As String = configINI.GetKeyValue("Bot", "welcomeMessage").Replace("\n\", vbNewLine)
                                 If readwlcMSG = "" Then
@@ -136,9 +135,9 @@ Public Class EranAPI
                             End If
                         Else
                         End If
-                        If File.Exists(My.Application.Info.DirectoryPath & "\userlist.ini") Then
+                        If File.Exists(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini") Then
                             Dim usrINI As New IniFile
-                            usrINI.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
+                            usrINI.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                             usrINI.SetKeyValue(p.Address, "address", p.Aliasname)
                         End If
                         p.Encrypted = current.Encrypted
@@ -213,9 +212,9 @@ Public Class EranAPI
                             session.Key = decrypt_key
                             ChatSessions.Add(session)
                             Dim readUsrList As New IniFile
-                            readUsrList.Load(My.Application.Info.DirectoryPath & "\userlist.ini")
+                            readUsrList.Load(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                             readUsrList.SetKeyValue(address, "address", address)
-                            readUsrList.Save(My.Application.Info.DirectoryPath & "\userlist.ini")
+                            readUsrList.Save(My.Application.Info.DirectoryPath & OS.OS_slash & "userlist.ini")
                         Case CStr(3)
                             remove_encrypt_session(address)
                     End Select
@@ -294,14 +293,23 @@ Public Class EranAPI
             End Try
         End While
     End Sub
+
     Friend Function SendToServer(ByVal input As String) As Object
+
         If EncryptedConnection Then
+
             Dim get_msg_bytes As Byte() = System.Text.UTF8Encoding.UTF8.GetBytes(input)
             Dim source_enc_mgs As Byte()
             AES.Encode(get_msg_bytes, source_enc_mgs, ServerKey, AESEncrypt.ALGO.RIJNDAEL, 4096)
             Dim convert_tobs64 As String = Convert.ToBase64String(source_enc_mgs)
-            streamw.WriteLine(convert_tobs64)
-            streamw.Flush()
+            Try
+                streamw.WriteLine(convert_tobs64)
+                streamw.Flush()
+            Catch ex As Exception
+                Console.WriteLine(ex.ToString)
+            End Try
+            
+
         Else
             streamw.WriteLine(input)
             streamw.Flush()
