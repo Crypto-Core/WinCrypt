@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64004237-143B-4B1E-A2BC-F3E8684C036C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Eran_Mono.My.MyApplication</StartupObject>
+    <RootNamespace>Eran_Mono</RootNamespace>
+    <AssemblyName>Eran Mono</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Eran Mono.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Eran Mono.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>eran_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\Base64.vb" />
+    <Compile Include="classes\encryption\AES.vb" />
+    <Compile Include="classes\encryption\AESEncrypt.vb" />
+    <Compile Include="classes\encryption\RSA.vb" />
+    <Compile Include="classes\EranAPI.vb" />
+    <Compile Include="classes\GC.vb" />
+    <Compile Include="classes\IniFile.vb" />
+    <Compile Include="classes\OnlineState.vb" />
+    <Compile Include="classes\OS.vb" />
+    <Compile Include="classes\parameter.vb" />
+    <Compile Include="classes\Resources.vb" />
+    <Compile Include="classes\rHash.vb" />
+    <Compile Include="classes\rndPass.vb" />
+    <Compile Include="main\connecting_frame.Designer.vb">
+      <DependentUpon>connecting_frame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="main\connecting_frame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\create_account.Designer.vb">
+      <DependentUpon>create_account.vb</DependentUpon>
+    </Compile>
+    <Compile Include="main\create_account.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\login.Designer.vb">
+      <DependentUpon>login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="main\login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\main_frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\main_frm.Designer.vb">
+      <DependentUpon>main_frm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="main\connecting_frame.resx">
+      <DependentUpon>connecting_frame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\create_account.resx">
+      <DependentUpon>create_account.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\login.resx">
+      <DependentUpon>login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\main_frm.resx">
+      <DependentUpon>main_frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eran_logotrans2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onlineR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profilimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trans5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eran_icon80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busyR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\offlineR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eran_icon.ico" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+[config]
+own_access_node_port=8000
+acces_node_port=8000
+access_node_port=8000
+own_access_node=1
+access_node_save=0
+startmodus=1
+access_node_host=eran-im.com
+acces_node_save=0
+play_audio_msg=True
+play_usr_online=True
+show_msg_balloon=False
+language=en-EN

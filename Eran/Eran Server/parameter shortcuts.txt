@@ -1,0 +1,56 @@
+﻿
+Regeln
+1. Eine Client/Server Message wird nur in Base64 verschickt und Entschlüsselt.
+2. Alle Mehrzeiligen Texte werden zusätzlich in Base64 konvertiert, z.b.:
+Alle RSA Verschlüsselungen
+Chatnachrichten
+Bilder
+Dateien
+Alle AES Verschlüsselungen
+---------------------------------------------------Client Parameter------------------------------------------------
+Send my Adress
+/adress
+
+Send my PublicKey
+/publickey
+
+Send Message to...
+/to
+
+Encryptet RSA Message with my Public Key from Server(Handshake)
+/server_encrypted_key
+
+Send Text Message
+/msg
+
+Get Public Key
+/get_publickey
+
+Get Nickname
+/get_nickname
+
+Image File
+/img_file
+
+
+Get Userprofile Image
+/get_profil_img
+
+
+
+
+File
+/file
+
+Alert to User
+/alert
+
+My Online State
+/status		{0, 1, 2}
+
+
+Networkbrigde
+/reconnect_to
+
+
+------------------------------------------------------------------------------------------------------------
